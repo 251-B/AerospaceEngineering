@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 701 380" width="100%" class="fig-kit" style="max-width:701px;margin:0 auto;display:block" role="img" aria-label="Stability diagram in the p-q plane">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="60.0" y1="245.0" x2="615.2" y2="245.0" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M620.0,245.0 L612.6,248.1 L612.6,241.9 Z" fill="#4b5563"/>
+<line x1="340.0" y1="355.0" x2="340.0" y2="34.8" stroke="#4b5563" stroke-width="1.8"/>
+<path d="M340.0,30.0 L343.1,37.4 L336.9,37.4 Z" fill="#4b5563"/>
+<text x="626.0" y="250.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">p = -tr(J)</text>
+<text x="350.0" y="38.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">q = det(J)</text>
+<path d="M116.0,61.0 L120.5,68.3 L125.0,75.4 L129.4,82.4 L133.9,89.3 L138.4,96.0 L142.9,102.5 L147.4,108.9 L151.8,115.2 L156.3,121.3 L160.8,127.2 L165.3,133.1 L169.8,138.7 L174.2,144.2 L178.7,149.6 L183.2,154.8 L187.7,159.9 L192.2,164.8 L196.6,169.6 L201.1,174.3 L205.6,178.8 L210.1,183.1 L214.6,187.3 L219.0,191.3 L223.5,195.2 L228.0,199.0 L232.5,202.6 L237.0,206.1 L241.4,209.4 L245.9,212.5 L250.4,215.6 L254.9,218.4 L259.4,221.2 L263.8,223.7 L268.3,226.2 L272.8,228.4 L277.3,230.6 L281.8,232.6 L286.2,234.4 L290.7,236.1 L295.2,237.6 L299.7,239.0 L304.2,240.3 L308.6,241.4 L313.1,242.4 L317.6,243.2 L322.1,243.8 L326.6,244.3 L331.0,244.7 L335.5,244.9 L340.0,245.0 L344.5,244.9 L349.0,244.7 L353.4,244.3 L357.9,243.8 L362.4,243.2 L366.9,242.4 L371.4,241.4 L375.8,240.3 L380.3,239.0 L384.8,237.6 L389.3,236.1 L393.8,234.4 L398.2,232.6 L402.7,230.6 L407.2,228.4 L411.7,226.2 L416.2,223.7 L420.6,221.2 L425.1,218.4 L429.6,215.6 L434.1,212.5 L438.6,209.4 L443.0,206.1 L447.5,202.6 L452.0,199.0 L456.5,195.2 L461.0,191.3 L465.4,187.3 L469.9,183.1 L474.4,178.8 L478.9,174.3 L483.4,169.6 L487.8,164.8 L492.3,159.9 L496.8,154.8 L501.3,149.6 L505.8,144.2 L510.2,138.7 L514.7,133.1 L519.2,127.2 L523.7,121.3 L528.2,115.2 L532.6,108.9 L537.1,102.5 L541.6,96.0 L546.1,89.3 L550.6,82.4 L555.0,75.4 L559.5,68.3 L564.0,61.0" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+<text x="527.6" y="146.1" fill="#f59e0b" font-size="12" font-weight="700" text-anchor="start">p² - 4q = 0</text>
+<line x1="340.0" y1="245.0" x2="340.0" y2="48.0" stroke="#10b981" stroke-width="2.6"/>
+<text x="350.0" y="82.0" fill="#10b981" font-size="12" font-weight="700" text-anchor="start">Centres (p = 0, q > 0)</text>
+<text x="233.6" y="113.9" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">Unstable spirals</text>
+<text x="452.0" y="113.9" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">Stable spirals</text>
+<text x="138.4" y="210.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">Unstable nodes</text>
+<text x="541.6" y="210.5" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">Stable nodes</text>
+<text x="340.0" y="302.5" fill="#ec4899" font-size="13" font-weight="700" text-anchor="middle">Saddle points (q < 0, always unstable)</text>
+<text x="74.0" y="77.1" fill="#f59e0b" font-size="11" font-weight="400" text-anchor="middle">Unstable improper</text>
+<text x="74.0" y="90.9" fill="#f59e0b" font-size="11" font-weight="400" text-anchor="middle">nodes / stars</text>
+<text x="606.0" y="77.1" fill="#f59e0b" font-size="11" font-weight="400" text-anchor="middle">Stable improper</text>
+<text x="606.0" y="90.9" fill="#f59e0b" font-size="11" font-weight="400" text-anchor="middle">nodes / stars</text>
+<text x="524.8" y="264.3" fill="#6b7280" font-size="11" font-weight="400" text-anchor="middle">Degenerate cases (q = 0)</text>
+<circle cx="340.0" cy="245.0" r="4.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+</g></svg>

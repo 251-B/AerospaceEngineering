@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3 (II): Investment Selection, NPV and IRR — Solved Problems 1 to 9 | Business Management</title>
+  <meta name="description" content="Official solved problems on investment selection: capitalization, payback, NPV, IRR and the Fisher rate, solved step by step. UC3M Aerospace Engineering." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 3 SOLVED PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Official Course Problem Solutions</div>
+        <h1 class="article-title">Topic 3 (II): Investment Selection, NPV and IRR (Problems 1 to 9)</h1>
+        <div class="article-meta">
+          <strong>Source Document:</strong> <code>3_II_NPV IRR.pdf</code> (UC3M Business Management) • Each problem: data and model, solution step by step, checks and the check against the official key.
+        </div>
+
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">3_II_NPV IRR.pdf</a>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV_NPV%20IRR_solutions.pdf" target="_blank" rel="noopener">3_II_NPV_NPV IRR_solutions.pdf</a>
+        </nav>
+      </header>
+
+      <section class="problem-box" id="problem-1">
+        <span class="problem-tag">Problem 1</span>
+        <h2 class="problem-title">Problem 1 — Capitalization of a deferred debt</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf</a>
+        <div class="statement-box">
+<p>One person, Mr. Smith, is able to invest his available liquid capital at a 5 percent rate per year. Currently, another person, Mr. Martinez, must pay Mr. Smith the amount of USD 1,000, but he is going through a period of scarce liquidity and asks him to wait. How much money will Mr. Smith require if it is delayed a year? What if it is a two-year delay? What if it were three years of deferment?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$C_0$</td><td>debt today</td><td style="text-align:right">1,000</td></tr><tr><td>$i$</td><td>rate at which Mr. Smith can invest</td><td style="text-align:right">5% per year</td></tr><tr><td>$n$</td><td>years of delay</td><td style="text-align:right">1, 2, 3</td></tr></tbody></table></div>
+<p>Mr. Smith must receive the amount that, invested at 5%, equals having the 1,000 today: the future (capitalized) value with compound interest,</p>
+<div class="math-block">$$C_n = C_0\,(1 + i)^n$$</div>
+<p>This is the capitalization rule used in the key; the course decks on disk do not state it.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. One, two and three years</h4>
+<div class="math-block">$$\begin{aligned} C_1 &amp;= 1{,}000 \times 1.05 = 1{,}050 \\ C_2 &amp;= 1{,}000 \times 1.05^2 = 1{,}000 \times 1.1025 = 1{,}102.50 \\ C_3 &amp;= 1{,}000 \times 1.05^3 = 1{,}000 \times 1.157625 = 1{,}157.63 \end{aligned}$$</div>
+<p>Each year the interest is earned on the previous year's balance, so the yearly increase grows: 50, then 52.50, then 55.13.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check:</strong> $C_3 = C_2 \times 1.05 = 1{,}102.50 \times 1.05 = 1{,}157.63$. ✓</li><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, p. 1): 1,050, 1,102.5 and 1,157.62. Same results ($1{,}157.625$ is truncated to 1,157.62 in the key and rounded to 1,157.63 here).</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-2">
+        <span class="problem-tag">Problem 2</span>
+        <h2 class="problem-title">Problem 2 — Alfa, S.A.: new debt with a constant financial structure</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf</a>
+        <div class="statement-box">
+<p>In year 0 the company Alfa S.A. has the following financial structure: capital 6,000,000; reserves 4,800,000; debt 7,200,000; total 18,000,000. If this company can retain profits of 1,200,000 euros at the end of year 1, what is its ability to obtain new debt in year 1 (how much more can it borrow in year 1 compared to year 0) without changing its financial structure?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th style="text-align:right">Year 0 (€)</th></tr></thead><tbody><tr><td>Capital</td><td style="text-align:right">6,000,000</td></tr><tr><td>Reserves</td><td style="text-align:right">4,800,000</td></tr><tr><td>Debt</td><td style="text-align:right">7,200,000</td></tr><tr><td>Total</td><td style="text-align:right">18,000,000</td></tr><tr><td>Retained profit of year 1</td><td style="text-align:right">1,200,000</td></tr></tbody></table></div>
+<p>Equity is capital plus reserves, and the financial structure is the share of equity and of debt in the total [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 33">33-35</a> of Topic 3]. Retained profit increases the reserves, so equity grows; keeping the structure means keeping those shares.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Structure in year 0</h4>
+<div class="math-block">$$E_0 = 6{,}000{,}000 + 4{,}800{,}000 = 10{,}800{,}000 \qquad \frac{E_0}{18{,}000{,}000} = 0.60 \qquad \frac{D_0}{18{,}000{,}000} = \frac{7{,}200{,}000}{18{,}000{,}000} = 0.40$$</div>
+<h4 class="step-title">Step 2. Equity and total in year 1</h4>
+<div class="math-block">$$E_1 = 10{,}800{,}000 + 1{,}200{,}000 = 12{,}000{,}000$$</div>
+<p>Equity must still be 60% of the total:</p>
+<div class="math-block">$$0.60 = \frac{12{,}000{,}000}{T_1} \quad\Rightarrow\quad T_1 = 20{,}000{,}000$$</div>
+<h4 class="step-title">Step 3. Debt in year 1 and new debt</h4>
+<div class="math-block">$$D_1 = 0.40 \times 20{,}000{,}000 = 8{,}000{,}000 \qquad \text{New debt} = D_1 - D_0 = 8{,}000{,}000 - 7{,}200{,}000 = 800{,}000 \ \text{€}$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check of the ratio:</strong> debt-to-equity stays $7{,}200{,}000/10{,}800{,}000 = 8{,}000{,}000/12{,}000{,}000 = 0.667$. ✓</li><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, pp. 1-2): equity 60%, debt 40%, total 20,000,000, debt 8,000,000 and new debt 800,000 €. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-3">
+        <span class="problem-tag">Problem 3</span>
+        <h2 class="problem-title">Problem 3 — Límite, S.A.: payback of three projects</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf</a>
+        <div class="statement-box">
+<p>Límite S.A. has 1,200 millions to invest in this period. Applying the criterion of recovery or payback, indicate which investment project is preferred and why.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">Initial outlay</th><th style="text-align:right">Q1</th><th style="text-align:right">Q2</th><th style="text-align:right">Q3</th><th style="text-align:right">Q4</th><th style="text-align:right">Q5</th><th style="text-align:right">Q6</th></tr></thead><tbody><tr><td>X</td><td style="text-align:right">1,200</td><td style="text-align:right">−200</td><td style="text-align:right">300</td><td style="text-align:right">500</td><td style="text-align:right">200</td><td style="text-align:right">400</td><td style="text-align:right">400</td></tr><tr><td>Y</td><td style="text-align:right">1,200</td><td style="text-align:right">200</td><td style="text-align:right">200</td><td style="text-align:right">200</td><td style="text-align:right">200</td><td style="text-align:right">200</td><td style="text-align:right">200</td></tr><tr><td>Z</td><td style="text-align:right">1,000</td><td style="text-align:right">125</td><td style="text-align:right">125</td><td style="text-align:right">250</td><td style="text-align:right">250</td><td style="text-align:right">250</td><td style="text-align:right">250</td></tr></tbody></table></div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>Cash flows in millions, one per year. The <strong>payback</strong> (recovery) period is the time the cumulative cash flows take to equal the initial outlay; the shorter, the better. Within a year the flow is taken as uniform.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Cumulative cash flows</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Year</th><th style="text-align:right">X</th><th style="text-align:right">Y</th><th style="text-align:right">Z</th></tr></thead><tbody><tr><td>1</td><td style="text-align:right">−200</td><td style="text-align:right">200</td><td style="text-align:right">125</td></tr><tr><td>2</td><td style="text-align:right">100</td><td style="text-align:right">400</td><td style="text-align:right">250</td></tr><tr><td>3</td><td style="text-align:right">600</td><td style="text-align:right">600</td><td style="text-align:right">500</td></tr><tr><td>4</td><td style="text-align:right">800</td><td style="text-align:right">800</td><td style="text-align:right">750</td></tr><tr><td>5</td><td style="text-align:right"><strong>1,200</strong></td><td style="text-align:right">1,000</td><td style="text-align:right"><strong>1,000</strong></td></tr><tr><td>6</td><td style="text-align:right">1,600</td><td style="text-align:right"><strong>1,200</strong></td><td style="text-align:right">1,250</td></tr></tbody></table></div>
+<h4 class="step-title">Step 2. Payback periods</h4>
+<ul><li>X recovers its 1,200 exactly at the end of year 5: <strong>5 years</strong>.</li><li>Y recovers its 1,200 at the end of year 6: <strong>6 years</strong>.</li><li>Z recovers its 1,000 exactly at the end of year 5: <strong>5 years</strong>.</li></ul>
+<h4 class="step-title">Step 3. Choice</h4>
+<p>Y is the worst. X and Z tie at 5 years, so the payback criterion alone does not separate them. Two remarks help: Z needs 200 million less, which stays available to the company, and X has a negative flow in the first year that must be financed. Beyond year 5, X returns 400 in year 6 against 250 for Z; payback ignores those flows.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, p. 2): payback X = 5 years and Y = 6 years agree; the key prefers X "even if it generates negative cash flow in the first year".</li></ul>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives Z a payback of <strong>5 years and 10 months</strong>. With the outlay of the statement (1,000) the cumulative flow reaches 1,000 exactly at the end of year 5 (table above), so the payback is 5 years. The key's figure is what an outlay of 1,200 would give: $5 + (1{,}200 - 1{,}000)/250 = 5.8$ years, about 5 years and 10 months. With the stated data X and Z tie, and the key's preference for X is not supported by payback alone.</p></div>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-4">
+        <span class="problem-tag">Problem 4</span>
+        <h2 class="problem-title">Problem 4 — Maximum investment from the IRR</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf</a>
+        <div class="statement-box">
+<p>What is the maximum amount we should invest in a project at time 0 if the estimated annual cash inflow is €30,000 over a period of 4 years starting from year 1? Assume that the estimated internal rate of return is 8%.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>Cash inflows $CF_1 = \dots = CF_4 = 30{,}000$ €; IRR 8%. The <strong>net present value</strong> of a project with outlay $I_0$ is</p>
+<div class="math-block">$$NPV = -I_0 + \sum_{t=1}^{n} \frac{CF_t}{(1 + k)^t}$$</div>
+<p>and the <strong>internal rate of return</strong> is the rate that makes $NPV = 0$. The maximum outlay is the one that leaves the NPV at zero when discounted at 8%: any higher outlay would give a return below 8%.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. NPV equal to zero at 8%</h4>
+<div class="math-block">$$0 = -I_0 + \frac{30{,}000}{1.08} + \frac{30{,}000}{1.08^2} + \frac{30{,}000}{1.08^3} + \frac{30{,}000}{1.08^4}$$</div>
+<h4 class="step-title">Step 2. Each discounted flow</h4>
+<div class="math-block">$$\frac{30{,}000}{1.08} = 27{,}777.78 \qquad \frac{30{,}000}{1.1664} = 25{,}720.16 \qquad \frac{30{,}000}{1.259712} = 23{,}814.96 \qquad \frac{30{,}000}{1.36048896} = 22{,}050.90$$</div>
+<h4 class="step-title">Step 3. Maximum outlay</h4>
+<div class="math-block">$$I_0 = 27{,}777.78 + 25{,}720.16 + 23{,}814.96 + 22{,}050.90 = 99{,}363.81 \ \text{€}$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check with the annuity factor:</strong> $30{,}000 \times \dfrac{1 - 1.08^{-4}}{0.08} = 30{,}000 \times 3.312127 = 99{,}363.81$ €. ✓</li><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, pp. 2-3): $I_0 = 99{,}363.81$ €. Same result.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-5">
+        <span class="problem-tag">Problem 5</span>
+        <h2 class="problem-title">Problem 5 — NPV and payback of three projects</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf</a>
+        <div class="statement-box">
+<p>Consider these projects (cash flows in euros) and answer the questions:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">C0</th><th style="text-align:right">C1</th><th style="text-align:right">C2</th><th style="text-align:right">C3</th><th style="text-align:right">C4</th><th style="text-align:right">C5</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">−1,000</td><td style="text-align:right">+1,000</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td></tr><tr><td>B</td><td style="text-align:right">−2,000</td><td style="text-align:right">+1,000</td><td style="text-align:right">+1,000</td><td style="text-align:right">+4,000</td><td style="text-align:right">+1,000</td><td style="text-align:right">+1,000</td></tr><tr><td>C</td><td style="text-align:right">−3,000</td><td style="text-align:right">+1,000</td><td style="text-align:right">+1,000</td><td style="text-align:right">0</td><td style="text-align:right">+1,000</td><td style="text-align:right">+1,000</td></tr></tbody></table></div>
+<p>a) If the interest rate is 10%, which projects have a positive NPV? b) Calculate the payback period for each project. c) Which project(s) would be accepted by a company that uses the payback period model if the maximum period is three years?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>$NPV = \sum_{t=0}^{5} C_t/(1.10)^t$ with the discount factors $1.1^{-1} = 0.909091$, $1.1^{-2} = 0.826446$, $1.1^{-3} = 0.751315$, $1.1^{-4} = 0.683013$, $1.1^{-5} = 0.620921$. Payback: the time the cumulative flows take to recover the outlay.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): NPV at 10%</h4>
+<div class="math-block">$$NPV_A = -1{,}000 + 1{,}000 \times 0.909091 = -90.91 \ \text{€}$$</div>
+<div class="math-block">$$\begin{aligned} NPV_B &amp;= -2{,}000 + 909.09 + 826.45 + 4{,}000 \times 0.751315 + 683.01 + 620.92 \\ &amp;= -2{,}000 + 909.09 + 826.45 + 3{,}005.26 + 683.01 + 620.92 = 4{,}044.73 \ \text{€} \end{aligned}$$</div>
+<div class="math-block">$$NPV_C = -3{,}000 + 909.09 + 826.45 + 0 + 683.01 + 620.92 = 39.47 \ \text{€}$$</div>
+<p><strong>B and C</strong> have a positive NPV; A does not.</p>
+<h4 class="step-title">Step 2. Part (b): payback</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Year</th><th style="text-align:right">A cumulative</th><th style="text-align:right">B cumulative</th><th style="text-align:right">C cumulative</th></tr></thead><tbody><tr><td>1</td><td style="text-align:right">1,000</td><td style="text-align:right">1,000</td><td style="text-align:right">1,000</td></tr><tr><td>2</td><td style="text-align:right">1,000</td><td style="text-align:right">2,000</td><td style="text-align:right">2,000</td></tr><tr><td>3</td><td style="text-align:right">1,000</td><td style="text-align:right">6,000</td><td style="text-align:right">2,000</td></tr><tr><td>4</td><td style="text-align:right">1,000</td><td style="text-align:right">7,000</td><td style="text-align:right">3,000</td></tr></tbody></table></div>
+<p>A recovers its 1,000 in <strong>1 year</strong>, B its 2,000 in <strong>2 years</strong> and C its 3,000 in <strong>4 years</strong>.</p>
+<h4 class="step-title">Step 3. Part (c): maximum payback of three years</h4>
+<p>A and B are accepted, C is rejected. The payback model accepts A although its NPV is negative and rejects C although its NPV is positive, because it ignores the time value of money and the flows after the cut-off. Between the two accepted projects, the NPV favours B.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, p. 3): $NPV_A = -90.91$, $NPV_B = 4{,}044.7$, $NPV_C = 39.47$; payback 1, 2 and 4 years; A and B accepted, and B chosen by NPV. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-6">
+        <span class="problem-tag">Problem 6</span>
+        <h2 class="problem-title">Problem 6 — NPV from a known IRR</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf#page=2" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf, p. 2</a>
+        <div class="statement-box">
+<p>Assuming an interest rate of 7%, consider a three-year investment period generating a positive cash flow of €10,000 per year with an internal rate of return of 10%. Calculate the NPV of this investment.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>$CF_1 = CF_2 = CF_3 = 10{,}000$ €, IRR 10%, discount rate $k = 7\%$. The outlay $I_0$ is not given: it follows from the IRR, the rate at which the NPV is zero. Then the NPV is computed at 7%.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Outlay from the IRR</h4>
+<div class="math-block">$$0 = -I_0 + \frac{10{,}000}{1.1} + \frac{10{,}000}{1.1^2} + \frac{10{,}000}{1.1^3} = -I_0 + 9{,}090.91 + 8{,}264.46 + 7{,}513.15$$</div>
+<div class="math-block">$$I_0 = 24{,}868.52 \ \text{€}$$</div>
+<h4 class="step-title">Step 2. NPV at 7%</h4>
+<div class="math-block">$$NPV = -24{,}868.52 + \frac{10{,}000}{1.07} + \frac{10{,}000}{1.1449} + \frac{10{,}000}{1.225043} = -24{,}868.52 + 9{,}345.79 + 8{,}734.39 + 8{,}162.98 = 1{,}374.64 \ \text{€}$$</div>
+<p>The NPV is positive because the discount rate (7%) is below the IRR (10%).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check:</strong> at $k = $ IRR the NPV would be zero; a lower rate gives a positive NPV, as found.</li><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, pp. 3-4): $I_0 = 24{,}868$ € and $NPV = 1{,}375$ €. Same results. The key also adds a part (b), not in the statement: at $k = 9\%$ the NPV is smaller but still positive, since $9\% &lt; 10\%$; its value is $1{,}374.64 - 930.21 = 444.43$ €.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-7">
+        <span class="problem-tag">Problem 7</span>
+        <h2 class="problem-title">Problem 7 — Ranking projects by NPV with a budget</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf#page=2" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf, p. 2</a>
+        <div class="statement-box">
+<p>You want to rank, in order of preference, according to the criterion of NPV, the investment projects with initial payments and cash flows generated in the different years of their duration, listed in the table below:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">Year 1</th><th style="text-align:right">Year 2</th><th style="text-align:right">Year 3</th><th style="text-align:right">Year 4</th><th style="text-align:right">Year 5</th><th style="text-align:right">Initial outlay</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">2,000</td><td style="text-align:right">2,000</td><td style="text-align:right">3,500</td><td style="text-align:right">3,500</td><td style="text-align:right">3,500</td><td style="text-align:right">10,000</td></tr><tr><td>B</td><td style="text-align:right">2,000</td><td style="text-align:right">2,000</td><td style="text-align:right">4,000</td><td style="text-align:right">4,000</td><td style="text-align:right">4,000</td><td style="text-align:right">11,000</td></tr><tr><td>C</td><td style="text-align:right">3,000</td><td style="text-align:right">3,000</td><td style="text-align:right">4,000</td><td style="text-align:right">4,000</td><td style="text-align:right">4,000</td><td style="text-align:right">12,000</td></tr><tr><td>D</td><td style="text-align:right">2,000</td><td style="text-align:right">2,000</td><td style="text-align:right">15,000</td><td style="text-align:right">—</td><td style="text-align:right">—</td><td style="text-align:right">13,000</td></tr><tr><td>E</td><td style="text-align:right">2,000</td><td style="text-align:right">3,000</td><td style="text-align:right">5,000</td><td style="text-align:right">5,000</td><td style="text-align:right">5,000</td><td style="text-align:right">14,000</td></tr><tr><td>F</td><td style="text-align:right">4,000</td><td style="text-align:right">4,000</td><td style="text-align:right">4,500</td><td style="text-align:right">4,500</td><td style="text-align:right">4,500</td><td style="text-align:right">15,000</td></tr></tbody></table></div>
+<p>The required profitability is the same for all projects (10 percent). Which projects should be undertaken by an individual who has 40,000 euros to invest if they cannot be repeated?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>Net cash flows in euros, discount rate 10% with the factors $0.909091$, $0.826446$, $0.751315$, $0.683013$, $0.620921$ for years 1 to 5. $NPV = -I_0 + \sum CF_t/1.1^t$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. NPV of project A</h4>
+<div class="math-block">$$NPV_A = -10{,}000 + 2{,}000\,(0.909091 + 0.826446) + 3{,}500\,(0.751315 + 0.683013 + 0.620921) = -10{,}000 + 3{,}471.07 + 7{,}193.37 = 664.45 \ \text{€}$$</div>
+<h4 class="step-title">Step 2. All the projects</h4>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">Outlay</th><th style="text-align:right">Present value of the flows</th><th style="text-align:right">NPV</th><th style="text-align:right">Rank</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">10,000</td><td style="text-align:right">10,664.45</td><td style="text-align:right">664.45</td><td style="text-align:right">5</td></tr><tr><td>B</td><td style="text-align:right">11,000</td><td style="text-align:right">11,692.07</td><td style="text-align:right">692.07</td><td style="text-align:right">4</td></tr><tr><td>C</td><td style="text-align:right">12,000</td><td style="text-align:right">13,427.61</td><td style="text-align:right">1,427.61</td><td style="text-align:right">2</td></tr><tr><td>D</td><td style="text-align:right">13,000</td><td style="text-align:right">14,740.80</td><td style="text-align:right">1,740.80</td><td style="text-align:right">1</td></tr><tr><td>E</td><td style="text-align:right">14,000</td><td style="text-align:right">14,573.77</td><td style="text-align:right">573.77</td><td style="text-align:right">6</td></tr><tr><td>F</td><td style="text-align:right">15,000</td><td style="text-align:right">16,190.77</td><td style="text-align:right">1,190.77</td><td style="text-align:right">3</td></tr></tbody></table></div>
+<p>All six have a positive NPV.</p>
+<h4 class="step-title">Step 3. Choice with 40,000 €</h4>
+<p>Taking the projects in order of NPV: D (13,000), then C (12,000, total 25,000), then F (15,000, total 40,000). The budget is used exactly, so the individual undertakes <strong>D, C and F</strong>, with a total NPV of $1{,}740.80 + 1{,}427.61 + 1{,}190.77 = 4{,}359.18$ €.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check of the budget choice:</strong> no four projects fit in 40,000 € (the four cheapest cost 46,000 €), and every other set of three that fits gives less: D + C + B (36,000 €) 3,860.48 €, D + C + E (39,000 €) 3,742.18 €, D + F + A (38,000 €) 3,596.02 €.</li><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, pp. 4-5): NPVs 664.45, 692.07, 1,427.61, 1,740.8, 573.77 and 1,190.77 with the same ranking, and D, C and F selected. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-8">
+        <span class="problem-tag">Problem 8</span>
+        <h2 class="problem-title">Problem 8 — GOFRES, S.A.: return against the cost of capital</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf#page=2" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf, p. 2</a>
+        <div class="statement-box">
+<p>The director of the financial department of GOFRES, S.A. raises the possibility of investing in a project with a profitability of 8.5%. GOFRES, S.A. is funded 30% with equity capital, whose cost is estimated at 15%, and the rest with external funds, with an average cost of 8%. What would be your advice to this executive: to carry out the project or not to invest, and why? How does your answer change if you were offered another investment project with a yield of 18.5%?</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Source</th><th style="text-align:right">Share</th><th style="text-align:right">Cost</th></tr></thead><tbody><tr><td>Equity</td><td style="text-align:right">30%</td><td style="text-align:right">15%</td></tr><tr><td>Liabilities (external funds)</td><td style="text-align:right">70%</td><td style="text-align:right">8%</td></tr></tbody></table></div>
+<p>The cost of capital is the weighted average cost, $K_{WACC} = K_{EQ}\,\frac{E}{E+L} + K_L\,\frac{L}{E+L}$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 37">37</a> of Topic 3]. A project creates value when its return is above that cost (profitability &gt; cost, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28I%29.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (I).pdf at page 5">5</a> of Topic 3).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Cost of capital</h4>
+<div class="math-block">$$K = 0.30 \times 0.15 + 0.70 \times 0.08 = 0.045 + 0.056 = 0.101 = 10.1\%$$</div>
+<h4 class="step-title">Step 2. Project with 8.5%</h4>
+<p>$8.5\% &lt; 10.1\%$: the project returns less than the funds cost. Advice: <strong>do not invest</strong>.</p>
+<h4 class="step-title">Step 3. Project with 18.5%</h4>
+<p>$18.5\% &gt; 10.1\%$: the project returns more than the funds cost. Advice: <strong>invest</strong>.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, p. 5): $K = 0.3 \times 0.15 + 0.7 \times 0.08 = 10.1\%$; reject at 8.5%, accept at 18.5%. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="problem-9">
+        <span class="problem-tag">Problem 9</span>
+        <h2 class="problem-title">Problem 9 — OSOPANDA, S.L.: payback, IRR and the Fisher rate</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf#page=2" target="_blank" rel="noopener">Original statement · 3_II_NPV IRR.pdf, p. 2</a>
+        <div class="statement-box">
+<p>Company OSOPANDA, S.L. is considering an investment, for which it has two offers. The first offer (Project A) has an initial payment of €16,653 and generates cash flows of €6,500 and €13,000 during the first and second years (two-year period), respectively. The second offer (Project B) means a much higher initial payment, €71,428. It will end in a year, and it is expected to generate a positive cash flow of €76,428 by the end of that year. Answer the following questions and account for your answers:</p>
+<p>a) Which project would the company choose if it uses the payback period model?</p>
+<p>b) Analyze both alternatives in terms of internal rate of return (IRR).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th style="text-align:right">$I_0$ (€)</th><th style="text-align:right">$CF_1$ (€)</th><th style="text-align:right">$CF_2$ (€)</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">16,653</td><td style="text-align:right">6,500</td><td style="text-align:right">13,000</td></tr><tr><td>B</td><td style="text-align:right">71,428</td><td style="text-align:right">76,428</td><td style="text-align:right">—</td></tr></tbody></table></div>
+<p>Payback with flows spread evenly over each year (30-day months). IRR: the rate that makes $NPV = 0$. The <strong>Fisher rate</strong> is the discount rate at which both projects have the same NPV.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): payback</h4>
+<p>A recovers 6,500 in year 1; the remaining $16{,}653 - 6{,}500 = 10{,}153$ € come from the 13,000 of year 2 after $10{,}153/13{,}000 = 0.781$ years $= 9.37$ months: <strong>1 year, 9 months and 11 days</strong> (0.37 × 30 days), recovered during the 12th day.</p>
+<p>B recovers 71,428 out of 76,428 after $71{,}428/76{,}428 = 0.9346$ years $= 11.21$ months: <strong>11 months and 6 days</strong> (0.21 × 30), recovered during the 7th day.</p>
+<p>B has the shorter payback, so the payback model chooses <strong>B</strong>.</p>
+<h4 class="step-title">Step 2. Part (b): IRR of B</h4>
+<div class="math-block">$$0 = -71{,}428 + \frac{76{,}428}{1 + r_B} \quad\Rightarrow\quad 1 + r_B = \frac{76{,}428}{71{,}428} = 1.0700 \quad\Rightarrow\quad r_B = 7.00\%$$</div>
+<h4 class="step-title">Step 3. Part (b): IRR of A</h4>
+<div class="math-block">$$0 = -16{,}653 + \frac{6{,}500}{1 + r_A} + \frac{13{,}000}{(1 + r_A)^2}$$</div>
+<p>With $x = 1 + r_A$ and multiplying by $x^2$: $16{,}653\,x^2 - 6{,}500\,x - 13{,}000 = 0$, so</p>
+<div class="math-block">$$x = \frac{6{,}500 + \sqrt{6{,}500^2 + 4 \times 16{,}653 \times 13{,}000}}{2 \times 16{,}653} = \frac{6{,}500 + \sqrt{908{,}206{,}000}}{33{,}306} = \frac{6{,}500 + 30{,}136.46}{33{,}306} = 1.1000$$</div>
+<p>$r_A = 10.00\%$ (the negative root has no economic meaning). By IRR, <strong>A</strong> is better (10% &gt; 7%).</p>
+<h4 class="step-title">Step 4. Fisher rate and the decision by the cost of capital</h4>
+<p>The two criteria disagree because the projects differ in size and duration. Setting $NPV_A(i) = NPV_B(i)$,</p>
+<div class="math-block">$$-16{,}653 + \frac{6{,}500}{1 + i} + \frac{13{,}000}{(1 + i)^2} = -71{,}428 + \frac{76{,}428}{1 + i}$$</div>
+<p>whose root between 0 and 10% is $i \approx 5.08\%$. At $i = 0$, $NPV_A = 2{,}847$ € and $NPV_B = 5{,}000$ € (B better); at $i = 8\%$, $NPV_A = 510.92$ € and $NPV_B = -661.33$ € (A better). So:</p>
+<ul><li>cost of capital below about 5.08%: choose <strong>B</strong> (higher NPV);</li><li>between 5.08% and 10%: choose <strong>A</strong>;</li><li>above 10%: neither project has a positive NPV.</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check of $r_A$:</strong> $6{,}500/1.1 + 13{,}000/1.21 = 5{,}909.09 + 10{,}743.80 = 16{,}652.89 \approx 16{,}653$. ✓</li><li><strong>Check against the official key</strong> (3_II_NPV_NPV IRR_solutions.pdf, p. 6): payback A "1 year, 9 months and days (12...)" and B "11 months and 7 days", B preferred; IRR(A) ≈ 10%, IRR(B) ≈ 7%; Fisher rate ≈ 5% (0.0507); B below 5%, A between 5% and 10%, neither above 10%. Same results; the key counts the day in which the outlay is recovered (12th and 7th), which is why it gives one day more than the completed days above.</li></ul>
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="index.html">← Back to Problems Hub</a>
+        <a href="../teoria/topic-3.html">Back to Topic 3 Theory →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

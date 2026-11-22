@@ -31,8 +31,8 @@ Calculate the net horizontal force on the cylinder of length 5 metres shown in t
 
 Translated from the Spanish original.
 
-![[attachments/FM-T5/fs10-statement.svg]]
-*Statement figure (redrawn from fluid_statics_10.pdf, p. 1): cylinder of diameter $D = 1$ m and length 5 m on the floor; water 1 m deep on the left, up to the top of the cylinder, and 0.5 m deep on the right, up to its centre*
+![[attachments/FM-T5/fs10-statement.png]]
+*Statement figure: cylinder of diameter $D = 1$ m on the floor; water 1 m deep on the left, up to the top of the cylinder, and 0.5 m deep on the right, up to its centre. Copied from fluid_statics_10.pdf, p. 1.*
 
 Source: fluid_statics_10.pdf (page 1, sheet of 12-9-01). Notes.pdf, Chapter 5: Eqs. 5.10, 5.11 and 5.14.
 

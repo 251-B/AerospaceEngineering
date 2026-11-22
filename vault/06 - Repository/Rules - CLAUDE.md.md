@@ -23,7 +23,7 @@ Claude Code operating framework (triggering pipeline and decision matrix) and Cl
 - The closing gate is REVIEW for a single task and ULTRAREVIEW for a milestone or exam.
 - Subagents live in `.claude/agents/`. Delegate when a task matches a role, and work directly when it is small.
 - Agent teams have 3 to 5 members with 5 to 6 tasks each, and are shut down as soon as they finish.
-- `.claude/settings.json` enables agent teams and the plugins superpowers, skill-creator, bm, context-mode, claude-mem, humanizer and claude-code-setup.
+- `.claude/settings.json` enables agent teams and the plugins superpowers, claude-mem and claude-code-setup; skills, plugins and agents are fired by the global skill router hook (`~/.claude/hooks/skill_router.py`, rules in `.claude/skill_rules.json`).
 - Instructions to use `define_subagent` or `manage_subagents` belong to the Gemini setup and are ignored here.
 - An optional, per-machine token-compression proxy is described. It is not part of the gate.
 - The `task-observer` skill is bundled in `.claude/skills/` and `.agents/skills/`, and both copies must match.

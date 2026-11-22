@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 5: Price Elasticity of Demand — Solved Problems 1 to 6 | Business Management</title>
+  <meta name="description" content="Official solved problems for Topic 5: price elasticity of demand, revenue and cross elasticity, solved step by step. UC3M Aerospace Engineering." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 5 SOLVED PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Official Course Problem Solutions</div>
+        <h1 class="article-title">Topic 5: Price Elasticity of Demand (Exercises 1 to 6)</h1>
+        <div class="article-meta">
+          <strong>Source Document:</strong> <code>Elasticity exercises STATEMENTS.pdf</code> (UC3M Business Management) • Each exercise: data and model, solution step by step, checks and the check against the official key.
+        </div>
+
+        <nav class="src-panel" data-srclink aria-label="Official material">
+          <span class="src-panel-label">Official material</span>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf" target="_blank" rel="noopener">Elasticity exercises STATEMENTS.pdf</a>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/PED%20Exercises%20SOL.pdf" target="_blank" rel="noopener">PED Exercises SOL.pdf</a>
+          <a href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/topic%205.2.2.pdf#page=2" target="_blank" rel="noopener">topic 5.2.2.pdf (price elasticity) · p. 2</a>
+        </nav>
+      </header>
+
+      <section class="problem-box" id="exercise-1">
+        <span class="problem-tag">Exercise 1</span>
+        <h2 class="problem-title">Exercise 1 — Demand curve and midpoint elasticities</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf" target="_blank" rel="noopener">Original statement · Elasticity exercises STATEMENTS.pdf</a>
+        <div class="statement-box">
+<p>The following table presents data concerning the demand for Product X:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Point</th><th style="text-align:right">Price</th><th style="text-align:right">Quantity</th></tr></thead><tbody><tr><td>A</td><td style="text-align:right">25</td><td style="text-align:right">0</td></tr><tr><td>B</td><td style="text-align:right">20</td><td style="text-align:right">20</td></tr><tr><td>C</td><td style="text-align:right">15</td><td style="text-align:right">40</td></tr><tr><td>D</td><td style="text-align:right">10</td><td style="text-align:right">60</td></tr><tr><td>E</td><td style="text-align:right">5</td><td style="text-align:right">80</td></tr><tr><td>F</td><td style="text-align:right">0</td><td style="text-align:right">100</td></tr></tbody></table></div>
+<p>A) Draw the demand curve. B) What is elasticity? C) What is the sign of the coefficient of elasticity? D) Calculate the price elasticity at the mid-point of each interval.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>Six points of the demand of product X, equally spaced: from one point to the next the price falls by 5 € and the quantity rises by 20 units.</p>
+<p>The price elasticity is the percentage change in quantity demanded divided by the percentage change in price (topic 5.2.2.pdf, p. 2). Between two points the percentages are taken with respect to the <strong>midpoint</strong> of the interval, as the statement asks:</p>
+<div class="math-block">$$E_d = \frac{\Delta Q / \bar Q}{\Delta P / \bar P}, \qquad \bar Q = \frac{Q_1 + Q_2}{2}, \quad \bar P = \frac{P_1 + P_2}{2}$$</div>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (A): the demand curve</h4>
+<p>Each step of $-5$ € in price adds 20 units, so the slope is constant and the points lie on a straight line. Through A (0, 25): $P = 25 - \frac{5}{20}\,Q = 25 - Q/4$, or $Q = 100 - 4P$.</p>
+<div class="diagram-card">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 305" width="100%" class="fig-kit" style="max-width:590px;margin:0 auto;display:block" role="img" aria-label="Exercise 1: demand curve of product X">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<line x1="70.0" y1="260.0" x2="540.0" y2="260.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M540.0,260.0 L531.7,263.5 L531.7,256.5 Z" fill="var(--text-faint)"/>
+<line x1="70.0" y1="260.0" x2="70.0" y2="8.0" stroke="var(--text-faint)" stroke-width="1.4"/>
+<path d="M70.0,8.0 L73.5,16.3 L66.5,16.3 Z" fill="var(--text-faint)"/>
+<text x="540.0" y="278.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="end"></text>
+<text x="76.0" y="12.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="start">Price P (€)</text>
+<text x="280.0" y="294.0" fill="var(--text-heading)" font-size="12" font-weight="400" text-anchor="middle">Quantity Q</text>
+<polyline points="70.0,35.0 154.0,80.0 238.0,125.0 322.0,170.0 406.0,215.0 490.0,260.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="70.0" cy="35.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="80.0" y="27.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">A (0, 25)</text>
+<circle cx="154.0" cy="80.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="164.0" y="72.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">B (20, 20)</text>
+<circle cx="238.0" cy="125.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="248.0" y="117.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">C (40, 15)</text>
+<circle cx="322.0" cy="170.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="332.0" y="162.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">D (60, 10)</text>
+<circle cx="406.0" cy="215.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="416.0" y="207.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">E (80, 5)</text>
+<circle cx="490.0" cy="260.0" r="4" fill="var(--text-heading)" stroke="var(--text-heading)" stroke-width="1"/>
+<text x="500.0" y="252.0" fill="var(--text-heading)" font-size="12" font-weight="700" text-anchor="start">F (100, 0)</text>
+<text x="70.0" y="276.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">0</text>
+<text x="154.0" y="276.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">20</text>
+<text x="238.0" y="276.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">40</text>
+<text x="322.0" y="276.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">60</text>
+<text x="406.0" y="276.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">80</text>
+<text x="490.0" y="276.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">100</text>
+<text x="62.0" y="219.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">5</text>
+<text x="62.0" y="174.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">10</text>
+<text x="62.0" y="129.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">15</text>
+<text x="62.0" y="84.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">20</text>
+<text x="62.0" y="39.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">25</text>
+<text x="263.2" y="71.0" fill="var(--fig-pink, #ec4899)" font-size="12" font-weight="400" text-anchor="start">elastic: |Ed| > 1</text>
+<text x="372.4" y="242.0" fill="var(--fig-green, #10b981)" font-size="12" font-weight="400" text-anchor="middle">inelastic: |Ed| < 1</text>
+<circle cx="280.0" cy="147.5" r="5" fill="var(--fig-acc, #f59e0b)" stroke="var(--fig-acc, #f59e0b)" stroke-width="1"/>
+<text x="270.0" y="169.5" fill="var(--fig-acc, #f59e0b)" font-size="12" font-weight="700" text-anchor="end">|Ed| = 1 at (50, 12.5)</text>
+</g></svg>
+<div class="diagram-caption">Figure 1. The six points of the table on the straight demand line P = 25 − Q/4; the demand is elastic on the upper half, unit elastic at its midpoint and inelastic on the lower half.</div>
+</div>
+<h4 class="step-title">Step 2. Part (B): what elasticity is</h4>
+<p>Elasticity is the sensitivity of the quantity demanded to a change in the price of the good, with both changes expressed in relative terms (%) (topic 5.2.2.pdf, p. 2; Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a>).</p>
+<h4 class="step-title">Step 3. Part (C): the sign</h4>
+<p><strong>Negative.</strong> By the law of demand, when the price falls the quantity demanded rises, and vice versa: $\Delta Q$ and $\Delta P$ always have opposite signs. The absolute value is used to classify the demand.</p>
+<h4 class="step-title">Step 4. Part (D): midpoint elasticity of each interval</h4>
+<p>In every interval $\Delta Q = +20$ and $\Delta P = -5$. For A-B, $\bar Q = (0 + 20)/2 = 10$ and $\bar P = (25 + 20)/2 = 22.5$:</p>
+<div class="math-block">$$E_{AB} = \frac{20/10}{-5/22.5} = \frac{2}{-0.2222} = -9$$</div>
+<p>The same computation for the other intervals:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Interval</th><th style="text-align:right">$\bar Q$</th><th style="text-align:right">$\bar P$</th><th style="text-align:right">$\Delta Q/\bar Q$</th><th style="text-align:right">$\Delta P/\bar P$</th><th style="text-align:right">$E_d$</th><th>Demand</th></tr></thead><tbody><tr><td>A-B</td><td style="text-align:right">10</td><td style="text-align:right">22.5</td><td style="text-align:right">2.0000</td><td style="text-align:right">−0.2222</td><td style="text-align:right">−9.00</td><td>elastic</td></tr><tr><td>B-C</td><td style="text-align:right">30</td><td style="text-align:right">17.5</td><td style="text-align:right">0.6667</td><td style="text-align:right">−0.2857</td><td style="text-align:right">−2.33</td><td>elastic</td></tr><tr><td>C-D</td><td style="text-align:right">50</td><td style="text-align:right">12.5</td><td style="text-align:right">0.4000</td><td style="text-align:right">−0.4000</td><td style="text-align:right">−1.00</td><td>unit elastic</td></tr><tr><td>D-E</td><td style="text-align:right">70</td><td style="text-align:right">7.5</td><td style="text-align:right">0.2857</td><td style="text-align:right">−0.6667</td><td style="text-align:right">−0.43</td><td>inelastic</td></tr><tr><td>E-F</td><td style="text-align:right">90</td><td style="text-align:right">2.5</td><td style="text-align:right">0.2222</td><td style="text-align:right">−2.0000</td><td style="text-align:right">−0.11</td><td>inelastic</td></tr></tbody></table></div>
+<p>Along a straight demand line the slope is constant, but the elasticity is not: it falls in absolute value as we move down the line, because $\bar P/\bar Q$ falls. The demand is elastic on the upper half, unit elastic at the middle (Q = 50, P = 12.5) and inelastic on the lower half.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Point form:</strong> with $dQ/dP = -4$, the point elasticity $E_d = -4\,P/Q$ at the midpoint of C-D is $-4 \times 12.5/50 = -1$, matching the table.</li><li><strong>Units:</strong> both ratios are dimensionless.</li><li><strong>Check against the official key</strong> (PED Exercises SOL.pdf, pp. 1-2): the same demand curve; elasticity as the sensitivity of quantity to price in relative terms; negative sign by the law of demand; midpoint elasticities −9, −2.33, −1, −0.43 and −0.11. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-2">
+        <span class="problem-tag">Exercise 2</span>
+        <h2 class="problem-title">Exercise 2 — Quantity sold after a price rise</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf" target="_blank" rel="noopener">Original statement · Elasticity exercises STATEMENTS.pdf</a>
+        <div class="statement-box">
+<p>The price elasticity of demand of a certain good is 2 and we are currently selling 100 units at a price of 20 €. How many units will be sold at a price of 21 €? Show your answer with the respective calculations.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$\lvert E_d \rvert$</td><td>price elasticity (absolute value)</td><td style="text-align:right">2</td></tr><tr><td>$Q_1$, $P_1$</td><td>current quantity and price</td><td style="text-align:right">100 units, 20 €</td></tr><tr><td>$P_2$</td><td>new price</td><td style="text-align:right">21 €</td></tr><tr><td>$x$</td><td>units sold at 21 €</td><td style="text-align:right">unknown</td></tr></tbody></table></div>
+<p>Price elasticity $E_d = (\%\Delta Q)/(\%\Delta P)$, negative by the law of demand (topic 5.2.2.pdf, p. 2). Two ways of taking the percentages give two estimates.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Estimate with the initial values as base (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a>)</h4>
+<div class="math-block">$$\%\Delta P = \frac{21 - 20}{20} = 5\% \qquad \%\Delta Q = E_d \cdot \%\Delta P = -2 \times 5\% = -10\%$$</div>
+<div class="math-block">$$x = 100 \times (1 - 0.10) = 90 \ \text{units}$$</div>
+<h4 class="step-title">Step 2. Exact value with the midpoint of the change</h4>
+<p>Taking the elasticity at the midpoint of the change from $P = 20$ to $P = 21$ and from $Q = 100$ to $Q = x$:</p>
+<div class="math-block">$$\frac{(x - 100) \big/ \frac{x + 100}{2}}{(21 - 20) \big/ \frac{21 + 20}{2}} = -2$$</div>
+<p>The price part is $1/20.5$, so</p>
+<div class="math-block">$$\begin{aligned} \frac{2\,(x - 100)}{x + 100} \cdot 20.5 &amp;= -2 \\ \frac{41\,(x - 100)}{x + 100} &amp;= -2 \\ 41x - 4{,}100 &amp;= -2x - 200 \\ 43x &amp;= 3{,}900 \\ x &amp;= \frac{3{,}900}{43} = 90.70 \ \text{units} \end{aligned}$$</div>
+<p>At 21 € about <strong>90.7 units</strong> are sold (90 units in the simpler estimate).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check of the midpoint value:</strong> $\Delta Q/\bar Q = (90.70 - 100)/95.35 = -0.0975$ and $\Delta P/\bar P = 1/20.5 = 0.0488$; the ratio is $-2.00$. ✓</li><li><strong>Meaning:</strong> demand is elastic ($\lvert E_d \rvert = 2 &gt; 1$), so the 5% price rise lowers sales by about 10% and revenue falls from $20 \times 100 = 2{,}000$ € to $21 \times 90.70 = 1{,}904.7$ €.</li><li><strong>Check against the official key</strong> (PED Exercises SOL.pdf, p. 2): about 90 units in rough numbers, and $x = 3{,}900/43 = 90.697$ units with the midpoint formula. Same result; $3{,}900/43 = 90.6977$, which the key truncates to 90.697 and is rounded here to 90.70.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-3">
+        <span class="problem-tag">Exercise 3</span>
+        <h2 class="problem-title">Exercise 3 — Mini laptop: elasticity and revenue</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf" target="_blank" rel="noopener">Original statement · Elasticity exercises STATEMENTS.pdf</a>
+        <div class="statement-box">
+<p>A company selling mini laptops is marketing a particular laptop in a market where demand corresponds to the expression $Q_d = 25000 - 40p$. This company is considering increasing the selling price of the mini laptop and would like to know what impact the increase in price will have on the total income.</p>
+<p>a. Calculate the value of this elasticity considering the current price of its mini laptop is 500 m.u.</p>
+<p>b. In view of the above result, state with appropriate reasons whether the firm should increase its price and the effect that total income will have due to this price increase.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>$Q_d(p)$</td><td>demand</td><td style="text-align:right">$25{,}000 - 40\,p$</td></tr><tr><td>$p$</td><td>current price</td><td style="text-align:right">500 m.u.</td></tr></tbody></table></div>
+<p>Point price elasticity $E_d = \dfrac{dq}{dp}\cdot\dfrac{p}{q}$ (topic 5.2.2.pdf, p. 2), and the relation between elasticity and income of p. 3.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Part (a): quantity at the current price</h4>
+<div class="math-block">$$q = 25{,}000 - 40 \times 500 = 25{,}000 - 20{,}000 = 5{,}000 \ \text{units}$$</div>
+<h4 class="step-title">Step 2. Part (a): point elasticity</h4>
+<p>The derivative of the demand is $dq/dp = -40$, so</p>
+<div class="math-block">$$E_d = \frac{dq}{dp}\cdot\frac{p}{q} = -40 \times \frac{500}{5{,}000} = -4$$</div>
+<h4 class="step-title">Step 3. Part (b): should the firm raise the price?</h4>
+<p>$\lvert E_d \rvert = 4 &gt; 1$: the demand is <strong>elastic</strong>. A price rise of 1% lowers the quantity sold by about 4%, so total income ($p \cdot q$) <strong>falls</strong> (topic 5.2.2.pdf, p. 3). The firm should <strong>not</strong> raise the price; if anything, a price cut would raise income.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check with the revenue function:</strong> $I(p) = p\,(25{,}000 - 40\,p)$, so $dI/dp = 25{,}000 - 80\,p$, which at $p = 500$ is $25{,}000 - 40{,}000 = -15{,}000 &lt; 0$: income falls when the price rises. ✓</li><li><strong>Check with a small change:</strong> at $p = 501$, $q = 4{,}960$ and $I = 2{,}484{,}960$ m.u., below $I(500) = 2{,}500{,}000$ m.u. ✓</li><li><strong>Check against the official key</strong> (PED Exercises SOL.pdf, p. 3): $q = 5{,}000$ units, $\eta = -40 \times 500/5{,}000 = -4$, demand elastic, and a price rise would lower total revenue. Same results.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-4">
+        <span class="problem-tag">Exercise 4 · Multiple choice</span>
+        <h2 class="problem-title">Exercise 4 — Change in quantity after a price cut</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf#page=2" target="_blank" rel="noopener">Original statement · Elasticity exercises STATEMENTS.pdf, p. 2</a>
+        <div class="statement-box">
+<p>If a producer lowers the prices by 20% in a given good, knowing that the elasticity of demand with respect to price is 1.5, how much do you estimate the quantity demanded will vary (as a percentage)?</p>
+<p>a) 15% b) 30% c) 45% d) 5%</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>Price change $\%\Delta P = -20\%$; price elasticity $\lvert E_d \rvert = 1.5$. From the definition $E_d = \%\Delta Q / \%\Delta P$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a>; topic 5.2.2.pdf, p. 2), $\%\Delta Q = E_d \cdot \%\Delta P$.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Percentage change in quantity</h4>
+<p>With the sign of the law of demand, $E_d = -1.5$:</p>
+<div class="math-block">$$\%\Delta Q = E_d \cdot \%\Delta P = (-1.5) \times (-20\%) = +30\%$$</div>
+<p>The quantity demanded rises by <strong>30%</strong>: answer <strong>b)</strong>.</p>
+<h4 class="step-title">Step 2. Why the other options are wrong</h4>
+<ul><li>a) 15% would need $\lvert E_d \rvert = 0.75$.</li><li>c) 45% would need $\lvert E_d \rvert = 2.25$, or a 30% price cut.</li><li>d) 5% would need $\lvert E_d \rvert = 0.25$, an inelastic demand.</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Meaning:</strong> demand is elastic ($1.5 &gt; 1$), so the quantity changes more, in percentage, than the price.</li><li><strong>Check against the official key</strong> (PED Exercises SOL.pdf, p. 3): answer b), $20\% \times 1.5 = 30\%$. Same answer.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-5">
+        <span class="problem-tag">Exercise 5 · Multiple choice</span>
+        <h2 class="problem-title">Exercise 5 — Elastic demand and the seller's income</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf#page=2" target="_blank" rel="noopener">Original statement · Elasticity exercises STATEMENTS.pdf, p. 2</a>
+        <div class="statement-box">
+<p>When the price elasticity of demand for a normal good is relatively elastic:</p>
+<p>a) A reduction in the price of the good involves obtaining a higher income by the offerer. b) A reduction in the price of the good involves obtaining a lower income by the offerer. c) A reduction of prices does not alter the amount of income by the offerer. d) None of the other answers is correct.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>"Relatively elastic" means $\lvert E_d \rvert &gt; 1$ (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a>). The seller's income is $I = P \cdot Q$; its reaction to a price change is given by the table of topic 5.2.2.pdf, p. 3.</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Effect of a price cut on income</h4>
+<p>With elastic demand, a 1% fall in price raises the quantity demanded by more than 1%. In $I = P \cdot Q$ the rise of $Q$ outweighs the fall of $P$, so income <strong>rises</strong> (topic 5.2.2.pdf, p. 3). Answer <strong>a)</strong>.</p>
+<p>A short numerical illustration with $\lvert E_d \rvert = 2$: a 5% price cut raises the quantity by about 10%, and income changes by the factor $0.95 \times 1.10 = 1.045$, a 4.5% rise.</p>
+<h4 class="step-title">Step 2. Why the other options are wrong</h4>
+<ul><li>b) describes <strong>inelastic</strong> demand ($\lvert E_d \rvert &lt; 1$), where a price cut lowers income.</li><li>c) describes <strong>unit elastic</strong> demand ($\lvert E_d \rvert = 1$), where income does not change.</li><li>d) is wrong because a) is correct.</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check against the official key</strong> (PED Exercises SOL.pdf, p. 3): answer a). Same answer.</li></ul>
+        </div>
+      </section>
+
+      <section class="problem-box" id="exercise-6">
+        <span class="problem-tag">Exercise 6 · Multiple choice</span>
+        <h2 class="problem-title">Exercise 6 — Substitute goods from the cross effects</h2>
+        <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf#page=2" target="_blank" rel="noopener">Original statement · Elasticity exercises STATEMENTS.pdf, p. 2</a>
+        <div class="statement-box">
+<p>If when the price of a good "X" is reduced, an increase is induced in the quantity demanded of good "X" itself, as well as a decrease in the quantity demanded of good "Y", we say that "X" and "Y" are:</p>
+<p>a) Complementary b) Substitutes c) Normal goods d) None of the previous</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Data and model</h3>
+<p>The price of X falls, the demand for X rises and the demand for Y falls. The <strong>cross elasticity</strong> $E_{YX} = \%\Delta Q_Y / \%\Delta P_X$ is positive for substitutes and negative for complements (topic 5.2.2.pdf, p. 5).</p>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Solution</h3>
+<h4 class="step-title">Step 1. Sign of the cross elasticity</h4>
+<p>The price of X falls ($\%\Delta P_X &lt; 0$) and the quantity of Y falls ($\%\Delta Q_Y &lt; 0$):</p>
+<div class="math-block">$$E_{YX} = \frac{\%\Delta Q_Y}{\%\Delta P_X} = \frac{(-)}{(-)} &gt; 0$$</div>
+<p>A positive cross elasticity means <strong>substitutes</strong>: answer <strong>b)</strong>. In words, X became cheaper and buyers moved from Y to X (topic 5.2.2.pdf, p. 5).</p>
+<h4 class="step-title">Step 2. Why the other options are wrong</h4>
+<ul><li>a) Complementary goods would see the demand for <strong>both</strong> rise when the price of X falls.</li><li>c) "Normal good" describes the reaction of a good to the buyers' income, not to the price of another good, and the statement gives no income change.</li><li>d) is wrong because b) is correct.</li></ul>
+        </div>
+        <div class="phase-block">
+          <h3 class="phase-title">Checks and official key</h3>
+<ul><li><strong>Check against the official key</strong> (PED Exercises SOL.pdf, p. 4): answer b). Same answer.</li></ul>
+        </div>
+      </section>
+
+      <footer class="topic-nav">
+        <a href="index.html">← Back to Problems Hub</a>
+        <a href="../teoria/topic-5.html">Back to Topic 5 Theory →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

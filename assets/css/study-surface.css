@@ -692,6 +692,14 @@ html[data-theme="print"] .surface-panel {
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) :is(.m3-readouts dd, .m3-title, .m3-control output) {
     color: var(--study-text);
   }
+
+  /* The deep crimson of the force vectors (#be123c, tools/figures/em_th/t6-t8.py and the rigid body
+     solutions) is drawn for paper; on a dark card its arrows and labels nearly vanish. Under a dark
+     theme the arrows take a lighter rose (above 3:1) and their labels a pale one (above 7:1). */
+  html[data-theme="dark"] svg :is(line, path, polyline, polygon, circle, ellipse, rect)[stroke="#be123c"] { stroke: #fb7185; }
+  html[data-theme="dark"] svg :is(path, polygon, circle, ellipse, rect)[fill="#be123c"] { fill: #fb7185; }
+  html[data-theme="dark"] svg :is(text, tspan)[fill="#be123c"],
+  html[data-theme="dark"] svg g[fill="#be123c"] :is(text, tspan) { fill: #fecdd3; }
 }
 
 /* ==========================================================================
@@ -713,8 +721,11 @@ html[data-theme="print"] .surface-panel {
    10. FIGURES (RASTER) AND THE QUOTE CARD
    The official figures are PNGs on a pure white canvas: a glaring slab on a
    cream page and worse on charcoal. Light palettes multiply them into the
-   surface (white becomes the surface colour, ink stays ink); charcoal inverts
-   the lightness of the ink (hue is rotated back) and screens it onto the card.
+   surface (white becomes the surface colour, ink stays ink). Charcoal keeps
+   every figure in its real colours on its own paper (a light mat behind
+   transparent PNGs too), dimmed so it does not glare: inverting the lightness
+   and screening it onto the card lost every light detail of the figures
+   (sphere outlines, pale fills, the grey of micrographs) and washed out colours.
    The image files are untouched and the print layout ignores all of this.
    The quote card's copy button and its "Copied!" notice used white on cyan or
    green; under a palette they take the palette's text/background pair.
@@ -725,8 +736,9 @@ html[data-theme="print"] .surface-panel {
   }
 
   html[data-surface="charcoal"][data-theme="dark"] :is(figure, .statement-figure) img {
-    filter: invert(1) hue-rotate(180deg) brightness(0.92);
-    mix-blend-mode: screen;
+    background: #f4f4f2;
+    border-radius: 8px;
+    filter: brightness(0.86) contrast(1.04);
   }
 
   html[data-surface]:not([data-surface="default"]):not([data-theme="print"]) .ae-quote-btn:hover {
@@ -893,5 +905,18 @@ html[data-theme="print"] .surface-panel {
     font-family: var(--font-body, "Newsreader", Georgia, serif); font-size: 0.95rem; font-weight: 600;
   }
   .pc-bar__btn:hover { border-color: var(--accent); }
+
+  /* Subtle gold constellation seal on the PDF download bar (screen only, print.css untouched) */
+  .pdf-bar-label {
+    display: inline-flex; align-items: center; gap: 7px;
+    --sideris-seal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='96 96 832 832'%3E%3Cpath d='M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24 M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21' fill='none' stroke='black' stroke-width='20' stroke-linecap='round'/%3E%3Cpolyline points='652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738' fill='none' stroke='black' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='652' cy='286' r='26' fill='black'/%3E%3Ccircle cx='512' cy='212' r='30' fill='black'/%3E%3Ccircle cx='368' cy='290' r='24' fill='black'/%3E%3Ccircle cx='392' cy='430' r='28' fill='black'/%3E%3Ccircle cx='632' cy='594' r='26' fill='black'/%3E%3Ccircle cx='652' cy='736' r='30' fill='black'/%3E%3Ccircle cx='510' cy='812' r='26' fill='black'/%3E%3Ccircle cx='368' cy='738' r='28' fill='black'/%3E%3Cpath d='M 512,456 Q 521,503 568,512 Q 521,521 512,568 Q 503,521 456,512 Q 503,503 512,456 Z' fill='black'/%3E%3C/svg%3E");
+  }
+  .pdf-bar-label::before {
+    content: ""; width: 16px; height: 16px; flex: none;
+    background-color: #E1C170;
+    -webkit-mask: var(--sideris-seal) center / contain no-repeat;
+    mask: var(--sideris-seal) center / contain no-repeat;
+  }
+  html[data-theme="light"] .pdf-bar-label::before { background-color: #9a6e17; }
 }
 @media print { .pc-toggle, .pc-bar { display: none !important; } }

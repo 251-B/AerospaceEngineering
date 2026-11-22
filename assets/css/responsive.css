@@ -18,4 +18,7 @@
 
   /* Long URLs printed in the text break instead of widening the page. */
   main p, main li { overflow-wrap: break-word; }
+
+  /* Flex section headings cannot wrap a title that mixes text and formulas; flow them as text. */
+  h2.section-heading { display: block; }
 }

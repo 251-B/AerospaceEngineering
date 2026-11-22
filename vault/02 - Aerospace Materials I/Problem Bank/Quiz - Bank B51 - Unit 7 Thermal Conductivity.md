@@ -6,14 +6,14 @@ title: "Thermal conductivity and expansion"
 category: mt2_test_block
 unit: 7
 concepts:
-  - u7-linear-expansion-calc
+  - u7-expansion-bonding-strength
   - u7-expansion-bonding-well
   - u7-conductivity-mechanisms
   - u7-fourier-law-calc
   - u7-conductivity-defects-temperature
   - u7-wiedemann-franz
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 15, Slides 36, 38 and 40-43."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including an adaptation of Q1a from the June 2016 final exam. Content and data from Session 15, Slides 36, 38 and 40-43."
 tags:
   - problem-bank
   - midterm-2
@@ -23,39 +23,39 @@ tags:
 
 # Bank B51 — Thermal conductivity and expansion
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 36, 38 and 40-43.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including an adaptation from the June 2016 final exam (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 36, 38 and 40-43.
 
-## Q51.1 Temperature rise that closes a gap
+## Q51.1 Atomic bonding strength and thermal expansion
 
 - id: B51-Q1
-- concept_id: u7-linear-expansion-calc
-- format: numeric
-- asks: application
-- calc: 9.0/(12.0e-6*25000)
+- concept_id: u7-expansion-bonding-strength
+- format: cause-effect
+- asks: cause
+- origin: official-exam
 
-A 25.0 m bar of 1025 steel ($\alpha = 12.0\times10^{-6}$ °C⁻¹, Slide 38) is laid at 20 °C, fixed at one end, with a 9.0 mm gap at the other. Determine the temperature rise that closes the gap:
+With an increase in atomic bonding strength across different solid materials, the linear coefficient of thermal expansion ($\alpha$) generally:
 
-a) 15.0 °C
-b) 22.5 °C
-c) 30.0 °C
-d) 50.0 °C
+a) decreases, because stronger bonds produce a deeper potential energy well with smaller spacing shifts
+b) increases, because stronger bonds store more energy and widen the interatomic spacing faster
+c) stays unchanged, because thermal expansion is governed by density rather than bond strength
+d) increases, because stiffer covalent and ionic bonds expand more rapidly upon heating
 
 ### Answer
 
-c
+a
 
 ### Explanation
 
-Only the free end moves, so the gap closes when $\Delta l = \alpha\,l_0\,\Delta T = 9.0$ mm (Slide 36): $\Delta T = 9.0/(12.0\times10^{-6}\times25\,000) = 30.0$ °C.
+Session 15, Slides 36-37 (and June 2016 final, Q1a): stronger atomic bonding corresponds to a deeper, narrower potential energy well; raising temperature produces a smaller increase in mean interatomic spacing, so $\alpha$ is lower (as shown by metals with higher melting temperatures having lower $\alpha$).
 
-- a) The gap is halved, as if the bar grew into it from both ends; the fixed end does not move.
-- b) The coefficient of 316 stainless steel, $16.0\times10^{-6}$ °C⁻¹, is read from the next row of the table: $9.0/(16.0\times10^{-6}\times25\,000) = 22.5$ °C.
-- d) The 20 °C of laying is added to the rise: 50.0 °C is the temperature at which the gap closes, not the rise asked for.
+- b) Inverts the relationship between bond energy and thermal expansion: deeper wells shift less in mean spacing for a given rise in thermal energy.
+- c) Ignores the atomic origin of expansion: $\alpha$ depends directly on the depth and asymmetry of the interatomic bonding curve, not on mass density.
+- d) Inverts both trend and class behaviour: strong covalent/ionic ceramics typically have lower $\alpha$ than weakly bonded polymers.
 
 ### Source
 
-Session 15, Slides 36 and 38.
+MATERIALS_FINALEXAM_2016_EXTRA_SOL.pdf, p. 1 Q1a; Session 15, Slides 36-37.
 
 ## Q51.2 Strong bonding and expansion
 
@@ -125,7 +125,7 @@ Session 15, Slide 40.
 - asks: calculation
 - calc: 80*(120-80)/0.010
 
-An iron plate 10 mm thick ($k = 80$ W/(m·K), Slide 38) has one face at 120 °C and the other at 80 °C. Determine the heat flux through it in steady state:
+An iron plate 10 mm thick ($k = 80$ W/(m·K)) has one face at 120 °C and the other at 80 °C. Determine the heat flux through it in steady state:
 
 a) $3.20\times10^{1}$ W/m²
 b) $3.20\times10^{2}$ W/m²
@@ -276,7 +276,7 @@ Session 15, Slide 40.
 - format: ordering
 - asks: comparison
 
-Order polystyrene, soda-lime glass, iron and copper by increasing thermal conductivity (Slide 41).
+Order polystyrene, soda-lime glass, iron and copper by increasing thermal conductivity:
 
 a) copper, iron, soda-lime glass, polystyrene
 b) soda-lime glass, polystyrene, iron, copper

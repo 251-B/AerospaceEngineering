@@ -30,8 +30,8 @@ An equilateral triangle of side $L$ and weight $W$ initially contains air at the
 
 Translated from the Spanish original. The triangle is a long prism (a two-dimensional problem): $W$ and every area are per unit length normal to the paper.
 
-![[attachments/FM-T5/fs6-statement.svg]]
-*Statement figure (redrawn from fluid_statics_6.pdf, p. 1): equilateral triangle of side $L$ with an orifice in the lower side; its base is at the depth $H$ below the outer free surface and the inner level is $h$ below it*
+![[attachments/FM-T5/fs6-statement.png]]
+*Statement figure: equilateral triangle of side $L$ with an orifice in its lower side; the base is at the depth $H$ below the outer free surface and the inner level is $h$ below it. Copied from fluid_statics_6.pdf, p. 1.*
 
 Source: fluid_statics_6.pdf (pages 1-2, sheet of 06-09-2008). Notes.pdf, Chapter 5: Eqs. 5.10, 5.15 and 5.18.
 

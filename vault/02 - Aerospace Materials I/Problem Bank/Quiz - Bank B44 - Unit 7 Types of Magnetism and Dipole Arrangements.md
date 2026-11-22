@@ -13,7 +13,7 @@ concepts:
   - u7-ferrimagnetism
   - u7-magnetism-classification
 difficulty: 1
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content from Session 15, Slides 5-13."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including Q9 of that paper (paramagnetic dipoles before an external field). Content from Session 15, Slides 5-13."
 tags:
   - problem-bank
   - midterm-2
@@ -23,8 +23,8 @@ tags:
 
 # Bank B44 — Types of magnetism and dipole arrangements
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 5-13.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including an official Assessment Test II item (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 5-13.
 
 ## Q44.1 Dipoles of a ferromagnet without a field
 
@@ -176,36 +176,36 @@ Slide 11: ferrimagnetism is present in ceramic materials (ferrites, garnets and 
 
 Session 15, Slides 11 and 13.
 
-## Q44.6 Magnetization of a diamagnetic metal
+## Q44.6 Paramagnetic dipoles before an external field
 
 - id: B44-Q6
-- concept_id: u7-diamagnetism
-- format: numeric
-- asks: calculation
-- calc: -1.2e-5*8.0e5
+- concept_id: u7-paramagnetism
+- format: choose-figure
+- asks: classification
+- origin: official-exam
 
-A diamagnetic metal with susceptibility $\chi_m = -1.2\times10^{-5}$ is placed in a field $H = 8.0\times10^5$ A/m. Determine its magnetization:
+Which picture describes a paramagnetic material before application of an external field?
 
-a) $-6.67\times10^{10}$ A/m
-b) $-9.60$ A/m
-c) $-1.21\times10^{-5}$ A/m
-d) $-1.50\times10^{-11}$ A/m
+a) ![[attachments/MAT-MT2/u7-dip-1.svg]]
+b) ![[attachments/MAT-MT2/u7-dip-2.svg]]
+c) ![[attachments/MAT-MT2/u7-dip-4.svg]]
+d) ![[attachments/MAT-MT2/u7-dip-3.svg]]
 
 ### Answer
 
-b
+a
 
 ### Explanation
 
-$M = \chi_m H$ (Slide 4): $M = -1.2\times10^{-5}\times8.0\times10^5 = -9.60$ A/m. The minus sign says that the induced magnetization opposes the field (Slide 6).
+Session 15, Slides 8 and 13: a paramagnetic material has permanent magnetic dipoles that are randomly oriented in the absence of an external magnetic field, giving no net magnetization until a field aligns them (picture a).
 
-- a) $H$ divided by $\chi_m$ instead of multiplied: $8.0\times10^5/(-1.2\times10^{-5}) = -6.67\times10^{10}$ A/m, a magnetization far above that of any ferromagnet.
-- c) The product is multiplied again by $\mu_0$, mixing $M$ with the induction term $\mu_0 M$: $-9.60\times1.257\times10^{-6} = -1.21\times10^{-5}$.
-- d) $\chi_m$ divided by $H$: $-1.2\times10^{-5}/8.0\times10^5 = -1.50\times10^{-11}$.
+- b) Parallel permanent dipoles of equal length represent a ferromagnetic material within a domain.
+- c) Antiparallel permanent dipoles of unequal magnitude represent a ferrimagnetic ceramic, leaving a net moment.
+- d) Antiparallel permanent dipoles of equal magnitude represent an antiferromagnetic material, with zero net moment.
 
 ### Source
 
-Session 15, Slides 4-6.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 3 Q9 (also MATERIALS_SECONDPARTIAL_2018.docx, Q9; MATERIALS_THIRDPARTIAL_2020_V2.pdf, p. 3 Q9); Session 15, Slides 8 and 13.
 
 ## Q44.7 Paramagnet in an applied field
 
@@ -237,14 +237,14 @@ Slide 8 draws the paramagnetic material twice: random permanent dipoles at $H = 
 
 Session 15, Slides 6 and 8.
 
-## Q44.8 A diamagnetic material of the slides
+## Q44.8 Diamagnetic material example
 
 - id: B44-Q8
 - concept_id: u7-magnetism-classification
 - format: identify
 - asks: classification
 
-Which of the following materials is listed on the slides as diamagnetic?
+Which of the following materials is diamagnetic?
 
 a) Al
 b) Ni

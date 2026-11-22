@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96 96 832 832" width="256" height="256">
+  <path d="M 398.51,379.43 A 355.00,160.00 -14.0 0 1 652.50,634.24" fill="none" stroke="#E1C170" stroke-opacity="0.92" stroke-width="8.5" stroke-linecap="round"/>
+  <path d="M 624.34,644.98 A 355.00,160.00 -14.0 0 1 370.40,390.21" fill="none" stroke="#E1C170" stroke-opacity="0.92" stroke-width="8.5" stroke-linecap="round"/>
+  <polyline fill="none" stroke="#E1C170" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" points="652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738"/>
+  <circle cx="652" cy="286" r="14.3" fill="#E1C170"/>
+  <circle cx="512" cy="212" r="17.5" fill="#E1C170"/>
+  <circle cx="368" cy="290" r="13.2" fill="#E1C170"/>
+  <circle cx="392" cy="430" r="16.4" fill="#E1C170"/>
+  <path d="M 512.00,468.00 Q 518.16,505.84 556.00,512.00 Q 518.16,518.16 512.00,556.00 Q 505.84,518.16 468.00,512.00 Q 505.84,505.84 512.00,468.00 Z" fill="#E1C170"/>
+  <circle cx="632" cy="594" r="15.4" fill="#E1C170"/>
+  <circle cx="652" cy="736" r="17.5" fill="#E1C170"/>
+  <circle cx="510" cy="812" r="15.4" fill="#E1C170"/>
+  <circle cx="368" cy="738" r="16.4" fill="#E1C170"/>
+  <path d="M 612.00,375.00 Q 612.85,391.15 629.00,392.00 Q 612.85,392.85 612.00,409.00 Q 611.15,392.85 595.00,392.00 Q 611.15,391.15 612.00,375.00 Z" fill="#E1C170" fill-opacity="0.95"/>
+  <path d="M 410.00,621.00 Q 410.75,635.25 425.00,636.00 Q 410.75,636.75 410.00,651.00 Q 409.25,636.75 395.00,636.00 Q 409.25,635.25 410.00,621.00 Z" fill="#E1C170" fill-opacity="0.9"/>
+  <path d="M 222.00,340.00 Q 223.00,359.00 242.00,360.00 Q 223.00,361.00 222.00,380.00 Q 221.00,361.00 202.00,360.00 Q 221.00,359.00 222.00,340.00 Z" fill="#E1C170" fill-opacity="0.92"/>
+  <path d="M 800.00,604.00 Q 800.80,619.20 816.00,620.00 Q 800.80,620.80 800.00,636.00 Q 799.20,620.80 784.00,620.00 Q 799.20,619.20 800.00,604.00 Z" fill="#E1C170" fill-opacity="0.88"/>
+  <path d="M 742.00,165.00 Q 742.65,177.35 755.00,178.00 Q 742.65,178.65 742.00,191.00 Q 741.35,178.65 729.00,178.00 Q 741.35,177.35 742.00,165.00 Z" fill="#E1C170" fill-opacity="0.78"/>
+  <path d="M 264.00,790.00 Q 264.70,803.30 278.00,804.00 Q 264.70,804.70 264.00,818.00 Q 263.30,804.70 250.00,804.00 Q 263.30,803.30 264.00,790.00 Z" fill="#E1C170" fill-opacity="0.82"/>
+  <circle cx="148" cy="224" r="4.2" fill="#E1C170" fill-opacity="0.72"/>
+  <circle cx="298" cy="176" r="5.2" fill="#E1C170" fill-opacity="0.85"/>
+  <circle cx="434" cy="146" r="4.5" fill="#E1C170" fill-opacity="0.75"/>
+  <circle cx="602" cy="154" r="3.8" fill="#E1C170" fill-opacity="0.64"/>
+  <circle cx="854" cy="240" r="4.8" fill="#E1C170" fill-opacity="0.8"/>
+  <circle cx="888" cy="560" r="4.2" fill="#E1C170" fill-opacity="0.7"/>
+  <circle cx="734" cy="700" r="5.5" fill="#E1C170" fill-opacity="0.88"/>
+  <circle cx="776" cy="824" r="4.6" fill="#E1C170" fill-opacity="0.76"/>
+  <circle cx="618" cy="868" r="3.8" fill="#E1C170" fill-opacity="0.62"/>
+  <circle cx="406" cy="864" r="5.0" fill="#E1C170" fill-opacity="0.82"/>
+  <circle cx="158" cy="676" r="4.8" fill="#E1C170" fill-opacity="0.78"/>
+  <circle cx="224" cy="692" r="5.4" fill="#E1C170" fill-opacity="0.86"/>
+  <circle cx="138" cy="456" r="3.8" fill="#E1C170" fill-opacity="0.62"/>
+  <circle cx="466" cy="314" r="3.8" fill="#E1C170" fill-opacity="0.68"/>
+  <circle cx="556" cy="710" r="3.8" fill="#E1C170" fill-opacity="0.68"/>
+  <circle cx="732" cy="386" r="4.2" fill="#E1C170" fill-opacity="0.76"/>
+  <circle cx="294" cy="540" r="4.2" fill="#E1C170" fill-opacity="0.76"/>
+</svg>

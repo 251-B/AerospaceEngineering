@@ -11,7 +11,7 @@ concepts:
   - u7-magnet-applications
   - u7-loop-microstructure-temperature
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf and of the B-H loop question of the June 2014 final; not official exercises. Content and data from Session 15, Slides 17-24."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including an adaptation of Q6B from the June 2014 final exam. Content from Session 15, Slides 17-22."
 tags:
   - problem-bank
   - midterm-2
@@ -21,8 +21,8 @@ tags:
 
 # Bank B47 — Soft and hard magnetic materials
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 17-24.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including an adaptation of Q6B from the June 2014 final exam (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 17-22.
 
 ## Q47.1 Soft magnetic materials
 
@@ -154,7 +154,7 @@ Session 15, Slides 5 and 18-19.
 - format: identify
 - asks: application
 
-Which application of the slides requires a hard magnetic material?
+Which of the following applications requires a hard magnetic material?
 
 a) Transformer cores
 b) Electric motor cores
@@ -297,20 +297,20 @@ Slide 20: the saturation magnetization is constant for a material of a given com
 
 Session 15, Slides 20-21.
 
-## Q47.10 Coercivities of a soft and a hard material
+## Q47.10 Soft vs. hard B-H loops, applications and grain size
 
 - id: B47-Q10
 - concept_id: u7-soft-hard-magnets
-- format: numeric
-- asks: comparison
-- calc: (1.21/1.257e-6)/80
+- format: topic-true
+- asks: application
+- origin: official-exam
 
-Ingot iron has $H_c = 80$ A/m and Nd₂Fe₁₄B has $\mu_0 H_c = 1.21$ T (Slide 24). Determine how many times larger the coercivity of the Nd-Fe-B magnet is ($\mu_0 = 1.257\times10^{-6}$ H/m):
+Regarding soft and hard ferromagnetic materials, their typical applications, and the effect of grain size on the hysteresis loop, which one of the following statements is TRUE:
 
-a) $1.90\times10^{-8}$ times
-b) $1.51\times10^{-2}$ times
-c) $1.20\times10^{4}$ times
-d) $1.20\times10^{5}$ times
+a) A soft magnet shows a wide loop for permanent magnets, a hard magnet shows a narrow loop for transformers, and larger grains raise coercivity
+b) A hard magnet shows a narrow loop for motor cores, a soft magnet shows a wide loop for permanent magnets, and larger grains raise permeability
+c) A soft magnet shows a narrow loop for transformer cores, a hard magnet shows a wide loop for permanent magnets, and larger grains lower coercivity
+d) A soft magnet shows a narrow loop for permanent magnets, a hard magnet shows a wide loop for transformers, and larger grains raise saturation magnetization
 
 ### Answer
 
@@ -318,14 +318,14 @@ c
 
 ### Explanation
 
-$H_c(\text{NdFeB}) = 1.21/1.257\times10^{-6} = 9.63\times10^5$ A/m, and $9.63\times10^5/80 = 1.20\times10^4$: the hard magnet resists demagnetization about ten thousand times more than the soft iron.
+Session 15, Slides 18-21 (and June 2014 final, Q6B): soft ferromagnets have narrow $B$-$H$ loops (low $H_c$, low hysteresis loss) suited to alternating-field applications such as transformer cores, whereas hard ferromagnets have wide loops (high $H_c$, high resistance to demagnetization) suited to permanent magnets. Increasing grain size decreases grain-boundary area so Bloch walls move more easily, increasing permeability and lowering coercivity and remanence.
 
-- a) $\mu_0 H_c$ multiplied by $\mu_0$ instead of divided: $1.21\times1.257\times10^{-6}/80 = 1.90\times10^{-8}$.
-- b) The value in tesla is divided by the value in A/m without converting: $1.21/80 = 1.51\times10^{-2}$.
-- d) $\mu_0$ taken as $1.257\times10^{-7}$ H/m (exponent slip): $1.20\times10^5$.
+- a) Swaps soft and hard loops/applications and inverts the grain-size effect on coercivity.
+- b) Swaps soft and hard loops/applications, even though the grain-size trend for permeability is right.
+- d) Swaps the applications of soft and hard magnets and wrongly claims grain size changes saturation magnetization (which depends on composition, Slide 20).
 
 ### Source
 
-Session 15, Slides 18 and 24.
+MATERIALS_FINALEXAM_2014_EXTRA.pdf, Q6B; Session 15, Slides 18-21.
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

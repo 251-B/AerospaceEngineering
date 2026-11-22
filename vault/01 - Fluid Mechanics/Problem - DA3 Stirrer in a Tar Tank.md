@@ -33,8 +33,8 @@ A large container of diameter $D = 10$ m contains a volume $V = 1000$ m$^3$ of t
 
 The sheet writes "y", Spanish for "and", in the second question.
 
-![[attachments/FM-T6/da3-statement.svg]]
-*Statement figure (redrawn from DA3.pdf, section view): a container of diameter D holding a volume V of tar, free surface at p_a, with a 3-blade stirrer of height h at its bottom rotating at Ω; gravity g downward*
+![[attachments/FM-T6/da3-statement.png]]
+*Section view: a container of diameter D holding a volume V of tar, free surface at p_a, with a 3-blade stirrer of height h at its bottom rotating at Ω; gravity g downward. Copied from DA3.pdf, p. 1.*
 
 Source: DA3.pdf (page 1, statement and handwritten key). Notes.pdf, Chapter 6: Π theorem, Eq. 6.25; physical similarity, Eqs. 6.57-6.59.
 

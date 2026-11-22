@@ -13,7 +13,7 @@ concepts:
   - u4-steel-carbon-from-microstructure
   - u4-pearlite-composition
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 9 Slides 4 and 10-20 (0.022, 0.76 and 6.67 wt% C at 727 °C)."
+origen: "Includes official exam question Q6 of MATERIALS_SECONDPARTIAL_2019.pdf (p. 3); other questions written for the bank in the style of Part I of Assessment Test II. Data from Session 9 Slides 4 and 10-20 (0.022, 0.76 and 6.67 wt% C at 727 °C)."
 tags:
   - problem-bank
   - midterm-2
@@ -23,38 +23,39 @@ tags:
 
 # Bank B14 — Steel microstructures and amounts
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 9, Slides 4 and 10-20; values of the diagram: α 0.022, eutectoid 0.76 and Fe₃C 6.67 wt% C at 727 °C.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong); Q14.1 is Question 6 from `MATERIALS_SECONDPARTIAL_2019.pdf`. Content: Session 9, Slides 4 and 10-20; values of the diagram: α 0.022, eutectoid 0.76 and Fe₃C 6.67 wt% C at 727 °C.
 
-## Q14.1 Microstructure of a 1.0 C steel
+## Q14.1 Microstructure of a 0.5 C steel
 
 - id: B14-Q1
-- concept_id: u4-hypereutectoid-microstructure
+- concept_id: u4-hypoeutectoid-microstructure
 - format: complete-sentence
 - asks: classification
+- origin: official-exam
 
-Microstructure of a slowly cooled steel with 1.0 wt% C below 727 °C consists of:
+Microstructure of steel with 0.5 wt% C below 727 °C consists of:
 
-a) Pearlite with proeutectoid cementite
-b) Pearlite with proeutectoid ferrite
-c) Austenite with proeutectoid cementite
-d) Ledeburite with pearlite
+a) Pearlite matrix with proeutectoid austenite
+b) Pearlite matrix with proeutectoid ferrite
+c) Austenite matrix with proeutectoid ferrite
+d) Austenite matrix with proeutectoid cementite
 
 ### Answer
 
-a
+b
 
 ### Explanation
 
-1.0 wt% C lies between 0.76 and 2.14 wt% C: a hypereutectoid steel (Session 9, Slide 4). On crossing $A_{cm}$ proeutectoid cementite forms; at 727 °C the remaining austenite (0.76 wt% C) becomes pearlite, so below 727 °C the steel is pearlite plus proeutectoid cementite (Slides 19-20).
+0.5 wt% C is below the eutectoid composition (0.76 wt% C): a hypoeutectoid steel (Session 9, Slides 4 and 14). On cooling across $A_3$, proeutectoid ferrite precipitates first; at 727 °C the remaining austenite (0.76 wt% C) transforms into pearlite, giving a pearlite matrix with proeutectoid ferrite.
 
-- b) Proeutectoid ferrite belongs to hypoeutectoid steels, below 0.76 wt% C.
-- c) Austenite does not survive below 727 °C; it has become pearlite.
-- d) Ledeburite comes from the eutectic liquid of cast irons (above 2.14 wt% C); a steel never meets the eutectic.
+- a) Austenite does not survive below 727 °C in the Fe-Fe₃C diagram and cannot be a proeutectoid constituent here.
+- c) Austenite transforms into pearlite at 727 °C, so the matrix below 727 °C is pearlite rather than austenite.
+- d) Both parts are wrong: austenite is unstable below 727 °C, and proeutectoid cementite occurs only in hypereutectoid steels (above 0.76 wt% C).
 
 ### Source
 
-Session 9, Slides 4 and 19-20.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 3 (Part I, Q6); Session 9, Slides 4 and 14-18.
 
 ## Q14.2 Picture of a slowly cooled 1.4 C steel
 
@@ -147,36 +148,35 @@ Microconstituents use the short tie line from α (0.022) to the eutectoid (0.76 
 
 Session 9, Slides 4 and 17-18.
 
-## Q14.5 Proeutectoid cementite in a 1.0 C steel
+## Q14.5 Pearlite fraction limits in steels
 
 - id: B14-Q5
-- concept_id: u4-proeutectoid-cementite-amount
-- format: numeric
-- asks: calculation
-- calc: (1.0-0.76)/(6.67-0.76)*100
+- concept_id: u4-pearlite-composition
+- format: topic-true
+- asks: application
 
-A hypereutectoid steel of 1.0 wt% C has crossed the $A_{cm}$ line and reached 727 °C. What share of its mass is the cementite network formed before the eutectoid reaction?
+Regarding the microconstituents of slowly cooled plain-carbon steels below 727 °C, which statement is TRUE:
 
-a) 0.240 %
-b) 3.60 %
-c) 4.06 %
-d) 14.7 %
+a) A 1.0 wt% C hypereutectoid steel contains more proeutectoid cementite than pearlite
+b) Proeutectoid ferrite appears in slowly cooled steels from 0.022 up to 2.14 wt% C
+c) A eutectoid steel contains 89 % pearlite and 11 % proeutectoid cementite
+d) The pearlite mass fraction reaches 100 % at 0.76 wt% C and is zero at or below 0.022 wt% C
 
 ### Answer
 
-c
+d
 
 ### Explanation
 
-Short tie line from the eutectoid (0.76) to Fe₃C (6.67 wt% C) (Session 9, Slides 19-20): $W_{\text{Fe}_3\text{C},p} = \dfrac{1.0 - 0.76}{6.67 - 0.76} = \dfrac{0.24}{5.91} = 0.0406$.
+Session 9, Slides 12-20 and Problems T4_PhaseDiagrams II.pdf (Q10b): at 0.76 wt% C the steel is 100 % pearlite (maximum pearlite content), while at or below the ferrite solubility limit (0.022 wt% C at 727 °C) the steel never reaches the eutectoid line and contains 100 % ferrite with 0 % pearlite (minimum pearlite content).
 
-- a) 0.240 is only the arm $1.0 - 0.76$, taken as a percentage without dividing by the tie line.
-- b) $0.24/6.67 = 0.0360$ divides by the composition of cementite instead of by the tie line from 0.76.
-- d) $(1.0 - 0.022)/6.648 = 0.147$ is the total cementite (proeutectoid plus the cementite of pearlite).
+- a) At 1.0 wt% C, $W_{\text{Fe}_3\text{C},p} = (1.0 - 0.76)/(6.67 - 0.76) \approx 4.1$ %, whereas pearlite makes up 95.9 % of the mass.
+- b) Proeutectoid ferrite forms only in hypoeutectoid steels (below 0.76 wt% C); between 0.76 and 2.14 wt% C the proeutectoid phase is cementite.
+- c) 89 % and 11 % are the mass percentages of the ferrite and cementite **phases** inside pearlite, not separate microconstituents; a eutectoid steel is 100 % pearlite.
 
 ### Source
 
-Session 9, Slides 4 and 19-20.
+Session 9, Slides 12-20; Problems T4_PhaseDiagrams II.pdf, Q10b.
 
 ## Q14.6 Carbon content from the pearlite
 

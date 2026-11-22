@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 3 (II): Financial Management (II) — Accounting Indicators and Investment Decisions | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 3 (II): accounting indicators (ROA, ROE, financial leverage) and investment decisions (payback, NPV, IRR, Fisher rate). UC3M." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Blocks generated by tools/build_topic_pages.py from the vault note */
+    .article-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; }
+    .source-box { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    h2.section-heading { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .section-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    h3.sub-heading { font-size: 1.2rem; color: var(--text-heading); margin: 28px 0 12px; }
+    h4.sub-heading { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; }
+    .part-divider { text-align: center; color: var(--accent); border-bottom: none; }
+    .math-block { overflow-x: auto; margin: 18px 0; padding: 4px 0; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+    td, th { vertical-align: top; }
+    .topic-nav-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Figures generated from tools/figures/bm_t*.py */
+    [data-theme="dark"] { --text-faint: #94a3b8; }
+    [data-theme="light"] { --text-faint: #64748b; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 14px 12px; margin: 22px 0 26px; overflow-x: auto; }
+    .diagram-card svg { min-width: 520px; }
+    .diagram-caption { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 3 (II)</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-category">Topic 03 (II) · Financial Management (II)</div>
+      <h1 class="article-title">Financial Management (II): Accounting Indicators and Investment Decisions</h1>
+      <p class="article-subtitle">Return on assets and return on equity, their decomposition, financial leverage, the time value of money, payback, net present value, internal rate of return and the Fisher rate.</p>
+      <div class="source-box">
+        <span>📖 Source: Universidad Carlos III de Madrid · Topic 3_Financial Management (II).pdf (Prof. Carmen Paz-Aparicio), Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 1">1-33</a></span>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf" target="_blank" rel="noopener">Topic 3 Financial Management (II).pdf</a>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV%20IRR.pdf" target="_blank" rel="noopener">3_II_NPV IRR.pdf</a>
+      </nav>
+    </header>
+
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> two ratios measure how well a firm uses its money. ROA (EBIT over total assets) is the return of the assets, whatever their financing; ROE (net profit over equity) is the return of the owners, and debt raises it only while ROA exceeds the cost of debt: $ROE = ROA + (ROA - K_i)\,D/E$. Investment decisions are judged on cash flows, the time value of money and risk: the payback period ignores the time value of money, while the NPV (accept if positive) and the IRR (accept if above the interest rate) take it into account.</p></div>
+<p>The topic has two parts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 2">2</a>]: the accounting indicators ROA, ROE and financial leverage, and the decision of investment.</p>
+    </section>
+    <h2 class="part-divider">Part I — Accounting indicators</h2>
+    <section id="section-1">
+      <h2 class="section-heading"><span class="section-num">§ 1</span> Economic and financial structure, again [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 3">3-5</a>]</h2>
+<p>The topic opens by recalling Topic 3 (I). The <strong>economic structure</strong> is defined by the investments of the company, the use of its financial resources in goods and rights: the <strong>assets</strong>, what is owned. The <strong>financial structure</strong> is defined by the sources of financing used to carry out those investments: <strong>equity and liabilities</strong>, what is owed [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 3">3</a>]. Assets bring profitability, equity and liabilities carry a cost, and the objective is to maximize value, which requires profitability above cost [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 4">4</a>].</p>
+<p>The company therefore takes two kinds of decision [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 5">5</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Decision</th><th>What it is about</th></tr></thead><tbody><tr><td>Financing decisions</td><td>the choice of equity or debt (internal equity or self-financing from retained earnings, external equity, debt); they cover the capital structure and the dividends</td></tr><tr><td>Investing decisions</td><td>the allocation of capital to the projects from which future profits are expected; the company invests in the projects that create value (profits &gt; costs)</td></tr></tbody></table></div>
+<p>Part I measures the result of both decisions with accounting ratios; Part II is about the investing decision.</p>
+    </section>
+    <section id="section-2">
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Basic concepts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 6">6</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>$S$</td><td>sales volume</td></tr><tr><td>$A$ (or $TA$)</td><td>total assets</td></tr><tr><td>$E$</td><td>equity</td></tr><tr><td>$D$</td><td>debt</td></tr><tr><td>$K_i$ (or $i$)</td><td>cost of the debt (interest rate)</td></tr><tr><td>$T$</td><td>tax rate</td></tr><tr><td>EBIT</td><td>earnings before interest and taxes</td></tr><tr><td>PBT</td><td>profit before taxes</td></tr><tr><td>NP</td><td>net profit</td></tr></tbody></table></div>
+<p>The slide links them as follows:</p>
+<div class="math-block">$$PBT = EBIT - K_i\,D, \qquad NP = PBT\,(1 - T)$$</div>
+<div class="math-block">$$\text{Asset turnover} = \frac{S}{A}, \qquad d = \frac{D}{E}\ \text{(debt ratio)}, \qquad \text{Margin of sales} = \frac{EBIT}{S}$$</div>
+<p>Interest is the cost of the debt, $K_i$ per euro of debt, so it is subtracted from EBIT before taxes are paid.</p>
+    </section>
+    <section id="section-3">
+      <h2 class="section-heading"><span class="section-num">§ 3</span> Return on assets (ROA) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 7">7</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 9">9-12</a>]</h2>
+<p>The <strong>economic rate of return</strong> (ERR), or return on assets, measures the rate of return from the assets' point of view, the economic performance [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 7">7</a>]:</p>
+<div class="math-block">$$ROA = ERR = \frac{EBIT}{TA}$$</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T3II/roa.png" alt="Return on assets (ROA)" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. ROA = EBIT / TA measures the return from the assets&#x27; point of view and splits into the sales margin EBIT / S and the asset turnover S / TA. Copied from Topic 3 (II) slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 7">7</a>.</div>
+</div>
+<p>It answers the question: how much profit does the firm generate from the use of its assets? It depends on the characteristics of the main activity but <strong>not on the financial structure</strong>, because EBIT is taken before interest [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 7">7</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 9">9</a>]. It is usually defined before taxes, to compare firms of different countries and firms with different financing strategies [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 9">9</a>]:</p>
+<div class="math-block">$$\text{Pre-tax } ROA = \frac{EBIT}{\text{Assets}} \times 100$$</div>
+<p>To show how the operating cycle affects it, ROA is split into two factors [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 7">7</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 10">10</a>]. Multiplying and dividing by the sales $S$:</p>
+<div class="math-block">$$ROA = \frac{EBIT}{TA} = \frac{EBIT}{S}\times\frac{S}{TA} = \underbrace{m}_{\text{margin}} \times \underbrace{\text{Asset turnover}}_{\text{efficiency}}$$</div>
+<ul><li>The <strong>sales margin</strong> $m = EBIT/S$ says what part of the sales is converted into earnings.</li><li>The <strong>asset turnover</strong> $S/TA$ is the sales generated by each euro of assets, the efficiency of the assets [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 7">7</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 11">11</a>].</li></ul>
+<p>What matters in the asset turnover is its <strong>trend</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 11">11</a>]. An improvement means efficient and creative management of the assets, but it may also reveal that some assets, especially fixed assets, are not being renewed, which can cause long-term efficiency problems. A deterioration signals poor asset management, or results from an ambitious programme of asset renewal or an aggressive policy of acquisitions.</p>
+<p>Operating managers can therefore raise ROA in two ways [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 12">12</a>]: by improving the profit margin $EBIT/S$ (cost control or higher revenues), or by improving the asset turnover $S/A$ (better use of capacity).</p>
+    </section>
+    <section id="section-4">
+      <h2 class="section-heading"><span class="section-num">§ 4</span> Return on equity (ROE) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 8">8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 13">13-16</a>]</h2>
+<p>The <strong>financial rate of return</strong> (FRR), or return on equity, measures the rate of return from the point of view of the owners or shareholders [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 8">8</a>]:</p>
+<div class="math-block">$$ROE = FRR = \frac{NP}{E}$$</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T3II/roe.png" alt="Return on equity (ROE)" loading="lazy" style="max-width:min(100%,520px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. ROE = NP / E measures the return from the owners&#x27; point of view; it depends on ROA, on the level of debt D/E and on the financial leverage ROA − Ki. Copied from Topic 3 (II) slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 8">8</a>.</div>
+</div>
+<p>ROE measures how efficiently the firm employs the owners' capital and estimates the earnings per 100 € of invested equity. Unlike ROA, it includes the consequences of the financing policy, the way the assets are financed: this is the <strong>financial leverage</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 13">13</a>].</p>
+<p>ROE splits into three factors [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 14">14</a>], again by multiplying and dividing (by $S$ and by the assets $A$):</p>
+<div class="math-block">$$ROE = \frac{\text{Profit}}{E} = \frac{\text{Profit}}{S}\times\frac{S}{A}\times\frac{A}{E} = \text{margin}\times\text{efficiency}\times\text{financial leverage}$$</div>
+<p>The last factor, $A/E$, is the asset to equity ratio. These are the three levels of managerial control of ROE, and two companies may reach the same ROE through very different strategies [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 15">15</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th>Profit margin</th><th>Asset turnover</th><th>Financial leverage $A/E$</th><th>ROE</th></tr></thead><tbody><tr><td>Firm A</td><td>6 %</td><td>0.5</td><td>4</td><td>$0.06 \times 0.5 \times 4 = 12\ \%$</td></tr><tr><td>Firm B</td><td>2 %</td><td>1.5</td><td>4</td><td>$0.02 \times 1.5 \times 4 = 12\ \%$</td></tr></tbody></table></div>
+<p>Firm A earns a high margin on few sales per euro of assets; firm B a low margin on many.</p>
+<p>Why maximize ROE [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 16">16</a>]? To keep the shareholders satisfied, and to maximize the <strong>self-sustainable growth</strong> (SSG): the rate of growth a company can sustain internally without changing its financial structure $D/E$.</p>
+    </section>
+    <section id="section-5">
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Financial leverage: the link between ROA and ROE [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 8">8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 17">17-19</a>]</h2>
+<p>The fundamental relationship between both ratios is [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 8">8</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 17">17</a>]:</p>
+<div class="math-block">$$\boxed{ROE = ROA + (ROA - i)\,\frac{D}{E}}, \qquad \text{Financial leverage} = (ROA - i)\,\frac{D}{E}$$</div>
+<p>where $i = K_i$ is the interest rate of the debt. The slide states it without taxes; reading it: each euro of debt earns ROA inside the firm and costs $i$, so each euro of debt leaves $ROA - i$ to the owners, and there are $D/E$ euros of debt per euro of equity.</p>
+<p>The leverage factor depends on two elements [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 18">18</a>]: the spread $ROA - i$ and the gearing ratio $D/E$. With no debt the factor is zero and $ROE = ROA$. With debt there are three scenarios:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Scenario</th><th>Leverage factor</th><th>Effect on the owners</th></tr></thead><tbody><tr><td>$ROA &gt; i$</td><td>positive</td><td>borrowed money is invested at a rate above its cost; $ROE &gt; ROA$</td></tr><tr><td>$ROA = i$</td><td>zero</td><td>shareholders do not benefit from borrowing; $ROE = ROA$</td></tr><tr><td>$ROA &lt; i$</td><td>negative</td><td>the return to the shareholders is deteriorated by the borrowed funds; $ROE &lt; ROA$</td></tr></tbody></table></div>
+<p>Negative financial leverage comes from high interest rates together with a depressed ROA caused by rising costs, increased competition or price controls [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 18">18</a>].</p>
+<p><strong>Example [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=19" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 19">19</a>].</strong> ROA is held at 15 % while debt grows and, with it, the interest rate the firm pays:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>$D/E$</th><th>0.00</th><th>0.11</th><th>0.25</th><th>0.43</th><th>0.67</th><th>1.00</th><th>1.50</th><th>2.33</th></tr></thead><tbody><tr><td>ROA</td><td>15 %</td><td>15 %</td><td>15 %</td><td>15 %</td><td>15 %</td><td>15 %</td><td>15 %</td><td>15 %</td></tr><tr><td>$i$</td><td>9 %</td><td>10 %</td><td>11 %</td><td>12 %</td><td>13 %</td><td>14 %</td><td>15 %</td><td>16 %</td></tr><tr><td>$ROA - i$</td><td>6 %</td><td>5 %</td><td>4 %</td><td>3 %</td><td>2 %</td><td>1 %</td><td>0 %</td><td>−1 %</td></tr><tr><td>Leverage $(ROA - i)\,D/E$</td><td>0.00 %</td><td>0.55 %</td><td>1.00 %</td><td>1.29 %</td><td>1.34 %</td><td>1.00 %</td><td>0.00 %</td><td>−2.33 %</td></tr><tr><td>ROE</td><td>15 %</td><td>15.55 %</td><td>16.00 %</td><td>16.29 %</td><td>16.34 %</td><td>16.00 %</td><td>15.00 %</td><td>12.67 %</td></tr></tbody></table></div>
+<p>For instance, at $D/E = 0.43$: leverage $= 0.03 \times 0.43 = 1.29\ \%$ and $ROE = 15 + 1.29 = 16.29\ \%$. More debt helps only up to a point: as the interest rate climbs towards ROA the gain shrinks, and once $i$ passes ROA debt lowers ROE below ROA.</p>
+    </section>
+    <h2 class="part-divider">Part II — The decision of investment</h2>
+    <section id="section-6">
+      <h2 class="section-heading"><span class="section-num">§ 6</span> Investment decisions [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=20" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 20">20-22</a>]</h2>
+<p>Investment decisions shape the economic structure, the assets, which may be real or financial. Any investment project should generate enough profitability to cover, at least, the remuneration of all the resources the company uses [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=20" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 20">20</a>].</p>
+<p>A project is valued from three ingredients [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=21" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 21">21</a>]: its <strong>cash flows</strong> (cash inflows − cash outflows), the <strong>time value of money</strong> and its <strong>risk</strong>. The interest rate that prices money is built as [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 22">22</a>]:</p>
+<div class="math-block">$$\text{Interest rate} = \text{risk-free rate} + \text{inflation} + \text{risk premium}$$</div>
+    </section>
+    <section id="section-7">
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Notes on financial mathematics [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 23">23-24</a>]</h2>
+<p>To <strong>capitalize</strong> is to compute the future value (FV) of an amount invested now; to <strong>discount</strong> (bring up to date) is to compute the present value (PV) of an amount received in the future [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 23">23</a>]. For one period the compound factor is $(1+i)$ and the discount factor $1/(1+i)$; for $n$ periods [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 24">24</a>]:</p>
+<div class="math-block">$$\text{Capitalization: } C_n = C_0\,(1+i)^n, \qquad \text{Discounting: } C_0 = C_n\,\frac{1}{(1+i)^n} = \frac{C_n}{(1+i)^n}$$</div>
+<p>Each period multiplies the capital by $(1+i)$, so $n$ periods multiply it by $(1+i)^n$; discounting undoes that product.</p>
+<p><strong>Examples [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 24">24</a>].</strong> Future value of 1,000 € available today at $i = 5\ \%$:</p>
+<div class="math-block">$$C_1 = 1{,}000\,(1.05) = 1{,}050\ \text{€}, \quad C_2 = 1{,}000\,(1.05)^2 = 1{,}102.50\ \text{€}, \quad C_3 = 1{,}000\,(1.05)^3 = 1{,}157.63\ \text{€}$$</div>
+<div class="callout callout-warning"><div class="callout-title">Erratum in the slide</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 24">24</a> prints $C_2 = 1.105{,}5$. The product is $1{,}000 \times 1.1025 = 1{,}102.50$ €; $C_3 = 1{,}157.63$ € (printed $1.157{,}62$, truncated) follows from it, since $1{,}102.50 \times 1.05 = 1{,}157.625$.</p></div>
+<p>Present value at $i = 10\ \%$ of 5,000 € in year 4 and of 10,000 € in year 8:</p>
+<div class="math-block">$$C_0 = \frac{5{,}000}{(1.1)^4} = \frac{5{,}000}{1.4641} = 3{,}415\ \text{€}, \qquad C_0 = \frac{10{,}000}{(1.1)^8} = \frac{10{,}000}{2.1436} = 4{,}665\ \text{€}$$</div>
+    </section>
+    <section id="section-8">
+      <h2 class="section-heading"><span class="section-num">§ 8</span> The investment project and its variables [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 25">25-26</a>]</h2>
+<p>An investment project is a time line: an initial payment $A$ at $t = 0$ and then the cash flows $CF_1, CF_2, \dots, CF_n$, where each cash flow is the inflows minus the outflows of its period, $CF_t = C_t - P_t$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 25">25</a>]. It is valued with five variables [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=26" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 26">26</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Variable</th><th>Meaning</th></tr></thead><tbody><tr><td>$A$</td><td>initial payment, the size of the investment</td></tr><tr><td>$C_t$</td><td>cash inflows (collections) generated during the life of the project</td></tr><tr><td>$P_t$</td><td>cash outflows (payments) generated during the life of the project</td></tr><tr><td>$n$</td><td>duration or life of the project, in periods</td></tr><tr><td>$i$</td><td>interest rate: price of money, inflation, risk</td></tr></tbody></table></div>
+    </section>
+    <section id="section-9">
+      <h2 class="section-heading"><span class="section-num">§ 9</span> Payback period [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 27">27</a>]</h2>
+<p>The <strong>payback period</strong> is the time the cash inflows need to repay the original outlay. It is obtained from the cash flows and the initial investment, and it <strong>does not take into account the time value of money</strong>. It also ignores the cash flows after the payback period and when the cash flows are generated: it is a liquidity criterion and says nothing about value creation [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 27">27</a>].</p>
+<p><strong>Example [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 27">27</a>].</strong> Outlay 400; cash flows 100, 150, 80, 70, 20 and 50 in years 1 to 6. The slide gives the data only; accumulating the cash flows year by year:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Year</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead><tbody><tr><td>Cash flow</td><td>100</td><td>150</td><td>80</td><td>70</td><td>20</td><td>50</td></tr><tr><td>Accumulated</td><td>100</td><td>250</td><td>330</td><td>400</td><td>420</td><td>470</td></tr></tbody></table></div>
+<p>The accumulated inflows reach the outlay of 400 at the end of year 4, so the payback period is <strong>4 years</strong>. The 70 received after year 4 do not change it.</p>
+    </section>
+    <section id="section-10">
+      <h2 class="section-heading"><span class="section-num">§ 10</span> Net present value (NPV) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 28">28-30</a>]</h2>
+<p>The <strong>net present value</strong> of a project is the total present value of the series of cash flows it generates minus the outlay needed to carry it out. It indicates how much value the project adds to the firm, and it takes the time value of money into account [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 28">28</a>]. Discounting each cash flow with the factor of Section 7:</p>
+<div class="math-block">$$\boxed{NPV = -A + \frac{CF_1}{1+i} + \frac{CF_2}{(1+i)^2} + \dots + \frac{CF_n}{(1+i)^n} = -A + \sum_{t=1}^{n}\frac{CF_t}{(1+i)^t}}$$</div>
+<p>The decision rule [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=29" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 29">29</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>NPV</th><th>Decision</th></tr></thead><tbody><tr><td>$NPV &gt; 0$</td><td>the project may be accepted</td></tr><tr><td>$NPV &lt; 0$</td><td>the project may be rejected</td></tr><tr><td>$NPV = 0$</td><td>indifferent: the project adds no monetary value</td></tr></tbody></table></div>
+<p><strong>Example [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=30" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 30">30</a>]</strong> at $i = 10\ \%$, initial payment 60 in every project:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Project</th><th>$CF_1$</th><th>$CF_2$</th><th>NPV $= -60 + CF_1/1.1 + CF_2/1.21$</th><th>Slide</th></tr></thead><tbody><tr><td>A</td><td>60</td><td>0</td><td>$-60 + 54.55 + 0 = -5.45$</td><td>−5.45</td></tr><tr><td>B</td><td>60</td><td>6.6</td><td>$-60 + 54.55 + 5.45 = 0$</td><td>0</td></tr><tr><td>C</td><td>33</td><td>51</td><td>$-60 + 30.00 + 42.15 = 12.15$</td><td>12.14</td></tr><tr><td>D</td><td>35</td><td>35</td><td>$-60 + 31.82 + 28.93 = 0.74$</td><td>1.43</td></tr></tbody></table></div>
+<p>A is rejected, B is indifferent, C and D may be accepted, and C adds the most value.</p>
+<div class="callout callout-warning"><div class="callout-title">Erratum in the slide</div><p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=30" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 30">30</a> prints NPV = 1.43 for project D. With the data of the same table, $35/1.1 + 35/1.21 = 31.818 + 28.926 = 60.744$, so $NPV_D = 0.74$. The decision (accept) does not change. Project C gives 12.15 with two-decimal rounding of each term (the slide's 12.14 is a rounding difference).</p></div>
+    </section>
+    <section id="section-11">
+      <h2 class="section-heading"><span class="section-num">§ 11</span> Internal rate of return (IRR) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=31" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 31">31-32</a>]</h2>
+<p>The <strong>internal rate of return</strong> is the rate that makes the present value of all the cash flows of the investment, in and out, add up to zero [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=31" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 31">31</a>]:</p>
+<div class="math-block">$$\boxed{-A + \sum_{t=1}^{n}\frac{CF_t}{(1+IRR)^t} = 0}$$</div>
+<p>It is the NPV equation of Section 10 with the unknown rate in place of $i$. The decision rule compares it with the interest rate [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=31" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 31">31</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>IRR</th><th>Decision</th></tr></thead><tbody><tr><td>$IRR &gt; i$</td><td>the project may be accepted</td></tr><tr><td>$IRR &lt; i$</td><td>the project may be rejected</td></tr><tr><td>$IRR = i$</td><td>indifferent</td></tr></tbody></table></div>
+<p>The NPV of a project with an outlay followed by positive cash flows falls as the interest rate grows, because each term $CF_t/(1+i)^t$ shrinks, and it crosses zero exactly at the IRR [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=32" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 32">32</a>]. Hence both rules agree for one project: if $IRR &gt; i$ then $NPV &gt; 0$, and if $IRR &lt; i$ then $NPV &lt; 0$.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T3II/npv-irr.png" alt="NPV against the interest rate" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. The NPV of a project falls as the interest rate i grows and crosses zero at the IRR: if IRR &gt; i then NPV &gt; 0, if IRR &lt; i then NPV &lt; 0. Copied from Topic 3 (II) slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=32" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 32">32</a>.</div>
+</div>
+    </section>
+    <section id="section-12">
+      <h2 class="section-heading"><span class="section-num">§ 12</span> Comparing projects: the Fisher rate [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 33">33</a>]</h2>
+<p>When there are several projects [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 33">33</a>]:</p>
+<ul><li><strong>Alternative projects</strong> (only one can be carried out): choose the one with the higher NPV.</li><li><strong>Complementary projects</strong> (they can all be carried out): the value added is the sum of all the NPVs.</li></ul>
+<p>The NPV lines of two projects A and B may cross. The <strong>Fisher rate of interest</strong> $R_F$ is the interest rate for which $NPV_A = NPV_B$. On one side of $R_F$ one project has the higher NPV, on the other side the other one, so the ranking of alternative projects depends on the interest rate $i = k$ at which they are discounted; the project with the higher IRR is not necessarily the one with the higher NPV.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T3II/npv-projects.png" alt="Comparing two projects: the Fisher rate" loading="lazy" style="max-width:min(100%,620px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. The NPV lines of two projects A and B cross at the Fisher rate RF, where NPV_A = NPV_B; on each side of it a different project has the higher NPV. Copied from Topic 3 (II) slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic%203_Financial%20Management%20%28II%29.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 3 Financial Management (II).pdf at page 33">33</a>.</div>
+</div>
+    </section>
+    <section id="problems-link">
+      <div class="callout"><p><a class="end-btn" href="../problemas/topic-3-npv-irr.html">Solved exercises for this topic (investment selection, NPV and IRR, problems 1-9) →</a></p></div>
+    </section>
+
+  </main>
+
+  <div class="topic-nav-wrap">
+    <footer class="topic-nav">
+      <a href="topic-3.html">← Previous Topic: Financial Management (I)</a>
+      <a href="topic-4.html">Next Topic: The Production Function →</a>
+    </footer>
+  </div>
+
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

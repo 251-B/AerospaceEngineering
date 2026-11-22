@@ -404,29 +404,41 @@ SUBJECT_CONFIGS = {
                 "id": "unit-03-financial-management-statements",
                 "name": "Unit 3: Financial Management & Accounting Statements",
                 "theory_expected": ["Topic 3_Financial Management (I).pdf"],
-                "problems_expected": ["T3_Financial Statements_EXERCISES.pdf", "T3_Additional_EXERCISES.pdf"]
+                "problems_expected": ["T3_Financial Statements_EXERCISES.pdf", "T3_Additional_EXERCISES.pdf", "3_II_NPV IRR.pdf"]
             },
             {
-                "id": "unit-04-operations-management",
-                "name": "Unit 4: Production & Operations Management",
-                "theory_expected": ["Topic 4 Theory Slides (Production, Costs, Capacity)"],
-                "problems_expected": ["Operations & Break-even Exercises"]
+                "id": "unit-04-production-function",
+                "name": "Unit 4: The Production Function",
+                "theory_expected": ["Topic 4_ The Production Function.pdf"],
+                "problems_expected": ["BEP  OL Statements.pdf"]
             },
             {
-                "id": "unit-05-marketing-strategy",
-                "name": "Unit 5: Marketing & Commercial Strategy",
-                "theory_expected": ["Topic 5 Theory Slides (Marketing Mix, Market Analysis)"],
-                "problems_expected": ["Marketing Case Studies"]
+                "id": "unit-05-marketing-sales",
+                "name": "Unit 5: Marketing & Sales Management",
+                "theory_expected": ["Topic 5_ Marketing _ Sales Management (I+II).pdf"],
+                "problems_expected": ["Elasticity exercises STATEMENTS.pdf"]
             },
             {
-                "id": "unit-06-business-plan",
-                "name": "Unit 6: Business Plan Formulation",
+                "id": "unit-06-management-function",
+                "name": "Unit 6: The Management Function",
+                "theory_expected": ["Topic 6_ The Management Function.pdf"],
+                "problems_expected": []
+            },
+            {
+                "id": "unit-07-innovation-entrepreneurship",
+                "name": "Unit 7: Entrepreneurship & Innovation",
+                "theory_expected": ["Topic 7_Entrepreneurship  Innovation.pdf"],
+                "problems_expected": []
+            },
+            {
+                "id": "business-plan",
+                "name": "Business Plan (group project)",
                 "theory_expected": [
                     "BUSINESS PLAN_guide_26_27.pdf",
                     "Engineers  Managing_Business Plan_26-27 W1.pdf",
                     "how-to-write-a-business-plan.pdf"
                 ],
-                "problems_expected": ["Business Plan Milestones & Rubrics"]
+                "problems_expected": []
             }
         ],
         "labs_expected": [],

@@ -35,8 +35,8 @@ The submarine propulsion device schematically represented in the figure consists
 
 The subscript of the prototype thrust is blurred in the scan; it reads as $E_p$ (prototype).
 
-![[attachments/FM-T6/da7-statement.svg]]
-*Statement figure (redrawn from DA7.pdf): a nozzle of inlet area A_e and outlet area A_s with a fan inside that gives the power Ẇ to water of density ρ and viscosity μ; E is the thrust*
+![[attachments/FM-T6/da7-statement.png]]
+*A nozzle of inlet area A_e and outlet area A_s with a fan inside that gives the power Ẇ to water of density ρ and viscosity μ; E is the thrust. Copied from DA7.pdf, p. 1.*
 
 Source: DA7.pdf (page 1, exam of 17-05-2010, statement and handwritten key). Notes.pdf, Chapter 6: Π theorem, Eq. 6.25; limits, Eq. 6.55; physical similarity, Eqs. 6.57-6.59.
 

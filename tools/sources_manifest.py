@@ -18,6 +18,8 @@ from urllib.parse import quote
 BASE = ("sources", "cuatrimestre-1")
 CATEGORIES = ("teoria", "slides", "problemas", "examenes", "schedule")
 UNIT_RE = re.compile(r"^unit-(\d+)-(.+)$")
+# Top-level subject folders kept out of git (.git/info/exclude), so the web library must not link them
+UNPUBLISHED = {"business-plan"}
 OUT_REL = pathlib.Path("assets", "data", "sources.js")
 
 
@@ -69,7 +71,7 @@ def build_manifest(root):
         pdfs = [p for p in subject_dir.rglob("*") if p.is_file() and p.suffix.lower() == ".pdf"]
         for pdf in sorted(pdfs, key=lambda p: _natural_key(p.relative_to(subject_dir).as_posix())):
             parts = pdf.relative_to(subject_dir).parts
-            if _is_excluded(parts):
+            if _is_excluded(parts) or parts[0] in UNPUBLISHED:
                 continue
             item = _item(pdf, subject_dir.name, parts)
             if UNIT_RE.match(parts[0]):

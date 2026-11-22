@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extra Problems — 2nd Midterm True/False Statements | Business Management</title>
+  <meta name="description" content="True/False statements with their reasoning for the second midterm of Business Management (UC3M Aerospace Engineering), Topics 3 Part II to 7." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 940px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 900px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* Jump to exercise pills */
+    .quick-jump {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 36px;
+      padding: 14px; background: var(--bg-surface);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+    }
+    .jump-btn {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .jump-btn:hover {
+      color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft);
+    }
+
+    /* Problem Section Card */
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .problem-tag {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px;
+      border: 1px solid var(--accent-border);
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600;
+      color: var(--text-heading); margin-bottom: 16px;
+    }
+
+    .statement-box {
+      background: var(--bg-input);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .strategy-callout {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .strategy-title {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.phase-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--text-heading);
+      margin: 24px 0 10px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 0 0 18px 24px; }
+    li { margin-bottom: 6px; }
+
+    .table-container {
+      overflow-x: auto; margin: 20px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 10px 14px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .result-callout {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .result-callout-title {
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Phase blocks rendered from the vault notes */
+    .phase-block { margin: 28px 0 8px; }
+    .phase-block h4.step-title { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; font-family: var(--font-serif, Georgia, serif) !important; font-weight: 700 !important; }
+    .phase-block .table-container, .method-box .table-container { overflow-x: auto; margin: 16px 0; }
+    .phase-block td, .phase-block th, .method-box td, .method-box th { vertical-align: top; }
+    .math-block { overflow-x: auto; margin: 16px 0; }
+    .callout { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; }
+    .callout-title { font-weight: 700; color: var(--text-heading); margin-bottom: 6px; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .method-box { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 24px 16px; margin: 8px 0 40px; background: var(--bg-surface); }
+    .method-box h3 { margin-top: 22px; }
+    /* Extra problems: the 1st Midterm block, split into Theory and Problems */
+    .midterm-block { margin: 8px 0 0; }
+    .midterm-block > h2.midterm-title { font-size: 2rem; margin: 8px 0 6px; }
+    .midterm-lead { color: var(--text-body, var(--text-primary)); margin: 0 0 8px; }
+    .midterm-part { font-size: 1.6rem; margin: 44px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .midterm-part-lead { color: var(--text-body, var(--text-primary)); margin: 8px 0 18px; }
+    .midterm-part-lead a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .phase-block .prompt { font-style: italic; }
+    .problem-title { scroll-margin-top: 90px; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/mcq.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">1ST MIDTERM · PRACTICE PROBLEMS</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-category">Extra problems · 2nd Midterm · True/False</div>
+        <h1 class="article-title">2nd Midterm: True/False Statements</h1>
+        <div class="article-meta">
+          Statements on Topics 3 (Part II) to 7, in blocks of ten, in the style of the True/False exercise of the course's example exam. Each one has its answer, the short reasoning a student must write and its source. They are practice material, not official exercises; anything beyond the course slides is marked as an extension.
+        </div>
+      </header>
+
+
+<!-- EXTRA-PROBLEMS:START (generated by tools/build_problem_bank.py; edit the vault notes) -->
+      <p class="midterm-part-lead">150 True/False statements in 15 blocks of ten, on Topics 3 (Part II) to 7. Part I of the second partial is 20 statements: +0.15 points for a right answer, -0.15 for a wrong one, 0 for a blank, and in the exam no answer counts without a short written reason. Decide each statement and write your reason before you open the answer. These are practice items, not official exercises. The <a href="../simulator/index.html?exam=midterm-2">Exam simulator</a> draws them by unit, timed or corrected as you answer.</p>
+      <h2 class="mcq-unit-title" id="unit-3">Topic 3 · Investment selection (Part II) <span class="mcq-unit-count">3 blocks</span></h2>
+      <section class="problem-box" id="F01">
+        <span class="problem-tag">True/False block · Topic 3 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F01 — Investment selection criteria and the cost of capital</h4>
+        <div class="statement-box">
+<p>Ten statements on investment selection (part ii), written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S1">
+          <h3 class="phase-title">Statement 1 · What the NPV adds up</h3>
+          <div class="prompt"><p>The NPV of a project is the sum of its net cash flows minus the initial outlay, with every flow counted at its nominal value whatever the year in which it arrives.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>That sum is only the NPV at a discount rate of 0%. The NPV discounts each flow to year 0, $NPV = -A + \sum_t Q_t/(1+k)^t$, so a flow received later is worth less today.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 5 (a); Examples PDF, Exercise 5 (a).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S2">
+          <h3 class="phase-title">Statement 2 · The rate that cancels the NPV</h3>
+          <div class="prompt"><p>The internal rate of return of a project is the discount rate at which its NPV is equal to zero.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the definition used in the key: the IRR is the rate that makes the NPV equal to 0, which is why a known IRR lets one solve for the initial outlay.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercises 4 and 6.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S3">
+          <h3 class="phase-title">Statement 3 · Ranking two projects below the cost of capital</h3>
+          <div class="prompt"><p>Two mutually exclusive projects have IRRs of 9% and 7%, and the cost of capital is 9.5%. Under the IRR criterion the company should undertake the project with the 9% IRR, because it ranks first.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Ranking is not enough: a project is accepted only if its IRR exceeds the cost of capital. Both IRRs are below 9.5%, so both NPVs at 9.5% are negative and neither project is accepted.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 6 (b); 3_II_NPV IRR.pdf, Exercise 8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S4">
+          <h3 class="phase-title">Statement 4 · IRR above the discount rate</h3>
+          <div class="prompt"><p>A project with conventional cash flows (an outlay followed by positive flows) has an IRR of 10%. If it is valued at a discount rate of 7%, its NPV is positive.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The NPV of such a project falls as the rate rises and is zero at the IRR. At 7%, below the 10% IRR, it is therefore positive (IRR &gt; k).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 6.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S5">
+          <h3 class="phase-title">Statement 5 · Flows after the recovery</h3>
+          <div class="prompt"><p>The payback period takes into account every cash flow of the project, including those received after the initial outlay has been recovered.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The payback is the time it takes to recover the initial investment, so it stops counting at that moment and ignores every later flow. Two projects with the same payback can differ greatly in what they return afterwards.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercises 3 and 5 (b).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S6">
+          <h3 class="phase-title">Statement 6 · Fisher&#x27;s rate of one project</h3>
+          <div class="prompt"><p>Fisher's rate of a project is the discount rate at which the NPV of that project becomes zero.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>That is the IRR. Fisher's rate belongs to a pair of projects: it is the discount rate at which the two NPVs are equal, and it marks where the preferred project changes.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 9 (b); Examples PDF, Exercise 5 (c).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S7">
+          <h3 class="phase-title">Statement 7 · The weighted average cost of capital</h3>
+          <div class="prompt"><p>The capital cost of a company is the average of the cost of its equity and the cost of its liabilities, each weighted by its share in the financial structure.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Topic 3 defines $K_{WACC} = K_{EQ}\,E/(E+L) + K_L\,L/(E+L)$; the key of Exercise 8 uses this weighted cost as the cut-off rate for the IRR.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 3, Slide 37; 3_II_NPV_NPV IRR_solutions.pdf, Exercise 8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S8">
+          <h3 class="phase-title">Statement 8 · Is equity free</h3>
+          <div class="prompt"><p>Equity has no cost for the company, because the company does not pay interest on the funds contributed by its owners.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Every financial resource has a cost: liabilities have an explicit cost and equity an implicit (opportunity) cost, which enters the weighted average cost of capital.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 3, Slide 37; 3_II_NPV IRR.pdf, Exercise 8 (cost of equity 15%).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S9">
+          <h3 class="phase-title">Statement 9 · Raising the discount rate</h3>
+          <div class="prompt"><p>For a project made of an initial outlay followed by positive cash flows, a higher discount rate gives a lower NPV.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Each positive flow is divided by $(1+k)^t$, which grows with $k$, while the outlay at year 0 is not discounted; the NPV therefore decreases as the rate rises.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 6 (b); Examples PDF, Exercise 5 (c), table of NPVs at 0% and 8%.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F01-S10">
+          <h3 class="phase-title">Statement 10 · Equal NPVs at a zero rate</h3>
+          <div class="prompt"><p>If two projects have the same NPV at a discount rate of 0% (the same sum of net cash flows minus the outlay), then 0% is a Fisher's rate of that pair.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Fisher's rate is the rate at which both NPVs are equal; at 0% both NPVs equal their undiscounted sums, which are the same, so $r = 0\%$ solves the equation.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (c), pair A–B ($x = 1$, FR = 0%), and Exercise 6 (c).</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F06">
+        <span class="problem-tag">True/False block · Topic 3 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F06 — Cash-flow profiles, timing of flows and payback</h4>
+        <div class="statement-box">
+<p>Ten statements on investment selection (part ii), written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S1">
+          <h3 class="phase-title">Statement 1 · A negative flow after the outlay</h3>
+          <div class="prompt"><p>The payback criterion cannot be applied to a project whose net cash flow in year 1 is negative.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The payback still follows the cumulative flows: the negative flow only delays the recovery. Project X of Exercise 3 (outlay 1,200, flows −200, 300, 500, 200, 400, 400) accumulates −200, 100, 600, 800 and 1,200, so its payback is 5 years, and the key even prefers it.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV IRR.pdf, Exercise 3, and its key (Payback X = 5 years).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S2">
+          <h3 class="phase-title">Statement 2 · Same total, different timing</h3>
+          <div class="prompt"><p>Two projects require the same outlay and their flows add up to the same total, but one of them receives most of its money in year 1 and the other in year 3. At any positive discount rate, the project that receives its money earlier has the higher NPV.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Each flow is divided by $(1+k)^t$, and this factor grows with $t$ when $k &gt; 0$; moving money to an earlier year reduces the discount applied to it, so the present value of the same total is larger.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 5 (a) (each flow discounted with its own exponent); Examples PDF, Exercise 5 (a).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S3">
+          <h3 class="phase-title">Statement 3 · Where the profile meets the axes</h3>
+          <div class="prompt"><p>On a graph of the NPV against the discount rate, the profile of a project meets the vertical axis at its undiscounted net sum and the horizontal axis at its IRR.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>At $r = 0$ every discount factor is 1, so the NPV is the sum of the flows minus the outlay; the profile reaches zero at the rate that cancels the NPV, which is the IRR. These are the two columns, NPV at 0% and IRR, that the key tabulates before drawing the graph.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (c) and Exercise 6 (c), tables of NPV at 0% and IRR.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S4">
+          <h3 class="phase-title">Statement 4 · Very large discount rates</h3>
+          <div class="prompt"><p>As the discount rate grows without limit, the NPV of a project made of an outlay followed by positive flows tends to zero.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The discounted flows $Q_t/(1+k)^t$ tend to zero, but the outlay at year 0 is not discounted, so the NPV tends to minus the initial outlay, $-A$, not to zero.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (c) (schematic graph of the NPV profiles); 3_II_NPV_NPV IRR_solutions.pdf, Exercise 5 (a).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S5">
+          <h3 class="phase-title">Statement 5 · The steeper profile and the IRR</h3>
+          <div class="prompt"><p>Two projects have the same NPV at a discount rate of 0%. The one whose NPV profile falls faster as the rate rises has the lower IRR.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Both profiles start from the same point on the vertical axis, so the one that falls faster cuts the horizontal axis first, at a lower rate. In Exercise 5 of the examples, A and B both have an NPV of 100,000 at 0%; B falls faster (6,447.19 against 28,120.71 at 8%) and its IRR is lower (8.62% against 11.65%).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (b) and (c).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S6">
+          <h3 class="phase-title">Statement 6 · Payback with uneven flows</h3>
+          <div class="prompt"><p>A project requires 100,000 € and generates 20,000 €, 50,000 € and 60,000 € in years 1, 2 and 3. If each flow arrives evenly during its year, its payback period is 2.5 years.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>After two years $20{,}000 + 50{,}000 = 70{,}000$ € are recovered; the remaining 30,000 € come from the 60,000 € of year 3 in $30{,}000/60{,}000 = 0.5$ years, so the payback is 2.5 years.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 9 (a) (fraction of the year in which the outlay is recovered).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S7">
+          <h3 class="phase-title">Statement 7 · Does payback discount</h3>
+          <div class="prompt"><p>Because the payback period adds up the flows year by year until the outlay is recovered, it already takes the time value of money into account.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The payback adds the flows at their nominal value, with no discount factor; it only counts how long the recovery takes. The time value of money enters through the NPV, which divides each flow by $(1+k)^t$.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercises 3 and 5 (b) (payback from undiscounted flows) against Exercise 5 (a) (NPV).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S8">
+          <h3 class="phase-title">Statement 8 · Slightly negative NPV</h3>
+          <div class="prompt"><p>A project has an NPV of 100,000 at 0% and an NPV of −826.45 at the company's discount rate of 10%. It should be accepted, because its NPV is large at 0% and only slightly negative at 10%.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The decision is taken with the NPV at the company's own rate: a negative NPV at 10%, however small, means the project does not cover the cost of its funds (its IRR, 9.91%, is below 10%), so it is rejected. This is project A of Exercise 6 of the examples.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 6 (b).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S9">
+          <h3 class="phase-title">Statement 9 · Deferring a debt for two years</h3>
+          <div class="prompt"><p>A creditor who can invest at 5% a year is asked to defer a debt of 1,000 € for two years. The amount he should require at the end of year 2 is 1,100 €.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Capitalization is compound: $C_n = C_0(1+i)^n$, so $C_2 = 1{,}000 \times 1.05^2 = 1{,}102.50$ €. The figure 1,100 € adds the interest of the first year twice and forgets the interest earned on the interest.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 1.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F06-S10">
+          <h3 class="phase-title">Statement 10 · New debt with a constant financial structure</h3>
+          <div class="prompt"><p>A company with capital of 6,000,000, reserves of 4,800,000 and debt of 7,200,000 retains 1,200,000 of profit in year 1. To keep its financial structure unchanged, it can take on 800,000 of new debt.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Equity is $6{,}000{,}000 + 4{,}800{,}000 = 10{,}800{,}000$, 60% of the total of 18,000,000. After retaining profit equity is 12,000,000, so the total must be $12{,}000{,}000/0.6 = 20{,}000{,}000$ and the debt $0.4 \times 20{,}000{,}000 = 8{,}000{,}000$: the new debt is $8{,}000{,}000 - 7{,}200{,}000 = 800{,}000$.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 2.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F07">
+        <span class="problem-tag">True/False block · Topic 3 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F07 — Ranking conflicts, Fisher&#x27;s rate and the cut-off rate</h4>
+        <div class="statement-box">
+<p>Ten statements on investment selection (part ii), written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S1">
+          <h3 class="phase-title">Statement 1 · Reading Fisher&#x27;s rate on the graph</h3>
+          <div class="prompt"><p>On a graph of the NPV against the discount rate, the Fisher's rate of two projects is read as the horizontal coordinate of the point where their two profiles cross.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Where the profiles cross, both projects have the same NPV, which is the condition $NPV_A = NPV_B$ that defines Fisher's rate; the horizontal axis carries the discount rate, so the crossing point gives the rate.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (c); 3_II_NPV_NPV IRR_solutions.pdf, Exercise 9 (b).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S2">
+          <h3 class="phase-title">Statement 2 · The rate above which nothing is chosen</h3>
+          <div class="prompt"><p>When several mutually exclusive projects are compared, the discount rate above which no project is chosen is the lowest of their IRRs.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Above the lowest IRR the other projects can still have a positive NPV. No project is chosen only when every NPV is negative, that is above the highest IRR: 18.02% (project C) in Exercise 5 of the examples and 12.87% (project C) in Exercise 6.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercises 5 (c) and 6 (c), conclusions.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S3">
+          <h3 class="phase-title">Statement 3 · Which project lies below the crossing</h3>
+          <div class="prompt"><p>When the NPV profiles of two projects cross once at a positive Fisher's rate, the project with the higher IRR is preferred at every discount rate below that Fisher's rate.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>It is the other way round: the higher-IRR project is preferred above the Fisher's rate (as long as its NPV is positive), and below it the project with the larger NPV at 0% leads. In Exercise 5 of the examples, A is preferred to C below 4.77% even though C has the higher IRR (18.02% against 11.65%).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (c), pair A–C.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S4">
+          <h3 class="phase-title">Statement 4 · Ranking under a budget</h3>
+          <div class="prompt"><p>When a budget limits a set of independent projects that cannot be repeated, the key of the problem sheet undertakes them in decreasing order of NPV until the budget is used up.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>In Exercise 7 every project has a positive NPV at 10%, and with 40,000 € the key takes D, C and F (the three largest NPVs, outlays $13{,}000 + 12{,}000 + 15{,}000 = 40{,}000$ €).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 7.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S5">
+          <h3 class="phase-title">Statement 5 · What makes the rankings disagree</h3>
+          <div class="prompt"><p>The NPV and IRR rankings of two projects can only disagree when the projects require different initial outlays.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The timing of the flows alone can make the profiles cross. With the same outlay of 100,000 €, a project paying 120,000 € in year 1 has an IRR of 20% and an NPV of 20,000 € at 0%, while one paying 135,000 € in year 2 has an IRR of about 16.2% and an NPV of 35,000 € at 0%; below their Fisher's rate of 12.5% the NPV ranks the second first and the IRR the first.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (c) (profiles that cross); 3_II_NPV_NPV IRR_solutions.pdf, Exercise 9 (b). The figures of the reasoning are an example worked for the bank.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S6">
+          <h3 class="phase-title">Statement 6 · Independent projects</h3>
+          <div class="prompt"><p>If two projects are independent and both have a positive NPV at the cost of capital, the company should undertake only the one with the higher NPV.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Choosing only one is the rule for mutually exclusive projects ("only one can be accepted"). Independent projects are each accepted when their NPV is positive, as in Exercise 7, where every project with a positive NPV is undertaken while the budget allows.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (statement: mutually exclusive projects); 3_II_NPV_NPV IRR_solutions.pdf, Exercise 7.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S7">
+          <h3 class="phase-title">Statement 7 · Cheaper liabilities in the mix</h3>
+          <div class="prompt"><p>If a company replaces part of its equity with liabilities whose cost is lower than that of equity, and both costs stay unchanged, its capital cost falls.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>$K_{WACC} = K_{EQ}\,E/(E+L) + K_L\,L/(E+L)$ is a weighted average; moving weight from the dearer resource to the cheaper one, with the two costs fixed, lowers the average.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 3, Slide 37.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S8">
+          <h3 class="phase-title">Statement 8 · Comparing the yield with the cost of debt</h3>
+          <div class="prompt"><p>A company is financed 30% with equity at a cost of 15% and 70% with liabilities at an average cost of 8%. It should accept a project with a yield of 8.5%, because the yield exceeds the cost of the liabilities that finance most of it.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The cut-off rate is the weighted cost of all the funds, $K = 0.30 \times 15\% + 0.70 \times 8\% = 10.1\%$, not the cost of the debt alone. Since $8.5\% &lt; 10.1\%$ the project is rejected; a project yielding 18.5% would be accepted.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>3_II_NPV_NPV IRR_solutions.pdf, Exercise 8; Topic 3, Slide 37.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S9">
+          <h3 class="phase-title">Statement 9 · A pair whose only crossing is at zero</h3>
+          <div class="prompt"><p>For two two-year projects whose only Fisher's rate is 0%, one of the two projects is preferred to the other at every positive discount rate.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The two profiles meet only at $r = 0$, so for $r &gt; 0$ one stays above the other. In Exercise 6 of the examples, A and B cross at 0% and B is never preferred for $r &gt; 0$.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 6 (c), pair A–B and conclusion; Exercise 5 (c), pair A–B.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F07-S10">
+          <h3 class="phase-title">Statement 10 · The quadratic of a two-year IRR</h3>
+          <div class="prompt"><p>For a project with an outlay $A$ and flows $Q_1$ and $Q_2$ in years 1 and 2, the IRR is found by writing $x = 1 + r$ and taking the positive root of $A x^2 - Q_1 x - Q_2 = 0$.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Setting $-A + Q_1/x + Q_2/x^2 = 0$ and multiplying by $-x^2$ gives $A x^2 - Q_1 x - Q_2 = 0$; the product of its roots is $-Q_2/A &lt; 0$, so exactly one root is positive and the IRR is that root minus 1.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Examples PDF, Exercise 5 (b) ($500{,}000x^2 - 200{,}000x - 400{,}000 = 0$) and Exercise 6 (b).</p></div>
+          </details>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="unit-4">Topic 4 · The production function <span class="mcq-unit-count">3 blocks</span></h2>
+      <section class="problem-box" id="F02">
+        <span class="problem-tag">True/False block · Topic 4 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F02 — Production systems, costs and operating leverage</h4>
+        <div class="statement-box">
+<p>Ten statements on the production function, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S1">
+          <h3 class="phase-title">Statement 1 · What a Gantt chart shows</h3>
+          <div class="prompt"><p>A Gantt chart is a bar chart that normally shows the dependency relationships between the activities of a project, which makes it the preferred tool for planning complex projects.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The Gantt chart shows the scheduled start and stop dates of each step, but it normally does not show the dependency relationships between activities and it is used for non-complex projects.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 31.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S2">
+          <h3 class="phase-title">Statement 2 · Flexibility and cost</h3>
+          <div class="prompt"><p>Flexibility and cost are two objectives of the production function that can contradict each other.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The four objectives (cost, quality, time of delivery and flexibility) can conflict, and flexibility - cost is one of the pairs named by the course: making many different products in small amounts loses the savings of standard, large-scale production.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 5 and 6.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S3">
+          <h3 class="phase-title">Statement 3 · Characteristics of rigid production</h3>
+          <div class="prompt"><p>Rigid (continuous) production is characterized by flexible volumes of production, highly qualified workers and equipment for general use.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Those are the characteristics of flexible or intermittent production. Rigid production has big volumes, standard products sold at a low price and is capital intensive.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 10 and 14.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S4">
+          <h3 class="phase-title">Statement 4 · Flexible versus rigid below the crossing volume</h3>
+          <div class="prompt"><p>Below the volume at which the total cost lines of the two systems cross, a flexible production system is cheaper than a rigid one, because the rigid system starts with higher fixed costs.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The rigid system's total cost starts higher (more fixed cost) and grows more slowly (less variable cost per unit), so at low volumes (zone A) the flexible system is cheaper and at high volumes (zone B) the rigid one is.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 17.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S5">
+          <h3 class="phase-title">Statement 5 · Bottlenecks in a product layout</h3>
+          <div class="prompt"><p>In a product layout the pace of the line is set by the slowest machine, and a problem in one machine affects the whole process.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Both are disadvantages of the product layout listed by the course: time is set by the slowest machine (bottlenecks must be avoided) and a failure of one machine stops the whole flow.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 25.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S6">
+          <h3 class="phase-title">Statement 6 · Inventories under Just in Time</h3>
+          <div class="prompt"><p>Just in Time production relies on large safety inventories of finished products so that every customer request can be served at once.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Just in Time is based on requests and eliminates inventories; production is pulled by the orders, not served from stock.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 18.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S7">
+          <h3 class="phase-title">Statement 7 · Labour productivity</h3>
+          <div class="prompt"><p>Labour productivity is a total productivity index, because labour is the main factor of production of most firms.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Labour productivity (goods and services divided by labour) relates the output to one factor only, so it is a partial productivity index; the total index divides by labour, capital, raw materials and energy together.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 34.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S8">
+          <h3 class="phase-title">Statement 8 · A higher price and the break-even point</h3>
+          <div class="prompt"><p>If the selling price rises while the fixed costs and the variable cost per unit stay the same, the break-even point falls.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>$Q_0 = FC/(P - VC)$: a higher price raises the unit margin $m = P - VC$, and the same fixed costs are covered with fewer units.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 37.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S9">
+          <h3 class="phase-title">Statement 9 · Sensitivity just above the break-even point</h3>
+          <div class="prompt"><p>A firm that sells slightly more than its break-even volume sees its operating profit change by much more than 1% when its sales change by 1%.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>$OL = Q/(Q - Q^*)$: when $Q$ is just above $Q^*$ the denominator is small, so the operating leverage is large and the effect on profit is more than proportional.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 40 and 42.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F02-S10">
+          <h3 class="phase-title">Statement 10 · Margin of safety in monetary units</h3>
+          <div class="prompt"><p>The margin of safety in monetary units is the difference between the actual volume and the break-even volume multiplied by the selling price.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>In monetary units the margin of safety is $(Q - Q^*)\,m$: the units above the break-even point multiplied by the unit margin, not by the price, because each extra unit adds only its margin to the profit.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 43.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F08">
+        <span class="problem-tag">True/False block · Topic 4 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F08 — Production systems, layouts and planning</h4>
+        <div class="statement-box">
+<p>Ten statements on the production function, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S1">
+          <h3 class="phase-title">Statement 1 · What production management does</h3>
+          <div class="prompt"><p>Production (operations) management is the set of activities aimed at planning, designing, staffing and controlling the production system of a firm.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the definition of the course: a production system converts inputs into outputs, and production management plans, designs, staffs and controls that system.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 3.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S2">
+          <h3 class="phase-title">Statement 2 · The factors of production</h3>
+          <div class="prompt"><p>In the production system of the course, the factors of production that enter the transformation process are classified as land, labour and capital.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The course classifies the factors of production as creative, basic and managerial. Land, labour and capital is the classical grouping of economics, not the one of the slide.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 4.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S3">
+          <h3 class="phase-title">Statement 3 · Moving along the product-process matrix</h3>
+          <div class="prompt"><p>On the product-process matrix, moving from project production towards continuous production raises the volume produced and lowers the variability of the products.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The matrix runs from project, craft and batch to mass and continuous production: variability and flexibility grow towards the project end, and volume grows towards the continuous end.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 7.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S4">
+          <h3 class="phase-title">Statement 4 · Replacing a specialized worker</h3>
+          <div class="prompt"><p>One of the advantages of job specialization in rigid production is that a worker who leaves can be replaced easily, and the task can even be mechanized.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Easy replacement of workers (and mechanization) is listed among the advantages of job specialization, because each job position is a simple task that is quick and cheap to learn.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 11.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S5">
+          <h3 class="phase-title">Statement 5 · How a rigid factory assigns its workers</h3>
+          <div class="prompt"><p>In the organization of a rigid production factory, workers rotate between job positions and are assigned and paid according to their qualification.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Rotation and remuneration by qualification belong to flexible production. The rigid factory divides labour into different job positions, assigns them by seniority, and this leads to the bureaucratization of the company.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 12 and 15.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S6">
+          <h3 class="phase-title">Statement 6 · Craft and batch production compared</h3>
+          <div class="prompt"><p>Compared with craft production, batch production makes its products with more uniformity and in a greater quantity.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Both make a low quantity of a great variety of products, but craft production has more adaptability and less quantity, while batch production has more uniformity and more quantity (the batch size).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 23.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S7">
+          <h3 class="phase-title">Statement 7 · Why Just in Time was born</h3>
+          <div class="prompt"><p>Just in Time arose from the need to make one standard car model in very large batches, and its competitive advantage is a lower cost of the factory building.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Just in Time arose from the need to manufacture many types of automobiles in small batches under the same production process. Its competitive advantages are to manufacture high-quality products and to reduce the whole production cycle.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 18 and 19.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S8">
+          <h3 class="phase-title">Statement 8 · Balance of the lines in a functional layout</h3>
+          <div class="prompt"><p>In a functional (process) layout the lines are well balanced, because grouping similar machines together spreads the work evenly among them.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Unbalanced lines are a disadvantage of the functional layout: some are saturated and others free. Grouping similar machines gives a high use of the machines and lets operators train and supervise themselves, but it does not balance the flow.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 24.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S9">
+          <h3 class="phase-title">Statement 9 · The layout of project production</h3>
+          <div class="prompt"><p>Project production uses a fixed layout: the product stays in one place and the machinery, the materials and the workers are brought to it.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The summary of the production types pairs the project type with the fixed layout, and the fixed layout is defined by a product that does not move while the resources come to it.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 23 and 26.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F08-S10">
+          <h3 class="phase-title">Statement 10 · Order of the planning and control process</h3>
+          <div class="prompt"><p>In the basic production planning and control process, the production schedules are drawn up before the list of required materials and the route sheet.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The order is the reverse: receive the customers' orders, develop the list of required materials, develop the route sheet, and only then develop the production schedules, dispatch notices to the operators and follow up.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 28.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F09">
+        <span class="problem-tag">True/False block · Topic 4 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F09 — Efficiency, break-even point and leverage</h4>
+        <div class="statement-box">
+<p>Ten statements on the production function, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S1">
+          <h3 class="phase-title">Statement 1 · When each efficiency index is measured</h3>
+          <div class="prompt"><p>To control the efficiency of the production system, productivity is measured a priori and cost analysis a posteriori.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>It is the other way round: productivity is measured a posteriori, on what has already been produced, and cost analysis (break-even point, operating leverage) is done a priori.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 33.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S2">
+          <h3 class="phase-title">Statement 2 · What productivity depends on</h3>
+          <div class="prompt"><p>Among the factors on which productivity depends, the course lists factors of human resources and quality factors.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The productivity factors of the course are external factors, factors of capacity, product factors, factors of process design, factors of human resources and quality factors.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 35.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S3">
+          <h3 class="phase-title">Statement 3 · Doubling output and every input</h3>
+          <div class="prompt"><p>A repair shop that doubles the value of its services while the labour, capital, raw materials and energy it uses also double keeps the same total productivity.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Total productivity is goods and services divided by labour + capital + raw materials + energy; doubling the numerator and every term of the denominator leaves the ratio unchanged.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 34.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S4">
+          <h3 class="phase-title">Statement 4 · What the break-even point covers</h3>
+          <div class="prompt"><p>The break-even point is the volume at which revenue covers the variable costs, so it does not depend on the cost structure of the firm.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>At the break-even point revenue covers the total costs, fixed plus variable, and from there the firm starts to make profits; the course states that the break-even point depends on the cost structure.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 36.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S5">
+          <h3 class="phase-title">Statement 5 · A break-even volume from the data</h3>
+          <div class="prompt"><p>A maker of composite cabin panels with fixed costs of 120,000 € a year, a price of 50 € and a variable cost of 30 € per panel breaks even at 6,000 panels.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The unit margin is $m = 50 - 30 = 20$ €, and $Q_0 = FC/m = 120{,}000/20 = 6{,}000$ panels.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 37.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S6">
+          <h3 class="phase-title">Statement 6 · Two cost structures with one revenue line</h3>
+          <div class="prompt"><p>Of two firms with the same revenue line, the one with higher fixed costs and a lower variable cost per unit has the steeper profit line beyond its break-even point.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The slope of the profit line is the unit margin $m = P - VC$: with the same price, a lower variable cost gives a larger margin and a steeper line, as in case A of the slide, which also carries the higher fixed costs.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 38.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S7">
+          <h3 class="phase-title">Statement 7 · How the operating leverage is defined</h3>
+          <div class="prompt"><p>The operating leverage is the change in operating profit, in euros, divided by the change in the number of units sold.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The operating leverage divides relative changes, $OL = (\Delta\text{Profit}/\text{Profit})/(\Delta Q/Q)$; the ratio of absolute changes in euros per unit is only the unit margin $m$.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 39.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S8">
+          <h3 class="phase-title">Statement 8 · What the operating leverage is used for</h3>
+          <div class="prompt"><p>The course uses the operating leverage as an index of economic (operating) risk to compare businesses of the same sector.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The comments on the OL say that it captures the sensitivity of operating income to sales, that it is an index of economic risk and that it is used to compare businesses in the same sector.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 41.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S9">
+          <h3 class="phase-title">Statement 9 · Margin of safety as a percentage</h3>
+          <div class="prompt"><p>In percentage, the margin of safety of the course divides the units sold above the break-even point by the actual volume of sales.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The slide divides by the break-even volume: $MS = (Q - Q^*)/Q^*$. Dividing by the actual volume $Q$ is not the course's formula.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slide 43.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F09-S10">
+          <h3 class="phase-title">Statement 10 · Selling twice the break-even volume</h3>
+          <div class="prompt"><p>A firm that sells twice its break-even volume has an operating leverage of 2, so a 10% rise in its sales raises its operating profit by 5%.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The leverage is right, $OL = Q/(Q - Q^*) = 2Q^*/Q^* = 2$, but its effect is wrong: profit changes by $OL \times 10\% = 20\%$, not 5%, because the OL multiplies the change in sales.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 4, Slides 40 and 42.</p></div>
+          </details>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="unit-5">Topic 5 · Marketing and sales <span class="mcq-unit-count">3 blocks</span></h2>
+      <section class="problem-box" id="F03">
+        <span class="problem-tag">True/False block · Topic 5 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F03 — Marketing concepts, the marketing mix and elasticity</h4>
+        <div class="statement-box">
+<p>Ten statements on marketing and sales, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S1">
+          <h3 class="phase-title">Statement 1 · Where segmentation, positioning and price belong</h3>
+          <div class="prompt"><p>Market segmentation and the positioning of the product are formulated within strategic marketing, whereas setting the price of the product is a decision of operative marketing.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Segmentation and positioning are the strategies formulated in the last phase of strategic marketing (the analysis system), while price is one of the 4 Ps that operative marketing (the action system) combines in the marketing mix.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slides 6-8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S2">
+          <h3 class="phase-title">Statement 2 · One-way and two-way processes</h3>
+          <div class="prompt"><p>Marketing differs from the sale in that marketing is a one-way process in which the company places its goods and services in front of the customer.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The one-way process is the sale. Marketing is a two-way process: goods and services go to the customer, and information about what the customer wants comes back to the company.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S3">
+          <h3 class="phase-title">Statement 3 · A new version inside an existing line</h3>
+          <div class="prompt"><p>When an avionics firm adds a new model to one of its existing product lines, the extension (width) of its product range increases.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The extension, or width (breadth), of the range is the number of product lines, which does not change. A new model inside an existing line increases the depth of that line (products per line) and the length of the range (total number of products).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 24; Examples PDF, Exercise 4, statement 3.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S4">
+          <h3 class="phase-title">Statement 4 · Raising the price of a product with inelastic demand</h3>
+          <div class="prompt"><p>If the demand for a product is inelastic, a rise in its price increases the income of the firm that sells it.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>With $\lvert E_d \rvert &lt; 1$ a 1% price rise lowers the quantity demanded by less than 1%, so almost the same quantity is sold at a higher price and income $I = P \cdot Q$ rises.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>topic 5.2.2.pdf, p. 3.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S5">
+          <h3 class="phase-title">Statement 5 · Several segments, several marketing mixes</h3>
+          <div class="prompt"><p>A firm that targets two or more segments and develops a distinct product and a separate marketing mix for each of them follows a differentiated concentrated (niche) strategy.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>That is the wide differentiated (multisegment) strategy. The differentiated concentrated (niche) strategy aims the product and the marketing message at a single, well-defined segment.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 12.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S6">
+          <h3 class="phase-title">Statement 6 · Who the wholesaler sells to</h3>
+          <div class="prompt"><p>A wholesaler is an intermediary that sells to other intermediaries or to organisational buyers, but not to final consumers.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the course's definition of the wholesaler; the intermediary that sells consumer goods to final consumers for their personal or household use is the retailer.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 35.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S7">
+          <h3 class="phase-title">Statement 7 · The sign of the price elasticity coefficient</h3>
+          <div class="prompt"><p>By the law of demand the coefficient of price elasticity of demand is negative, which is why its absolute value is used to classify the demand as elastic or inelastic.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Price and quantity demanded move in opposite directions, so the ratio of their percentage changes is negative; the course classifies the demand with $\lvert E_d \rvert$ compared with 1.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>topic 5.2.2.pdf, p. 2; Topic 5, Slide 17.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S8">
+          <h3 class="phase-title">Statement 8 · Influencer campaigns and the product</h3>
+          <div class="prompt"><p>A campaign on social networks with technology influencers is one of the product attributes of a firm, because it builds the image of the product.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The campaign belongs to the promotion (communication) policy of the marketing mix. The psychosocial attributes of the product are brand, design, packaging and quality, together with attributes such as warranty and post-sale service.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slides 19, 23 and 29; Examples PDF, Exercise 2 (b).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S9">
+          <h3 class="phase-title">Statement 9 · A negative cross elasticity</h3>
+          <div class="prompt"><p>If the cross elasticity of demand between two goods is negative, the two goods are complementary.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Cross elasticity is negative for complementary goods (a fall in the price of one raises the consumption of both) and positive for substitute goods.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>topic 5.2.2.pdf, p. 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F03-S10">
+          <h3 class="phase-title">Statement 10 · How agents and brokers are paid</h3>
+          <div class="prompt"><p>Merchandise agents and brokers take title to the products they distribute and earn their income from the margin between their buying and selling prices.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Agents and brokers bring buyers and sellers together without owning title to the products, and they are paid a commission for their services.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 35.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F10">
+        <span class="problem-tag">True/False block · Topic 5 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F10 — Marketing orientation, segmentation and positioning</h4>
+        <div class="statement-box">
+<p>Ten statements on marketing and sales, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S1">
+          <h3 class="phase-title">Statement 1 · Who holds the power in the sales era</h3>
+          <div class="prompt"><p>In the sales era (organizational marketing) producers are sales-oriented and face a buyer's market, in which supply is greater than demand.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Slide 4 describes organizational marketing as the sales era: producers are sales-oriented, the market is a buyer's market (supply greater than demand) and the result is consumerism, a high consumer power.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 4.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S2">
+          <h3 class="phase-title">Statement 2 · Marketing when demand exceeds supply</h3>
+          <div class="prompt"><p>In the production era marketing was a decisive activity of the firm, because demand was greater than supply and producers had to compete for every customer.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>In the production era (passive marketing) demand was greater than supply, a seller's market: producers sold whatever they made, usually through mass production, so marketing was not important.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 4.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S3">
+          <h3 class="phase-title">Statement 3 · What social marketing adds</h3>
+          <div class="prompt"><p>Social marketing keeps the aim of finding out the needs and wants of the target market and adds the aim of contributing to a better welfare state.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The main objective of social marketing, the last stage of the evolution of the marketing concept, is finding out the needs and wants of the target market and contributing to a better welfare state.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slides 4-5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S4">
+          <h3 class="phase-title">Statement 4 · Where the SWOT analysis sits</h3>
+          <div class="prompt"><p>The SWOT analysis is the opening stage of strategic marketing, the one in which the market, the competitors and the environment are first studied.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The opening stage is the analysis of the situation (market, competitors, environment and internal analysis). The SWOT analysis is the second stage, the diagnosis of the situation, which uses the results of that analysis.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 7.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S5">
+          <h3 class="phase-title">Statement 5 · The money for the marketing mix</h3>
+          <div class="prompt"><p>Establishing the marketing budget is part of the action plan for the marketing mix, so it is a task of operative marketing.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The first stage of operative marketing is the action plan for the marketing mix: identify the sales objectives, define the activities of the 4 Ps and establish the marketing budget.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S6">
+          <h3 class="phase-title">Statement 6 · What a firm gains by segmenting</h3>
+          <div class="prompt"><p>Segmenting the market helps a firm detect needs that no supplier is satisfying yet, adjust its supply better to the demand and identify its competitors.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>These are the three advantages of segmentation listed in the course: it identifies the market needs not being satisfied, it gives a better adjustment of supply and demand, and it identifies the competitors.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 11.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S7">
+          <h3 class="phase-title">Statement 7 · Grouping buyers by what they earn</h3>
+          <div class="prompt"><p>A business-aviation charter firm that groups its clients by their level of income and type of job is using psychological and purchase-behaviour criteria of segmentation.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Level of income and type of job are demographic criteria, together with age, sex and family size. Psychological and purchase-behaviour criteria are personality, lifestyle, frequency of purchase and type of use of the product.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 10.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S8">
+          <h3 class="phase-title">Statement 8 · Who completes the positioning</h3>
+          <div class="prompt"><p>Positioning is complete once the marketing manager has chosen the marketing-mix strategy for the product; the perception that buyers form of it is a separate matter.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Positioning has two stages: the marketing manager uses the marketing-mix strategy to place the product in the mind of the customer, and the customer creates a perception of the product. How buyers see it is part of positioning.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 13.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S9">
+          <h3 class="phase-title">Statement 9 · What a lasting position rests on</h3>
+          <div class="prompt"><p>A successful positioning strategy is usually based on a sustainable competitive advantage of the company.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Slide 14 states this directly. The positioning can then be built on product characteristics, benefits, user characteristics, a comparison with another product or the price-quality relationship.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 14.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F10-S10">
+          <h3 class="phase-title">Statement 10 · The denominator of the market share</h3>
+          <div class="prompt"><p>A brand's market share is obtained by dividing the brand's sales by the sales of its main competitor.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The market share divides the brand's sales by the total sales of the market of reference, the sales of all the brands of that market, not those of one competitor.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 15.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F11">
+        <span class="problem-tag">True/False block · Topic 5 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F11 — Product, price, place and promotion decisions</h4>
+        <div class="statement-box">
+<p>Ten statements on marketing and sales, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S1">
+          <h3 class="phase-title">Statement 1 · What the customer actually buys</h3>
+          <div class="prompt"><p>The basic (core) product is everything the customer pays for; post-sale services and the image of the product lie outside the product.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The basic (core or generic) product is less than the total product people buy: customers also buy benefits such as quality, design, packaging, size, post-sale services and image, which are part of the product.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 19.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S2">
+          <h3 class="phase-title">Statement 2 · The four psychosocial attributes</h3>
+          <div class="prompt"><p>Customer satisfaction depends both on the physical-technical characteristics of the product and on psychosocial attributes, which the course lists as brand, design, packaging and quality.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Slide 19 names these two sources of customer satisfaction and lists brand, design, packaging and quality as the psychosocial attributes of the product.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 19.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S3">
+          <h3 class="phase-title">Statement 3 · The label of a container</h3>
+          <div class="prompt"><p>Packaging covers the design and production of the container or wrapper of a product, including its label, which carries the compulsory information about the product.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the course's definition of packaging; besides carrying the label, packaging protects the content, eases transport and can make the product more convenient and attractive.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 22.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S4">
+          <h3 class="phase-title">Statement 4 · Two ways of judging a design</h3>
+          <div class="prompt"><p>Product design is judged only from an aesthetic perspective; how easy the product is to use is a matter of its quality, not of its design.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Design combines physical appearance, colour, shape and ease of use, and it is judged from an aesthetic (beauty) and a functional (ease of use) perspective. Ease of use is part of the design.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 22.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S5">
+          <h3 class="phase-title">Statement 5 · The stage in which sales take off</h3>
+          <div class="prompt"><p>Maturity is usually the shortest stage of the product life cycle, and it is the stage in which the sales of the product take off.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Sales take off in the growth stage. Maturity is the longest part of the life cycle, between growth and decline.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 25.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S6">
+          <h3 class="phase-title">Statement 6 · Categories, forms and brands</h3>
+          <div class="prompt"><p>The product life cycle can be applied to a whole product category, to a product form or to a single brand.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Slide 25 states that the life cycle can apply to a product category, a product form or a brand, each going through introduction, growth, maturity and decline.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 25.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S7">
+          <h3 class="phase-title">Statement 7 · What the mark-up measures</h3>
+          <div class="prompt"><p>In cost-plus pricing the mark-up is the difference between the cost of a good and its selling price.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Cost-plus pricing is one of the two methods of the cost approach; the mark-up added to the cost is, by the course's definition, the gap between the cost of the good and its selling price.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 28.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S8">
+          <h3 class="phase-title">Statement 8 · The approach behind break-even pricing</h3>
+          <div class="prompt"><p>Break-even analysis is a method of the demand approach to pricing, because it starts from the number of units the market will buy.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Break-even analysis belongs to the cost approach, together with cost-plus pricing; it starts from the fixed and variable costs (Topic 4). The other two approaches are the competition and the demand approach.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slide 28.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S9">
+          <h3 class="phase-title">Statement 9 · Own website and own sales team</h3>
+          <div class="prompt"><p>An engine maker that sells its spare parts to airlines only through its own website and its own sales team uses a direct distribution channel.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>In a direct channel the producer sells directly to the final buyers with no independent intermediary; the website and the sales team belong to the producer, as in the TechNova case.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slides 34-35; Examples PDF, Exercise 2 (c).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F11-S10">
+          <h3 class="phase-title">Statement 10 · A measurable response at any location</h3>
+          <div class="prompt"><p>Direct marketing is a paid, non-personal communication through the mass media by an identified sponsor, and it does not seek any specific response from the audience.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>That describes advertising. Direct marketing is an interactive system that uses one or more media (telephone, internet, direct mail, social media) to obtain a specific, measurable response or transaction at any location.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 5, Slides 30 and 32.</p></div>
+          </details>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="unit-6">Topic 6 · The management function <span class="mcq-unit-count">3 blocks</span></h2>
+      <section class="problem-box" id="F04">
+        <span class="problem-tag">True/False block · Topic 6 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F04 — Decisions, structures and control</h4>
+        <div class="statement-box">
+<p>Ten statements on the management function, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S1">
+          <h3 class="phase-title">Statement 1 · What management is</h3>
+          <div class="prompt"><p>Management is the process of setting and achieving goals through four basic functions, planning, organizing, leading and controlling, that use human, financial and material resources.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the course's definition of management, and the four managerial functions are exactly planning, organizing, leading and controlling.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slides 3-4.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S2">
+          <h3 class="phase-title">Statement 2 · Innovative decisions</h3>
+          <div class="prompt"><p>An innovative decision is taken when the problem is known and well defined and the alternative solutions are planned in advance.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A known, well-defined problem with known alternatives calls for a routine (planned) decision. An innovative (not planned) decision faces an unusual and ambiguous problem with ambiguous, unplanned alternatives.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S3">
+          <h3 class="phase-title">Statement 3 · Order of the decision-making process</h3>
+          <div class="prompt"><p>In the decision-making process, the manager chooses an alternative first and only then analyses the alternatives that were considered.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Analysing the alternatives is step 4 and choosing an alternative is step 5: the choice comes after the analysis, never before it.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 6.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S4">
+          <h3 class="phase-title">Statement 4 · Conceptual skills along the hierarchy</h3>
+          <div class="prompt"><p>Conceptual skills, the ability to see the firm as a whole, weigh more in top management than in first-line supervision.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The share of conceptual skills grows as one moves up the management hierarchy, while technical skills weigh most in low management; interpersonal skills are needed at every level.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S5">
+          <h3 class="phase-title">Statement 5 · Publishing a job offer</h3>
+          <div class="prompt"><p>When an avionics firm publishes a job offer on an engineering job board to attract applicants, it is carrying out the selection of personnel.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Attracting applicants is recruitment, a Human Resources activity that comes before selection; selection is the later step that chooses among the candidates already recruited.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 23; Examples PDF, Exercise 4, statement 4.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S6">
+          <h3 class="phase-title">Statement 6 · The key part of the division organization</h3>
+          <div class="prompt"><p>In a division organization the middle line is the key part of the structure, and each autonomous division is itself organized as a bureaucracy.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The divisions are autonomous, the middle line is the key part, top management coordinates their performance and outputs, and each division is a bureaucracy.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 20.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S7">
+          <h3 class="phase-title">Statement 7 · Analysts who design processes</h3>
+          <div class="prompt"><p>The analysts who design the systems and processes of the firm belong to the technostructure, not to the support staff.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The technostructure is formed by the analysts who design systems and processes; the support staff is the part that lies outside the operating workflow.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 14.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S8">
+          <h3 class="phase-title">Statement 8 · Decision-making in a machine bureaucracy</h3>
+          <div class="prompt"><p>A machine bureaucracy combines decentralized decision-making with few hierarchical layers and a wide span of control.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A machine bureaucracy has centralized decision-making and a highly elaborated administrative structure with many layers and a low span of control. Decentralization belongs to the professional bureaucracy and the adhocracy.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 16.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S9">
+          <h3 class="phase-title">Statement 9 · The weekly shift roster</h3>
+          <div class="prompt"><p>Drawing up next week's shift roster of an engine-assembly line is a strategic decision that belongs to top management.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A weekly shift roster is an operational decision of low management (first-line supervisors). Top management takes the strategic, general decisions that affect the firm as a whole.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 7; Examples PDF, Exercise 4, statement 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F04-S10">
+          <h3 class="phase-title">Statement 10 · What controlling involves</h3>
+          <div class="prompt"><p>Controlling involves establishing standards, measuring actual performance, identifying deviations and taking corrective action if required, which is why planning and controlling are inseparable.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>These are the four activities of controlling in the course, and the standards it measures against come from planning, so the two functions cannot be separated.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 24.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F12">
+        <span class="problem-tag">True/False block · Topic 6 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F12 — Decisions, levels, roles and planning</h4>
+        <div class="statement-box">
+<p>Ten statements on the management function, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S1">
+          <h3 class="phase-title">Statement 1 · Setting next year&#x27;s delivery target</h3>
+          <div class="prompt"><p>When the board of a helicopter maker sets the number of aircraft to deliver next year and decides the strategy to reach it, it is performing the organizing function.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Setting goals and deciding the strategy to achieve them is planning. Organizing comes afterwards: it arranges the human resources so that their activities contribute to those goals.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slides 4, 10 and 11.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S2">
+          <h3 class="phase-title">Statement 2 · A partly known problem</h3>
+          <div class="prompt"><p>A decision on a problem that is neither fully known nor completely new, with alternatives that are only partly planned, is an adaptable decision.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The adaptable decision lies between the two extremes of the course: the routine decision (known problem, known alternatives) and the innovative decision (unusual problem, ambiguous and unplanned alternatives).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S3">
+          <h3 class="phase-title">Statement 3 · The last step of the decision process</h3>
+          <div class="prompt"><p>Evaluating the results is the final step of the decision-making process of the course.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Evaluating the results is step 7 of eight. The process ends with step 8, implementing changes, which acts on what the evaluation has revealed.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 6; Examples PDF, Exercise 3 (b).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S4">
+          <h3 class="phase-title">Statement 4 · Identifying the critical factors</h3>
+          <div class="prompt"><p>Identifying the critical factors of a decision is part of gathering information, the second step, which comes before any alternative course of action is considered.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Step 2 of the process is gathering information, described as identifying the critical factors; the alternative courses of action are only considered in step 3.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 6; Examples PDF, Exercise 3 (b).</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S5">
+          <h3 class="phase-title">Statement 5 · Entering the launcher market</h3>
+          <div class="prompt"><p>The decision of a satellite manufacturer to enter the market for small launch vehicles is a strategic decision of top management, because it affects the firm as a whole.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Top management takes the strategic and general decisions of the management pyramid, those that concern the whole firm and its markets; middle and low management take tactical and operational ones.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 7; Examples PDF, Exercise 4, statement 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S6">
+          <h3 class="phase-title">Statement 6 · Who needs interpersonal skills</h3>
+          <div class="prompt"><p>Interpersonal skills are needed only by middle managers, since they are the ones who coordinate the teams of the firm.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The interpersonal skill, the ability to interact with people at work successfully, is needed at every level of the hierarchy, from first-line supervisors to top management.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S7">
+          <h3 class="phase-title">Statement 7 · Bargaining over an engine contract</h3>
+          <div class="prompt"><p>When the CEO of an airframer bargains with an engine supplier over the price of a ten-year contract, the CEO plays an interpersonal role, because the task means dealing with people.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Bargaining with another party is the negotiator role, which Mintzberg places among the decisional roles (entrepreneur, disturbance handler, resource allocator, negotiator). The interpersonal roles are figurehead, leader and liaison.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 9.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S8">
+          <h3 class="phase-title">Statement 8 · Opening a new hangar</h3>
+          <div class="prompt"><p>When the managing director of a maintenance firm opens a new hangar in a public ceremony, the director plays the figurehead role, one of the interpersonal roles.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Acting as the symbolic head of the firm in a ceremony is the figurehead role, listed with leader and liaison among the interpersonal roles. The slide names the roles only; the meaning used is the usual one of Mintzberg's classification.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 9.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S9">
+          <h3 class="phase-title">Statement 9 · Objectives and alternatives in planning</h3>
+          <div class="prompt"><p>In planning, the alternative courses of action are developed first, and the strategic objectives are defined afterwards from the best of them.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The order of planning is: developing forecasts, defining strategic objectives, developing alternative courses of action and deciding on a course of action. The objectives (step 2) come before the alternatives (step 3).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 10.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F12-S10">
+          <h3 class="phase-title">Statement 10 · What a goal is</h3>
+          <div class="prompt"><p>For the course, a goal is a specific achievement to be attained at some future date, such as certifying a new trainer aircraft by the end of next year.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the definition of goal on the planning slide; the certification of a given aircraft by a given date is a specific achievement with a future date.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 10.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F13">
+        <span class="problem-tag">True/False block · Topic 6 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F13 — Organizing, people and control</h4>
+        <div class="statement-box">
+<p>Ten statements on the management function, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S1">
+          <h3 class="phase-title">Statement 1 · The double process of organizing</h3>
+          <div class="prompt"><p>Organizing is a double process: differentiation divides the work of the firm into distinct tasks, and integration coordinates those tasks towards the firm's goals.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The course states that organizing implies differentiation and integration: its purpose is to give each person a distinct task and to make sure the tasks are coordinated so that the firm accomplishes its goals.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 11.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S2">
+          <h3 class="phase-title">Statement 2 · What the real structure is</h3>
+          <div class="prompt"><p>The real structure of a firm is the formal structure defined by management; the informal contacts that employees develop are left out of it.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The real structure combines the formal structure defined by management and the informal structure (the contacts, communications and ways of doing things that employees develop).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 12.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S3">
+          <h3 class="phase-title">Statement 3 · Vertical specialization</h3>
+          <div class="prompt"><p>Vertical specialization measures the number of different tasks that each worker performs.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The number of tasks is horizontal specialization. Vertical specialization refers to the autonomy that a worker has to organize his or her own job.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 13.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S4">
+          <h3 class="phase-title">Statement 4 · Layers and span of control</h3>
+          <div class="prompt"><p>The number of hierarchical layers and the span of control are elements of the structural configuration, one of the factors that determine the organizational structure.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The structural configuration groups the type of departmentalization, the number of layers, the span of control and the size of the administrative component, next to specialization, standardization, formalization and centralization.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 13.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S5">
+          <h3 class="phase-title">Statement 5 · Who forms the middle line</h3>
+          <div class="prompt"><p>The middle line of a formal structure is formed by the employees who carry out the basic production work of the firm, such as the mechanics who assemble the landing gear.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The employees who do the basic work form the operating core. The middle line is middle management, the managers between the strategic apex and the operating core.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 14.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S6">
+          <h3 class="phase-title">Statement 6 · Departmentalization of two configurations</h3>
+          <div class="prompt"><p>The machine bureaucracy relies on functional departmentalization, whereas the adhocracy relies on matrix departmentalization.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Functional departmentalization is listed among the features of the machine bureaucracy and matrix departmentalization among those of the adhocracy; the professional bureaucracy can use all types.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slides 16, 18 and 22.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S7">
+          <h3 class="phase-title">Statement 7 · The staff of a professional bureaucracy</h3>
+          <div class="prompt"><p>In a professional bureaucracy, such as an aerospace research centre staffed by qualified engineers, the support staff exists mainly to serve the operating core.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>In this configuration the highly qualified professionals of the operating core do the key work, and the staff mainly supports them.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 18.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S8">
+          <h3 class="phase-title">Statement 8 · The technostructure in an adhocracy</h3>
+          <div class="prompt"><p>In an adhocracy the technostructure grows in importance, because its analysts must standardize the work of the many experts.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>In the adhocracy the technostructure disappears and standardization and formalization are low; the middle line, the operating core and the staff are mixed in project teams.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 22.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S9">
+          <h3 class="phase-title">Statement 9 · Appraisal and pay in human resources</h3>
+          <div class="prompt"><p>Performance appraisal systems and compensation programmes belong to the directing side of human resources management, together with motivation and leadership.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Directing covers motivation, leadership and communication. Performance appraisal, compensation and incentive programmes belong to staffing, together with recruiting, selecting and training.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 23.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F13-S10">
+          <h3 class="phase-title">Statement 10 · Reactive, proactive and interactive control</h3>
+          <div class="prompt"><p>Reactive, proactive and interactive control are types of control classified according to when the control takes place.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The course classifies control by who is controlled, by what area, by when it takes place (reactive, proactive or interactive) and by frequency (constant, periodic or occasional).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 6, Slide 25.</p></div>
+          </details>
+        </div>
+      </section>
+      <h2 class="mcq-unit-title" id="unit-7">Topic 7 · Entrepreneurship and innovation <span class="mcq-unit-count">3 blocks</span></h2>
+      <section class="problem-box" id="F05">
+        <span class="problem-tag">True/False block · Topic 7 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F05 — Innovation types, S-curves and the dominant design</h4>
+        <div class="statement-box">
+<p>Ten statements on entrepreneurship and innovation, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S1">
+          <h3 class="phase-title">Statement 1 · Creativity of an organization</h3>
+          <div class="prompt"><p>The creativity of an organization depends not only on the creativity of its individuals but also on the social processes and contextual factors that shape the way those individuals interact.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The course defines organizational creativity as a function of the creativity of the individuals and of the social processes and contextual factors that shape their interaction; it is not a simple sum, because structure, routines and incentives can thwart or amplify individual creativity.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S2">
+          <h3 class="phase-title">Statement 2 · A minor change called radical</h3>
+          <div class="prompt"><p>A new coating that slightly extends the life of an existing turbine blade, without changing the blade or the engine, is a radical innovation, because it improves an aerospace product.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A relatively minor change to existing practices is an incremental innovation; a radical innovation is very new and different from prior solutions. Improving a product does not make an innovation radical: the size of the departure from prior solutions does.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 12.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S3">
+          <h3 class="phase-title">Statement 3 · Same innovation, two firms</h3>
+          <div class="prompt"><p>The same innovation can be competence-enhancing for one firm and competence-destroying for another firm of the same industry.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Whether an innovation enhances or destroys competences depends on whose perspective is taken: it enhances the competences of a firm whose existing knowledge base it builds on, and destroys those of a firm whose competences it does not use or renders obsolete.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 12.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S4">
+          <h3 class="phase-title">Statement 4 · A new display in the same panel</h3>
+          <div class="prompt"><p>Replacing the analogue altimeter of a light aircraft with a digital one that fits the same slot of the instrument panel, without changing how the other systems of the aircraft interact, is an architectural innovation.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A change to one component that does not significantly affect the overall configuration of the system is a component (modular) innovation. An architectural innovation changes the overall design of the system or the way its components interact with each other, which this change does not do.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 13.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S5">
+          <h3 class="phase-title">Statement 5 · Where the S-curve is steepest</h3>
+          <div class="prompt"><p>On the S-curve of technology performance, performance improves fastest when the first units of effort are invested in a new technology, and then grows more and more slowly.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Plotted against effort, performance improves slowly at first, then quickly, and finally flattens as it approaches the limit of the technology. The steepest part is in the middle of the curve, not at its beginning.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 14.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S6">
+          <h3 class="phase-title">Statement 6 · Effort near the limit</h3>
+          <div class="prompt"><p>When a technology reaches the flat upper part of its S-curve, additional effort brings only small improvements in performance, because the technology is approaching its limit.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The upper part of the S-curve flattens towards the dotted line of the limit of the technology drawn on the slide, so each additional unit of effort yields a smaller gain in performance.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 14.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S7">
+          <h3 class="phase-title">Statement 7 · A new knowledge base</h3>
+          <div class="prompt"><p>A discontinuous technology fulfils a similar market need to the existing technology by building on an entirely new knowledge base, and at first its performance may be lower than that of the technology it later overtakes.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the course's definition of a discontinuous technology; the second S-curve of the slide may start below the first technology and later cross it and reach a higher performance.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 15.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S8">
+          <h3 class="phase-title">Statement 8 · What the diffusion curve plots</h3>
+          <div class="prompt"><p>The S-curve of technology diffusion plots the performance of a technology against the effort invested in developing it.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Performance against effort is the S-curve of technology performance. The diffusion S-curve plots the cumulative share of adopters against time (2.5%, 16%, 50%, 84% and 100% at the boundaries of the adopter categories), because diffusion is the spread of a technology through a population.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slides 14-16.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S9">
+          <h3 class="phase-title">Statement 9 · The two majorities</h3>
+          <div class="prompt"><p>The early majority and the late majority each account for about 34% of the adopters of a technology, so together they make up about two thirds of the market.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The bell-shaped curve of market share gives 34% to the early majority and 34% to the late majority, 68% in total; innovators (2.5%), early adopters (13.5%) and laggards (16%) make up the rest.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 16.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F05-S10">
+          <h3 class="phase-title">Statement 10 · How a design becomes dominant</h3>
+          <div class="prompt"><p>A design becomes dominant only when a regulator or standards body officially enforces it; learning effects and network externalities play no part in its selection.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A dominant design is a de facto standard: it dominates its product category (usually 50% or more of the market) even if it is not officially enforced. The course gives learning effects and network externalities (installed base and complementary goods) as the reasons why dominant designs are selected.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slides 17-19.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F14">
+        <span class="problem-tag">True/False block · Topic 7 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F14 — Sources of innovation, creativity and collaborative networks</h4>
+        <div class="statement-box">
+<p>Ten statements on entrepreneurship and innovation, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S1">
+          <h3 class="phase-title">Statement 1 · Pilots who build their own tools</h3>
+          <div class="prompt"><p>A group of glider pilots who design a better variometer mount for their own cockpits are a source of innovation recognised by the course, even though they are neither a firm nor a research institution.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Slide 3 lists individuals among the sources of innovation, both the lone inventor and users who design solutions for their own needs; the pilots are such users.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 3.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S2">
+          <h3 class="phase-title">Statement 2 · Who has the incentive to differentiate</h3>
+          <div class="prompt"><p>According to the course, government-funded entities face stronger incentives than firms to develop differentiating new products and services.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The course says the opposite: firms face strong incentives to develop differentiating new products and services, which may give them an advantage over non-profit or government-funded entities.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 3.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S3">
+          <h3 class="phase-title">Statement 3 · One origin per innovation</h3>
+          <div class="prompt"><p>In the course's view of the sources of innovation as a complex system, every innovation must come from exactly one of its components, so the links between the players never give rise to an innovation by themselves.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>An innovation may emerge primarily from one or more components of the system or from the linkages between them, and the course names those linkages as the most important source of innovation.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 4.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S4">
+          <h3 class="phase-title">Statement 4 · Judging which ideas deserve effort</h3>
+          <div class="prompt"><p>Being able to analyse which ideas are worth pursuing and which are not is one of the most important intellectual abilities for creative thinking.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Slide 5 lists three key intellectual abilities: looking at problems in unconventional ways, analysing which ideas are worth pursuing and which are not, and articulating ideas so as to convince others that they are worthwhile.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S5">
+          <h3 class="phase-title">Statement 5 · What creative ability depends on</h3>
+          <div class="prompt"><p>An individual's creative ability depends only on intellectual abilities and knowledge; personality, motivation and the environment have no bearing on it.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The course makes creative ability a function of six factors: intellectual abilities, knowledge, style of thinking, personality, motivation and environment. Leaving out the last four contradicts that definition.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S6">
+          <h3 class="phase-title">Statement 6 · Routines that hold talent back</h3>
+          <div class="prompt"><p>An engineering firm full of highly creative designers can still show low creativity as an organization if its structure, routines and incentives stifle what those designers propose.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Organizational creativity is not a simple aggregate of individual creativity: structure, routines and incentives can thwart individual creativity or amplify it.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 5.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S7">
+          <h3 class="phase-title">Statement 7 · University research in the ranking of research work</h3>
+          <div class="prompt"><p>In the rank order of the sources of research work reported by firms, sponsored university research comes before internal R&amp;D within divisions.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>For research work, central corporate research is first, internal R&amp;D within divisions second and sponsored university research third, so university research comes after the divisions, not before them.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 6.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S8">
+          <h3 class="phase-title">Statement 8 · Collaboration with customers by region</h3>
+          <div class="prompt"><p>Among the three regions surveyed on Slide 7, Japanese firms report extensive collaboration with customers most often: 52%, against 44% in North America and 38% in Europe.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>These are the shares of the table on Slide 7 for collaboration with customers; for suppliers and universities the ranking of the regions is different.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 7.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S9">
+          <h3 class="phase-title">Statement 9 · Why universities open transfer offices</h3>
+          <div class="prompt"><p>Many universities have set up technology transfer offices to increase the degree to which their research leads to commercial innovation.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>This is the role the course gives to universities as a source of innovation: technology transfer offices turn more university research into commercial innovation.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 8.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F14-S10">
+          <h3 class="phase-title">Statement 10 · Clusters without joint research</h3>
+          <div class="prompt"><p>Firms of a region that share a common technology but deal with each other only as buyers and suppliers cannot form a technology cluster, because a cluster requires joint research.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A technology cluster is a regional group of firms connected to a common technology that may engage in buyer, supplier and complementary relationships as well as research collaboration; joint research is one possible link, not a requirement.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 9.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="problem-box" id="F15">
+        <span class="problem-tag">True/False block · Topic 7 · 10 items · +0.15 right, -0.15 wrong · Practice item, not an official exercise</span>
+        <h4 class="problem-title">F15 — Spillovers, trajectories, diffusion and learning effects</h4>
+        <div class="statement-box">
+<p>Ten statements on entrepreneurship and innovation, written for this portal in the style of the True/False exercise of the course's example exam. State whether each one is true (T) or false (F) and justify it briefly.</p>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S1">
+          <h3 class="phase-title">Statement 1 · Know-how that leaves with the engineers</h3>
+          <div class="prompt"><p>When avionics engineers move from one firm to other firms of the same region and take their know-how with them, the spread of that knowledge is a technological spillover, a positive externality of the first firm's R&amp;D.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>A technological spillover is a positive externality of R&amp;D resulting from the spread of knowledge across organizational or regional boundaries; here the knowledge crosses the boundary of the firm that paid for it.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 9.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S2">
+          <h3 class="phase-title">Statement 2 · Two uses of a trajectory</h3>
+          <div class="prompt"><p>A technology trajectory is most often used to represent either the rate at which a technology's performance improves or its rate of adoption in the marketplace.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The course defines the technology trajectory as the path a technology follows through time and names these two uses; the S-curve of performance and the diffusion curve are the two patterns it then studies.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slides 10 and 14-16.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S3">
+          <h3 class="phase-title">Statement 3 · Faster fuselage assembly</h3>
+          <div class="prompt"><p>A new riveting technique that halves the hours needed to assemble each fuselage, while the aircraft delivered are unchanged, is a product innovation, because aircraft are what the firm sells.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The novelty lies in the technique of producing, not in the output, so it is a process innovation, aimed at the efficiency of production (more output in a given time). A product innovation would be embodied in the aircraft themselves.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 11.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S4">
+          <h3 class="phase-title">Statement 4 · Revenue and experience feed the technology</h3>
+          <div class="prompt"><p>Learning effects arise because a technology that is adopted generates sales revenue that can be reinvested in refining it, and because firms that accumulate experience with it find ways to use it more productively.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>These are the two mechanisms of Slide 18: the more a technology is used, the more it is developed and the more effective and efficient it becomes, which is one reason why dominant designs are selected.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 18.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S5">
+          <h3 class="phase-title">Statement 5 · Not building on a firm&#x27;s knowledge</h3>
+          <div class="prompt"><p>From the perspective of a given firm, an innovation is competence-destroying only when it renders that firm's competencies obsolete; an innovation that simply does not build on them is competence-enhancing.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The course counts both cases as competence-destroying: an innovation is competence-destroying for a firm if it does not build on the firm's existing competencies or renders them obsolete. Competence-enhancing requires building on the firm's existing knowledge base.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 12.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S6">
+          <h3 class="phase-title">Statement 6 · A lighter seat in the same rails</h3>
+          <div class="prompt"><p>Replacing the passenger seats of an airliner with lighter seats that fit the same floor rails and the same cabin layout is a component (modular) innovation.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>The change affects one component and does not significantly alter the overall configuration of the cabin or the way its components interact, which is the course's definition of a component innovation.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 13.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S7">
+          <h3 class="phase-title">Statement 7 · The horizontal axis of the performance curve</h3>
+          <div class="prompt"><p>On the course's S-curve of technology performance, performance is plotted against calendar time.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>The S-curve of technology performance plots performance against the effort invested in the technology. Time is the horizontal axis of the diffusion curves (cumulative adopters and market share).</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slides 14 and 16.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S8">
+          <h3 class="phase-title">Statement 8 · The need served by a discontinuous technology</h3>
+          <div class="prompt"><p>A discontinuous technology is one that serves a market need different from that of the existing technology.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>A discontinuous technology fulfils a similar market need to the existing technology; what is new is the knowledge base it builds on, which is entirely new.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 15.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S9">
+          <h3 class="phase-title">Statement 9 · When the early majority has adopted</h3>
+          <div class="prompt"><p>When the last member of the early majority adopts a technology, the cumulative share of adopters reaches 84% of the population.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: False (F)</strong></p>
+<p>Cumulatively, innovators, early adopters and early majority add up to 2.5% + 13.5% + 34% = 50%. The 84% line is reached when the late majority has also adopted; only the laggards (16%) remain.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 16.</p></div>
+          </details>
+        </div>
+        <div class="phase-block mcq-item tf-item" id="F15-S10">
+          <h3 class="phase-title">Statement 10 · Software for an electronic flight bag</h3>
+          <div class="prompt"><p>The charts, performance calculators and other applications available for an electronic flight bag platform raise its value to pilots; the course calls such goods complementary goods.</p></div>
+          <p class="tf-choices" aria-hidden="true"><span class="mcq-letter">T</span> / <span class="mcq-letter">F</span></p>
+          <details class="mcq-answer">
+            <summary>Answer and reasoning</summary>
+            <p class="mcq-right"><strong>Answer: True (T)</strong></p>
+<p>Complementary goods are additional goods and services that enable or enhance the value of another good, like the games and online services of a video game console on Slide 19. The number of users of the platform would instead be its installed base.</p>
+            <div class="mcq-source"><span class="mcq-source__label">Source.</span> <p>Topic 7, Slide 19.</p></div>
+          </details>
+        </div>
+      </section>
+<!-- EXTRA-PROBLEMS:END -->
+
+      <footer class="topic-nav">
+        <a href="index.html">← Extra problems</a>
+        <a href="midterm-2-test.html">Multiple-choice questions →</a>
+      </footer>
+    </article>
+
+    <!-- Aerospace Motivational Quote Component -->
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

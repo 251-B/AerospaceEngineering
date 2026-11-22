@@ -6,12 +6,11 @@ title: "Effects of cold work, solid solution and grain size strengthening"
 category: mt2_test_block
 unit: 5
 concepts:
-  - u5-percent-cold-work
   - u5-cold-work-effects
   - u5-solid-solution-strengthening
   - u5-grain-size-strengthening
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 12, Slides 5-11."
+origen: "Includes official exam adaptation (MATERIALS_FINALEXAM_2017_ORD.pdf, Q2b) and practice items in the style of Part I of Assessment Test II. Data from Session 12, Slides 4-11."
 tags:
   - problem-bank
   - midterm-2
@@ -21,23 +20,23 @@ tags:
 
 # Bank B30 — Effects of cold work, solid solution and grain size strengthening
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 12, Slides 5-11.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong), combining an official exam item and bank practice items. Content: Session 12, Slides 4-11.
 
-## Q30.1 Diameter after a given cold work
+## Q30.1 Strengthening a pure metal
 
 - id: B30-Q1
-- concept_id: u5-percent-cold-work
-- format: numeric
+- concept_id: u5-cold-work-effects
+- format: topic-true
 - asks: application
-- calc: 20.0*sqrt(1-0.30)
+- origin: official-exam
 
-A bar of 20.0 mm diameter must be cold drawn to a cold work of 30 %. Determine its final diameter:
+Referring to strengthening a chemically pure metal without introducing alloying elements, which approach increases its yield strength?
 
-a) 6.00 mm
-b) 10.9 mm
-c) 14.0 mm
-d) 16.7 mm
+a) Prolonged annealing to produce coarser grains
+b) Adding substitutional solute atoms to form a solid solution
+c) Precipitating particles of a secondary phase in the grains
+d) Cold working (strain hardening) or refining the average grain size
 
 ### Answer
 
@@ -45,15 +44,15 @@ d
 
 ### Explanation
 
-Session 12, Slide 6: $\%CW = (A_0 - A_d)/A_0 \times 100$, so $A_d = 0.70\,A_0$; with $A \propto d^2$, $d_d = 20.0\sqrt{0.70} = 16.7$ mm.
+Session 12, Slides 4-6 and 10: a pure metal cannot rely on compositional alloying, so its strength can be increased by cold plastic deformation (strain hardening, multiplying dislocations that tangle) or by grain size reduction (adding grain-boundary barriers to slip).
 
-- a) The cold work fraction was applied to the diameter, $20 \times 0.30$, as if it were what remains.
-- b) The cold work fraction was used as the remaining area: $20\sqrt{0.30}$.
-- c) The remaining area fraction was applied to the diameter without the square root: $20 \times 0.70$.
+- a) Coarsening the grains reduces the number of grain boundaries and lowers the yield strength (Slide 10).
+- b) Introducing substitutional solute atoms turns the pure metal into a solid-solution alloy rather than keeping it pure.
+- c) Precipitation strengthening requires alloying beyond a solubility limit to form a secondary phase (Slides 9 and 12).
 
 ### Source
 
-Session 12, Slide 6.
+MATERIALS_FINALEXAM_2017_ORD.pdf, p. 1, Question 2(b); Session 12, Slides 4-6 and 8-12.
 
 ## Q30.2 Effects of cold work
 
@@ -92,7 +91,7 @@ Session 12, Slides 5-6.
 - format: cause-effect
 - asks: comparison
 
-With an increase in the percent cold work, the yield strength of a 1040 steel on the slide's chart:
+With an increase in the percent cold work, the yield strength of a cold-worked carbon steel:
 
 a) falls steadily over the whole range
 b) rises along a straight line without limit
@@ -122,7 +121,7 @@ Session 12, Slides 5 and 7.
 - format: identify
 - asks: definition
 
-Which description matches the texture that cold work produces in a metal, according to the slides?
+Which description matches the microstructural texture that cold rolling produces in a metal?
 
 a) A layer of precipitates along the grain boundaries
 b) A regular orientation of the grains along the rolling direction
@@ -212,7 +211,7 @@ Session 12, Slides 5, 9 and 10.
 - format: identify
 - asks: effect
 
-Which property do alloying elements decrease, according to the slides on solid solution strengthening?
+Which property is typically reduced when a pure metal is strengthened by solid solution alloying?
 
 a) Yield strength
 b) Hardness

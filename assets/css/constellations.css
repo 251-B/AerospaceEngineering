@@ -1,0 +1,613 @@
+/* ==========================================================================
+   Home page, stellar view: interactive constellation map (assets/js/constellations.js).
+   Loaded by the root index.html only. The classic card view stays in the DOM and is hidden
+   with .classic-only while <html data-home-view="constellations">.
+   Colours: sky palettes (html[data-sky-palette], key ae_sky_palette) re-point the --sk-* tokens;
+   every text colour is a palette text token (7:1 or better on the palette background).
+   ========================================================================== */
+
+/* ---- Palettes -------------------------------------------------------------------------- */
+html, html[data-sky-palette="deep-cosmos"] {
+  --sk-bg:
+    radial-gradient(ellipse 45% 38% at 18% 28%, rgba(0, 200, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 40% 36% at 82% 24%, rgba(170, 90, 255, 0.13), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 60% 84%, rgba(255, 60, 140, 0.09), transparent 70%),
+    linear-gradient(118deg, transparent 30%, rgba(170, 185, 255, 0.07) 44%, rgba(255, 190, 225, 0.06) 52%, rgba(140, 200, 255, 0.05) 60%, transparent 72%),
+    radial-gradient(ellipse at 50% 40%, rgba(16, 20, 64, 0.55), rgba(4, 6, 16, 0.72));
+  --sk-text: #f8fafc;
+  --sk-text-2: #cbd5e1;
+  --sk-halo: #050811;
+  --sk-line: rgba(203, 213, 225, 0.42);
+  --sk-guide: rgba(148, 163, 184, 0.30);
+  --sk-panel: rgba(8, 12, 28, 0.84);
+  --sk-border: rgba(255, 255, 255, 0.14);
+  --sk-grid: none;
+}
+html[data-sky-palette="observatory-charcoal"] {
+  --sk-bg: rgba(28, 31, 38, 0.94);
+  --sk-text: #f1f5f9;
+  --sk-text-2: #cbd5e1;
+  --sk-halo: #1c1f26;
+  --sk-line: rgba(203, 213, 225, 0.40);
+  --sk-guide: rgba(148, 163, 184, 0.28);
+  --sk-panel: rgba(20, 22, 28, 0.9);
+  --sk-border: rgba(255, 255, 255, 0.14);
+  --sk-grid: none;
+}
+html[data-sky-palette="nebula-indigo"] {
+  --sk-bg:
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(255, 110, 200, 0.16), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 80% 25%, rgba(110, 160, 255, 0.14), transparent 70%),
+    linear-gradient(160deg, rgba(40, 22, 92, 0.90), rgba(12, 10, 38, 0.94));
+  --sk-text: #f5f3ff;
+  --sk-text-2: #ddd6fe;
+  --sk-halo: #1a1048;
+  --sk-line: rgba(221, 214, 254, 0.45);
+  --sk-guide: rgba(196, 181, 253, 0.30);
+  --sk-panel: rgba(18, 12, 52, 0.88);
+  --sk-border: rgba(221, 214, 254, 0.20);
+  --sk-grid: none;
+}
+html[data-sky-palette="stratospheric-light"] {
+  --sk-bg: linear-gradient(180deg, rgba(238, 244, 251, 0.94), rgba(221, 232, 245, 0.94));
+  --sk-text: #0f172a;
+  --sk-text-2: #334155;
+  --sk-halo: #eef4fb;
+  --sk-line: rgba(51, 65, 85, 0.50);
+  --sk-guide: rgba(71, 85, 105, 0.32);
+  --sk-panel: rgba(255, 255, 255, 0.90);
+  --sk-border: rgba(15, 23, 42, 0.16);
+  --sk-grid: none;
+}
+html[data-sky-palette="blueprint-cyan"] {
+  --sk-bg: rgba(6, 38, 58, 0.95);
+  --sk-text: #e6f7ff;
+  --sk-text-2: #bfe9fb;
+  --sk-halo: #06263a;
+  --sk-line: rgba(191, 233, 251, 0.48);
+  --sk-guide: rgba(125, 211, 252, 0.34);
+  --sk-panel: rgba(4, 30, 46, 0.9);
+  --sk-border: rgba(191, 233, 251, 0.22);
+  --sk-grid:
+    linear-gradient(rgba(125, 211, 252, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.10) 1px, transparent 1px);
+}
+
+/* Subject colours: neon stars on the dark palettes, deeper hues on the light one.
+   --c-* is the star and line colour, --ct-* the colour of the constellation name (7:1 or better on its palette). */
+.sky-view {
+  --c-fluid: #62d6ee; --c-materials: #efbf5a; --c-mechanics: #5fdcae; --c-maths: #b6a2f2; --c-business: #ee7aa6;
+  --ct-fluid: #9be9f7; --ct-materials: #f7d98c; --ct-mechanics: #9ceccb; --ct-maths: #d3c6f8; --ct-business: #f6a9c5;
+}
+html[data-theme="light"] .sky-view {
+  --c-fluid: #0891b2; --c-materials: #d97706; --c-mechanics: #059669; --c-maths: #6d4aff; --c-business: #e11d6a;
+  --ct-fluid: #0b5266; --ct-materials: #7a3508; --ct-mechanics: #04513b; --ct-maths: #3b2bb5; --ct-business: #9f1239;
+}
+
+/* ---- Switching between the two views -------------------------------------------------- */
+html[data-home-view="constellations"] .classic-only { display: none !important; }
+html[data-home-view="classic"] .sky-view,
+html[data-home-view="classic"] .sky-only { display: none !important; }
+
+.header-actions .view-toggle,
+.header-actions .sky-palette-select {
+  font: 500 0.82rem/1 var(--font-mono);
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.header-actions .view-toggle:hover,
+.header-actions .sky-palette-select:hover { background: var(--bg-card-hover); }
+.header-actions .view-toggle:focus-visible,
+.header-actions .sky-palette-select:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.sky-palette-select option { color: #0f172a; background: #ffffff; }
+
+/* ---- The stage ------------------------------------------------------------------------- */
+.sky-view {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--sk-bg);
+  color: var(--sk-text);
+  touch-action: manipulation;
+}
+.sky-view::before { content: ''; position: absolute; inset: 0; background-image: var(--sk-grid); background-size: 48px 48px; pointer-events: none; }
+.sky-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.sky-title {
+  position: absolute; z-index: 0; left: 50%; top: 47%; transform: translate(-50%, -50%); margin: 0; pointer-events: none; text-align: center; white-space: nowrap;
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1; letter-spacing: 0.03em; color: var(--sk-text);
+  opacity: 0.72; transition: opacity 0.7s;
+}
+.sky-title__lockup {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.28em;
+}
+.sky-emblem {
+  width: 0.96em; height: 0.96em; flex: none;
+  color: #E1C170;
+  filter: drop-shadow(0 0 12px rgba(225, 193, 112, 0.35));
+}
+html[data-theme="light"] .sky-emblem {
+  color: #9a6e17;
+  filter: none;
+}
+.sky-title .gradient-text {
+  display: inline-block;
+  background: linear-gradient(135deg, #06b6d4, #6366f1, #a855f7);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: url(#stardust);
+}
+.sky-view.has-selection .sky-title { opacity: 0; }
+.sky-title small {
+  display: block; margin-top: 4px;
+  font: 500 0.72rem/1.3 var(--font-mono); color: var(--sk-text-2); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.sky-back {
+  position: absolute; z-index: 3; top: 72px; left: 24px;
+  font: 500 0.85rem/1 var(--font-mono); color: var(--sk-text);
+  background: var(--sk-panel); border: 1px solid var(--sk-border); border-radius: 999px;
+  padding: 10px 16px; cursor: pointer;
+}
+.sky-back[hidden] { display: none; }
+.sky-back:hover { border-color: var(--sk-text-2); }
+.sky-back:focus-visible { outline: 2px solid var(--sk-text); outline-offset: 2px; }
+
+.sky-caption {
+  position: absolute; z-index: 2; left: 50%; bottom: 46px; transform: translateX(-50%);
+  max-width: calc(100% - 32px); text-align: center; pointer-events: none;
+  background: none; border: 0; text-shadow: 0 0 10px var(--sk-halo), 0 0 3px var(--sk-halo);
+  padding: 10px 20px; color: var(--sk-text-2);
+  font: 400 0.95rem/1.35 var(--font-body);
+}
+.sky-caption h2 {
+  filter: drop-shadow(0 0 8px var(--sk-halo));
+  margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; line-height: 1.12; letter-spacing: 0.015em;
+  background: linear-gradient(135deg, var(--ct), var(--c)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+.sky-caption p { margin: 2px 0 0; }
+.sky-caption kbd { font-size: 0.8em; }
+
+/* ---- SVG layers ------------------------------------------------------------------------ */
+.sky-svg text { font-family: var(--font-body); font-weight: 600; fill: var(--sk-text); paint-order: stroke; stroke: var(--sk-halo); stroke-width: calc(var(--u, 1) * 2.6px); stroke-linejoin: round; }
+.guide-line { stroke: var(--sk-guide); stroke-width: calc(var(--u, 1) * 1px); stroke-dasharray: 2 10; stroke-linecap: round; fill: none; transition: opacity 0.6s; }
+.sky-svg.is-zoomed .guide-line { opacity: 0.10; }
+
+.dust { fill: var(--sk-text); opacity: 0.55; animation: twinkle 4.6s ease-in-out var(--d, 0s) infinite; }
+.dust.far { opacity: 0.5; animation: none; r: calc(var(--u, 1) * 0.75px); fill: #fff; }
+.dust.far.tw { animation: twinkle 3s ease-in-out var(--d, 0s) infinite; }
+.dust.far.s2 { r: calc(var(--u, 1) * 1.05px); }
+.dust.far.s3 { r: calc(var(--u, 1) * 1.4px); opacity: 0.8; }
+.dust.far.t-c, .far-spark.t-c { fill: #bfe6ff; }
+.dust.far.t-a, .far-spark.t-a { fill: #ffe2b8; }
+.far-spark { fill: #ffffff; opacity: 0.55; transform: scale(calc(var(--u, 1) * var(--k, 1))); animation: twinkle 6s ease-in-out var(--d, 0s) infinite; }
+html[data-theme="light"] .dust.far, html[data-theme="light"] .far-spark { fill: #475569; }
+html[data-theme="light"] .dust.far.t-c, html[data-theme="light"] .far-spark.t-c { fill: #0e7490; }
+html[data-theme="light"] .dust.far.t-a, html[data-theme="light"] .far-spark.t-a { fill: #b45309; }
+@keyframes twinkle { 0%, 100% { opacity: 0.05; } 50% { opacity: 1; } }
+
+.const { cursor: pointer; outline: none; transition: opacity 0.6s; }
+.const-hit { fill: transparent; }
+/* No fill or disc behind a figure: its lines and stars are the light. */
+.const-edge { stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.3px); opacity: 0.7; fill: none; stroke-linecap: round;
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 1.5px) var(--c)); transition: opacity 0.4s, filter 0.4s, stroke-width 0.4s; }
+.const-edge.is-faint { opacity: 0.4; stroke-dasharray: 3 7; }
+.const-decor { stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.2px); opacity: 0.30; fill: none; stroke-dasharray: 1 9; stroke-linecap: round; }
+.const-dot { fill: var(--c); opacity: 0.55; }
+.const:hover .const-edge, .const:focus-visible .const-edge, .const.is-active .const-edge {
+  opacity: 1; stroke-width: calc(var(--u, 1) * 2px);
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 4px) var(--c)); }
+.const:hover .const-edge.is-faint, .const.is-active .const-edge.is-faint { opacity: 0.5; }
+.const:focus-visible .const-hit { stroke: var(--sk-text-2); stroke-width: calc(var(--u, 1) * 1.5px); stroke-dasharray: 2 8; }
+.sky-svg.is-zoomed .const:not(.is-active) { opacity: 0.08; pointer-events: none; }
+
+
+.star { cursor: pointer; outline: none; }
+.star-hit { fill: transparent; }
+.star-flare { opacity: 0.42; transition: opacity 0.4s; }
+.star-core { fill: #ffffff; r: 2.4px; filter: drop-shadow(0 0 calc(var(--u, 1) * 3px) var(--c)); }
+.star-dot { fill: var(--c); filter: drop-shadow(0 0 calc(var(--u, 1) * 2px) var(--c)); transition: opacity 0.4s; }
+.const.is-active .star-dot { opacity: 0; }
+.star-glyph { opacity: 0; fill: var(--c); transform-box: fill-box; transform-origin: center; transform: scale(0.4); transition: transform 0.5s ease, opacity 0.4s;
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 2.5px) var(--c)); }
+.const.is-active .star-glyph { transform: scale(0.72); opacity: 1; }
+.const.is-active .star-core { opacity: 0; }
+.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(0.9); }
+.const.is-active .star:hover .star-flare, .const.is-active .star:focus-visible .star-flare { opacity: 0.8; }
+.star:focus-visible .star-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 2px); }
+.star.is-soon .star-glyph { opacity: 0.7; }
+
+
+/* ---- Small screens ---------------------------------------------------------------------- */
+@media (max-width: 700px) {
+  .header-actions { flex-wrap: wrap; justify-content: flex-end; }
+  .header-actions .view-toggle, .header-actions .sky-palette-select { padding: 8px 10px; font-size: 0.75rem; }
+  .sky-title { font-size: 1.15rem; }
+  .sky-caption h2 { font-size: 1.45rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .const, .guide-line, .star-glyph, .const-edge { transition: none; }
+  .dust { animation: none; opacity: 0.5; }
+}
+
+@media print { .sky-view, .view-toggle, .sky-palette-select { display: none !important; } html[data-home-view] .classic-only { display: block !important; } }
+
+/* ---- The whole page is the sky: no frame, the header and footer float over it -------------- */
+html[data-home-view="constellations"],
+html[data-home-view="constellations"] body { height: 100%; overflow: hidden; }
+html[data-home-view="constellations"] .utility-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+html[data-home-view="constellations"] .site-footer {
+  position: fixed; left: 0; right: 0; bottom: 10px; z-index: 2; margin: 0; padding: 0; border: 0; background: transparent; pointer-events: none;
+}
+html[data-home-view="constellations"] .footer-inner { font-size: 0.78rem; color: var(--sk-text-2); }
+html[data-home-view="constellations"] .footer-separator { background: var(--sk-text-2); opacity: 0.5; }
+@media (max-width: 700px) {
+  .sky-title { top: 84px; transform: translateX(-50%); font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .sky-back { left: 16px; top: 64px; }
+  html[data-home-view="constellations"] .site-footer { display: none; }
+  .sky-caption { bottom: 20px; }
+}
+html[data-theme="light"] .sky-caption h2 { background: none; -webkit-text-fill-color: var(--ct); color: var(--ct); filter: none; }
+
+/* ---- Header controls and floating tools, dressed as part of the sky (stellar view only) ---------- */
+html[data-home-view="constellations"] .header-actions .view-toggle,
+html[data-home-view="constellations"] .header-actions .sky-palette-select,
+html[data-home-view="constellations"] .ae-nav-btn,
+html[data-home-view="constellations"] .upd-bell,
+html[data-home-view="constellations"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
+  background-origin: border-box; background-clip: padding-box, border-box;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  box-shadow: 0 0 0 rgba(160, 190, 255, 0);
+  transition: box-shadow 0.35s, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1);
+}
+html[data-theme="light"][data-home-view="constellations"] .header-actions .view-toggle,
+html[data-theme="light"][data-home-view="constellations"] .header-actions .sky-palette-select,
+html[data-theme="light"][data-home-view="constellations"] .ae-nav-btn,
+html[data-theme="light"][data-home-view="constellations"] .upd-bell,
+html[data-theme="light"][data-home-view="constellations"] .theme-toggle {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34));
+}
+/* the glow follows a mouse only: on touch a tap would leave it lit (design pass 2026-11) */
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-view="constellations"] .header-actions .view-toggle:hover,
+  html[data-home-view="constellations"] .header-actions .sky-palette-select:hover,
+  html[data-home-view="constellations"] .ae-nav-btn:hover,
+  html[data-home-view="constellations"] .upd-bell:hover,
+  html[data-home-view="constellations"] .theme-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); }
+}
+/* press feedback: the control dips slightly while pressed, on mouse and touch alike */
+html[data-home-view="constellations"] .header-actions .view-toggle:active,
+html[data-home-view="constellations"] .header-actions .sky-palette-select:active,
+html[data-home-view="constellations"] .ae-nav-btn:active,
+html[data-home-view="constellations"] .upd-bell:active,
+html[data-home-view="constellations"] .theme-toggle:active,
+.header-actions .sound-toggle:active,
+.header-actions .intro-replay:active { transform: scale(0.96); }
+/* a small four-point star in front of the two text controls */
+html[data-home-view="constellations"] .header-actions .view-toggle::before {
+  content: ''; display: inline-block; width: 9px; height: 9px; margin-right: 8px; vertical-align: -1px; background: currentColor;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+/* Timer and Focus: two small ringed planets drifting at the edge of the sky */
+html[data-home-view="constellations"] .fl-launcher,
+html[data-home-view="constellations"] .pm-launcher {
+  min-width: 0; width: 64px; height: 64px; padding: 0; justify-content: center; border: 0; border-radius: 50%;
+  background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 64px 64px;
+  box-shadow: none; filter: drop-shadow(0 0 10px rgba(160, 150, 255, 0.35));
+  animation: astro-drift 9s ease-in-out infinite;
+}
+html[data-home-view="constellations"] .fl-launcher__label,
+html[data-home-view="constellations"] .pm-launcher:not(.is-compact) .pm-launcher__label {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+html[data-home-view="constellations"] .fl-launcher { right: 26px; bottom: 52px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='p' cx='34%25' cy='28%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23c9b8ff'/%3E%3Cstop offset='.45' stop-color='%237b5cf0'/%3E%3Cstop offset='1' stop-color='%232b1a78'/%3E%3C/radialGradient%3E%3C/defs%3E%0A%3Cg transform='rotate(-20 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 1 61.5 32' stroke='%23d9ccff' stroke-opacity='.5' stroke-width='1.1'/%3E%3Cpath d='M7 32A25 7 0 0 1 57 32' stroke='%23d9ccff' stroke-opacity='.3' stroke-width='.9'/%3E%3C/g%3E%0A%3Ccircle cx='32' cy='32' r='17' fill='url(%23p)'/%3E%0A%3Cg transform='rotate(-20 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 0 61.5 32' stroke='%23efe8ff' stroke-opacity='.85' stroke-width='1.3'/%3E%3Cpath d='M7 32A25 7 0 0 0 57 32' stroke='%23efe8ff' stroke-opacity='.45' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E"); }
+html[data-home-view="constellations"] .pm-launcher { right: 98px; bottom: 18px; animation-delay: -4s; filter: drop-shadow(0 0 10px rgba(255, 233, 168, 0.3)); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='p' cx='34%25' cy='28%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23fffdf0'/%3E%3Cstop offset='.5' stop-color='%23e6dcb0'/%3E%3Cstop offset='1' stop-color='%238f8660'/%3E%3C/radialGradient%3E%3C/defs%3E%0A%3Cg transform='rotate(18 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 1 61.5 32' stroke='%23ffe9a8' stroke-opacity='.5' stroke-width='1.1'/%3E%3Cpath d='M7 32A25 7 0 0 1 57 32' stroke='%23ffe9a8' stroke-opacity='.3' stroke-width='.9'/%3E%3C/g%3E%0A%3Ccircle cx='32' cy='32' r='17' fill='url(%23p)'/%3E%0A%3Cg transform='rotate(18 32 32)' fill='none' stroke-linecap='round'%3E%3Cpath d='M2.5 32A29.5 9 0 0 0 61.5 32' stroke='%23fff3c8' stroke-opacity='.85' stroke-width='1.3'/%3E%3Cpath d='M7 32A25 7 0 0 0 57 32' stroke='%23fff3c8' stroke-opacity='.45' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E"); }
+html[data-home-view="constellations"] .fl-launcher svg { stroke: #f1ebff; stroke-width: 1.6; filter: drop-shadow(0 0 4px rgba(90, 60, 220, 0.9)); }
+html[data-home-view="constellations"] .pm-launcher svg, html[data-home-view="constellations"] .pm-launcher svg * { stroke: #6a5319; }
+html[data-home-view="constellations"] .pm-launcher svg { stroke-width: 1.7; filter: drop-shadow(0 0 3px rgba(255, 244, 200, 0.9)); }
+html[data-home-view="constellations"] .pm-launcher.is-compact {
+  width: auto; min-width: 48px; height: 44px; padding: 0 14px; border-radius: 999px; background-image: none; background-color: #e6dcb0; color: #2f2a18;
+}
+html[data-home-view="constellations"] .fl-launcher::before,
+html[data-home-view="constellations"] .pm-launcher::before {
+  position: absolute; left: 50%; bottom: calc(100% + 4px); transform: translateX(-50%); padding: 3px 9px; border-radius: 999px; white-space: nowrap; opacity: 0; pointer-events: none;
+  font: 500 0.72rem/1.2 var(--font-mono); color: var(--sk-text); background: var(--sk-panel); border: 1px solid var(--sk-border); transition: opacity 0.25s;
+}
+html[data-home-view="constellations"] .fl-launcher::before { content: 'Focus'; }
+html[data-home-view="constellations"] .pm-launcher:not(.is-compact)::before { content: 'Timer'; }
+html[data-home-view="constellations"] .fl-launcher:hover::before, html[data-home-view="constellations"] .pm-launcher:hover::before,
+html[data-home-view="constellations"] .fl-launcher:focus-visible::before, html[data-home-view="constellations"] .pm-launcher:focus-visible::before { opacity: 1; }
+@keyframes astro-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-3px, -7px); } }
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-view="constellations"] .fl-launcher, html[data-home-view="constellations"] .pm-launcher { animation: none; }
+}
+
+/* Name of a constellation: only while the pointer is on it (or it has focus) and the map is not zoomed */
+.sky-svg .const-title, .sky-svg .const-sub { opacity: 0; transition: opacity 0.35s; pointer-events: none; text-anchor: middle; stroke-width: calc(var(--u, 1) * 3px); }
+.sky-svg .const-title { font-family: var(--font-display); font-weight: 400; font-size: calc(var(--u, 1) * 30px * var(--tk, 1)); letter-spacing: 0.02em; fill: var(--ct); }
+.sky-svg .const-sub { font-family: var(--font-mono); font-weight: 500; font-size: calc(var(--u, 1) * 13px * var(--tk, 1)); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--sk-text-2); }
+.sky-svg:not(.is-zoomed) .const:hover .const-title, .sky-svg:not(.is-zoomed) .const:hover .const-sub,
+.sky-svg:not(.is-zoomed) .const:focus-visible .const-title, .sky-svg:not(.is-zoomed) .const:focus-visible .const-sub { opacity: 1; }
+.sky-svg.is-zoomed .const-title, .sky-svg.is-zoomed .const-sub { display: none; }
+
+/* ---- Phones and tablets: a taller sky that scrolls, big stars, no tiny text -------------------- */
+.star-body { transform: scale(var(--ks, 1)); }
+.sky-view.is-compact { overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; touch-action: pan-y; overscroll-behavior: contain; }
+.sky-view.is-compact.has-selection { overflow: hidden; touch-action: manipulation; }
+.sky-view.is-compact .sky-svg { position: absolute; top: 0; left: 0; right: 0; bottom: auto; }
+.sky-view.is-compact.has-selection .sky-svg { position: fixed; inset: 0; }
+.sky-view.is-compact .sky-caption, .sky-view.is-compact .sky-back { position: fixed; }
+.sky-view.is-compact .sky-title { top: 84px; transform: translateX(-50%); }
+.sky-view.is-compact .sky-caption { bottom: 14px; padding: 0 16px; }
+.sky-view.is-compact .sky-caption p { font-size: 1.05rem; line-height: 1.4; }
+.sky-view.is-compact .sky-caption h2 { font-size: 2.1rem; }
+.sky-view.is-compact .sky-back { top: 66px; left: 14px; font-size: 1rem; padding: 12px 18px; min-height: 44px; }
+.sky-view.is-compact:not(.has-selection) .sky-caption { display: none; }   /* the hint would sit on the figures while scrolling */
+.sky-svg.is-compact .const.is-active .star-glyph { transform: scale(0.8); }
+.sky-svg.is-compact .const.is-active .star:hover .star-glyph { transform: scale(1.2); }
+@media (max-width: 899px) {
+  .header-actions { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .header-actions .view-toggle, .header-actions .sky-palette-select { min-height: 42px; padding: 10px 14px; font-size: 0.88rem; }
+  html[data-home-view="constellations"] .ae-nav-btn, html[data-home-view="constellations"] .upd-bell { min-width: 42px; min-height: 42px; }
+}
+.sky-view.is-compact .sky-caption { left: 0; right: 0; transform: none; max-width: none; margin: 0 14px; }
+@media (max-width: 599px) {
+  .header-actions { flex-wrap: nowrap; gap: 6px; }
+  .header-actions .sky-palette-select { max-width: 138px; padding-right: 8px; font-size: 0.8rem; }
+  .header-actions .view-toggle { font-size: 0; width: 42px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+  html[data-home-view="constellations"] .header-actions .view-toggle::before { margin: 0; width: 16px; height: 16px; }
+  .sky-view.is-compact .sky-back { top: 68px; }
+}
+
+.sky-view.is-compact .sky-title small { font-size: 0.85rem; letter-spacing: 0.06em; }
+@media (max-width: 899px) { html[data-home-view="constellations"] .site-footer { display: none; } }
+
+/* ---- Life: the sky is never still -------------------------------------------------------------- */
+/* each figure drifts a few units on its own slow loop */
+.const-float { animation: const-float var(--fdur, 14s) ease-in-out var(--fdel, 0s) infinite alternate; will-change: transform; }
+@keyframes const-float { from { transform: translate(calc(var(--fx, 6px) * -1), calc(var(--fy, 5px) * -1)) rotate(calc(var(--fr, 1deg) * -1)); } to { transform: translate(var(--fx, 6px), var(--fy, 5px)) rotate(var(--fr, 1deg)); } }
+.sky-svg.is-zoomed .const-float { animation-play-state: paused; }
+
+/* stars twinkle at their own pace (the open constellation shows its shapes instead) */
+.const:not(.is-active) .star-dot { transform-box: fill-box; transform-origin: center; animation: star-twinkle 2.4s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-twinkle { 0%, 100% { opacity: 0.35; transform: scale(0.65); } 40% { opacity: 1; transform: scale(1.3); } 65% { opacity: 0.7; transform: scale(0.95); } 80% { opacity: 1; transform: scale(1.15); } }
+.const:not(.is-active) .star-flare { animation: star-halo 3.4s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-halo { 0%, 100% { opacity: 0.12; } 50% { opacity: 0.6; } }
+.const.is-active .star-glyph { animation: glyph-breathe 4.6s ease-in-out var(--sd, 0s) infinite; }
+@keyframes glyph-breathe { 0%, 100% { filter: drop-shadow(0 0 calc(var(--u, 1) * 2px) var(--c)); } 50% { filter: drop-shadow(0 0 calc(var(--u, 1) * 6px) var(--c)); } }
+
+/* a small light runs along every line of a figure */
+.const-flow { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 2.6px); stroke-linecap: round; fill: none; opacity: 0.9; stroke-dashoffset: 0;
+  animation: const-flow var(--fs, 6s) linear var(--fd, 0s) infinite; pointer-events: none; }
+@keyframes const-flow { to { stroke-dashoffset: calc(var(--fl, 100px) * -1 - 10px); } }
+html[data-theme="light"] .const-flow { stroke: var(--c); opacity: 0.75; }
+
+/* the lines breathe */
+.const-edge:not(.is-faint) { animation: edge-breathe 3.6s ease-in-out infinite alternate; }
+@keyframes edge-breathe { from { opacity: 0.4; } to { opacity: 0.95; } }
+.const:hover .const-edge:not(.is-faint), .const.is-active .const-edge:not(.is-faint) { animation: none; opacity: 1; }
+
+/* shooting stars across the far sky */
+.shoot { stroke: #ffffff; stroke-width: calc(var(--u, 1) * 1.8px); stroke-linecap: round; opacity: 0; animation: shoot var(--sdur, 18s) linear var(--sdel, 0s) infinite; }
+html[data-theme="light"] .shoot { stroke: var(--sk-text-2); }
+@keyframes shoot { 0%, 78% { opacity: 0; transform: translate(0, 0); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(420px, 229px); } }
+
+/* parallax of the far sky and a slow breath of the title and the nebula */
+.far-layer { translate: calc(var(--mx, 0) * -22px) calc(var(--my, 0) * -16px); transition: translate 0.9s ease-out; animation: far-drift 70s ease-in-out infinite alternate; }
+@keyframes far-drift { from { transform: translate(-40px, -22px) rotate(-0.6deg); } to { transform: translate(40px, 22px) rotate(0.6deg); } }
+.sky-title { animation: title-breathe 9s ease-in-out infinite alternate; }
+@keyframes title-breathe { from { opacity: 0.38; } to { opacity: 0.7; } }
+.sky-view.has-selection .sky-title { animation: none; opacity: 0; }
+.sky-view::after {
+  content: ''; position: absolute; inset: -12%; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 34% 30% at 22% 30%, rgba(0, 200, 255, 0.09), transparent 70%),
+    radial-gradient(ellipse 30% 28% at 78% 24%, rgba(170, 100, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 36% 30% at 56% 78%, rgba(255, 80, 150, 0.08), transparent 70%);
+  animation: nebula-drift 26s ease-in-out infinite alternate;
+}
+html[data-theme="light"] .sky-view::after { opacity: 0.55; }
+@keyframes nebula-drift { from { transform: translate(-5%, -3%) scale(1); } to { transform: translate(5%, 4%) scale(1.15); } }
+.sky-svg { z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .const-float, .const:not(.is-active) .star-dot, .const:not(.is-active) .star-flare, .const.is-active .star-glyph, .const-flow,
+  .const-edge:not(.is-faint), .shoot, .sky-title, .sky-view::after { animation: none; }
+  .shoot, .const-flow { display: none; }
+  .far-layer { transform: none; translate: none; transition: none; animation: none; }
+}
+.sky-title { z-index: 1; }
+
+/* ---- Stars without icons: only their small shapes; the figures blink --------------------------- */
+.const.is-active .star-core { opacity: 1; fill: #ffffff; r: 2.2px; }
+.const.is-active .star-glyph { transform: scale(0.52); }
+.const.is-active .star:hover .star-glyph, .const.is-active .star:focus-visible .star-glyph { transform: scale(0.7); }
+.sky-svg.is-compact .const.is-active .star-glyph { transform: scale(0.55); }
+.sky-svg.is-compact .const.is-active .star:hover .star-glyph { transform: scale(0.72); }
+
+.const-extra-link { stroke: var(--c); stroke-width: calc(var(--u, 1) * 0.9px); stroke-dasharray: 1 6; stroke-linecap: round; opacity: 0.45; }
+.const-extra { fill: var(--c); opacity: 0.7; transform-box: fill-box; transform-origin: center; animation: star-twinkle 3.1s ease-in-out var(--sd, 0s) infinite; }
+
+/* the whole figure flickers: lines and stars dim and flare together, each figure on its own beat */
+.const-float { animation: const-float var(--fdur, 14s) ease-in-out var(--fdel, 0s) infinite alternate, const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
+@keyframes const-blink { 0%, 100% { opacity: 1; } 22% { opacity: 0.38; } 30% { opacity: 1; } 38% { opacity: 0.55; } 46% { opacity: 1; } 70% { opacity: 0.8; } }
+.sky-svg.is-zoomed .const-float { animation-play-state: running; }
+@media (prefers-reduced-motion: reduce) { .const-float, .const-extra { animation: none; } }
+
+/* ---- Floating like the planets: a slow bob up and down plus a slower sway, and bright flashes of light ---- */
+.const-sway { animation: const-sway var(--sdur2, 10s) ease-in-out var(--sdel2, 0s) infinite alternate; will-change: transform; }
+@keyframes const-sway { from { transform: translateX(calc(var(--sx, 10px) * -1)); } to { transform: translateX(var(--sx, 10px)); } }
+.const-float { animation: const-bob var(--fdur, 7s) ease-in-out var(--fdel, 0s) infinite alternate, const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
+@keyframes const-bob { from { transform: translateY(calc(var(--fy, 14px) * -1)) rotate(calc(var(--fr, 1deg) * -1)); } to { transform: translateY(var(--fy, 14px)) rotate(var(--fr, 1deg)); } }
+/* a flash of light on every star, each at its own moment */
+.const .star-core { transform-box: fill-box; transform-origin: center; animation: star-flash 4.2s ease-in-out var(--sd, 0s) infinite; }
+@keyframes star-flash { 0%, 62%, 100% { transform: scale(1); opacity: 0.85; } 70% { transform: scale(2.8); opacity: 1; } 78% { transform: scale(1.2); opacity: 0.9; } }
+.const:not(.is-active) .star-flare { animation: star-halo 4.2s ease-in-out var(--sd, 0s) infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes star-halo { 0%, 60%, 100% { opacity: 0.12; transform: scale(0.8); } 70% { opacity: 0.95; transform: scale(1.7); } 85% { opacity: 0.3; transform: scale(1.1); } }
+@media (prefers-reduced-motion: reduce) { .const-sway, .const-float, .const .star-core, .const:not(.is-active) .star-flare { animation: none; } }
+
+/* =============================================================================================
+   Second screen: no name in the middle (the welcome screen carries it), calmer rhythms, the entrance
+   ==================================================================================================== */
+/* the heading stays for screen readers and search engines, out of sight */
+.sky-view .sky-title { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; animation: none; opacity: 1; }
+
+/* slower blinking, flashing and light along the lines */
+.const:not(.is-active) .star-dot { animation: star-twinkle 6s ease-in-out var(--sd, 0s) infinite; }
+.const .star-core { animation: star-flash 10s ease-in-out var(--sd, 0s) infinite; }
+.const:not(.is-active) .star-flare { animation: star-halo 10s ease-in-out var(--sd, 0s) infinite; }
+.const.is-active .star-glyph { animation: glyph-breathe 9s ease-in-out var(--sd, 0s) infinite; }
+.const-extra { animation: star-twinkle 7s ease-in-out var(--sd, 0s) infinite; }
+.const-edge:not(.is-faint) { animation: edge-breathe 10s ease-in-out infinite alternate; }
+.const:hover .const-edge:not(.is-faint), .const.is-active .const-edge:not(.is-faint) { animation: none; opacity: 1; }
+@keyframes const-blink { 0%, 100% { opacity: 1; } 20% { opacity: 0.55; } 32% { opacity: 1; } 55% { opacity: 0.8; } 70% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .const:not(.is-active) .star-dot, .const .star-core, .const:not(.is-active) .star-flare, .const.is-active .star-glyph, .const-extra, .const-edge:not(.is-faint) { animation: none; }
+}
+
+/* arriving: the map comes up out of the warp and each constellation lights in turn */
+.sky-view.is-entering .sky-svg { animation: space-in 2.8s cubic-bezier(0.16, 0.7, 0.2, 1) backwards; transform-origin: 50% 50%; }
+@keyframes space-in { 0% { transform: scale(2.4); opacity: 0; filter: blur(6px); } 35% { opacity: 1; } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
+.sky-view.is-entering .const { animation: const-in 2.2s ease-out backwards; animation-delay: calc(0.7s + var(--ci, 0) * 0.32s); }
+@keyframes const-in { 0% { opacity: 0; } 40% { opacity: 1; } 55% { opacity: 0.4; } 100% { opacity: 1; } }
+.sky-view.is-entering .sky-caption, .sky-view.is-entering .sky-back { animation: fade-up 1.4s ease-out 1.6s backwards; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) {
+  .sky-view.is-entering .sky-svg { animation: fade-in-quick 0.8s ease-out backwards; }
+  .sky-view.is-entering .const { animation: none; }
+  @keyframes fade-in-quick { from { opacity: 0; } }
+}
+
+/* the speaker button */
+.header-actions .sound-toggle {
+  display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border-radius: 50%; cursor: pointer; color: var(--text-primary);
+  border: 1px solid transparent; background-color: rgba(255, 255, 255, 0.04);
+  background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
+  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1);
+}
+html[data-theme="light"] .header-actions .sound-toggle { background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34)); }
+@media (hover: hover) and (pointer: fine) { .header-actions .sound-toggle:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); } }
+.header-actions .sound-toggle:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.header-actions .sound-toggle svg { width: 20px; height: 20px; }
+.header-actions .sound-toggle .waves { opacity: 0.25; transition: opacity 0.3s; }
+.header-actions .sound-toggle.is-on .waves { opacity: 1; animation: waves-pulse 3.2s ease-in-out infinite; }
+@keyframes waves-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+html[data-home-view="classic"] .sound-toggle { display: none !important; }
+@media (max-width: 599px) { .header-actions .sound-toggle { width: 40px; height: 40px; } }
+@media (max-width: 599px) {
+  .header-actions { gap: 4px; }
+  .header-actions .sky-palette-select { max-width: 104px; font-size: 0.72rem; padding-left: 8px; }
+}
+
+.header-actions .intro-replay { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border-radius: 50%; cursor: pointer; color: var(--text-primary);
+  border: 1px solid transparent; background-color: rgba(255, 255, 255, 0.04);
+  background-image: linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)), linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
+  background-origin: border-box; background-clip: padding-box, border-box; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: box-shadow 0.35s, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1); }
+html[data-theme="light"] .header-actions .intro-replay { background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34)); }
+@media (hover: hover) and (pointer: fine) { .header-actions .intro-replay:hover { box-shadow: 0 0 16px rgba(160, 190, 255, 0.35); } }
+.header-actions .intro-replay:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+.header-actions .intro-replay svg { width: 20px; height: 20px; }
+html[data-home-view="classic"] .intro-replay { display: none !important; }
+@media (max-width: 599px) { .header-actions .intro-replay { display: none; } }
+/* ---- HUD satellites: an open constellation names every star with a leader, a ring and its icon ---------- */
+/* Hidden in the panorama; geometry is written by layoutHud() in screen pixels, so only colours and strokes live here. */
+.star-sat { visibility: hidden; opacity: 0; transition: opacity 0.3s, visibility 0s 0.3s; }
+.const.is-active .star-sat { visibility: visible; opacity: 1; transition: opacity 0.45s 0.3s, visibility 0s; }
+.sat-hit { fill: transparent; }
+.sat-leader { fill: none; stroke: var(--c); stroke-width: calc(var(--u, 1) * 1.2px); stroke-linejoin: round; stroke-linecap: round; opacity: 0.65;
+  stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0.7s ease 0.35s, opacity 0.3s, stroke-width 0.3s; }
+.const.is-active .sat-leader { stroke-dashoffset: 0; }
+.sat-ring { fill: var(--sk-halo); fill-opacity: 0.86; stroke: var(--c); stroke-opacity: 0.9; stroke-width: calc(var(--u, 1) * 1.3px);
+  transition: stroke-width 0.3s, fill-opacity 0.3s, filter 0.3s; }
+.sat-icon { color: var(--ct); pointer-events: none; }
+.sky-svg text.sat-name { fill: var(--sk-text); font-family: var(--font-body); font-weight: 600; letter-spacing: 0.01em; }
+.sky-svg text.sat-tag { fill: var(--ct); font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.04em; }
+/* one target: star, leader and satellite light up together */
+.const.is-active .star:hover .sat-leader, .const.is-active .star:focus-visible .sat-leader { opacity: 1; stroke-width: calc(var(--u, 1) * 2px); }
+.const.is-active .star:hover .sat-ring, .const.is-active .star:focus-visible .sat-ring { fill-opacity: 1; stroke-width: calc(var(--u, 1) * 2.2px);
+  filter: drop-shadow(0 0 calc(var(--u, 1) * 5px) var(--c)); }
+.const.is-active .star:focus-visible .sat-hit { stroke: var(--sk-text); stroke-width: calc(var(--u, 1) * 1.6px); stroke-dasharray: calc(var(--u, 1) * 4px) calc(var(--u, 1) * 3px); }
+.star.is-soon .sat-ring, .star.is-soon .sat-name { opacity: 0.8; }
+@media (prefers-reduced-motion: reduce) {
+  .star-sat, .const.is-active .star-sat, .sat-leader, .sat-ring { transition: none; }
+  .sat-leader { stroke-dasharray: none; }
+}
+
+/* The open constellation holds still, so its satellite labels stay inside the frame and are easy to read and hit;
+   it keeps its blink. Placed last: later blocks above redefine the float animation. */
+.const.is-active .const-sway { animation: none; }
+.const.is-active .const-float { animation: const-blink var(--bd, 6s) ease-in-out var(--bdel, 0s) infinite; }
+@media (prefers-reduced-motion: reduce) { .const.is-active .const-float { animation: none; } }
+
+/* ---- Phones: the header fits and the planets leave the caption alone ---------------------------------- */
+@media (max-width: 599px) {
+  /* in the stellar view the sky palette sets light or dark (Stratospheric Light is the light one), so the switch
+     can go and the header fits a 375 px screen */
+  html[data-home-view="constellations"] .theme-toggle { display: none; }
+  /* the subject name sits above the Focus and Timer planets; the camera measures it and keeps the labels above */
+  .sky-view.is-compact .sky-caption { bottom: 92px; }
+}
+
+/* ---- Phone and tablet header: one row that fits the screen (design pass 2026-11) ------------------
+   Below 600 px the sky palette select shrinks to a round icon button (the native list still opens with
+   the palette names); from 600 to 899 px the row no longer wraps, so Sign in stays on the first line. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .header-actions { flex-wrap: nowrap; }
+  .header-actions .sky-palette-select { max-width: 150px; }
+}
+@media (max-width: 599px) {
+  html[data-home-view="constellations"] .header-actions .sky-palette-select {
+    -webkit-appearance: none; appearance: none;
+    width: 42px; max-width: 42px; min-height: 42px; height: 42px; padding: 0;
+    font-size: 0; color: transparent; text-indent: -999px; overflow: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f8fafc' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5c0-4-4-7.4-9-7.4z'/%3E%3Ccircle cx='7.5' cy='11' r='1.2'/%3E%3Ccircle cx='10' cy='7' r='1.2'/%3E%3Ccircle cx='15' cy='7.5' r='1.2'/%3E%3C/svg%3E"),
+      linear-gradient(rgba(10, 14, 32, 0.55), rgba(10, 14, 32, 0.55)),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06) 55%, rgba(186, 160, 255, 0.34));
+    background-repeat: no-repeat; background-position: center, 0 0, 0 0; background-size: 20px 20px, auto, auto;
+    background-origin: border-box; background-clip: padding-box, padding-box, border-box;
+  }
+  html[data-theme="light"][data-home-view="constellations"] .header-actions .sky-palette-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5c0-4-4-7.4-9-7.4z'/%3E%3Ccircle cx='7.5' cy='11' r='1.2'/%3E%3Ccircle cx='10' cy='7' r='1.2'/%3E%3Ccircle cx='15' cy='7.5' r='1.2'/%3E%3C/svg%3E"),
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.32), rgba(15, 23, 42, 0.06) 55%, rgba(109, 74, 255, 0.34));
+  }
+  html[data-home-view="constellations"] .header-actions .sky-palette-select option { font-size: 16px; color: #0f172a; text-indent: 0; }
+}
+
+/* ---- Subject names always on screen where there is no hover (touch) and on the scrolled map ---- */
+.sky-svg.is-compact:not(.is-zoomed) .const-title, .sky-svg.is-compact:not(.is-zoomed) .const-sub { opacity: 1; }
+@media (hover: none) {
+  .sky-svg:not(.is-zoomed) .const-title, .sky-svg:not(.is-zoomed) .const-sub { opacity: 1; }
+}
+/* the phone map scales its figures down; --tks lets the subject line keep a readable size of its own */
+.sky-svg .const-sub { font-size: calc(var(--u, 1) * 13px * var(--tks, var(--tk, 1))); }
+.sky-svg .const-title { font-size: calc(var(--u, 1) * 30px * var(--tkt, var(--tk, 1))); }
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-view="constellations"] .header-actions > *:active, .ae-nav-btn:active, .upd-bell:active { transform: none; }
+}
+
+/* ---- Polish pass (2026-11): Sign in as tall as the round controls on phones, and a header that also fits 320 px ---- */
+@media (max-width: 599px) {
+  html[data-home-view="constellations"] .acc-signin { height: 40px; padding: 0 14px; border-radius: 999px; }
+}
+@media (max-width: 359px) {
+  html[data-home-view="constellations"] .utility-bar .header-inner { padding-left: 10px; padding-right: 10px; gap: 6px; }
+  html[data-home-view="constellations"] .header-actions { gap: 3px; }
+  html[data-home-view="constellations"] .header-actions .sound-toggle,
+  html[data-home-view="constellations"] .header-actions .sky-palette-select,
+  html[data-home-view="constellations"] .header-actions .view-toggle,
+  html[data-home-view="constellations"] .ae-nav-btn,
+  html[data-home-view="constellations"] .upd-bell { width: 38px; min-width: 38px; height: 38px; min-height: 38px; }
+  html[data-home-view="constellations"] .acc-signin { padding: 0 11px; }
+}

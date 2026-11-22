@@ -29,8 +29,8 @@ An ice cube of density $\rho_h$ is partially submerged in a container holding a 
 
 Translated from the Spanish original; the figure of the sheet labels the cube density $\rho_b$, the same quantity as $\rho_h$.
 
-![[attachments/FM-T5/fs1-statement.svg]]
-*Statement figure (redrawn from fluid_statics_1.pdf, p. 1): ice cube of volume $V_h$ and density $\rho_h$ floating in a liquid of density $\rho_f > \rho_h$, submerged volume $V_s$*
+![[attachments/FM-T5/fs1-statement.png]]
+*Statement figure: ice cube of volume $V_h$ and density $\rho_h$ floating in a liquid of density $\rho_f$, submerged volume $V_s$. Copied from fluid_statics_1.pdf, p. 1.*
 
 Source: fluid_statics_1.pdf (page 1, sheet of 11-2-00). Notes.pdf, Chapter 5: Archimedes' principle, Eq. 5.15.
 

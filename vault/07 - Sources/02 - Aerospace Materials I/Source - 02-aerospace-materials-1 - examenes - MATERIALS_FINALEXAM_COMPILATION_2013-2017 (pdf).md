@@ -19,8 +19,19 @@ bytes: 1405429
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_COMPILATION_2013-2017.pdf`
 - **Kind:** examenes
 - **Size:** 1.4 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 12 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P02 - Alloy Composition from the Eutectic Fraction in a Peritectic System]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P04 - Building a Diagram with a Congruent and an Incongruent Compound]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P06 - Building a Eutectic Diagram from a Description and Using It]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P10 - Slow Cooling of a Hypereutectoid Tool Steel]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P12 - Three Steels Compared Microconstituents Hardness and Alloying]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P13 - Titanium Alloy Tensile Test from a Load and Gauge Length Table]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P14 - Ductility and True Fracture Stress of an Aluminium Alloy from the Broken Specimen]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P15 - Resilience and True Stress of a Steel Read from Its Stress-Strain Curve]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P16 - Rebuilding the Raw Measurements of a Magnesium Alloy Tensile Test from Its Report]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P20 - Minimum Diameter of a Titanium Hanger Rod]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

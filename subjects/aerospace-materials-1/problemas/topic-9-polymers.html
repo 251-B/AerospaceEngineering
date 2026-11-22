@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 9: Solved Problems (Polymers) — Aerospace Materials I</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --accent-glow: rgba(245, 158, 11, 0.2);
+
+      --phase-1: #38bdf8;
+      --phase-1-bg: rgba(56, 189, 248, 0.08);
+      --phase-1-border: rgba(56, 189, 248, 0.25);
+
+      --phase-2: #f59e0b;
+      --phase-2-bg: rgba(245, 158, 11, 0.08);
+      --phase-2-border: rgba(245, 158, 11, 0.25);
+
+      --phase-3: #34d399;
+      --phase-3-bg: rgba(52, 211, 153, 0.08);
+      --phase-3-border: rgba(52, 211, 153, 0.25);
+
+      --phase-4: #c084fc;
+      --phase-4-bg: rgba(192, 132, 252, 0.08);
+      --phase-4-border: rgba(192, 132, 252, 0.25);
+
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(20, 30, 55, 0.95);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --shadow-elevation: 0 8px 32px rgba(0, 0, 0, 0.45);
+      --statement-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --border-card: rgba(0, 0, 0, 0.08);
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --shadow-elevation: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --statement-bg: #f8fafc;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4, .brand-title, .problem-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: var(--text-heading);
+    }
+
+    code, pre, .tag, .badge, .brand-badge, .nav-pill, .phase-badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Header */
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      width: 42px;
+      height: 22px;
+      border-radius: 11px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-heading);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* Sticky Navigation Bar with Pills */
+    nav.pills-bar,
+    .pills-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 58px;
+      z-index: 90;
+      padding: 10px 24px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      color: #070b14;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main.problems-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 24px 96px;
+    }
+
+    /* Page Header */
+    .page-intro {
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Collapsible Problem Card */
+    details.problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-elevation);
+      transition: border-color var(--transition);
+      scroll-margin-top: 120px;
+    }
+
+    details.problem-card[open] {
+      border-color: var(--accent-border);
+    }
+
+    summary.problem-summary {
+      cursor: pointer;
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    summary.problem-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .problem-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prob-num-badge {
+      background: var(--accent);
+      color: #070b14;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .prob-source-badge {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-input);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .problem-title {
+      font-size: 1.45rem;
+      color: var(--text-heading);
+      margin-top: 8px;
+    }
+
+    .card-body {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+    }
+
+    /* Statement Box */
+    .statement-box {
+      background: var(--statement-bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-style: italic;
+      color: var(--text-heading);
+      font-size: 1.04rem;
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      font-style: normal;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 4-Phase Grid */
+    .phases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .phase-step {
+      background: var(--bg-surface);
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .phase-1 .phase-badge { color: var(--phase-1); background: var(--phase-1-bg); border: 1px solid var(--phase-1-border); }
+    .phase-2 .phase-badge { color: var(--phase-2); background: var(--phase-2-bg); border: 1px solid var(--phase-2-border); }
+    .phase-3 .phase-badge { color: var(--phase-3); background: var(--phase-3-bg); border: 1px solid var(--phase-3-border); }
+    .phase-4 .phase-badge { color: var(--phase-4); background: var(--phase-4-bg); border: 1px solid var(--phase-4-border); }
+
+    .phase-step p {
+      margin-bottom: 14px;
+      color: var(--text-body);
+    }
+
+    .phase-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .phase-step ul, .phase-step ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .phase-step li {
+      margin-bottom: 6px;
+    }
+
+    /* Reference Table Card */
+    .reference-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .reference-title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-container {
+      position: relative;
+      overflow-x: auto;
+    }
+
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    table.ref-table th {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table.ref-table td {
+      padding: 6px 8px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 10px 16px; }
+      nav.pills-bar,
+      .pills-bar {
+        padding: 8px 16px;
+        top: 96px;
+      }
+      main.problems-container { padding: 24px 16px 64px; }
+      details.problem-card { padding: 20px 18px; }
+    }
+  
+    /* Topic 4: blocks generated from the vault notes */
+    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 18px 0; border-top: 1px solid var(--accent-border);
+      border-right: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); }
+    .callout-warning { border-left-color: #ef4444; border-top-color: rgba(239, 68, 68, 0.3);
+      border-right-color: rgba(239, 68, 68, 0.3); border-bottom-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+    .callout-title { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+    .math-block { overflow-x: auto; margin: 14px 0; }
+    .phase-step .table-container { overflow-x: auto; margin: 14px 0; border: 1px solid var(--border-subtle); border-radius: 8px; }
+    table.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; text-align: left; }
+    table.data-table th { background: var(--bg-subtle); color: var(--text-heading); padding: 9px 12px; font-weight: 600;
+      border-bottom: 1px solid var(--border-strong); }
+    table.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); color: var(--text-body); }
+    table.data-table tr:last-child td { border-bottom: none; }
+    .sheet-intro { margin-top: 56px; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px;
+      padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <!-- Universal Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">MAT-I · Topic 9</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="problems-container">
+
+    <!-- Page Intro Header -->
+    <header class="page-intro">
+      <h1>Topic 9: Solved Problems</h1>
+      <p>
+        Step-by-step solutions of all 9 problems of the official sheet on polymers (Problems T9_Polymers: degree of polymerization, crystallinity from the density, number and weight average molecular weights, and the effect of structure, crystallinity and temperature on the melting temperature, the stiffness and the strength, from Sessions 19 and 20). The sheet prints a numeric key for the numerical items, so each solution is derived here and compared with that key.
+      </p>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Problems T9_Polymers.pdf</a>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 1 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-1">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 1</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #1</span>
+            <span class="prob-source-badge">Degree of polymerization · chains per gram</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Degree of Polymerization and Number of Chains of PMMA</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="1"><li>The molecular weight of PMMA is 250 000 g/mol. If all the chains have the same size, calculate (a) the degree of polymerization and (b) number of chains in 1 g of polymer.</li></ol>
+<p>Data: Atomic mass (g/mol): O = 16, H = 1, C = 12.</p>
+          <div class="solution-box">Official Solution: (a) 2500; (b) 2.408 x10¹⁸ chains</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Monodisperse polymer.</strong> All the chains have the same size, as the statement says, so every average molecular weight equals the molecular weight of one chain: $M_n = M_w = M = 250\,000$ g/mol and the index of polydispersion is $I = 1$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=13" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 13">13</a>].</li><li><strong>Repeat unit of PMMA.</strong> Polymethyl methacrylate is $\mathrm{-[CH_2{-}C(CH_3)(COOCH_3)]_n-}$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=50" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 50">50</a>; Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8</a>]. Counting the atoms of the unit: C in $\mathrm{CH_2}$, the backbone C, $\mathrm{CH_3}$, $\mathrm{C{=}O}$ and $\mathrm{OCH_3}$ gives 5 C; H in $\mathrm{CH_2}$, $\mathrm{CH_3}$ and $\mathrm{OCH_3}$ gives $2 + 3 + 3 = 8$ H; and the ester group has 2 O. The repeat unit is $\mathrm{C_5H_8O_2}$.</li><li><strong>Avogadro's number.</strong> $N_A = 6.022\times10^{23}$ mol⁻¹ (not given on the sheet; standard constant).</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>Molecular weight of the polymer</td><td>$M$</td><td style="text-align:right">250 000 g/mol</td></tr><tr><td>Atomic masses</td><td>C, H, O</td><td style="text-align:right">12, 1, 16 g/mol</td></tr><tr><td>Mass of polymer</td><td>$m$</td><td style="text-align:right">1 g</td></tr><tr><td>Avogadro's number</td><td>$N_A$</td><td style="text-align:right">$6.022\times10^{23}$ mol⁻¹</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> (a) the degree of polymerization $X_n$; (b) the number of chains $N$ in 1 g.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>The degree of polymerization is the average number of monomer units in a chain [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12</a>]:</p>
+<div class="math-block">$$X_n = \frac{M_n}{M_0}$$</div>
+<p>with $M_0$ the molecular weight of the repeat unit. A mole of chains contains $N_A$ chains, so the number of chains in a mass $m$ is the number of moles of chains, $m/M$, times $N_A$.</p>
+<p><strong>Strategy.</strong></p>
+<ol><li>Compute $M_0$ of the PMMA repeat unit from the atomic masses.</li><li>Divide the chain molecular weight by $M_0$.</li><li>Convert 1 g into moles of chains and then into chains.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Molecular weight of the repeat unit</strong></p>
+<div class="math-block">$$M_0 = 5\,M_C + 8\,M_H + 2\,M_O = 5(12\ \text{g/mol}) + 8(1\ \text{g/mol}) + 2(16\ \text{g/mol})$$</div>
+<div class="math-block">$$M_0 = 60 + 8 + 32 = 100\ \text{g/mol}$$</div>
+<p><strong>2. (a) Degree of polymerization [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12</a>]</strong></p>
+<div class="math-block">$$X_n = \frac{M_n}{M_0} = \frac{250\,000\ \text{g/mol}}{100\ \text{g/mol}} = \mathbf{2500}$$</div>
+<p><strong>3. (b) Number of chains in 1 g</strong></p>
+<p>Moles of chains in 1 g:</p>
+<div class="math-block">$$n = \frac{m}{M} = \frac{1\ \text{g}}{250\,000\ \text{g/mol}} = 4.000\times10^{-6}\ \text{mol}$$</div>
+<p>Number of chains:</p>
+<div class="math-block">$$N = n\,N_A = 4.000\times10^{-6}\ \text{mol}\times6.022\times10^{23}\ \text{mol}^{-1} = \mathbf{2.409\times10^{18}\ chains}$$</div>
+<p>(more digits: $2.4088\times10^{18}$).</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $X_n = (\text{g/mol})/(\text{g/mol})$ is a pure number, as a count of units must be. $N = (\text{g})/(\text{g/mol})\times\text{mol}^{-1}$ is a pure number of chains.</li><li><strong>Mass of one chain.</strong> $M/N_A = 250\,000\ \text{g/mol}/6.022\times10^{23}\ \text{mol}^{-1} = 4.15\times10^{-19}$ g, and $1\ \text{g}/4.15\times10^{-19}\ \text{g} = 2.41\times10^{18}$ chains, the same result.</li><li><strong>Second route.</strong> 1 g holds $1/100 = 0.01$ mol of repeat units, that is $6.022\times10^{21}$ units; divided by 2500 units per chain this again gives $2.409\times10^{18}$ chains.</li><li><strong>Limit.</strong> If the chains were shorter (smaller $X_n$), the same gram would contain more chains: $N$ is inversely proportional to $M$.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Each PMMA chain is a molecule of 2500 repeat units, with a mass of about $4.15	imes10^{-19}$ g, some $2.4	imes10^{12}$ times smaller than a microgram, so even one gram of plastic holds a few $10^{18}$ macromolecules. In a real PMMA the chains are not all the same size; then $M$ in the statement would be the number average $M_n$, and the same two formulas would give the average degree of polymerization and the number of chains.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>(a) Degree of polymerization</td><td>2500</td><td>2500</td><td>agrees</td></tr><tr><td>(b) Chains in 1 g</td><td>$2.408\times10^{18}$</td><td>$2.4088\times10^{18}$</td><td>agrees; the key truncates the last digit</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 2 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-2">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 2</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #2</span>
+            <span class="prob-source-badge">Crystallinity · branching, copolymers, tacticity</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Which Polymer of Each Pair Crystallizes More Easily</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="2"><li>Describe for each of the following polymer pairs, which one is more likely to crystallize? Explain your answer.</li></ol>
+<p>a) Branched Polyethylene vs linear polyethylene. b) Polyethylene vs polyethylene-polypropylene co-polymer. c) Isotactic Polypropylene vs Atactic polypropylene.</p>
+<p>The key prints "Liner" and "Isostatic"; they mean linear and isotactic.</p>
+          <div class="solution-box">Official Solution: a) Liner PE, b) PE, c) Isostatic PP</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>What crystallinity needs.</strong> The crystallinity of a polymer is the degree to which there are regions where the chains are aligned with one another [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=23" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 23">23</a>]; in the crystalline lamellae the chains fold back and forth in an ordered way [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a>]. A chain crystallizes easily when it is <strong>regular</strong> along its length, so that neighbouring segments fit next to each other.</li><li><strong>Factors of the slides.</strong> Linear polymers pack best and are the most crystalline, branched ones less; symmetric and simple monomers favour crystallinity, complex ones lower it; random and graft copolymers are amorphous and alternating and block copolymers have some crystallinity; atactic polymers are amorphous, isotactic and syndiotactic ones probably crystalline [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26-27</a>].</li><li><strong>Same conditions.</strong> Within each pair the cooling rate and the molecular weight are taken as equal, so only the structure of the chain decides.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Pair</th><th>Structural difference</th></tr></thead><tbody><tr><td>a)</td><td>branched against linear chain of the same polymer</td></tr><tr><td>b)</td><td>homopolymer against copolymer with a second monomer</td></tr><tr><td>c)</td><td>regular (isotactic) against random (atactic) side groups</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> in each pair, the polymer that is more likely to crystallize, and why.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>Each pair differs in only one structural feature, so each answer follows from one of the factors of Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>: the molecular structure (a), the copolymer sequence and the simplicity of the monomer (b), and the tacticity (c).</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-molecular-structure-types.png" alt="Molecular structure types" loading="lazy" style="max-width:min(100%,530px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. Linear, branched, crosslinked and network polymer structures. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=22" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 22">22</a>..</div>
+</div>
+<p><strong>Strategy.</strong> For each pair, name the feature, say how it changes the regularity of the chain, and apply the rule of the slides.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Branched polyethylene against linear polyethylene [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=22" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 22">22</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26-27</a>]</strong></p>
+<p>The branches are side chains that stick out of the backbone at irregular places. They keep the backbones apart and prevent them from lying side by side in the folded lamellae, so the packing is poorer. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a> states that linear polymers have a higher amount of packing and a higher degree of crystallinity, and branched polymers a lower one; the table of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a> gives "most probable" for linear and "sometimes" for branched.</p>
+<p><strong>Answer: linear polyethylene.</strong></p>
+<p><strong>2. b) Polyethylene against a polyethylene-polypropylene copolymer [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=20" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 20">20</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>]</strong></p>
+<p>Polyethylene, $\mathrm{-[CH_2{-}CH_2]_n-}$, is the example of a symmetric and simple monomer ("Simple, YES" on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>): every unit is the same and the chain is perfectly regular. In the copolymer, propylene units with a $\mathrm{CH_3}$ side group are inserted among the ethylene units. The statement does not say the type of copolymer; for a random sequence (the usual one) the $\mathrm{CH_3}$ groups appear at random places and the chain is irregular, so the copolymer is amorphous (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>: random and graft copolymers are amorphous). Even an alternating or block copolymer has only "some crystallinity" according to the same slide, less than the regular homopolymer.</p>
+<p><strong>Answer: polyethylene.</strong></p>
+<p><strong>3. c) Isotactic polypropylene against atactic polypropylene [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=18" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 18">18-19</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>]</strong></p>
+<p>In polypropylene, $\mathrm{-[CH_2{-}CH(CH_3)]_n-}$, the $\mathrm{CH_3}$ groups can be all on the same side (isotactic), alternating (syndiotactic) or at random (atactic) [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=18" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 18">18</a>]. The isotactic chain repeats the same arrangement all along, so its segments fit together; the atactic chain has no pattern and cannot pack. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a> states that atactic polymers are amorphous and isotactic or syndiotactic ones are probably crystalline, and Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=19" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 19">19</a> adds that atactic polypropylene is a wax-type material with very bad mechanical properties.</p>
+<p><strong>Answer: isotactic polypropylene.</strong></p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>One rule behind the three answers.</strong> In every pair the polymer chosen is the more regular one: no branches, one kind of unit, one arrangement of the side groups. Regularity is what lets chains fold into lamellae.</li><li><strong>Consistency with the density.</strong> The crystalline polymer is denser than the amorphous one [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=24" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 24">24</a>], so in each pair the chosen polymer would show the higher density for the same cooling, which is how the difference would be measured (the formula of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a>).</li><li><strong>Limit cases.</strong> A crosslinked polymer is the extreme of irregular packing: "almost never" crystalline [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>]. At the other extreme, a linear, isotactic homopolymer of a simple monomer is the most likely to crystallize.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Crystallinity is a question of geometry: chains crystallize when they can lie parallel and close together. Branches, foreign units and random side groups all break that order. The practical consequence is that the more crystalline member of each pair is also the denser, stiffer and stronger one with the higher melting temperature [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>], which is why linear high-density polyethylene and isotactic polypropylene are the grades used for structural plastic parts.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a)</td><td>linear PE (printed "Liner PE")</td><td>linear PE</td><td>agrees</td></tr><tr><td>b)</td><td>PE</td><td>PE</td><td>agrees</td></tr><tr><td>c)</td><td>isotactic PP (printed "Isostatic PP")</td><td>isotactic PP</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 3 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-3">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 3</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #3</span>
+            <span class="prob-source-badge">Chain orientation · processing and strength</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Rolling or Fast-Cooled Casting for a Stronger Thermoplastic</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="3"><li>Assuming that a thermoplastic polymer can be produced by rolling (deformation) and casting (with fast cooling). Which one of the two methods will produce a polymer with higher strength? Explain your answer.</li></ol>
+          <div class="solution-box">Official Solution: polymer produced by rolling</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Same polymer.</strong> Both routes use the same thermoplastic (same chains, same molecular weight); only the processing differs.</li><li><strong>Rolling.</strong> Rolling deforms the solid polymer, stretching it in the rolling direction.</li><li><strong>Casting with fast cooling.</strong> The polymer is poured as a melt into a mould and cooled quickly, so the chains solidify in the arrangement they had in the liquid.</li><li><strong>What the slides say about strength.</strong> Deforming a polymer can increase its strength, because the chains become oriented and interact more effectively; the strength also increases with the degree of crystallinity [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>]. An oriented polymer is significantly stronger and stiffer than an isotropic one [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=39" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 39">39</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Route</th><th>State of the chains</th></tr></thead><tbody><tr><td>Rolling</td><td>chains aligned by the deformation</td></tr><tr><td>Fast-cooled casting</td><td>chains frozen as random coils, little time to crystallize</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> the route that gives the higher strength, and why.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>The strength of a thermoplastic is set by how the chains resist sliding past each other: aligned, well-packed chains share the load through many secondary bonds along their length, while random coils carry it through few contacts and entanglements. The cold-drawing and strain-hardening stages of the tensile test show the same mechanism inside one specimen [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=38" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 38">38-39</a>].</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-strain-hardening-chains.png" alt="Oriented chains in strain hardening" loading="lazy" style="max-width:min(100%,300px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. Oriented chains in the strain hardening region. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=39" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 39">39</a>..</div>
+</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Describe the chain arrangement after each route.</li><li>Compare the two with the factors of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Rolling [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=38" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 38">38-39</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>]</strong></p>
+<p>The deformation unravels the coiled chains and aligns them parallel to the rolling direction, as in the cold drawing of the tensile test (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=38" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 38">38</a>: the chains unravel, aligning themselves parallel to the direction of the applied stress). The aligned chains lie closer and interact more effectively, so more secondary bonds must be broken for them to slide; in a semicrystalline polymer the lamellae are also tilted and their block segments aligned with the axis (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=41" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 41">41</a>). This is the strain hardening of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=39" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 39">39</a>: the oriented polymer is significantly stronger and stiffer.</p>
+<p><strong>2. Casting with fast cooling [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>]</strong></p>
+<p>In the melt the chains are random coils. Fast cooling gives them little time to fold into lamellae before the temperature drops below $T_g$ and the segments freeze (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>): a faster cooling gives smaller crystals (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>), and the chains that have not crystallized stay as an amorphous, isotropic tangle. That the fast cooling also lowers the degree of crystallinity is the author's reading of Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a> (the slides state the effect on the crystal size).</p>
+<p><strong>3. Comparison</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th></th><th>Rolling</th><th>Fast-cooled casting</th></tr></thead><tbody><tr><td>Chain orientation</td><td>aligned (anisotropic)</td><td>random (isotropic)</td></tr><tr><td>Interaction between chains</td><td>more effective</td><td>less effective</td></tr><tr><td>Crystallinity</td><td>kept or increased by alignment</td><td>reduced by the fast cooling</td></tr><tr><td>Strength</td><td>higher</td><td>lower</td></tr></tbody></table></div>
+<p><strong>Answer: the polymer produced by rolling.</strong></p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Direction.</strong> The gain in strength is in the direction of the orientation. Crystallization and orientation raise the anisotropy [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=23" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 23">23-24</a>], so a rolled sheet is strongest along the rolling direction; in the transverse direction the gain is smaller (extension).</li><li><strong>Limit of the deformation.</strong> Orientation can only be pushed until no further chain alignment is possible; then the polymer fractures [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=40" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 40">40</a>]. Rolling is therefore applied with a moderate reduction, not to failure.</li><li><strong>Same mechanism in fibres.</strong> Fibres are made with linear, oriented, crystalline chains and are the strongest form of a polymer [Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=16" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 16">16</a>], which confirms the role of orientation.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>In metals cold work raises the strength by multiplying dislocations; in a thermoplastic the deformation raises it by aligning the chains. The cast and quenched polymer is the opposite case: its chains are frozen as a disordered tangle, with the least effective interaction between them. Drawing and rolling are the reason why stretched films and fibres are much stronger than moulded blocks of the same polymer.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Stronger route</td><td>polymer produced by rolling</td><td>rolling</td><td>agrees; chain orientation, Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=39" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 39">39</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a></td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 4 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-4">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 4</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #4</span>
+            <span class="prob-source-badge">Melting temperature · crystallinity, polarity, tacticity</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Which Polymer of Each Pair Has the Higher Melting Temperature</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="4"><li>Which of the following polymer pairs has higher melting temperature? Why?</li></ol>
+<p>a) Branched PE with &lt;Mn&gt; = 850 000 g/mol; Linear PE with &lt;Mn&gt; = 850 000 g/mol b) PTFE with density equal to 2.14 g/cm³ and &lt;Mw&gt; = 600 000 g/mol; PTFE with density equal to 2.20 g/cm³ and &lt;Mw&gt; = 600 000 g/mol. c) Syndiotactic PVC with &lt;Mn&gt; = 500 000 g/mol; Linear PE with &lt;Mn&gt; = 225 000 g/mol. d) Linear and syndiotactic PP with &lt;Mw&gt; = 750 000 g/mol; Atactic and linear PP with &lt;Mw&gt; = 500 000 g/mol.</p>
+          <div class="solution-box">Official Solution: a) Linear PE &gt; Branched PE; b) PTFE 2.20 &gt; PTFE 2.14; c) PVC &gt; PE; d) Syndiotactic PP &gt; Atactic PP</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Where $T_m$ comes from.</strong> $T_m$ is the transition of the <strong>crystalline</strong> regions [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>]: it is the temperature at which the ordered, folded chains of the lamellae come apart. A polymer with no crystalline regions has no melting temperature, only a glass transition [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=23" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 23">23</a>].</li><li><strong>Factors that raise $T_m$.</strong> More crystallinity raises $T_m$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>]; $T_m$ rises with the molecular weight and levels off for long chains [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>]; polar groups increase the intermolecular forces [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>] and the ordering [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>].</li><li><strong>Crystallinity and structure.</strong> Linear and regular (isotactic or syndiotactic) chains crystallize, branched chains less, atactic chains not at all [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26-27</a>]; the crystalline polymer is denser than the amorphous one [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=24" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 24">24</a>].</li><li><strong>Reference values.</strong> Melting points printed on Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8</a>: polyethylene 110 – 137 °C, polyvinyl chloride about 204 °C, polypropylene 165 – 177 °C.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Pair</th><th>Same in both</th><th>Different</th></tr></thead><tbody><tr><td>a) PE</td><td>$M_n = 850\,000$ g/mol</td><td>branched against linear</td></tr><tr><td>b) PTFE</td><td>$M_w = 600\,000$ g/mol</td><td>density 2.14 against 2.20 g/cm³</td></tr><tr><td>c)</td><td>(different polymers)</td><td>syndiotactic PVC, $M_n = 500\,000$ g/mol, against linear PE, $M_n = 225\,000$ g/mol</td></tr><tr><td>d) PP</td><td>linear</td><td>syndiotactic, $M_w = 750\,000$ g/mol, against atactic, $M_w = 500\,000$ g/mol</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> in each pair, the polymer with the higher $T_m$, and why.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>In each pair, find which polymer has more (or better) crystalline regions and stronger forces between its chains: that one needs more thermal energy to break up its crystals. The molecular weight acts in the same direction when it differs, but all the weights here are far above the range where Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a> shows a strong effect.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-mw-tg-regimes.png" alt="Molecular weight and temperature regimes" loading="lazy" style="max-width:min(100%,635px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. Temperature against molecular weight showing mobile liquid, viscous liquid, rubber, tough plastic and crystalline regimes. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>..</div>
+</div>
+<p><strong>Strategy.</strong> For each pair: identify the controlling factor, apply the rule of the slides, and compare with the printed melting points where they exist.</p>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Branched PE against linear PE, same $M_n$</strong></p>
+<p>The molecular weights are equal, so only the structure differs. The branches keep the chains from packing, so the branched PE has a lower degree of crystallinity and less perfect crystals [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26-27</a>]; more crystallinity means a higher $T_m$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>].</p>
+<p><strong>Answer: the linear PE.</strong> (The range 110 – 137 °C printed for polyethylene on Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8</a> covers both kinds; that the low end belongs to the branched, low-density PE and the high end to the linear, high-density PE is an extension.)</p>
+<p><strong>2. b) PTFE of density 2.14 against 2.20 g/cm³, same $M_w$</strong></p>
+<p>Same polymer and same molecular weight, so the density measures the crystallinity: the crystalline regions are denser than the amorphous ones [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=24" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 24">24</a>], and by the formula of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a> the degree of crystallinity grows with the actual density $\rho_s$ for fixed $\rho_c$ and $\rho_a$:</p>
+<div class="math-block">$$X_c = \frac{\rho_c(\rho_s - \rho_a)}{\rho_s(\rho_c - \rho_a)} \qquad \frac{dX_c}{d\rho_s} = \frac{\rho_c\,\rho_a}{\rho_s^{2}(\rho_c - \rho_a)} &gt; 0$$</div>
+<p>(the derivative, by the quotient rule on $(\rho_s - \rho_a)/\rho_s = 1 - \rho_a/\rho_s$, is an extension). The denser PTFE is more crystalline and therefore has the higher $T_m$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>].</p>
+<p><strong>Answer: the PTFE of density 2.20 g/cm³.</strong></p>
+<p><strong>3. c) Syndiotactic PVC against linear PE</strong></p>
+<p>Three factors point the same way:</p>
+<ul><li><strong>Polarity.</strong> PVC carries a polar C-Cl bond in every unit, $\mathrm{-[CH_2{-}CHCl]_n-}$; polar groups increase the intermolecular forces [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>] and the ordering [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>], so more energy is needed to separate the chains. PE has only C-H bonds and van der Waals forces.</li><li><strong>Regularity.</strong> The PVC is syndiotactic, so it can crystallize [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>].</li><li><strong>Molecular weight.</strong> $500\,000 &gt; 225\,000$ g/mol, and $T_m$ rises with $M$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>], although at these weights the effect is small.</li></ul>
+<p>The printed melting points confirm it: about 204 °C for PVC against 110 – 137 °C for PE [Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8</a>]. The same side group raises $T_g$ from $-110$ °C (HDPE) to 87 °C (PVC) [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=29" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 29">29</a>].</p>
+<p><strong>Answer: the syndiotactic PVC.</strong></p>
+<p><strong>4. d) Linear syndiotactic PP against linear atactic PP</strong></p>
+<p>The syndiotactic chain has its $\mathrm{CH_3}$ groups in a regular alternating pattern and can crystallize; the atactic chain has them at random and is amorphous [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=18" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 18">18</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>]. An amorphous polymer has no crystalline regions, so it has no true melting temperature, only $T_g$ [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=23" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 23">23</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>]: Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=19" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 19">19</a> describes atactic PP as a wax-type material. The higher molecular weight of the syndiotactic PP (750 000 against 500 000 g/mol) adds in the same direction [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>].</p>
+<p><strong>Answer: the syndiotactic PP.</strong></p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units of the derivative in b).</strong> $[\rho_c\rho_a/(\rho_s^2(\rho_c - \rho_a))] = (\text{g/cm}^3)^2/(\text{g/cm}^3)^3 = \text{cm}^3/\text{g}$, so $dX_c = (\text{cm}^3/\text{g})\,d\rho_s$ is dimensionless, as a fraction must be.</li><li><strong>Molecular weight.</strong> In pairs a) and b) the weights are equal, so they cannot be the reason; in c) and d) the weight differs but in the same direction as the structural factor, so the answers do not depend on how large its effect is.</li><li><strong>Limit.</strong> A fully amorphous polymer ($X_c = 0$, case of the atactic PP) has no $T_m$ at all; its stiffness falls at $T_g$ and it softens progressively [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>].</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The melting temperature measures how well the chains are packed in crystals and how strongly they attract each other. Linear, regular, polar chains pack well and attract each other strongly; branched, random or non-polar chains do not. This is why the polymers chosen for parts that must work hot are the linear, regular and polar ones, such as the engineering thermoplastics of Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=9" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 9">9</a> (nylon 6,6, polycarbonate, polysulfone, with melting points of 250 to 315 °C).</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a)</td><td>linear PE &gt; branched PE</td><td>linear PE</td><td>agrees</td></tr><tr><td>b)</td><td>PTFE 2.20 &gt; PTFE 2.14</td><td>PTFE 2.20 g/cm³</td><td>agrees</td></tr><tr><td>c)</td><td>PVC &gt; PE</td><td>syndiotactic PVC</td><td>agrees; about 204 °C against 110 – 137 °C on Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8</a></td></tr><tr><td>d)</td><td>syndiotactic PP &gt; atactic PP</td><td>syndiotactic PP</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 5 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-5">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 5</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #5</span>
+            <span class="prob-source-badge">log E against T · molecular weight, crosslinking, crystallinity</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Logarithm of Young's Modulus Against Temperature for an Amorphous Polymer</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="5"><li>Draw three representations of the logarithm of the Young's modulus versus temperature for an amorphous polymer.</li></ol>
+<p>a) In one of those show how the behavior changes when the molecular weight increases. b) In another diagram, show the behavior changes when crosslinking increases. c) If this polymer is processed so that it has some crystallinity, show how the Young's modulus changes with temperature.</p>
+<p>The sheet prints no solution for this problem.</p>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>The base curve.</strong> An amorphous polymer has only a glass transition [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=23" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 23">23</a>]. Its modulus (measured, for example, as the relaxation modulus $E_r(10)$ at 10 s) goes through five regions as the temperature rises: <strong>glassy</strong>, about $10^3$ MPa, below $T_g$; <strong>leathery</strong>, the steep drop of about three decades around $T_g$; <strong>rubbery</strong>, a plateau; <strong>rubbery flow</strong>; and <strong>viscous flow</strong> (liquid) [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a>].</li><li><strong>Log scale.</strong> The modulus changes by several orders of magnitude, so it is plotted as $\log E$; the drop at $T_g$ is then a step and the plateaus are horizontal lines [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45-46</a>].</li><li><strong>What changes each curve.</strong> Higher molecular weight means more entanglements [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>]; crosslinks are covalent bonds between chains [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=22" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 22">22</a>]; crystalline regions melt only at $T_m$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>].</li><li><strong>Sketches.</strong> The statement asks for qualitative drawings; the figures of the slides are used as the drawings, and no numbers are needed.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Diagram</th><th>Parameter that changes</th></tr></thead><tbody><tr><td>a)</td><td>molecular weight (entanglement density)</td></tr><tr><td>b)</td><td>degree of crosslinking</td></tr><tr><td>c)</td><td>degree of crystallinity</td></tr></tbody></table></div>
+<p><strong>Unknown:</strong> the three diagrams of $\log E$ against $T$ and the explanation of each change.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>The modulus of a polymer is high when the chain segments cannot move (glass) and low when they can (rubber, liquid). Each structural change of the statement adds a different kind of obstacle to that motion above $T_g$, so each one acts on a different part of the base curve.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-relaxation-modulus-vs-temperature.png" alt="Relaxation modulus against temperature" loading="lazy" style="max-width:min(100%,335px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. Relaxation modulus against temperature with glassy, leathery, rubbery and viscous flow regions. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a>..</div>
+</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Draw the base curve of the amorphous polymer and name its regions.</li><li>For each case, say which region changes, in which direction and why, and give the diagram of the slides.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Base curve of the amorphous polymer [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a>]</strong></p>
+<p>Below $T_g$ the segments are frozen and the modulus is high and nearly flat (glassy region). At $T_g$ the segments of the amorphous regions start to move [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>] and the modulus drops by about three orders of magnitude (leathery region). Above it the entanglements hold the chains together for a while, which gives the rubbery plateau; at higher temperatures whole chains slide past each other (rubbery flow) and finally the polymer flows as a viscous liquid.</p>
+<p><strong>2. a) Increasing molecular weight [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>]</strong></p>
+<p>The glassy region and the position of the drop hardly change ($T_g$ rises only slightly with $M$ and levels off for long chains, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>). The change is <strong>above $T_g$</strong>: longer chains have more entanglements (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a>), which act as temporary links, so the rubbery plateau is <strong>longer</strong> and the flow region moves to <strong>higher temperatures</strong>. The slide draws it as curves that stay higher and fall later for higher entanglement density and increasing molecular weight.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-stiffness-vs-entanglement.png" alt="Stiffness against temperature for molecular weight" loading="lazy" style="max-width:min(100%,405px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 5. Stiffness or modulus against temperature for higher entanglement density and increasing molecular weight. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>..</div>
+</div>
+<p><strong>3. b) Increasing crosslinking [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=46" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 46">46</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a>]</strong></p>
+<p>Crosslinks are permanent covalent bonds, so the chains can never slide past each other: the <strong>flow regions disappear</strong>, and the plateau above $T_g$ stays up to the temperature at which the polymer degrades. The more crosslinks, the <strong>higher the plateau</strong> and the <strong>smaller the drop</strong> at $T_g$; with heavy crosslinking (a thermoset) the modulus hardly falls at all and $T_g$ moves up. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=46" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 46">46</a> draws no, slight, increasing and heavy crosslinking; curve B of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a> (lightly crosslinked atactic polystyrene) shows the flat rubbery plateau with no flow.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-crosslinking-modulus.png" alt="Modulus against temperature for crosslinking" loading="lazy" style="max-width:min(100%,345px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 6. Modulus of elasticity against temperature for increasing crosslinking, from no crosslinking to heavy crosslinking. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=46" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 46">46</a>..</div>
+</div>
+<p><strong>4. c) Some crystallinity [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a>]</strong></p>
+<p>The crystalline regions do not take part in the glass transition; they stay rigid up to $T_m$ and hold the amorphous regions between them [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=28" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 28">28</a>]. Therefore:</p>
+<ul><li>the drop at $T_g$ is <strong>smaller</strong>, because only the amorphous fraction softens;</li><li>above $T_g$ the modulus stays on a <strong>high plateau</strong> (leathery and tough) up to $T_m$;</li><li>at $T_m$ the crystals melt and the modulus falls to the flow region.</li></ul>
+<p>The more crystalline the polymer, the smaller the drop at $T_g$; a 100 % crystalline polymer has no drop at $T_g$ and falls only at $T_m$. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a> draws the 100 % amorphous, 50 % / 50 % and 100 % crystalline curves, and curve A of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a> (crystalline isotactic polystyrene) shows a polymer that stays stiff up to its melting point.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-modulus-vs-temperature-crystallinity.png" alt="Modulus against temperature for crystallinity" loading="lazy" style="max-width:min(100%,325px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 7. Modulus of elasticity against temperature for 100 percent crystalline, 100 percent amorphous and 50/50 polymers. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>..</div>
+</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Order of magnitude.</strong> On the log scale the glassy modulus of polystyrene is about $10^3$ MPa, about 1 GPa, inside the range 0.007 – 4 GPa of polymers [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=32" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 32">32</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a>]. The plateau is about three decades lower, about 1 MPa, the modulus of a rubber.</li><li><strong>Limit cases.</strong> No crosslinks and no crystals: the base curve, which flows. Infinite crosslinking: a rigid network with no drop. 100 % crystallinity: no glass transition, one drop at $T_m$. The three diagrams go continuously from the base curve to these limits.</li><li><strong>Time and rate.</strong> The modulus is measured at a fixed time; at a higher strain rate the whole curve moves to higher temperatures, because a higher rate has the same effect as a lower temperature [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=48" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 48">48</a>].</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The three changes act on different parts of the curve: the molecular weight only delays the flow, the crosslinks remove the flow and lift the plateau, and the crystallinity props the modulus up between $T_g$ and $T_m$. In use this decides the working temperature: an amorphous thermoplastic must work below $T_g$, a semicrystalline one can work up to near $T_m$, an elastomer works on its rubbery plateau and a thermoset keeps its stiffness until it degrades.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) Molecular weight</td><td>not printed on the sheet</td><td>longer rubbery plateau, flow at higher $T$</td><td>consistent with Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=30" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 30">30</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=43" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 43">43</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a></td></tr><tr><td>b) Crosslinking</td><td>not printed on the sheet</td><td>higher plateau, smaller drop, no flow</td><td>consistent with Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=46" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 46">46</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a></td></tr><tr><td>c) Crystallinity</td><td>not printed on the sheet</td><td>smaller drop at $T_g$, plateau up to $T_m$</td><td>consistent with Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a> and <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=49" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 49">49</a></td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 6 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-6">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 6</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #6</span>
+            <span class="prob-source-badge">Crystallinity from density · modulus against T</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Degree of Crystallinity of Polypropylene from Its Density</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="6"><li>Determine the degree of crystallinity of polypropylene with density 0.853g/cm³, given that the densities of amorphous and totally crystalline polypropylene are 0.83 and 0.947 g/cm³ respectively. Represent the change in the elastic modulus with temperature for this polymer, a completely amorphous polymer and a completely crystalline polymer.</li></ol>
+          <div class="solution-box">Official Solution: 21.8%</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Two-phase sample.</strong> The polypropylene is a mixture of crystalline regions of density $\rho_c$ and amorphous regions of density $\rho_a$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=24" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 24">24</a>], and the degree of crystallinity is the mass fraction of crystalline polymer, given by the formula of Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a> (its derivation from the additive volumes is in the theory note, Section 10.3).</li><li><strong>Modulus curves.</strong> The modulus against temperature for 100 % amorphous, 50 % / 50 % and 100 % crystalline polymers is the figure of Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>.</li><li><strong>Temperatures of polypropylene.</strong> $T_g = -20$ °C (table of Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=29" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 29">29</a>; the panel of the same slide prints $-15$ °C) and $T_m = 165$ – $177$ °C [Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Quantity</th><th>Symbol</th><th style="text-align:right">Value</th></tr></thead><tbody><tr><td>Density of the sample</td><td>$\rho_s$</td><td style="text-align:right">0.853 g/cm³</td></tr><tr><td>Density of amorphous PP</td><td>$\rho_a$</td><td style="text-align:right">0.83 g/cm³</td></tr><tr><td>Density of totally crystalline PP</td><td>$\rho_c$</td><td style="text-align:right">0.947 g/cm³</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> the degree of crystallinity, and the modulus-temperature curves of this PP, of an amorphous polymer and of a crystalline polymer.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a>]:</p>
+<div class="math-block">$$\%\ \text{crystallinity} = \frac{\rho_c(\rho_s - \rho_a)}{\rho_s(\rho_c - \rho_a)} \times 100$$</div>
+<p>The sample density lies between $\rho_a$ and $\rho_c$, and the formula places it on the scale between the two in terms of mass.</p>
+<p><strong>Strategy.</strong></p>
+<ol><li>Check that $\rho_a &lt; \rho_s &lt; \rho_c$.</li><li>Evaluate the numerator and the denominator separately and divide.</li><li>Place the result among the curves of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. Order of the densities</strong></p>
+<div class="math-block">$$\rho_a = 0.83 &lt; \rho_s = 0.853 &lt; \rho_c = 0.947\ \text{g/cm}^3$$</div>
+<p>so the result must lie between 0 and 100 %, and since $\rho_s$ is much closer to $\rho_a$, near the amorphous end.</p>
+<p><strong>2. Numerator and denominator</strong></p>
+<div class="math-block">$$\rho_c(\rho_s - \rho_a) = 0.947\ \text{g/cm}^3\times(0.853 - 0.83)\ \text{g/cm}^3 = 0.947\times0.023 = 0.021781\ (\text{g/cm}^3)^2$$</div>
+<div class="math-block">$$\rho_s(\rho_c - \rho_a) = 0.853\ \text{g/cm}^3\times(0.947 - 0.83)\ \text{g/cm}^3 = 0.853\times0.117 = 0.099801\ (\text{g/cm}^3)^2$$</div>
+<p><strong>3. Degree of crystallinity</strong></p>
+<div class="math-block">$$\%\ \text{crystallinity} = \frac{0.021781}{0.099801}\times100 = 21.824 \approx \mathbf{21.8\ \%}$$</div>
+<p><strong>4. Modulus against temperature [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>]</strong></p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/s19-modulus-vs-temperature-crystallinity.png" alt="Modulus against temperature for crystallinity" loading="lazy" style="max-width:min(100%,325px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 8. Modulus of elasticity against temperature for 100 percent crystalline, 100 percent amorphous and 50/50 polymers. Session 19, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a>..</div>
+</div>
+<ul><li><strong>Completely amorphous polymer:</strong> high glassy modulus below $T_g$, a drop of several decades at $T_g$, a short plateau and the fall to flow; there is no $T_m$.</li><li><strong>Completely crystalline polymer:</strong> no glass transition; the modulus stays high and falls only at $T_m$.</li><li><strong>This polypropylene, 21.8 % crystalline:</strong> its curve lies between the amorphous curve and the 50 % / 50 % curve of the slide. At $T_g$ (about $-20$ °C) it drops, but less than the amorphous polymer, because 21.8 % of its mass stays crystalline; between $T_g$ and $T_m$ it keeps an intermediate plateau held by the crystallites; at $T_m$ (165 – 177 °C) the crystals melt and the modulus falls to the flow region.</li></ul>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> Numerator and denominator are both products of two densities, $(\text{g/cm}^3)^2$, so the ratio is dimensionless.</li><li><strong>Limits.</strong> $\rho_s = \rho_a$ gives $0$ and $\rho_s = \rho_c$ gives $\rho_c(\rho_c - \rho_a)/[\rho_c(\rho_c - \rho_a)] = 1$, that is 100 %.</li><li><strong>Mass against volume fraction.</strong> The volume fraction would be $(\rho_s - \rho_a)/(\rho_c - \rho_a) = 0.023/0.117 = 19.7\ \%$; the mass fraction is larger, $\times\rho_c/\rho_s = 0.947/0.853 = 1.110$, because the crystalline regions are denser (extension).</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Only about one fifth of this polypropylene is crystalline. Room temperature lies above its $T_g$, so the amorphous four fifths are rubbery and the stiffness at room temperature comes from the crystalline fifth: a polymer with this low crystallinity is soft and tough rather than stiff. A more crystalline grade (isotactic PP, slowly cooled) would have a higher density and a higher plateau, closer to the crystalline curve.</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>Degree of crystallinity</td><td>21.8 %</td><td>21.824 %</td><td>agrees</td></tr><tr><td>Modulus curves</td><td>not printed on the sheet</td><td>between the amorphous and the 50 % / 50 % curves of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a></td><td>consistent with Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=45" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 45">45</a></td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 7 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-7">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 7</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #7</span>
+            <span class="prob-source-badge">Weight average · polydispersity · repeat unit</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Weight Average, Polydispersity and Repeat Unit of a Polyalkene</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="7"><li>A thermoplastic polymer has been analyzed, obtaining the following fractions of weight wᵢ shown in the table for the following ranges of molecular weight in the table:</li></ol>
+<p>a) Calculate the weight-average molecular weight b) Calculate de polydispersity assuming that the number average molecular weight is 12880 g/mol. c) If the polymerization degree is 230 and assuming that the polymer is an alkene (CₙH₂ₙ) with the general formula shown below, determine the value of X in the structural formula below. (Atomic mass: H = 1, C = 12). d) Explain if the crystallinity of the polymer should be higher or lower than the crystallinity of polyethylene.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/t9-p7-molecular-weight-table.png" alt="Problem 7 weight fraction table" loading="lazy" style="max-width:min(100%,380px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 9. Table of molecular weight ranges and weight fractions for problem 7, copied from the Problems on Topic 9 sheet, page 2.</div>
+</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/t9-p7-repeat-unit.png" alt="Problem 7 polymer repeat unit" loading="lazy" style="max-width:min(100%,300px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 10. Repeat unit of the alkene polymer with side chain (CH2)X CH3 for problem 7, copied from the Problems on Topic 9 sheet, page 2.</div>
+</div>
+<p>The sheet prints "Calculate de polydispersity". The structural formula is a repeat unit $\mathrm{-CH_2{-}CH-}$ with the side chain $\mathrm{(CH_2)_X{-}CH_3}$ hanging from the CH, in brackets with subscript $n$.</p>
+          <div class="solution-box">Official Solution: a) Mw = 15500 g/mol; b) PDI = 1.2; c) X = 1, polybutadiene; d) lower</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Mean of each range.</strong> Each range is represented by its midpoint $M_i$, as in the example of Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=14" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 14">14-15</a>.</li><li><strong>Averages.</strong> $M_w = \sum w_i M_i$ and the index of polydispersion $I = M_w/M_n$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=13" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 13">13</a>]; the sheet calls it PDI.</li><li><strong>Degree of polymerization.</strong> The polymerization degree 230 is the number average $X_n = M_n/M_0$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12</a>], with $M_n = 12\,880$ g/mol from part b).</li><li><strong>Repeat unit.</strong> Counting the atoms of the drawn unit: $\mathrm{CH_2}$, $\mathrm{CH}$, $X$ groups $\mathrm{CH_2}$ and $\mathrm{CH_3}$.</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Range (g/mol)</th><th style="text-align:right">Midpoint $M_i$ (g/mol)</th><th style="text-align:right">$w_i$</th></tr></thead><tbody><tr><td>0 – 5 000</td><td style="text-align:right">2 500</td><td style="text-align:right">0.02</td></tr><tr><td>5 000 – 10 000</td><td style="text-align:right">7 500</td><td style="text-align:right">0.12</td></tr><tr><td>10 000 – 15 000</td><td style="text-align:right">12 500</td><td style="text-align:right">0.32</td></tr><tr><td>15 000 – 20 000</td><td style="text-align:right">17 500</td><td style="text-align:right">0.32</td></tr><tr><td>20 000 – 25 000</td><td style="text-align:right">22 500</td><td style="text-align:right">0.22</td></tr></tbody></table></div>
+<p>$\sum w_i = 0.02 + 0.12 + 0.32 + 0.32 + 0.22 = 1.00$. Also $M_n = 12\,880$ g/mol, $X_n = 230$, C = 12 g/mol, H = 1 g/mol.</p>
+<p><strong>Unknowns:</strong> (a) $M_w$; (b) the polydispersity; (c) $X$; (d) crystallinity compared with polyethylene.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12-13</a>]:</p>
+<div class="math-block">$$M_w = \sum w_i M_i \qquad I = \frac{M_w}{M_n} \qquad M_0 = \frac{M_n}{X_n}$$</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Weight each midpoint by its weight fraction and add.</li><li>Divide by the given $M_n$.</li><li>Get $M_0$ from $M_n$ and $X_n$, write $M_0$ of the drawn unit as a function of $X$ and solve.</li><li>Compare the chain with polyethylene using the factors of crystallinity of Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26-27</a>.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Weight-average molecular weight [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=13" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 13">13</a>]</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">$M_i$ (g/mol)</th><th style="text-align:right">$w_i$</th><th style="text-align:right">$w_i M_i$ (g/mol)</th></tr></thead><tbody><tr><td style="text-align:right">2 500</td><td style="text-align:right">0.02</td><td style="text-align:right">50</td></tr><tr><td style="text-align:right">7 500</td><td style="text-align:right">0.12</td><td style="text-align:right">900</td></tr><tr><td style="text-align:right">12 500</td><td style="text-align:right">0.32</td><td style="text-align:right">4 000</td></tr><tr><td style="text-align:right">17 500</td><td style="text-align:right">0.32</td><td style="text-align:right">5 600</td></tr><tr><td style="text-align:right">22 500</td><td style="text-align:right">0.22</td><td style="text-align:right">4 950</td></tr></tbody></table></div>
+<div class="math-block">$$M_w = 50 + 900 + 4000 + 5600 + 4950 = \mathbf{15\,500\ g/mol}$$</div>
+<p><strong>2. b) Polydispersity [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=13" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 13">13</a>]</strong></p>
+<div class="math-block">$$I = \frac{M_w}{M_n} = \frac{15\,500\ \text{g/mol}}{12\,880\ \text{g/mol}} = \mathbf{1.203}$$</div>
+<p><strong>3. c) Value of X [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12</a>]</strong></p>
+<p>Molecular weight of the repeat unit from the degree of polymerization:</p>
+<div class="math-block">$$M_0 = \frac{M_n}{X_n} = \frac{12\,880\ \text{g/mol}}{230} = 56.0\ \text{g/mol}$$</div>
+<p>Atoms of the drawn unit: carbon, $1\ (\mathrm{CH_2}) + 1\ (\mathrm{CH}) + X\ (\mathrm{CH_2}\ \text{groups}) + 1\ (\mathrm{CH_3}) = X + 3$; hydrogen, $2 + 1 + 2X + 3 = 2X + 6$. The unit is $\mathrm{C}_{X+3}\mathrm{H}_{2X+6}$, that is $\mathrm{C}_n\mathrm{H}_{2n}$ with $n = X + 3$, an alkene formula as the statement says. Its molecular weight:</p>
+<div class="math-block">$$M_0 = 12(X + 3) + 1(2X + 6) = 14X + 42\ \text{g/mol}$$</div>
+<p>Setting it equal to 56.0 g/mol:</p>
+<div class="math-block">$$14X + 42 = 56 \ \Rightarrow\ 14X = 14 \ \Rightarrow\ \mathbf{X = 1}$$</div>
+<p>The repeat unit is $\mathrm{-CH_2{-}CH(CH_2CH_3)-}$, $\mathrm{C_4H_8}$ (56 g/mol): a vinyl polymer with an ethyl side group, the polymer of 1-butene, usually called poly(1-butene) or polybutene (the name is an extension; it is not on the slides).</p>
+<p><strong>4. d) Crystallinity compared with polyethylene [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26-27</a>]</strong></p>
+<p>Polyethylene, $\mathrm{-[CH_2{-}CH_2]_n-}$, is the example of a simple, symmetric monomer that crystallizes easily (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=27" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 27">27</a>). This polymer has an ethyl side group on every second carbon:</p>
+<ul><li>the side group is bulkier and makes the unit more complex, and complex monomeric structures lower the degree of crystallinity (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>);</li><li>the CH carbon carries two different groups, so the polymer can be atactic, and atactic polymers are amorphous (Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>); only an isotactic or syndiotactic grade could crystallize, and still with more difficulty than PE.</li></ul>
+<p><strong>Answer: lower than polyethylene.</strong></p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $w_i$ is dimensionless, so $M_w$ is in g/mol; $I$ and $X_n$ are pure numbers; $M_0 = M_n/X_n$ is in g/mol.</li><li><strong>$M_w \ge M_n$.</strong> $15\,500 &gt; 12\,880$ g/mol, so $I = 1.203 &gt; 1$, as it must be for a polymer with a distribution of lengths.</li><li><strong>Back-substitution.</strong> $230\times56\ \text{g/mol} = 12\,880$ g/mol, exactly the given $M_n$.</li><li><strong>Limit.</strong> $X = 0$ would give $\mathrm{C_3H_6}$ (42 g/mol), polypropylene; each extra $\mathrm{CH_2}$ adds 14 g/mol, so only $X = 1$ matches 56 g/mol.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The data describe a moderately polydisperse polymer ($I = 1.2$) of about 230 units per chain, whose unit is polypropylene with one more $\mathrm{CH_2}$ in the side group. The longer side group makes the chain less regular than polyethylene and polypropylene, so it packs less well and is less crystalline, which also means a lower density, stiffness and melting point than polyethylene of similar chain length.</p>
+<div class="callout callout-warning"><div class="callout-title">Discrepancy with the official solution</div><p>The key gives "X = 1, polybutadiene". The value $X = 1$ agrees, but the drawn unit with $X = 1$ is $\mathrm{C_4H_8}$, a saturated unit with an ethyl side group (the polymer of 1-butene), not polybutadiene. Polybutadiene is made from 1,3-butadiene, $\mathrm{CH_2{=}CH{-}CH{=}CH_2}$ [Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=15" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 15">15</a>]; its repeat unit keeps one double bond, $\mathrm{C_4H_6}$ = 54 g/mol, does not follow the $\mathrm{C}_n\mathrm{H}_{2n}$ formula of the statement, and $230\times54 = 12\,420$ g/mol does not give the stated $M_n = 12\,880$ g/mol. The name in the key is therefore not consistent with the statement; the computed polymer is the polymer of 1-butene.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $M_w$</td><td>15 500 g/mol</td><td>15 500 g/mol</td><td>agrees</td></tr><tr><td>b) PDI</td><td>1.2</td><td>1.203</td><td>agrees</td></tr><tr><td>c) $X$</td><td>1, polybutadiene</td><td>1, unit $\mathrm{C_4H_8}$ (polymer of 1-butene)</td><td>$X$ agrees; the name does not (see the warning)</td></tr><tr><td>d) Crystallinity</td><td>lower</td><td>lower than PE</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 8 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-8">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 8</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #8</span>
+            <span class="prob-source-badge">Mn and Mw · monomer identification · nylon 6,6</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Number and Weight Averages and Monomer of an Unknown Polymer</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<ol start="8"><li>A polymer sample with unknown molecular weight has been analyzed and the following results were obtained.</li></ol>
+<p>a) Calculate the number-average and weight-average molecular weight. b) If the number average degree of polymerization is 211, calculate the molecular weight of the monomeric unit. c) Which of these polymers correspond to: PE, PVC, PTFE, PP, PS, PMMA, Nylon 66, PC. d) What is the weight-average degree of polymerization?</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/t9-p8-number-weight-fraction-table.png" alt="Problem 8 number and weight fractions" loading="lazy" style="max-width:min(100%,420px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 11. Table of molecular weight ranges with number fractions and weight fractions for problem 8, copied from the Problems on Topic 9 sheet, page 2.</div>
+</div>
+          <div class="solution-box">Official Solution: a) Mn = 47720, Mw = 53720; b) M0 = 226.2; c) Nylon 66; d) Xw = 238</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Mean of each range.</strong> Each range is represented by its midpoint $M_i$ [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=14" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 14">14-15</a>].</li><li><strong>Averages.</strong> $M_n = \sum x_i M_i$, $M_w = \sum w_i M_i$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=13" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 13">13</a>], and $X_n = M_n/M_0$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12</a>].</li><li><strong>Weight-average degree of polymerization.</strong> By analogy with $X_n$, $X_w = M_w/M_0$ (this definition is an extension; the slides define only $X_n$).</li><li><strong>Repeat units of the candidates.</strong> From Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=50" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 50">50</a> and Session 20 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=8" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 8">8-9</a>: PE $\mathrm{C_2H_4}$, PVC $\mathrm{C_2H_3Cl}$, PTFE $\mathrm{C_2F_4}$, PP $\mathrm{C_3H_6}$, PS $\mathrm{C_8H_8}$, PMMA $\mathrm{C_5H_8O_2}$, nylon 6,6 $\mathrm{-[NH{-}(CH_2)_6{-}NH{-}CO{-}(CH_2)_4{-}CO]-}$ = $\mathrm{C_{12}H_{22}N_2O_2}$, and polycarbonate $\mathrm{-[O{-}CO{-}O{-}C_6H_4{-}C(CH_3)_2{-}C_6H_4]-}$ = $\mathrm{C_{16}H_{14}O_3}$. Atomic masses C = 12, H = 1, N = 14, O = 16, F = 19, Cl = 35.5 g/mol (the sheet gives none for this problem; standard values).</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Range (g/mol)</th><th style="text-align:right">Midpoint $M_i$ (g/mol)</th><th style="text-align:right">$x_i$</th><th style="text-align:right">$w_i$</th></tr></thead><tbody><tr><td>8 000 – 20 000</td><td style="text-align:right">14 000</td><td style="text-align:right">0.05</td><td style="text-align:right">0.02</td></tr><tr><td>20 000 – 32 000</td><td style="text-align:right">26 000</td><td style="text-align:right">0.15</td><td style="text-align:right">0.08</td></tr><tr><td>32 000 – 44 000</td><td style="text-align:right">38 000</td><td style="text-align:right">0.21</td><td style="text-align:right">0.17</td></tr><tr><td>44 000 – 56 000</td><td style="text-align:right">50 000</td><td style="text-align:right">0.28</td><td style="text-align:right">0.29</td></tr><tr><td>56 000 – 68 000</td><td style="text-align:right">62 000</td><td style="text-align:right">0.18</td><td style="text-align:right">0.23</td></tr><tr><td>68 000 – 80 000</td><td style="text-align:right">74 000</td><td style="text-align:right">0.10</td><td style="text-align:right">0.16</td></tr><tr><td>80 000 – 92 000</td><td style="text-align:right">86 000</td><td style="text-align:right">0.03</td><td style="text-align:right">0.05</td></tr></tbody></table></div>
+<p>$\sum x_i = 1.00$ and $\sum w_i = 1.00$. Also $X_n = 211$.</p>
+<p><strong>Unknowns:</strong> (a) $M_n$ and $M_w$; (b) $M_0$; (c) the polymer; (d) $X_w$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>[Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12-13</a>]:</p>
+<div class="math-block">$$M_n = \sum x_i M_i \qquad M_w = \sum w_i M_i \qquad M_0 = \frac{M_n}{X_n}$$</div>
+<p><strong>Strategy.</strong></p>
+<ol><li>Compute the two weighted sums.</li><li>Divide $M_n$ by $X_n$ to get the molecular weight of the repeat unit.</li><li>Compute $M_0$ of every candidate and pick the one that matches.</li><li>Divide $M_w$ by $M_0$.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Number-average and weight-average molecular weights [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=13" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 13">13</a>]</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th style="text-align:right">$M_i$ (g/mol)</th><th style="text-align:right">$x_i M_i$ (g/mol)</th><th style="text-align:right">$w_i M_i$ (g/mol)</th></tr></thead><tbody><tr><td style="text-align:right">14 000</td><td style="text-align:right">700</td><td style="text-align:right">280</td></tr><tr><td style="text-align:right">26 000</td><td style="text-align:right">3 900</td><td style="text-align:right">2 080</td></tr><tr><td style="text-align:right">38 000</td><td style="text-align:right">7 980</td><td style="text-align:right">6 460</td></tr><tr><td style="text-align:right">50 000</td><td style="text-align:right">14 000</td><td style="text-align:right">14 500</td></tr><tr><td style="text-align:right">62 000</td><td style="text-align:right">11 160</td><td style="text-align:right">14 260</td></tr><tr><td style="text-align:right">74 000</td><td style="text-align:right">7 400</td><td style="text-align:right">11 840</td></tr><tr><td style="text-align:right">86 000</td><td style="text-align:right">2 580</td><td style="text-align:right">4 300</td></tr></tbody></table></div>
+<div class="math-block">$$M_n = 700 + 3900 + 7980 + 14000 + 11160 + 7400 + 2580 = \mathbf{47\,720\ g/mol}$$</div>
+<div class="math-block">$$M_w = 280 + 2080 + 6460 + 14500 + 14260 + 11840 + 4300 = \mathbf{53\,720\ g/mol}$$</div>
+<p><strong>2. b) Molecular weight of the monomeric unit [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=12" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 12">12</a>]</strong></p>
+<div class="math-block">$$M_0 = \frac{M_n}{X_n} = \frac{47\,720\ \text{g/mol}}{211} = \mathbf{226.2\ g/mol}$$</div>
+<p><strong>3. c) Identification of the polymer</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Polymer</th><th>Repeat unit</th><th style="text-align:right">$M_0$ (g/mol)</th></tr></thead><tbody><tr><td>PE</td><td>$\mathrm{C_2H_4}$: $2(12) + 4(1)$</td><td style="text-align:right">28</td></tr><tr><td>PVC</td><td>$\mathrm{C_2H_3Cl}$: $2(12) + 3(1) + 35.5$</td><td style="text-align:right">62.5</td></tr><tr><td>PTFE</td><td>$\mathrm{C_2F_4}$: $2(12) + 4(19)$</td><td style="text-align:right">100</td></tr><tr><td>PP</td><td>$\mathrm{C_3H_6}$: $3(12) + 6(1)$</td><td style="text-align:right">42</td></tr><tr><td>PS</td><td>$\mathrm{C_8H_8}$: $8(12) + 8(1)$</td><td style="text-align:right">104</td></tr><tr><td>PMMA</td><td>$\mathrm{C_5H_8O_2}$: $5(12) + 8(1) + 2(16)$</td><td style="text-align:right">100</td></tr><tr><td>Nylon 6,6</td><td>$\mathrm{C_{12}H_{22}N_2O_2}$: $12(12) + 22(1) + 2(14) + 2(16)$</td><td style="text-align:right">226</td></tr><tr><td>PC</td><td>$\mathrm{C_{16}H_{14}O_3}$: $16(12) + 14(1) + 3(16)$</td><td style="text-align:right">254</td></tr></tbody></table></div>
+<p>For nylon 6,6 the count is: carbon $6 + 1 + 4 + 1 = 12$ (the two $(\mathrm{CH_2})$ blocks and the two C=O); hydrogen $1 + 12 + 1 + 8 = 22$ (the two N-H and the ten $\mathrm{CH_2}$); 2 N; 2 O. Only nylon 6,6 has $M_0$ close to 226.2 g/mol.</p>
+<p><strong>Answer: nylon 6,6.</strong></p>
+<p><strong>4. d) Weight-average degree of polymerization</strong></p>
+<div class="math-block">$$X_w = \frac{M_w}{M_0} = \frac{53\,720\ \text{g/mol}}{226.16\ \text{g/mol}} = 237.5 \approx \mathbf{238}$$</div>
+<p>(with the rounded $M_0 = 226$ g/mol of nylon 6,6, $X_w = 237.7$, also 238).</p>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Units.</strong> $x_i$ and $w_i$ are dimensionless, so $M_n$ and $M_w$ are in g/mol; $X_n$ and $X_w$ are pure numbers.</li><li><strong>$M_w \ge M_n$.</strong> $53\,720 &gt; 47\,720$ g/mol; the index of polydispersion is $I = 53\,720/47\,720 = 1.126$, a narrow distribution.</li><li><strong>Consistency of the two columns (extension).</strong> The weight fraction of a range follows from its number fraction as $w_i = x_i M_i/M_n$: for 44 000 – 56 000 g/mol, $0.28\times50\,000/47\,720 = 0.293$, against 0.29 in the table. Computed in the same way from the $x_i$, $M_w = \sum x_i M_i^2/\sum x_i M_i = 53\,978$ g/mol, 0.5 % above the 53 720 g/mol of the $w_i$ column, so the two columns describe the same sample within the rounding of the table.</li><li><strong>Second candidate.</strong> The closest other candidate, polycarbonate (254 g/mol), would need $X_n = 47\,720/254 = 188$, not 211.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>The sample is a nylon 6,6 with about 211 repeat units per chain on a number basis and 238 on a weight basis; the weight average is larger because the long chains carry more of the mass. Nylon 6,6 is the polyamide used for fibres (Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=50" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 50">50</a>) and an engineering thermoplastic with a melting point of 250 – 266 °C (Session 20 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2020%20T9%20Classification%20and%20Polymer%20Processing.pdf#page=9" target="_blank" rel="noopener" title="Open Session 20 T9 Classification and Polymer Processing.pdf at page 9">9</a>), the result of its polar amide groups that form hydrogen bonds between chains (Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=26" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 26">26</a>).</p>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) $M_n$</td><td>47 720</td><td>47 720 g/mol</td><td>agrees</td></tr><tr><td>a) $M_w$</td><td>53 720</td><td>53 720 g/mol</td><td>agrees</td></tr><tr><td>b) $M_0$</td><td>226.2</td><td>226.16 g/mol</td><td>agrees</td></tr><tr><td>c) Polymer</td><td>Nylon 66</td><td>nylon 6,6</td><td>agrees</td></tr><tr><td>d) $X_w$</td><td>238</td><td>237.5</td><td>agrees after rounding</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================== -->
+    <!-- PROBLEM 9 -->
+    <!-- ========================================== -->
+    <details open class="problem-card" id="prob-9">
+      <summary class="problem-summary">
+        <div class="problem-header">
+          <div class="problem-badge-group">
+            <span class="prob-num-badge">Problem 9</span>
+            <span class="prob-source-badge">Problems T9_Polymers.pdf #9</span>
+            <span class="prob-source-badge">Two samples · crystalline and amorphous densities</span>
+          </div>
+          <span style="font-size: 12px; color: var(--accent); font-family: var(--font-mono); font-weight: 700;">Click to Collapse ▲</span>
+        </div>
+        <h2 class="problem-title">Densities of Crystalline and Amorphous Polypropylene from Two Samples</h2>
+      </summary>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems%20T9_Polymers.pdf#page=2" target="_blank" rel="noopener">Original statement · Problems T9_Polymers.pdf, p. 2</a>
+
+      <div class="card-body">
+        <div class="statement-box">
+<p>9.- The densities of amorphous and totally crystalline polypropylene are given in the table below. a) Write the formula of polypropylene and justify whether it can present tacticity. b) Calculate the density of completely crystalline and completely amorphous polypropylene. c) Deterrmine the density of a sample that is 74.6% crystalline.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/T9/t9-p9-density-crystallinity-table.png" alt="Problem 9 density and crystallinity table" loading="lazy" style="max-width:min(100%,320px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 12. Table of density and crystallinity of two polypropylene samples for problem 9, copied from the Problems on Topic 9 sheet, page 2.</div>
+</div>
+<p>The sheet prints "Deterrmine". The first sentence says that the table gives the densities of amorphous and totally crystalline polypropylene, but the table gives the density and the crystallinity of two samples, and part b) asks for the two densities: they are the unknowns.</p>
+          <div class="solution-box">Official Solution: b) ρa = 0.84 g/cm³, ρc = 0.946 g/cm³; c) ρ = 0.917 g/cm³</div>
+        </div>
+
+        <div class="phases-grid">
+          <div class="phase-step phase-1">
+            <span class="phase-badge">Hypotheses &amp; Parameters</span>
+<p><strong>Hypotheses</strong></p>
+<ol><li><strong>Same polypropylene.</strong> Both samples are the same polymer, so they share the same $\rho_c$ and $\rho_a$ and differ only in their degree of crystallinity.</li><li><strong>Crystallinity formula.</strong> The degree of crystallinity (mass fraction) is $X_c = \rho_c(\rho_s - \rho_a)/[\rho_s(\rho_c - \rho_a)]$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a>].</li><li><strong>Repeat unit.</strong> Polypropylene is $\mathrm{-[CH_2{-}CH(CH_3)]_n-}$ [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=50" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 50">50</a>].</li></ol>
+<p><strong>Data</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Sample</th><th style="text-align:right">$\rho_s$ (g/cm³)</th><th style="text-align:right">$X_c$</th></tr></thead><tbody><tr><td>1</td><td style="text-align:right">0.904</td><td style="text-align:right">0.628</td></tr><tr><td>2</td><td style="text-align:right">0.895</td><td style="text-align:right">0.544</td></tr><tr><td>3 (part c)</td><td style="text-align:right">unknown</td><td style="text-align:right">0.746</td></tr></tbody></table></div>
+<p><strong>Unknowns:</strong> (a) the formula and its tacticity; (b) $\rho_c$ and $\rho_a$; (c) $\rho_s$ for $X_c = 0.746$.</p>
+          </div>
+          <div class="phase-step phase-2">
+            <span class="phase-badge">Model &amp; Strategy</span>
+<p>The formula of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a> has two unknowns, $\rho_c$ and $\rho_a$, and each sample gives one equation, so two samples fix both. The formula is not linear in the densities, but it becomes linear in the specific volumes $1/\rho$. Multiply both sides by $\rho_s(\rho_c - \rho_a)$ and divide by $\rho_s\rho_c\rho_a$:</p>
+<div class="math-block">$$X_c\left(\frac{1}{\rho_a} - \frac{1}{\rho_c}\right) = \frac{1}{\rho_a} - \frac{1}{\rho_s} \quad\Rightarrow\quad \frac{1}{\rho_s} = \frac{X_c}{\rho_c} + \frac{1 - X_c}{\rho_a}$$</div>
+<p>which says that the specific volume of the sample is the mass-weighted mean of the specific volumes of its crystalline and amorphous parts. With $u = 1/\rho_c$ and $v = 1/\rho_a$ each sample gives a linear equation.</p>
+<p><strong>Strategy.</strong></p>
+<ol><li>Write the formula of polypropylene and look at its asymmetric carbon.</li><li>Write the two linear equations in $u$ and $v$ and solve them.</li><li>Use the same relation with $X_c = 0.746$.</li></ol>
+          </div>
+          <div class="phase-step phase-3">
+            <span class="phase-badge">Step-by-Step Calculation</span>
+<p><strong>1. a) Formula and tacticity [Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=18" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 18">18-19</a>]</strong></p>
+<div class="math-block">$$\mathrm{-[CH_2{-}CH(CH_3)]_n-}$$</div>
+<p>Every second carbon of the chain carries a $\mathrm{CH_3}$ side group and an H, so it has four different neighbours (H, $\mathrm{CH_3}$ and the two chain segments). The $\mathrm{CH_3}$ group can be placed on one side or the other of the chain each time a unit is added: polypropylene is a vinyl polymer $\mathrm{H_2C{=}CH{-}R}$ with R = $\mathrm{CH_3}$, so <strong>it can present tacticity</strong>: isotactic, syndiotactic or atactic, as drawn on Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=19" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 19">19</a>.</p>
+<p><strong>2. b) Densities of crystalline and amorphous polypropylene</strong></p>
+<p>Specific volumes of the samples:</p>
+<div class="math-block">$$\frac{1}{\rho_1} = \frac{1}{0.904\ \text{g/cm}^3} = 1.106195\ \text{cm}^3/\text{g} \qquad \frac{1}{\rho_2} = \frac{1}{0.895\ \text{g/cm}^3} = 1.117318\ \text{cm}^3/\text{g}$$</div>
+<p>The two equations:</p>
+<div class="math-block">$$0.628\,u + 0.372\,v = 1.106195\ \text{cm}^3/\text{g} \qquad 0.544\,u + 0.456\,v = 1.117318\ \text{cm}^3/\text{g}$$</div>
+<p>Subtracting the second from the first:</p>
+<div class="math-block">$$0.084\,u - 0.084\,v = -0.011124\ \text{cm}^3/\text{g} \quad\Rightarrow\quad v = u + 0.132426\ \text{cm}^3/\text{g}$$</div>
+<p>Substituting in the first:</p>
+<div class="math-block">$$0.628\,u + 0.372\,(u + 0.132426) = u + 0.049262 = 1.106195 \quad\Rightarrow\quad u = 1.056932\ \text{cm}^3/\text{g}$$</div>
+<div class="math-block">$$v = 1.056932 + 0.132426 = 1.189358\ \text{cm}^3/\text{g}$$</div>
+<p>Densities:</p>
+<div class="math-block">$$\rho_c = \frac{1}{u} = \frac{1}{1.056932\ \text{cm}^3/\text{g}} = \mathbf{0.9461\ g/cm^3} \qquad \rho_a = \frac{1}{v} = \frac{1}{1.189358\ \text{cm}^3/\text{g}} = \mathbf{0.8408\ g/cm^3}$$</div>
+<p><strong>3. c) Density of a 74.6 % crystalline sample</strong></p>
+<div class="math-block">$$\frac{1}{\rho_s} = 0.746\,u + 0.254\,v = 0.746(1.056932) + 0.254(1.189358) = 0.788471 + 0.302097 = 1.090568\ \text{cm}^3/\text{g}$$</div>
+<div class="math-block">$$\rho_s = \frac{1}{1.090568\ \text{cm}^3/\text{g}} = \mathbf{0.917\ g/cm^3}$$</div>
+          </div>
+          <div class="phase-step phase-4">
+            <span class="phase-badge">Result &amp; Checks</span>
+<p><strong>Checks</strong></p>
+<ul><li><strong>Back-substitution in the formula of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a>.</strong> With $\rho_c = 0.94613$ and $\rho_a = 0.84079$ g/cm³: sample 1, $0.94613(0.904 - 0.84079)/[0.904(0.94613 - 0.84079)] = 0.628$; sample 2, $0.544$. Both data are recovered.</li><li><strong>Order.</strong> $\rho_a = 0.841 &lt; 0.895 &lt; 0.904 &lt; 0.917 &lt; \rho_c = 0.946$ g/cm³: the samples lie between the two limits, and the more crystalline the sample, the denser it is [Session 19 Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=24" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 24">24</a>].</li><li><strong>Units.</strong> $u$ and $v$ are specific volumes in cm³/g, the coefficients $X_c$ are dimensionless, and every term of the equations is in cm³/g.</li><li><strong>Comparison with Problem T9-06.</strong> That problem gives $\rho_a = 0.83$ and $\rho_c = 0.947$ g/cm³ for polypropylene; the values found here are close to them.</li></ul>
+<p><strong>Interpretation</strong></p>
+<p>Two density measurements of samples of known crystallinity are enough to find the densities of the pure phases, which cannot be measured directly (a fully crystalline polypropylene cannot be made). The crystalline phase is about 12.5 % denser than the amorphous one, because the folded chains of the lamellae pack more closely than the random coils. Once $\rho_c$ and $\rho_a$ are known, the density of any sample gives its crystallinity, which is how the crystallinity of a polymer part is checked in practice.</p>
+<div class="callout"><div class="callout-title">Sensitivity of the result to rounding</div><p>The key rounds the densities to $\rho_a = 0.84$ and $\rho_c = 0.946$ g/cm³. Putting these rounded values back into the formula of Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=25" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 25">25</a> gives 63.2 % and 54.8 % instead of the 62.8 % and 54.4 % of the table. This is not an error of the key: the two samples are close in density, so the system is ill-conditioned (determinant $0.628\times0.456 - 0.372\times0.544 = 0.084$), and the change of $0.0008$ g/cm³ in $\rho_a$ alone moves the crystallinity of sample 1 by 0.3 points (from 62.8 % to 63.1 %). With the unrounded $\rho_a = 0.8408$ g/cm³ the table is recovered exactly, and the density of part c) is 0.917 g/cm³ with either set.</p></div>
+<p><strong>Check against the official solution</strong></p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Item</th><th>Official</th><th>Computed</th><th>Comment</th></tr></thead><tbody><tr><td>a) Tacticity</td><td>not printed on the sheet</td><td>yes: asymmetric CH carbon with a $\mathrm{CH_3}$ group</td><td>consistent with Session 19 Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session%2019%20T9%20Polymers.pdf#page=18" target="_blank" rel="noopener" title="Open Session 19 T9 Polymers.pdf at page 18">18-19</a></td></tr><tr><td>b) $\rho_a$</td><td>0.84 g/cm³</td><td>0.8408 g/cm³</td><td>agrees after rounding</td></tr><tr><td>b) $\rho_c$</td><td>0.946 g/cm³</td><td>0.9461 g/cm³</td><td>agrees</td></tr><tr><td>c) $\rho$</td><td>0.917 g/cm³</td><td>0.917 g/cm³</td><td>agrees</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
+      Aerospace Materials I · Department of Materials Science and Engineering · Universidad Carlos III de Madrid (UC3M)
+    </div>
+  </footer>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+
+

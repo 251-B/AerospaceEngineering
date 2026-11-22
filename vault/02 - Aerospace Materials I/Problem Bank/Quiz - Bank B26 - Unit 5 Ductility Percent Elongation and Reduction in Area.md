@@ -209,20 +209,19 @@ Session 11, Slide 33: "normally $\varepsilon(\%) \neq AR(\%)$"; the two percenta
 
 Session 11, Slide 33.
 
-## Q26.7 Neck diameter from the reduction in area
+## Q26.7 Measuring percent reduction in area
 
 - id: B26-Q7
 - concept_id: u5-reduction-in-area
-- format: numeric
+- format: topic-true
 - asks: application
-- calc: 12*sqrt(1-0.51)
 
-A 12 mm diameter bar shows a reduction in area of 51 % after fracture. Determine the diameter of the fracture section:
+Referring to percent reduction in area ($RA$) as a measure of tensile ductility in a cylindrical specimen, which statement is TRUE?
 
-a) 5.88 mm
-b) 6.12 mm
-c) 8.40 mm
-d) 17.1 mm
+a) It must be numerically equal to percent elongation ($\%EL$) for every alloy
+b) It is calculated from the ratio of diameters $(D_0 - D_f)/D_0 \times 100$ rather than areas
+c) It uses the minimum cross-sectional area at the fractured neck ($A_f$) after failure
+d) A brittle ceramic typically exhibits a higher $RA$ than a ductile aluminium alloy
 
 ### Answer
 
@@ -230,15 +229,15 @@ c
 
 ### Explanation
 
-Session 11, Slide 33: $A_f = A_0(1 - RA) = 0.49\,A_0$; since $A \propto d^2$, $d_f = d_0\sqrt{0.49} = 12 \times 0.70 = 8.40$ mm.
+Session 11, Slide 33: $RA(\%) = (A_0 - A_f)/A_0 \times 100$, where $A_f$ is the final cross-sectional area measured at the narrowest part of the fractured neck after failure.
 
-- a) The area fraction 0.49 was applied to the diameter without taking the square root.
-- b) The reduction, 0.51, was applied to the diameter as if it were the fraction that remains.
-- d) The ratio was inverted: $12/0.70$ gives a diameter larger than the original.
+- a) Slide 33 explicitly notes that normally $\varepsilon(\%) \neq RA(\%)$, since elongation averages over the gauge length while $RA$ captures localized necking.
+- b) Cross-sectional area scales with $D^2$, so $(D_0^2 - D_f^2)/D_0^2 \times 100$ must be used, not $(D_0 - D_f)/D_0$.
+- d) Brittle ceramics break with almost no plastic deformation or necking (Slide 16), giving $RA \approx 0$.
 
 ### Source
 
-Session 11, Slide 33.
+Session 11, Slides 16 and 33.
 
 ## Q26.8 Definition of ductility
 
@@ -277,7 +276,7 @@ Session 11, Slides 12, 32 and 35; Session 12, Slide 15.
 - format: identify
 - asks: application
 
-Which practical information does the ductility of a metal give, according to the slides?
+Which practical manufacturing information does the ductility of a metal provide?
 
 a) How deep an indenter goes into the surface
 b) How many forming operations can be done in sequence

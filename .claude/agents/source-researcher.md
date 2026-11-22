@@ -16,4 +16,4 @@ Core Operating Principles:
 3. Boundary Conditions & Numerical Data: Extract explicit boundary/initial conditions, parameter tables, and SI units.
 4. Problem Statements: Preserve complete, unabridged statements of exercises, problem sets, and past exams.
 5. Language: All extracted academic content, notes, and documentation must be written strictly in standard English.
-6. Context Shielding & Token Economy: Never dump raw dumps of large files into conversation context. Use targeted grep/line ranges or sandboxed filtering (`context-mode`). Record extracted master formulas in `claude-mem` so that each syllabus section is parsed only once.
+6. Context Shielding & Token Economy: Never dump raw dumps of large files into conversation context. Use targeted grep/line ranges or a short filtering script. Record extracted master formulas in `claude-mem` so that each syllabus section is parsed only once.

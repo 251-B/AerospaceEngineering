@@ -19,7 +19,7 @@ bytes: 4812504
 - **Path:** `sources/cuatrimestre-1/03-engineering-mechanics/problemas/Problems.pdf`
 - **Kind:** problemas
 - **Size:** 4.8 MB
-- **Status:** referenced by 23 note(s) below
+- **Status:** referenced by 24 note(s) below
 
 ## Referenced by
 
@@ -34,6 +34,7 @@ bytes: 4812504
 - [[03 - Engineering Mechanics/Problem Set - Topic 6 Rigid Body Kinematics and Inertia]]
 - [[03 - Engineering Mechanics/Problem Set - Topic 7 Rigid Body Momentum, Energy and Dynamics]]
 - [[03 - Engineering Mechanics/Problem Set - Topic 8 Constraints, Rolling, Multibody and Torque-Free Motion]]
+- [[03 - Engineering Mechanics/Schedule - Engineering Mechanics 2026-27]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 1 Particle Kinematics]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 2 Point Particle Dynamics]]
 - [[03 - Engineering Mechanics/Solution Set - Topic 3 Constraints and Reaction Forces]]

@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 83
-- Referenced by at least one note (a mention counts): 9
-- Not referenced yet: 74
+- Files: 88
+- Referenced by at least one note (a mention counts): 16
+- Not referenced yet: 72
 - Build artifacts: 0
 - Working files: 0
 
@@ -104,8 +104,8 @@ tags:
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
-| [[Source - 04-advanced-maths - schedule - lecture_schedule_2026-27 (txt)\|lecture_schedule_2026-27.txt]] | schedule | not-referenced |
-| [[Source - 04-advanced-maths - schedule - ODE_lecture_theory_to_Robinson_chapters (txt)\|ODE_lecture_theory_to_Robinson_chapters.txt]] | schedule | not-referenced |
+| [[Source - 04-advanced-maths - schedule - lecture_schedule_2026-27 (txt)\|lecture_schedule_2026-27.txt]] | schedule | referenced |
+| [[Source - 04-advanced-maths - schedule - ODE_lecture_theory_to_Robinson_chapters (txt)\|ODE_lecture_theory_to_Robinson_chapters.txt]] | schedule | referenced |
 | [[Source - 04-advanced-maths - schedule - view (htm)\|view.htm]] | schedule | not-referenced |
 
 ## teoria
@@ -142,9 +142,24 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-i_2627_v2 (pdf)\|probls_ch4-i_2627_v2.pdf]] | problemas | referenced |
 | [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch4-ii_2627 (pdf)\|probls_ch4-ii_2627.pdf]] | problemas | referenced |
+| [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - probls_ch5_2627 (pdf)\|probls_ch5_2627.pdf]] | problemas | referenced |
+| [[Source - 04-advanced-maths - unit-04-systems-of-odes - problemas - Solved_exer_nonlinear_system (pdf)\|Solved_exer_nonlinear_system.pdf]] | problemas | referenced |
+
+## unit-04-systems-of-odes/teoria
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 04-advanced-maths - unit-04-systems-of-odes - teoria - Notes03-05-Nov_v2 (pdf)\|Notes03-05-Nov_v2.pdf]] | teoria | referenced |
+
+## unit-05-fourier-series-pdes/problemas
+
+| File | Kind | Status |
+| :--- | :--- | :--- |
+| [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - problemas - probls_ch6_2627 (pdf)\|probls_ch6_2627.pdf]] | problemas | referenced |
 
 ## unit-05-fourier-series-pdes/teoria
 
 | File | Kind | Status |
 | :--- | :--- | :--- |
 | [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - teoria - BookPDE's (pdf)\|BookPDE's.pdf]] | teoria | referenced |
+| [[Source - 04-advanced-maths - unit-05-fourier-series-pdes - teoria - Notes09-12-Nov (pdf)\|Notes09-12-Nov.pdf]] | teoria | referenced |

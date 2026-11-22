@@ -19,8 +19,9 @@ bytes: 345073
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2016_ORD_SOL.pdf`
 - **Kind:** examenes
 - **Size:** 345.1 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P18 - Choosing the Alloy of a Light Control Rod]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../assets/css/account.css">
+  <link rel="stylesheet" href="../assets/css/account-calendar.css">
+  <script src="../assets/js/theme.js"></script>
+  <script defer src="../assets/data/timetable.js"></script>
+  <script defer src="../assets/js/calendar-core.js"></script>
+  <script defer src="../assets/js/account-calendar.js"></script>
+  <title>Calendar</title>
+  <meta name="description" content="Your Sideris calendar: classes, labs and exams of your group, what will be done in each class, and the classes you have to catch up.">
+</head>
+<body class="acc-page" data-page="calendar">
+  <header class="site-header acc-header">
+    <div class="acc-header__inner">
+      <div class="acc-header__left">
+        <a href="../index.html" class="acc-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="acc-brand"><span data-site-name>Sideris</span></span>
+      </div>
+      <div class="acc-header__actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="cal-root" id="calRoot">
+    <p class="cal-muted">Loading your calendar.</p>
+  </main>
+</body>
+</html>

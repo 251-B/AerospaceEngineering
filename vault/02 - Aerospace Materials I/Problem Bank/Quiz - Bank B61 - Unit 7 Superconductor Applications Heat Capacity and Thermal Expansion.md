@@ -10,14 +10,14 @@ concepts:
   - u7-josephson-junction-structure
   - u7-josephson-dc-voltage
   - u7-sc-applications-list
-  - u7-sc-tc-kelvin-celsius
-  - u7-molar-heat-capacity-iron
+  - u7-meissner-levitation-physics
+  - u7-heat-capacity-structure-units
   - u7-iron-curie-heat-peak
-  - u7-heat-cp-table-polymer
+  - u7-specific-heat-classes
   - u7-bimetal-cooling-invar
-  - u7-invar-expansion-difference
+  - u7-expansion-melting-allotropy
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content from Session 15 Slides 25-26, 31-32, 34-36, 38-39."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including Q6 (June 2012 final) and Q12 of MATERIALS_THIRDPARTIAL_2020_V2.pdf p. 5. Content from Session 15 Slides 25-27, 31-32, 34-39."
 tags:
   - problem-bank
   - midterm-2
@@ -27,8 +27,8 @@ tags:
 
 # Bank B61 — Superconductor applications, heat capacity and thermal expansion
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 25-26, 31-32, 34-36, 38-39.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including official Unit 7 items from the June 2012 final and 2020 exam papers (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 25-27, 31-32 and 34-39.
 
 ## Q61.1 Heating a Nb3Sn winding at its limit
 
@@ -127,7 +127,7 @@ Session 15, Slide 31.
 - format: false-statement
 - asks: classification
 
-Which one of the following is NOT an application of superconductors given in the course?
+Which one of the following is NOT a practical application of superconductors?
 
 a) Levitated transport
 b) Electromagnets of magnetic resonance imaging
@@ -150,20 +150,20 @@ Session 15, Slide 32 lists levitated transport, powerful electromagnets for MRI,
 
 Session 15, Slide 32.
 
-## Q61.5 Highest critical temperature in degrees Celsius
+## Q61.5 Meissner effect and magnetic levitation
 
 - id: B61-Q5
-- concept_id: u7-sc-tc-kelvin-celsius
-- format: numeric
-- asks: calculation
-- calc: 165-273.15
+- concept_id: u7-meissner-levitation-physics
+- format: topic-false
+- asks: effect
+- origin: official-exam
 
-Superconductors have critical temperatures between 0.01 K and 165 K. Express the upper limit in degrees Celsius:
+With respect to the Meissner effect and magnetic levitation above a cooled superconductor, which one of the following statements is FALSE:
 
-a) -108 °C
-b) 438 °C
-c) -165 °C
-d) 73.9 °C
+a) Below $T_c$, a Type I superconductor carries zero resistance while allowing magnetic flux lines to pass freely through its bulk
+b) Below $T_c$, the Meissner effect expels magnetic flux from the interior so the superconductor behaves as a perfect diamagnet
+c) A permanent magnet can levitate above a cooled ceramic superconductor because Meissner repulsion balances gravity
+d) Exceeding either the critical temperature $T_c$ or the critical field $H_c$ returns the superconductor to the normal state
 
 ### Answer
 
@@ -171,46 +171,45 @@ a
 
 ### Explanation
 
-Session 15, Slide 25: $T_c$ ranges between 0.01 and 165 K. With $T(^\circ\mathrm{C}) = T(\mathrm{K}) - 273.15$: $165 - 273.15 = -108$ °C. Even the highest $T_c$ is far below room temperature.
+June 2012 extraordinary final exam, Q6 (and Session 15, Slides 26-28): below $T_c$ and $H_c$, the Meissner-Ochsenfeld effect pushes external magnetic field lines out around the superconductor rather than letting them pass through its interior, producing perfect diamagnetism. Statement a is false.
 
-- b) The 273 was added instead of subtracted.
-- c) The kelvin value was copied as if it were already in °C.
-- d) The conversion for degrees Fahrenheit, $(165 - 32)/1.8$, was applied to a temperature in kelvin.
+- b) True: flux expulsion turns the superconductor into a perfect diamagnet (Slide 27).
+- c) True: Slide 27 illustrates a permanent magnet levitating above a liquid-nitrogen-cooled superconductor via Meissner repulsion.
+- d) True: Slides 26 and 28 show that surpassing $T_c$, $H_c$, or $J_c$ destroys superconductivity.
 
 ### Source
 
-Session 15, Slide 25.
+MATERIALS_FINALEXAM_2012_EXTRA.pdf, p. 2 Q6; Session 15, Slides 26-28.
 
-## Q61.6 Molar heat capacity of iron
+## Q61.6 Phonons, heat capacity and structural sensitivity
 
 - id: B61-Q6
-- concept_id: u7-molar-heat-capacity-iron
-- format: numeric
-- asks: calculation
-- calc: 448*55.85/1000
+- concept_id: u7-heat-capacity-structure-units
+- format: false-statement
+- asks: classification
 
-The table of Slide 38 gives a specific heat $c_p = 448$ J/(kg·K) for iron, whose atomic weight is 55.85 g/mol. Determine its heat capacity per mole, to compare it with $3R \approx 24.9$ J/(mol·K):
+Which one of the following statements is FALSE regarding thermal energy, heat capacity $C$, and specific heat $c_p$ in solids?
 
-a) 8.02 J/(mol·K)
-b) 25.0 J/(mol·K)
-c) $2.50\times10^{4}$ J/(mol·K)
-d) $8.02\times10^{-3}$ J/(mol·K)
+a) Thermal energy in solids is stored as atomic vibrations that travel as lattice wave packets called phonons
+b) Molar heat capacity $C$ refers to one mole of material, whereas specific heat $c_p$ refers to unit mass
+c) Ferromagnetic solids such as iron display a pronounced peak in specific heat around the Curie temperature
+d) Increasing dislocation density or refining grain size causes a large permanent rise in specific heat across all solids
 
 ### Answer
 
-b
+d
 
 ### Explanation
 
-Session 15, Slides 34, 35 and 38: specific heat is the heat capacity divided by the atomic weight, so $C = c_p\,M = 448\ \text{J/(kg·K)}\times 0.05585\ \text{kg/mol} = 25.0$ J/(mol·K), very close to the plateau $3R$ reached above the Debye temperature.
+Session 15, Slides 34-35: the heat capacity and specific heat of most materials do not depend significantly on microstructural features such as dislocations, vacancies, or grain size (with ferromagnetic solids near $T_c$ being the main exception). Statement d is false.
 
-- a) The specific heat was divided by the atomic weight ($448/55.85$) instead of multiplied.
-- c) The atomic weight was used in g/mol without converting to kg/mol: the result is 1000 times too large.
-- d) Both slips together: division by the atomic weight and the g to kg conversion.
+- a) True: Slide 34 defines phonons as packets of elastic lattice-vibration waves carrying thermal energy.
+- b) True: Slide 34 defines $C$ per mole and $c_p$ as heat capacity divided by atomic weight (per unit mass).
+- c) True: Slide 35 explicitly notes the high specific heat of iron at its Curie temperature.
 
 ### Source
 
-Session 15, Slides 34, 35 and 38.
+Session 15, Slides 34-35.
 
 ## Q61.7 Peak of the heat capacity of iron
 
@@ -242,42 +241,35 @@ Session 15, Slide 35: the heat capacity of most materials does not depend on str
 
 Session 15, Slide 35.
 
-## Q61.8 Heating a nylon part
+## Q61.8 Specific heat of polymers against heavy metals
 
 - id: B61-Q8
-- concept_id: u7-heat-cp-table-polymer
-- format: numeric
-- asks: application
-- calc: 20000/(0.50*1670)
+- concept_id: u7-specific-heat-classes
+- format: complete-sentence
+- asks: cause
 
-Using $q = m\,c_p\,\Delta T$ and the specific heats of Slide 38 shown, determine the temperature rise of a 0.50 kg nylon 6,6 part that absorbs 20 kJ:
+Polymers typically exhibit a significantly higher specific heat $c_p$ (per unit mass) than heavy metals such as tungsten or iron because:
 
-| Material | $c_p$ (J/(kg·K)) |
-| :--- | :--- |
-| Aluminum | 900 |
-| Iron | 448 |
-| 6,6-Nylon | 1670 |
-
-a) 12.0 °C
-b) 24.0 °C
-c) 6.00 °C
-d) 0.0240 °C
+a) specific heat divides molar heat capacity by molar mass, and polymers consist of much lighter elements such as C and H
+b) polymers conduct thermal energy by free electrons, which absorb more heat per unit mass than lattice vibrations
+c) heavy metals reach a lower molar plateau of $R$ above $\theta_D$, whereas polymers reach a higher plateau of $6R$
+d) polymers undergo ferromagnetic transitions near room temperature that continuously raise their specific heat
 
 ### Answer
 
-b
+a
 
 ### Explanation
 
-Session 15, Slides 34 and 38: $\Delta T = q/(m\,c_p) = 20\,000/(0.50\times1670) = 24.0$ °C. Nylon has nearly twice the specific heat of aluminium (1670 against 900 J/(kg·K)), so a polymer needs more heat per kilogram and degree than a metal.
+Session 15, Slides 34-35 and 38: above $\theta_D$, molar heat capacity approaches $C \approx 3R$ across solids, and specific heat is $c_p = C/M$. Because polymers are built from light atoms (C, H, N, O) rather than heavy transition-metal atoms (Fe, W), each kilogram contains far more moles of atoms and thus requires more heat per kg and kelvin.
 
-- a) The mass was left out: $20\,000/1670 = 12.0$ °C.
-- c) The mass multiplied instead of dividing: $20\,000\times0.50/1670$.
-- d) The heat was entered as 20 J instead of 20 kJ.
+- b) Polymers are thermal insulators with essentially no free electrons; heat travels by lattice phonons (Slide 40).
+- c) The Dulong-Petit high-temperature plateau is $\approx 3R$ per mole of atoms, not $R$ for metals or $6R$ for polymers (Slide 35).
+- d) Common polymers are non-ferromagnetic; the Curie-point specific-heat anomaly occurs in ferromagnets such as iron (Slide 35).
 
 ### Source
 
-Session 15, Slides 34 and 38.
+Session 15, Slides 34-35, 38 and 40.
 
 ## Q61.9 Cooling an Invar-brass strip
 
@@ -309,39 +301,35 @@ Session 15, Slides 36, 38 and 39: the bimetallic strip turns a temperature chang
 
 Session 15, Slides 36, 38 and 39.
 
-## Q61.10 Invar against steel
+## Q61.10 Thermal expansion coefficient and phase transformations
 
 - id: B61-Q10
-- concept_id: u7-invar-expansion-difference
-- format: numeric
-- asks: comparison
-- calc: (12.0-1.6)*1e-6*800*60
+- concept_id: u7-expansion-melting-allotropy
+- format: true-statement
+- asks: effect
+- origin: official-exam
 
-A 0.800 m rod of Invar and a 0.800 m rod of 1025 steel are heated freely by 60 °C. Using the α of the table of Slide 38 shown, determine the difference between their elongations:
+Indicate which statement is TRUE regarding the thermal expansion coefficient ($\alpha$):
 
-| Material | $\alpha$ ($10^{-6}$ °C⁻¹) |
-| :--- | :--- |
-| Invar (64Fe-36Ni) | 1.6 |
-| 1025 Steel | 12.0 |
-| Super Invar | 0.72 |
-
-a) 0.499 mm
-b) 0.0768 mm
-c) 0.576 mm
-d) 0.653 mm
+a) Ceramics do not experience thermal expansion
+b) A stronger atomic bond conveys a higher thermal expansion
+c) It can change abruptly during phase transformations
+d) Metals with high melting temperatures have higher thermal expansion coefficients
 
 ### Answer
 
-a
+c
 
 ### Explanation
 
-Session 15, Slides 36 and 38: $\Delta l = \alpha\,l_0\,\Delta T$ for each rod, so $\Delta l_{steel} - \Delta l_{Invar} = (12.0-1.6)\times10^{-6}\times800\ \text{mm}\times60 = 0.499$ mm.
+Session 15, Slide 37 (and `MATERIALS_THIRDPARTIAL_2020_V2.pdf`, p. 5 Q12): allotropic materials such as iron undergo abrupt dimensional changes when phase transformations occur (e.g., $\alpha \to \gamma \to \delta$), causing $\alpha$ to jump sharply at the transformation temperatures.
 
-- b) Only the elongation of the Invar rod was computed ($1.6\times10^{-6}\times800\times60$).
-- c) Only the elongation of the steel rod was computed ($12.0\times10^{-6}\times800\times60$).
-- d) The two coefficients were added (13.6) instead of subtracted.
+- a) False: ceramics expand when heated (for example $\text{Al}_2\text{O}_3$ has $\alpha = 7.6\times10^{-6}$ °C⁻¹ on Slide 38).
+- b) False: stronger atomic bonding deepens the potential well and produces a *lower* thermal expansion coefficient (Slide 36).
+- d) False: Slide 37 shows that metals with higher melting temperatures have *lower* thermal expansion coefficients because their bonding is stronger.
 
 ### Source
 
-Session 15, Slides 36 and 38.
+MATERIALS_THIRDPARTIAL_2020_V2.pdf, p. 5 Q12; Session 15, Slides 36-38.
+
+**Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

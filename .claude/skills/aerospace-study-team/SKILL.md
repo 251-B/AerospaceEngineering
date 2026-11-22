@@ -54,7 +54,7 @@ Consulta la skill [review-ultrareview](file:///c:/Users/hecto/OneDrive/Documento
 1. **Prompt Caching:** Instrucciones estables y estructuradas sin prefijos dinámicos volátiles.
 2. **Blindaje de Contexto (`Context Shielding`):**
    - Prohibido volcar PDFs completos al chat.
-   - Emplear `context-mode` (`ctx_execute`, `ctx_search`) para consultar y filtrar archivos en sandbox.
+   - Filtrar con un script corto o delegar en un subagente de solo lectura (`Explore`, `source-researcher`).
 3. **Persistencia en Memoria (`claude-mem`):**
    - Guardar hallazgos y decisiones clave de diseño en `claude-mem` para que no sea necesario releer documentos enteros en sesiones futuras.
 4. **Respuestas Concisas:**

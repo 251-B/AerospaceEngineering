@@ -12,7 +12,7 @@ concepts:
   - u4-fec-carbon-solubility
   - u4-fec-ranges
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 9 Slides 4-12 (eutectoid 727 °C: 0.022, 0.76, 6.67 wt% C; eutectic 1147 °C: 2.14, 4.30 wt% C; peritectic 1493 °C)."
+origen: "Includes official exam statements from Q2(a) of MATERIALS_FINALEXAM_2015_EXTRA.pdf (p. 3); other questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf. Data from Session 9 Slides 4-12 (eutectoid 727 °C: 0.022, 0.76, 6.67 wt% C; eutectic 1147 °C: 2.14, 4.30 wt% C; peritectic 1493 °C)."
 tags:
   - problem-bank
   - midterm-2
@@ -22,8 +22,8 @@ tags:
 
 # Bank B13 — The Fe-Fe3C diagram
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 9, Slides 4-12.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong); Q13.5 integrates statements from `MATERIALS_FINALEXAM_2015_EXTRA.pdf` (Q2a). Content: Session 9, Slides 4-12.
 
 ## Q13.1 Phases at point 3 of Fe-Fe3C
 
@@ -149,36 +149,36 @@ Statement d) is false: the eutectoid starts from austenite, a solid, of 0.76 wt%
 
 Session 9, Slide 10.
 
-## Q13.5 Liquid above the Fe-C eutectic
+## Q13.5 Phases and microconstituents in Fe-Fe3C alloys
 
 - id: B13-Q5
-- concept_id: u4-fec-invariants
-- format: numeric
-- asks: calculation
-- calc: (3.5-2.14)/(4.30-2.14)*100
+- concept_id: u4-fec-ranges
+- format: topic-false
+- asks: classification
+- origin: official-exam
 
-Determine the mass percentage of liquid in an Fe-3.5 wt% C alloy just above 1147 °C:
+Referring to the Fe-Fe₃C metastable phase diagram, which statement is FALSE:
 
-a) 30.0 %
-b) 37.0 %
-c) 63.0 %
-d) 81.4 %
+a) The maximum solubility of carbon in α-ferrite at 727 °C is 0.022 wt%
+b) The microconstituents of an Fe-3 wt% C alloy at 1000 °C are primary austenite and cementite
+c) An Fe-3 wt% C alloy is a hypoeutectic cast iron because its carbon content lies between 2.14 and 4.30 wt%
+d) At 1147 °C a eutectic liquid of 4.30 wt% C transforms into austenite and cementite (ledeburite)
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Just above 1147 °C the alloy is γ (2.14 wt% C) + L (4.30 wt% C) (Session 9, Slides 4 and 10); the lever rule gives $W_L = \dfrac{3.5 - 2.14}{4.30 - 2.14} = \dfrac{1.36}{2.16} = 0.630$. This liquid becomes ledeburite at 1147 °C.
+Statement b) is false (from `MATERIALS_FINALEXAM_2015_EXTRA.pdf`, Q2a): at 1000 °C an Fe-3 wt% C alloy lies between 727 and 1147 °C in the $\gamma + \text{Fe}_3\text{C}$ phase field, so its **phases** are austenite and cementite, whereas its **microconstituents** are primary austenite ($\gamma_p$) and ledeburite ($\gamma + \text{Fe}_3\text{C}$ eutectic).
 
-- a) $1.36/(6.67 - 2.14) = 0.300$ uses the γ-Fe₃C tie line of below 1147 °C, which gives cementite, not liquid.
-- b) $(4.30 - 3.5)/2.16 = 0.370$ is the fraction of austenite: arms swapped.
-- d) $3.5/4.30 = 0.814$ is a ratio of compositions.
+- a) True: 0.022 wt% C is the maximum carbon solubility of α-ferrite at the eutectoid temperature, 727 °C (2015 EXTRA Q2a; Session 9, Slide 5).
+- c) True: alloys between 2.14 and 4.30 wt% C are hypoeutectic cast irons (Session 9, Slide 4).
+- d) True: the eutectic reaction at 1147 °C is $L\,(4.30) \rightarrow \gamma\,(2.14) + \text{Fe}_3\text{C}\,(6.67)$, producing ledeburite (Session 9, Slide 10).
 
 ### Source
 
-Session 9, Slides 4 and 10; Session 7, Slide 16.
+MATERIALS_FINALEXAM_2015_EXTRA.pdf, p. 3 (Q2a); Session 9, Slides 4-5 and 10-11.
 
 ## Q13.6 A eutectoid steel through 727 °C
 

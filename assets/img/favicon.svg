@@ -1,12 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="g" x1="0" y1="1" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="scale(64)">
-      <stop offset="0" stop-color="#06b6d4"/>
-      <stop offset="0.55" stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#a855f7"/>
+    <radialGradient id="sky" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#0e1b3d"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </radialGradient>
+    <linearGradient id="g" x1="8" y1="6" x2="46" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="28%" stop-color="#06b6d4"/>
+      <stop offset="56%" stop-color="#6366f1"/>
+      <stop offset="78%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ef4444"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="15" fill="#070b14"/>
-  <path d="M7 49L21.5 16 36 49z" fill="none" stroke="url(#g)" stroke-width="6.5" stroke-linejoin="round"/>
-  <path d="M40 29l8 20 8-20" fill="none" stroke="#f8fafc" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="64" height="64" rx="14" fill="url(#sky)"/>
+  <path d="M 25.04,21.01 A 27.71,12.49 -14.0 0 1 44.83,40.74" fill="none" stroke="url(#g)" stroke-opacity="0.92" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M 38.87,43.02 A 27.71,12.49 -14.0 0 1 19.09,23.30" fill="none" stroke="url(#g)" stroke-opacity="0.92" stroke-width="2.1" stroke-linecap="round"/>
+  <polyline fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="42.93,14.36 32.00,8.59 20.76,14.67 22.63,25.60 32.00,32.00 41.37,38.40 42.93,49.48 31.84,55.41 20.76,49.64"/>
+  <circle cx="42.93" cy="14.36" r="2.10" fill="url(#g)"/>
+  <circle cx="32.00" cy="8.59" r="2.12" fill="url(#g)"/>
+  <circle cx="20.76" cy="14.67" r="2.10" fill="url(#g)"/>
+  <circle cx="22.63" cy="25.60" r="2.10" fill="url(#g)"/>
+  <path d="M 32.00,25.60 Q 33.15,30.85 38.40,32.00 Q 33.15,33.15 32.00,38.40 Q 30.85,33.15 25.60,32.00 Q 30.85,30.85 32.00,25.60 Z" fill="url(#g)"/>
+  <circle cx="41.37" cy="38.40" r="2.10" fill="url(#g)"/>
+  <circle cx="42.93" cy="49.48" r="2.12" fill="url(#g)"/>
+  <circle cx="31.84" cy="55.41" r="2.10" fill="url(#g)"/>
+  <circle cx="20.76" cy="49.64" r="2.10" fill="url(#g)"/>
+  <path d="M 9.37,17.25 Q 9.60,19.91 12.25,20.14 Q 9.60,20.37 9.37,23.02 Q 9.13,20.37 6.48,20.14 Q 9.13,19.91 9.37,17.25 Z" fill="url(#g)" fill-opacity="0.92"/>
+  <path d="M 54.48,38.12 Q 54.66,40.24 56.79,40.43 Q 54.66,40.61 54.48,42.74 Q 54.29,40.61 52.17,40.43 Q 54.29,40.24 54.48,38.12 Z" fill="url(#g)" fill-opacity="0.9"/>
 </svg>

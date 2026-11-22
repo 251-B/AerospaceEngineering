@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 320" width="100%" class="fig-kit" style="max-width:470px;margin:0 auto;display:block" role="img" aria-label="Sketch of the 0.2 % offset construction: the elastic line from the origin, the parallel line from a strain of 0.002 and their meeting with the curve at the yield strength; the total strain at that point is split into the plastic offset 0.002 and the elastic part equal to the yield strength divided by E">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<line x1="70.0" y1="240.0" x2="411.6" y2="240.0" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M411.6,240.0 L403.4,243.5 L403.4,236.5 Z" fill="#8a94a6"/>
+<line x1="70.0" y1="240.0" x2="70.0" y2="45.9" stroke="#8a94a6" stroke-width="1.3"/>
+<path d="M70.0,45.9 L73.5,54.2 L66.5,54.2 Z" fill="#8a94a6"/>
+<line x1="147.6" y1="240.0" x2="147.6" y2="245.0" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="147.6" y="257.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0.002</text>
+<line x1="65.0" y1="99.6" x2="70.0" y2="99.6" stroke="#8a94a6" stroke-width="1.1"/>
+<text x="62.0" y="103.6" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">σ<tspan baseline-shift="sub" font-size="72%">y</tspan></text>
+<text x="411.6" y="274.0" fill="#4b5563" font-size="12" font-weight="700" text-anchor="end">strain ε</text>
+<text x="78.0" y="49.9" fill="#4b5563" font-size="12" font-weight="700" text-anchor="start">σ (MPa)</text>
+<polyline points="70.0,240.0 173.5,140.9 173.5,140.9 176.4,139.9 179.2,138.9 182.0,137.9 184.9,137.0 187.7,136.0 190.5,135.0 193.3,134.0 196.2,133.0 199.0,132.0 201.8,131.0 204.7,130.0 207.5,129.0 210.3,128.0 213.2,127.0 216.0,126.0 218.8,125.0 221.7,124.0 224.5,123.0 227.3,122.0 230.1,121.0 233.0,120.0 235.8,119.0 238.6,118.0 241.5,117.0 244.3,116.0 247.1,115.0 250.0,114.0 252.8,113.1 255.6,112.1 258.5,111.1 261.3,110.2 264.1,109.2 266.9,108.3 269.8,107.4 272.6,106.4 275.4,105.5 278.3,104.6 281.1,103.7 283.9,102.8 286.8,101.9 289.6,101.0 292.4,100.1 295.3,99.3 298.1,98.4 300.9,97.6 303.8,96.8 306.6,95.9 309.4,95.1 312.2,94.3 315.1,93.5 317.9,92.7 320.7,91.9 323.6,91.1 326.4,90.3 329.2,89.5 332.1,88.8 334.9,88.0 337.7,87.2 340.6,86.5 343.4,85.7 346.2,85.0 349.0,84.2 351.9,83.5 354.7,82.7 357.5,82.0 360.4,81.2 363.2,80.5 366.0,79.7 368.9,79.0 371.7,78.2 374.5,77.5 377.4,76.7 380.2,76.0 383.0,75.2 385.8,74.5 388.7,73.7 391.5,73.0 394.3,72.2 397.2,71.4 400.0,70.7" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="147.6,240.0 320.2,74.8" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-dasharray="6,4" stroke-linejoin="round"/>
+<circle cx="294.3" cy="99.6" r="4.5" fill="#ec4899" stroke="#ec4899" stroke-width="1"/>
+<text x="284.3" y="89.6" fill="#ec4899" font-size="13" font-weight="700" text-anchor="end">Y</text>
+<line x1="70.0" y1="99.6" x2="294.3" y2="99.6" stroke="#ec4899" stroke-width="0.9" stroke-dasharray="3,3"/>
+<line x1="294.3" y1="240.0" x2="294.3" y2="99.6" stroke="#ec4899" stroke-width="0.9" stroke-dasharray="3,3"/>
+<line x1="70.0" y1="286.0" x2="147.6" y2="286.0" stroke="#3b82f6" stroke-width="2.2"/>
+<line x1="70.0" y1="281.0" x2="70.0" y2="291.0" stroke="#3b82f6" stroke-width="1.4"/>
+<line x1="147.6" y1="281.0" x2="147.6" y2="291.0" stroke="#3b82f6" stroke-width="1.4"/>
+<text x="108.8" y="304.0" fill="#3b82f6" font-size="11.5" font-weight="400" text-anchor="middle">plastic 0.002</text>
+<line x1="147.6" y1="286.0" x2="294.3" y2="286.0" stroke="#10b981" stroke-width="2.2"/>
+<line x1="147.6" y1="281.0" x2="147.6" y2="291.0" stroke="#10b981" stroke-width="1.4"/>
+<line x1="294.3" y1="281.0" x2="294.3" y2="291.0" stroke="#10b981" stroke-width="1.4"/>
+<text x="221.0" y="304.0" fill="#10b981" font-size="11.5" font-weight="400" text-anchor="middle">elastic σ<tspan baseline-shift="sub" font-size="72%">y</tspan>/E</text>
+<text x="302.3" y="290.0" fill="#ec4899" font-size="11.5" font-weight="700" text-anchor="start">ε at Y</text>
+</g></svg>

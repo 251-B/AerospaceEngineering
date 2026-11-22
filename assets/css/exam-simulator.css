@@ -365,3 +365,38 @@ body:has(#examSimulator) .page-header > p { display: none; }
   .sim-block-card, #simBlock .sim-actions { display: none; }
 }
 .sim-question--mcq .sim-question__head a { color: var(--text-primary); }
+
+/* True/False statements, several objective parts and the pickers of the practice modes (Business Management Midterm 2) */
+.sim-mcq--tf:not(.sim-mcq--review) { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.sim-reason textarea { min-height: 3.2em; }
+.sim-reason-compare { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin-top: 10px; }
+.sim-reason-compare .bank-panel { margin: 0; }
+.sim-reason-compare__text { color: var(--text-primary); white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; }
+.sim-void { margin-top: 10px; }
+.sim-custom { display: grid; gap: 12px; }
+.sim-custom[hidden] { display: none; }
+.sim-picks { border: 0; padding: 0; margin: 0; min-width: 0; }
+.sim-picks legend { font-family: var(--font-sans); font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.sim-picks__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px 14px; }
+.sim-picks__quick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.sim-picks__quick .bank-btn { padding: 4px 12px; font-size: 0.85rem; }
+@media (max-width: 640px) { .sim-reason-compare { grid-template-columns: minmax(0, 1fr); } }
+.sim-source-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin-top: 8px; }
+.sim-source-line p { margin: 0; }
+.sim-origin-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+@media print {
+  .sim-custom, .sim-void, .sim-reason-compare .bank-panel--hint { display: none; }
+  .sim-reason textarea { border: 1px solid #000; min-height: 4em; }
+}

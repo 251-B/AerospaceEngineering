@@ -14,7 +14,7 @@ concepts:
   - u4-fec-carbon-solubility
   - u4-fec-ranges
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 8 Slides 14-17 and Session 9 Slides 4-8 (Fe-Fe3C: 0.022 wt% C at 727 °C, 2.14 wt% C at 1147 °C, Fe3C at 6.67 wt% C)."
+origen: "Includes official exam statements from Q2(a) of MATERIALS_FINALEXAM_2015_EXTRA.pdf (p. 3); other questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf. Data from Session 8 Slides 14-17 and Session 9 Slides 4-8 (Fe-Fe3C: 0.022 wt% C at 727 °C, 2.14 wt% C at 1147 °C, Fe3C at 6.67 wt% C)."
 tags:
   - problem-bank
   - midterm-2
@@ -24,8 +24,8 @@ tags:
 
 # Bank B12 — Intermetallic compounds and the Fe-Fe3C diagram
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 8, Slides 14-17; Session 9, Slides 4-8.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong); Q12.7 integrates statements from `MATERIALS_FINALEXAM_2015_EXTRA.pdf` (Q2a). Content: Session 8, Slides 14-17; Session 9, Slides 4-8.
 
 ## Q12.1 How a stoichiometric compound is drawn
 
@@ -57,31 +57,31 @@ Session 8, Slide 15: a stoichiometric compound has a fixed composition, a fixed 
 
 Session 8, Slide 15.
 
-## Q12.2 The Ti-B compounds
+## Q12.2 Stoichiometric versus non-stoichiometric compounds
 
 - id: B12-Q2
 - concept_id: u4-stoichiometric-compound
-- format: true-statement
+- format: topic-true
 - asks: classification
 
-Which one of the following statements about the compounds of the Ti-B diagram of the slides is TRUE:
+Referring to stoichiometric and non-stoichiometric intermetallic compounds in binary phase diagrams, which statement is TRUE:
 
-a) Ti₃B₄, TiB and TiB₂ are all stoichiometric
-b) Ti₃B₄ is non-stoichiometric; TiB and TiB₂ are stoichiometric
-c) TiB₂ is a terminal phase of the diagram
-d) Ti₃B₄ is stoichiometric; TiB and TiB₂ are non-stoichiometric
+a) Stoichiometric compounds span a broad range of compositions, while non-stoichiometric ones are vertical lines
+b) Stoichiometric compounds have a fixed composition (vertical line), while non-stoichiometric ones span a composition range
+c) Both stoichiometric and non-stoichiometric compounds occur as terminal solid solutions at the diagram ends
+d) Non-stoichiometric compounds cannot form by cooling a liquid or undergo invariant reactions
 
 ### Answer
 
-d
+b
 
 ### Explanation
 
-Session 8, Slide 15 gives Ti₃B₄ as the example of a stoichiometric compound (a vertical line) and TiB and TiB₂ as examples of non-stoichiometric ones (a range of compositions).
+Session 8, Slides 14-15: a stoichiometric compound has a fixed atomic ratio and is drawn as a vertical line (such as $\text{Ti}_3\text{B}_4$ in Ti-B or $\text{Fe}_3\text{C}$ in Fe-C), whereas a non-stoichiometric compound is an intermediate solid solution that exists over a range of compositions (such as TiB and $\text{TiB}_2$).
 
-- a) TiB and TiB₂ exist over a range of compositions, so they are not stoichiometric.
-- b) The two classes are swapped.
-- c) Terminal phases sit at the ends of the diagram; TiB₂ is an intermediate phase inside it.
+- a) The two classes are swapped: fixed composition belongs to stoichiometric compounds, while a range belongs to non-stoichiometric ones.
+- c) Terminal phases sit at the two ends of the composition axis; intermetallic compounds are intermediate phases inside the diagram.
+- d) Intermediate compounds—both stoichiometric and non-stoichiometric—regularly form from the liquid and participate in eutectics or peritectics.
 
 ### Source
 
@@ -207,19 +207,20 @@ Session 8, Slide 17: Mg₂Ni does not keep its composition on melting and gives 
 
 Session 8, Slide 17.
 
-## Q12.7 Cementite
+## Q12.7 Phases and transformations of Fe-Fe3C
 
 - id: B12-Q7
 - concept_id: u4-fec-phases
-- format: true-statement
-- asks: definition
+- format: topic-true
+- asks: classification
+- origin: official-exam
 
-Which one of the following statements about cementite is TRUE:
+Referring to the phases and transformations of the Fe-Fe₃C system, which statement is TRUE:
 
-a) It is a hard, brittle compound with 6.67 wt% C
-b) It is a soft BCC solid solution of C in Fe
-c) It is the FCC phase that dissolves up to 2.14 wt% C
-d) It is the stable end of the Fe-C diagram
+a) Pure iron has three solid allotropic modifications (α, γ and δ)
+b) Cementite (Fe₃C) melts congruently to a liquid of 6.67 wt% C
+c) At 1493 °C the invariant reaction of the Fe-C diagram is monotectic
+d) α-ferrite is an FCC solid solution that dissolves up to 2.14 wt% C
 
 ### Answer
 
@@ -227,15 +228,15 @@ a
 
 ### Explanation
 
-Session 9, Slide 8: cementite, Fe₃C, is an intermetallic stoichiometric compound of 6.67 wt% C, hard and brittle, and metastable.
+From `MATERIALS_FINALEXAM_2015_EXTRA.pdf` (Q2a) and Session 9, Slides 3–10: pure iron exists in three solid allotropic crystal structures—BCC α-ferrite (below 912 °C), FCC γ-austenite (912–1394 °C) and BCC δ-ferrite (1394–1538 °C). Cementite (Fe₃C, 6.67 wt% C) is a hard, brittle, metastable compound.
 
-- b) A soft BCC solid solution is α-ferrite (Slide 5).
-- c) The FCC phase that dissolves up to 2.14 wt% C at 1147 °C is austenite (Slide 6).
-- d) Cementite is metastable; that is why the diagram is the metastable Fe-Fe₃C diagram (Slides 4 and 8).
+- b) False in 2015 EXTRA Q2a: cementite does not melt congruently; on heating it decomposes incongruently rather than forming a liquid of its own composition.
+- c) False in 2015 EXTRA Q2a: at 1493 °C the reaction is peritectic ($\delta + L \rightarrow \gamma$), not monotectic.
+- d) Austenite is the FCC solid solution holding up to 2.14 wt% C; α-ferrite is BCC and holds at most 0.022 wt% C.
 
 ### Source
 
-Session 9, Slides 4-8.
+MATERIALS_FINALEXAM_2015_EXTRA.pdf, p. 3 (Q2a); Session 9, Slides 3-10.
 
 ## Q12.8 Carbon in austenite and in ferrite
 

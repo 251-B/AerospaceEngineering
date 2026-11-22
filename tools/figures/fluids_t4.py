@@ -1,9 +1,8 @@
 """Topic 4 figures for Fluid Mechanics: the Navier-Stokes equations (Notes.pdf, Chapter 4).
 
-One figure for the theory page: the sphere of radius R in a uniform stream used as the worked example of
-initial and boundary conditions (Notes.pdf, p. 45 printed, Eqs. 4.43-4.48). It is redrawn with the same
-symbols as the notes: stream U_inf e_x at temperature T_inf, gravity g pointing down, sphere surface
-at temperature T_w, axes x, y, z centred on the sphere.
+The sphere in a uniform stream of the worked example of initial and boundary conditions (Notes.pdf, p. 45 printed,
+Eqs. 4.43-4.48) is a crop of the notes (REG.raster); the figures below are drawn for the solutions (EXTRA) or
+replace a statement figure that cannot be cropped (INVIABLE).
 """
 import math
 
@@ -41,6 +40,11 @@ RASTER = {
         "Infinitely large porous disk rotating with angular velocity Omega about the z axis, side view with axes z and r, and top view with the angle theta",
         "Statement figure (crop of NS17.pdf, p. 1): porous disk rotating with angular velocity $\\Omega$, side view (axes $z$, $r$) "
         "and top view (polar angle $\\theta$)"),
+    "ns15-statement": (
+        "Porous wall moving with velocity U_w while liquid is removed through it with velocity V_w; fixed control volume V_c of unit length, axes x, y, normals n and n_w, far-field pressure p_inf and temperature T_inf",
+        "Statement figure (crop of NS15.pdf, p. 1): porous wall at temperature $T_w$ moving with $U_w$ and sucking with "
+        "$V_w$, axes $x$, $y$, normals $\\bar{n}$ and $\\bar{n}_w$, far field $p_\\infty$, $T_\\infty$ and the fixed control "
+        "volume $V_c$ of unit length ($\\delta x = 1$)"),
     "ns4-statement": (
         "Gap of thickness h between two horizontal walls, upper wall moving with velocity U, dashed control volume V_o of unit length, axes x, z and gravity g",
         "Statement figure (crop of NS4.pdf, p. 1): gap of thickness $h$, upper wall moving with $U$, fixed control volume $V_o$ of "
@@ -56,39 +60,7 @@ def lab(c, p, s, col="HEAD", anchor="middle", size=17, italic=True, weight="400"
           f'text-anchor="{anchor}" font-family="{SERIF}"{style}>{s}</text>')
 
 
-def sphere_in_stream():
-    c = Canvas(560, 300)
-    centre = (380, 150)
-    R = 70
-    # free stream: three arrows, with U_inf and T_inf
-    for y in (110, 150, 190):
-        arrow(c, (40, y), (180, y), "BLUE", 1.8, 9)
-    lab(c, (110, 98), sub("U", "&#8734;") + ' <tspan text-decoration="overline">e</tspan>' + sub("", "x"), "BLUE", size=18)
-    lab(c, (110, 222), sub("T", "&#8734;"), "BLUE", size=18)
-    # gravity
-    arrow(c, (230, 30), (230, 90), "ACC", 2.0, 10)
-    lab(c, (244, 62), "g", "ACC", "start", 18)
-    # the sphere
-    circle(c, centre, R, "EDGE", 2.4, fill="BLUE", opacity=0.10)
-    lab(c, (centre[0] + R + 10, centre[1] + R * 0.72), sub("T", "w"), "HEAD", "start", 18)
-    line(c, (centre[0] + R * 0.72, centre[1] + R * 0.70), (centre[0] + R + 8, centre[1] + R * 0.70 - 6), "EDGE", 1.0)
-    # axes (x to the right, z up, y out of the plane drawn slanted)
-    arrow(c, centre, (centre[0] + 44, centre[1]), "HEAD", 1.8, 9)
-    arrow(c, centre, (centre[0], centre[1] - 44), "HEAD", 1.8, 9)
-    arrow(c, centre, (centre[0] + 28, centre[1] - 14), "HEAD", 1.8, 9)
-    lab(c, (centre[0] + 50, centre[1] + 6), "x", "HEAD", "start", 15)
-    lab(c, (centre[0] - 8, centre[1] - 46), "z", "HEAD", "end", 17)
-    lab(c, (centre[0] + 34, centre[1] - 18), "y", "HEAD", "start", 17)
-    # radius
-    line(c, centre, (centre[0] - R * 0.7071, centre[1] + R * 0.7071), "EDGE", 1.0, dash="4,3")
-    lab(c, (centre[0] - 34, centre[1] + 52), "R", "TEXT", "end", 16)
-    REG.put("sphere-in-stream", c,
-            "Sphere of radius R at surface temperature T_w in a uniform stream U_inf e_x at temperature T_inf, with "
-            "gravity g pointing down and the axes x, y, z centred on the sphere",
-            "Sphere of radius $R$ in a stream of velocity $U_\\infty(t)\\,\\bar{e}_x$ and temperature $T_\\infty$, "
-            "with surface temperature $T_w$ and gravity $\\bar{g} = -g\\,\\bar{e}_z$ (Notes.pdf, p. 45)")
-
-
+# EXTRA: the sheet has no figure; drawn for the solution
 def ns3_setup():
     c = Canvas(560, 340)
     centre = (230, 150)
@@ -114,6 +86,7 @@ def ns3_setup():
             "$p_\\infty$ far from the balloon, and the (dashed) control volume of the energy balance of Phase 3")
 
 
+# INVIABLE: handwriting over the figure in the official sheet
 def ns5_statement():
     c = Canvas(460, 330)
     rect(c, 110, 20, 60, 280, "EDGE", 1.6, fill="BLUE", opacity=0.15)
@@ -143,6 +116,7 @@ def ns5_statement():
             "layer of thickness $h$, surrounding air at pressure $p_a$, gravity $g$ and axes $r$, $z$")
 
 
+# INVIABLE: handwriting over the figure in the official sheet
 def ns7_statement():
     c = Canvas(600, 330)
     al = math.radians(20)
@@ -183,6 +157,7 @@ def ns7_statement():
             "$p_a$ and the fixed control volume $V_o$ of unit length")
 
 
+# INVIABLE: handwriting over the figure in the official sheet
 def ns8_statement():
     c = Canvas(620, 330)
     top, bot, x0, x1 = 130, 230, 120, 470
@@ -211,6 +186,7 @@ def ns8_statement():
             "$z$, suction velocity $V$ through its surface, ambient $p_\\infty$, $T_\\infty$ and axes $r$, $z$")
 
 
+# EXTRA: the sheet has no figure; drawn for the solution
 def ns9_setup():
     c = Canvas(620, 330)
     top, bot, x0, x1 = 130, 230, 120, 470
@@ -239,6 +215,7 @@ def ns9_setup():
             "suction velocity $V_w$ ($q = 2\\pi R V_w$ per unit length), fluid at rest at $p_\\infty$, $T_\\infty$ far away, axes $r$, $z$")
 
 
+# EXTRA: the sheet has no figure; drawn for the solution
 def ns10_setup():
     c = Canvas(560, 320)
     centre = (230, 150)
@@ -263,52 +240,15 @@ def ns10_setup():
             "ocean, radial velocity field $v_r(r,t)$, pressure $p_R(t)$ at the cavity wall and $p_\\infty$ far away")
 
 
-def ns15_statement():
-    c = Canvas(640, 330)
-    wy = 230
-    x0, x1 = 20, 520
-    line(c, (x0, wy), (x1, wy), "HEAD", 2.4)
-    for x in range(30, 520, 18):
-        arrow(c, (x, wy + 2), (x, wy + 26), "BLUE", 1.3, 7)
-        line(c, (x, wy), (x - 5, wy - 6), "EDGE", 1.0)
-    lab(c, (22, 205), sub("V", "w"), "BLUE", "start", 18)
-    arrow(c, (526, wy), (604, wy), "ACC", 2.4, 11)
-    lab(c, (610, wy - 8), sub("U", "w"), "ACC", "start", 19)
-    lab(c, (450, wy + 46), sub("T", "w"), "HEAD", "start", 17)
-    line(c, (448, wy + 36), (432, wy + 4), "EDGE", 1.0)
-    # control volume
-    cvx0, cvx1, cvy0, cvy1 = 230, 410, wy, 40
-    rect(c, cvx0, cvy1, cvx1 - cvx0, cvy0 - cvy1, "GREEN", 1.8, "7,4")
-    dim(c, (cvx0, 135), (cvx1, 135), "", "TEXT")
-    text(c, ((cvx0 + cvx1) / 2, 126), "δx = 1", "TEXT", "middle", 14)
-    lab(c, (cvx1 + 12, 70), sub("V", "c"), "GREEN", "start", 18)
-    arrow(c, (cvx0, 175), (cvx0 - 38, 175), "HEAD", 1.4, 8)
-    lab(c, (cvx0 - 22, 165), "n", "HEAD", "middle", 15)
-    arrow(c, (330, wy + 4), (330, wy + 40), "HEAD", 1.4, 8)
-    lab(c, (342, wy + 44), "n", "HEAD", "start", 15)
-    arrow(c, (480, wy), (480, wy - 36), "HEAD", 1.4, 8)
-    lab(c, (488, wy - 18), sub("n", "w"), "HEAD", "start", 15)
-    lab(c, (150, 30), sub("p", "&#8734;"), "HEAD", "middle", 18)
-    lab(c, (290, 30), sub("T", "&#8734;"), "HEAD", "middle", 18)
-    arrow(c, (120, wy), (120, wy - 60), "HEAD", 1.6, 9)
-    lab(c, (112, wy - 62), "y", "HEAD", "end", 17)
-    arrow(c, (120, wy), (170, wy), "HEAD", 1.6, 9)
-    lab(c, (172, wy - 8), "x", "HEAD", "start", 17)
-    REG.put("ns15-statement", c,
-            "Semi-infinite liquid above a porous wall moving with velocity U_w while liquid is removed through it with velocity V_w; "
-            "fixed control volume V_c of unit length, axes x, y, normals n and n_w, far-field pressure p_inf and temperature T_inf",
-            "Statement figure (redrawn from NS15.pdf, p. 1): porous wall at temperature $T_w$ moving with $U_w$ and sucking with "
-            "$V_w$, axes $x$, $y$, normals $\\bar{n}$ and $\\bar{n}_w$, far field $p_\\infty$, $T_\\infty$ and the fixed control "
-            "volume $V_c$ of unit length ($\\delta x = 1$)")
-
-
 def build():
-    sphere_in_stream()
+    REG.raster("sphere-in-stream", "Sphere in a liquid stream",
+               "Sphere at surface temperature $T_w$ in a stream $U_\\infty\\,\\bar{e}_x$ at temperature $T_\\infty$, with gravity "
+               "$\\bar{g}$ and the axes $x$, $y$, $z$ centred on the sphere. Copied from Notes.pdf, p. 54 (printed p. 45), "
+               "figure of Eqs. 4.43-4.48", 560)
     ns3_setup()
     ns5_statement()
     ns7_statement()
     ns8_statement()
     ns9_setup()
     ns10_setup()
-    ns15_statement()
     return REG

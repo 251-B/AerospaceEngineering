@@ -10,7 +10,7 @@ concepts:
   - u5-plastic-atomic-mechanism
   - u5-elastic-vs-plastic-unloading
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 11, Slides 10, 12, 21, 23 and 32."
+origen: "Includes official exam questions (MATERIALS_SECONDPARTIAL_2019.pdf, Q1; MATERIALS_FINALEXAM_2015_ORD.pdf, Q8b) and practice items in the style of Part I of Assessment Test II. Data from Session 11, Slides 10, 12-13, 21, 23 and 32."
 tags:
   - problem-bank
   - midterm-2
@@ -20,8 +20,8 @@ tags:
 
 # Bank B17 — Elastic and plastic deformation at the atomic level
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 11, Slides 10, 12, 21, 23 and 32.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong), combining official exam items and bank practice items. Content: Session 11, Slides 10, 12-13, 21, 23 and 32.
 
 ## Q17.1 Atomic picture of elastic deformation
 
@@ -83,65 +83,67 @@ Elastic means reversible (Session 11, Slide 12): the bonds are only stretched, s
 
 Session 11, Slides 12-13.
 
-## Q17.3 Mechanism named for elastic deformation
+## Q17.3 Macroscopic and microscopic elastic vs plastic deformation
 
 - id: B17-Q3
 - concept_id: u5-elastic-atomic-mechanism
 - format: identify
-- asks: classification
+- asks: comparison
+- origin: official-exam
 
-Which mechanism do the slides associate with elastic deformation?
+Which option correctly contrasts elastic and plastic deformation at both the macroscopic and microscopic levels?
 
-a) Dislocation movement
-b) Slip along crystallographic planes
-c) Bond relaxation
-d) Sequential breaking of bonds
+a) Elastic: permanent shape & bond stretching; plastic: recoverable shape & dislocation glide
+b) Elastic: recoverable shape & bond relaxation; plastic: permanent shape & dislocation glide
+c) Elastic: recoverable shape & dislocation glide; plastic: permanent shape & bond relaxation
+d) Elastic: permanent shape & dislocation glide; plastic: recoverable shape & bond stretching
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 11, Slide 13: "Mechanism associated to elastic deformation = bond relaxation"; $E$ is a function of the bond strength.
+Macroscopically, elastic deformation is recoverable upon unloading, whereas plastic deformation produces a permanent shape change (Session 11, Slides 10 and 21). Microscopically, elastic deformation corresponds to reversible stretching of interatomic bonds (bond relaxation, Slides 12-13), whereas plastic deformation involves irreversible atomic displacements via dislocation glide (Slide 21).
 
-- a) Dislocation movement is the mechanism of permanent, plastic deformation (Slide 21).
-- b) Slip on crystallographic planes is the plastic process of Slides 23-25.
-- d) Sequential breaking and re-forming of bonds is how a dislocation moves, so it describes plastic deformation.
+- a) The macroscopic behaviours are swapped: elastic deformation recovers its initial shape and plastic deformation is permanent.
+- c) The microscopic mechanisms are swapped: dislocation glide causes permanent plastic flow, whereas bond relaxation governs elastic behaviour.
+- d) Both the macroscopic and microscopic properties of elastic and plastic deformation are completely inverted.
 
 ### Source
 
-Session 11, Slides 13, 21 and 23.
+MATERIALS_FINALEXAM_2015_ORD.pdf, p. 8, Question 8(b); Session 11, Slides 10, 12-13 and 21.
 
-## Q17.4 Plastic deformation
+## Q17.4 Elastic vs plastic deformation at the atomic level
 
 - id: B17-Q4
 - concept_id: u5-plastic-atomic-mechanism
-- format: false-statement
+- format: true-statement
 - asks: definition
+- origin: official-exam
 
-Which one of the following statements about plastic deformation is FALSE?
+Which one of the following statements is TRUE?
 
-a) The stress stays proportional to the strain
-b) It occurs when the stress exceeds the yield strength
-c) The shape is not recovered on unloading
-d) It is produced by the movement of dislocations
+a) Elastic deformations result in movement of dislocations on the microstructural level
+b) Plastic deformations result in reversible changes in the interatomic distances
+c) If the stress values are proportional to strain, the modulus of elasticity is stress-dependent
+d) On the microscopic level, plastic deformations correspond to irreversible displacements of atoms
 
 ### Answer
 
-a
+d
 
 ### Explanation
 
-Session 11, Slides 10 and 21: in the plastic zone "$\varepsilon$ is not proportional to $\sigma$" and the deformation is permanent. Proportionality between stress and strain (Hooke's law) holds only in the linear elastic zone.
+Session 11, Slide 21: in plastic deformation, bonds break and form again, so "the atoms are displaced permanently from their initial positions to new positions", giving no recovery of the initial shape.
 
-- b) This is true: the plastic zone is $\sigma > \sigma_y$ (Slide 10).
-- c) This is true: if $F = 0$ after yielding the strain stays positive (Slide 21).
-- d) This is true: Slide 21 names dislocation movement as the mechanism of permanent deformation.
+- a) Dislocation movement causes permanent, plastic deformation (Slide 21), not elastic deformation.
+- b) Reversible changes in interatomic spacing define elastic deformation (Slide 12), not plastic deformation.
+- c) When stress is proportional to strain (Hooke's law, $\sigma = E\varepsilon$, Slide 12), $E$ is a constant independent of stress.
 
 ### Source
 
-Session 11, Slides 10, 12 and 21.
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 2, Question 1; Session 11, Slides 12-13 and 21.
 
 ## Q17.5 Low force needed for plastic deformation
 
@@ -180,7 +182,7 @@ Session 11, Slides 13 and 23.
 - format: identify
 - asks: cause
 
-Which mechanism explains the workability and ductility of metals according to the slides?
+Which atomic-scale mechanism explains the workability and ductility of crystalline metals?
 
 a) The movement of dislocations
 b) The high strength of metallic bonds

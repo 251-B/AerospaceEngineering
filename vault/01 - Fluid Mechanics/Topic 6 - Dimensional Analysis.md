@@ -23,7 +23,7 @@ dificultad: medium
 
 The chapter opens with a mass $m$ released from rest at a height $h$ under gravity $g$ (Notes.pdf, p. 57, Fig. 6.1). The unknowns are the collision time $t_c$ and the collision velocity $v_c$.
 
-![[attachments/FM-T6/t6-falling-mass.svg]]
+![[attachments/FM-T6/t6-falling-mass.png]]
 
 The exact solution is quick, and it will be used to check the dimensional result. Newton's second law $m\,d^2z/dt^2 = -mg$ with $z = h$ and $dz/dt = 0$ at $t = 0$ is integrated once, from $0$ to $t$, using Barrow's rule:
 
@@ -272,7 +272,7 @@ $$ t \sim \frac{E^{1/3}\rho_a^{1/2}}{p_a^{5/6}} $$
 
 Missing an important parameter, or adding spurious ones, gives a wrong result. In fluid mechanics the list need not be a guess: **write the conservation equations with their initial and boundary conditions**, and read the parameters from them (Notes.pdf, p. 64).
 
-![[attachments/FM-T6/t6-sphere.svg]]
+![[attachments/FM-T6/t6-sphere.png]]
 
 ### A first guess for the sphere
 

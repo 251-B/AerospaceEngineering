@@ -212,7 +212,7 @@
     var scope = document.querySelector('main') || document.body;
     var used = {};
     Array.prototype.forEach.call(scope.querySelectorAll('h2'), function (h) {
-      if (h.closest('.toc-card, .src-panel, .ae-nav, nav, aside, .exam-box, [class*="ask-ai"], [class*="upd-"], [class*="fl-"], [class*="pm-"], [class*="surface-"]')) return;
+      if (h.closest('.toc-card, .src-panel, .ae-nav, nav, aside, .exam-box, [class*="ask-ai"], [class*="upd-"], [class*="fl-"], [class*="pm-"], [class*="sd-"], [class*="surface-"]')) return;
       var text = headingText(h);
       if (!text) return;
       if (!h.id) {   // pages without ids get one, so the menu can jump to the heading
@@ -273,7 +273,7 @@
   function openDrawer() {
     if (!ui.drawer || isOpen()) return;
     // One floating panel at a time, like the study timer, Focus Lab and the updates panel.
-    ['AEPomodoro', 'AEFocusLab', 'AEUpdates'].forEach(function (name) {
+    ['AEPomodoro', 'AEFocusLab', 'AEUpdates', 'AESideris'].forEach(function (name) {
       if (window[name] && typeof window[name].close === 'function') window[name].close();
     });
     ui.drawer.hidden = false;
@@ -366,7 +366,12 @@
     drawer.hidden = true;   // hidden without the stylesheet too
 
     var head = el('div', 'ae-nav__head');
-    head.appendChild(el('span', 'ae-nav__title', 'Study Portal'));
+    var brand = el('div', 'ae-nav__brand');
+    if (window.AESite && typeof window.AESite.mark === 'function') {
+      brand.appendChild(window.AESite.mark(24, 'ae-nav__mark'));
+    }
+    brand.appendChild(el('span', 'ae-nav__title', 'Study Portal'));
+    head.appendChild(brand);
     var close = el('button', 'ae-nav__close');
     close.type = 'button';
     close.setAttribute('aria-label', 'Close menu');

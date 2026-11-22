@@ -2,7 +2,7 @@
 bodies, tensor and Steiner."""
 import math
 
-from figures.em_theory import axis_out, figure, fixed_axis, right_angle, triangle, unit
+from figures.em_theory import axis_out, figure, fixed_axis, raster, right_angle, triangle, unit
 from figures.em_th.t6 import _add, _blob, _d, S, Scene, bold
 
 ORANGE = "ACC"
@@ -13,16 +13,8 @@ def _p(x, y, z):
     return (x * DX + y, x * DY + z)
 
 
-def _o(o, x, y, z):
-    return (o[0] + x * DX + y, o[1] + x * DY + z)
-
-
 def _s(sym, a=None, b=None):
     return S(bold(sym), a, b)
-
-
-def _sup_i(base_sup):
-    return base_sup + '<tspan baseline-shift="sub" font-size="80%">i</tspan>'
 
 
 def _hull(pts):
@@ -73,70 +65,19 @@ def _blobp(c, r, phase=0.0, sy=0.82):
 
 
 # ------------------------------------------------------------------------------------------------------------ 1
-@figure("t6-mass-distribution",
-        "A discrete set of point masses and a continuous body, each with the position vector of one mass from the origin O.",
-        r"Discrete (left) and continuous (right) mass distributions; the moments of the distribution sum or integrate "
-        r"$\mathbf r_0^P$ weighted by the mass (Notes.pdf Fig. 10.1).")
-def mass_distribution():
-    sc = Scene(860, 420, (110, 340), 105)
-    for k_, o in enumerate(((0.0, 0.0), (4.3, 0.0))):
-        _axes3(sc, o, (1.0, 2.6, 2.2), subs=("0", "0", "0"))
-        sc.dotp(o, 3.5)
-        sc.label(o, "O", "HEAD", "end", 17, dx=-8, dy=20)
-    O = (0.0, 0.0)
-    pts = [((1.45, 1.25), 9, True), ((0.55, 1.1), 5, False), ((2.0, 1.7), 7, False), ((1.15, 2.05), 6, False),
-           ((2.15, 0.65), 4, False), ((0.5, 1.85), 5, False)]
-    for p, r, main in pts:
-        sc.mass(p, None, r=r, col="BLUE" if main else "ACC")
-    p0 = pts[0][0]
-    sc.vec(O, p0, None, "BLUE", 2.6, head=11)
-    sc.label(p0, _sup_i("P"), "HEAD", "start", 17, dx=12, dy=-12)
-    sc.label((p0[0] / 2, p0[1] / 2), _s("r", "0", _sup_i("P")), "BLUE", "end", 16, weight="700", dx=-8, dy=-6)
-    sc.label((p0[0], p0[1]), "m" + S("", "i"), "HEAD", "middle", 16, dx=-14, dy=24)
-    sc.note((0.6, -0.5), "discrete system", "TEXT", "start", 13)
-    O2 = (4.3, 0.0)
-    c = (6.0, 1.55)
-    pts2 = _blobp(c, 1.0, 0.7)
-    triangle(sc, pts2, "BLUE", 0.16)
-    sc.poly(pts2, "BLUE", 1.6, close=True)
-    P = (6.3, 1.7)
-    sc.vec(O2, P, None, "BLUE", 2.6, head=11)
-    _square(sc, P, 0.07)
-    sc.label(P, "P", "HEAD", "start", 17, dx=12, dy=-10)
-    sc.label(P, "dm", ORANGE, "start", 16, weight="700", dx=12, dy=14)
-    sc.label((O2[0] + (P[0] - O2[0]) / 2, P[1] / 2), _s("r", "0", "P"), "BLUE", "end", 16, weight="700", dx=-8, dy=-6)
-    sc.note((4.9, -0.5), "continuous body", "TEXT", "start", 13)
-    return sc
+raster("t6-mass-distribution",
+       "A discrete set of point masses and a continuous body, each with the position vector of one mass from the origin O.",
+       r"Discrete (left) and continuous (right) mass distributions, with the position vector $\mathbf r_0^P$ of a mass element from $O$. Copied from Notes.pdf, Fig. 10.1, p. 82", 600)
 
 
 # ------------------------------------------------------------------------------------------------------------ 2
-@figure("t6-centre-of-mass",
-        "An irregular body with a mass element at P and its centre of mass G, both located by position vectors from O.",
-        r"The centre of mass $G$ is the mass-weighted average of the positions $\mathbf r_0^P$ of all the mass elements.")
-def centre_of_mass():
-    sc = Scene(640, 440, (120, 350), 125)
-    O = (0.0, 0.0)
-    _axes3(sc, O, (1.0, 3.8, 2.4))
-    sc.dotp(O, 3.5)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=20)
-    c = (2.4, 1.4)
-    pts = _blobp(c, 1.15, 0.4)
-    triangle(sc, pts, "BLUE", 0.16)
-    sc.poly(pts, "BLUE", 1.6, close=True)
-    P, G = (3.05, 1.95), (2.3, 1.2)
-    sc.vec(O, P, None, "BLUE", 2.6, head=11)
-    sc.vec(O, G, None, ORANGE, 2.6, head=11)
-    sc.dotp(G, 5.5, "PINK")
-    _square(sc, P, 0.07)
-    sc.label(P, "dm", ORANGE, "start", 16, weight="700", dx=14, dy=-8)
-    sc.label(P, "P", "HEAD", "start", 17, dx=12, dy=16)
-    sc.label(G, "G", "HEAD", "start", 17, dx=10, dy=22)
-    sc.label((G[0] * 0.5, G[1] * 0.5), _s("r", "0", "G"), ORANGE, "start", 16, weight="700", dx=10, dy=14)
-    sc.label((P[0] * 0.5, P[1] * 0.5), _s("r", "0", "P"), "BLUE", "end", 16, weight="700", dx=-8, dy=-6)
-    return sc
+raster("t6-centre-of-mass",
+       "An irregular body with a mass element dm at P and its centre of mass G, both located from O.",
+       r"The centre of mass $G$ is the mass-weighted average of the positions $\mathbf r_0^P$ of all the mass elements. Copied from [Lecture 8, Slide 9] (08-inertia-properties.pdf)", 460)
 
 
 # ------------------------------------------------------------------------------------------------------------ 3
+# EXTRA: deduction or per-rotation view, not printed in the official material
 @figure("t6-symmetry-theorems",
         "A body symmetric about the plane Oyz with a pair of mirror mass elements at opposite x, and its centre of mass "
         "on the plane.",
@@ -180,74 +121,13 @@ def symmetry_theorems():
 
 
 # ------------------------------------------------------------------------------------------------------------ 4
-def _poly_label(sc, p, s, col="HEAD", anchor="middle", dx=0, dy=0, size=16):
-    sc.label(p, s, col, anchor, size, dx=dx, dy=dy)
-
-
-@figure("t6-composite-bodies",
-        "A star, a T-shape and a plate with a hole, decomposed into simple parts with their own centres of mass.",
-        r"Divide and conquer: a composite body is the sum of simple parts, and a hole is a part of negative mass "
-        r"([Lecture 8, Slide 17]).")
-def composite_bodies():
-    sc = Scene(1080, 420, (30, 210), 118)
-    # ---- star: outer radius 1.05, inner 0.45, centred at (1.2, 0)
-    c = (1.2, 0.0)
-    outer = [_add(c, _d(90 + 72 * k), 1.05) for k in range(5)]
-    inner = [_add(c, _d(90 + 36 + 72 * k), 0.43) for k in range(5)]
-    star = []
-    for k in range(5):
-        star += [outer[k], inner[k]]
-    triangle(sc, star, "BLUE", 0.14)
-    sc.poly(star, "BLUE", 1.8, close=True)
-    sc.poly(inner, "EDGE", 1.2, "5 4", close=True)
-    sc.dotp(c, 4.5, "PINK")
-    sc.label(c, "G", "HEAD", "middle", 16, dx=0, dy=24)
-    sc.note((0.35, -1.45), "star: pentagon + 5 triangles", "TEXT", "start", 13)
-    # ---- T-shape at offset 3.5
-    ox = 3.5
-    top = [(ox - 0.9, 0.55), (ox + 0.9, 0.55), (ox + 0.9, 0.05), (ox - 0.9, 0.05)]
-    stem = [(ox - 0.25, 0.05), (ox + 0.25, 0.05), (ox + 0.25, -1.15), (ox - 0.25, -1.15)]
-    triangle(sc, top, "BLUE", 0.14)
-    triangle(sc, stem, "BLUE", 0.22)
-    sc.poly(top + [top[0]], "BLUE", 1.8)
-    sc.poly(stem, "BLUE", 1.8)
-    sc.line((ox - 0.25, 0.05), (ox + 0.25, 0.05), "EDGE", 1.2, "5 4")
-    A1, A2 = 0.5 * 1.8, 0.5 * 1.2
-    g2, g1 = (ox, 0.30), (ox, -0.55)
-    gy = (A2 * g2[1] + A1 * g1[1]) / (A1 + A2)
-    G = (ox, gy)
-    sc.dotp(g1, 3.5, "BLUE")
-    sc.label(g1, _s("G", "1") if False else "G" + S("", "1"), "BLUE", "start", 16, dx=10, dy=5)
-    sc.dotp(g2, 3.5, "BLUE")
-    sc.label(g2, "G" + S("", "2"), "BLUE", "start", 16, dx=-62, dy=5)
-    sc.dotp(G, 5, "PINK")
-    sc.label(G, "G", "HEAD", "start", 17, dx=34, dy=-6)
-    sc.note((ox - 0.9, -1.45), "T-shape: two bars", "TEXT", "start", 13)
-    # ---- plate with a hole at offset 6.9
-    px = 6.6
-    w, h = 2.0, 1.4
-    rect = [(px, -h / 2), (px + w, -h / 2), (px + w, h / 2), (px, h / 2)]
-    triangle(sc, rect, "BLUE", 0.14)
-    sc.poly(rect, "BLUE", 1.8, close=True)
-    g1 = (px + w / 2, 0.0)
-    g2 = (px + 1.4, 0.1)
-    rh = 0.45
-    sc.circle(g2, rh, "PINK", 1.8, fill="PINK", opacity=0.10)
-    am, ah = w * h, math.pi * rh ** 2
-    G = ((am * g1[0] - ah * g2[0]) / (am - ah), (am * g1[1] - ah * g2[1]) / (am - ah))
-    sc.dotp(g1, 3.5, "BLUE")
-    sc.label(g1, "G" + S("", "1"), "BLUE", "end", 16, dx=-8, dy=-8)
-    sc.dotp(g2, 3.5, "PINK")
-    sc.label(g2, "G" + S("", "2"), "PINK", "middle", 16, dx=0, dy=-rh * 100 - 8)
-    sc.dotp(G, 5, "HEAD")
-    sc.label(G, "G", "HEAD", "end", 17, dx=-8, dy=24)
-    sc.label((px + 0.05, h / 2), "D" + S("", "1"), "BLUE", "start", 17, dx=4, dy=-8)
-    sc.label((g2[0] + rh, g2[1] - rh), "D" + S("", "2") + " (−)", "PINK", "start", 16, dx=-26, dy=22)
-    sc.note((px, -1.45), "plate with a hole: D1 − D2", "TEXT", "start", 13)
-    return sc
+raster("t6-composite-bodies",
+       "A star, a T-shape and a plate with a hole.",
+       r"Divide and conquer: a composite body is the sum of simple parts, and a hole is a part of negative mass. Copied from [Lecture 8, Slide 17] (08-inertia-properties.pdf)", 760)
 
 
 # ------------------------------------------------------------------------------------------------------------ 5
+# EXTRA: deduction or per-rotation view, not printed in the official material
 @figure("t6-inertia-distances",
         "A mass element and its distances to the origin, to the axis Oz and to the plane Oxy.",
         r"Distances used in the moments of inertia about a point, an axis and a plane, and the signed distances of the "
@@ -293,6 +173,7 @@ def inertia_distances():
 
 
 # ------------------------------------------------------------------------------------------------------------ 6
+# EXTRA: deduction or per-rotation view, not printed in the official material
 @figure("t6-flat-plate",
         "A flat plate in the plane Oxy with a mass element and its distances to the axes Ox, Oy and Oz.",
         r"For a flat body the distance to $Oz$ is the hypotenuse of the legs $x$ and $y$, so $I_z$ equals $I_x + I_y$.")
@@ -323,6 +204,7 @@ def flat_plate():
 
 
 # ------------------------------------------------------------------------------------------------------------ 7
+# EXTRA: adds the dl element used in the derivation; Notes Fig. 10.2(a) has none
 @figure("t6-half-wire",
         "A half circumference of radius R in the upper half plane, with an arc element at angle theta and its centre of "
         "mass on the y axis.",
@@ -361,148 +243,25 @@ def half_wire():
 
 
 # ------------------------------------------------------------------------------------------------------------ 8
-@figure("t6-plate",
-        "A rectangular plate of length L and width W centred at O, with a second frame at its lower-left corner A.",
-        r"Homogeneous plate centred at $O \equiv G$, and the frame $S_1$ at the corner $A$ used for Eq. 10.27 "
-        r"(Notes.pdf Fig. 10.2(b)).")
-def plate():
-    sc = Scene(740, 460, (330, 240), 105)
-    Lx, Wy = 3.2, 1.6
-    O = (0.0, 0.0)
-    rect = [(-Lx / 2, -Wy / 2), (Lx / 2, -Wy / 2), (Lx / 2, Wy / 2), (-Lx / 2, Wy / 2)]
-    triangle(sc, rect, "BLUE", 0.14)
-    sc.poly(rect, "BLUE", 2.0, close=True)
-    fixed_axis(sc, O, 0, 1.85, _s("x", "0"), off=(14, 6))
-    fixed_axis(sc, O, 90, 1.25, _s("y", "0"), off=(14, 4))
-    axis_out(sc, O, None, "HEAD")
-    sc.label(O, "O ≡ G", "HEAD", "end", 17, dx=-12, dy=24)
-    sc.label(O, _s("z", "0"), "HEAD", "start", 16, weight="700", dx=13, dy=-12)
-    A = (-Lx / 2, -Wy / 2)
-    sc.vec(A, (A[0] + 1.3, A[1]), _s("x", "1"), ORANGE, 2.6, name_off=(0, -14), size=17, head=11)
-    sc.vec(A, (A[0], A[1] + 1.1), _s("y", "1"), ORANGE, 2.6, name_off=(-14, -2), size=17, head=11)
-    sc.mass(A, None, r=4.5, col=ORANGE)
-    sc.label(A, "A", "HEAD", "end", 17, dx=-10, dy=22)
-    # element dx dy at (x, y)
-    pe = (0.85, 0.35)
-    _square(sc, pe, 0.07)
-    sc.dashed(pe, (pe[0], 0.0))
-    sc.dashed(pe, (0.0, pe[1]))
-    sc.label(pe, "dx dy", ORANGE, "start", 15, weight="700", dx=12, dy=-8)
-    sc.label((pe[0], pe[1] / 2), "y", "TEXT", "start", 15, dx=6, dy=5)
-    sc.label((pe[0] / 2, pe[1]), "x", "TEXT", "middle", 15, dy=-8)
-    # dimensions
-    sc.dim((-Lx / 2, -Wy / 2 - 0.45), (Lx / 2, -Wy / 2 - 0.45), "L", off=(0, 18))
-    sc.dashed((-Lx / 2, -Wy / 2 - 0.05), (-Lx / 2, -Wy / 2 - 0.5))
-    sc.dashed((Lx / 2, -Wy / 2 - 0.05), (Lx / 2, -Wy / 2 - 0.5))
-    sc.dim((Lx / 2 + 0.8, -Wy / 2), (Lx / 2 + 0.8, Wy / 2), "W", off=(14, 5))
-    sc.dashed((Lx / 2 + 0.05, -Wy / 2), (Lx / 2 + 0.85, -Wy / 2))
-    sc.dashed((Lx / 2 + 0.05, Wy / 2), (Lx / 2 + 0.85, Wy / 2))
-    return sc
+raster("t6-plate",
+       "A rectangular plate of length L and width W centred at O.",
+       r"Homogeneous plate of length $L$ and width $W$ centred at $O \equiv G$. The frame $S_1$ at a corner used for Eq. 10.27 is not drawn in the source. Copied from Notes.pdf, p. 85, Fig. 10.2(b)", 340)
 
 
 # ------------------------------------------------------------------------------------------------------------ 9
-@figure("t6-half-disk",
-        "A half disk of radius R with a polar area element and its centre of mass on the y axis.",
-        r"Half disk with the polar element $r\,dr\,d\theta$; $G$ lies on the axis of symmetry at $4R/(3\pi)$ "
-        r"(Notes.pdf Fig. 10.2(c)).")
-def half_disk():
-    sc = Scene(700, 440, (300, 340), 230)
-    R, r, th = 1.0, 0.6, 45.0
-    O = (0.0, 0.0)
-    arc = [(R * math.cos(math.radians(t)), R * math.sin(math.radians(t))) for t in range(0, 181, 3)]
-    triangle(sc, arc, "BLUE", 0.14)
-    sc.poly(arc + [arc[0]], "BLUE", 2.4)
-    fixed_axis(sc, O, 0, 1.3, _s("x", "0"), off=(14, 6))
-    fixed_axis(sc, O, 90, 1.2, _s("y", "0"), off=(14, 4))
-    axis_out(sc, O, None, "HEAD")
-    sc.label(O, _s("z", "0"), "HEAD", "end", 16, weight="700", dx=-14, dy=-12)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-12, dy=22)
-    dr, dth = 0.1, 12.0
-    pts = [add_pol(r, th - dth / 2 + k * dth / 6) for k in range(7)] + \
-          [add_pol(r + dr, th + dth / 2 - k * dth / 6) for k in range(7)]
-    sc.poly(pts, "HEAD", 1.0, fill=ORANGE, close=True, opacity=0.95)
-    sc.line(O, add_pol(r, th), "HEAD", 1.4, "5 4")
-    sc.label(add_pol(r * 0.5, th), "r", "HEAD", "end", 16, dx=-4, dy=-10)
-    sc.arc(O, 0.25, 0, th, "GREEN", 1.7, head=True)
-    sc.label(add_pol(0.37, th / 2), "θ", "GREEN", "middle", 16, dy=6)
-    sc.label(add_pol(r + dr, th), "dA = r dr dθ", ORANGE, "middle", 17, weight="700", dx=0, dy=-34)
-    yg = 4 * R / (3 * math.pi)
-    sc.mass((0.0, yg), None, r=5, col="PINK")
-    sc.label((0.0, yg), "G", "HEAD", "start", 17, dx=10, dy=-8)
-    sc.dim((-0.2, 0.0), (-0.2, yg), "", off=(0, 0))
-    sc.dashed((-0.2, yg), (0.0, yg))
-    sc.label((-0.2, yg / 2), "4R/(3π)", "TEXT", "end", 15, dx=-8, dy=5)
-    sc.dim((0.0, -0.12), (R, -0.12), "R", off=(0, 18))
-    return sc
-
-
-def add_pol(r, deg):
-    return (r * math.cos(math.radians(deg)), r * math.sin(math.radians(deg)))
+raster("t6-half-disk",
+       "A half disk of radius R with a polar radius r and the angle theta.",
+       r"Half disk of radius $R$ in polar coordinates $(r,\theta)$. Copied from Notes.pdf, p. 85, Fig. 10.2(c)", 300)
 
 
 # ----------------------------------------------------------------------------------------------------------- 10
-@figure("t6-half-sphere",
-        "A solid hemisphere on the xy plane with the spherical coordinates r, longitude theta and latitude phi of a point, "
-        "and its centre of mass on the z axis.",
-        r"Half sphere with the latitude $\phi$ measured from $Oxy$ (so the volume element is "
-        r"$r^2\cos\phi\,dr\,d\theta\,d\phi$); $G$ lies on the axis at $3R/8$ (Notes.pdf Fig. 10.2(d)).")
-def half_sphere():
-    sc = Scene(780, 600, (390, 390), 160)
-    R, r, th, ph = 1.5, 1.2, 60.0, 35.0
-    O = (0.0, 0.0)
-    ex, ey = (1, 0, 0), (0, 1, 0)
-
-    def pp(v):
-        return _p(*v)
-    # silhouette: hull of the equator and of the dome
-    dome = []
-    for i in range(0, 91, 6):
-        for j in range(0, 360, 10):
-            a, b = math.radians(i), math.radians(j)
-            dome.append(pp((R * math.cos(a) * math.cos(b), R * math.cos(a) * math.sin(b), R * math.sin(a))))
-    sil = _hull(dome)
-    triangle(sc, sil, "BLUE", 0.08)
-    sc.poly(sil, "BLUE", 2.0, close=True)
-    eq = [pp((R * math.cos(math.radians(t)), R * math.sin(math.radians(t)), 0)) for t in range(0, 361, 5)]
-    sc.poly(eq, "BLUE", 1.3, "6 4", close=True)
-    _axes3(sc, O, (2.9, 2.2, 2.0), subs=("0", "0", "0"))
-    ct, st, cp, sp = math.cos(math.radians(th)), math.sin(math.radians(th)), math.cos(math.radians(ph)), math.sin(math.radians(ph))
-    Pt = pp((r * cp * ct, r * cp * st, r * sp))
-    F = pp((r * cp * ct, r * cp * st, 0))
-    triangle(sc, [O, F, Pt], "ACC", 0.24)
-    sc.dashed(O, F)
-    sc.dashed(F, Pt)
-    sc.vec(O, Pt, None, "HEAD", 2.4, head=11)
-    sc.dotp(F, 3.0)
-    # longitude arc in Oxy and latitude arc in the meridian plane
-    a1 = [pp((0.65 * math.cos(math.radians(t)), 0.65 * math.sin(math.radians(t)), 0)) for t in range(0, int(th) + 1, 3)]
-    sc.poly(a1, "GREEN", 1.7)
-    from figures.svgkit import arrow_head
-    arrow_head(sc.c, sc.P(a1[-3]), sc.P(a1[-1]), "GREEN", 9)
-    mt = math.radians(th / 2)
-    sc.label(pp((0.88 * math.cos(mt), 0.88 * math.sin(mt), 0)), "θ", "GREEN", "middle", 16, dx=-30, dy=22)
-    a2 = [pp((0.55 * math.cos(math.radians(t)) * ct, 0.55 * math.cos(math.radians(t)) * st, 0.55 * math.sin(math.radians(t))))
-          for t in range(0, int(ph) + 1, 3)]
-    sc.poly(a2, "GREEN", 1.7)
-    arrow_head(sc.c, sc.P(a2[-3]), sc.P(a2[-1]), "GREEN", 9)
-    mp = math.radians(ph / 2)
-    sc.label(pp((0.8 * math.cos(mp) * ct, 0.8 * math.cos(mp) * st, 0.8 * math.sin(mp))), "φ", "GREEN", "middle", 16, dx=-4,
-             dy=-4)
-    sc.label(_mid(O, Pt), "r", "HEAD", "end", 17, dx=-8, dy=-8)
-    sc.label(_mid(O, F), "r cos φ", "TEXT", "middle", 15, dx=24, dy=34)
-    sc.label(_mid(F, Pt, 0.5), "r sin φ", "TEXT", "start", 15, dx=12, dy=14)
-    sc.label(Pt, "P", "HEAD", "start", 17, dx=10, dy=-8)
-    sc.dotp(Pt, 4)
-    G = pp((0, 0, 3 * R / 8))
-    sc.mass(G, None, r=5, col="PINK")
-    sc.label(G, "G", "HEAD", "end", 17, dx=-12, dy=6)
-    sc.dim(_add(O, (-0.2, 0.0)), _add(G, (-0.2, 0.0)), "", off=(0, 0))
-    sc.label(_add(_mid(O, G), (-0.2, 0.0)), "3R/8", "TEXT", "end", 14, dx=-8, dy=5)
-    sc.dotp(O, 3.5)
-    return sc
+raster("t6-half-sphere",
+       "A solid hemisphere of radius R on the xy plane with the axes at its centre O.",
+       r"Half sphere of radius $R$ with its flat face on $Oxy$, centred at $O$. Copied from Notes.pdf, p. 85, Fig. 10.2(d)", 340)
 
 
 # ----------------------------------------------------------------------------------------------------------- 11
+# EXTRA: deduction or per-rotation view, not printed in the official material
 @figure("t6-tensor-axis",
         "A line through O with unit vector u, a mass element at P, and the right triangle formed by its position vector, "
         "its projection on the line and its distance d to the line.",
@@ -550,6 +309,7 @@ def tensor_axis():
 
 
 # ----------------------------------------------------------------------------------------------------------- 12
+# EXTRA: deduction or per-rotation view, not printed in the official material
 @figure("t6-principal-axes",
         "A square plate with its corner frame along the sides and the principal axes of inertia rotated forty-five degrees, "
         "along the diagonal and across it.",
@@ -584,97 +344,16 @@ def principal_axes():
 
 
 # ----------------------------------------------------------------------------------------------------------- 13
-@figure("t6-steiner",
-        "A fixed frame at O and a parallel frame at the centre of mass G of a body, with the position vectors of a mass "
-        "element from O and from G.",
-        r"The frame $S_G$ at the centre of mass is parallel to $S_0$, and $\mathbf r_0^P = \mathbf r_0^G + \mathbf r_G^P$ "
-        r"(Notes.pdf Fig. 10.3).")
-def steiner():
-    sc = Scene(700, 480, (130, 370), 125)
-    O = (0.0, 0.0)
-    _axes3(sc, O, (1.0, 3.9, 2.5))
-    sc.dotp(O, 3.5)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-8, dy=20)
-    G = (2.6, 1.3)
-    pts = _blobp((2.7, 1.45), 1.0, 0.9)
-    triangle(sc, pts, "BLUE", 0.12)
-    sc.poly(pts, "BLUE", 1.5, close=True)
-    dirs = ((DX, DY), (1.0, 0.0), (0.0, 1.0))
-    for dv, nm, off in zip(dirs, ("x", "y", "z"), ((-10, 14), (14, 6), (-12, 0))):
-        tip = _add(G, dv, (0.85 if nm == "y" else 0.7))
-        sc.vec(G, tip, None, "BLUE", 2.2, head=9)
-        sc.label(tip, bold(nm) + S("", "G"), "BLUE", "middle", 16, weight="700", dx=off[0], dy=off[1])
-    P = (3.3, 1.95)
-    sc.vec(O, G, None, ORANGE, 2.6, head=11)
-    sc.vec(G, P, None, "GREEN", 2.6, head=11)
-    sc.vec(O, P, None, "HEAD", 2.2, head=11)
-    _square(sc, P, 0.07)
-    sc.label(P, "dm", ORANGE, "start", 15, weight="700", dx=12, dy=-6)
-    sc.label(P, "P", "HEAD", "start", 17, dx=12, dy=16)
-    sc.mass(G, None, r=5, col="PINK")
-    sc.label(G, "G", "HEAD", "end", 17, dx=-12, dy=-8)
-    sc.label(_mid(O, G), _s("r", "0", "G"), ORANGE, "start", 16, weight="700", dx=6, dy=22)
-    sc.label(_mid(G, P), _s("r", "G", "P"), "GREEN", "start", 16, weight="700", dx=14, dy=8)
-    sc.label(_mid(O, P), _s("r", "0", "P"), "HEAD", "end", 16, weight="700", dx=-10, dy=-12)
-    return sc
+raster("t6-steiner",
+       "A fixed frame at O and a parallel frame at the centre of mass G of a body, with the position vectors of a mass element.",
+       r"The frame $S_G$ at the centre of mass is parallel to $S_0$, and $\mathbf r_0^P = \mathbf r_0^G + \mathbf r_G^P$. Copied from Notes.pdf, Fig. 10.3, p. 88", 480)
 
 
 # ----------------------------------------------------------------------------------------------------------- 14
-def _q(x, y, z):
-    return (x * QX + y, x * QY + z)
-
-
 QX, QY = -0.62, -0.5
 
 
-@figure("t6-parallel-axis",
-        "Two parallel vertical axes, one through O and one through the centre of mass G of a body, with the distance "
-        "between them.",
-        r"Parallel axis theorem: $I_{z_0}$ exceeds $I_{z_G}$ by $m$ times the squared distance between the axes "
-        r"(Notes.pdf Fig. 10.4).")
-def parallel_axis():
-    sc = Scene(860, 580, (310, 300), 120)
-    O = (0.0, 0.0)
-    xg, yg = 1.8, 1.9
-    plane = [_q(-0.3, -0.3, 0), _q(3.0, -0.3, 0), _q(3.0, 3.5, 0), _q(-0.3, 3.5, 0)]
-    triangle(sc, plane, "ACC", 0.08)
-    sc.poly(plane, "EDGE", 1.0, "4 4", close=True)
-    blob = []
-    for i in range(60):
-        f = 2 * math.pi * i / 60
-        rr = 1.0 * (1 + 0.12 * math.sin(3 * f + 0.5) + 0.06 * math.cos(2 * f))
-        blob.append(_q(xg + 0.95 * rr * math.cos(f), yg + 0.9 * rr * math.sin(f), 0))
-    triangle(sc, blob, "BLUE", 0.2)
-    sc.poly(blob, "BLUE", 1.6, close=True)
-    Gp = _q(xg, yg, 0)
-    # in-plane axes at O (grey) and at G (blue)
-    dirs = ((QX, QY), (1.0, 0.0), (0.0, 1.0))
-    for dv, nm, ln in zip(dirs[:2], ("x", "y"), (2.6, 3.9)):
-        sc.vec(O, _add(O, dv, ln), None, "EDGE", 1.4, head=8)
-    sc.label(_q(2.6, 0, 0), bold("x") + S("", "0"), "TEXT", "middle", 16, weight="700", dx=-12, dy=14)
-    sc.label(_q(0, 3.9, 0), bold("y") + S("", "0"), "TEXT", "middle", 16, weight="700", dx=14, dy=6)
-    sc.vec(Gp, _add(Gp, dirs[0], 0.8), None, "BLUE", 2.2, head=9)
-    sc.label(_add(Gp, dirs[0], 0.8), bold("x") + S("", "G"), "BLUE", "middle", 16, weight="700", dx=-10, dy=14)
-    sc.vec(Gp, _add(Gp, dirs[1], 1.0), None, "BLUE", 2.2, head=9)
-    sc.label(_add(Gp, dirs[1], 1.0), bold("y") + S("", "G"), "BLUE", "middle", 16, weight="700", dx=14, dy=6)
-    # vertical axes
-    sc.vec(O, (0.0, 2.0), None, "EDGE", 1.4, head=8)
-    sc.label((0.0, 2.0), bold("z") + S("", "0"), "TEXT", "middle", 16, weight="700", dx=-14, dy=0)
-    sc.vec(Gp, _add(Gp, (0, 1), 2.2), None, "BLUE", 2.2, head=9)
-    sc.label(_add(Gp, (0, 1), 2.2), bold("z") + S("", "G"), "BLUE", "middle", 16, weight="700", dx=14, dy=0)
-    # distance between the axes and its legs
-    L1 = _q(xg, 0, 0)
-    L2 = _q(xg, yg, 0)
-    sc.dashed(O, L1)
-    sc.dashed(L1, L2)
-    sc.vec(O, Gp, None, "HEAD", 2.2, head=10)
-    sc.label(_mid(O, L1), S("x", "0", "G"), "TEXT", "start", 17, dx=14, dy=10)
-    sc.label(_mid(L1, L2), S("y", "0", "G"), "TEXT", "middle", 17, dx=0, dy=-10)
-    sc.label(Gp, "√((x" + '<tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" '
-             'font-size="70%">G</tspan>)² + (y<tspan baseline-shift="sub" font-size="70%">0</tspan>'
-             '<tspan baseline-shift="super" font-size="70%">G</tspan>)²)', "HEAD", "start", 17, dx=16, dy=-90)
-    sc.mass(Gp, None, r=5, col="PINK")
-    sc.label(Gp, "G", "HEAD", "start", 17, dx=-24, dy=-10)
-    sc.dotp(O, 3.5)
-    sc.label(O, "O", "HEAD", "end", 17, dx=-10, dy=18)
-    return sc
+raster("t6-parallel-axis",
+       "Two parallel vertical axes, one through O and one through the centre of mass G of a body.",
+       r"Parallel axis theorem: the axes $Oz_0$ and $Gz_G$ are parallel. Copied from Notes.pdf, Fig. 10.4, p. 89", 500)
+

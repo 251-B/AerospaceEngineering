@@ -14,7 +14,7 @@ web: "subjects/advanced-maths/formula-sheet/index.html"
 
 # Formula Sheet - Advanced Maths
 
-Every key formula of the course with its short derivation, the reason for each step, its hypotheses and the recipe to use it in an exam. Units 1 to 4 follow the class notes (`Notes.pdf`) and the theory pages built from them: [[Topic 1 - Introduction, Modeling and Classification of ODEs]], [[Topic 2 - First-Order ODEs and Qualitative Dynamics]], [[Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients]] and [[Topic 4 - Systems of Linear ODEs and Phase Portraits]]. The last block (Units 5 and 6) has no class notes in the repository yet: its formulas are the standard results used in the solved [[Problem Set - Advanced Maths Problem Bank|Extra problems]] P08 to P22 and are marked as extension.
+Every key formula of the course with its short derivation, the reason for each step, its hypotheses and the recipe to use it in an exam. Units 1 to 6 follow the class notes (`Notes.pdf`, `Notes03-05-Nov_v2.pdf`, `Notes09-12-Nov.pdf`) and the theory pages built from them: [[Topic 1 - Introduction, Modeling and Classification of ODEs]], [[Topic 2 - First-Order ODEs and Qualitative Dynamics]], [[Topic 3 - Second-Order Linear ODEs General Theory and Constant Coefficients]], [[Topic 4 - Systems of Linear ODEs and Phase Portraits]], [[Topic 5 - Coupled Nonlinear Systems and the Phase Plane]] and [[Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series]]. Extensions requested by Sheets 5–6 beyond the lectures (Sturm-Liouville integrating factor, Robin, Rayleigh quotient, wave/Laplace) are marked as extension.
 
 The page `subjects/advanced-maths/formula-sheet/index.html` is generated from this note by `python tools/build_formula_sheet.py`; edit this note, never the page. Card headings are `### <Kind>: <title>`; a derivation card opens with an `In short:` line, which is all the compact view shows; tables headed `| Step | Why |` become the step grid with the reason beside each line.
 
@@ -506,41 +506,60 @@ The fundamental matrix with $\Phi(0) = I$ is $e^{At}$, and $\mathbf x(t) = e^{At
 - Calling a repeated eigenvalue with $A \neq \lambda I$ a star: it is an improper node with only one eigenvector line.
 - Reading a node's tangent direction from the fast eigenvector instead of the slow one.
 
-## Units 5 and 6 — Nonlinear systems, Fourier series and PDEs (extension)
-Pages: Extra problems 2nd midterm=extra-problems/midterm-2-problems.html; Extra problems final=extra-problems/final-problems.html
+## Units 5 and 6 — Nonlinear systems, Sturm-Liouville problems and Fourier series
+Pages: Theory Topic 5=teoria/topic-5.html; Theory Topic 6=teoria/topic-6.html; Extra problems 2nd midterm=extra-problems/midterm-2-problems.html; Extra problems final=extra-problems/final-problems.html
 
-No class notes for these units are in the repository yet. The cards below collect the standard results used in the solved Extra problems P08 to P22; check them against the official notes when they arrive.
+Follows `Notes03-05-Nov_v2.pdf` (Topic 5) and `Notes09-12-Nov.pdf` (Topic 6), plus the Sturm-Liouville and PDE extensions required by Sheets 5–6 and Extra problems P08 to P22.
 
-### Algorithm: Nonlinear planar systems
-1. Equilibria: solve $f(x, y) = 0$, $g(x, y) = 0$ together (factor first; check every branch).
-2. Jacobian $D\mathbf F = \begin{pmatrix} f_x & f_y \\ g_x & g_y\end{pmatrix}$ at each equilibrium.
-3. Classify each Jacobian with the trace-determinant table of Unit 4.
-4. **Linearisation theorem:** if no eigenvalue has zero real part (hyperbolic point), the nonlinear system has the same type nearby. A linear centre is inconclusive.
-5. Nullclines $f = 0$ (vertical flow) and $g = 0$ (horizontal flow) to join the local pictures.
+### Algorithm: Nonlinear planar systems (the four steps)
+1. **Critical (stationary) points:** solve $f(x^*, y^*) = 0$, $g(x^*, y^*) = 0$ simultaneously (factor first; check every branch).
+2. **Linearise:** $x = x^* + \xi,\ y = y^* + \eta \implies (\dot\xi, \dot\eta)^T = J(x^*, y^*)(\xi, \eta)^T$ with $J = \begin{pmatrix} f_x & f_y \\ g_x & g_y\end{pmatrix}$.
+3. **Local study:** eigenvalues and eigenvectors of $J(x^*, y^*)$, or classify on the $p$–$q$ diagram ($\lambda^2 + p\lambda + q = 0$, $p = -\operatorname{tr}J,\ q = \det J$, parabola $p^2 - 4q = 0$).
+4. **Poincaré / Hartman-Grobman & global picture:** if $\operatorname{Re}(\lambda_\pm) \neq 0$ (hyperbolic), the nonlinear portrait matches the linearised one locally; a linear centre is inconclusive (test via energy $E$ or polar $r\dot r = x\dot x + y\dot y$). Connect local portraits with nullclines ($f = 0$ vertical flow, $g = 0$ horizontal flow) or energy level curves.
+
+### Table: Pendulum regimes ($\dot\theta = v,\ \dot v = -kv - \sin\theta$)
+| Point / regime | Eigenvalues | Type and physics |
+| --- | --- | --- |
+| Undamped ($k = 0$), $(2m\pi, 0)$ | $\lambda = \pm i$ | Nonlinear centre (proved by $E = \frac12 v^2 - \cos\theta = \text{const}$); $E < 1$ oscillations, $E = 1$ separatrix, $E > 1$ whirling |
+| Undamped / damped, $((2m+1)\pi, 0)$ | $\frac{-k \pm \sqrt{k^2 + 4}}{2}$ | Saddle point (upright unstable equilibrium) |
+| Damped ($0 < k < 2$), $(2m\pi, 0)$ | $\frac{-k \pm i\sqrt{4 - k^2}}{2}$ | Stable spiral (underdamped decay to rest) |
+| Damped ($k \ge 2$), $(2m\pi, 0)$ | $\frac{-k \pm \sqrt{k^2 - 4}}{2}$ | Stable improper node ($k = 2$) or stable node ($k > 2$, overdamped) |
 
 ### Derivation: Conservative systems and energy
 In short: for $\ddot x = -V'(x)$, $E = \tfrac12\dot x^2 + V(x)$ is constant, so orbits are level curves of $E$: minima of $V$ are centres, maxima saddles.
 
 | Step | Why |
 | --- | --- |
-| $\dot x = y,\ \dot y = -V'(x)$ | first-order system |
-| $\dfrac{dE}{dt} = E_x\dot x + E_y\dot y = V'(x)y + y(-V'(x)) = 0$ | chain rule along an orbit |
+| $\dot x = y,\ \dot y = -V'(x)$ | first-order system ($m = 1$) |
+| $\dfrac{dE}{dt} = \dot x\ddot x + V'(x)\dot x = y(-V'(x)) + V'(x)y = 0$ | chain rule along an orbit |
 | $y = \pm\sqrt{2(E - V(x))}$ | each level curve, real where $V(x) \le E$ |
 
-This settles the centres that the linearisation leaves undecided.
+With friction $-k\dot x$: $\dot E = -k\dot x^2 \le 0$ (quadratic drag $-ky|y|$: $\dot E = -ky^2|y| \le 0$).
 
-### Table: Fourier series on $(-L, L)$
+### Table: Fourier series on $(-L, L)$ (Notes convention)
 | Item | Formula |
 | --- | --- |
-| Series | $f \sim \dfrac{a_0}{2} + \sum_{n\ge 1}\Big(a_n\cos\dfrac{n\pi x}{L} + b_n\sin\dfrac{n\pi x}{L}\Big)$ |
+| Series | $f \sim a_0 + \sum_{n=1}^{\infty}\Big(a_n\cos\dfrac{n\pi x}{L} + b_n\sin\dfrac{n\pi x}{L}\Big)$ |
+| Constant term | $a_0 = \dfrac{1}{2L}\int_{-L}^{L} f(x)\,dx$ (average value on $[-L, L]$) |
 | Cosine coefficients | $a_n = \dfrac1L\int_{-L}^{L}f(x)\cos\dfrac{n\pi x}{L}\,dx$ |
 | Sine coefficients | $b_n = \dfrac1L\int_{-L}^{L}f(x)\sin\dfrac{n\pi x}{L}\,dx$ |
-| $f$ even | $b_n = 0$, $a_n = \frac2L\int_0^L f\cos\frac{n\pi x}{L}\,dx$ |
-| $f$ odd | $a_n = 0$, $b_n = \frac2L\int_0^L f\sin\frac{n\pi x}{L}\,dx$ |
+| $f$ even ($f(-x)=f(x)$) | $b_n = 0$, $a_0 = \frac1L\int_0^L f\,dx$, $a_n = \frac2L\int_0^L f\cos\frac{n\pi x}{L}\,dx$ |
+| $f$ odd ($f(-x)=-f(x)$) | $a_0 = a_n = 0$, $b_n = \frac2L\int_0^L f\sin\frac{n\pi x}{L}\,dx$ |
 | Half range on $(0, L)$ | sine series = odd extension, cosine series = even extension |
-| Convergence (Dirichlet) | piecewise smooth $f$: the series gives $\tfrac12\big(f(x^+) + f(x^-)\big)$, also at $\pm L$ via the periodic extension |
+| Convergence | piecewise smooth $f$: converges to $\tfrac12\big(\tilde f(x^+) + \tilde f(x^-)\big)$ at every jump (including $\pm L$) |
+| Term-by-term differentiation | valid if $f$ is continuous on $[-L, L]$, $f(-L) = f(L)$, and $f'$ is piecewise smooth |
 
-With $L = \pi$ the arguments are $nx$. Evaluating the series at a point where $f$ is known gives sums such as $\sum 1/n^2 = \pi^2/6$ and $\sum (-1)^{n+1}/n^2 = \pi^2/12$.
+### Derivation: Sturm-Liouville integrating factor and Rayleigh quotient (extension)
+In short: multiply $\phi'' + \alpha\phi' + (\lambda\beta + \gamma)\phi = 0$ by $\mu = e^{\int\alpha\,dx}$ to reach $[p\phi']' + (\lambda\sigma + q)\phi = 0$; multiply by $\phi$ and integrate by parts for the Rayleigh quotient.
+
+| Step | Why |
+| --- | --- |
+| $\mu' = \alpha\mu \implies \mu(x) = \exp(\int\alpha(x)\,dx)$ | product rule $(\mu\phi')' = \mu\phi'' + \mu'\phi'$ |
+| $p = \mu,\ \sigma = \mu\beta,\ q = \mu\gamma$ | exact regular SL form; weight $\sigma(x)$ for orthogonality |
+| $\int_a^b \phi(p\phi')'\,dx = [p\phi\phi']_a^b - \int_a^b p(\phi')^2\,dx$ | integration by parts + Barrow's rule |
+| $\lambda = \dfrac{-[p\phi\phi']_a^b + \int_a^b [p(\phi')^2 - q\phi^2]\,dx}{\int_a^b \sigma\phi^2\,dx}$ | Rayleigh quotient: proves $\lambda \ge 0$ when $q \le 0$ and $-[p\phi\phi']_a^b \ge 0$ |
+
+Euler equation $x^2\phi'' + x\phi' + \lambda\phi = 0$ on $[1, 2]$, $\phi(1)=\phi(2)=0$: multiply by $1/x$ for SL form $(x\phi')' + \frac{\lambda}{x}\phi = 0$; substitute $t = \ln x \implies \lambda_n = (n\pi/\ln 2)^2,\ \phi_n = \sin(n\pi\ln x/\ln 2)$.
 
 ### Derivation: Why the coefficient formulas work
 In short: multiply the series by $\cos(m\pi x/L)$ and integrate; orthogonality kills every term except $n = m$.

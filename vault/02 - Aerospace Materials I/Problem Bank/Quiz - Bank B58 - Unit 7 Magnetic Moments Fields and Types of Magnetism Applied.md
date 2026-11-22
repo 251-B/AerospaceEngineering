@@ -6,18 +6,18 @@ title: "Magnetic moments, fields and types of magnetism applied"
 category: mt2_test_block
 unit: 7
 concepts:
-  - u7-moment-per-mole-3d-table
+  - u7-3d-shell-pairing-trend
   - u7-iron-manganese-moment-pairing
-  - u7-induction-from-susceptibility
+  - u7-induction-field-sign
   - u7-classify-by-susceptibility-table
   - u7-induction-line-types
   - u7-examples-of-each-magnetism
   - u7-oriented-dipoles-zero-field
-  - u7-orbital-spin-moment-sum
+  - u7-ferrimagnetism
   - u7-titanium-gold-induction
-  - u7-susceptibility-ratio-ferro-para
+  - u7-magnetization-removal-comparison
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 15 Slides 3-13."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including Q11 of MATERIALS_THIRDPARTIAL_2020_V2.pdf p. 5. Content and data from Session 15 Slides 3-13."
 tags:
   - problem-bank
   - midterm-2
@@ -27,41 +27,34 @@ tags:
 
 # Bank B58 — Magnetic moments, fields and types of magnetism applied
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 3-13.
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including an official Unit 7 MCQ from the 2020 paper (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 3-13.
 
-## Q58.1 Moment of a mole of chromium atoms
+## Q58.1 Net atomic moments across the 3d transition metals
 
 - id: B58-Q1
-- concept_id: u7-moment-per-mole-3d-table
-- format: numeric
-- asks: calculation
-- calc: 5*9.27e-24*6.022e23
+- concept_id: u7-3d-shell-pairing-trend
+- format: topic-true
+- asks: cause
 
-The table gives the net magnetic moment of an atom of some 3d elements:
+Regarding the net magnetic moments of isolated 3d transition-metal atoms (from Sc to Cu), which one of the following statements is TRUE:
 
-| Element | Sc | Ti | V | Cr | Mn | Fe | Co | Ni | Cu |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Moment ($\mu_B$) | 1 | 2 | 3 | 5 | 5 | 4 | 3 | 2 | 0 |
-
-Determine the total moment of one mole of chromium atoms with all their moments aligned, with $\mu_B = 9.27\times10^{-24}$ A·m² and $N_A = 6.022\times10^{23}$ atoms/mol:
-
-a) 16.7 A·m²
-b) $4.64\times10^{-23}$ A·m²
-c) 27.9 A·m²
-d) 22.3 A·m²
+a) The atomic moment grows steadily with atomic number up to Cu because each added electron adds one Bohr magneton
+b) The atomic moment rises up to half-filling of the 3d shell and then falls to zero in Cu as spins pair up
+c) The outer 4s electrons provide the main magnetic moment of transition metals while all 3d spins cancel out
+d) Isolated Fe atoms carry a larger net moment than isolated Mn atoms because Fe has one extra 3d electron
 
 ### Answer
 
-c
+b
 
 ### Explanation
 
-Session 15, Slide 3: the moment of the atom is the sum of its electron moments, 5 $\mu_B$ for Cr, so the mole gives $5\cdot9.27\times10^{-24}\cdot6.022\times10^{23} = 27.9$ A·m².
+Session 15, Slide 3: the 3d shell holds five orbitals; from Sc (1 $\mu_B$) to Cr and Mn (5 $\mu_B$) unpaired spins accumulate, and beyond half-filling (Fe 4, Co 3, Ni 2, Cu 0 $\mu_B$) added electrons pair with opposite spins and cancel moments until the full 3d shell of Cu has zero net moment.
 
-- a) The row of Co (3 $\mu_B$) was read instead of that of Cr: $3\cdot9.27\times10^{-24}\cdot6.022\times10^{23} = 16.7$.
-- b) The moment of a single atom, $5\mu_B$, was given: the number of atoms in the mole was not applied.
-- d) The row of Fe (4 $\mu_B$) was read instead of that of Cr: $4\cdot9.27\times10^{-24}\cdot6.022\times10^{23} = 22.3$.
+- a) Ignores Pauli spin pairing after five 3d electrons: Cu has the highest atomic number in the row yet 0 $\mu_B$.
+- c) Swaps the active shells: the table of Slide 3 counts unpaired 3d spins, whereas paired 4s electrons cancel out.
+- d) Inverts Mn and Fe: the sixth 3d electron in Fe pairs with an opposite spin, dropping the moment from 5 $\mu_B$ (Mn) to 4 $\mu_B$ (Fe).
 
 ### Source
 
@@ -97,36 +90,35 @@ Session 15, Slide 3: the moment of an atom is the sum of the moments of its elec
 
 Session 15, Slide 3.
 
-## Q58.3 Induction in a material with a given susceptibility
+## Q58.3 Induction, magnetization and susceptibility relations
 
 - id: B58-Q3
-- concept_id: u7-induction-from-susceptibility
-- format: numeric
-- asks: calculation
-- calc: 1.257e-6*(1+4.0)*1.2e3*1e3
+- concept_id: u7-induction-field-sign
+- format: topic-false
+- asks: comparison
 
-A material has a magnetic susceptibility $\chi_m = 4.0$ and is placed in a field $H = 1.2\times10^{3}$ A/m. Determine the induction $B$ inside it, with $\mu_0 = 1.257\times10^{-6}$ H/m:
+Regarding magnetic field strength $H$, magnetization $M$, magnetic susceptibility $\chi_m$, and magnetic induction $B$, which one of the following statements is FALSE:
 
-a) 6.03 mT
-b) 7.54 mT
-c) 1.51 mT
-d) $-4.53$ mT
+a) Inside a solid, the magnetic induction equals $\mu_0(H + M)$, combining the vacuum field and the material response
+b) For linear media, $M = \chi_m H$ and the relative permeability satisfies $\mu_r = 1 + \chi_m$
+c) In a ferromagnetic material with $\chi_m \gg 1$, the material term dominates so that $B \cong \mu_0 M$
+d) In a paramagnetic material ($\chi_m > 0$), the internal induction $B$ is slightly lower than $\mu_0 H$
 
 ### Answer
 
-b
+d
 
 ### Explanation
 
-Session 15, Slide 4: $M = \chi_m H$ and $B = \mu_0 H + \mu_0 M = \mu_0(1+\chi_m)H = \mu_r\mu_0 H$, with $\mu_r = 1+\chi_m = 5.0$: $B = 1.257\times10^{-6}\cdot5.0\cdot1.2\times10^{3} = 7.54\times10^{-3}$ T.
+Session 15, Slides 4 and 8: for a paramagnetic material $\chi_m > 0$ and $\mu_r = 1 + \chi_m > 1$, so $M = \chi_m H > 0$ adds to the external field and $B = \mu_0(H + M) > \mu_0 H$. Having $B < \mu_0 H$ corresponds to diamagnetism ($\chi_m < 0$).
 
-- a) The relative permeability was taken equal to the susceptibility, $\mu_r = \chi_m = 4.0$.
-- c) The contribution of the magnetization was left out: $\mu_0 H = 1.51$ mT is the induction in vacuum.
-- d) A sign slip, $\mu_r = 1-\chi_m = -3.0$: with $\chi_m > 0$ the material strengthens the field, so $B > \mu_0 H$.
+- a) True: Slide 4 prints $B = \mu_0 H + \mu_0 M = \mu_0(H + M)$.
+- b) True: combining $B = \mu_r\mu_0 H$ with $M = \chi_m H$ gives $\mu_r = 1 + \chi_m$ (Slide 4).
+- c) True: for ferromagnets $\chi_m$ reaches $10^6$, so $M \gg H$ and $B \cong \mu_0 M$ (Slides 5 and 9).
 
 ### Source
 
-Session 15, Slide 4.
+Session 15, Slides 4-5 and 8-9.
 
 ## Q58.4 Classifying three materials from their susceptibility
 
@@ -256,36 +248,36 @@ Session 15, Slide 13 (summary): the dipoles are oriented in the absence of a fie
 
 Session 15, Slides 6, 8 and 13.
 
-## Q58.8 Net moment of two electrons
+## Q58.8 Ferrimagnetic dipoles before an external field
 
 - id: B58-Q8
-- concept_id: u7-orbital-spin-moment-sum
-- format: numeric
-- asks: calculation
-- calc: 2 + (-1) + 1 + 1
+- concept_id: u7-ferrimagnetism
+- format: choose-figure
+- asks: classification
+- origin: official-exam
 
-Two electrons of an atom have orbital quantum numbers $m_l = +2$ and $m_l = -1$, and both have a spin moment of $+\mu_B$. Determine the net magnetic moment of the two electrons, in Bohr magnetons:
+Which picture shows the permanent dipole arrangement of a ferrimagnetic ceramic (such as a ferrite) before applying an external magnetic field?
 
-a) 5 $\mu_B$
-b) 1 $\mu_B$
-c) 2 $\mu_B$
-d) 3 $\mu_B$
+a) ![[attachments/MAT-MT2/u7-dip-3.svg]]
+b) ![[attachments/MAT-MT2/u7-dip-1.svg]]
+c) ![[attachments/MAT-MT2/u7-dip-4.svg]]
+d) ![[attachments/MAT-MT2/u7-dip-2.svg]]
 
 ### Answer
 
-d
+c
 
 ### Explanation
 
-Session 15, Slide 3: the orbital moment of each electron is $m_l\mu_B$ and its spin moment $\pm\mu_B$, and the moment of the atom is the sum of those of all its electrons: $(+2) + (-1) + (+1) + (+1) = 3$ $\mu_B$.
+Session 15, Slides 11 and 13 (and `MATERIALS_THIRDPARTIAL_2020_V2.pdf`, p. 5 Q11): ferrimagnetic ceramics have permanent magnetic dipoles of different magnitudes aligned antiparallel without an external field, leaving a net magnetic moment (picture c).
 
-- a) The orbital contributions were added as magnitudes, $2 + 1 + 1 + 1 = 5$, without the sign of $m_l = -1$.
-- b) Only the orbital moments were summed, $2 - 1 = 1$: the spin moments also count.
-- c) Only the spin moments were summed, $1 + 1 = 2$: the orbital moments also count.
+- a) Antiparallel dipoles of equal size cancel completely and correspond to an antiferromagnetic material.
+- b) Randomly oriented permanent dipoles correspond to a paramagnetic material with no external field.
+- d) Parallel dipoles of equal size correspond to a ferromagnetic material within a single domain.
 
 ### Source
 
-Session 15, Slide 3.
+MATERIALS_THIRDPARTIAL_2020_V2.pdf, p. 5 Q11; Session 15, Slides 11 and 13.
 
 ## Q58.9 Titanium and gold in the same field
 
@@ -317,20 +309,19 @@ Session 15, Slides 6 and 8: titanium is paramagnetic ($\mu_r > 1$, $B > B_0 = \m
 
 Session 15, Slides 6 and 8.
 
-## Q58.10 Magnetization of a ferromagnet against a paramagnet
+## Q58.10 Magnetization response after removing the field
 
 - id: B58-Q10
-- concept_id: u7-susceptibility-ratio-ferro-para
-- format: numeric
-- asks: calculation
-- calc: 2.0e5/3.0e-4
+- concept_id: u7-magnetization-removal-comparison
+- format: topic-true
+- asks: effect
 
-In the same field $H$, a ferromagnetic material with $\chi_m = 2.0\times10^{5}$ and a paramagnetic one with $\chi_m = 3.0\times10^{-4}$ are magnetized. Determine the ratio $M_{ferro}/M_{para}$:
+When an external magnetic field is applied and then removed at room temperature, which one of the following statements correctly compares diamagnetic, paramagnetic, and ferromagnetic materials?
 
-a) $6.67\times10^{8}$
-b) $1.50\times10^{-9}$
-c) $6.67\times10^{5}$
-d) $6.67\times10^{9}$
+a) Diamagnetic and paramagnetic materials lose their magnetization when $H$ returns to zero, whereas a ferromagnet can retain a remanence $B_r$
+b) Paramagnetic materials retain a large permanent magnetization when $H$ returns to zero, whereas diamagnetic and ferromagnetic materials lose theirs
+c) Diamagnetic materials keep induced dipoles permanently aligned opposite to $H$, whereas paramagnetic dipoles vanish once $H$ returns to zero
+d) All three classes retain permanent net magnetization after $H$ returns to zero, differing in the sign and size of $B_r$
 
 ### Answer
 
@@ -338,14 +329,14 @@ a
 
 ### Explanation
 
-Session 15, Slides 4, 8 and 9: $M = \chi_m H$ with the same $H$, so $M_{ferro}/M_{para} = \chi_{ferro}/\chi_{para} = 2.0\times10^{5}/3.0\times10^{-4} = 6.67\times10^{8}$.
+Session 15, Slides 6, 8, 9, 13 and 17: diamagnetism is purely induced while $H$ acts, and paramagnetic permanent dipoles randomize again once $H$ is removed; only ferromagnetic (and ferrimagnetic) materials keep domain alignment and exhibit remanence $B_r$ at $H = 0$.
 
-- b) The ratio was inverted, $\chi_{para}/\chi_{ferro}$.
-- c) The exponent of the paramagnetic susceptibility was read as $10^{-1}$ instead of $10^{-4}$: $2.0\times10^{5}/0.30$.
-- d) The exponent of the paramagnetic susceptibility was read as $10^{-5}$ instead of $10^{-4}$: $2.0\times10^{5}/3.0\times10^{-5}$.
+- b) Swaps paramagnetism and ferromagnetism: thermal agitation randomizes paramagnetic dipoles as soon as the field disappears.
+- c) Inverts permanence: diamagnetic dipoles are induced and disappear with the field, whereas paramagnetic dipoles are permanent atoms that randomize.
+- d) Wrongly attributes hysteresis and permanent remanence to diamagnetic and paramagnetic solids.
 
 ### Source
 
-Session 15, Slides 4, 8 and 9.
+Session 15, Slides 6, 8, 9, 13 and 17.
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

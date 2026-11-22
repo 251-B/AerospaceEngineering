@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="aerospace-materials-1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aerospace Materials I — Formula Sheet</title>
+  <meta name="description" content="Formula sheet and solving compendium for Aerospace Materials I (UC3M Aerospace Engineering), Units 4 to 7: phase diagrams and the lever rule, mechanical properties, electrical properties, magnetic and thermal properties, with linear interpolation, the 0.2 percent offset, step-by-step derivations, solving recipes and exam traps, printable in a few A4 pages.">
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600;1,6..72,700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --accent-border: rgba(245, 158, 11, 0.28);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      /* card kinds: used for borders and fills only, never for text */
+      --kind-pattern: #6366f1;
+      --kind-theorem: #a855f7;
+      --kind-derivation: #14b8a6;
+      --kind-algorithm: #22c55e;
+      --kind-trap: #f59e0b;
+      --kind-prereq: #94a3b8;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(20, 30, 55, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.10);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.80);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-card: rgba(0, 0, 0, 0.10);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.02rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    h1, h2, .page-header h1 {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code { font-family: var(--font-mono); font-size: 0.88em; }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sticky header: only the portal link */
+    .back-bar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .back-bar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; gap: 12px; flex-wrap: wrap;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--accent-border); }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+      color: var(--text-secondary); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px; border: 1px solid var(--accent-border);
+    }
+    .theme-toggle {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--text-primary); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+    /* Page header */
+    .page-header { text-align: center; padding: 40px 0 24px; }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 8px; }
+    .page-header p { color: var(--text-secondary); max-width: 760px; margin: 0 auto; font-size: 1.02rem; }
+
+    /* Toolbar: view mode and print */
+    .fs-toolbar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 12px; margin: 0 0 18px;
+      border: 1px solid var(--border-card); border-radius: 14px; background: var(--bg-card);
+    }
+    .fs-modes { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+    .fs-btn {
+      font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600;
+      color: var(--text-secondary); background: var(--bg-input);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+      padding: 8px 14px; cursor: pointer; transition: all var(--transition);
+    }
+    .fs-btn:hover { color: var(--text-primary); border-color: var(--accent-border); }
+    .fs-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fs-btn[aria-pressed="true"] { color: var(--text-primary); background: var(--accent-soft); border-color: var(--accent-border); }
+    .fs-mode-note { font-family: var(--font-sans); font-size: 0.82rem; color: var(--text-secondary); }
+
+    /* Legend */
+    .fs-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 18px; font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-secondary); }
+    .fs-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .fs-legend i { width: 14px; height: 10px; border-radius: 3px; border-left: 4px solid var(--k); background: color-mix(in srgb, var(--k) 18%, transparent); }
+
+    /* Contents */
+    .fs-toc { margin: 0 0 28px; padding: 14px 18px; border: 1px solid var(--border-card); border-radius: 14px; background: var(--bg-card); }
+    .fs-toc ol { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 6px 18px; counter-reset: toc; }
+    .fs-toc li { font-family: var(--font-sans); font-size: 0.88rem; }
+    .fs-toc a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dotted var(--border-card); }
+    .fs-toc a:hover { border-bottom-color: var(--accent); }
+
+    /* Units */
+    .fs-unit { margin: 0 0 40px; }
+    .fs-unit-title { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 4px; padding-bottom: 6px; border-bottom: 2px solid var(--accent-border); scroll-margin-top: 80px; }
+    .fs-unit-links { font-family: var(--font-sans); font-size: 0.84rem; color: var(--text-secondary); margin: 0 0 14px; }
+    .fs-unit-links a { color: var(--text-primary); text-underline-offset: 3px; }
+    .fs-unit-intro { color: var(--text-secondary); margin: 0 0 14px; max-width: 900px; }
+
+    /* Cards in a dense masonry of columns */
+    .fs-grid { column-gap: 18px; }
+    @media (min-width: 1100px) { .fs-grid { column-count: 2; } }
+    .fs-card {
+      --k: var(--kind-pattern);
+      break-inside: avoid; page-break-inside: avoid;
+      display: inline-block; width: 100%;
+      margin: 0 0 16px; padding: 14px 16px 12px;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-left: 4px solid var(--k); border-radius: 12px; box-shadow: var(--shadow-card);
+      font-size: 0.97rem;
+    }
+    .fs-theorem { --k: var(--kind-theorem); }
+    .fs-derivation { --k: var(--kind-derivation); }
+    .fs-algorithm { --k: var(--kind-algorithm); }
+    .fs-trap { --k: var(--kind-trap); }
+    .fs-prereq { --k: var(--kind-prereq); }
+    .fs-card-title { font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700; line-height: 1.35; margin: 0 0 8px; }
+    .fs-kind {
+      display: inline-block; vertical-align: 2px; margin-right: 6px;
+      font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-primary); background: color-mix(in srgb, var(--k) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--k) 55%, transparent); border-radius: 5px; padding: 1px 6px;
+    }
+    .fs-card p { margin: 6px 0; }
+    .fs-card ul, .fs-card ol { margin: 6px 0 6px 1.25em; }
+    .fs-card li { margin: 3px 0; }
+    .fs-lead { color: var(--text-secondary); font-style: italic; }
+    .fs-eq { margin: 8px 0; overflow-x: auto; overflow-y: hidden; }
+    .katex-display { margin: 0.4em 0; overflow-x: auto; overflow-y: hidden; }
+
+    /* Derivations fold to their one-line summary */
+    .fs-deriv > summary {
+      cursor: pointer; list-style: none; color: var(--text-primary);
+      padding: 6px 10px; border-radius: 8px; background: var(--bg-input); border: 1px dashed var(--border-card);
+    }
+    .fs-deriv > summary::-webkit-details-marker { display: none; }
+    .fs-deriv > summary::before { content: '+'; font-family: var(--font-mono); font-weight: 700; margin-right: 8px; color: var(--text-secondary); }
+    .fs-deriv[open] > summary::before { content: '\2212'; }
+    .fs-deriv > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fs-short { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .fs-deriv-body { padding-top: 6px; }
+
+    /* Step grid: math on the left, the reason beside it */
+    .fs-steps { display: grid; gap: 0; margin: 8px 0; border-top: 1px solid var(--border-subtle); }
+    .fs-step { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); align-items: center; }
+    .fs-step-math { overflow-x: auto; overflow-y: hidden; }
+    .fs-why { font-size: 0.86rem; line-height: 1.45; color: var(--text-secondary); padding-left: 10px; border-left: 2px solid color-mix(in srgb, var(--k) 45%, transparent); }
+    @media (max-width: 640px) {
+      .fs-step { grid-template-columns: 1fr; gap: 4px; }
+      .fs-why { padding-left: 8px; }
+    }
+
+    /* Tables */
+    .table-wrapper { overflow-x: auto; margin: 8px 0; }
+    .fs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .fs-table th, .fs-table td { text-align: left; vertical-align: top; padding: 5px 8px; border-bottom: 1px solid var(--border-subtle); }
+    .fs-table th { font-family: var(--font-sans); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+
+    /* Compact (exam) view: summaries, final formulas and recipes only */
+    html[data-fs-mode="compact"] .fs-why,
+    html[data-fs-mode="compact"] .fs-unit-intro,
+    html[data-fs-mode="compact"] .fs-lead { display: none; }
+    html[data-fs-mode="compact"] .fs-step { grid-template-columns: 1fr; padding: 3px 0; }
+    html[data-fs-mode="compact"] .fs-card { padding: 10px 12px 8px; margin-bottom: 12px; font-size: 0.93rem; }
+
+    footer.site-footer { border-top: 1px solid var(--border-subtle); padding: 32px 0; text-align: center; color: var(--text-muted); font-size: 0.86rem; }
+
+    /* Print: A4 portrait, two columns, black on white, like a typeset LaTeX sheet */
+    .fs-print-head { display: none; }
+    @media print {
+      @page { size: A4; margin: 8mm; }
+      /* doubled attribute: outranks study-surface.css, which paints html[data-theme] body with !important */
+      html[data-theme][data-theme], html[data-theme][data-theme] body { background: #fff !important; color: #000 !important; }
+      html[data-theme] body .katex-display { background: transparent !important; border: 0 !important; }
+      /* rem-based sizes of the screen layout scale with the root size */
+      html { font-size: 8.4pt !important; }
+      html[data-fs-mode="compact"] { font-size: 7.4pt !important; }
+      body { font-size: 1rem; line-height: 1.3; }
+      .back-bar, .subject-tabs, .fs-toolbar, .fs-legend, .fs-toc, .page-header, footer.site-footer, #quoteContainer { display: none !important; }
+      .container { max-width: none; padding: 0; }
+      html[data-theme] body main, html[data-theme] body main * { color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+      html[data-theme] body main *:not(.katex *) { background: transparent !important; }
+      .fs-print-head { display: block; margin: 0 0 2mm; padding-bottom: 1mm; border-bottom: 0.8pt solid #000; font-family: var(--font-serif); }
+      .fs-print-head strong { font-family: var(--font-display); font-weight: 400; font-size: 13pt; }
+      .fs-print-head span { float: right; font-size: 7.5pt; padding-top: 4pt; }
+      .fs-unit { margin: 0 0 2mm; break-before: auto; }
+      .fs-unit-title { font-size: 11pt; margin: 2mm 0 1.5mm; padding-bottom: 0.6mm; border-bottom: 0.6pt solid #000; break-after: avoid; }
+      .fs-unit-links, .fs-unit-intro { display: none; }
+      .fs-grid { column-count: 2; column-gap: 4mm; column-rule: 0.3pt solid #bbb; }
+      .fs-card { display: block; border: 0.4pt solid #777 !important; border-left: 2.2pt solid #000 !important; border-radius: 1.5mm; padding: 1.4mm 2mm 1.2mm !important; margin: 0 0 2mm !important; font-size: 1rem !important; }
+      .fs-trap { border-left-style: double !important; border-left-width: 3pt !important; }
+      .fs-card-title { font-size: 1.08em; margin: 0 0 0.8mm; break-after: avoid; }
+      .fs-kind { border: 0.5pt solid #000 !important; font-size: 0.7em; padding: 0 1.2mm; }
+      .fs-card p, .fs-card li { margin: 0.6mm 0; }
+      .fs-eq, .fs-steps, .table-wrapper { margin: 0.8mm 0; }
+      .fs-eq, .fs-step-math, .table-wrapper, .katex-display { overflow: visible !important; }
+      .katex-display { margin: 0.4mm 0; }
+      .katex { font-size: 1.04em; }
+      .fs-step { padding: 0.5mm 0; gap: 2mm; border-bottom: 0.3pt solid #ccc; break-inside: avoid; }
+      .fs-why { font-size: 0.9em; border-left: 0.5pt solid #888; padding-left: 1.5mm; }
+      .fs-deriv > summary { border: 0.4pt dashed #888; padding: 0.6mm 1.4mm; border-radius: 1mm; }
+      .fs-deriv > summary::before, .fs-deriv[open] > summary::before { content: none; }
+      .fs-table { font-size: 0.95em; }
+      .fs-table th, .fs-table td { padding: 0.5mm 1mm; border-bottom: 0.3pt solid #bbb; }
+      .fs-table th { font-size: 0.82em; }
+      a { text-decoration: none; }
+    }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <link rel="stylesheet" href="../../../assets/css/subject-tabs.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <script src="../../../assets/js/theme.js"></script>
+</head>
+<body>
+  <header class="back-bar">
+    <div class="container back-bar-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../../../index.html" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">UC3M 251-14169</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="subject-tabs" aria-label="Aerospace Materials I sections">
+      <a class="subject-tab" href="../teoria/index.html">Theory</a>
+      <a class="subject-tab" href="../problemas/index.html">Problems</a>
+      <a class="subject-tab" href="../extra-problems/index.html">Extra problems</a>
+      <a class="subject-tab" href="../simulator/index.html">Exam simulator</a>
+      <a class="subject-tab" href="../formula-sheet/index.html" aria-current="page">Formula sheet</a>
+      <a class="subject-tab" href="../sources/index.html">PDFs</a>
+    </nav>
+
+    <header class="page-header">
+      <h1>Aerospace Materials I — Formula Sheet</h1>
+      <p>Every formula of the course with where it comes from, in the notation of the course slides, why each step is taken, when it applies and how to use it in an exam. Deep study shows every derivation; Compact folds them to one line so the whole sheet prints in a few A4 pages.</p>
+    </header>
+
+    <div class="fs-toolbar" role="toolbar" aria-label="Formula sheet view">
+      <div class="fs-modes">
+        <button type="button" class="fs-btn" data-fs-set="deep" aria-pressed="true">Deep study</button>
+        <button type="button" class="fs-btn" data-fs-set="compact" aria-pressed="false">Compact (exam)</button>
+      </div>
+      <span class="fs-mode-note" id="fsModeNote" aria-live="polite">All derivations open, with the reason for each step.</span>
+      <button type="button" class="fs-btn" id="fsPrint">Print / Save PDF</button>
+    </div>
+
+    <div class="fs-legend" aria-label="Card types">
+      <span><i style="--k: var(--kind-pattern)"></i>Pattern, table</span>
+      <span><i style="--k: var(--kind-theorem)"></i>Theorem, definition</span>
+      <span><i style="--k: var(--kind-derivation)"></i>Derivation</span>
+      <span><i style="--k: var(--kind-algorithm)"></i>Algorithm</span>
+      <span><i style="--k: var(--kind-trap)"></i>Exam trap</span>
+      <span><i style="--k: var(--kind-prereq)"></i>Prerequisite</span>
+    </div>
+
+    <div class="fs-print-head"><strong>Aerospace Materials I — Formula Sheet</strong><span>UC3M Aerospace Engineering · Units 4 to 7</span></div>
+
+<!-- FORMULA-SHEET:START (generated by tools/build_formula_sheet.py; edit the vault note) -->
+<nav class="fs-toc" aria-label="Formula sheet contents"><ol><li><a href="#how-to-solve-a-materials-problem">How to solve a materials problem</a></li><li><a href="#unit-4-phase-diagrams-and-solidification">Unit 4 — Phase diagrams and solidification</a></li><li><a href="#unit-5-mechanical-properties">Unit 5 — Mechanical properties</a></li><li><a href="#unit-6-electrical-properties">Unit 6 — Electrical properties</a></li><li><a href="#unit-7-magnetic-and-thermal-properties">Unit 7 — Magnetic and thermal properties</a></li></ol></nav>
+<section class="fs-unit" id="how-to-solve-a-materials-problem" aria-labelledby="how-to-solve-a-materials-problem-title">
+<h2 class="fs-unit-title" id="how-to-solve-a-materials-problem-title">How to solve a materials problem</h2>
+<p class="fs-unit-links"><a href="../problemas/index.html">Problems</a> · <a href="../extra-problems/index.html">Extra problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-algorithm" id="the-order-of-the-course">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">The order of the course</span></h3>
+<ol><li><strong>Data.</strong> Write every datum with its unit and convert to one coherent set: lengths in mm and forces in N give stresses in MPa ($1\ \text{MPa} = 1\ \text{N/mm}^2$); electrical data in SI; temperatures in kelvin whenever an exponential or a ratio of temperatures appears.</li><li><strong>Model.</strong> Name the law of the slides that applies (Hooke, lever rule, Matthiessen, Fourier...), with its hypotheses, and say why it holds in this case (elastic zone? two-phase region? intrinsic range?).</li><li><strong>Calculation.</strong> One operation per line, symbols first and numbers after; keep three or four significant figures and round only at the end.</li><li><strong>Result and checks.</strong> Units, order of magnitude, limiting cases (fractions add to 1, $W \in [0,1]$, $\sigma_y &lt; \sigma_{UTS}$, $\varepsilon_p &lt; \varepsilon_f$), and the official key.</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="constants-and-conversions">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Constants and conversions</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Quantity</th><th>Value</th><th>Where it is used</th></tr></thead><tbody><tr><td>Boltzmann constant</td><td>$k_B = 8.62\times10^{-5}\ \text{eV/K} = 1.38\times10^{-23}\ \text{J/K}$</td><td>semiconductors, Unit 6</td></tr><tr><td>Electron volt</td><td>$1\ \text{eV} = 1.602\times10^{-19}\ \text{J}$</td><td>band gaps, donor levels</td></tr><tr><td>Electron charge, mass</td><td>$\lvert q_e\rvert = 1.602\times10^{-19}\ \text{C}$ (the slides round to $1.6\times10^{-19}$); $m_e = 9.109\times10^{-31}\ \text{kg}$</td><td>conductivity, drift</td></tr><tr><td>Permeability of vacuum</td><td>$\mu_0 = 1.257\times10^{-6}\ \text{H/m}$</td><td>magnetism</td></tr><tr><td>Permittivity of vacuum</td><td>$\varepsilon_0 = 8.85\times10^{-12}\ \text{F/m}$</td><td>dielectrics</td></tr><tr><td>Bohr magneton</td><td>$\mu_B = 9.27\times10^{-24}\ \text{A}\cdot\text{m}^2$</td><td>magnetic moments</td></tr><tr><td>Gas constant</td><td>$R = 8.314\ \text{J/(mol}\cdot\text{K)}$; $1\ \text{cal} = 4.184\ \text{J}$</td><td>heat capacity, $3R$</td></tr><tr><td>Lorenz number</td><td>$L = 2.44\times10^{-8}\ \text{W}\cdot\Omega/\text{K}^2$</td><td>Wiedemann-Franz</td></tr><tr><td>Temperature</td><td>$T\,[\text{K}] = T\,[^\circ\text{C}] + 273.15$</td><td>every exponential</td></tr><tr><td>Resistivity units</td><td>$1\ \mu\Omega\cdot\text{cm} = 10^{-8}\ \Omega\cdot\text{m}$; $1\ \Omega\cdot\text{cm} = 10^{-2}\ \Omega\cdot\text{m}$</td><td>metals</td></tr><tr><td>Stress</td><td>$1\ \text{MPa} = 1\ \text{N/mm}^2 = 10^6\ \text{Pa}$; $1\ \text{GPa} = 10^3\ \text{MPa}$</td><td>mechanical</td></tr><tr><td>Energy per volume</td><td>$1\ \text{MPa} = 1\ \text{MJ/m}^3$</td><td>toughness, resilience</td></tr><tr><td>Force and length</td><td>$1\ \text{kgf} = 9.81\ \text{N}$; $1\ \text{in} = 25.4\ \text{mm}$ (extension)</td><td>hardness loads, ASTM specimen</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-algorithm" id="linear-interpolation-between-two-data-points">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Linear interpolation between two data points</span></h3>
+<p>Use it whenever a table or a straight boundary gives two points $(x_1, y_1)$ and $(x_2, y_2)$ around the value you need: a row of a load-elongation table, a stress-strain table, a straight liquidus or solvus of a diagram you must draw with straight lines.</p>
+<ol><li><strong>Bracket.</strong> Find the two consecutive rows with $x_1 \le x \le x_2$ (or $y_1 \le y \le y_2$ if you look for $x$).</li><li><strong>Direct reading.</strong> $y = y_1 + \dfrac{y_2 - y_1}{x_2 - x_1}\,(x - x_1)$.</li><li><strong>Inverse reading.</strong> $x = x_1 + \dfrac{y - y_1}{y_2 - y_1}\,(x_2 - x_1)$.</li><li><strong>Check.</strong> The result must lie between $y_1$ and $y_2$; the slope $m = (y_2 - y_1)/(x_2 - x_1)$ keeps the units of $y/x$ (MPa for $\sigma$ against $\varepsilon$).</li><li><strong>Diagram boundary.</strong> On a straight line of the diagram, the composition at temperature $T$ is $C = C_1 + (C_2 - C_1)\,\dfrac{T - T_1}{T_2 - T_1}$.</li></ol>
+<p>Example (Problem T5-07, strain read at the service stress $277.00$ MPa between the rows $(0.00350,\ 258.68)$ and $(0.01496,\ 277.16)$): $\varepsilon = 0.00350 + \dfrac{277.00 - 258.68}{277.16 - 258.68}\,(0.01496 - 0.00350) = 0.01486$.</p>
+</article>
+<article class="fs-card fs-trap" id="mistakes-that-cost-the-most-marks">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Mistakes that cost the most marks</span></h3>
+<ul><li>Mixing units: force in kN against area in mm$^2$ (a factor $10^3$), $\varepsilon$ in % against $\varepsilon$ as a ratio, diameter against radius in $A = \pi d^2/4$.</li><li>Using Hooke's law ($\sigma = E\varepsilon$) outside the elastic zone: past the yield point read the table or the curve.</li><li>Forgetting that the lever rule uses the arm <strong>opposite</strong> to the phase, and that microconstituents and phases use different tie lines.</li><li>Putting a temperature in $^\circ$C into $\exp(-E_g/2kT)$: it must be kelvin.</li><li>Rounding intermediate values: carry at least four significant figures and round at the end.</li><li>Giving a result without unit or without the check that the fractions add up to 1.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-4-phase-diagrams-and-solidification" aria-labelledby="unit-4-phase-diagrams-and-solidification-title">
+<h2 class="fs-unit-title" id="unit-4-phase-diagrams-and-solidification-title">Unit 4 — Phase diagrams and solidification</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-4-phase-diagrams.html">Theory</a> · <a href="../problemas/topic-4-phase-diagrams.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="component-phase-microconstituent">
+<h3 class="fs-card-title"><span class="fs-kind">Definition</span> <span class="fs-name">Component, phase, microconstituent</span></h3>
+<ul><li><strong>Component:</strong> a pure element or compound that forms the alloy (the axes of the diagram) [Session 7 Slide 2].</li><li><strong>Phase:</strong> a homogeneous part of the system, with its own composition and structure, separated from the rest by an interface (liquid, $\alpha$, $\beta$, Fe$_3$C).</li><li><strong>Microconstituent:</strong> what the microscope shows as one structure: it can be one phase (primary $\alpha$) or a mixture of phases (eutectic, pearlite). <strong>Counting phases and counting microconstituents are two different questions, with two different tie lines.</strong></li></ul>
+</article>
+<article class="fs-card fs-theorem" id="gibbs-phase-rule">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Gibbs phase rule</span></h3>
+<div class="fs-eq">$$F = C - P + N \qquad N = 2\ (T,\ p) \qquad F = C - P + 1\ \ (p = 1\ \text{atm})$$</div>
+<ul><li>$F$: degrees of freedom; $C$: components; $P$: phases present; $N$: non-compositional variables [Session 7 Slide 13].</li><li>Binary alloy at 1 atm: one phase $F = 2$ (T and composition free); two phases $F = 1$ (choosing T fixes the compositions: this is why the tie line is horizontal); three phases (invariant point or line) $F = 0$.</li><li>Unary diagram (water): $F = 1 - P + 2$; triple point $F = 0$.</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="tie-line-and-lever-rule">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Tie line and lever rule</span></h3>
+<p>In a two-phase region of a binary diagram at temperature $T$, draw the horizontal tie line through the point of the alloy $C_0$. Its ends on the boundaries give the composition of each phase, $C_L$ and $C_\alpha$.</p>
+<div class="fs-eq">$$W_L = \frac{C_\alpha - C_0}{C_\alpha - C_L} \qquad W_\alpha = \frac{C_0 - C_L}{C_\alpha - C_L} \qquad W_L + W_\alpha = 1$$</div>
+<ul><li><strong>Rule:</strong> the fraction of a phase is the length of the arm <strong>on the other side</strong> of $C_0$, divided by the whole tie line [Session 7 Slides 15-16].</li><li>The composition axis is in wt%, so $W$ are <strong>mass</strong> fractions. On an atomic-% axis the same construction gives atom (mole) fractions (extension).</li><li>Mass balance check: $W_L C_L + W_\alpha C_\alpha = C_0$.</li><li>Solving backwards: from a measured fraction, $C_0 = C_\alpha + W_\beta\,(C_\beta - C_\alpha)$ (Problems T4-FC05 to FC07).</li></ul>
+</article>
+<article class="fs-card fs-algorithm" id="any-point-of-a-binary-diagram">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Any point of a binary diagram</span></h3>
+<ol><li>Locate the point $(C_0, T)$ and name the region (one phase, two phases, three phases on a line).</li><li><strong>One phase:</strong> $W = 100\,\%$ and its composition is $C_0$.</li><li><strong>Two phases:</strong> horizontal tie line through the point, read the compositions at its ends, apply the lever rule.</li><li><strong>On an invariant line:</strong> use the tie line just above and just below the line; the liquid just above becomes the eutectic (or the peritectic product).</li><li><strong>Microconstituents:</strong> at the first temperature below the invariant line, use the short tie line (see the eutectic card).</li><li>Check $\sum W = 1$ and the mass balance of the composition.</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="eutectic-system-phases-and-microconstituents">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Eutectic system, phases and microconstituents</span></h3>
+<p>Eutectic reaction $L \rightarrow \alpha + \beta$ at $T_E$, with $C_\alpha &lt; C_e &lt; C_\beta$ (Pb-Sn: $T_E = 183\,^\circ$C, $C_\alpha = 18.3$, $C_e = 61.9$, $C_\beta = 97.8$ wt% Sn) [Session 7 Slides 28-32].</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Alloy</th><th>Microconstituents just below $T_E$</th><th>Phases just below $T_E$</th></tr></thead><tbody><tr><td>Hypoeutectic $C_\alpha &lt; C_0 &lt; C_e$</td><td>primary $\alpha$: $\dfrac{C_e - C_0}{C_e - C_\alpha}$; eutectic: $\dfrac{C_0 - C_\alpha}{C_e - C_\alpha}$</td><td>$\alpha$: $\dfrac{C_\beta - C_0}{C_\beta - C_\alpha}$; $\beta$: $\dfrac{C_0 - C_\alpha}{C_\beta - C_\alpha}$</td></tr><tr><td>Hypereutectic $C_e &lt; C_0 &lt; C_\beta$</td><td>primary $\beta$: $\dfrac{C_0 - C_e}{C_\beta - C_e}$; eutectic: $\dfrac{C_\beta - C_0}{C_\beta - C_e}$</td><td>same formulas as above</td></tr><tr><td>Eutectic $C_0 = C_e$</td><td>100 % eutectic</td><td>$\alpha$: $\dfrac{C_\beta - C_e}{C_\beta - C_\alpha} = 0.452$; $\beta$: $0.548$ (Pb-Sn)</td></tr></tbody></table></div>
+<ul><li>The first pair uses the <strong>short</strong> tie line (from the solvus of the primary phase to the eutectic composition); the second pair uses the <strong>whole</strong> tie line from $\alpha$ to $\beta$.</li><li>The fraction of eutectic equals the fraction of liquid just above $T_E$: all that liquid becomes eutectic.</li><li>$\alpha$ inside the eutectic: $W_{\alpha,e} = W_\alpha - W_{\text{primary}\ \alpha} = W_e\,\dfrac{C_\beta - C_e}{C_\beta - C_\alpha}$. Check: Pb-30 Sn gives $W_{\alpha'} = 0.732$, $W_e = 0.268$, $W_\alpha = 0.853$, $W_\beta = 0.147$ and $0.268 \times 0.452 = 0.121 = 0.853 - 0.732$.</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="phase-fractions-of-an-alloy-from-its-microconstituents">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Phase fractions of an alloy from its microconstituents</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> a eutectic is a fixed mixture of $\alpha$ and $\beta$, so the phase content of any eutectic alloy is its primary phase plus the eutectic times that fixed mixture.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$W_{\alpha,e}^{\text{in eutectic}} = \dfrac{C_\beta - C_e}{C_\beta - C_\alpha}$</div><div class="fs-why">lever rule on the whole tie line at the eutectic composition</div></div><div class="fs-step"><div class="fs-step-math">$W_\alpha = W_{\alpha'} + W_e\,W_{\alpha,e}^{\text{in eutectic}}$</div><div class="fs-why">total $\alpha$ is primary $\alpha$ plus the $\alpha$ of the eutectic</div></div><div class="fs-step"><div class="fs-step-math">$W_\beta = W_e\,\bigl(1 - W_{\alpha,e}^{\text{in eutectic}}\bigr)$</div><div class="fs-why">all the $\beta$ of a hypoeutectic alloy lies inside the eutectic</div></div><div class="fs-step"><div class="fs-step-math">$W_\alpha + W_\beta = 1$</div><div class="fs-why">check against the direct lever rule on the whole tie line</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="solid-state-precipitation-solvus">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Solid-state precipitation (solvus)</span></h3>
+<p>When the alloy crosses the <strong>solvus</strong> on cooling, the solubility of $\alpha$ is exceeded and particles of $\beta$ precipitate and grow as $T$ falls [Session 8 Slides 3-4].</p>
+<div class="fs-eq">$$W_\beta(T) = \frac{C_0 - C_\alpha(T)}{C_\beta - C_\alpha(T)} \qquad W_\alpha(T) = \frac{C_\beta - C_0}{C_\beta - C_\alpha(T)}$$</div>
+<ul><li>Above the solvus the alloy is single-phase $\alpha$ of composition $C_0$ ($W_\alpha = 1$).</li><li>$C_\alpha(T)$ is read on the solvus at the temperature asked; Pb-16 Sn at 121 $^\circ$C: $W_\beta = \dfrac{16 - 6}{99 - 6} = 0.108$ [Session 8 Slide 4].</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="the-five-invariant-reactions">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">The five invariant reactions</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Reaction</th><th>On cooling</th><th>Shape on the diagram</th><th>Example</th></tr></thead><tbody><tr><td>Eutectic</td><td>$L \rightarrow \alpha + \beta$</td><td>liquid region ends in a V on the horizontal line</td><td>Pb-Sn</td></tr><tr><td>Peritectic</td><td>$\alpha + L \rightarrow \beta$</td><td>solid region ends in an inverted V below the line</td><td>Cu-Zn, Fe-Ni</td></tr><tr><td>Monotectic</td><td>$L_1 \rightarrow L_2 + \alpha$</td><td>liquid miscibility gap above the line</td><td>Cu-Pb</td></tr><tr><td>Eutectoid</td><td>$\gamma \rightarrow \alpha + \beta$</td><td>like the eutectic with a solid $\gamma$</td><td>Fe-C (pearlite)</td></tr><tr><td>Peritectoid</td><td>$\alpha + \beta \rightarrow \gamma$</td><td>like the peritectic with two solids</td><td>Ti-Si</td></tr></tbody></table></div>
+<p>Reading rule: the <strong>single phase</strong> is at the top of the V for eutectic, eutectoid and monotectic reactions, and at the bottom of the inverted V for peritectic and peritectoid reactions. The lever rule on the horizontal line just above or below it uses the compositions of the three points of the line (Slides 6-12 of Session 8).</p>
+</article>
+<article class="fs-card fs-pattern" id="intermetallic-compounds-and-melting">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Intermetallic compounds and melting</span></h3>
+<ul><li>A <strong>stoichiometric compound</strong> is a vertical line on the diagram (fixed composition) and divides the diagram into independent sub-diagrams, each treated with its own lever rule [Session 8 Slides 14-15].</li><li><strong>Congruent melting:</strong> the compound melts at one temperature into a liquid of its own composition (the vertical line reaches the liquidus at a maximum). <strong>Incongruent melting:</strong> it decomposes into a liquid and another solid (a peritectic reaction) [Session 8 Slide 17].</li><li>For an alloy between two compounds $A$ and $B$ of composition $C_A$ and $C_B$: $W_A = \dfrac{C_B - C_0}{C_B - C_A}$, $W_B = \dfrac{C_0 - C_A}{C_B - C_A}$ (Ti-30 Si between Ti$_3$Si at 25 % and Ti$_5$Si$_3$ at 35 %: $0.5$ and $0.5$).</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="fe-fe3c-diagram-the-numbers-to-remember">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Fe-Fe3C diagram, the numbers to remember</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Item</th><th>Value</th><th>Note</th></tr></thead><tbody><tr><td>Maximum C in ferrite $\alpha$</td><td>$0.022$ wt% at 727 $^\circ$C</td><td>BCC, soft, 7.88 g/cm$^3$</td></tr><tr><td>Eutectoid point</td><td>$0.76$ wt% C at 727 $^\circ$C</td><td>$\gamma\,(0.76) \rightleftharpoons \alpha\,(0.022) + \text{Fe}_3\text{C}\,(6.67)$, product pearlite</td></tr><tr><td>Maximum C in austenite $\gamma$</td><td>$2.14$ wt% at 1147 $^\circ$C</td><td>FCC, not magnetic</td></tr><tr><td>Eutectic point</td><td>$4.30$ wt% C at 1147 $^\circ$C</td><td>$L\,(4.30) \rightleftharpoons \gamma\,(2.14) + \text{Fe}_3\text{C}\,(6.67)$, product ledeburite</td></tr><tr><td>Peritectic</td><td>1493 $^\circ$C</td><td>$\delta\,(0.09) + L\,(0.53) \rightleftharpoons \gamma\,(0.16)$</td></tr><tr><td>Cementite Fe$_3$C</td><td>$6.67$ wt% C</td><td>hard, brittle, metastable compound</td></tr><tr><td>Steels</td><td>up to $2.14$ % C</td><td>hypoeutectoid up to $0.76$, hypereutectoid from $0.76$ to $2.14$</td></tr><tr><td>Cast irons</td><td>$2.14$ to $6.67$ % C</td><td>hypoeutectic $2.14$ to $4.30$, hypereutectic $4.30$ to $6.67$</td></tr><tr><td>Lines</td><td>$A_1$ (727 $^\circ$C), $A_3$ ($\gamma$ / $\alpha + \gamma$), $A_{cm}$ ($\gamma$ / $\gamma + \text{Fe}_3\text{C}$)</td><td>heat-treatment names</td></tr></tbody></table></div>
+<p>The drawing of Slide 20 prints older values ($0.8$ % C, 723 $^\circ$C) for the eutectoid; the course uses $0.76$ % and 727 $^\circ$C. Some readings of the slides use $0.02$ instead of $0.022$ for the ferrite limit: use the same value throughout one problem.</p>
+</article>
+<article class="fs-card fs-pattern" id="steels-below-727-degrees-celsius">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Steels below 727 degrees Celsius</span></h3>
+<p>Just below the eutectoid line, with $C_\alpha = 0.022$, $C_E = 0.76$ and $C_{\text{Fe}_3\text{C}} = 6.67$ % C [Session 9 Slides 12-20].</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Steel</th><th>Microconstituents</th><th>Phases</th></tr></thead><tbody><tr><td>Eutectoid $C_0 = 0.76$</td><td>100 % pearlite</td><td>$\alpha$: $\dfrac{6.67 - 0.76}{6.648} = 0.889$; Fe$_3$C: $0.111$</td></tr><tr><td>Hypoeutectoid $C_0 &lt; 0.76$</td><td>primary $\alpha$: $\dfrac{0.76 - C_0}{0.76 - 0.022}$; pearlite: $\dfrac{C_0 - 0.022}{0.76 - 0.022}$</td><td>$\alpha$: $\dfrac{6.67 - C_0}{6.648}$; Fe$_3$C: $\dfrac{C_0 - 0.022}{6.648}$</td></tr><tr><td>Hypereutectoid $C_0 &gt; 0.76$</td><td>primary Fe$_3$C: $\dfrac{C_0 - 0.76}{6.67 - 0.76}$; pearlite: $\dfrac{6.67 - C_0}{6.67 - 0.76}$</td><td>$\alpha$: $\dfrac{6.67 - C_0}{6.648}$; Fe$_3$C: $\dfrac{C_0 - 0.022}{6.648}$</td></tr></tbody></table></div>
+<ul><li><strong>Every pearlite</strong>, in any steel, is $88.9$ % ferrite and $11.1$ % cementite: it is a fixed mixture.</li><li>Above 727 $^\circ$C (between $A_3$ and $A_1$) the two phases are $\alpha$ and $\gamma$: use the tie line from $0.022$ (or $0.02$) to the $A_3$ composition at that temperature.</li><li>Ferrite of the pearlite: $W_{\alpha,\text{pearlite}} = W_{\text{pearlite}} \times 0.889$.</li><li>Check, 0.3 % C steel: primary $\alpha = 0.623$, pearlite $= 0.377$, total $\alpha = 0.958$, Fe$_3$C $= 0.042$.</li><li>Check, 1.2 % C steel: primary Fe$_3$C $= 0.074$, pearlite $= 0.926$, total Fe$_3$C $= 0.177$.</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="cast-irons">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Cast irons</span></h3>
+<p>Use the eutectic tie lines: $\gamma\,(2.14)$ to $L\,(4.30)$ for hypoeutectic and $L\,(4.30)$ to Fe$_3$C $(6.67)$ for hypereutectic alloys, at $1147\,^\circ$C $+\ \Delta T$.</p>
+<ul><li><strong>Hypoeutectic ($2.14 &lt; C_0 &lt; 4.30$), just above 1147 $^\circ$C:</strong> $W_{\gamma,p} = \dfrac{4.30 - C_0}{4.30 - 2.14}$, $W_L = \dfrac{C_0 - 2.14}{4.30 - 2.14}$.</li><li><strong>Hypereutectic ($4.30 &lt; C_0 &lt; 6.67$), just above 1147 $^\circ$C:</strong> $W_{\text{Fe}_3\text{C},p} = \dfrac{C_0 - 4.30}{6.67 - 4.30}$, $W_L = \dfrac{6.67 - C_0}{6.67 - 4.30}$.</li><li><strong>Just below 1147 $^\circ$C (phases):</strong> $W_{\text{Fe}_3\text{C}} = \dfrac{C_0 - 2.14}{6.67 - 2.14}$, $W_\gamma = \dfrac{6.67 - C_0}{6.67 - 2.14}$.</li><li><strong>Ledeburite</strong> (eutectic) is $52.3$ % austenite and $47.7$ % cementite; below 727 $^\circ$C its austenite becomes pearlite.</li><li>Between 1147 and 727 $^\circ$C the austenite loses carbon along $A_{cm}$ and secondary cementite forms: use the tie line from $\gamma$ on $A_{cm}$ to $6.67$ (Problem T4-FC09: $W_{\text{Fe}_3\text{C}}(800) = \dfrac{3.0 - 1.0}{6.67 - 1.0}$).</li><li>To find $C_0$ from a measured fraction, invert the lever rule (cards above): Problems T4-FC05 to FC07.</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="non-equilibrium-cooling-coring">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Non-equilibrium cooling, coring</span></h3>
+<p>With fast cooling the solid has no time to equalise: the <strong>average</strong> composition of the solid follows a <strong>non-equilibrium solidus</strong> to the right of the equilibrium one, so liquid is left below the equilibrium end of solidification [Session 7 Slides 23-24].</p>
+<ul><li>The lever rule is the same, with the end of the tie line on the non-equilibrium solidus: Cu-35 Ni with $C_L = 24$ and average solid $38$ gives $W_L = \dfrac{38 - 35}{38 - 24} = 0.214$.</li><li><strong>Homogenisation heat treatment:</strong> hold below the solidus so solid-state diffusion (Unit 3) removes the composition gradient.</li><li>Increasing the cooling rate in steels moves the eutectoid to lower T and lower %C: less primary ferrite and finer pearlite (harder) [Session 9 Slide 21].</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="ternary-composition-triangle">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Ternary composition triangle</span></h3>
+<ul><li>Corners are the pure components $A$, $B$, $C$; sides are binary alloys; the three percentages of a point add to $100$ %.</li><li><strong>Reading a point:</strong> the line of constant $\%A$ is parallel to the side opposite to $A$ (the side $B$-$C$), and so on for $B$ and $C$. Draw the three parallels, read each percentage on its own axis and check $\sum = 100$ [Session 10 Slide 5].</li><li>Isotherms (horizontal sections), liquidus projections and solidus surfaces show the system (Ag-Cu-Zn, Fe-Cr-Ni at 650 $^\circ$C); phases of a point are the field where it falls (Slides 6-8).</li><li>Example: $60$ % Cr, $20$ % Fe, $20$ % Ni lies in $\alpha + \gamma$; $74$ % Fe + $18$ % Cr + $8$ % Ni is a commercial stainless steel.</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="ceramic-diagrams-and-compounds">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Ceramic diagrams and compounds</span></h3>
+<ul><li>Al$_2$O$_3$-Cr$_2$O$_3$ has complete solid solubility: it is an isomorphous diagram and the lever rule is the same [Session 10 Slide 2].</li><li>Al$_2$O$_3$-SiO$_2$ has the compound mullite $3\text{Al}_2\text{O}_3\cdot2\text{SiO}_2$ (about $72$ wt% Al$_2$O$_3$), with the eutectic $L\,(7.7) \rightarrow \text{mullite} + \text{SiO}_2$ and the peritectic $L\,(77) + \text{Al}_2\text{O}_3 \rightarrow \text{mullite}$. Example: at $7.7$ % Al$_2$O$_3$, $W_{\text{mullite}} = \dfrac{7.7 - 0}{72 - 0} = 0.107$ [Session 10 Slides 3-4].</li><li>Extension: the wt% of a compound $A_xB_y$ is $\dfrac{y\,M_B}{x\,M_A + y\,M_B}$ (mullite: $\dfrac{3 \times 101.96}{3\times101.96 + 2\times60.08} = 71.8$ %).</li></ul>
+</article>
+<article class="fs-card fs-trap" id="mistakes-in-phase-diagrams">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Mistakes in phase diagrams</span></h3>
+<ul><li>Using the arm <strong>next to</strong> the phase instead of the opposite one: the fraction of the phase closer to $C_0$ is the <strong>larger</strong>.</li><li>Applying the whole $\alpha$-$\beta$ tie line to microconstituents (and the short one to phases): always ask first "phases or microconstituents?".</li><li>Forgetting that pearlite is <strong>two</strong> phases (88.9 % $\alpha$ + 11.1 % Fe$_3$C) when counting total ferrite or cementite.</li><li>Reading the tie line at the wrong temperature: it is horizontal and must be at the temperature asked, just above or just below an invariant line.</li><li>Reading compositions in at% as wt% (check the axis label).</li><li>Taking the primary phase of a hypereutectic alloy to be $\alpha$ (it is $\beta$) or of a hypereutectoid steel to be ferrite (it is cementite).</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-5-mechanical-properties" aria-labelledby="unit-5-mechanical-properties-title">
+<h2 class="fs-unit-title" id="unit-5-mechanical-properties-title">Unit 5 — Mechanical properties</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-5-mechanical-properties.html">Theory</a> · <a href="../problemas/topic-5-mechanical-properties.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="engineering-stress-and-strain">
+<h3 class="fs-card-title"><span class="fs-kind">Definition</span> <span class="fs-name">Engineering stress and strain</span></h3>
+<div class="fs-eq">$$\sigma_n = \frac{F}{A_0} \qquad \varepsilon_n = \frac{l - l_0}{l_0} = \frac{\Delta l}{l_0} \qquad A_0 = \frac{\pi d_0^2}{4}$$</div>
+<ul><li>$F$ is the load, $A_0$ the original cross-section, $l_0$ the original gauge length [Session 11 Slide 9]. Stress in MPa ($\text{N/mm}^2$) and strain with no units (never in % inside a formula).</li><li>Shear: $\tau = F/A_0$, $\gamma = a/h = \tan\theta$, $\tau = G\gamma$ [Session 11 Slide 7].</li><li>Three-point bend (modulus of rupture): $\text{MOR} = \dfrac{3FL}{2bh^2}$ [Session 11 Slide 6].</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="hooke-s-law-and-elastic-deformation">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Hooke's law and elastic deformation</span></h3>
+<div class="fs-eq">$$\sigma = E\,\varepsilon \qquad \Delta l = \varepsilon\,l_0 = \frac{F\,l_0}{A_0\,E} \qquad l_0 = \frac{\Delta l\,A_0\,E}{F}$$</div>
+<ul><li>$E$ is the slope of the straight part of the curve; it measures stiffness, depends on the bond strength, and $E_{\text{ceramics}} &gt; E_{\text{metals}} &gt; E_{\text{polymers}}$ [Session 11 Slides 12-13].</li><li>Typical $E$: steel $207$ to $210$ GPa, aluminium $69$ to $70$ GPa, alumina $390$, silica $69$ [Session 11 Slides 13, 17]. Specific modulus: $E/\rho$.</li><li><strong>Valid only in the elastic zone:</strong> beyond the elastic limit read the table or the curve (Problems T5-01 item i, T5-07).</li><li><strong>Largest elastic length:</strong> from $\Delta l = F l_0/(A_0E)$ solved for $l_0$ with the largest elastic load (Problem T5-06).</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="poisson-s-ratio-and-the-shear-modulus">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Poisson's ratio and the shear modulus</span></h3>
+<div class="fs-eq">$$\nu = -\frac{\varepsilon_{\text{transverse}}}{\varepsilon_{\text{longitudinal}}} \qquad \varepsilon_{\text{transverse}} = \frac{\Delta d}{d_0} \qquad E = 2G\,(1 + \nu)$$</div>
+<ul><li>Uniaxial tension: the width shrinks, $\Delta d = -\nu\,\varepsilon_{ax}\,d_0 &lt; 0$ [Session 11 Slide 19].</li><li>Typical $\nu$: metals $0.25$ to $0.4$, polymers $0.3$ to $0.45$, rubber $0.49$; the ideal incompressible limit is $\nu = 0.5$.</li><li>From a measured diameter change: $\varepsilon_{ax} = -\dfrac{\Delta d/d_0}{\nu}$, then $\Delta l = \varepsilon_{ax}\,l_0$ and $E = \sigma/\varepsilon_{ax}$ (Problem T5-07).</li></ul>
+</article>
+<article class="fs-card fs-algorithm" id="yield-strength-by-the-0-2-percent-offset">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Yield strength by the 0.2 percent offset</span></h3>
+<ol><li>Draw the elastic line $\sigma = E\varepsilon$ and its parallel through $\varepsilon = 0.002$: <strong>offset line</strong> $\sigma_{off}(\varepsilon) = E\,(\varepsilon - 0.002)$.</li><li>The yield strength $\sigma_y$ is the stress where the curve crosses the offset line [Session 11 Slide 28].</li><li>With a table: compute $g = \sigma_n - E(\varepsilon_n - 0.002)$ for each row; the crossing is on the segment where $g$ changes sign.</li><li>On that segment (rows $a$ and $b$), the curve is the line $\sigma = \sigma_a + m\,(\varepsilon - \varepsilon_a)$ with $m = \dfrac{\sigma_b - \sigma_a}{\varepsilon_b - \varepsilon_a}$. Equate it to the offset line and solve:</li></ol>
+<div class="fs-eq">$$\varepsilon^* = \frac{\sigma_a - m\,\varepsilon_a + 0.002\,E}{E - m} \qquad \sigma_y = E\,(\varepsilon^* - 0.002)$$</div>
+<ol><li>Load and elongation at yield: $F_y = \sigma_y A_0$, $\Delta l_y = \varepsilon^* l_0$ (note: $\varepsilon^*$, the <strong>total</strong> strain, not $\varepsilon^* - 0.002$).</li><li><strong>Discontinuous yield</strong> (low-carbon steels): $\sigma_y = \dfrac{\sigma_{max} + \sigma_{min}}{2}$ of the upper and lower yield points [Session 11 Slide 28].</li></ol>
+<p>Example (Problem T5-01, rows 7 and 8, $E = 196\,160$ MPa): $m = 29\,749$ MPa, $\varepsilon^* = 0.005786$, $\sigma_y = 742.6$ MPa.</p>
+</article>
+<article class="fs-card fs-derivation" id="the-offset-intersection">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">The offset intersection</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> put the straight segment of the table and the offset line equal and solve for the strain at the crossing.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\sigma_{off}(\varepsilon) = E\,(\varepsilon - 0.002)$</div><div class="fs-why">line parallel to the elastic one, shifted by the plastic strain $0.002$</div></div><div class="fs-step"><div class="fs-step-math">$\sigma(\varepsilon) = \sigma_a + m\,(\varepsilon - \varepsilon_a)$</div><div class="fs-why">between table rows the curve is taken as a straight segment (linear interpolation)</div></div><div class="fs-step"><div class="fs-step-math">$\sigma_a + m(\varepsilon - \varepsilon_a) = E\,(\varepsilon - 0.002)$</div><div class="fs-why">the yield point is on both lines</div></div><div class="fs-step"><div class="fs-step-math">$\sigma_a - m\,\varepsilon_a + 0.002\,E = (E - m)\,\varepsilon$</div><div class="fs-why">collect the terms in $\varepsilon$</div></div><div class="fs-step"><div class="fs-step-math">$\varepsilon^* = \dfrac{\sigma_a - m\,\varepsilon_a + 0.002\,E}{E - m}$</div><div class="fs-why">solve; $E - m &gt; 0$ because the segment is flatter than the elastic line</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-theorem" id="strength-ductility-toughness-and-resilience">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Strength, ductility, toughness and resilience</span></h3>
+<div class="fs-eq">$$\sigma_{UTS} = \frac{F_{max}}{A_0} \qquad EL\,(\%) = \frac{l_f - l_0}{l_0}\times100 \qquad RA\,(\%) = \frac{A_0 - A_f}{A_0}\times100$$</div>
+<div class="fs-eq">$$U_r = \int_0^{\varepsilon_y}\sigma\,d\varepsilon = \frac12\,\sigma_y\,\varepsilon_y = \frac{\sigma_y^2}{2E} \qquad \sigma_w = \frac{\sigma_y}{N} \qquad N_{eff} = \frac{\sigma_y}{\sigma_{service}}$$</div>
+<ul><li><strong>UTS:</strong> maximum nominal stress; with constant $A_0$ it is at the maximum load. Necking follows [Session 11 Slide 30].</li><li><strong>Elongation after fracture</strong> is measured on the broken pieces: the elastic part is recovered. If the last record before fracture is $(\varepsilon_f,\ \sigma_f)$, then $\varepsilon_p = \varepsilon_f - \sigma_f/E$ and $EL = \varepsilon_p \times 100$ [Session 11 Slide 32].</li><li><strong>Reduction in area</strong> needs the final area: $A_f = \pi d_f^2/4$; in general $EL\,(\%) \neq RA\,(\%)$ [Session 11 Slide 33].</li><li><strong>Toughness:</strong> area under the whole curve (energy per volume, MPa $=$ MJ/m$^3$) [Session 11 Slide 34]. By trapezoids over a table: $U_t \approx \sum \tfrac12(\sigma_i + \sigma_{i+1})(\varepsilon_{i+1} - \varepsilon_i)$.</li><li><strong>Resilience:</strong> area under the elastic line up to $\sigma_y$; high $\sigma_y$ and low $E$ means high resilience (springs) [Session 11 Slide 35].</li><li><strong>Working stress:</strong> $N$ is between $1.2$ and $4$, usually $2$ when the statement gives none [Session 11 Slide 29]. A cable is safe if $N_{eff} \ge N$ (Problem T5-07).</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="true-stress-and-true-strain">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">True stress and true strain</span></h3>
+<div class="fs-eq">$$\sigma_r = \frac{F}{A_i} = \sigma_n\,\frac{A_0}{A_i} \qquad \varepsilon_r = \int_{l_0}^{l}\frac{dl}{l} = \ln\frac{l}{l_0}$$</div>
+<ul><li><strong>Before necking</strong> (constant volume, $l_0A_0 = lA_i$): $\sigma_r = \sigma_n\,(1 + \varepsilon_n)$ and $\varepsilon_r = \ln(1 + \varepsilon_n)$ [Session 11 Slide 37].</li><li><strong>After necking:</strong> use the area, $\sigma_r = F/A_i$ and $\varepsilon_r = \ln\dfrac{A_0}{A_i} = 2\ln\dfrac{d_0}{d_i}$ [Session 11 Slide 38].</li><li>True stress is larger than engineering stress, true strain is smaller than engineering strain, $\sigma_r &gt; \sigma_n$ and $\varepsilon_r &lt; \varepsilon_n$ (for tension).</li><li><strong>From the reduction in area</strong> (Problem T5-12): $\dfrac{A_f}{A_0} = 1 - \dfrac{RA}{100}$, then $\sigma_{f,r} = \dfrac{\sigma_f}{A_f/A_0}$ and $\varepsilon_r = \ln\dfrac{A_0}{A_f}$.</li><li>The corrected curve after necking accounts for the triaxial stress in the neck.</li></ul>
+</article>
+<article class="fs-card fs-algorithm" id="analysis-of-a-tensile-test-from-a-load-elongation-table">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Analysis of a tensile test from a load-elongation table</span></h3>
+<ol><li><strong>Area:</strong> $A_0 = \pi d_0^2/4$ (mm$^2$). <strong>Rows:</strong> $\sigma_n = F/A_0$ (MPa) and $\varepsilon_n = \Delta L/l_0$ for every point; check the unit of the load column ("N/100" means hundreds of newtons).</li><li><strong>Young's modulus:</strong> points that lie on the straight start, $E = \sum\sigma_i\varepsilon_i\big/\sum\varepsilon_i^2$ (least squares through the origin), or the secant $\sigma/\varepsilon$ of one early point.</li><li><strong>Yield strength:</strong> offset construction above (algebraic on the sign-change segment).</li><li><strong>UTS:</strong> $F_{max}/A_0$ with the largest load of the table.</li><li><strong>Ductility:</strong> $\varepsilon_p = \varepsilon_f - \sigma_f/E$ (last row before fracture), $EL = \varepsilon_p\times100$.</li><li><strong>Resilience:</strong> $U_r = \sigma_y^2/2E$.</li><li><strong>Load or elongation at yield:</strong> $F_y = \sigma_y A_0$, $\Delta l_y = \varepsilon^* l_0$.</li><li><strong>Working stress:</strong> $\sigma_w = \sigma_y/N$, $N = 2$ if no value is given.</li><li><strong>Load at a given elongation:</strong> if $\Delta l$ is inside the elastic zone use Hooke; otherwise interpolate linearly between the two rows of the table (the interpolation card).</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="strengthening-mechanisms">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Strengthening mechanisms</span></h3>
+<p>All mechanisms work by <strong>blocking the motion of dislocations</strong>; the price is ductility and, in metals, conductivity [Session 12 Slides 4-14].</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Mechanism</th><th>What blocks the dislocations</th><th>Quantity</th><th>Effect on $\sigma_y$ and UTS</th><th>Effect on ductility and conductivity</th></tr></thead><tbody><tr><td>Strain hardening (cold work)</td><td>tangles of new dislocations, $10^6$ to $10^{12}\ \text{m/m}^3$</td><td>$\%\text{CW} = \dfrac{A_0 - A_d}{A_0}\times100$</td><td>up</td><td>ductility down, conductivity down a little</td></tr><tr><td>Solid solution</td><td>strained lattice around solute atoms (smaller solute: tension; larger: compression)</td><td>solute content</td><td>up</td><td>ductility down, conductivity down a lot</td></tr><tr><td>Grain size reduction</td><td>grain boundaries (smaller $d$, more barriers)</td><td>$\sigma_y$ linear in $d^{-1/2}$</td><td>up</td><td>ductility generally kept</td></tr><tr><td>Precipitation (age hardening)</td><td>dispersed particles of a second phase</td><td>smaller, denser, better dispersed</td><td>up (Al-Cu-Mg: UTS $469$ MPa against $45$ pure Al)</td><td>conductivity down</td></tr></tbody></table></div>
+<ul><li>Extension: the Hall-Petch relation $\sigma_y = \sigma_0 + k_y\,d^{-1/2}$ is the straight line of the slide ($\sigma_0$ and $k_y$ are constants of the material, not given in the slides).</li><li>Extension: for a wire drawn from diameter $d_0$ to $d_d$, $\%\text{CW} = \bigl[1 - (d_d/d_0)^2\bigr]\times100$.</li><li>Cold work produces texture; a recrystallisation anneal restores ductility (Unit 4 diagrams give the temperatures).</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="hardness-numbers">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Hardness numbers</span></h3>
+<p>Hardness is the resistance to a localised plastic indentation [Session 12 Slides 15-30].</p>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Test</th><th>Indenter</th><th>Formula</th><th>Units and notes</th></tr></thead><tbody><tr><td>Brinell HB (HBW)</td><td>ball of diameter $D$ (WC or steel)</td><td>$HB = \dfrac{2P}{\pi D\left(D - \sqrt{D^2 - D_i^2}\right)}$</td><td>$P$ in kgf, $D$ and $D_i$ in mm, result in kgf/mm$^2$</td></tr><tr><td>Brinell load</td><td></td><td>$P = Q\,D^2$</td><td>$Q = 30$ steels, $10$ bronze and brass, $5$ Al alloys, $2.5$ anti-friction alloys</td></tr><tr><td>Vickers HV</td><td>diamond pyramid, $136^\circ$</td><td>$HV = \dfrac{2F\sin(136^\circ/2)}{d^2} = 1.854\,\dfrac{F}{d^2}$</td><td>$F$ in kgf, $d$ the mean of the two diagonals in mm</td></tr><tr><td>Knoop KHN</td><td>diamond pyramid, $l/b = 7.11$</td><td>$KHN = 14.2\,\dfrac{P}{l^2}$</td><td>microhardness, load up to 1 kgf</td></tr><tr><td>Rockwell HR</td><td>diamond cone $120^\circ$ or steel ball</td><td>$HR = N - \dfrac{h}{S}$</td><td>$h$ residual depth in mm; $S = 0.002$ mm; $N = 100$ for A, C, D; $N = 130$ for B, E, F, G, K; superficial $N$ and $T$ scales $S = 0.001$, $N = 100$</td></tr></tbody></table></div>
+<ul><li><strong>Brinell inverse</strong> (indentation diameter for a given $HB$): $k = D - \sqrt{D^2 - D_i^2} = \dfrac{2P}{\pi D\,HB}$, then $D_i^2 = k\,(2D - k)$ (Problem T5-15).</li><li><strong>Rockwell in depth units:</strong> $HRC = 100 - 500\,t$ and $HRB = 130 - 500\,t$ with $t$ in mm [Session 12 Slide 29].</li><li><strong>Precautions:</strong> distance to the edge above $4\varnothing$; thickness above $2\varnothing$ (Brinell, Rockwell) or $1.5$ times the diagonal (Vickers).</li><li><strong>Hardness and strength</strong> both measure plastic deformation, with a different line per material family (chart of Session 12 Slide 30). Extension, for steels only: $\sigma_{UTS}\,[\text{MPa}] \approx 3.45\,HB$.</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="thermal-stress-in-a-constrained-bar-link-with-unit-7">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Thermal stress in a constrained bar (link with Unit 7)</span></h3>
+<p>Held at constant length, a bar heated by $\Delta T = T_f - T_0$ develops $\sigma = -E\alpha\,\Delta T$ (compression when heated, tension when cooled). If a load $F$ already acts, the wire stays stretched when $E\alpha\Delta T = F/A$, so $A = \dfrac{F}{E\,\alpha\,\Delta T}$ and $d = \sqrt{4A/\pi}$ (Problem T5-05: $d = 5.87$ mm). The full derivation is in Unit 7.</p>
+</article>
+<article class="fs-card fs-trap" id="mistakes-in-mechanical-properties">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Mistakes in mechanical properties</span></h3>
+<ul><li>Taking the yield strength at the first row below the offset line instead of intersecting with it.</li><li>Using $\varepsilon^* - 0.002$ as the strain at yield: the total strain is $\varepsilon^*$ (elastic plus the $0.002$ offset).</li><li>Measuring ductility at the last point of the table without removing the elastic part $\sigma_f/E$.</li><li>Using engineering values for fracture after necking, or $\ln(1+\varepsilon)$ after necking (it only holds before).</li><li>Using the nominal diameter instead of the instantaneous one for true stress.</li><li>Putting the load in kgf into formulas that need newtons (or the reverse): Brinell and Vickers use kgf.</li><li>Dividing by $A_0$ in mm$^2$ and then treating the result as Pa: it is MPa.</li><li>Confusing resilience (elastic area, $\sigma_y^2/2E$) with toughness (whole area).</li><li>A statement that says "aluminium" with steel-like data: use the data of the statement and state the discrepancy.</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-6-electrical-properties" aria-labelledby="unit-6-electrical-properties-title">
+<h2 class="fs-unit-title" id="unit-6-electrical-properties-title">Unit 6 — Electrical properties</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-6-electrical-properties.html">Theory</a> · <a href="../problemas/topic-6-electrical-properties.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="ohm-s-law-conductivity-and-mobility">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Ohm's law, conductivity and mobility</span></h3>
+<div class="fs-eq">$$V = I\,R \qquad R = \frac{\rho\,l}{A} \qquad \rho = \frac{1}{\sigma} \qquad J = \sigma E \qquad v_d = \mu\,E$$</div>
+<div class="fs-eq">$$\mu = \frac{\tau\,\lvert q_e\rvert}{m_e} \qquad \sigma = n\,\lvert q_e\rvert\,\mu$$</div>
+<ul><li>$\sigma$ in $(\Omega\cdot\text{m})^{-1}$, $\rho$ in $\Omega\cdot\text{m}$, $\mu$ in m$^2$/(V$\cdot$s), $n$ in m$^{-3}$, $E$ in V/m [Session 13 Slides 10-13].</li><li>Classes by conductivity: insulators $10^{-20}$ to $10^{-10}$, semiconductors $10^{-6}$ to $10^{4}$, conductors about $10^{7}$ $(\Omega\cdot\text{m})^{-1}$.</li><li>Band gap: semiconductors $E_g &lt; 2$ eV (Si $1.1$, Ge $0.67$), insulators $E_g &gt; 2$ eV (diamond $6$ to $7$ eV). Conductors have a half-filled band or overlapping bands.</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="conductivity-from-the-drift-velocity">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Conductivity from the drift velocity</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> the charge crossing a unit area per second is $J = n\lvert q_e\rvert v_d$, and since $v_d = \mu E$ and $J = \sigma E$, the conductivity is $\sigma = n\lvert q_e\rvert\mu$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$a = \dfrac{q_eE}{m_e}$</div><div class="fs-why">Newton's second law for one electron in the field $E$</div></div><div class="fs-step"><div class="fs-step-math">$v_d = \dfrac{\tau\lvert q_e\rvert E}{m_e} = \mu E$</div><div class="fs-why">collisions with the ions (relaxation time $\tau$) stop the acceleration: constant drift velocity</div></div><div class="fs-step"><div class="fs-step-math">$J = n\lvert q_e\rvert v_d = n\lvert q_e\rvert\mu E$</div><div class="fs-why">charge per unit volume times velocity</div></div><div class="fs-step"><div class="fs-step-math">$J = \sigma E \Rightarrow \sigma = n\lvert q_e\rvert\mu$</div><div class="fs-why">microscopic form of Ohm's law</div></div><div class="fs-step"><div class="fs-step-math">$E = V/l$ and $J = I/A \Rightarrow R = \rho\,l/A$</div><div class="fs-why">link with the macroscopic Ohm's law (derived here)</div></div></div>
+</div></details>
+</article>
+<article class="fs-card fs-theorem" id="resistivity-of-metals-matthiessen-s-rule">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Resistivity of metals, Matthiessen's rule</span></h3>
+<div class="fs-eq">$$\rho_{total} = \rho_T + \rho_r \qquad \rho_r = \rho_i + \rho_d \qquad \rho_T = \rho_0\,(1 + \alpha_T\,\Delta T)$$</div>
+<ul><li>$\rho_T$ comes from the lattice vibrations and grows linearly with $T$; $\rho_r$ is the residual part from impurities ($\rho_i$) and deformation defects ($\rho_d$) and does <strong>not</strong> depend on temperature [Session 13 Slides 14-16].</li><li>$\rho_0$ is the resistivity <strong>at 0 $^\circ$C</strong> and $\Delta T$ is the temperature in $^\circ$C.</li><li><strong>Solve for a temperature:</strong> $T = \dfrac{\rho_T - \rho_0}{\rho_0\,\alpha_T}$; two metals with the same resistivity: $\rho_{0,1}(1 + \alpha_1T_1) = \rho_{0,2}(1 + \alpha_2T_2)$.</li><li>Example (Problem T6-01): $\rho_{Al,45} = 2.7\times10^{-6}(1 + 0.0039\times45) = 3.173\times10^{-6}\ \Omega\cdot\text{cm}$ and $T_{Ag} = (3.173 - 1.47)/(1.47\times0.0038) = 304.9\,^\circ$C with the rounded $3.173$ (the key gives $305\,^\circ$C).</li></ul>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Metal</th><th>$\rho_0$ ($\mu\Omega\cdot\text{cm}$)</th><th>$\alpha_T$ ($^\circ\text{C}^{-1}$)</th></tr></thead><tbody><tr><td>Aluminium</td><td>2.7</td><td>0.0039</td></tr><tr><td>Copper</td><td>1.6</td><td>0.0039</td></tr><tr><td>Gold</td><td>2.3</td><td>0.0034</td></tr><tr><td>Iron</td><td>9</td><td>0.0045</td></tr><tr><td>Silver</td><td>1.47</td><td>0.0038</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-pattern" id="effect-of-temperature-alloying-and-hardening-on-metals">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Effect of temperature, alloying and hardening on metals</span></h3>
+<ul><li>Heating: $\rho$ rises (more phonon scattering); cooling: $\rho$ falls toward the constant $\rho_r$.</li><li>Impurities, vacancies, dislocations and grain boundaries raise $\rho_r$ and lower $\sigma$.</li><li><strong>Every strengthening method lowers conductivity</strong> (the obstacles to dislocations also scatter electrons): cold work lowers it only slightly, solid solution (Zn in Cu) lowers it sharply, precipitates and fine grains in between [Session 13 Slides 18-19].</li><li>Lightest wire with the same strength and conductivity: choose the method that raises the strength most per loss of conductivity (cold work or precipitates, not solid solution).</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="intrinsic-semiconductors">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Intrinsic semiconductors</span></h3>
+<div class="fs-eq">$$\sigma = n_e\lvert q_e\rvert\mu_e + n_H\lvert q_e\rvert\mu_H = n_i\lvert q_e\rvert(\mu_e + \mu_H) \qquad n_i = \frac{\sigma}{\lvert q_e\rvert(\mu_e + \mu_H)}$$</div>
+<div class="fs-eq">$$\sigma = \sigma_0\exp\left(-\frac{E_g}{2kT}\right) \qquad \ln\sigma = \ln\sigma_0 - \frac{E_g}{2k}\cdot\frac1T$$</div>
+<ul><li>Electrons and holes come in pairs ($n_e = n_H = n_i$) and $\mu_e &gt; \mu_H$; both $n_i$ and $\sigma$ <strong>rise</strong> with $T$ (the mobility loss is masked) [Session 13 Slides 27-29].</li><li><strong>Ratio between two temperatures</strong> ($\sigma_0$ cancels): $\sigma_2 = \sigma_1\exp\left[\dfrac{E_g}{2k}\left(\dfrac{1}{T_1} - \dfrac{1}{T_2}\right)\right]$.</li><li><strong>Band gap from two measurements:</strong> $E_g = 2k\,\dfrac{\ln(\sigma_2/\sigma_1)}{1/T_1 - 1/T_2}$; on a plot of $\ln\sigma$ against $1/T$ the slope is $-E_g/2k$.</li><li>$k = 8.62\times10^{-5}$ eV/K with $E_g$ in eV: the eV cancels. $T$ in kelvin.</li><li>Example (Problem T6-07, Ge, $E_g = 0.67$ eV, $\sigma_{25} = 2.22$): $\sigma_{75} = 2.22\,e^{1.872} = 14.4\ (\Omega\cdot\text{m})^{-1}$.</li><li>Example (Problem T6-08, Si, $\sigma = 4\times10^{-4}$, $\mu_e = 0.14$, $\mu_H = 0.048$): $n_i = 1.33\times10^{16}\ \text{m}^{-3}$.</li></ul>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Property</th><th>Si</th><th>Ge</th></tr></thead><tbody><tr><td>$E_g$ (eV)</td><td>1.1</td><td>0.67</td></tr><tr><td>$\mu_e$ (m$^2$/(V$\cdot$s))</td><td>0.135</td><td>0.39</td></tr><tr><td>$\mu_H$ (m$^2$/(V$\cdot$s))</td><td>0.048</td><td>0.19</td></tr><tr><td>$n_i$ (m$^{-3}$)</td><td>$1.5\times10^{16}$</td><td>$2.4\times10^{19}$</td></tr><tr><td>$\rho$ ($\Omega\cdot$m)</td><td>2300</td><td>0.46</td></tr></tbody></table></div>
+<p>The slides print slightly different mobilities in two places (Si $0.14$ and $0.05$; Ge $0.38$ and $0.18$ on Slide 33): use the values given in the statement.</p>
+</article>
+<article class="fs-card fs-pattern" id="extrinsic-semiconductors-n-type-and-p-type">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Extrinsic semiconductors, n-type and p-type</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th></th><th>n-type</th><th>p-type</th></tr></thead><tbody><tr><td>Dopant</td><td>more valence electrons than the host: P, As, Sb (group VA) in Si and Ge</td><td>fewer valence electrons: B, Al, Ga, In (group IIIA)</td></tr><tr><td>Role</td><td>donor, level $E_d$ just under the conduction band</td><td>acceptor, level $E_a$ just above the valence band</td></tr><tr><td>Majority carriers</td><td>electrons, $\sigma \approx n_e\lvert q_e\rvert\mu_e$</td><td>holes, $\sigma \cong p\lvert q_e\rvert\mu_H$</td></tr><tr><td>Ionisation energy</td><td>$E_c - E_d$</td><td>$E_a - E_v$</td></tr><tr><td>Extrinsic range</td><td>$\sigma = \sigma_0\exp\left(-\dfrac{E_c - E_d}{2kT}\right)$</td><td>$\sigma = \sigma_0\exp\left(-\dfrac{E_a - E_v}{2kT}\right)$</td></tr></tbody></table></div>
+<ul><li>Type: compare the group of the dopant with the group of the host ($Z_{\text{P}} - Z_{\text{Si}} = 5 - 4 = +1$ means donor, n-type).</li><li>Doping distortion is negligible, so $\sigma$ is controlled by the <strong>number of carriers</strong>, and the majority carrier dominates: $\sigma \approx n_e\lvert q_e\rvert\mu_e$ (Problem T6-06: $n_e = 10^{23}\ \text{m}^{-3}$, $\mu_e = 0.14$ gives $\sigma = 2243\ (\Omega\cdot\text{m})^{-1}$).</li><li><strong>Dopant concentration:</strong> ppm times atoms per m$^3$ of host; for a host of density $\rho$ and atomic mass $M$, atoms per m$^3$ $= \rho N_A/M$ (extension).</li><li><strong>Comparing dopants:</strong> the smaller $E_d$ or $E_a$, the more carriers at a given $T$; concentrations are limited by the maximum solubility of the dopant.</li><li>Low $T$ (extrinsic range): carriers come from ionised dopants. High $T$: the intrinsic law takes over.</li></ul>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Dopant</th><th>Si $E_d$ (eV)</th><th>Si $E_a$ (eV)</th><th>Ge $E_d$ (eV)</th><th>Ge $E_a$ (eV)</th></tr></thead><tbody><tr><td>P</td><td>0.045</td><td></td><td>0.0120</td><td></td></tr><tr><td>As</td><td>0.049</td><td></td><td>0.0127</td><td></td></tr><tr><td>Sb</td><td>0.039</td><td></td><td>0.0096</td><td></td></tr><tr><td>B</td><td></td><td>0.045</td><td></td><td>0.0104</td></tr><tr><td>Al</td><td></td><td>0.057</td><td></td><td>0.0102</td></tr><tr><td>Ga</td><td></td><td>0.065</td><td></td><td>0.0108</td></tr><tr><td>In</td><td></td><td>0.160</td><td></td><td>0.0112</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-algorithm" id="ranking-semiconductors-by-conductivity">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Ranking semiconductors by conductivity</span></h3>
+<ol><li>Decide intrinsic or extrinsic (pure material or doped).</li><li><strong>Intrinsic:</strong> smaller $E_g$ gives larger $\sigma$ at the same $T$: InSb ($0.17$) &gt; Ge ($0.67$) &gt; Si ($1.11$) &gt; GaAs ($1.42$) &gt; AlP; $E_g$ grows and $\sigma$ falls as the bonding goes from covalent (group IV) to the III-V and II-VI compounds.</li><li><strong>Extrinsic:</strong> compare $E_d$ or $E_a$ (smaller is better) and the dopant concentration (more carriers, higher $\sigma$), within the solubility limit.</li><li>State the temperature range: the criterion holds in the extrinsic range; at high $T$ the intrinsic law dominates.</li><li>With numbers: $\sigma = n\lvert q_e\rvert\mu$ for each case and compare.</li></ol>
+</article>
+<article class="fs-card fs-pattern" id="dielectrics-capacitance-and-breakdown">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Dielectrics, capacitance and breakdown</span></h3>
+<div class="fs-eq">$$p = q\,d \qquad C = \varepsilon_r\,\varepsilon_0\,\frac{A}{d} = \varepsilon_r\,C_0 \qquad E_{break} = \frac{U_{break}}{d}$$</div>
+<ul><li>A <strong>dielectric</strong> is an insulator ($E_g$ large) that polarises under a field, aligning its dipoles; it raises the capacitance by $\varepsilon_r$ [Session 13 Slides 51-52].</li><li>An <strong>insulator</strong> should have: high $\rho$, high dielectric strength $E_{break}$, small loss factor $\tan\delta$ and low permittivity [Session 13 Slide 54].</li><li>The <strong>loss factor</strong> is the energy lost as heat when the dipoles cannot follow the alternating field; it grows with moisture, temperature and frequency.</li><li><strong>Ferroelectric</strong> materials have spontaneous polarisation, a hysteresis loop and a Curie temperature; <strong>piezoelectric</strong> materials convert strain into voltage and the reverse [Session 13 Slides 55-60].</li><li>Units: $\varepsilon_0 = 8.85\times10^{-12}$ F/m, $C$ in F, $E_{break}$ in V/m (or kV/mm).</li></ul>
+</article>
+<article class="fs-card fs-trap" id="mistakes-in-electrical-properties">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Mistakes in electrical properties</span></h3>
+<ul><li>Using $\rho_0$ of the table with a temperature in kelvin: the table is at 0 $^\circ$C and $\Delta T$ is in $^\circ$C.</li><li>Mixing $\mu\Omega\cdot$cm and $\Omega\cdot$m ($10^{-8}$) or conductivity against resistivity.</li><li>Putting $T$ in $^\circ$C in $\exp(-E_g/2kT)$; forgetting the factor $2$ in the exponent.</li><li>Using $E_g$ in joules with $k$ in eV/K (or the reverse): keep both in eV.</li><li>Adding the hole term in an extrinsic semiconductor (negligible) or forgetting it in an intrinsic one.</li><li>Calling a group IIIA dopant a donor (it is an acceptor) or a group VA dopant an acceptor.</li><li>Believing that heating always lowers $\sigma$: it does for a metal ($\mu$ falls) and raises it for a semiconductor ($n$ rises).</li></ul>
+</article>
+</div>
+</section>
+<section class="fs-unit" id="unit-7-magnetic-and-thermal-properties" aria-labelledby="unit-7-magnetic-and-thermal-properties-title">
+<h2 class="fs-unit-title" id="unit-7-magnetic-and-thermal-properties-title">Unit 7 — Magnetic and thermal properties</h2>
+<p class="fs-unit-links"><a href="../teoria/topic-7-magnetic-thermal.html">Theory</a> · <a href="../problemas/topic-7-magnetic-thermal.html">Problems</a></p>
+<div class="fs-grid">
+<article class="fs-card fs-theorem" id="magnetic-field-induction-and-permeability">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Magnetic field, induction and permeability</span></h3>
+<div class="fs-eq">$$B = \mu H \qquad B = \mu_0 H \ (\text{vacuum}) \qquad \mu_r = \frac{\mu}{\mu_0} \qquad B = \mu_0 H + \mu_0 M \qquad M = \chi_m H \qquad \mu_r = 1 + \chi_m$$</div>
+<ul><li>$\mu_0 = 1.257\times10^{-6}$ H/m. The magnetic moment of an electron is measured in the Bohr magneton, $\mu_B = 9.27\times10^{-24}\ \text{A}\cdot\text{m}^2$ [Session 15 Slides 3-4].</li><li>Moments of the transition metals in $\mu_B$: Sc 1, Ti 2, V 3, Cr 5, Mn 5, Fe 4, Co 3, Ni 2, Cu 0 (unpaired $3d$ electrons); metallic Fe $2.22$, Co $1.72$, Ni $0.60$, Gd $7.12$.</li></ul>
+</article>
+<article class="fs-card fs-pattern" id="types-of-magnetism">
+<h3 class="fs-card-title"><span class="fs-kind">Table</span> <span class="fs-name">Types of magnetism</span></h3>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th>Type</th><th>Dipoles</th><th>$\mu_r$ and $\chi_m$</th><th>Examples</th></tr></thead><tbody><tr><td>Diamagnetic</td><td>induced, opposite to $H$, not permanent</td><td>$\mu_r &lt; 1$, $\chi_m &lt; 0$ (about $-10^{-5}$)</td><td>Au, Ag, Cu, Si, Zn, Al$_2$O$_3$</td></tr><tr><td>Paramagnetic</td><td>permanent, random, aligned by $H$</td><td>$\mu_r &gt; 1$, $10^{-5} \le \chi_m &lt; 10^{-2}$</td><td>Al, Ti, Cr, Mo, Na, Zr</td></tr><tr><td>Ferromagnetic</td><td>permanent, parallel without a field</td><td>$\mu_r \gg 1$, $\chi_m$ up to $10^6$, $B \cong \mu_0 M$</td><td>Fe, Co, Ni, Gd</td></tr><tr><td>Antiferromagnetic</td><td>permanent, antiparallel and equal</td><td>no net moment</td><td>Cr, Mn, MnO</td></tr><tr><td>Ferrimagnetic</td><td>permanent, antiparallel and unequal</td><td>$\mu_r \gg 1$, $\chi_m$ about $10^5$ to $10^6$</td><td>ferrites, garnets, Fe$_3$O$_4$</td></tr></tbody></table></div>
+</article>
+<article class="fs-card fs-pattern" id="domains-magnetisation-curve-and-hysteresis">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Domains, magnetisation curve and hysteresis</span></h3>
+<ul><li>Domains are regions of aligned dipoles ($10$ to $100\ \mu$m) separated by <strong>Bloch walls</strong> (about $100$ nm). Magnetising means growth of favourable domains, then rotation, then saturation $M_s$ [Session 15 Slides 14-16].</li><li>$\mu_i$ is the initial slope and $\mu_{max}$ the largest $B/H$ (tangent from the origin).</li><li><strong>Hysteresis loop:</strong> $B_r$ remanence (the induction left at $H = 0$), $H_c$ coercivity (the reverse field that brings $B$ to zero), $B_s$ saturation. The loop area is the energy lost per cycle [Session 15 Slide 17].</li><li>Limit between soft and hard: $H_c = 10\,000$ A/m [Session 15 Slide 18].</li></ul>
+<div class="table-wrapper"><table class="fs-table"><thead><tr><th></th><th>Soft</th><th>Hard</th></tr></thead><tbody><tr><td>Bloch walls</td><td>easy to move</td><td>hard to move</td></tr><tr><td>Loop</td><td>narrow, high initial $\mu$, low $H_c$</td><td>wide, high $B_r$, $B_s$ and $H_c$, low $\mu_i$</td></tr><tr><td>Use</td><td>transformers, motors, alternating fields (low losses)</td><td>permanent magnets</td></tr></tbody></table></div>
+<ul><li><strong>Larger grains:</strong> walls move more easily, so $\mu$ rises and $H_c$, $B_r$ fall. <strong>More inclusions, dislocations, pores:</strong> walls are pinned, so $\mu$ falls and $H_c$, $B_r$ rise [Session 15 Slide 21].</li><li><strong>Temperature:</strong> the loop shrinks ($M_s$, $B_r$, $H_c$ fall); above the <strong>Curie temperature</strong> $T_c$ a ferromagnet becomes paramagnetic (Fe $1043$ K, Co $1404$, Ni $631$, Gd $289$); antiferromagnets have a Néel temperature (MnO $116$ K, Cr $310$, NiO $523$) [Session 15 Slides 22-24].</li><li><strong>Superconductors:</strong> zero resistivity below the critical temperature $T_c$, expulsion of the field (Meissner effect), limited by a critical field $H_c$ and a critical current density $J_c$ that fall as $T$ rises; Type I and Type II [Session 15 Slides 25-32].</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="heat-capacity-and-thermal-expansion">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Heat capacity and thermal expansion</span></h3>
+<div class="fs-eq">$$C = \frac{dQ}{dT} \qquad c_p = \frac{C}{\text{atomic weight}} \qquad C \approx 3R \ (T &gt; \theta_D) \qquad \frac{\Delta l}{l_0} = \alpha\,\Delta T \quad \Delta T = T_f - T_0$$</div>
+<ul><li>$C$ is per mole, J/(mol$\cdot$K); above the Debye temperature $\theta_D$ it is constant, $3R = 24.9$ J/(mol$\cdot$K) $\approx 6$ cal/(mol$\cdot$K) [Session 15 Slides 34-35]. Heat to warm a mass: $Q = m\,c_p\,\Delta T$ (extension).</li><li>$\alpha$ in $^\circ\text{C}^{-1}$ or K$^{-1}$; typical $10^{-6}$: Al $23.6$, Cu $17.0$, steel about $12$; Invar $1.6$ [Session 15 Slides 36-38]. High melting temperature, strong bond, low $\alpha$.</li><li>Final length $l_f = l_0\,(1 + \alpha\,\Delta T)$; extension: volume $\Delta V/V_0 \approx 3\alpha\Delta T$ for an isotropic solid.</li><li>A <strong>bimetal</strong> bends toward the metal with the smaller $\alpha$ when heated [Session 15 Slide 39].</li></ul>
+</article>
+<article class="fs-card fs-theorem" id="heat-conduction-and-wiedemann-franz">
+<h3 class="fs-card-title"><span class="fs-kind">Theorem</span> <span class="fs-name">Heat conduction and Wiedemann-Franz</span></h3>
+<div class="fs-eq">$$q = \frac{Q}{A} = -k\,\frac{\Delta T}{\Delta x} \qquad k = k_e + k_{ph} \qquad L = \frac{k}{\sigma\,T} = 2.44\times10^{-8}\ \frac{\text{W}\cdot\Omega}{\text{K}^2} \qquad k_e = L\,\sigma\,T$$</div>
+<ul><li>$q$ in W/m$^2$, $k$ in W/(m$\cdot$K); heat flows from hot to cold (minus sign). Same structure as Fick's first law [Session 15 Slide 40].</li><li>Metals: $k \approx k_e$ (free electrons). Insulators and ceramics: $k \approx k_{ph}$ (phonons).</li><li>Alloying, defects and porosity <strong>lower</strong> $k$ (they scatter electrons and phonons) [Session 15 Slide 43].</li><li>Use: good electrical conductors are good thermal conductors; $k_e = L\sigma T$ links Unit 6 and Unit 7 (with $T$ in kelvin).</li></ul>
+</article>
+<article class="fs-card fs-derivation" id="thermal-stress-in-a-constrained-body">
+<h3 class="fs-card-title"><span class="fs-kind">Derivation</span> <span class="fs-name">Thermal stress in a constrained body</span></h3>
+<details class="fs-deriv" open><summary><span class="fs-short">In short:</span> a body that cannot expand has zero total strain, so the elastic strain cancels the free thermal strain and the stress is $E\alpha(T_0 - T_f)$.</summary>
+<div class="fs-deriv-body">
+<div class="fs-steps"><div class="fs-step"><div class="fs-step-math">$\varepsilon_{total} = \dfrac{\sigma}{E} + \alpha\,(T_f - T_0) = 0$</div><div class="fs-why">elastic strain plus free thermal strain; the walls keep the length constant</div></div><div class="fs-step"><div class="fs-step-math">$\sigma = -E\,\alpha\,(T_f - T_0)$</div><div class="fs-why">solve for $\sigma$</div></div><div class="fs-step"><div class="fs-step-math">$\sigma = E\,\alpha\,(T_0 - T_f)$</div><div class="fs-why">the form of the slides, with $\Delta T = T_0 - T_f$ [Session 15 Slide 45]</div></div><div class="fs-step"><div class="fs-step-math">$T_f &gt; T_0$ (heating): $\sigma &lt; 0$, compression; $T_f &lt; T_0$ (cooling): $\sigma &gt; 0$, tension</div><div class="fs-why">signs of the slide</div></div><div class="fs-step"><div class="fs-step-math">$[E\alpha\Delta T] = \text{MPa}\cdot{}^\circ\text{C}^{-1}\cdot{}^\circ\text{C} = \text{MPa}$</div><div class="fs-why">dimensional check</div></div></div>
+<p>With a pre-existing load, add the stresses: $\sigma_2 = \sigma_F - E\alpha\Delta T$ for a stretched wire that is heated at constant length (Problem T5-05).</p>
+</div></details>
+</article>
+<article class="fs-card fs-pattern" id="thermal-shock">
+<h3 class="fs-card-title"><span class="fs-kind">Pattern</span> <span class="fs-name">Thermal shock</span></h3>
+<div class="fs-eq">$$TSR = \frac{\sigma_f\,k}{E\,\alpha_l}$$</div>
+<ul><li>Thermal shock resistance rises with a <strong>higher</strong> fracture stress $\sigma_f$ and conductivity $k$, and with a <strong>lower</strong> modulus $E$ and expansion $\alpha_l$ [Session 15 Slides 47-48].</li><li>Phase transformations with a dimensional change make the shock worse.</li><li>Unit: W/m (check, extension).</li></ul>
+</article>
+<article class="fs-card fs-algorithm" id="thermal-and-magnetic-problems">
+<h3 class="fs-card-title"><span class="fs-kind">Algorithm</span> <span class="fs-name">Thermal and magnetic problems</span></h3>
+<ol><li>Name the quantity: expansion (free), stress (constrained), heat flow (gradient), magnetic response (type, loop).</li><li>Free expansion: $\Delta l = \alpha\,l_0\,\Delta T$. Constrained: $\sigma = E\alpha\Delta T$ and check against $\sigma_y$.</li><li>Heat flow: $Q = qA = kA\,\lvert\Delta T\rvert/\Delta x$.</li><li>Hysteresis loops: read $B_r$, $H_c$ and the area; soft or hard by $H_c$ against $10\,000$ A/m; explain the effect of grain size, impurities and porosity on the Bloch walls (Problems T7-11, T7-12).</li><li>Check units: kelvin differences equal $^\circ$C differences, but absolute temperatures in $\sigma = L$ formulas must be kelvin.</li></ol>
+</article>
+<article class="fs-card fs-trap" id="mistakes-in-magnetic-and-thermal-properties">
+<h3 class="fs-card-title"><span class="fs-kind">Trap</span> <span class="fs-name">Mistakes in magnetic and thermal properties</span></h3>
+<ul><li>The sign of the thermal stress: heating a constrained body gives compression, cooling gives tension.</li><li>Using $\Delta T = T_f - T_0$ in the thermal-stress formula written as $E\alpha(T_0 - T_f)$ (double sign error).</li><li>Mixing $\mu_r$ and $\chi_m$ ($\mu_r = 1 + \chi_m$) or $B$ and $H$ (a vacuum has $B = \mu_0H$).</li><li>Taking a large grain size as harder to magnetise: it makes the walls move more easily (larger $\mu$, lower $H_c$).</li><li>Using $C \approx 3R$ below the Debye temperature.</li><li>Forgetting that alloying lowers thermal conductivity ($k$) as it lowers electrical conductivity.</li></ul>
+</article>
+</div>
+</section>
+<!-- FORMULA-SHEET:END -->
+
+    <section style="max-width: 920px; margin: 48px auto 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</p>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    (function () {
+      var KEY = 'ae_formula_mode';
+      var NOTES = {
+        deep: 'All derivations open, with the reason for each step.',
+        compact: 'Derivations folded to one line; open any of them with a click.'
+      };
+      function apply(mode) {
+        document.documentElement.setAttribute('data-fs-mode', mode);
+        document.querySelectorAll('.fs-deriv').forEach(function (d) { d.open = mode === 'deep'; });
+        document.querySelectorAll('[data-fs-set]').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-fs-set') === mode));
+        });
+        var note = document.getElementById('fsModeNote');
+        if (note) note.textContent = NOTES[mode];
+      }
+      var mode = 'deep';
+      try { if (localStorage.getItem(KEY) === 'compact') mode = 'compact'; } catch (e) {}
+      var asked = new URLSearchParams(location.search).get('mode');
+      if (asked === 'deep' || asked === 'compact') mode = asked;
+      apply(mode);
+      document.querySelectorAll('[data-fs-set]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var m = b.getAttribute('data-fs-set');
+          apply(m);
+          try { localStorage.setItem(KEY, m); } catch (e) {}
+        });
+      });
+      var print = document.getElementById('fsPrint');
+      if (print) print.addEventListener('click', function () { window.print(); });
+    })();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initAerospaceQuote) initAerospaceQuote('#quoteContainer');
+    });
+  </script>
+</body>
+</html>

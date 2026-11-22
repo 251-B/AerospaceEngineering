@@ -401,16 +401,24 @@
 
     // header
     var head = el('header', 'fl-head');
+    var brand = el('div', 'fl-head__brand');
+    if (window.AESite && typeof window.AESite.mark === 'function') {
+      var seal = el('span', 'fl-brand-seal');
+      seal.setAttribute('aria-hidden', 'true');
+      seal.appendChild(window.AESite.mark(24));
+      brand.appendChild(seal);
+    }
     var titles = el('div', 'fl-head__titles');
     titles.appendChild(el('p', 'fl-kicker', 'Neuro-Audio Focus Lab'));
     var title = el('h2', 'fl-title', 'Study frequencies');
     title.id = 'focusLabTitle';
     titles.appendChild(title);
+    brand.appendChild(titles);
     var close = el('button', 'fl-icon-btn');
     close.type = 'button';
     close.setAttribute('aria-label', 'Close Focus Lab');
     close.appendChild(svgIcon(ICONS.close, 18));
-    head.appendChild(titles);
+    head.appendChild(brand);
     head.appendChild(close);
 
     // transport

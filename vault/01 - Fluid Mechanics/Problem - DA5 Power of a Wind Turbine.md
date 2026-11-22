@@ -32,8 +32,8 @@ We want to investigate the performance of a wind turbine of given geometrical sh
 
 We have measured the variation with $n$ of the power delivered by a given turbine of diameter $D = 5$ m on a day when the wind was blowing at $U = 10$ m/s, given the results shown in the plot below.
 
-![[attachments/FM-T6/da5-statement.svg]]
-*Statement figure (redrawn from DA5.pdf): power W_1 delivered by the turbine of diameter D = 5 m against its angular velocity n_1 for a wind of U = 10 m/s; the dots are the values read in the official key (4, 5.5, 6.5, 7, 6 and 4.5 kW at 125 to 250 rpm), a reading of the plot*
+![[attachments/FM-T6/da5-statement.png]]
+*Power W_1 delivered by the turbine of diameter D = 5 m against its angular velocity n_1 for a wind of U = 10 m/s (plot of the sheet). Copied from DA5.pdf, p. 1.*
 
 Based on these results, address the following three questions:
 

@@ -37,8 +37,8 @@ tags_html:
 
 5. If all the inner walls are thermally isolated, determine the temperature increase in the liquid between two points situated far downstream and far upstream, $T_\infty - T_{-\infty}$. To that end, apply the energy equation in integral form to an appropriately defined control volume (**1 extra point**).
 
-![[attachments/FM-T7/vf17-statement.svg]]
-*Statement figure (redrawn from VF17.pdf): a channel between two walls at y = ±h moving with velocity U, with a thin plate of length L on the centre line from x = 0 to x = L; the liquid far upstream and downstream moves with U at the pressures and temperatures P_{−∞}, T_{−∞} and P_∞, T_∞; the sketched profiles are those found in the solution*
+![[attachments/FM-T7/vf17-statement.png]]
+*Statement figure: a channel between two walls at y = ±h moving with velocity U, with a thin plate of length L on the centre line from x = 0 to x = L; the liquid far upstream and downstream moves with U at the pressures and temperatures P_{−∞}, T_{−∞} and P_∞, T_∞; the figure also sketches the velocity profile over each side of the plate. Copied from VF17.pdf, p. 1.*
 
 Source: VF17.pdf (page 1, exam of June 27, 2013; statement only, no key). Notes.pdf, Chapter 7: Couette and Poiseuille flows, Eqs. 7.8-7.12; slender flows, Eqs. 7.40-7.46.
 

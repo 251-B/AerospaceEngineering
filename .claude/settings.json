@@ -4,11 +4,8 @@
   },
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": true,
-    "skill-creator@claude-plugins-official": true,
-    "bm@gsd-plugin": true,
-    "context-mode@context-mode": true,
     "claude-mem@thedotmack": true,
-    "humanizer@synced": true,
+    "humanizer@synced": false,
     "claude-code-setup@claude-plugins-official": true
   },
   "teammateMode": "in-process"

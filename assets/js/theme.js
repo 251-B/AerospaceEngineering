@@ -32,9 +32,12 @@
  * same reason): appends <script src="assets/js/focus-lab.js">, <script src="assets/js/pomodoro.js">,
  * <script src="assets/data/updates.js"> (reached as ../data/updates.js from this file),
  * <script src="assets/js/updates.js">, <script src="assets/data/nav.js"> and
- * <script src="assets/js/sidebar.js">, <script src="assets/js/problem-collapse.js"> and
- * <script src="assets/js/solution-close.js"> next to this file,
- * so the study-sound widget, the Pomodoro timer, the updates bell, the side menu and the "Close" bar
+ * <script src="assets/js/sidebar.js">, <script src="assets/js/problem-collapse.js">,
+ * <script src="assets/js/theory-reader.js">, <script src="assets/js/problem-reader.js"> (steps and answer view
+ * of worked problems), <script src="assets/js/subject-orbits.js"> (index pages as
+ * solar systems on desktop) and <script src="assets/js/solution-close.js"> next to this
+ * file (account.js right after pomodoro.js), so the study-sound widget, the Pomodoro timer, the updates
+ * bell, the side menu, the section rail of theory pages and the "Close" bar
  * at the end of worked solutions are on every page that loads theme.js. Skipped in the PDF print
  * mode (?print=...).
  */
@@ -44,7 +47,7 @@
   // ---- Site name: the one place to change it ------------------------------------------------
   // The browser tab reads SITE_NAME on the landing page and SITE_NAME + ' ' + short subject name
   // on every page under subjects/<slug>/. Elements marked data-site-name get the name as text.
-  var SITE_NAME = 'Delta V';
+  var SITE_NAME = 'Sideris';
   var SUBJECT_SHORT = {
     'fluid-mechanics': 'Fluids',
     'aerospace-materials-1': 'Materials',
@@ -368,7 +371,13 @@
     if (!self || !self.src || /[?&]print=/.test(location.search)) return;
     // Each data file comes before its script: updates.js reads window.AE_UPDATES and sidebar.js
     // window.AE_NAV when they run.
-    ['focus-lab.js', 'pomodoro.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'solution-close.js'].forEach(function (name) {
+    // Focus Lab and the study timer belong to the study pages: the landing page and the account
+    // pages (sign-in, sign-up, settings) do not load them.
+    var studyTools = !(document.documentElement.getAttribute('data-celestial-subject') === 'portal' ||
+      /\/account\/[^\/]*$/.test(location.pathname));
+    // account.js comes before the updates data: it leaves a filter for updates.js (the reader's subjects).
+    ['focus-lab.js', 'pomodoro.js', '../data/account-config.js', 'account.js', '../data/updates.js', 'updates.js', '../data/nav.js', 'sidebar.js', 'problem-collapse.js', 'theory-reader.js', 'problem-reader.js', 'subject-orbits.js', '../data/sideris-config.js', '../data/ai-models.js', 'ai-rag.js', 'ai-engine.js', 'ai-chat.js', 'solution-close.js'].forEach(function (name) {
+      if (!studyTools && (name === 'focus-lab.js' || name === 'pomodoro.js' || name === '../data/sideris-config.js' || name === '../data/ai-models.js' || name === 'ai-rag.js' || name === 'ai-engine.js' || name === 'ai-chat.js')) return;
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way
       script.src = self.src.replace(/theme\.js(\?.*)?$/, name);
@@ -376,18 +385,78 @@
     });
   })();
 
-  // Favicon for the pages that do not link one themselves (resolved next to this file).
+  // Favicon & app shortcut icon for pages that do not link them themselves.
   (function addFavicon() {
     var self = document.currentScript;
-    if (!self || !self.src || document.querySelector('link[rel~="icon"]')) return;
-    var link = document.createElement('link');
-    link.rel = 'icon';
-    link.type = 'image/svg+xml';
-    link.href = self.src.replace(/js\/theme\.js(\?.*)?$/, 'img/favicon.svg');
-    document.head.appendChild(link);
+    if (!self || !self.src) return;
+    if (!document.querySelector('link[rel~="icon"]')) {
+      var link = document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/svg+xml';
+      link.href = self.src.replace(/js\/theme\.js(\?.*)?$/, 'img/favicon.svg?v=20261117a');
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+      var apple = document.createElement('link');
+      apple.rel = 'apple-touch-icon';
+      apple.setAttribute('sizes', '180x180');
+      apple.href = self.src.replace(/js\/theme\.js(\?.*)?$/, 'img/apple-touch-icon.png?v=20261117a');
+      document.head.appendChild(apple);
+    }
   })();
 
-  window.AESite = { name: SITE_NAME, subjects: SUBJECT_SHORT, title: siteTitle };
+  // Transparent Sideris constellation + orbit emblem (shared by sidebar, Focus Lab and Study timer).
+  function createSiderisMark(size, className) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '96 96 832 832');
+    svg.setAttribute('width', String(size || 24));
+    svg.setAttribute('height', String(size || 24));
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    if (className) svg.setAttribute('class', className);
+
+    function node(tag, attrs) {
+      var el = document.createElementNS(ns, tag);
+      for (var k in attrs) el.setAttribute(k, attrs[k]);
+      return el;
+    }
+
+    ['M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24',
+     'M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21'].forEach(function (d) {
+      svg.appendChild(node('path', {
+        d: d, 'class': 'sideris-stroke', fill: 'none', 'stroke-width': '18',
+        'stroke-linecap': 'round', 'stroke-opacity': '0.94'
+      }));
+    });
+    svg.appendChild(node('polyline', {
+      points: '652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738',
+      'class': 'sideris-stroke', fill: 'none', 'stroke-width': '20',
+      'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+    }));
+    [[652, 286, 23], [512, 212, 26], [368, 290, 22], [392, 430, 25],
+     [632, 594, 24], [652, 736, 26], [510, 812, 24], [368, 738, 25]].forEach(function (c) {
+      svg.appendChild(node('circle', { cx: c[0], cy: c[1], r: c[2], 'class': 'sideris-fill' }));
+    });
+    svg.appendChild(node('path', {
+      d: 'M 512,454 Q 521.3,502.7 570,512 Q 521.3,521.3 512,570 Q 502.7,521.3 454,512 Q 502.7,502.7 512,454 Z',
+      'class': 'sideris-fill'
+    }));
+    [
+      'M 612,370 Q 613.5,390.5 634,392 Q 613.5,393.5 612,414 Q 610.5,393.5 590,392 Q 610.5,390.5 612,370 Z',
+      'M 410,616 Q 411.3,634.7 429,636 Q 411.3,637.3 410,656 Q 408.7,637.3 391,636 Q 408.7,634.7 410,616 Z',
+      'M 222,336 Q 223.8,358.2 246,360 Q 223.8,361.8 222,384 Q 220.2,361.8 198,360 Q 220.2,358.2 222,336 Z',
+      'M 800,600 Q 801.4,618.6 820,620 Q 801.4,621.4 800,640 Q 798.6,621.4 780,620 Q 798.6,618.6 800,600 Z'
+    ].forEach(function (d) {
+      svg.appendChild(node('path', { d: d, 'class': 'sideris-fill', 'fill-opacity': '0.94' }));
+    });
+    [[298, 176, 8], [734, 700, 8], [406, 864, 7.5], [158, 676, 7.5], [854, 240, 7.5]].forEach(function (c) {
+      svg.appendChild(node('circle', { cx: c[0], cy: c[1], r: c[2], 'class': 'sideris-fill', 'fill-opacity': '0.84' }));
+    });
+    return svg;
+  }
+
+  window.AESite = { name: SITE_NAME, subjects: SUBJECT_SHORT, title: siteTitle, mark: createSiderisMark };
   window.AETheme = { get: get, set: set, toggle: toggle, KEY: KEY };
   window.AESurface = {
     get: function () { return root.getAttribute('data-surface') || getSurface(); },

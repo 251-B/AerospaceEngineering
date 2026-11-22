@@ -11,7 +11,7 @@ concepts:
   - u5-modulus-from-poisson-contraction
   - u5-shear-modulus-relation
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Data from Session 11, Slides 7, 12 and 19."
+origen: "Includes official exam question (MATERIALS_SECONDPARTIAL_2019.pdf, Q8) and practice items in the style of Part I of Assessment Test II. Data from Session 11, Slides 7, 12 and 19."
 tags:
   - problem-bank
   - midterm-2
@@ -21,8 +21,8 @@ tags:
 
 # Bank B20 — Poisson's ratio, lateral contraction and the shear modulus
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 11, Slides 7, 12 and 19.
+> [!info] Includes official exam questions
+> Ten test questions in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong), combining an official exam question and bank practice items. Content: Session 11, Slides 7, 12 and 19.
 
 ## Q20.1 Definition of Poisson's ratio
 
@@ -175,51 +175,19 @@ Session 11, Slide 19: "all elastic longitudinal deformation" produces a "dimensi
 
 Session 11, Slide 19.
 
-## Q20.6 Poisson's ratio from a measurement
+## Q20.6 Lateral contraction of bars with different Poisson's ratios
 
 - id: B20-Q6
 - concept_id: u5-poisson-lateral-contraction
-- format: numeric
+- format: topic-true
 - asks: application
-- calc: (4.8e-3/10.00)/1.5e-3
 
-A bar of 10.00 mm diameter, at an axial strain of $1.5\times10^{-3}$, shows a diameter reduction of $4.8\times10^{-3}$ mm. Determine its Poisson's ratio:
+Referring to lateral contraction under elastic uniaxial tension, consider two isotropic bars of equal diameter and Young's modulus $E$ under the same tensile stress. Which statement is TRUE?
 
-a) $4.80\times10^{-4}$
-b) 0.160
-c) 0.320
-d) 3.13
-
-### Answer
-
-c
-
-### Explanation
-
-$\varepsilon_x = \Delta d/d_0 = -4.8\times10^{-3}/10.00 = -4.8\times10^{-4}$ and $\nu = -\varepsilon_x/\varepsilon_z = 4.8\times10^{-4}/1.5\times10^{-3} = 0.320$ (Session 11, Slide 19), inside the range of metals.
-
-- a) This is the transverse strain $\Delta d/d_0$; it was not divided by the axial strain.
-- b) The change of diameter was halved as if it were a change of radius, but it was still divided by the full diameter.
-- d) The ratio is inverted: axial strain over transverse strain, $1.5\times10^{-3}/4.8\times10^{-4}$.
-
-### Source
-
-Session 11, Slide 19.
-
-## Q20.7 Modulus of a hypothetical alloy from its contraction
-
-- id: B20-Q7
-- concept_id: u5-modulus-from-poisson-contraction
-- format: numeric
-- asks: calculation
-- calc: 15000/(pi*5**2)/((3.0e-3/10.0)/0.30)/1000
-
-Determine the modulus of elasticity of a hypothetical alloy if a 15.0 kN tensile force reduces the 10.0 mm diameter of a bar elastically by $3.0\times10^{-3}$ mm, with Poisson's ratio 0.30:
-
-a) 47.7 GPa
-b) 191 GPa
-c) 637 GPa
-d) 2120 GPa
+a) Neither bar contracts transversely unless the stress exceeds the yield strength
+b) The bar with the higher Poisson's ratio shows a larger diameter reduction
+c) Both bars show the exact same diameter reduction because their Young's modulus is equal
+d) The bar with the higher Poisson's ratio shows a smaller diameter reduction
 
 ### Answer
 
@@ -227,15 +195,47 @@ b
 
 ### Explanation
 
-$\varepsilon_x = 3.0\times10^{-3}/10.0 = 3.0\times10^{-4}$, $\varepsilon_z = \varepsilon_x/\nu = 1.0\times10^{-3}$ (Session 11, Slide 19); $\sigma = 15\,000/(\pi\cdot 5^2) = 191$ MPa; $E = \sigma/\varepsilon_z = 191\,000$ MPa $= 191$ GPa (Slide 12).
+Under the same axial tensile stress and equal $E$, both bars develop the same axial strain $\varepsilon_z = \sigma/E$ (Session 11, Slide 12). Since $\varepsilon_x = -\nu\,\varepsilon_z$ and $\Delta d = \varepsilon_x d_0$ (Slide 19), the bar with the larger Poisson's ratio $\nu$ experiences a greater lateral contraction.
 
-- a) The diameter was used as the radius in the area, which makes the stress four times too small.
-- c) Poisson's ratio was left out: the transverse strain $3.0\times10^{-4}$ was used as the axial strain.
-- d) The transverse strain was multiplied by $\nu$ instead of divided by it, giving $\varepsilon_z = 9\times10^{-5}$.
+- a) Transverse contraction occurs during all elastic longitudinal deformation, well below the yield strength (Slide 19).
+- c) Equal $E$ ensures equal axial strain $\varepsilon_z$, not equal transverse strain, because $\nu$ also governs lateral contraction.
+- d) Inverted dependence: $|\varepsilon_x| = \nu\varepsilon_z$ is directly proportional to $\nu$.
 
 ### Source
 
-Session 11, Slides 9, 12 and 19.
+Session 11, Slides 12 and 19.
+
+## Q20.7 Modulus of elasticity from Poisson's contraction
+
+- id: B20-Q7
+- concept_id: u5-modulus-from-poisson-contraction
+- format: numeric
+- asks: calculation
+- origin: official-exam
+- calc: 1122/(pi*4.0**2)/(2.5e-4/8.0/0.35)/1000
+
+Determine the modulus of elasticity of a hypothetical alloy if it has a diameter of 8.0 mm, a Poisson's ratio of 0.35, and a tensile force of 1122 N produces an elastic reduction in diameter of $2.5\times10^{-4}$ mm:
+
+a) 160 GPa
+b) 190 GPa
+c) 220 GPa
+d) 250 GPa
+
+### Answer
+
+d
+
+### Explanation
+
+The transverse strain is $\varepsilon_x = \Delta d/d_0 = -2.5\times10^{-4}/8.0 = -3.125\times10^{-5}$, so the axial strain is $\varepsilon_z = -\varepsilon_x/\nu = 3.125\times10^{-5}/0.35 = 8.929\times10^{-5}$ (Session 11, Slide 19). The axial stress is $\sigma = F/A_0 = 1122/(\pi\cdot 4.0^2) = 22.32$ MPa (Slide 9), giving $E = \sigma/\varepsilon_z = 22.32/(8.929\times10^{-5}) = 2.50\times10^5$ MPa $= 250$ GPa (Slide 12).
+
+- a) Overestimates the axial strain (for instance, using a larger $\varepsilon_z$ or smaller stress) and underestimates the stiffness.
+- b) Uses an incorrect cross-sectional area or rounded strain conversion, shifting the modulus down from 250 GPa.
+- c) Results from rounding intermediate values too coarsely or misreading $\nu$ in the denominator.
+
+### Source
+
+MATERIALS_SECONDPARTIAL_2019.pdf, p. 3, Question 8; Session 11, Slides 9, 12 and 19.
 
 ## Q20.8 Same contraction, different Poisson's ratio
 

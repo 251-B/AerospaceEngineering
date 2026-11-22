@@ -19,8 +19,17 @@ bytes: 233803
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems T9_Polymers.pdf`
 - **Kind:** problemas
 - **Size:** 233.8 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 10 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem - T9-01 Degree of Polymerization and Number of Chains of PMMA]]
+- [[02 - Aerospace Materials I/Problem - T9-02 Which Polymer Crystallizes More Easily]]
+- [[02 - Aerospace Materials I/Problem - T9-03 Rolling or Fast-Cooled Casting for Higher Strength]]
+- [[02 - Aerospace Materials I/Problem - T9-04 Which Polymer Has the Higher Melting Temperature]]
+- [[02 - Aerospace Materials I/Problem - T9-05 Log Modulus Against Temperature for an Amorphous Polymer]]
+- [[02 - Aerospace Materials I/Problem - T9-06 Degree of Crystallinity of Polypropylene from Its Density]]
+- [[02 - Aerospace Materials I/Problem - T9-07 Weight Average Polydispersity and Repeat Unit of a Polyalkene]]
+- [[02 - Aerospace Materials I/Problem - T9-08 Number and Weight Averages and Monomer of an Unknown Polymer]]
+- [[02 - Aerospace Materials I/Problem - T9-09 Densities of Crystalline and Amorphous Polypropylene]]

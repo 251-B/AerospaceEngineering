@@ -548,14 +548,22 @@
 
     // header
     var head = el('header', 'pm-head');
+    var brand = el('div', 'pm-head__brand');
+    if (window.AESite && typeof window.AESite.mark === 'function') {
+      var seal = el('span', 'pm-brand-seal');
+      seal.setAttribute('aria-hidden', 'true');
+      seal.appendChild(window.AESite.mark(24));
+      brand.appendChild(seal);
+    }
     var titles = el('div');
     titles.appendChild(el('p', 'pm-kicker', 'Pomodoro · session planner'));
     var title = el('h2', 'pm-title', 'Study timer');
     title.id = 'pomodoroTitle';
     titles.appendChild(title);
+    brand.appendChild(titles);
     var close = button('pm-icon-btn', '', 'Close study timer');
     close.appendChild(svgIcon(ICONS.close, 18));
-    head.appendChild(titles);
+    head.appendChild(brand);
     head.appendChild(close);
 
     // timer: ring + readout
@@ -793,6 +801,11 @@
     render();
     setInterval(tick, 250);
     document.addEventListener('visibilitychange', tick);
+
+    // A request left by the account calendar ("Study this"), once: plan that many minutes.
+    var pending = null;
+    try { pending = JSON.parse(sessionStorage.getItem('ae_pomodoro_pending') || 'null'); sessionStorage.removeItem('ae_pomodoro_pending'); } catch (e) { pending = null; }
+    if (pending && pending.minutes > 0) { startPlan(pending.minutes, 'standard'); openPanel(); }
   }
 
   function tick() {
@@ -815,6 +828,7 @@
 
   function openPanel() {
     if (window.AEFocusLab && typeof window.AEFocusLab.close === 'function') window.AEFocusLab.close();
+    if (window.AESideris && typeof window.AESideris.close === 'function') window.AESideris.close();
     ui.panel.hidden = false;
     ui.launcher.setAttribute('aria-expanded', 'true');
     ui.panel.scrollTop = 0;

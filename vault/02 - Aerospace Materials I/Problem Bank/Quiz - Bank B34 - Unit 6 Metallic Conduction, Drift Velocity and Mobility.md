@@ -8,10 +8,9 @@ unit: 6
 concepts:
   - u6-conductor-band-structure
   - u6-band-gap-classification
-  - u6-resistivity-measurement
+  - u6-resistance-geometry
   - u6-drift-velocity-mobility
   - u6-collisions-origin-resistivity
-  - u6-resistance-geometry
 difficulty: 2
 origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 13 Slides 6-13 and 31."
 tags:
@@ -86,51 +85,49 @@ Session 13, Slide 8: a semiconductor has a filled valence band separated from an
 
 Session 13, Slides 6 and 8.
 
-## Q34.3 Resistivity from a measured resistance
+## Q34.3 Resistance and resistivity of a wire
 
 - id: B34-Q3
-- concept_id: u6-resistivity-measurement
-- format: numeric
-- asks: calculation
-- calc: 0.064*pi*(0.5e-3)**2/1.5
+- concept_id: u6-resistance-geometry
+- format: topic-true
+- asks: definition
 
-A wire 1.5 m long and 1.0 mm in diameter has a measured resistance of 0.064 Ω. Determine the electrical resistivity of its material:
+Referring to the electrical resistance $R$, resistivity $\rho$ and conductivity $\sigma$ of a metallic wire, indicate which statement is TRUE:
 
-a) $3.35\times10^{-8}$ Ω·m
-b) $1.34\times10^{-7}$ Ω·m
-c) $3.35\times10^{-2}$ Ω·m
-d) $1.22\times10^{5}$ Ω·m
+a) Resistance $R$ is an intrinsic material property independent of length, while resistivity $\rho$ scales with $l/A$
+b) Doubling the cross-sectional area of a wire while keeping length and material constant doubles its resistance $R$
+c) Resistivity $\rho = 1/\sigma$ is an intrinsic material property, whereas resistance $R = \rho l/A$ also depends on geometry
+d) Resistance and resistivity share the same SI unit, the ohm ($\Omega$), because the geometric ratio $l/A$ is dimensionless
 
 ### Answer
 
-a
+c
 
 ### Explanation
 
-$R = \rho\,l/A$ (Topic 6 note, Section 4, from $J = \sigma E$ and Session 13, Slide 10), so $\rho = R\,A/l$ with $A = \pi (0.5\times10^{-3})^2 = 7.85\times10^{-7}$ m²: $\rho = 0.064 \cdot 7.85\times10^{-7}/1.5 = 3.35\times10^{-8}$ Ω·m.
+Session 13, Slides 10 and 13 (Topic 6 note, Section 4): $\rho = 1/\sigma$ depends only on the material (and temperature/defects), whereas $R = \rho\,l/A$ scales with wire length $l$ and inversely with cross-sectional area $A$.
 
-- b) The diameter was used as the radius: $A = \pi (1.0\times10^{-3})^2$ is four times too large, giving $1.34\times10^{-7}$ Ω·m.
-- c) The area was left in mm² ($0.785$ mm²) instead of m², so the result is $10^{6}$ times too large.
-- d) The formula was inverted, $\rho = R\,l/A = 0.064\cdot 1.5/7.85\times10^{-7} = 1.22\times10^{5}$.
+- a) Swaps resistance and resistivity: $R$ depends on specimen dimensions, while $\rho$ is the material property.
+- b) Inverts the area dependence in $R = \rho\,l/A$: a wider cross-section provides more area for current flow and halves $R$.
+- d) Confuses the units: $R$ is in $\Omega$, whereas $\rho = R A/l$ has units $\Omega\cdot\text{m}^2/\text{m} = \Omega\cdot\text{m}$.
 
 ### Source
 
 Session 13, Slides 10 and 13 ($I = V/R$, $\rho = 1/\sigma$); Topic 6 note, Section 4 ($R = \rho l/A$).
 
-## Q34.4 Drift velocity of electrons in silicon
+## Q34.4 Drift velocity when electric field doubles
 
 - id: B34-Q4
 - concept_id: u6-drift-velocity-mobility
-- format: numeric
-- asks: calculation
-- calc: 0.135*500
+- format: what-happens
+- asks: effect
 
-Determine the drift velocity of the conduction electrons of silicon ($\mu_e = 0.135$ m²/(V·s), $\mu_h = 0.048$ m²/(V·s)) under a field of 500 V/m:
+For a metallic wire carrying a steady current at constant temperature, what will happen to the electron drift velocity $v_d$ if the applied electric field $E$ is doubled:
 
-a) 24.0 m/s
-b) 67.5 m/s
-c) 91.5 m/s
-d) 3700 m/s
+a) It will be halved, as collisions double with the electric field
+b) It will double, because $v_d = \mu E$ and the mobility $\mu$ is independent of $E$
+c) It will stay constant, because the relaxation time $\tau$ decreases in proportion to $E$
+d) It will grow indefinitely with time, because the electrons accelerate without friction
 
 ### Answer
 
@@ -138,15 +135,15 @@ b
 
 ### Explanation
 
-Session 13, Slide 11: $v_d = \mu E$; for the electrons $v_d = 0.135 \cdot 500 = 67.5$ m/s (mobility of Si from the table of Slide 31).
+Session 13, Slide 11: $v_d = \mu E$ with $\mu = \tau|q_e|/m_e$. At fixed temperature the mean time between collisions $\tau$ and mobility $\mu$ depend on lattice scattering rather than $E$, so doubling $E$ doubles $v_d$.
 
-- a) The hole mobility was used: $0.048 \cdot 500 = 24.0$ m/s.
-- c) Electron and hole mobilities were added: $(0.135 + 0.048)\cdot 500 = 91.5$ m/s; the sum belongs in the conductivity, not in the speed of one carrier.
-- d) The field was divided by the mobility, $500/0.135 = 3.70\times10^{3}$ m/s, instead of multiplied.
+- a) Wrongly assumes the field increases scattering rate; $\tau$ is governed by lattice vibrations and defects, not $E$.
+- c) Inverts the free-electron model: $\tau$ is independent of the small drift electric field, so $\mu$ stays constant and $v_d$ scales linearly with $E$.
+- d) Ignores the friction forces due to electron-ion collisions that balance the electric acceleration and produce a steady drift velocity.
 
 ### Source
 
-Session 13, Slides 11 and 31.
+Session 13, Slide 11.
 
 ## Q34.5 Relaxation time
 

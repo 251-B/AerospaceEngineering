@@ -180,15 +180,15 @@ Session 7, Slide 24.
 
 - id: B06-Q6
 - concept_id: u4-homogenisation
-- format: true-statement
+- format: topic-true
 - asks: cause
 
-Which one of the following statements about the homogenisation of a cored alloy is TRUE:
+Regarding non-equilibrium solidification (coring) and homogenisation heat treatment, which statement is TRUE:
 
-a) It evens out the composition by solid-state diffusion
-b) It must be done above the equilibrium solidus
-c) It works by forming a eutectic between the grains
-d) It needs a higher cooling rate than the casting
+a) Homogenisation evens out the grain composition by solid-state diffusion below the solidus
+b) Homogenisation must be carried out above the equilibrium solidus to melt grain centres
+c) Coring disappears spontaneously at room temperature if the casting cools rapidly enough
+d) Homogenisation works by precipitating a second solid phase along the grain boundaries
 
 ### Answer
 
@@ -196,11 +196,11 @@ a
 
 ### Explanation
 
-Session 7, Slide 24: the treatment is done at $T_{TT}$ below the lowest temperature at which liquid could exist, and the solid-state diffusion of Topic 3 evens out the composition inside the grains.
+Session 7, Slide 24: microsegregation is eliminated by holding the casting at a temperature $T_{TT}$ below the lowest temperature at which liquid could exist (below the non-equilibrium solidus), allowing solid-state diffusion to even out the composition inside each grain.
 
-- b) Above the solidus (and in a cored casting even somewhat below it) liquid would form; the slide places the treatment below that temperature.
-- c) No new phase forms; the alloy stays a single solid solution that only changes its internal composition.
-- d) The cooling rate is not the mechanism; time at high temperature for diffusion is.
+- b) Heating above the solidus (or even above the non-equilibrium solidus) causes partial melting of the solute-rich grain edges instead of homogenising them.
+- c) Rapid cooling causes coring rather than removing it, and at room temperature solid-state diffusion is negligible.
+- d) Homogenisation keeps the alloy as a single solid solution and removes concentration gradients rather than forming a new phase.
 
 ### Source
 

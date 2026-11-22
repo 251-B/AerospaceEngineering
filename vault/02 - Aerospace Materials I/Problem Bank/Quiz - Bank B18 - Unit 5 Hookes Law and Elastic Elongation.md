@@ -56,36 +56,35 @@ $\sigma = F/A_0 = 10\,000/(\pi\cdot 5^2) = 127.3$ MPa (Session 11, Slide 9) and,
 
 Session 11, Slides 9 and 12.
 
-## Q18.2 Largest stress for an allowed elastic strain
+## Q18.2 Linear elastic design and Hooke's law
 
 - id: B18-Q2
 - concept_id: u5-hooke-law-calc
-- format: numeric
+- format: topic-false
 - asks: application
-- calc: 69000*0.0015
 
-An aluminium part ($E$ = 69 GPa) must work with an elastic strain of no more than 0.0015. Determine the largest allowed stress:
+Referring to Hooke's law ($\sigma = E\varepsilon$) in the linear elastic design of a structural alloy, which statement is FALSE?
 
-a) 0.104 MPa
-b) 104 MPa
-c) 311 MPa
-d) 1040 MPa
+a) Increasing the applied stress within the elastic limit increases the strain in the same proportion
+b) Below the proportional limit, the slope of the stress-strain curve equals Young's modulus $E$
+c) Doubling the cross-sectional area of a bar doubles the Young's modulus of the alloy
+d) Upon unloading from below the yield strength, the elastic strain returns to zero
 
 ### Answer
 
-b
+c
 
 ### Explanation
 
-Hooke's law (Session 11, Slide 12): $\sigma = E\varepsilon = 69\,000\ \text{MPa} \times 0.0015 = 103.5$ MPa $\approx 104$ MPa.
+Young's modulus $E$ is an intrinsic stiffness property of the material set by its atomic bond strength (Session 11, Slides 12-13); changing a bar's cross-sectional area alters the stress $\sigma = F/A_0$ and elongation, not $E$ itself.
 
-- a) The modulus was kept in GPa and the result read as MPa: $69 \times 0.0015 = 0.1035$, a factor of 1000 too small.
-- c) The modulus of steel (207 GPa) was used instead of that of aluminium (69 GPa, Slide 17).
-- d) The strain was read as 0.015, one decimal place off, which gives a stress ten times too large.
+- a) This is true: $\sigma = E\varepsilon$ means stress and strain are directly proportional in the linear elastic zone.
+- b) This is true: $E = \sigma/\varepsilon$ is the slope of the linear elastic segment of the stress-strain curve.
+- d) This is true: elastic deformation is reversible when the load is removed (Slide 12).
 
 ### Source
 
-Session 11, Slides 12 and 17.
+Session 11, Slides 10 and 12-13.
 
 ## Q18.3 Strain of steel and aluminium under the same stress
 
@@ -179,20 +178,19 @@ $\sigma = 12\,000/(\pi\cdot 5^2) = 152.8$ MPa; $\varepsilon = \sigma/E = 152.8/9
 
 Session 11, Slides 9, 12 and 17.
 
-## Q18.6 Diameter that limits the elongation
+## Q18.6 Effect of diameter on elastic elongation
 
 - id: B18-Q6
 - concept_id: u5-elastic-elongation-calc
-- format: numeric
+- format: cause-effect
 - asks: application
-- calc: 2*sqrt(20000/(207000*5.0/10000)/pi)
 
-A 10 m steel cable ($E$ = 207 GPa) carries 20 kN and may stretch at most 5.0 mm. Determine the minimum cable diameter:
+Referring to elastic elongation $\Delta l = F l_0/(E A_0)$ under a fixed tensile load, replacing a cylindrical rod with one of the same alloy and length but twice the diameter causes the elastic elongation to:
 
-a) 0.496 mm
-b) 7.84 mm
-c) 13.9 mm
-d) 15.7 mm
+a) remain unchanged, because the load and length are the same
+b) decrease to one half of its original value
+c) increase by a factor of four
+d) decrease to one quarter of its original value
 
 ### Answer
 
@@ -200,15 +198,15 @@ d
 
 ### Explanation
 
-$\varepsilon = 5.0/10\,000 = 5.0\times10^{-4}$, $\sigma = E\varepsilon = 207\,000 \times 5.0\times10^{-4} = 103.5$ MPa (Session 11, Slide 12), $A = F/\sigma = 20\,000/103.5 = 193.2$ mm² and $d = 2\sqrt{A/\pi} = 15.7$ mm.
+Combining $\sigma = F/A_0$ and $\Delta l = (\sigma/E)\,l_0$ (Session 11, Slides 9 and 12) gives $\Delta l = F l_0/(E\,\pi d_0^2/4)$. Doubling the diameter increases the cross-sectional area by a factor of $2^2 = 4$, reducing the stress and elastic elongation to one quarter.
 
-- a) The strain was computed with the length in metres and the elongation in millimetres, $5/10 = 0.5$, a strain 1000 times too large.
-- b) This is the radius of the required section; it was not doubled to give the diameter.
-- c) The section was taken as a square, $d = \sqrt{A} = \sqrt{193.2}$, instead of a circle of area $\pi d^2/4$.
+- a) Both the area and the stress change when the diameter changes, so the elongation changes even at constant load and length.
+- b) This treats cross-sectional area as proportional to $d_0$ instead of $d_0^2$.
+- c) Inverted trend: a thicker rod is stiffer in axial tension and stretches less, not more, under the same force.
 
 ### Source
 
-Session 11, Slides 9, 12 and 17.
+Session 11, Slides 9 and 12.
 
 ## Q18.7 Effect of the length on the elastic elongation
 
@@ -240,20 +238,19 @@ The stress $F/A_0$ and the material are unchanged, so $\varepsilon = \sigma/E$ i
 
 Session 11, Slides 9 and 12.
 
-## Q18.8 Engineering stress in a rectangular strip
+## Q18.8 Square versus circular cross-section under load
 
 - id: B18-Q8
 - concept_id: u5-stress-rectangular-section
-- format: numeric
-- asks: calculation
-- calc: 18000/(4.0*25)
+- format: topic-true
+- asks: comparison
 
-A strip of rectangular section, 4.0 mm by 25 mm, carries a tensile load of 18 kN. Determine the engineering stress:
+With respect to engineering stress $\sigma_n = F/A_0$, consider a square bar of side $a$ and a circular bar of diameter $d = a$ carrying the same axial tensile load $F$. Which statement is TRUE?
 
-a) 0.180 MPa
-b) 180 MPa
-c) 310 MPa
-d) 720 MPa
+a) Both bars experience the same engineering stress because $d = a$
+b) The circular bar experiences a higher stress because its area $\pi a^2/4$ is smaller
+c) The square bar experiences a higher stress because its area is smaller
+d) The circular bar experiences four times the stress of the square bar
 
 ### Answer
 
@@ -261,30 +258,29 @@ b
 
 ### Explanation
 
-$\sigma_n = F/A_0$ (Session 11, Slide 9) with $A_0 = 4.0 \times 25 = 100$ mm²: $\sigma_n = 18\,000/100 = 180$ MPa.
+The square section has area $A_{\text{sq}} = a^2$, while the circular section has area $A_{\text{circ}} = \pi a^2/4 \approx 0.785\,a^2 < a^2$. Since $\sigma_n = F/A_0$ (Session 11, Slide 9), the circular bar carries the same load over a smaller area and therefore experiences a higher engineering stress.
 
-- a) The load was kept in kN: $18/100 = 0.18$, a factor of 1000 too small.
-- c) The perimeter, $2(4 + 25) = 58$ mm, was used instead of the area of the section.
-- d) Only the width was used as the area, $18\,000/25$, ignoring the 4.0 mm thickness.
+- a) Equal width or diameter does not give equal cross-sectional area: a circle inscribed in a square has smaller area by a factor of $\pi/4$.
+- c) Inverted comparison: $a^2$ is larger than $\pi a^2/4$, so the square bar has the lower stress.
+- d) The factor $\pi$ was omitted from the circular area: comparing $a^2$ with $a^2/4$ omits $\pi$ in the denominator.
 
 ### Source
 
 Session 11, Slide 9.
 
-## Q18.9 Final length from the engineering strain
+## Q18.9 Properties of engineering strain
 
 - id: B18-Q9
 - concept_id: u5-engineering-strain-calc
-- format: numeric
-- asks: application
-- calc: 50*(1+0.0024)
+- format: topic-false
+- asks: comparison
 
-A 50.00 mm gauge length is stretched to an engineering strain of 0.24 %. Determine the length of the gauge under load:
+Regarding nominal (engineering) strain $\varepsilon_n = (l - l_0)/l_0$ in a uniform bar under uniaxial elastic tension, which statement is FALSE?
 
-a) 0.120 mm
-b) 12.0 mm
-c) 50.12 mm
-d) 62.0 mm
+a) It is a dimensionless ratio often reported as a fraction or percentage
+b) Within the linear elastic region it equals $\sigma_n/E$
+c) Doubling the initial gauge length $l_0$ under the same stress doubles the engineering strain
+d) Multiplying the strain by $l_0$ gives the elongation $\Delta l$
 
 ### Answer
 
@@ -292,15 +288,15 @@ c
 
 ### Explanation
 
-From $\varepsilon_n = (l - l_0)/l_0$ (Session 11, Slide 9): $l = l_0(1 + \varepsilon_n) = 50.00 \times (1 + 0.0024) = 50.12$ mm.
+Under a given axial stress $\sigma_n$, Hooke's law gives $\varepsilon_n = \sigma_n/E$ (Session 11, Slide 12), which depends only on the stress and the material, not on $l_0$. Doubling $l_0$ doubles the total elongation $\Delta l = \varepsilon_n l_0$, while $\varepsilon_n$ itself stays the same.
 
-- a) This is the elongation $\varepsilon\,l_0$, not the length under load: $l_0$ was not added.
-- b) The strain 0.24 % was used as the fraction 0.24, and only the elongation was computed.
-- d) The strain 0.24 % was used as the fraction 0.24: $50 \times 1.24 = 62$ mm.
+- a) This is true: $(l - l_0)/l_0$ divides length by length, so it has no physical dimensions (Slide 9).
+- b) This is true: $\sigma = E\varepsilon$ in the linear elastic zone (Slide 12).
+- d) This is true: rearranging $\varepsilon_n = \Delta l/l_0$ yields $\Delta l = \varepsilon_n l_0$.
 
 ### Source
 
-Session 11, Slide 9.
+Session 11, Slides 9 and 12.
 
 ## Q18.10 Bond strength, modulus and melting
 

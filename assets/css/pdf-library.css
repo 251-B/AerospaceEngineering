@@ -98,6 +98,12 @@ body.pdf-library {
 .lib-empty[hidden] { display: none; }
 .lib-note { margin: 30px auto 0; max-width: 980px; padding: 12px 16px; border: 1px solid var(--border-card); border-radius: var(--radius-md); background: var(--bg-card); color: var(--text-secondary); font-size: .93rem; }
 .pdf-library .site-footer { margin-top: 26px; padding: 16px 0 22px; text-align: center; color: var(--text-secondary); font-size: .9rem; border-top: 1px solid var(--border-subtle); }
+.pdf-library .site-footer .footer-inner { display: inline-flex; align-items: center; justify-content: center; gap: 9px; flex-wrap: wrap; }
+.lib-seal { flex: none; width: 20px; height: 20px; display: block; }
+.lib-seal .sideris-stroke { stroke: #E1C170; fill: none; }
+.lib-seal .sideris-fill { fill: #E1C170; stroke: none; }
+html[data-theme="light"] .lib-seal .sideris-stroke { stroke: #9a6e17; }
+html[data-theme="light"] .lib-seal .sideris-fill { fill: #9a6e17; }
 
 /* icons: the same 24 px grid and 1.8 stroke as the tab strip */
 .pdf-library {

@@ -3,11 +3,11 @@ subject: "Advanced Maths"
 tags:
   - source
   - schedule
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/04-advanced-maths/schedule/lecture_schedule_2026-27.txt"
 kind: schedule
-status: not-referenced
-bytes: 5562
+status: referenced
+bytes: 7534
 ---
 
 # Source: lecture_schedule_2026-27.txt
@@ -18,9 +18,9 @@ bytes: 5562
 
 - **Path:** `sources/cuatrimestre-1/04-advanced-maths/schedule/lecture_schedule_2026-27.txt`
 - **Kind:** schedule
-- **Size:** 5.6 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Size:** 7.5 kB
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[04 - Advanced Maths/Schedule - Advanced Maths 2026-27]]

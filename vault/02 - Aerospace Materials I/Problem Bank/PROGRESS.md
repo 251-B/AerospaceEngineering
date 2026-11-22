@@ -22,10 +22,11 @@ Working log of the build of the Midterm 2 bank, kept so that the work can be res
 - Units 6 and 7 audit: 24 questions rewritten for answer-form tells; 100 new questions (B53-B62); see section 8 of the rules note.
 - Simulator practice scopes: real paper, focus on Units 6 and 7, and one unit only (`modes` of the blueprint).
 
+- **Part II complete (2026-27 structure): 20 problems.** P01-P12 the long phase-diagram problem (3 points: binary diagrams with compounds, eutectic systems, Fe-Fe3C steels), P13-P20 the short Unit 5 problem (2 points: tensile test, bar under load). Every result recomputed by `verify_mt2.py`; all 20 audited by `problem-step-mentor` (21 defects found and fixed: P11 lamella colours, P12 hardness claim, P18 E/rho, P19 reloading marked extension, lever-rule and true-strain derivations, readings).
+
 ## Pending
 
-- Problems P01-P20 (four per type; specification in the analysis note, section 6). None written yet: the build runs with `--allow-partial` until they exist, and the simulator draws only the test.
-- Audit of a 10 % sample of the questions and of every problem (`problem-step-mentor`), then the ultrareview.
-- Full test suite with the browser harnesses on a machine where headless Chrome can reach the network.
+- Confirm the points of the two problems (3 + 2 is an assumption from the finals) and the duration (75 min assumed); update `exam-blueprint-midterm-2.json`.
+- Browser test harnesses (`mcq_simulator_harness.html`, `test_surface`) and `render_check.py` on a machine where headless Chrome works; here the pages were checked with Playwright (no KaTeX or console errors).
 
 **Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

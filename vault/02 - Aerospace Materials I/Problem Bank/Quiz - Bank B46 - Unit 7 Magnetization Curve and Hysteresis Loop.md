@@ -147,20 +147,19 @@ Slide 16: the maximum permeability $\mu_{max}$ is the slope of the line from the
 
 Session 15, Slides 16-17.
 
-## Q46.5 Induction of grain-oriented silicon iron
+## Q46.5 Initial and maximum permeability along the curve
 
 - id: B46-Q5
 - concept_id: u7-initial-max-permeability
-- format: numeric
-- asks: calculation
-- calc: 50000*1.257e-6*20
+- format: topic-true
+- asks: comparison
 
-Grain-oriented silicon iron has a maximum relative permeability of 50 000 (Slide 24). Determine the induction at $H = 20$ A/m, taking $\mu_r$ at that value ($\mu_0 = 1.257\times10^{-6}$ H/m):
+Regarding the initial permeability $\mu_i$ and the maximum permeability $\mu_{\max}$ of a ferromagnetic material, which one of the following statements is TRUE:
 
-a) $2.51\times10^{-5}$ T
-b) $3.14\times10^{-3}$ T
-c) $3.52\times10^{-2}$ T
-d) 1.26 T
+a) Both $\mu_i$ and $\mu_{\max}$ remain identical at every field strength $H$, because $B$ rises linearly up to saturation
+b) The maximum permeability $\mu_{\max}$ is the slope at the origin, whereas $\mu_i$ is measured once the loop saturates
+c) The initial permeability $\mu_i$ is larger than $\mu_{\max}$, because domain walls move fastest at zero field
+d) The permeability varies with $H$, with $\mu_i$ as the slope at the origin and $\mu_{\max}$ as the steepest secant slope $B/H$
 
 ### Answer
 
@@ -168,15 +167,15 @@ d
 
 ### Explanation
 
-$B = \mu_r\mu_0 H$ (Slide 4): $B = 50\,000\times1.257\times10^{-6}\times20 = 1.26$ T.
+Session 15, Slide 16: the permeability $\mu = B/H$ of a ferromagnet changes along the initial magnetization curve; $\mu_i$ is the initial slope at $H = 0$, and $\mu_{\max}$ is the slope of the line from the origin tangent to the curve (the maximum ratio $B/H$).
 
-- a) $\mu_r$ forgotten: $\mu_0 H = 2.51\times10^{-5}$ T is the induction in vacuum.
-- b) $H$ divided instead of multiplied: $50\,000\times1.257\times10^{-6}/20 = 3.14\times10^{-3}$ T.
-- c) The initial permeability of the same table, 1400, is used instead of the maximum one: $1400\times1.257\times10^{-6}\times20 = 3.52\times10^{-2}$ T.
+- a) Treats $B(H)$ as linear: in a ferromagnet the curve is S-shaped (slow start, rapid domain growth, then domain rotation to saturation).
+- b) Swaps the definitions and adds a false saturation slope: the slope at saturation approaches $\mu_0$, whereas $\mu_{\max}$ is at the tangent point from the origin.
+- c) Inverts the ordering: the initial slope $\mu_i$ is gentler than the tangent slope $\mu_{\max}$ reached during rapid domain growth.
 
 ### Source
 
-Session 15, Slides 4 and 24.
+Session 15, Slide 16.
 
 ## Q46.6 First stages of magnetization
 
@@ -270,20 +269,19 @@ Slide 17: $H_c$ is the reverse field needed to bring the induction to zero, a me
 
 Session 15, Slide 17.
 
-## Q46.9 Coercivity of Alnico-5 in A/m
+## Q46.9 Reducing the field from saturation to zero
 
 - id: B46-Q9
 - concept_id: u7-hysteresis-remanence-coercivity
-- format: numeric
-- asks: calculation
-- calc: 0.06/1.257e-6
+- format: what-happens
+- asks: effect
 
-The table of Slide 24 gives $\mu_0 H_c = 0.06$ T for Alnico-5. Determine its coercivity $H_c$ ($\mu_0 = 1.257\times10^{-6}$ H/m):
+A ferromagnetic material is magnetized to saturation and the applied field $H$ is then reduced back to zero. What happens to the magnetic induction $B$?
 
-a) $7.54\times10^{-8}$ A/m
-b) $4.77\times10^{-3}$ A/m
-c) $4.77\times10^{4}$ A/m
-d) $4.77\times10^{5}$ A/m
+a) It returns linearly along the initial curve to zero, because the domains instantly become random again
+b) It rises above the saturation induction $B_s$, because the removal of $H$ aligns the remaining domains
+c) It stays positive at the remanence $B_r$, because the domains do not return to their random arrangement
+d) It immediately reverses to $-B_r$, because the demagnetized state opposes the previous field
 
 ### Answer
 
@@ -291,15 +289,15 @@ c
 
 ### Explanation
 
-$H_c = 0.06/\mu_0 = 0.06/1.257\times10^{-6} = 4.77\times10^4$ A/m, above the 10 000 A/m limit of Slide 18, as expected for a permanent magnet.
+Session 15, Slide 17: as $H$ drops from saturation back to zero, the domains do not return to their original random arrangement, so a positive remanent induction $B_r$ remains at $H = 0$ (a reverse field $H_c$ is needed to bring $B$ back to zero).
 
-- a) Multiplied by $\mu_0$ instead of divided: $0.06\times1.257\times10^{-6} = 7.54\times10^{-8}$ A/m.
-- b) Divided by $4\pi$ only, forgetting the factor $10^{-7}$ of $\mu_0 = 4\pi\times10^{-7}$ H/m: $4.77\times10^{-3}$ A/m.
-- d) $\mu_0$ written as $1.257\times10^{-7}$ H/m (exponent slip): $4.77\times10^5$ A/m.
+- a) Describes reversible (non-hysteretic) behaviour; hysteresis arises precisely because the descending branch does not retrace the initial curve.
+- b) Inverted direction: reducing the aligning field lets some domain rotation relax, so $B_r \le B_s$, never above $B_s$.
+- d) Reversing the induction requires applying an opposite field past $-H_c$; at $H = 0$ the remanence keeps the same sign as saturation.
 
 ### Source
 
-Session 15, Slides 4, 18 and 24.
+Session 15, Slide 17.
 
 ## Q46.10 Two loops on the same axes
 

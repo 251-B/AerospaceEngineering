@@ -98,6 +98,63 @@
    },
    "figures": "bm_t3"
   },
+  "subjects/business-management/teoria/topic-3-investment.html": {
+   "note": "vault/05 - Business Management/Topic 3 (II) - Financial Management II - Accounting Indicators and Investment Decisions.md",
+   "html_title": "Topic 3 (II): Financial Management (II) — Accounting Indicators and Investment Decisions | Business Management",
+   "category": "Topic 03 (II) · Financial Management (II)",
+   "title": "Financial Management (II): Accounting Indicators and Investment Decisions",
+   "subtitle": "Return on assets and return on equity, their decomposition, financial leverage, the time value of money, payback, net present value, internal rate of return and the Fisher rate.",
+   "source": "Universidad Carlos III de Madrid · Topic 3_Financial Management (II).pdf (Prof. Carmen Paz-Aparicio), Slides 1-33",
+   "problems": {
+    "href": "../problemas/topic-3-npv-irr.html",
+    "label": "Solved exercises for this topic (investment selection, NPV and IRR, problems 1-9)"
+   },
+   "figures": "bm_t3ii"
+  },
+  "subjects/business-management/teoria/topic-4.html": {
+   "note": "vault/05 - Business Management/Topic 4 - The Production Function.md",
+   "html_title": "Topic 4: The Production Function | Business Management",
+   "category": "Topic 04 · The Production Function",
+   "title": "The Production Function",
+   "subtitle": "The production system and its objectives, rigid, flexible and Just in Time production, plant layouts, planning with Gantt charts, productivity, the break-even point, operating leverage and the margin of safety.",
+   "source": "Universidad Carlos III de Madrid · Topic 4_ The Production Function.pdf (Prof. Carmen Paz-Aparicio), Slides 1-43",
+   "problems": {
+    "href": "../problemas/topic-4-break-even-leverage.html",
+    "label": "Solved exercises for this topic (break-even point and operating leverage, exercises 1-8)"
+   },
+   "figures": "bm_t4"
+  },
+  "subjects/business-management/teoria/topic-5.html": {
+   "note": "vault/05 - Business Management/Topic 5 - Marketing and Sales Management.md",
+   "html_title": "Topic 5: Marketing and Sales Management | Business Management",
+   "category": "Topic 05 · Marketing and Sales",
+   "title": "Marketing and Sales Management",
+   "subtitle": "The role of marketing, strategic and operative marketing, segmentation and positioning, demand analysis and the price elasticity of demand, and the marketing mix: product, price, promotion and distribution.",
+   "source": "Universidad Carlos III de Madrid · Topic 5_ Marketing _ Sales Management (I+II).pdf (Prof. Carmen Paz-Aparicio), Slides 1-37; topic 5.2.2.pdf (Price Elasticity of Demand)",
+   "problems": {
+    "href": "../problemas/topic-5-price-elasticity.html",
+    "label": "Solved exercises for this topic (price elasticity of demand, exercises 1-6)"
+   },
+   "figures": "bm_t5"
+  },
+  "subjects/business-management/teoria/topic-6.html": {
+   "note": "vault/05 - Business Management/Topic 6 - The Management Function.md",
+   "html_title": "Topic 6: The Management Function | Business Management",
+   "category": "Topic 06 · The Management Function",
+   "title": "The Management Function",
+   "subtitle": "The four managerial functions, decisions and the decision-making process, management levels, skills and roles, planning, organizational structures and configurations, human resources management and control.",
+   "source": "Universidad Carlos III de Madrid · Topic 6_ The Management Function.pdf (Prof. Carmen Paz-Aparicio), Slides 1-25",
+   "figures": "bm_t6"
+  },
+  "subjects/business-management/teoria/topic-7.html": {
+   "note": "vault/05 - Business Management/Topic 7 - Entrepreneurship and Innovation.md",
+   "html_title": "Topic 7: Entrepreneurship and Innovation | Business Management",
+   "category": "Topic 07 · Entrepreneurship and Innovation",
+   "title": "Entrepreneurship and Innovation",
+   "subtitle": "Sources of innovation and collaborative networks, types of innovation, technology S-curves and diffusion, dominant designs, learning effects and network externalities.",
+   "source": "Universidad Carlos III de Madrid · Topic 7_Entrepreneurship  Innovation.pdf (Prof. Carmen Paz-Aparicio), Slides 1-19",
+   "figures": "bm_t7"
+  },
   "subjects/fluid-mechanics/teoria/topic-4.html": {
    "flavor": "fluids",
    "template": "subjects/fluid-mechanics/teoria/topic-3-2-mass.html",
@@ -181,6 +238,58 @@
     "href": "../problemas/topic-7-magnetic-thermal.html",
     "label": "2 solved problems for this topic (Problems T6andT7, problems 11-12, the magnetic part of the sheet)"
    }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 8 - Ceramic Materials.md",
+   "figures": "materials_t8",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 8: Ceramic Materials — Aerospace Materials I",
+   "category": "Topic 08 · Ceramic Materials",
+   "title": "Ceramic Materials",
+   "subtitle": "Ceramic bonding and crystal structures, brittle behaviour and Weibull statistics, silicates, glasses and glass-ceramics, and the processing route from powder to sintered part, with the Shuttle tiles and turbine coatings as applications.",
+   "source": "Universidad Carlos III de Madrid · Session 16 T8 Ceramic materials.pdf, Session 18 T8 Processing of ceramic materials.pdf",
+   "problems": {
+    "href": "../problemas/topic-8-ceramics.html",
+    "label": "7 solved problems for this topic (Problems T8_CeramicMaterials)"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-9-polymers.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 9 - Polymers.md",
+   "figures": "materials_t9",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 9: Polymers — Aerospace Materials I",
+   "category": "Topic 09 · Polymers",
+   "title": "Polymers",
+   "subtitle": "Polymer structure (molecular weight, tacticity, copolymers, crystallinity), the glass transition and melting, stress-strain and viscoelastic behaviour, and the classification and processing of thermoplastics, thermosets and elastomers.",
+   "source": "Universidad Carlos III de Madrid · Session 19 T9 Polymers.pdf, Session 20 T9 Classification and Polymer Processing.pdf",
+   "problems": {
+    "href": "../problemas/topic-9-polymers.html",
+    "label": "9 solved problems for this topic (Problems T9_Polymers)"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-10-composites.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 10 - Composite Materials.md",
+   "figures": "materials_t10",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 10: Composite Materials — Aerospace Materials I",
+   "category": "Topic 10 · Composite Materials",
+   "title": "Composite Materials",
+   "subtitle": "Matrices, reinforcements and interfaces, particle, fibre and structural composites, the rule of mixtures (isostrain and isostress), polymer matrices and the processing of polymer, metal and ceramic matrix composites.",
+   "source": "Universidad Carlos III de Madrid · Session 21 T10 Composites I.pdf, Session 22 T10 Composites II.pdf, Session 23 T10 Composites III.pdf",
+   "problems": {
+    "href": "../problemas/topic-10-composites.html",
+    "label": "12 solved problems for this topic (Problems T10_CompositeMaterials)"
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
+   "note": "vault/02 - Aerospace Materials I/Topic 11 - Adhesives.md",
+   "figures": "materials_t11",
+   "template": "subjects/aerospace-materials-1/teoria/topic-6-electrical-properties.html",
+   "html_title": "Topic 11: Adhesives — Aerospace Materials I",
+   "category": "Topic 11 · Adhesives",
+   "title": "Adhesives",
+   "subtitle": "How adhesion works, the main adhesive families, how to design and prepare a bonded joint, how it is tested, and how adhesive joints fail and degrade.",
+   "source": "Universidad Carlos III de Madrid · Session 24 T11 Adhesives.pdf"
   },
   "subjects/fluid-mechanics/teoria/topic-6.html": {
    "flavor": "fluids",
@@ -318,6 +427,56 @@
     [
      "index.html",
      "Mechanics Applied Index",
+     "next"
+    ]
+   ]
+  },
+  "subjects/advanced-maths/teoria/topic-5.html": {
+   "flavor": "maths",
+   "template": "subjects/advanced-maths/teoria/topic-4.html",
+   "note": "vault/04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane.md",
+   "figures": "am_t5",
+   "html_title": "Topic 5: Coupled Nonlinear Systems and the Phase Plane — Advanced Mathematics | UC3M",
+   "brand": "Advanced Maths • Topic 5",
+   "category": "Topic 5 • Theory",
+   "title": "Coupled Nonlinear Systems and the Phase Plane",
+   "subtitle": "Autonomous nonlinear planar systems: population models and Newtonian dynamics, planar stability definitions, the p-q diagram, the four-step linearisation method, Poincaré / Hartman-Grobman, the undamped and damped pendulums, the double-well oscillator and worked competition systems.",
+   "source": "Class notes Notes03-05-Nov_v2.pdf (pp. 1-17) and Solved_exer_nonlinear_system.pdf (pp. 1-5) • Robinson (2004), Ch. 31-35 • Sheet 5 (probls_ch5_2627.pdf)",
+   "footer_ref": "Primary source: lecturer's handwritten notes (Nov 3-9, Notes03-05-Nov_v2.pdf & Solved_exer_nonlinear_system.pdf). Reference text: J. C. Robinson, An Introduction to Ordinary Differential Equations (2004), Ch. 31-35.",
+   "nav": [
+    [
+     "topic-4.html",
+     "Topic 4: Systems of First-Order ODEs and the Phase Plane",
+     "prev"
+    ],
+    [
+     "topic-6.html",
+     "Topic 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series",
+     "next"
+    ]
+   ]
+  },
+  "subjects/advanced-maths/teoria/topic-6.html": {
+   "flavor": "maths",
+   "template": "subjects/advanced-maths/teoria/topic-4.html",
+   "note": "vault/04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series.md",
+   "figures": "am_t6",
+   "html_title": "Topic 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series — Advanced Mathematics | UC3M",
+   "brand": "Advanced Maths • Topic 6",
+   "category": "Topic 6 • Theory",
+   "title": "The Heat Equation, Sturm-Liouville Problems and Fourier Series",
+   "subtitle": "The 1D heat equation with zero Dirichlet boundary conditions, separation of variables, eigenvalue analysis across all three sign cases, superposition, Fourier series and periodic extensions, orthogonality and coefficient formulas, worked examples, symmetry, convergence, term-by-term differentiation, and Sturm-Liouville extensions for Sheet 6.",
+   "source": "Class notes Notes09-12-Nov.pdf (pp. 1-14) • Haberman, Elementary Applied Partial Differential Equations (BookPDE's.pdf, Ch. 1-3, 5) • Sheet 6 (probls_ch6_2627.pdf)",
+   "footer_ref": "Primary source: lecturer's handwritten notes (Nov 10-12, Notes09-12-Nov.pdf). Reference text: R. Haberman, Elementary Applied Partial Differential Equations (BookPDE's.pdf), Sec. 1.1-1.2, 2.1-2.4, 3.1-3.4, 5.3, 5.6, 5.8.",
+   "nav": [
+    [
+     "topic-5.html",
+     "Topic 5: Coupled Nonlinear Systems and the Phase Plane",
+     "prev"
+    ],
+    [
+     "index.html",
+     "Theory index",
      "next"
     ]
    ]

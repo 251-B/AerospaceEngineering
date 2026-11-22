@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>tour harness</title>
+<!-- Driven by test_tour.py through headless Edge/Chrome (--dump-dom). Loads assets/js/tour.js
+     on a page with stand-ins for the portal widgets the tour points at. -->
+<link rel="stylesheet" href="../../assets/css/tour.css">
+</head>
+<body>
+<header><button id="sidebarButton">Menu</button><div id="surfacePicker">Palettes</div></header>
+<main><p>Page</p></main>
+<pre id="results">PENDING</pre>
+<script src="../../assets/js/tour.js"></script>
+<script>
+(function () {
+  var results = [];
+  var T = window.AETour;
+  var navigated = [];
+  function record(name, ok, detail) { results.push({ name: name, pass: !!ok, detail: ok ? '' : String(detail) }); }
+  function run(name, fn) { try { fn(); } catch (e) { record(name, false, 'threw ' + (e && e.stack || e)); } }
+  function card() { return document.querySelector('.tour-card'); }
+  function key(k, opts) { var e = new KeyboardEvent('keydown', Object.assign({ key: k, bubbles: true, cancelable: true }, opts || {})); (document.activeElement || document.body).dispatchEvent(e); }
+  T.configure({ navigate: function (url) { navigated.push(url); }, base: '../../' });
+  try { localStorage.removeItem('ae_tour'); } catch (e) { /* blocked */ }
+
+  run('twelve_steps', function () {
+    record('twelve_steps', T.STEPS.length === 12 && T.STEPS.every(function (s) { return s.title && s.text; }), T.STEPS.length);
+  });
+  run('start_on_current_page_step', function () {
+    T.start(3);
+    var c = card();
+    record('start_on_current_page_step', c && c.getAttribute('role') === 'dialog' && c.getAttribute('aria-modal') === 'true' && /4 \/ 12/.test(c.querySelector('.tour-count').textContent) && document.querySelector('.tour-spot'),
+      c && c.outerHTML.slice(0, 200));
+  });
+  run('next_back_counter', function () {
+    card().querySelector('[data-tour="next"]').click();
+    var a = card().querySelector('.tour-count').textContent;
+    card().querySelector('[data-tour="back"]').click();
+    var b = card().querySelector('.tour-count').textContent;
+    record('next_back_counter', a === '5 / 12' && b === '4 / 12', a + ' ' + b);
+  });
+  run('next_to_other_page_navigates', function () {
+    T.start(4);
+    card().querySelector('[data-tour="next"]').click();
+    var last = navigated[navigated.length - 1] || '';
+    record('next_to_other_page_navigates', /subjects\/engineering-mechanics\/teoria\/topic-6\.html\?tour=5$/.test(last), last);
+  });
+  run('missing_target_centres_card', function () {
+    T.start(8);
+    var c = card();
+    record('missing_target_centres_card', c && c.classList.contains('tour-card--center') && !document.querySelector('.tour-spot:not([hidden])'), c && c.className);
+  });
+  run('focus_trapped', function () {
+    T.start(3);
+    var btns = card().querySelectorAll('button');
+    btns[btns.length - 1].focus();
+    key('Tab');
+    var first = document.activeElement === btns[0];
+    btns[0].focus();
+    key('Tab', { shiftKey: true });
+    var last = document.activeElement === btns[btns.length - 1];
+    record('focus_trapped', first && last, document.activeElement && document.activeElement.textContent);
+  });
+  run('arrows_move', function () {
+    T.start(3);
+    key('ArrowRight');
+    var a = card().querySelector('.tour-count').textContent;
+    key('ArrowLeft');
+    var b = card().querySelector('.tour-count').textContent;
+    record('arrows_move', a === '5 / 12' && b === '4 / 12', a + ' ' + b);
+  });
+  run('esc_skips', function () {
+    T.start(3);
+    key('Escape');
+    var st = T.state();
+    record('esc_skips', !card() && st.done === true, JSON.stringify(st));
+  });
+  run('skip_sets_done_and_stores', function () {
+    try { localStorage.removeItem('ae_tour'); } catch (e) { /* blocked */ }
+    T.start(4);
+    card().querySelector('[data-tour="skip"]').click();
+    var stored = JSON.parse(localStorage.getItem('ae_tour'));
+    record('skip_sets_done_and_stores', !card() && stored && stored.done === true && stored.at > 0, JSON.stringify(stored));
+  });
+  run('finish_on_last_step', function () {
+    try { localStorage.removeItem('ae_tour'); } catch (e) { /* blocked */ }
+    T.start(10);
+    card().querySelector('[data-tour="next"]').click();
+    var nav = navigated[navigated.length - 1] || '';
+    record('finish_on_last_step', /account\/settings\.html\?tour=11$/.test(nav), nav);
+  });
+
+  document.getElementById('results').textContent = JSON.stringify(results);
+})();
+</script>
+</body>
+</html>

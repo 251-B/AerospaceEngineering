@@ -111,7 +111,7 @@ def _mirror(root: pathlib.Path, katex: pathlib.Path, tmp: pathlib.Path) -> pathl
 
 def print_pdf(browser: str, url: str, out: pathlib.Path, budget_ms: int = 25000) -> bool:
     out.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory() as profile:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as profile:  # Edge may still hold its lock file
         proc = subprocess.run(
             [browser, "--headless=new", "--disable-gpu", "--no-first-run", f"--user-data-dir={profile}",
              "--allow-file-access-from-files", "--run-all-compositor-stages-before-draw",

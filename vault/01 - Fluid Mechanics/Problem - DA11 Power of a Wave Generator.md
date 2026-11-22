@@ -27,8 +27,8 @@ tags_html:
 
 **PROBLEM 3 (45 minutes)** The figure below illustrates a simple mechanism to generate periodic gravity waves in a pool of liquid (density $\rho$ and viscosity $\mu$), with undisturbed height $H$. The waves are driven by the harmonic motion of the lateral confining wall perpendicular to itself, with amplitude $A$ and frequency $\omega$.
 
-![[attachments/FM-T6/da11-statement.svg]]
-*Statement figure (redrawn from DA11.pdf): above, the pool of liquid (ρ, μ) of undisturbed depth H; below, the lateral wall moved harmonically, x = A cos(2πωt), by the power Ẇ, generating gravity waves*
+![[attachments/FM-T6/da11-statement.png]]
+*Above, the pool of liquid (ρ, μ) of undisturbed depth H; below, the lateral wall moved harmonically, x = A cos(2πωt), by the power Ẇ, generating gravity waves. Copied from DA11.pdf, p. 1.*
 
 1. (*4 points*). Use dimensional analysis to simplify the dependence of the power needed to drive the generator, $\dot{W}$, as a function of the governing parameters $(\rho, \mu, A, \omega, H, g)$.
 

@@ -277,6 +277,11 @@
    "label": "Topic 3 Financial Management (I).pdf",
    "pages": 37
   },
+  "bm-t3ii": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/teoria/Topic 3_Financial Management (II).pdf",
+   "label": "Topic 3 Financial Management (II).pdf",
+   "pages": 33
+  },
   "bm-t3ex": {
    "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Financial Statements_EXERCISES.pdf",
    "label": "T3_Financial Statements_EXERCISES.pdf",
@@ -296,6 +301,61 @@
    "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/T3_Additional_SOLUTIONS.pdf",
    "label": "T3_Additional_SOLUTIONS.pdf",
    "pages": 25
+  },
+  "bm-t4": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic 4_ The Production Function.pdf",
+   "label": "Topic 4 The Production Function.pdf",
+   "pages": 43
+  },
+  "bm-t4ex": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP  OL Statements.pdf",
+   "label": "BEP  OL Statements.pdf",
+   "pages": 2
+  },
+  "bm-t4sol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP  OL Statements  Solutions.pdf",
+   "label": "BEP  OL Statements  Solutions.pdf",
+   "pages": 7
+  },
+  "bm-t5": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic 5_ Marketing _ Sales Management (I+II).pdf",
+   "label": "Topic 5 Marketing & Sales Management.pdf",
+   "pages": 37
+  },
+  "bm-t5ped": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/topic 5.2.2.pdf",
+   "label": "topic 5.2.2.pdf (price elasticity)",
+   "pages": 5
+  },
+  "bm-npv": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV IRR.pdf",
+   "label": "3_II_NPV IRR.pdf",
+   "pages": 2
+  },
+  "bm-npvsol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-03-financial-management-statements/problemas/3_II_NPV_NPV IRR_solutions.pdf",
+   "label": "3_II_NPV_NPV IRR_solutions.pdf",
+   "pages": 6
+  },
+  "bm-t6": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic 6_ The Management Function.pdf",
+   "label": "Topic 6 The Management Function.pdf",
+   "pages": 25
+  },
+  "bm-t7": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic 7_Entrepreneurship  Innovation.pdf",
+   "label": "Topic 7 Entrepreneurship & Innovation.pdf",
+   "pages": 19
+  },
+  "bm-t5ex": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity exercises STATEMENTS.pdf",
+   "label": "Elasticity exercises STATEMENTS.pdf",
+   "pages": 2
+  },
+  "bm-t5sol": {
+   "path": "sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/PED Exercises SOL.pdf",
+   "label": "PED Exercises SOL.pdf",
+   "pages": 4
   },
   "fm-cl1": {
    "path": "sources/cuatrimestre-1/01-fluid-mechanics/unit-03-conservation-laws/problemas/CL1.pdf",
@@ -771,6 +831,93 @@
    "path": "sources/cuatrimestre-1/03-engineering-mechanics/unit-07-dynamics-rigid-bodies/slides/10-rigid-body-dynamics.pdf",
    "label": "10 Rigid body dynamics.pdf",
    "pages": 20
+  },
+  "mat-s16": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session 16 T8 Ceramic materials.pdf",
+   "label": "Session 16 T8 Ceramic materials.pdf",
+   "pages": 32
+  },
+  "mat-s18": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session 18 T8 Processing of ceramic materials.pdf",
+   "label": "Session 18 T8 Processing of ceramic materials.pdf",
+   "pages": 43
+  },
+  "mat-t8": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/problemas/Problems T8_CeramicMaterials.pdf",
+   "label": "Problems T8_CeramicMaterials.pdf",
+   "pages": 3
+  },
+  "mat-s19": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session 19 T9 Polymers.pdf",
+   "label": "Session 19 T9 Polymers.pdf",
+   "pages": 50
+  },
+  "mat-s20": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/teoria/Session 20 T9 Classification and Polymer Processing.pdf",
+   "label": "Session 20 T9 Classification and Polymer Processing.pdf",
+   "pages": 38
+  },
+  "mat-t9": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-09-polymers/problemas/Problems T9_Polymers.pdf",
+   "label": "Problems T9_Polymers.pdf",
+   "pages": 2
+  },
+  "mat-s21": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 21 T10 Composites I.pdf",
+   "label": "Session 21 T10 Composites I.pdf",
+   "pages": 43
+  },
+  "mat-s22": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 22 T10 Composites II.pdf",
+   "label": "Session 22 T10 Composites II.pdf",
+   "pages": 29
+  },
+  "mat-s23": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/teoria/Session 23 T10 Composites III.pdf",
+   "label": "Session 23 T10 Composites III.pdf",
+   "pages": 65
+  },
+  "mat-t10": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-10-composite-materials/problemas/Problems T10_CompositeMaterials.pdf",
+   "label": "Problems T10_CompositeMaterials.pdf",
+   "pages": 4
+  },
+  "mat-s24": {
+   "path": "sources/cuatrimestre-1/02-aerospace-materials-1/unit-11-adhesives/teoria/Session 24 T11 Adhesives.pdf",
+   "label": "Session 24 T11 Adhesives.pdf",
+   "pages": 38
+  },
+  "am-notes5": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/teoria/Notes03-05-Nov_v2.pdf",
+   "label": "Notes03-05-Nov_v2.pdf",
+   "pages": 18
+  },
+  "am-ex52": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/Solved_exer_nonlinear_system.pdf",
+   "label": "Solved_exer_nonlinear_system.pdf",
+   "pages": 6
+  },
+  "am-notes6": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf",
+   "label": "Notes09-12-Nov.pdf",
+   "pages": 14
+  },
+  "am-haberman": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE's.pdf",
+   "label": "Haberman (BookPDE's.pdf)",
+   "pages": 545,
+   "offset": 11,
+   "body_start": 12
+  },
+  "am-p5": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-04-systems-of-odes/problemas/probls_ch5_2627.pdf",
+   "label": "probls_ch5_2627.pdf",
+   "pages": 3
+  },
+  "am-p6": {
+   "path": "sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf",
+   "label": "probls_ch6_2627.pdf",
+   "pages": 2
   }
  },
  "lectures": {
@@ -1458,6 +1605,228 @@
    ],
    "cite": {
     "slides": "bm-t3"
+   }
+  },
+  "subjects/business-management/teoria/topic-3-investment.html": {
+   "panel": [
+    [
+     "bm-t3ii",
+     1
+    ],
+    [
+     "bm-npv",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3ii"
+   }
+  },
+  "subjects/business-management/teoria/topic-4.html": {
+   "panel": [
+    [
+     "bm-t4",
+     1
+    ],
+    [
+     "bm-t4ex",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t4"
+   }
+  },
+  "subjects/business-management/problemas/topic-4-break-even-leverage.html": {
+   "panel": [
+    [
+     "bm-t4ex",
+     1
+    ],
+    [
+     "bm-t4sol",
+     3
+    ],
+    [
+     "bm-t4",
+     36
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t4"
+   },
+   "cards": {
+    "exercise-1": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-2": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-3": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-4": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-5": [
+     "bm-t4ex",
+     1
+    ],
+    "exercise-6": [
+     "bm-t4ex",
+     2
+    ],
+    "exercise-7": [
+     "bm-t4ex",
+     2
+    ],
+    "exercise-8": [
+     "bm-t4ex",
+     2
+    ]
+   }
+  },
+  "subjects/business-management/teoria/topic-5.html": {
+   "panel": [
+    [
+     "bm-t5",
+     1
+    ],
+    [
+     "bm-t5ped",
+     1
+    ],
+    [
+     "bm-t5ex",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t5"
+   }
+  },
+  "subjects/business-management/problemas/topic-3-npv-irr.html": {
+   "panel": [
+    [
+     "bm-npv",
+     1
+    ],
+    [
+     "bm-npvsol",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t3"
+   },
+   "cards": {
+    "problem-1": [
+     "bm-npv",
+     1
+    ],
+    "problem-2": [
+     "bm-npv",
+     1
+    ],
+    "problem-3": [
+     "bm-npv",
+     1
+    ],
+    "problem-4": [
+     "bm-npv",
+     1
+    ],
+    "problem-5": [
+     "bm-npv",
+     1
+    ],
+    "problem-6": [
+     "bm-npv",
+     2
+    ],
+    "problem-7": [
+     "bm-npv",
+     2
+    ],
+    "problem-8": [
+     "bm-npv",
+     2
+    ],
+    "problem-9": [
+     "bm-npv",
+     2
+    ]
+   }
+  },
+  "subjects/business-management/teoria/topic-6.html": {
+   "panel": [
+    [
+     "bm-t6",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t6"
+   }
+  },
+  "subjects/business-management/teoria/topic-7.html": {
+   "panel": [
+    [
+     "bm-t7",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t7"
+   }
+  },
+  "subjects/business-management/problemas/topic-5-price-elasticity.html": {
+   "panel": [
+    [
+     "bm-t5ex",
+     1
+    ],
+    [
+     "bm-t5sol",
+     1
+    ],
+    [
+     "bm-t5ped",
+     2
+    ]
+   ],
+   "cite": {
+    "slides": "bm-t5"
+   },
+   "cards": {
+    "exercise-1": [
+     "bm-t5ex",
+     1
+    ],
+    "exercise-2": [
+     "bm-t5ex",
+     1
+    ],
+    "exercise-3": [
+     "bm-t5ex",
+     1
+    ],
+    "exercise-4": [
+     "bm-t5ex",
+     2
+    ],
+    "exercise-5": [
+     "bm-t5ex",
+     2
+    ],
+    "exercise-6": [
+     "bm-t5ex",
+     2
+    ]
    }
   },
   "subjects/engineering-mechanics/problemas/topic-1.html": {
@@ -3280,6 +3649,324 @@
      "fm-vf20",
      1
     ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html": {
+   "panel": [
+    [
+     "mat-s16",
+     1
+    ],
+    [
+     "mat-s18",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s16",
+      0
+     ],
+     [
+      "mat-s18",
+      "id=\"section-25\""
+     ]
+    ],
+    "sessions": {
+     "16": "mat-s16",
+     "18": "mat-s18"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-8-ceramics.html": {
+   "panel": [
+    [
+     "mat-t8",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s16",
+    "sessions": {
+     "16": "mat-s16",
+     "18": "mat-s18"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t8",
+     1
+    ],
+    "prob-2": [
+     "mat-t8",
+     1
+    ],
+    "prob-3": [
+     "mat-t8",
+     1
+    ],
+    "prob-4": [
+     "mat-t8",
+     2
+    ],
+    "prob-5": [
+     "mat-t8",
+     2
+    ],
+    "prob-6": [
+     "mat-t8",
+     3
+    ],
+    "prob-7": [
+     "mat-t8",
+     3
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-9-polymers.html": {
+   "panel": [
+    [
+     "mat-s19",
+     1
+    ],
+    [
+     "mat-s20",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s19",
+      0
+     ],
+     [
+      "mat-s20",
+      "id=\"section-21\""
+     ]
+    ],
+    "sessions": {
+     "19": "mat-s19",
+     "20": "mat-s20"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-9-polymers.html": {
+   "panel": [
+    [
+     "mat-t9",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s19",
+    "sessions": {
+     "19": "mat-s19",
+     "20": "mat-s20"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t9",
+     1
+    ],
+    "prob-2": [
+     "mat-t9",
+     1
+    ],
+    "prob-3": [
+     "mat-t9",
+     1
+    ],
+    "prob-4": [
+     "mat-t9",
+     1
+    ],
+    "prob-5": [
+     "mat-t9",
+     1
+    ],
+    "prob-6": [
+     "mat-t9",
+     1
+    ],
+    "prob-7": [
+     "mat-t9",
+     2
+    ],
+    "prob-8": [
+     "mat-t9",
+     2
+    ],
+    "prob-9": [
+     "mat-t9",
+     2
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-10-composites.html": {
+   "panel": [
+    [
+     "mat-s21",
+     1
+    ],
+    [
+     "mat-s22",
+     1
+    ],
+    [
+     "mat-s23",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": [
+     [
+      "mat-s21",
+      0
+     ],
+     [
+      "mat-s22",
+      "id=\"section-17\""
+     ],
+     [
+      "mat-s23",
+      "id=\"section-28\""
+     ]
+    ],
+    "sessions": {
+     "21": "mat-s21",
+     "22": "mat-s22",
+     "23": "mat-s23"
+    }
+   }
+  },
+  "subjects/aerospace-materials-1/problemas/topic-10-composites.html": {
+   "panel": [
+    [
+     "mat-t10",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s21",
+    "sessions": {
+     "21": "mat-s21",
+     "22": "mat-s22",
+     "23": "mat-s23"
+    }
+   },
+   "cards": {
+    "prob-1": [
+     "mat-t10",
+     1
+    ],
+    "prob-2": [
+     "mat-t10",
+     1
+    ],
+    "prob-3": [
+     "mat-t10",
+     1
+    ],
+    "prob-4": [
+     "mat-t10",
+     2
+    ],
+    "prob-5": [
+     "mat-t10",
+     2
+    ],
+    "prob-6": [
+     "mat-t10",
+     2
+    ],
+    "prob-7": [
+     "mat-t10",
+     3
+    ],
+    "prob-8": [
+     "mat-t10",
+     3
+    ],
+    "prob-9": [
+     "mat-t10",
+     3
+    ],
+    "prob-10": [
+     "mat-t10",
+     3
+    ],
+    "prob-11": [
+     "mat-t10",
+     4
+    ],
+    "prob-12": [
+     "mat-t10",
+     4
+    ]
+   }
+  },
+  "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html": {
+   "panel": [
+    [
+     "mat-s24",
+     1
+    ]
+   ],
+   "cite": {
+    "slides": "mat-s24",
+    "sessions": {
+     "24": "mat-s24"
+    }
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-5.html": {
+   "panel": [
+    [
+     "am-notes5",
+     1
+    ],
+    [
+     "am-ex52",
+     1
+    ],
+    [
+     "am-book",
+     325
+    ],
+    [
+     "am-p5",
+     1
+    ]
+   ],
+   "cite": {
+    "notes": "am-notes5",
+    "solved": "am-ex52",
+    "robinson": "am-book",
+    "sheet": "am-p5"
+   }
+  },
+  "subjects/advanced-maths/teoria/topic-6.html": {
+   "panel": [
+    [
+     "am-notes6",
+     1
+    ],
+    [
+     "am-haberman",
+     42
+    ],
+    [
+     "am-p6",
+     1
+    ]
+   ],
+   "cite": {
+    "notes": "am-notes6",
+    "haberman": "am-haberman",
+    "sheet": "am-p6"
    }
   }
  }

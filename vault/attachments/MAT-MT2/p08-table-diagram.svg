@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" width="100%" class="fig-kit" style="max-width:680px;margin:0 auto;display:block" role="img" aria-label="A-B diagram plotted from the table of Bank P08 with the cooling path of the A-30 wt% B alloy">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="#8a94a6">
+<path d="M80.0,30.0 L80.0,51.9 L142.4,73.8 L204.8,95.7 L267.2,117.6 L329.6,139.5 L329.6,30.0 Z" fill="#3b82f6" fill-opacity="0.06" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,51.9 L100.8,73.8 L121.6,95.7 L142.4,117.6 L163.2,139.5 L163.2,139.5 L132.0,227.1 L111.2,314.8 L95.6,481.2 L80.0,481.2 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M522.0,139.5 L537.6,227.1 L553.2,314.8 L568.8,481.2 L600.0,481.2 L600.0,139.5 Z" fill="#3b82f6" fill-opacity="0.16" stroke="none" stroke-linejoin="round"/>
+<path d="M80.0,51.9 L142.4,73.8 L204.8,95.7 L267.2,117.6 L329.6,139.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M80.0,51.9 L100.8,73.8 L121.6,95.7 L142.4,117.6 L163.2,139.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M163.2,139.5 L132.0,227.1 L111.2,314.8 L95.6,481.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M522.0,139.5 L537.6,227.1 L553.2,314.8 L568.8,481.2" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M163.2,139.5 L522.0,139.5" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="142.4" cy="73.8" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="100.8" cy="73.8" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="204.8" cy="95.7" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="121.6" cy="95.7" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="267.2" cy="117.6" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="142.4" cy="117.6" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="329.6" cy="139.5" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="163.2" cy="139.5" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="132.0" cy="227.1" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="111.2" cy="314.8" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="95.6" cy="481.2" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="537.6" cy="227.1" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="553.2" cy="314.8" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<circle cx="568.8" cy="481.2" r="3.0" fill="#4b5563" stroke="#4b5563" stroke-width="1"/>
+<line x1="80.0" y1="490.0" x2="600.0" y2="490.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="490.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="600.0" y1="30.0" x2="600.0" y2="490.0" stroke="#8a94a6" stroke-width="1.4"/>
+<line x1="80.0" y1="30.0" x2="600.0" y2="30.0" stroke="#8a94a6" stroke-width="0.8"/>
+<line x1="80.0" y1="490.0" x2="80.0" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="80.0" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">0 (A)</text>
+<line x1="132.0" y1="490.0" x2="132.0" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="132.0" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">10</text>
+<line x1="163.2" y1="490.0" x2="163.2" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="163.2" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">16</text>
+<line x1="236.0" y1="490.0" x2="236.0" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="236.0" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">30</text>
+<line x1="329.6" y1="490.0" x2="329.6" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="329.6" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">48</text>
+<line x1="444.0" y1="490.0" x2="444.0" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="444.0" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">70</text>
+<line x1="522.0" y1="490.0" x2="522.0" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="522.0" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">85</text>
+<line x1="600.0" y1="490.0" x2="600.0" y2="495.0" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="600.0" y="509.0" fill="#6b7280" font-size="12" font-weight="400" text-anchor="middle">100 (B)</text>
+<line x1="75.0" y1="481.2" x2="80.0" y2="481.2" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="485.2" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">20</text>
+<line x1="75.0" y1="314.8" x2="80.0" y2="314.8" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="318.8" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">400</text>
+<line x1="75.0" y1="227.1" x2="80.0" y2="227.1" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="231.1" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">600</text>
+<line x1="75.0" y1="139.5" x2="80.0" y2="139.5" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="143.5" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">800</text>
+<line x1="75.0" y1="51.9" x2="80.0" y2="51.9" stroke="#8a94a6" stroke-width="1.2"/>
+<text x="72.0" y="55.9" fill="#6b7280" font-size="12" font-weight="400" text-anchor="end">1000</text>
+<text x="340.0" y="528.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="middle">Composition (wt% B)</text>
+<text x="84.0" y="20.0" fill="#4b5563" font-size="12.5" font-weight="700" text-anchor="start">Temperature (°C)</text>
+<line x1="236.0" y1="490.0" x2="236.0" y2="43.1" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="242.0" y="47.1" fill="#10b981" font-size="11.5" font-weight="700" text-anchor="start">C<tspan baseline-shift="sub" font-size="72%">0</tspan> = 30</text>
+<path d="M132.0,106.7 L236.0,106.7" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M142.4,117.6 L267.2,117.6" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="236.0" cy="106.7" r="4" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+<circle cx="132.0" cy="106.7" r="3.6" fill="#3b82f6" stroke="#3b82f6" stroke-width="1"/>
+<text x="124.0" y="110.7" fill="#3b82f6" font-size="11.5" font-weight="700" text-anchor="end">10</text>
+<text x="274.2" y="113.6" fill="#3b82f6" font-size="11.5" font-weight="700" text-anchor="start">36</text>
+<text x="134.4" y="131.6" fill="#3b82f6" font-size="11.5" font-weight="700" text-anchor="end">12</text>
+<text x="329.6" y="157.5" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">E</text>
+<text x="206.0" y="56.3" fill="#4b5563" font-size="15" font-weight="700" text-anchor="middle">L</text>
+<text x="470.0" y="82.6" fill="#6b7280" font-size="11.5" font-weight="400" text-anchor="middle">B-rich side not in the table</text>
+<text x="100.8" y="262.2" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α</text>
+<text x="584.4" y="262.2" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">β</text>
+<text x="314.0" y="314.8" fill="#4b5563" font-size="14" font-weight="700" text-anchor="middle">α + β</text>
+<text x="189.2" y="82.6" fill="#4b5563" font-size="12" font-weight="700" text-anchor="middle">α + L</text>
+</g></svg>

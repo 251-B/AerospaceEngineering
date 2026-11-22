@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 7: Entrepreneurship and Innovation | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 7: entrepreneurship and innovation. UC3M." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Blocks generated by tools/build_topic_pages.py from the vault note */
+    .article-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; }
+    .source-box { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    h2.section-heading { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .section-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    h3.sub-heading { font-size: 1.2rem; color: var(--text-heading); margin: 28px 0 12px; }
+    h4.sub-heading { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; }
+    .part-divider { text-align: center; color: var(--accent); border-bottom: none; }
+    .math-block { overflow-x: auto; margin: 18px 0; padding: 4px 0; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+    td, th { vertical-align: top; }
+    .topic-nav-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Figures generated from tools/figures/bm_t*.py */
+    [data-theme="dark"] { --text-faint: #94a3b8; }
+    [data-theme="light"] { --text-faint: #64748b; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 14px 12px; margin: 22px 0 26px; overflow-x: auto; }
+    .diagram-card svg { min-width: 520px; }
+    .diagram-caption { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 7</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-category">Topic 07 · Entrepreneurship and Innovation</div>
+      <h1 class="article-title">Entrepreneurship and Innovation</h1>
+      <p class="article-subtitle">Sources of innovation and collaborative networks, types of innovation, technology S-curves and diffusion, dominant designs, learning effects and network externalities.</p>
+      <div class="source-box">
+        <span>📖 Source: Universidad Carlos III de Madrid · Topic 7_Entrepreneurship  Innovation.pdf (Prof. Carmen Paz-Aparicio), Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 1">1-19</a></span>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf" target="_blank" rel="noopener">Topic 7 Entrepreneurship &amp; Innovation.pdf</a>
+      </nav>
+    </header>
+
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> innovation comes from individuals, firms, universities, government-funded research and private nonprofits, and above all from the linkages between them. Innovations are classified in pairs — product or process, radical or incremental, competence-enhancing or competence-destroying, architectural or component — and follow technology trajectories: an S-curve of performance against effort, discontinuous jumps to new technologies, and diffusion through innovators, early adopters, the early and late majority and laggards. Industries usually settle on a dominant design, selected by learning effects and network externalities, which can lead to winner-take-all markets.</p></div>
+<p>The topic deals with formulating and implementing a technological innovation strategy in three parts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 2">2</a>]: the sources of innovation, the types and patterns of innovation, and standards battles and design dominance. Its two tables of Part I quote E. Roberts, "Benchmarking Global Strategic Management of Technology", <em>Research Technology Management</em>, March-April 2001.</p>
+    </section>
+    <h2 class="part-divider">Part I — Sources of innovation</h2>
+    <section id="section-1">
+      <h2 class="section-heading"><span class="section-num">§ 1</span> Where innovation comes from [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 3">3-4</a>]</h2>
+<p>Innovation can arise from many sources: individuals (the lone inventor, or users who design solutions for their own needs), the research of universities, government laboratories and incubators, and private non-profit organizations. Firms have strong incentives to develop differentiating new products and services, which may give them an advantage over non-profit or government-funded entities [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 3">3</a>].</p>
+<p>The most important source of innovation is the <strong>linkages between these players</strong>. Networks of innovators that leverage knowledge and other resources from multiple sources are one of the most powerful agents of technological advance, so the sources of innovation form a complex system in which an innovation may emerge from one or more of its components or from the linkages between them [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 4">4</a>].</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T7/network.png" alt="Sources of innovation as a system" loading="lazy" style="max-width:min(100%,400px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. Firms, universities, government-funded research, private nonprofits and individuals as the players of the innovation system, with the linkages between them. Copied from Topic 7 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 4">4</a>.</div>
+</div>
+    </section>
+    <section id="section-2">
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Individual and organizational creativity [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 5">5</a>]</h2>
+<p>An individual's <strong>creative ability</strong> is a function of intellectual abilities, knowledge, style of thinking, personality, motivation and environment. The most important intellectual abilities are to look at problems in unconventional ways, to analyze which ideas are worth pursuing, and to articulate those ideas and convince others that they are worthwhile.</p>
+<p>The <strong>creativity of an organization</strong> is a function of the creativity of its individuals and of the social processes and contextual factors that shape how they interact. It is not a simple aggregate of the individuals' creativity: the organization's structure, routines and incentives can thwart individual creativity or amplify it.</p>
+    </section>
+    <section id="section-3">
+      <h2 class="section-heading"><span class="section-num">§ 3</span> Firms' sources of research and development [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 6">6-7</a>]</h2>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 6">6</a> reproduces the rank order of the sources of research and of development work reported by firms in 1999:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Rank</th><th>Sources of research work</th><th>Sources of development work</th></tr></thead><tbody><tr><td>1</td><td>central corporate research</td><td>internal R&amp;D within divisions</td></tr><tr><td>2</td><td>internal R&amp;D within divisions</td><td>central corporate research</td></tr><tr><td>3</td><td>sponsored university research</td><td>suppliers' technology</td></tr><tr><td>4</td><td>recruited students</td><td>joint ventures and alliances</td></tr><tr><td>5</td><td>continuing education</td><td>licensing</td></tr><tr><td>6</td><td>university liaison programs</td><td>customers' technology</td></tr><tr><td>7</td><td>consultants and contract R&amp;D</td><td>continuing education</td></tr><tr><td>8</td><td>joint ventures and alliances</td><td>acquisition of products</td></tr></tbody></table></div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 7">7</a> gives the percentage of companies that report extensive collaboration with customers, suppliers and universities:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Collaborates with</th><th style="text-align:right">North America</th><th style="text-align:right">Europe</th><th style="text-align:right">Japan</th></tr></thead><tbody><tr><td>Customers</td><td style="text-align:right">44%</td><td style="text-align:right">38%</td><td style="text-align:right">52%</td></tr><tr><td>Suppliers</td><td style="text-align:right">45%</td><td style="text-align:right">45%</td><td style="text-align:right">41%</td></tr><tr><td>Universities</td><td style="text-align:right">34%</td><td style="text-align:right">32%</td><td style="text-align:right">34%</td></tr></tbody></table></div>
+    </section>
+    <section id="section-4">
+      <h2 class="section-heading"><span class="section-num">§ 4</span> Universities, governments and nonprofits [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 8">8</a>]</h2>
+<ul><li><strong>Universities:</strong> to increase the degree to which their research leads to commercial innovation, many universities have set up technology transfer offices.</li><li><strong>Government-funded research:</strong> governments invest in research through their own laboratories, science parks and incubators, and grants to other public or private research entities.</li><li><strong>Private non-profit organizations:</strong> some perform their own R&amp;D, some fund the R&amp;D of other organizations without doing it themselves, and some do both.</li></ul>
+    </section>
+    <section id="section-5">
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Innovation in collaborative networks [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 9">9</a>]</h2>
+<p>Collaborative research is especially important in high-technology sectors, where no single individual or organization is likely to have all the resources and capabilities needed to develop and implement a significant innovation.</p>
+<ul><li><strong>Technology clusters:</strong> regional clusters of firms connected to a common technology, which may have buyer, supplier and complementary relationships as well as research collaboration; geographical proximity seems to help the formation and activity of such networks (example: the semiconductor firms of Silicon Valley).</li><li><strong>Technological spillovers:</strong> a positive externality of R&amp;D that results from the spread of knowledge across organizational or regional boundaries.</li></ul>
+    </section>
+    <h2 class="part-divider">Part II — Types and patterns of innovation</h2>
+    <section id="section-6">
+      <h2 class="section-heading"><span class="section-num">§ 6</span> Technology trajectories [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 10">10</a>]</h2>
+<p>The path a technology follows through time is its <strong>technology trajectory</strong>, most often used to represent its rate of performance improvement or its rate of adoption in the market. Many factors influence these trajectories, but some patterns appear consistently across industries and periods.</p>
+    </section>
+    <section id="section-7">
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Four pairs of innovation types [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 11">11-13</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Pair</th><th>Definitions</th></tr></thead><tbody><tr><td>Product vs process [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 11">11</a>]</td><td><strong>product</strong> innovations are embodied in the outputs of an organization, its goods or services (e.g. a carmaker's new hybrid electric vehicle); <strong>process</strong> innovations change the way an organization conducts its business, such as the techniques of producing or marketing goods or services, often to improve the effectiveness or efficiency of production (fewer defects, more output in a given time)</td></tr><tr><td>Radical vs incremental [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 12">12</a>]</td><td>a <strong>radical</strong> innovation is very new and different from prior solutions; an <strong>incremental</strong> innovation makes a relatively minor change to existing practices</td></tr><tr><td>Competence-enhancing vs competence-destroying [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 12">12</a>]</td><td>an innovation that builds on (or renders obsolete) existing knowledge and skills; it depends on whose perspective is taken: the same innovation can enhance one firm's competences and destroy another's</td></tr><tr><td>Architectural vs component [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 13">13</a>]</td><td>an <strong>architectural</strong> innovation changes the overall design of a system or the way its components interact; a <strong>component</strong> (modular) innovation changes one or more components without significantly affecting the overall configuration</td></tr></tbody></table></div>
+    </section>
+    <section id="section-8">
+      <h2 class="section-heading"><span class="section-num">§ 8</span> The S-curve of technology performance [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 14">14</a>]</h2>
+<p>Plotted against the effort invested, the performance of a technology follows an <strong>S-curve</strong>: it improves slowly at first, then quickly, and finally flattens as it approaches the <strong>limit of the technology</strong>.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T7/s-curve.png" alt="The S-curve of technology performance" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. Performance against effort: slow growth at first, then rapid growth, then flattening towards the limit of the technology. Copied from Topic 7 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 14">14</a>.</div>
+</div>
+    </section>
+    <section id="section-9">
+      <h2 class="section-heading"><span class="section-num">§ 9</span> Discontinuous technologies and diffusion [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 15">15-16</a>]</h2>
+<p>A <strong>discontinuous technology</strong> fulfils a similar market need by building on an entirely new knowledge base. The slide draws the S-curves of a first and a second technology: the second may start below the first and then overtake it [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 15">15</a>].</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T7/discontinuous.png" alt="A discontinuous technology" loading="lazy" style="max-width:min(100%,420px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. The S-curves of a first and a second technology in two cases: (a) the second overtakes the first soon, (b) it starts below the first and overtakes it later. The source image of the slide is cut at its top edge. Copied from Topic 7 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 15">15</a>.</div>
+</div>
+<p><strong>Technology diffusion</strong> is the spread of a technology through a population [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 15">15</a>]. Its adopters fall into five categories [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 16">16</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Category</th><th style="text-align:right">Share</th><th>Profile</th></tr></thead><tbody><tr><td>Innovators</td><td style="text-align:right">2.5%</td><td>risk-oriented, leading-edge individuals extremely interested in technological developments; a fraction of the population</td></tr><tr><td>Early adopters</td><td style="text-align:right">13.5%</td><td>larger but still small; risk-oriented and highly adaptable to new technology; tend to be young and well educated</td></tr><tr><td>Early majority</td><td style="text-align:right">34%</td><td>much larger and more careful; open to new ideas but wait to see how they are received before investing</td></tr><tr><td>Late majority</td><td style="text-align:right">34%</td><td>slightly conservative and risk-averse; need convincing before investing in something new</td></tr><tr><td>Laggards</td><td style="text-align:right">16%</td><td>extremely frugal, conservative and often technology-averse; invest only once an idea is extremely well established</td></tr></tbody></table></div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T7/adoption.png" alt="Adopter categories of a diffusing technology" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. Innovators, early adopters, early majority, late majority and laggards on the bell-shaped curve of new adopters, with the share of each category (panel b of the slide). Copied from Topic 7 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 16">16</a>.</div>
+</div>
+    </section>
+    <h2 class="part-divider">Part III — Standards battles and design dominance</h2>
+    <section id="section-10">
+      <h2 class="section-heading"><span class="section-num">§ 10</span> The dominant design [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 17">17</a>]</h2>
+<p>The technology cycle almost always has a stage in which the industry selects a <strong>dominant design</strong> (Anderson and Tushman). Once it is selected, producers and customers focus on improving their efficiency in manufacturing, delivering, marketing or deploying that design instead of developing alternatives. A dominant design is a single product or process architecture that dominates a product category, usually 50% or more of the market; it is a <strong>de facto standard</strong>, a standard of the industry even if not officially enforced.</p>
+    </section>
+    <section id="section-11">
+      <h2 class="section-heading"><span class="section-num">§ 11</span> Why dominant designs are selected [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 18">18-19</a>]</h2>
+<p><strong>Learning effects</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 18">18</a>]: the more a technology is used, the more it is developed and the more effective and efficient it becomes. Adoption generates sales revenue that is reinvested in refining the technology, and firms accumulate experience that lets them use it more productively. <strong>Absorptive capacity</strong> is the ability of an organization to recognize, assimilate and use new knowledge.</p>
+<p><strong>Network externalities</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-07-innovation-entrepreneurship/teoria/Topic%207_Entrepreneurship%20%20Innovation.pdf#page=19" target="_blank" rel="noopener" title="Open Topic 7 Entrepreneurship &amp; Innovation.pdf at page 19">19</a>], or positive consumption externalities, occur when the value of a good to a user increases with the number of other users of the same or a similar good. They act through the <strong>installed base</strong> (the number of users of a good, e.g. the consoles of a video game system installed in homes) and the <strong>complementary goods</strong> (goods and services that enable or enhance its value, e.g. the games, peripherals and online services of that console).</p>
+<p><strong>The result: winner-take-all markets.</strong> These forces push the market towards natural monopolies: some alternative platforms survive in niche markets, but most of the market may be dominated by a single design or a few.</p>
+    </section>
+
+  </main>
+
+  <div class="topic-nav-wrap">
+    <footer class="topic-nav">
+      <a href="topic-6.html">← Previous Topic: The Management Function</a>
+      <a href="index.html">Back to the Theory Index →</a>
+    </footer>
+  </div>
+
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

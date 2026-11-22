@@ -15,12 +15,501 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-22-maths-theory-topics-5-6",
+    "date": "2026-11-22",
+    "tag": "Advanced Maths",
+    "title": "New theory pages: Topics 5 and 6 (Nonlinear Systems & Fourier Series)",
+    "text": "Added step-by-step theory for Coupled Nonlinear Systems and for the Heat Equation, Sturm-Liouville Problems and Fourier Series, with figures and updated formula sheet.",
+    "link": "subjects/advanced-maths/teoria/index.html"
+  },
+  {
+    "id": "2026-11-22-materials-mt3-simulator",
+    "date": "2026-11-22",
+    "tag": "Aerospace Materials I",
+    "title": "Midterm 3 simulator, 500 new MCQs and refactored Midterm 2 bank",
+    "text": "Added the Units 8–11 exam simulator with 500 MCQs, 16 worked problems and flexible unit selection, and updated the Midterm 2 bank to match the real exam style.",
+    "link": "subjects/aerospace-materials-1/simulator/index.html"
+  },
+  {
     "id": "2026-11-22-mechanics-particle-simulators",
     "date": "2026-11-22",
     "tag": "Engineering Mechanics",
     "title": "Particle problems: new solutions and 3D simulators",
     "text": "All 51 point particle problems are redone step by step in boxes, with new figures, and each one has an interactive simulator you can orbit and move.",
     "link": "subjects/engineering-mechanics/problemas/topic-5.html"
+  },
+  {
+    "id": "2026-11-21-business-topic-3-ii-theory",
+    "date": "2026-11-21",
+    "tag": "Business Management",
+    "title": "Topic 3 (II) theory: ROA, ROE, NPV and IRR",
+    "text": "New theory page for Financial Management (II): return on assets and equity, financial leverage, payback, net present value, IRR and the Fisher rate.",
+    "link": "subjects/business-management/teoria/topic-3-investment.html"
+  },
+  {
+    "id": "2026-11-21-maths-sheets-ch5-ch6",
+    "date": "2026-11-21",
+    "tag": "Advanced Maths",
+    "title": "New problem sheets: Chapter 5 and Chapter 6",
+    "text": "The exercise sheets on nonlinear systems (Chapter 5) and on Sturm-Liouville problems and Fourier series (Chapter 6) are in the PDFs page.",
+    "link": "subjects/advanced-maths/sources/index.html"
+  },
+  {
+    "id": "2026-11-21-maths-lecture-log-november",
+    "date": "2026-11-21",
+    "tag": "Advanced Maths",
+    "title": "Class log to 12 November, with book pages and new notes",
+    "text": "The calendar now lists the classes up to 12 November with the book sections of each one. The lecturer's notes on nonlinear systems and Fourier series are in the PDFs page.",
+    "link": "subjects/advanced-maths/sources/index.html"
+  },
+  {
+    "id": "2026-11-21-business-midterm-2-full-bank",
+    "date": "2026-11-21",
+    "tag": "Business Management",
+    "title": "Midterm 2 bank complete: 250 questions and 15 cases",
+    "text": "The Midterm 2 practice now has 150 True/False statements, 100 test questions and 15 problems and cases, 30 statements and 20 questions per topic.",
+    "link": "subjects/business-management/extra-problems/index.html"
+  },
+  {
+    "id": "2026-11-21-mechanics-official-figures",
+    "date": "2026-11-21",
+    "tag": "Engineering Mechanics",
+    "title": "Mechanics theory figures now come from the official notes",
+    "text": "The figures of the theory pages of Topics 6 to 8 are now crops of the official notes and slides, so the diagrams look exactly as the course prints them.",
+    "link": "subjects/engineering-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-21-fluids-official-figures",
+    "date": "2026-11-21",
+    "tag": "Fluid Mechanics",
+    "title": "Fluid Mechanics figures now come from the official material",
+    "text": "The figures of the theory and problem pages (Topics 3 to 7) are now crops of the official notes and problem sheets, so you see the diagrams exactly as the course prints them.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-20-business-midterm-2-simulator",
+    "date": "2026-11-20",
+    "tag": "Business Management",
+    "title": "Midterm 2 practice: True/False, test questions and cases",
+    "text": "The exam simulator now has a Midterm 2 tab: a full timed exam, or practice of True/False or test questions by topic, corrected at the end or as you answer.",
+    "link": "subjects/business-management/simulator/index.html"
+  },
+  {
+    "id": "2026-11-20-sideris-cloud-only",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Sideris now always answers from the cloud",
+    "text": "Sideris no longer downloads models to your computer, which was slow to answer. Every question goes to the cloud at once, and the space the old downloads used is freed."
+  },
+  {
+    "id": "2026-11-20-sideris-local-first-word",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Sideris on your computer starts writing sooner",
+    "text": "The model on your computer now gets a question sized to how fast your graphics card reads, and shows how long it has been reading instead of a silent wait."
+  },
+  {
+    "id": "2026-11-20-sideris-no-gpu-wait",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Sideris answers at once while your local model loads",
+    "text": "When you open a page, Sideris answers from the cloud while the model on your computer loads, then switches to it. No more waiting on a loading message."
+  },
+  {
+    "id": "2026-11-20-sideris-faster-downloads",
+    "date": "2026-11-20",
+    "tag": "Portal",
+    "title": "Faster, steadier Sideris downloads in more browsers",
+    "text": "Models now download in several parts at once, recover from dropped connections on their own and also install on graphics cards without 16-bit support."
+  },
+  {
+    "id": "2026-11-19-sideris-fits-your-gpu",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris only installs models your computer can hold",
+    "text": "Larger models are no longer tried on graphics cards too small for them, and a hiccup while answering no longer turns a model off for good: the cloud answers instead."
+  },
+  {
+    "id": "2026-11-19-sideris-model-styles",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Each Sideris model now answers in its own style",
+    "text": "Lux is brief, Aether explains, Orion derives step by step and Titan solves full exam problems. Greetings get a quick reply, and a slow computer hands the question to the cloud."
+  },
+  {
+    "id": "2026-11-19-sideris-downloads-across-pages",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris keeps installing while you move between pages",
+    "text": "Model downloads now carry on from where they stopped when you change page, and a model already installed keeps answering while another downloads. No settings to touch."
+  },
+  {
+    "id": "2026-11-19-guided-tour",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A short guided tour of everything the portal does",
+    "text": "New accounts are offered a two-minute tour of the portal. You can skip it and take it any time from your account menu.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-19-calendar-revision-plans",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Revision plans, attendance and calendar export",
+    "text": "Plan your revision before each exam, see your attendance per subject, export your term to Google Calendar, and ask Sideris to explain a class you missed.",
+    "link": "account/calendar.html"
+  },
+  {
+    "id": "2026-11-19-account-calendar",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A calendar of your classes and exams",
+    "text": "Choose your group and see each class with what will be done in it and the pages to prepare it. Mark the classes you missed and catch up from one list.",
+    "link": "account/calendar.html"
+  },
+  {
+    "id": "2026-11-19-business-figures-from-slides",
+    "date": "2026-11-19",
+    "tag": "Business Management",
+    "title": "Business figures now come straight from the slides",
+    "text": "The diagrams of Topics 1 to 7 are now crops of the official slides instead of redrawn versions. Two that had drifted from the slides were corrected.",
+    "link": "subjects/business-management/teoria/topic-1.html"
+  },
+  {
+    "id": "2026-11-19-sideris-on-your-computer",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris installs itself on computers that can run it",
+    "text": "On a capable computer Sideris quietly downloads its models and then answers there, with no daily limit. Phones and tablets keep using the cloud."
+  },
+  {
+    "id": "2026-11-19-sideris-daily-allowance",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "A fair daily allowance of Sideris questions for everyone",
+    "text": "Each student now has a daily allowance of Sideris questions, so nobody can use up the service for the rest. Lux uses the least of it, Orion and Titan the most."
+  },
+  {
+    "id": "2026-11-19-sideris-deep-models-on-request",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Orion and Titan only when you choose them",
+    "text": "Sideris answers with Lux or Aether by default. Orion and Titan think step by step first, so they are used only for the conversation where you pick them."
+  },
+  {
+    "id": "2026-11-19-sideris-own-cloud",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris runs only on its own cloud",
+    "text": "Sideris no longer asks for personal API keys. Orion and Titan can now write longer step-by-step answers."
+  },
+  {
+    "id": "2026-11-19-sideris-steadier",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris keeps your place and answers in your language",
+    "text": "Opening Sideris no longer moves the page you are reading. It answers in the language you write in, and long answers no longer come back empty or vanish if the connection drops."
+  },
+  {
+    "id": "2026-11-19-sideris-hints-and-spanish",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris: hints only, Ask Sideris on selected text, Spanish questions",
+    "text": "On problem pages Sideris can guide you without revealing the solution. Select text to ask Sideris about it. Spanish questions now find the English course notes."
+  },
+  {
+    "id": "2026-11-19-sideris-reads-the-page",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris now sees the section or problem you are reading",
+    "text": "Sideris answers about your selected text, the open problem or the section on screen, picks closer course notes, and no longer freezes on long answers."
+  },
+  {
+    "id": "2026-11-19-problem-steps-everywhere",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Every worked problem, step by step",
+    "text": "All problem pages now show solutions one step at a time, or only the answer, with a bar per problem on the right and the arrow keys to move between problems."
+  },
+  {
+    "id": "2026-11-19-problem-steps-pilot",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Worked problems step by step (trial on two pages)",
+    "text": "Solutions now show one step at a time, or only the answer, with a bar per problem on the right. Trying it on Hydrostatics and Rigid Body Kinematics first.",
+    "link": "subjects/fluid-mechanics/problemas/topic-5-hydrostatics.html"
+  },
+  {
+    "id": "2026-11-19-home-sky-on-phones",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Subject names on the sky, and all five subjects on one phone screen",
+    "text": "On phones and tablets each constellation now shows its subject name. On a phone the five fit one screen and the top bar fits in one row.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-19-index-solar-systems",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Subject indexes as solar systems, Sideris models as planets",
+    "text": "On a computer, the topics of each subject index now orbit a star as numbered planets. In Sideris, the size of each planet shows how deep its model goes.",
+    "link": "subjects/engineering-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-19-sideris-studio-workspace",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris AI Studio: split workspace, left history and crisp KaTeX",
+    "text": "Sideris now opens as a full-height AI studio with history on the left, your study page docked live beside it, modern sans-serif typography, and reliable KaTeX equations.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-19-sideris-ai-chat",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Sideris AI tutor: Lux, Aether, Orion and Titan (zero download)",
+    "text": "Chat right inside every study page with Sideris Lux, Aether, Orion and Titan using Ask AI and your course notes, ready instantly with zero download or offline in the browser.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-19-theory-slides-key-ideas",
+    "date": "2026-11-19",
+    "tag": "Portal",
+    "title": "Clearer figures in Charcoal, slide panels and key ideas",
+    "text": "Figures keep their colours and outlines in the Charcoal palette. Short text beside a tall figure becomes a slide, and folded sections list their key ideas.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-4-phase-diagrams.html"
+  },
+  {
+    "id": "2026-11-18-mechanics-t6-essential",
+    "date": "2026-11-18",
+    "tag": "Engineering Mechanics",
+    "title": "Topic 6 in Essential mode: what you need to know, section by section",
+    "text": "Rigid bodies and inertia now open each section with a short plain summary and its key result. Switch to Essential to read only those, like a slide deck.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
+    "id": "2026-11-18-theory-folding",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Theory pages fold: sections, derivations and figures beside the text",
+    "text": "Each section opens on demand, derivations show their result first, and a counter shows how much reading is left. On wide screens figures sit beside the text that explains them.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
+    "id": "2026-11-18-theory-section-rail",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Theory pages: section bars, wider text and shorter captions",
+    "text": "Bars at the right edge jump to each section of a theory page. The text uses more of the screen, and long figure notes and source remarks now fold away.",
+    "link": "subjects/engineering-mechanics/teoria/topic-6.html"
+  },
+  {
+    "id": "2026-11-18-invite-accounts",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Invite-only accounts that follow you to every device",
+    "text": "Sideris accounts can now be opened with a personal invite code that works once. Sign in anywhere and your subjects, notes and study time come with you.",
+    "link": "account/signup.html"
+  },
+  {
+    "id": "2026-11-18-your-sky",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Your sky: every day you study lights a star",
+    "text": "My study now draws your own sky: a star for each day of study, joined into constellations on days in a row, plus eight achievements to unlock.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-practise-mistakes",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "My study lists the simulator questions you still get wrong",
+    "text": "Each simulator card in My study opens the list of questions you missed and have not got right since, with a link straight to each one.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-weekly-goal",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Set a weekly study goal and follow it in My study",
+    "text": "Choose how many hours you want to study each week in Settings. My study shows a ring with how close you are over the last 7 days.",
+    "link": "account/settings.html"
+  },
+  {
+    "id": "2026-11-18-your-subjects-first",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The portal now puts your subjects first",
+    "text": "Signed in, the side menu lists your subjects first, What's new only shows their news and the portal's, and the home page brings their constellations forward.",
+    "link": "account/settings.html"
+  },
+  {
+    "id": "2026-11-18-favourites-and-notes",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Star problems and keep your own notes on them",
+    "text": "Signed in, every problem card has a star and a note button. Your notes show under the title even when the card is folded, and My study lists them all.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-my-study-panel",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "My study: your exams, study time and where you left off",
+    "text": "Signed-in students get a personal panel with exam countdowns, minutes studied per subject this week, the last page of each subject and their simulator grades.",
+    "link": "account/dashboard.html"
+  },
+  {
+    "id": "2026-11-18-planet-study-tools",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Timer and Focus are now planets in each subject's colour",
+    "text": "The study timer and Focus Lab buttons are drawn as small planets that take the colour of the subject you are reading. They now appear only on study pages.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-18-accounts-and-settings",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "Create an account and set up the portal your way",
+    "text": "Sign in from the top right, pick the subjects you take and your exam dates, and choose your reading palette, text size and study timer style in Settings.",
+    "link": "account/signup.html"
+  },
+  {
+    "id": "2026-11-18-business-topics-4-7",
+    "date": "2026-11-18",
+    "tag": "Business Management",
+    "title": "Business Management Topics 4 to 7, with 23 more solved problems",
+    "text": "New theory on production, marketing, management and innovation, plus solved sheets on break-even and leverage, price elasticity, and NPV and IRR.",
+    "link": "subjects/business-management/teoria/index.html"
+  },
+  {
+    "id": "2026-11-18-constellation-phone-fit",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The star map fits phones better",
+    "text": "On a phone the header buttons now fit the screen, the subject name sits above the Focus and Timer planets, and star labels never run off the edge.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-18-telescope-welcome",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "The welcome screen is now a telescope you fly into",
+    "text": "A telescope on its stand greets you. Press Ignite and the camera dives into its lens, with music that turns from mystery to a stellar journey and then a calm sky.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-18-sideris-intro",
+    "date": "2026-11-18",
+    "tag": "Portal",
+    "title": "A welcome screen and the sound of the sky",
+    "text": "The home page opens on a telescope view of the night sky. Press Ignite to fly into the constellations, with celestial sound you can mute from the speaker button.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-materials-midterm-2-problems",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials: 20 solved Midterm 2 problems in the simulator",
+    "text": "Part II now has a longer phase-diagram problem (3 points) and a shorter Unit 5 problem (2 points), each solved step by step and drawn in every simulated exam.",
+    "link": "subjects/aerospace-materials-1/extra-problems/midterm-2-problems.html"
+  },
+  {
+    "id": "2026-11-17-materials-formula-sheet",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Formula sheet for Units 4 to 7",
+    "text": "A new formula sheet covers phase diagrams, mechanical, electrical, magnetic and thermal properties, with linear interpolation, the 0.2 % offset, solving steps and exam traps.",
+    "link": "subjects/aerospace-materials-1/formula-sheet/index.html"
+  },
+  {
+    "id": "2026-11-17-constellation-labels",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "Open a constellation and every star is labelled",
+    "text": "Each star of an open constellation now points to a small badge with its icon, name and count, so you can see at once which star is Theory, Problems or PDFs.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-sideris-emblem",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "New Sideris constellation favicon and gold emblem",
+    "text": "The browser tab now shows the subject-gradient constellation icon, while the gold orbital emblem marks the portal, Focus Lab, study timer and PDF library.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-materials-topics-8-11-review",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topics 8-11: corrections and phone layout",
+    "text": "Small corrections after checking Topics 8 to 11 against the slides and the solutions, and section titles that now wrap on phones instead of running off the screen.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html"
+  },
+  {
+    "id": "2026-11-17-living-sky",
+    "date": "2026-11-17",
+    "tag": "Portal",
+    "title": "The star map now has a life of its own",
+    "text": "Stars twinkle, the constellations drift, small lights run along their lines and shooting stars cross the sky. Everything calms down if your device asks for reduced motion.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-17-materials-topic-10",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Composite materials: theory and 12 solved problems",
+    "text": "Topic 10 of Aerospace Materials I: fibres, matrices, laminates, the rule of mixtures and how composites are made, with the 12 problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-10-composites.html"
+  },
+  {
+    "id": "2026-11-17-materials-topic-9",
+    "date": "2026-11-17",
+    "tag": "Aerospace Materials I",
+    "title": "Materials Topic 9: polymers, theory and nine solved problems",
+    "text": "New theory page on polymers (structure, crystallinity, Tg and Tm, mechanical behaviour, families and processing) and the nine problems of the Topic 9 sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html"
+  },
+  {
+    "id": "2026-11-16-materials-topic-8",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Aerospace Materials I: Topic 8, ceramic materials",
+    "text": "New theory page on ceramics and glasses, from crystal structures to processing and the Shuttle tiles, with the seven problems of the sheet solved step by step.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html"
+  },
+  {
+    "id": "2026-11-16-materials-topic-11",
+    "date": "2026-11-16",
+    "tag": "Aerospace Materials I",
+    "title": "Aerospace Materials I: Topic 11 Adhesives theory",
+    "text": "New theory page on adhesives: how adhesion works, the main adhesive families, how to design and prepare a bonded joint, and how joints fail and degrade.",
+    "link": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html"
+  },
+  {
+    "id": "2026-11-16-subject-skies",
+    "date": "2026-11-16",
+    "tag": "Portal",
+    "title": "A starry sky on every subject index",
+    "text": "The index pages of Theory, Problems, Extra problems, PDFs and Exams now sit on a slowly drifting night sky tinted with the colour of the subject. Cards and text are unchanged.",
+    "link": "subjects/fluid-mechanics/teoria/index.html"
+  },
+  {
+    "id": "2026-11-16-sideris-name",
+    "date": "2026-11-16",
+    "tag": "Portal",
+    "title": "The portal is now called Sideris",
+    "text": "New name, shown in the star map and in the browser tab, for example Sideris Fluids. The title uses the same colours as the old hub heading.",
+    "link": "index.html"
+  },
+  {
+    "id": "2026-11-16-stellar-home",
+    "date": "2026-11-16",
+    "tag": "Portal",
+    "title": "New star map on the home page",
+    "text": "Each subject is now a constellation. Click one to zoom in and pick Theory, Problems, PDFs and more. A button brings back the classic cards, and there are five sky palettes.",
+    "link": "index.html"
   },
   {
     "id": "2026-11-16-mechanics-topic-4-problems",

@@ -19,11 +19,13 @@ bytes: 2646391
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_SECONDPARTIAL_2019.pdf`
 - **Kind:** examenes
 - **Size:** 2.6 MB
-- **Status:** referenced by 64 note(s) below
+- **Status:** referenced by 66 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P04 - Building a Diagram with a Congruent and an Incongruent Compound]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B01 - Unit 4 Components Phases and Microconstituents]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B02 - Unit 4 Unary Diagrams and Isomorphous Systems]]
 - [[02 - Aerospace Materials I/Problem Bank/Quiz - Bank B03 - Unit 4 Isomorphous Systems and the Gibbs Phase Rule]]

@@ -19,8 +19,13 @@ bytes: 343857
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_EXTRA.pdf`
 - **Kind:** examenes
 - **Size:** 343.9 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 6 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P09 - Hypoeutectoid Steel Bar Above and Below the Eutectoid]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P10 - Slow Cooling of a Hypereutectoid Tool Steel]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P11 - Carbon Content of a Steel from Its Micrograph]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P12 - Three Steels Compared Microconstituents Hardness and Alloying]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P19 - Aluminium Alloy Specimen Loaded beyond Yield and Unloaded]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

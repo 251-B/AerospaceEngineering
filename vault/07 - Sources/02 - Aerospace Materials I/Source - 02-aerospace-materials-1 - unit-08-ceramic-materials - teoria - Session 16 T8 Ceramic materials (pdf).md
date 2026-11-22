@@ -19,8 +19,9 @@ bytes: 4171414
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/unit-08-ceramic-materials/teoria/Session 16 T8 Ceramic materials.pdf`
 - **Kind:** teoria
 - **Size:** 4.2 MB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 2 note(s) below
 
 ## Referenced by
 
 - [[02 - Aerospace Materials I/Aerospace Materials I MOC]]
+- [[02 - Aerospace Materials I/Topic 8 - Ceramic Materials]]

@@ -40,8 +40,8 @@ The sketch shows a circular cavity full of liquid of density $\rho$ and viscosit
 
 6. Compare the last result with that of part #1 and comment the result
 
-![[attachments/FM-T6/da14-statement.svg]]
-*Statement figure (redrawn from DA14.pdf): a circular cavity of radius R full of liquid (ρ, μ), initially at rest, inside a case at temperature T_0 that is set to rotate at Ω at t = 0⁺*
+![[attachments/FM-T6/da14-statement.png]]
+*A circular cavity of radius R full of liquid (ρ, μ), initially at rest, inside a case at temperature T_0 that is set to rotate at Ω at t = 0⁺. Copied from DA14.pdf, p. 1.*
 
 **Note:** It is strongly recommended to use cylindrical coordinates
 

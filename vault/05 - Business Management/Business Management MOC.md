@@ -1,6 +1,6 @@
 ---
 materia: Business Management
-tema: "Map of Content - Business Management (Units 1-3 with material; Units 4-6 pending)"
+tema: "Map of Content - Business Management (Topics 1-7)"
 fuentes:
   - "sources/cuatrimestre-1/05-business-management/ (unit-01 to unit-06)"
 tags:
@@ -68,15 +68,35 @@ tags:
   * [[05 - Business Management/Problem - T3 Extra 3 - Wifinet Internet Provider Accounting Cycle and Dividends|Exam Problem 3: WIFINET S.L. — Telecommunications Accounting Cycle & Dividend Policies]]
   * [[05 - Business Management/Problem - T3 Extra 4 - Cemed Mediterranean Pottery Manufacturing and Supplier Discount|Exam Problem 4: CEMED — Industrial Accounting Cycle & Trade Discount Analysis]]
 
-### Problem Bank and Midterm 1 Simulator
+### Problem Bank and Exam Simulator (Midterms 1 and 2)
 * [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|Extra problems]]: the 1st Midterm block of the Extra problems hub, with a page of 24 short theory cases on Topics 1-3 and a page of 6 exam-style practice problems (style of T3_Additional_EXERCISES.pdf). It feeds `subjects/business-management/data/problems.json` through `tools/build_problem_bank.py`; the exam structure is in `subjects/business-management/data/exam-blueprint.json`.
+* 2nd Midterm (Topics 3 Part II to 7): True/False blocks, multiple-choice blocks and problems and cases of 2.5 points, built by `tools/bm_mt2/bank.py` (called by `build_problem_bank.py`) into the pages `midterm-2-tf.html`, `midterm-2-test.html` and `midterm-2-problems.html`; structure in `subjects/business-management/data/exam-blueprint-midterm-2.json`. Rules and the analysis of the course's example exam: [[05 - Business Management/Problem Bank/Rules - Midterm 2 Exam Style Analysis|Rules - Midterm 2 Exam Style Analysis]]. The example exam is `sources/cuatrimestre-1/05-business-management/examenes/BUSINESS_SECONDPARTIAL_2026_EXAMPLES_SOL.pdf`.
 
 ---
 
-### Block III: Remaining Units in `sources/` (Not Yet Covered in the Vault)
-The units below are the folders present in `sources/cuatrimestre-1/05-business-management/`; their titles come from the folder names, and no note has been written for them yet.
-* *Unit 4: Financial Analysis and Ratios* (`unit-04-financial-analysis-ratios/`) — (no source material yet).
-* *Unit 5: Operations and Marketing* (`unit-05-operations-marketing/`) — (no source material yet).
-* *Unit 6: Business Plan* (`unit-06-business-plan/`) — source PDFs present (`BUSINESS PLAN_guide_26_27.pdf`, `Engineers  Managing_Business Plan_26-27 W1.pdf`, `how-to-write-a-business-plan.pdf`); not yet covered.
+#### 📈 Topic 3 (II): Investment Selection
+* **Topic Note:** [[05 - Business Management/Topic 3 (II) - Financial Management II - Accounting Indicators and Investment Decisions|Topic 3 (II): Financial Management (II) — ROA, ROE, financial leverage, payback, NPV and IRR]]
+* **Solved problems:** [[05 - Business Management/Problem Set - T3 Investment Selection NPV and IRR|Problem Set: capitalization, payback, NPV, IRR and the Fisher rate (9 problems)]]
+
+---
+
+### Block III: Operations, Marketing, Management and Innovation
+
+#### 🏭 Topic 4: The Production Function
+* **Topic Note:** [[05 - Business Management/Topic 4 - The Production Function|Topic 4: The Production Function]]
+* **Solved problems:** [[05 - Business Management/Problem Set - T4 Break-Even Point and Operating Leverage|Problem Set: break-even point and operating leverage (8 exercises)]]
+
+#### 📣 Topic 5: Marketing and Sales Management
+* **Topic Note:** [[05 - Business Management/Topic 5 - Marketing and Sales Management|Topic 5: Marketing and Sales Management]]
+* **Solved problems:** [[05 - Business Management/Problem Set - T5 Price Elasticity of Demand|Problem Set: price elasticity of demand (6 exercises)]]
+
+#### 🧭 Topic 6: The Management Function
+* **Topic Note:** [[05 - Business Management/Topic 6 - The Management Function|Topic 6: The Management Function]] (no problem sheet in the course)
+
+#### 💡 Topic 7: Entrepreneurship and Innovation
+* **Topic Note:** [[05 - Business Management/Topic 7 - Entrepreneurship and Innovation|Topic 7: Entrepreneurship and Innovation]] (no problem sheet in the course)
+
+### Not covered in the vault
+* *Business Plan* (`business-plan/`): the group project's guide, W1 deck and reading; left out on purpose.
 * *Practice 3: Internal Analysis, Strategy and Resources* — `W3 Practice_3_Int_Analysis_Strategy_Resources.pdf` (in `unit-02-value-creation-environment/problemas/`); not yet covered.
 * *Official exams* (`examenes/`) and *course schedule* (`schedule/`) — no files yet.

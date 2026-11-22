@@ -146,6 +146,22 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/teoria/topic-7-magnetic-thermal.html",
               "label": "7 · Magnetic and thermal properties"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-8-ceramics.html",
+              "label": "8 · Ceramic materials"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-9-polymers.html",
+              "label": "9 · Polymers"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-10-composites.html",
+              "label": "10 · Composite materials"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/teoria/topic-11-adhesives.html",
+              "label": "11 · Adhesives"
             }
           ]
         },
@@ -154,6 +170,18 @@ window.AE_NAV = {
           "label": "Problems",
           "href": "subjects/aerospace-materials-1/problemas/index.html",
           "pages": [
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-10-composites.html",
+              "label": "10 · Composite materials"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-9-polymers.html",
+              "label": "9 · Polymers"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/problemas/topic-8-ceramics.html",
+              "label": "8 · Ceramic materials"
+            },
             {
               "href": "subjects/aerospace-materials-1/problemas/topic-7-magnetic-thermal.html",
               "label": "7 · Magnetic properties"
@@ -192,6 +220,14 @@ window.AE_NAV = {
             {
               "href": "subjects/aerospace-materials-1/extra-problems/midterm-2-problems.html",
               "label": "2nd Midterm · Problems"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/extra-problems/midterm-3-test.html",
+              "label": "3rd Midterm · Test"
+            },
+            {
+              "href": "subjects/aerospace-materials-1/extra-problems/midterm-3-problems.html",
+              "label": "3rd Midterm · Problems"
             }
           ]
         }
@@ -200,6 +236,10 @@ window.AE_NAV = {
         {
           "href": "subjects/aerospace-materials-1/simulator/index.html",
           "label": "Exam simulator"
+        },
+        {
+          "href": "subjects/aerospace-materials-1/formula-sheet/index.html",
+          "label": "Formula sheet"
         },
         {
           "href": "subjects/aerospace-materials-1/sources/index.html",
@@ -354,6 +394,14 @@ window.AE_NAV = {
             {
               "href": "subjects/advanced-maths/teoria/topic-4.html",
               "label": "4 · Systems and phase plane"
+            },
+            {
+              "href": "subjects/advanced-maths/teoria/topic-5.html",
+              "label": "5 · Coupled nonlinear systems"
+            },
+            {
+              "href": "subjects/advanced-maths/teoria/topic-6.html",
+              "label": "6 · Heat eq., Sturm-Liouville, Fourier"
             }
           ]
         },
@@ -448,6 +496,26 @@ window.AE_NAV = {
             {
               "href": "subjects/business-management/teoria/topic-3.html",
               "label": "3 · Financial management (I)"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-3-investment.html",
+              "label": "3 · Financial management (II)"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-4.html",
+              "label": "4 · The production function"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-5.html",
+              "label": "5 · Marketing and sales"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-6.html",
+              "label": "6 · The management function"
+            },
+            {
+              "href": "subjects/business-management/teoria/topic-7.html",
+              "label": "7 · Entrepreneurship and innovation"
             }
           ]
         },
@@ -463,6 +531,18 @@ window.AE_NAV = {
             {
               "href": "subjects/business-management/problemas/topic-3-extra-exam-problems.html",
               "label": "3 · Extra exam problems"
+            },
+            {
+              "href": "subjects/business-management/problemas/topic-3-npv-irr.html",
+              "label": "3 · NPV and IRR"
+            },
+            {
+              "href": "subjects/business-management/problemas/topic-4-break-even-leverage.html",
+              "label": "4 · Break-even and leverage"
+            },
+            {
+              "href": "subjects/business-management/problemas/topic-5-price-elasticity.html",
+              "label": "5 · Price elasticity"
             }
           ]
         },
@@ -478,6 +558,18 @@ window.AE_NAV = {
             {
               "href": "subjects/business-management/extra-problems/midterm-1-problems.html",
               "label": "1st Midterm · Practice problems"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-2-tf.html",
+              "label": "2nd Midterm · True/False"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-2-test.html",
+              "label": "2nd Midterm · Test"
+            },
+            {
+              "href": "subjects/business-management/extra-problems/midterm-2-problems.html",
+              "label": "2nd Midterm · Problems"
             }
           ]
         }

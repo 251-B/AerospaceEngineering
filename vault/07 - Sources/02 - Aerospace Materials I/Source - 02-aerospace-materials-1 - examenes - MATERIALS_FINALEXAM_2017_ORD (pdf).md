@@ -19,8 +19,10 @@ bytes: 827847
 - **Path:** `sources/cuatrimestre-1/02-aerospace-materials-1/examenes/MATERIALS_FINALEXAM_2017_ORD.pdf`
 - **Kind:** examenes
 - **Size:** 827.8 kB
-- **Status:** referenced by 1 note(s) below
+- **Status:** referenced by 3 note(s) below
 
 ## Referenced by
 
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P01 - Two Eutectics Around a Congruently Melting Compound]]
+- [[02 - Aerospace Materials I/Problem Bank/Problem - Bank P17 - Nickel Alloy Tie Rod under a Tensile Load]]
 - [[02 - Aerospace Materials I/Problem Bank/Rules - Midterm 2 Exam Style Analysis]]

@@ -95,9 +95,9 @@ Para garantizar respuestas rápidas, costes mínimos y evitar desbordar la venta
 
 ### B. Blindaje de Contexto (`Context Shielding`)
 1. **Prohibido el Volcado Masivo:** Nunca ejecutar lecturas completas de múltiples PDFs o archivos de código grandes en el hilo principal del chat.
-2. **Uso de `context-mode`:**
-   - Usar `ctx_execute` (Node/Python/PowerShell) para filtrar, contar o extraer líneas exactas en un entorno sandbox antes de llevarlas al contexto.
-   - Usar `ctx_search` para búsquedas semánticas o de palabras clave en los materiales de estudio.
+2. **Filtrado antes de leer:**
+   - Usar un script corto (Python/PowerShell) que filtre, cuente o extraiga solo las líneas necesarias antes de llevarlas al contexto.
+   - Delegar las búsquedas amplias en un subagente de solo lectura (`Explore`, `source-researcher`).
 3. **Lecturas Precisas:** Emplear `view_file` con `StartLine` y `EndLine` delimitados, o `grep_search` específico.
 
 ### C. Persistencia en Memoria (`claude-mem`)

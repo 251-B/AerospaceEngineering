@@ -37,8 +37,8 @@ The real wall has a height $H = 3$ m and is to be designed to withstand *tsunami
 - For that value, the laboratory measurements provide $F' = 1500$ N/m and $U' = 2$ m/s. Determine the values of $F$ and $U$ for the real tsunami. (2 points)
 - Verify the hypotheses of negligible viscosity for the model and for the real tsunami. (1 point)
 
-![[attachments/FM-T6/da6-statement.svg]]
-*Statement figure (redrawn from DA6.pdf): a tsunami of height h travelling with velocity U towards a coastal protection wall of height H; the unknowns are U and the impact force per unit width of wall F*
+![[attachments/FM-T6/da6-statement.png]]
+*A tsunami of height h travelling with velocity U towards a coastal protection wall of height H; the unknowns are U and the impact force per unit width of wall F. Copied from DA6.pdf, p. 1.*
 
 Source: DA6.pdf (page 1, exam of 28-06-2010, statement and handwritten key). Notes.pdf, Chapter 6: Π theorem, Eq. 6.25; limits, Eq. 6.55; physical similarity, Eqs. 6.57-6.59.
 

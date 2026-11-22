@@ -26,7 +26,7 @@ the vault currently reaches.
 
 ### 🔬 [[02 - Aerospace Materials I/Aerospace Materials I MOC|Aerospace Materials I]]
 * **Units (11):** bonding, crystal structures and defects, diffusion, phase diagrams, mechanical properties, electrical properties, magnetic and thermal properties, ceramics, polymers, composites, adhesives.
-* **Vault notes:** units 1-7 (Topic 4: Sessions 7-10 with all 26 problems of the two phase-diagram sheets; Topic 5: Sessions 11-12 with the 15 sheet problems; Topic 6: Session 13 with the 10 electrical problems of the Topic 6 and 7 sheet; Topic 7: Session 15 theory with problems 11-12 of that sheet, the magnetic ones).
+* **Vault notes:** units 1-11 (Topic 4: Sessions 7-10 with all 26 problems of the two phase-diagram sheets; Topic 5: Sessions 11-12 with the 15 sheet problems; Topic 6: Session 13 with the 10 electrical problems of the Topic 6 and 7 sheet; Topic 7: Session 15 theory with problems 11-12 of that sheet, the magnetic ones; Topic 8: Sessions 16 and 18 ceramics theory with the 7 problems of its sheet; Topic 9: Sessions 19 and 20 polymers theory with the 9 problems of its sheet; Topic 10: Sessions 21 to 23 composites theory with the 12 problems of its sheet; Topic 11: Session 24 adhesives theory, which has no problem sheet).
 * **NotebookLM notebook:** `9b324478-69e9-482c-813c-5709ec031820`
 * **Web pages:** `subjects/aerospace-materials-1/`
 * **Problem bank:** [[02 - Aerospace Materials I/Problem Bank/Problem Set - Aerospace Materials I Problem Bank|Midterm 2 test blocks and Part II problems]] for the Extra problems pages and the Midterm 2 simulator.
@@ -39,15 +39,15 @@ the vault currently reaches.
 * **Formula sheet:** [[03 - Engineering Mechanics/Formula Sheet - Engineering Mechanics|Formula Sheet - Engineering Mechanics]]
 
 ### 📐 [[04 - Advanced Maths/Advanced Maths MOC|Advanced Mathematics]]
-* **Units (6):** introduction to ODE modelling, first-order ODEs, second-order linear ODEs, systems of ODEs, Fourier series and PDEs, heat/wave/Laplace equations.
-* **Vault notes:** chapters 1-3. The web page for Topic 4 (`subjects/advanced-maths/teoria/topic-4.html`) has no vault note yet.
+* **Units (6):** introduction to ODE modelling, first-order ODEs, second-order linear ODEs, linear systems & phase portraits, coupled nonlinear systems & phase plane, heat equation / Sturm-Liouville problems & Fourier series.
+* **Vault notes:** Topics 1-6 (including [[04 - Advanced Maths/Topic 5 - Coupled Nonlinear Systems and the Phase Plane|Topic 5]] and [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series|Topic 6]]), solved problems for Chapters 1-4, and the exam problem bank.
 * **NotebookLM notebook:** `c27033c3-5a64-403f-a517-5847831aabcb`
 * **Web pages:** `subjects/advanced-maths/`
 * **Formula sheet:** [[04 - Advanced Maths/Formula Sheet - Advanced Maths|Formula Sheet - Advanced Maths]]
 
 ### 📊 [[05 - Business Management/Business Management MOC|Business Management]]
 * **Units (6):** the firm (types and objectives), value creation and environment, financial statements, financial analysis and ratios, operations and marketing, business plan.
-* **Vault notes:** units 1-3 and the Topic 3 exercises.
+* **Vault notes:** Topics 1-7, the Topic 3 exercises, the NPV and IRR problems (Topic 3, part II), the break-even and leverage exercises (Topic 4) and the price elasticity exercises (Topic 5).
 * **Problem bank:** [[05 - Business Management/Problem Bank/Problem Set - Business Management Problem Bank|24 short theory cases and 6 exam-style problems]] for the Extra problems page and the Midterm 1 simulator.
 * **NotebookLM notebook:** `e691ea81-0acf-4032-98d1-b9e5a7b93d70`
 * **Web pages:** `subjects/business-management/`

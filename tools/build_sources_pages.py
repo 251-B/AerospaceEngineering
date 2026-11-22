@@ -325,12 +325,26 @@ def _chrome(root: pathlib.Path, slug: str, area: str) -> tuple[str, str]:
     return tabs, (icon.group(1) if icon else "")
 
 
+_LIB_SEAL = (
+    '<svg class="lib-seal" viewBox="96 96 832 832" width="20" height="20" aria-hidden="true" focusable="false">'
+    '<path class="sideris-stroke" d="M 398.51,379.43 A 355,160 -14 0 1 652.50,634.24" fill="none" stroke-width="11" stroke-linecap="round" stroke-opacity="0.92"/>'
+    '<path class="sideris-stroke" d="M 624.34,644.98 A 355,160 -14 0 1 370.40,390.21" fill="none" stroke-width="11" stroke-linecap="round" stroke-opacity="0.92"/>'
+    '<polyline class="sideris-stroke" points="652,286 512,212 368,290 392,430 512,512 632,594 652,736 510,812 368,738" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>'
+    '<circle class="sideris-fill" cx="652" cy="286" r="17"/><circle class="sideris-fill" cx="512" cy="212" r="20"/>'
+    '<circle class="sideris-fill" cx="368" cy="290" r="16"/><circle class="sideris-fill" cx="392" cy="430" r="19"/>'
+    '<circle class="sideris-fill" cx="632" cy="594" r="18"/><circle class="sideris-fill" cx="652" cy="736" r="20"/>'
+    '<circle class="sideris-fill" cx="510" cy="812" r="18"/><circle class="sideris-fill" cx="368" cy="738" r="19"/>'
+    '<path class="sideris-fill" d="M 512,464 Q 518.7,505.3 560,512 Q 518.7,518.7 512,560 Q 505.3,518.7 464,512 Q 505.3,505.3 512,464 Z"/>'
+    '</svg>'
+)
+
+
 def _page(root, slug, area, h1, title, description, body, accent, script=False) -> str:
     tabs, icon = _chrome(root, slug, area)
     icon = f'\n      <div class="icon" aria-hidden="true">{icon}</div>' if icon else ""
     tail = '\n  <script defer src="../../../assets/js/pdf-library.js"></script>' if script else ""
     return f"""<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-celestial-subject="{slug}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -368,7 +382,7 @@ def _page(root, slug, area, h1, title, description, body, accent, script=False) 
   </main>
 
   <footer class="site-footer">
-    <div class="container">Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</div>
+    <div class="container footer-inner">{_LIB_SEAL}<span>Aerospace Engineering Study Portal — Universidad Carlos III de Madrid</span></div>
   </footer>{tail}
 </body>
 </html>

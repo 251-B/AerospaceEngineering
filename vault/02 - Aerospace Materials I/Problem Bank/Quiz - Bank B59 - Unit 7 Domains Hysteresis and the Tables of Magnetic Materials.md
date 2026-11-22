@@ -1,23 +1,23 @@
 ---
 materia: Aerospace Materials I
-tema: "Unit 7: reading the tables of soft, hard and recording magnetic materials; domains and hysteresis loops"
+tema: "Unit 7: magnetic domains, Bloch walls, soft vs. hard hysteresis loops and permanent-magnet selection"
 bank_id: B59
-title: "Domains, hysteresis and the tables of magnetic materials"
+title: "Domains, hysteresis and the selection of magnetic materials"
 category: mt2_test_block
 unit: 7
 concepts:
-  - u7-soft-table-max-permeability
-  - u7-hard-magnet-energy-product
-  - u7-coercivity-tesla-to-ampere
-  - u7-soft-hard-limit-classification
-  - u7-induction-from-table-permeability
-  - u7-remanence-ratio-table
-  - u7-recording-powders-curie-table
+  - u7-magnet-selection-criteria
+  - u7-domains-bloch-walls-origin
+  - u7-bloch-wall-mobility
+  - u7-soft-hard-comparison
+  - u7-magnetization-saturation-mechanism
+  - u7-hysteresis-irreversibility
+  - u7-ferrimagnetic-ceramics-domains
   - u7-magnetization-curve-sequence
   - u7-loop-area-energy-loss
   - u7-rectangular-loop-materials
 difficulty: 2
-origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf; not official exercises. Content and data from Session 15, Slides 16-19 and 24."
+origen: "Questions written for the bank in the style of Part I of MATERIALS_SECONDPARTIAL_2019.pdf, including Q7 of the January 2016 final exam. Content and data from Session 15, Slides 11-24."
 tags:
   - problem-bank
   - midterm-2
@@ -25,62 +25,32 @@ tags:
   - unit-7
 ---
 
-# Bank B59 — Domains, hysteresis and the tables of magnetic materials
+# Bank B59 — Domains, hysteresis and the selection of magnetic materials
 
-> [!info] Practice item, not an official exercise
-> Ten test questions written for the bank in the style of Part I of Assessment Test II (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 16-19 and 24 (Tables 20-4, 20-5 and 20-6).
+> [!info] Includes official exam questions
+> Ten test questions written for the bank in the style of Part I of Assessment Test II, including an official permanent-magnet selection question from the January 2016 final exam (four options, one right answer; +0.5 right, -0.15 wrong). Content: Session 15, Slides 11-24.
 
-## Q59.1 Highest maximum permeability in the soft-magnet table
+## Q59.1 Permanent magnet selection for high field and temperature
 
 - id: B59-Q1
-- concept_id: u7-soft-table-max-permeability
+- concept_id: u7-magnet-selection-criteria
 - format: diagram-reading
-- asks: figure-reading
+- asks: application
+- origin: official-exam
 
-From the shown rows of Table 20-4 (Slide 24), indicate which soft magnetic material reaches the highest maximum relative permeability:
+Select the most adequate material from the table to manufacture a permanent magnet for a magnetic energy storage application able to work at magnetic fields above 600 Oersted and a temperature of 500 °C:
 
-| Name | Initial $\mu_r$ | Maximum $\mu_r$ |
-| :--- | ---: | ---: |
-| 4750 alloy | 11 000 | 80 000 |
-| 4-79 permalloy | 40 000 | 200 000 |
-| Superalloy | 80 000 | 450 000 |
-| Metglas 2650S-2 | not given | 600 000 |
+| Material | Curie temperature (°C) | Remanence (Gauss) | $H_c$ (Oersted) | $(BH)_{\max}$ (Gauss·Oersted) |
+| :--- | ---: | ---: | ---: | ---: |
+| Co₅Sm | 725 | 9 500 | 9 500 | 25 000 000 |
+| Alnico 1 | 780 | 7 100 | 440 | 1 400 000 |
+| Alnico 5 | 900 | 13 100 | 640 | 6 000 000 |
+| Nanoperm | 475 | 14 500 | 10 200 | 32 000 000 |
 
-a) 4750 alloy
-b) 4-79 permalloy
-c) Superalloy
-d) Metglas 2650S-2
-
-### Answer
-
-d
-
-### Explanation
-
-The maximum permeability is read in the last column: 600 000 for Metglas 2650S-2, above 450 000 (Superalloy), 200 000 (4-79 permalloy) and 80 000 (4750 alloy). The empty cell of the initial permeability does not remove the row (Slide 24).
-
-- a) The 80 000 of the 4750 alloy is the maximum permeability of that row; it equals the initial permeability of the Superalloy, so the student reads the initial column of another row.
-- b) The student picks the well-known Fe-Ni permalloy without comparing the numbers of the last column.
-- c) The Superalloy has the highest initial permeability of the shown rows (80 000), but the question asks for the maximum permeability.
-
-### Source
-
-Session 15, Slide 24.
-
-## Q59.2 Energy stored by a rare-earth magnet
-
-- id: B59-Q2
-- concept_id: u7-hard-magnet-energy-product
-- format: numeric
-- asks: calculation
-- calc: round(144/44, 1)
-
-Table 20-6 (Slide 24) gives $(BH)_{max} = 144$ kJ/m³ for SmCo₅ and $(BH)_{max} = 44$ kJ/m³ for Alnico-5. Determine how many times more energy per unit volume the SmCo₅ magnet can store:
-
-a) 0.31 times
-b) 3.3 times
-c) 4.2 times
-d) 24 times
+a) Nanoperm
+b) Co₅Sm
+c) Alnico 5
+d) Alnico 1
 
 ### Answer
 
@@ -88,30 +58,59 @@ b
 
 ### Explanation
 
-The maximum energy product measures the energy a permanent magnet stores per unit volume, so the ratio is $144/44 = 3.3$ (Slide 24).
+January 2016 ordinary final exam, Q7 (and Session 15, Slides 18-19 and 23-24): at 500 °C, any candidate must have $T_c > 500$ °C to remain ferromagnetic (ruling out Nanoperm at 475 °C). To withstand fields above 600 Oe, coercivity must satisfy $H_c > 600$ Oe (ruling out Alnico 1 at 440 Oe). Between Alnico 5 and Co₅Sm, Co₅Sm provides both far greater coercivity margin (9 500 Oe vs 640 Oe) and over four times the maximum energy product $(BH)_{\max}$ (25 000 000 vs 6 000 000 G·Oe) for energy storage.
 
-- a) Inverted ratio, $44/144 = 0.31$: the Alnico-5 value is placed in the numerator.
-- c) Wrong row: $144/34 = 4.2$ uses the 34 kJ/m³ of the barium ferrite instead of the 44 kJ/m³ of Alnico-5.
-- d) Wrong row: $144/6 = 24$ uses the 6 kJ/m³ of the Co-steel.
+- a) Fails the temperature requirement: Nanoperm has the highest $(BH)_{\max}$ and $H_c$ in the table, but $T_c = 475\,^\circ\text{C} < 500\,^\circ\text{C}$, so it is paramagnetic at the service temperature.
+- c) Meets $T_c$ and barely meets $H_c > 600$ Oe, yet stores more than four times less magnetic energy per unit volume than Co₅Sm ($6\times10^6$ vs $25\times10^6$ G·Oe).
+- d) Fails the coercivity requirement: its $H_c = 440$ Oe is below the 600 Oe working field, so it would demagnetize.
 
 ### Source
 
-Session 15, Slide 24.
+MATERIALS_FINALEXAM_2016_ORD_SOL.pdf, p. 4 Q7; Session 15, Slides 18-19 and 23-24.
 
-## Q59.3 Coercivity of SmCo₅ from the table
+## Q59.2 Magnetic domains and Bloch walls
+
+- id: B59-Q2
+- concept_id: u7-domains-bloch-walls-origin
+- format: topic-true
+- asks: cause
+
+Referring to magnetic domains and Bloch walls in ferromagnetic materials, which one of the following statements is TRUE:
+
+a) A single large domain minimizes magnetostatic energy by pushing all magnetic flux lines into the surrounding air
+b) Magnetic domains are typically larger than the metal grains, so every crystal grain belongs to a single domain
+c) Across a Bloch wall, dipole directions flip abruptly across one atomic plane rather than changing progressively
+d) Magnetic domains form spontaneously to reduce magnetostatic energy, separated by gradual ~100 nm Bloch walls
+
+### Answer
+
+d
+
+### Explanation
+
+Session 15, Slides 14-15: magnetic domains form spontaneously so that internal flux closure decreases the external stray field and lowers magnetostatic energy. Adjacent domains are separated by Bloch walls roughly 100 nm (~300 atoms) wide across which dipole orientation turns gradually.
+
+- a) Inverts the magnetostatic energy trend: a single-domain crystal has the largest external stray field and highest magnetostatic energy (Slide 15).
+- b) Inverts the size comparison: domains (10–100 µm) are typically smaller than grains, so one large grain holds several domains (Slide 14).
+- c) Wrong wall structure: the magnetization turns gradually over ~300 atomic layers across a Bloch wall, not in a single sharp plane (Slide 14).
+
+### Source
+
+Session 15, Slides 14-15.
+
+## Q59.3 Bloch wall mobility, coercivity and permeability
 
 - id: B59-Q3
-- concept_id: u7-coercivity-tesla-to-ampere
-- format: numeric
-- asks: calculation
-- calc: 0.80/1.257e-6/1e3
+- concept_id: u7-bloch-wall-mobility
+- format: cause-effect
+- asks: cause
 
-Table 20-6 (Slide 24) lists $\mu_0 H_c = 0.80$ T for SmCo₅. Determine its coercivity $H_c$ ($\mu_0 = 1.257\times10^{-6}$ H/m):
+With an increase in the ease of motion of Bloch walls inside a ferromagnetic material, its coercivity $H_c$ and initial permeability $\mu_i$:
 
-a) 636 kA/m
-b) 2550 kA/m
-c) 1270 kA/m
-d) 8000 kA/m
+a) $H_c$ decreases and $\mu_i$ increases, producing a narrower hysteresis loop
+b) $H_c$ increases and $\mu_i$ decreases, producing a wider hysteresis loop
+c) both $H_c$ and $\mu_i$ decrease, shrinking the saturation magnetization $M_s$
+d) both $H_c$ and $\mu_i$ increase, raising hysteresis energy losses per cycle
 
 ### Answer
 
@@ -119,30 +118,29 @@ a
 
 ### Explanation
 
-$H_c = 0.80/\mu_0 = 0.80/1.257\times10^{-6} = 6.36\times10^{5}$ A/m $= 636$ kA/m, far above the 10 000 A/m limit of Slide 18 (hard magnet). Check of units: T divided by H/m gives A/m.
+Session 15, Slides 18 and 21: when Bloch walls move easily, small fields realign domains rapidly (high initial permeability $\mu_i$) and little reverse field is needed to demagnetize the material (low coercivity $H_c$), giving a narrow soft-magnet loop.
 
-- b) $\mu_0$ is taken as $\pi\times10^{-7}$ H/m (the factor 4 of $4\pi$ is lost), which gives $0.80/\pi\times10^{-7}$ = 2550 kA/m.
-- c) $\mu_0$ replaced by $6.28\times10^{-7}$ H/m ($2\pi\times10^{-7}$, a factor 2 lost), which doubles the result.
-- d) $\mu_0$ rounded to $10^{-7}$ H/m, which gives $0.80/10^{-7} = 8\times10^{6}$ A/m.
+- b) Describes the opposite case where obstacles pin the Bloch walls, making them hard to move.
+- c) Links easier wall motion to lower permeability and wrongly claims it alters composition-fixed $M_s$.
+- d) Contradicts coercivity behaviour: walls that move more easily never require a larger reverse field $H_c$.
 
 ### Source
 
-Session 15, Slides 18 and 24.
+Session 15, Slides 18 and 21.
 
-## Q59.4 Classification of Co-steel
+## Q59.4 Soft and hard ferromagnetic classes
 
 - id: B59-Q4
-- concept_id: u7-soft-hard-limit-classification
-- format: identify
-- asks: classification
-- check: 0.02/1.257e-6 > 10000 and 0.02/1.257e-5 < 10000
+- concept_id: u7-soft-hard-comparison
+- format: topic-false
+- asks: comparison
 
-Table 20-6 (Slide 24) gives $\mu_0 H_c = 0.02$ T for the Fe-Co alloy Co-steel. With $\mu_0 = 1.257\times10^{-6}$ H/m and the limit $H_c = 10\,000$ A/m of Slide 18, this material is classified as:
+Regarding soft and hard ferromagnetic materials, which one of the following statements is FALSE:
 
-a) soft, because its $H_c$ of 0.02 A/m is below the limit
-b) soft, because its $H_c$ of 1.6 kA/m is below the limit
-c) hard, because its $H_c$ of 15.9 kA/m is above the limit
-d) soft, because its $H_c$ of 15.9 kA/m is above the limit
+a) Soft magnetic materials have easily moved Bloch walls and low coercivity ($H_c < 10\,000$ A/m)
+b) Hard magnetic materials show wide hysteresis loops with high resistance to demagnetization ($H_c > 10\,000$ A/m)
+c) Soft magnetic materials require high coercivity ($H_c > 10\,000$ A/m) to minimize losses in alternating fields
+d) Hard magnetic materials are chosen for permanent magnets, whereas soft ones are used in transformer and motor cores
 
 ### Answer
 
@@ -150,30 +148,29 @@ c
 
 ### Explanation
 
-$H_c = 0.02/1.257\times10^{-6} = 1.59\times10^{4}$ A/m, which is above 10 000 A/m, so the Bloch walls are difficult to move and the material is hard (Slide 18).
+Session 15, Slides 18-19: materials working under alternating fields (transformer, motor, and generator cores) must be soft magnetic materials with *low* coercivity ($H_c < 10\,000$ A/m) and narrow loops so that energy losses per cycle are minimized. Statement c is false.
 
-- a) The tesla value is compared with the limit without dividing by $\mu_0$.
-- b) Exponent slip in $\mu_0$ ($1.257\times10^{-5}$ instead of $1.257\times10^{-6}$) gives 1.6 kA/m.
-- d) Right number but soft and hard swapped: a coercivity above the limit defines a hard magnet.
+- a) True: Slide 18 defines soft magnetic materials by easy Bloch-wall motion and $H_c < 10\,000$ A/m.
+- b) True: Slide 18 defines hard magnetic materials by $H_c > 10\,000$ A/m and high resistance to demagnetization.
+- d) True: Slide 19 matches hard magnets with permanent magnets and soft magnets with cores under alternating fields.
 
 ### Source
 
-Session 15, Slides 18 and 24.
+Session 15, Slides 18-19.
 
-## Q59.5 Induction of a permalloy in the initial stage
+## Q59.5 Domain evolution from demagnetized state to saturation
 
 - id: B59-Q5
-- concept_id: u7-induction-from-table-permeability
-- format: numeric
-- asks: calculation
-- calc: 40000*1.257e-6*0.5*1e3
+- concept_id: u7-magnetization-saturation-mechanism
+- format: what-happens
+- asks: effect
 
-A demagnetized specimen of 4-79 permalloy (initial $\mu_r = 40\,000$, Table 20-4, Slide 24) is placed in a field $H = 0.5$ A/m, in the initial stage of its magnetization curve. Determine the induction $B$ ($\mu_0 = 1.257\times10^{-6}$ H/m):
+As the external magnetic field $H$ applied to a demagnetized ferromagnet increases steadily from zero up to saturation, what happens to its magnetic domains?
 
-a) 50.3 mT
-b) 126 mT
-c) 101 mT
-d) 25.1 mT
+a) All domains rotate instantaneously into alignment at tiny fields and then shrink as $H$ rises
+b) Unfavourable domains expand first to lower the internal energy, followed by thermal randomization
+c) Domain walls stay completely fixed while individual atomic moments flip straight to saturation at $H_c$
+d) Favourable domains first grow at the expense of unfavourable ones, and remaining domains then rotate into alignment
 
 ### Answer
 
@@ -181,30 +178,29 @@ d
 
 ### Explanation
 
-In the initial stage the slope is the initial permeability, so $B = \mu_r\mu_0 H = 40\,000\times1.257\times10^{-6}\times0.5 = 2.51\times10^{-2}$ T $= 25.1$ mT (Slide 16).
+Session 15, Slide 16: starting from random domains, the magnetization rises slowly at first, grows rapidly as favourably oriented domains expand at the expense of unfavourable ones by Bloch-wall motion, and finally slows as the remaining domains rotate into the field direction at saturation.
 
-- a) The factor $H = 0.5$ A/m is left out ($H$ taken as 1 A/m), which doubles the result.
-- b) The maximum permeability (200 000) is used instead of the initial one, which is wrong in the first stage of the curve.
-- c) The field is divided instead of multiplied ($40\,000\times1.257\times10^{-6}/0.5 = 101$ mT).
+- a) Reverses and distorts the stages: domain growth comes before domain rotation, and domains do not shrink after aligning.
+- b) Inverts which domains grow: domains aligned closely with $H$ grow, while unfavourably oriented domains shrink.
+- c) Ignores domain-wall motion, which is the main mechanism driving the steep intermediate rise of the initial curve.
 
 ### Source
 
-Session 15, Slides 16 and 24.
+Session 15, Slide 16.
 
-## Q59.6 Remanence-to-saturation ratio of grain-oriented silicon iron
+## Q59.6 Origin of remanence on unloading the magnetic field
 
 - id: B59-Q6
-- concept_id: u7-remanence-ratio-table
-- format: numeric
-- asks: calculation
-- calc: round(1.20/2.01, 2)
+- concept_id: u7-hysteresis-irreversibility
+- format: complete-sentence
+- asks: cause
 
-For grain-oriented silicon iron, Table 20-4 (Slide 24) gives $B_r = 1.20$ T and $B_{max} = 2.01$ T. Determine the ratio $B_r/B_{max}$ of the loop:
+When a ferromagnetic specimen is driven to saturation and the applied field $H$ is then returned to zero, the induction does not return to zero because:
 
-a) 1.7
-b) 0.60
-c) 0.36
-d) 0.81
+a) induced diamagnetic currents preserve the full saturation induction indefinitely
+b) the magnetic domains do not spontaneously revert to their initial random arrangement
+c) the Curie temperature drops below room temperature during magnetization
+d) the Bloch walls vanish permanently once saturation is reached
 
 ### Answer
 
@@ -212,36 +208,29 @@ b
 
 ### Explanation
 
-$B_r/B_{max} = 1.20/2.01 = 0.60$: about 60 % of the maximum induction is kept when the field is removed (remanence, Slide 17).
+Session 15, Slide 17: reducing $H$ back to zero leaves part of the domain alignment locked in rather than returning to the original random distribution, producing the remanence $B_r$.
 
-- a) Inverted ratio, $2.01/1.20 = 1.7$: a remanence cannot exceed the maximum induction of the same loop.
-- c) Wrong row: $0.77/2.14 = 0.36$ uses the values of ingot iron.
-- d) Difference in place of ratio: $2.01 - 1.20 = 0.81$ (a value in tesla, not a ratio).
+- a) Diamagnetism produces weak opposition while a field acts, not permanent remanent induction.
+- c) Magnetizing a specimen does not shift its Curie temperature below room temperature.
+- d) Domain walls re-nucleate as the field drops and reverse, which is how a reverse field $-H_c$ demagnetizes the specimen.
 
 ### Source
 
-Session 15, Slides 17 and 24.
+Session 15, Slide 17.
 
-## Q59.7 Recording powder past its Curie temperature
+## Q59.7 Ferrimagnetic ceramics compared with ferromagnetic metals
 
 - id: B59-Q7
-- concept_id: u7-recording-powders-curie-table
-- format: diagram-reading
-- asks: figure-reading
+- concept_id: u7-ferrimagnetic-ceramics-domains
+- format: topic-true
+- asks: classification
 
-From the shown values of Table 20-5 (Slide 24), indicate which recording powder has already lost its ferromagnetic order when it works at 400 °C:
+Regarding ferrimagnetic ceramics (such as ferrites) compared with ferromagnetic metals, which one of the following statements is TRUE:
 
-| Powder | Curie temperature $T_c$ (°C) |
-| :--- | ---: |
-| γ-Fe₂O₃ | 600 |
-| Co-γ-Fe₂O₃ | 700 |
-| Fe | 770 |
-| Barium ferrite | 350 |
-
-a) Barium ferrite
-b) γ-Fe₂O₃
-c) Fe
-d) Co-γ-Fe₂O₃
+a) Ferrites form domains and hysteresis loops with high susceptibility, while remaining ceramic oxides with unequal antiparallel moments
+b) Ferrites lack magnetic domains and behave like linear diamagnets with negative susceptibility
+c) Ferrites are metallic alloys whose antiparallel moments are equal and cancel to zero net magnetization
+d) Ferrites have no Curie temperature and retain their spontaneous magnetization at arbitrarily high temperatures
 
 ### Answer
 
@@ -249,15 +238,15 @@ a
 
 ### Explanation
 
-A material is paramagnetic above its Curie temperature (Slide 23). Only the barium ferrite has $T_c = 350\,°\text{C} < 400\,°\text{C}$; the other three have $T_c$ above 400 °C and stay ordered.
+Session 15, Slides 5, 11, 14 and 23: ferrites and garnets are ferrimagnetic ceramics whose unequal antiparallel ionic moments yield a large net magnetization ($\chi_m$ up to $10^6$), domain structures, and hysteresis loops, while remaining ceramic oxides rather than pure metals.
 
-- b) The 600 is read as kelvin (600 K = 327 °C, below 400 °C), but the column is already in °C.
-- c) Inverted comparison: the highest $T_c$ is chosen as the one that has been exceeded.
-- d) The student assumes that the cobalt addition lowers the Curie temperature; the table shows 700 °C, higher than that of γ-Fe₂O₃.
+- b) Confuses ferrimagnetism with diamagnetism: ferrites have $\mu_r \gg 1$ and clear hysteresis loops (Slide 24 lists MnZn and NiZn ferrites).
+- c) Confuses ferrimagnetic ceramics with antiferromagnetic metals/oxides: equal antiparallel moments give zero net moment, and ferrites are ceramics.
+- d) False: Slide 23 explicitly states that above $T_c$, both ferromagnetic and ferrimagnetic materials (including $\text{Fe}_3\text{O}_4$) become paramagnetic.
 
 ### Source
 
-Session 15, Slides 23 and 24.
+Session 15, Slides 5, 11, 14, 23 and 24.
 
 ## Q59.8 Order of the stages of magnetization
 
@@ -326,7 +315,7 @@ Session 15, Slides 18-19.
 - format: identify
 - asks: application
 
-According to Slide 19, a material with a rectangular hysteresis cycle is:
+How is a material with a rectangular hysteresis cycle produced, and where is it used?
 
 a) a soft magnet heat-treated in a magnetic field, used in magnetic memories
 b) a hard magnet quenched from high temperature, used in permanent magnets
@@ -348,3 +337,5 @@ Slide 19: rectangular-cycle materials are soft magnetic materials modified by a 
 ### Source
 
 Session 15, Slide 19.
+
+**Back to:** [[Problem Set - Aerospace Materials I Problem Bank]]

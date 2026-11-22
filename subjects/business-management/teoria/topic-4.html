@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 4: The Production Function | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 4: the production function, production systems, plant layout, Gantt charts, productivity, break-even point and operating leverage. UC3M." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Blocks generated by tools/build_topic_pages.py from the vault note */
+    .article-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; }
+    .source-box { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    h2.section-heading { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .section-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    h3.sub-heading { font-size: 1.2rem; color: var(--text-heading); margin: 28px 0 12px; }
+    h4.sub-heading { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; }
+    .part-divider { text-align: center; color: var(--accent); border-bottom: none; }
+    .math-block { overflow-x: auto; margin: 18px 0; padding: 4px 0; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+    td, th { vertical-align: top; }
+    .topic-nav-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Figures generated from tools/figures/bm_t*.py */
+    [data-theme="dark"] { --text-faint: #94a3b8; }
+    [data-theme="light"] { --text-faint: #64748b; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 14px 12px; margin: 22px 0 26px; overflow-x: auto; }
+    .diagram-card svg { min-width: 520px; }
+    .diagram-caption { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 4</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-category">Topic 04 · The Production Function</div>
+      <h1 class="article-title">The Production Function</h1>
+      <p class="article-subtitle">The production system and its objectives, rigid, flexible and Just in Time production, plant layouts, planning with Gantt charts, productivity, the break-even point, operating leverage and the margin of safety.</p>
+      <div class="source-box">
+        <span>📖 Source: Universidad Carlos III de Madrid · Topic 4_ The Production Function.pdf (Prof. Carmen Paz-Aparicio), Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 1">1-43</a></span>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf" target="_blank" rel="noopener">Topic 4 The Production Function.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/problemas/BEP%20%20OL%20Statements.pdf" target="_blank" rel="noopener">BEP  OL Statements.pdf</a>
+      </nav>
+    </header>
+
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> a production system converts inputs into outputs, and production (operations) management plans, designs, staffs and controls it. Its objectives — cost, quality, time of delivery and flexibility — partly contradict each other, so firms choose between rigid, flexible and Just in Time systems and between three plant layouts. Production is then planned (Gantt charts) and controlled for efficiency, a posteriori with productivity indexes and a priori with cost analysis: the break-even point $Q_0 = FC/(P - VC) = FC/m$, the operating leverage $OL = Q\,m/(Q\,m - FC)$ and the margin of safety.</p></div>
+<p>The topic has three parts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 2">2</a>]: the function of production (concept, objectives and types of production systems: rigid, flexible and Just in Time), production planning and control with the Gantt chart, and the control of efficiency.</p>
+    </section>
+    <h2 class="part-divider">Part I — The function of production</h2>
+    <section id="section-1">
+      <h2 class="section-heading"><span class="section-num">§ 1</span> Concept [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 3">3-4</a>]</h2>
+<p>A <strong>production system</strong> is a method for converting inputs into outputs. <strong>Production management</strong> (operations management) is the set of activities aimed at planning, designing, staffing and controlling a firm's production system [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 3">3</a>].</p>
+<p>The system has four elements [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 4">4</a>]: the <strong>factors of production</strong> (creative, basic and managerial), the <strong>transformation process</strong> (tasks, flows and storage), the <strong>outputs</strong>, and the <strong>feedback</strong> that returns information from the outputs to the inputs. The whole system sits inside the generic and specific <strong>environment</strong> of Topic 2.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T4/production-system.png" alt="The production system" loading="lazy" style="max-width:min(100%,680px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. A production system converts inputs (factors of production) into outputs through a transformation process, inside a generic and specific environment and with feedback. Copied from Topic 4 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 4">4</a>.</div>
+</div>
+    </section>
+    <section id="section-2">
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Objectives and their contradictions [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 5">5-6</a>]</h2>
+<p>The function of production pursues four objectives [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 5">5</a>]: <strong>cost</strong>, <strong>quality</strong>, <strong>time of delivery</strong> and <strong>flexibility</strong>. They can contradict each other [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 6">6</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Pair of objectives</th><th>Why they conflict</th></tr></thead><tbody><tr><td>Cost - quality</td><td>higher quality usually needs better materials, processes and controls, which cost more</td></tr><tr><td>Flexibility - cost</td><td>producing many different products in small amounts loses the savings of standard, large-scale production</td></tr><tr><td>Time of delivery - cost</td><td>delivering faster needs spare capacity, stocks or overtime, which cost more</td></tr></tbody></table></div>
+<p>The right-hand column explains the pairs in plain words; the slide names only the pairs.</p>
+    </section>
+    <h2 class="part-divider">Part II — Types of production systems</h2>
+    <section id="section-3">
+      <h2 class="section-heading"><span class="section-num">§ 3</span> Five generic types in three categories [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 7">7-9</a>, <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 23">23</a>]</h2>
+<p>Production systems are placed on the <strong>product-process matrix</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 7">7</a>]: from <strong>project</strong> (civil engineering), <strong>craft</strong> (product under demand), <strong>batch</strong> (bakery) and <strong>mass</strong> (automobiles) to <strong>continuous</strong> production (petrochemistry). Towards the project end variability and flexibility grow; towards the continuous end volume grows.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T4/product-process.png" alt="The product-process matrix" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. The five generic production systems, from project to continuous production, with an example of each; variability and flexibility grow towards the project end, volume towards the continuous end. Copied from Topic 4 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 7">7</a>.</div>
+</div>
+<p>The five generic types are grouped in three categories [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 8">8-9</a>]: <strong>rigid or continuous</strong> (mass and continuous), <strong>flexible or intermittent</strong> (craft and batch) and <strong>Just in Time</strong>. The project type stands apart, with individualized products. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 23">23</a> summarises them:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Type</th><th>Products and resources</th><th>Plant layout</th></tr></thead><tbody><tr><td>Project</td><td>individualized products: high cost, qualified workers, equipment for general use, difficult planning and control</td><td>fixed</td></tr><tr><td>Craft and batch</td><td>a low quantity of a great variety of products; craft: more adaptability, less quantity; batch: more uniformity, more quantity (batch size)</td><td>functional</td></tr><tr><td>Mass and continuous</td><td>standard products for mass markets, division of labour; mass: more dependent on workers than on machines; continuous: more dependent on machines than on workers</td><td>product</td></tr></tbody></table></div>
+    </section>
+    <section id="section-4">
+      <h2 class="section-heading"><span class="section-num">§ 4</span> Rigid production [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 10">10-13</a>]</h2>
+<p><strong>Characteristics</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 10">10</a>]: big volumes of production, commercialization at a low price, standard products, capital intensive.</p>
+<p><strong>Advantages of job specialization</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 11">11</a>]: less time to learn a task; the simplicity of the task makes learning cheaper; no time lost changing from one task to another; the worker acquires expertise; a better fit between worker and job position; easy replacement of workers (and mechanization).</p>
+<p><strong>Organization of the factory</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 12">12</a>]: division of labour into different job positions, assigned by seniority, which leads to the <strong>bureaucratization</strong> of the company. Its two types are <strong>mass production</strong> and <strong>continuous or process production</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 13">13</a>].</p>
+    </section>
+    <section id="section-5">
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Flexible or intermittent production [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 14">14-17</a>]</h2>
+<p><strong>Characteristics</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 14">14</a>]: flexible volumes of production, more complex and differentiated products, more highly qualified workers, equipment for general use.</p>
+<p><strong>Organization</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 15">15</a>]: plant layout based on teamwork, workers with more responsibility, fewer hierarchical levels, employee rotation, and remuneration that depends on qualification. Its two types are <strong>craft</strong> and <strong>batch</strong> production [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 16">16</a>].</p>
+<p><strong>Flexible versus rigid</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 17">17</a>]: drawn against the volume of production, the total cost of the rigid system starts higher (more fixed cost) but grows more slowly (less variable cost per unit). Below the volume where the two lines cross (zone A) the flexible system is cheaper; above it (zone B) the rigid one is.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T4/flexible-rigid.png" alt="Flexible versus rigid production" loading="lazy" style="max-width:min(100%,520px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. Total cost of a flexible and a rigid system: the rigid one has higher fixed costs and a lower variable cost per unit, so it is cheaper only beyond the crossing volume. Copied from Topic 4 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 17">17</a>.</div>
+</div>
+    </section>
+    <section id="section-6">
+      <h2 class="section-heading"><span class="section-num">§ 6</span> Just in Time [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 18">18-21</a>]</h2>
+<p>Just in Time arose from the need to manufacture many types of automobiles, in small batches but under the same production process. It is <strong>based on requests and eliminates inventories</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 18">18</a>]. Its competitive advantages are to manufacture high-quality products and to reduce the whole production cycle [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=19" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 19">19</a>].</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Element [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=20" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 20">20-21</a>]</th><th>Tool</th></tr></thead><tbody><tr><td>Internal organization</td><td>job cells</td></tr><tr><td>Plant distribution</td><td>U shape</td></tr><tr><td>Mechanisms to support quality</td><td>Jidoka, Poka Yoke</td></tr><tr><td>Mechanisms of visual control</td><td>Andon, control panels, work sheets, Kanban</td></tr></tbody></table></div>
+<p>The slides only name these tools.</p>
+    </section>
+    <section id="section-7">
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Plant layout [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 22">22-26</a>]</h2>
+<p>There are three plant layouts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 22">22</a>]: <strong>functional or process</strong>, <strong>product</strong> and <strong>fixed</strong>.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Layout</th><th>Advantages</th><th>Disadvantages</th></tr></thead><tbody><tr><td>Functional or process [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 24">24</a>]</td><td>high use of the machines; machines easily replaced; operators of similar, nearby machines can train and supervise themselves; a specific incentive system for each worker</td><td>distance between functions; handling wastes when transporting materials; the flow of materials and the operators' work are difficult to standardize and to plan; activities are difficult to plan; lines are not balanced (some saturated, others free)</td></tr><tr><td>Product [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 25">25</a>]</td><td>little work in process; less space for transport and temporary storage; simpler planning and control; operators need little preparation; the flow of materials is easy to anticipate</td><td>inflexible; the time is set by the slowest machine (bottlenecks must be avoided); a problem in one machine affects the whole process; high investment; incentive programmes per employee are difficult to define</td></tr><tr><td>Fixed [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=26" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 26">26</a>]</td><td>the product stays in one place and machinery, materials and labour are brought to it</td><td>—</td></tr></tbody></table></div>
+    </section>
+    <h2 class="part-divider">Part III — Production planning and control</h2>
+    <section id="section-8">
+      <h2 class="section-heading"><span class="section-num">§ 8</span> Planning and control [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 27">27-28</a>]</h2>
+<p><strong>Production planning</strong> is the determination of what products to produce and where, when and how to produce them. <strong>Production control</strong> is the effort to ensure that production plans or schedules are met [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 27">27</a>]. The basic process has six steps [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 28">28</a>]:</p>
+<ol><li>Receiving the orders from customers.</li><li>Developing a list of required materials.</li><li>Developing a route sheet.</li><li>Developing production schedules.</li><li>Dispatching notices to operators to begin work.</li><li>Following up to see that the schedule is being met.</li></ol>
+    </section>
+    <section id="section-9">
+      <h2 class="section-heading"><span class="section-num">§ 9</span> Gantt charts [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=29" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 29">29-32</a>]</h2>
+<p>The <strong>Gantt chart</strong>, named after Henry Gantt, who developed it in the early 1900s, represents the phases and activities of a project work breakdown structure [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=30" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 30">30</a>]. It is a bar chart that shows the scheduled start and stop dates of each production step; it is a visual illustration of times, used for non-complex projects; it normally does not show the dependency relationships between activities; and it shows the current schedule status with percent-complete shading and a vertical "TODAY" line [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=31" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 31">31</a>].</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T4/gantt.png" alt="A Gantt chart" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. A Gantt chart: one bar per activity from its scheduled start to its stop date, with the current status marked. Copied from Topic 4 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=32" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 32">32</a>.</div>
+</div>
+    </section>
+    <h2 class="part-divider">Part IV — Control of efficiency</h2>
+    <section id="section-10">
+      <h2 class="section-heading"><span class="section-num">§ 10</span> Efficiency, productivity and cost analysis [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 33">33-35</a>]</h2>
+<p>The production system is controlled for <strong>efficiency</strong>, which is not the same as <strong>efficacy</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 33">33</a>]. Two kinds of index are used: <strong>productivity</strong>, measured a posteriori, and <strong>cost analysis</strong>, a priori.</p>
+<p><strong>Total productivity</strong> relates everything produced to all the factors used, and a <strong>partial productivity</strong> to one factor only [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=34" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 34">34</a>]:</p>
+<div class="math-block">$$\text{Total productivity} = \frac{\text{Goods and services}}{\text{Labour} + \text{Capital} + \text{Raw materials} + \text{Energy}} \qquad \text{Labour productivity} = \frac{\text{Goods and services}}{\text{Labour}}$$</div>
+<p>Productivity depends on external factors, factors of capacity, product factors, factors of process design, factors of human resources and quality factors [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=35" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 35">35</a>].</p>
+    </section>
+    <section id="section-11">
+      <h2 class="section-heading"><span class="section-num">§ 11</span> Break-even point [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 36">36-38</a>]</h2>
+<p>The <strong>break-even point</strong> (BEP) is the volume of sales or production at which the company covers its total costs, and from which it starts to make profits; it depends on the cost structure [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 36">36</a>].</p>
+<p>With price $P$ per unit, variable cost $VC$ per unit, fixed costs $FC$ and volume $Q$, revenue is $R = P\,Q$ and total cost $TC = FC + VC\,Q$, so</p>
+<div class="math-block">$$\text{Profit} = P\,Q - (VC\,Q + FC) = Q\,(P - VC) - FC$$</div>
+<p>The <strong>unit margin</strong> is $m = P - VC$. At the break-even point the profit is zero, $Q_0\,m - FC = 0$ [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>]:</p>
+<div class="math-block">$$Q_0 = \frac{FC}{P - VC} = \frac{FC}{m}$$</div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T4/bep-chart.png" alt="Break-even point" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 5. Revenue and total cost TC = FC + VC against the volume Q: below the break-even volume the company has losses, above it profits. Copied from Topic 4 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 37">37</a>.</div>
+</div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=38" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 38">38</a> compares two cost structures with the same revenue line: case A, with higher fixed costs and a steeper profit line, and case B, with lower fixed costs and a flatter one. The break-even point moves with the cost structure.</p>
+    </section>
+    <section id="section-12">
+      <h2 class="section-heading"><span class="section-num">§ 12</span> Operating leverage [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=39" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 39">39-41</a>]</h2>
+<p>The <strong>operating leverage</strong> measures how a change in sales translates into a change in operating income (profit or loss) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>]. It is the relative change of the profit divided by the relative change of the volume [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=39" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 39">39</a>]:</p>
+<div class="math-block">$$OL = \frac{\Delta \text{Profit} / \text{Profit}}{\Delta Q / Q}$$</div>
+<p>Since $\text{Profit} = Q\,(P - VC) - FC$ and $FC$ does not change with $Q$, $\Delta\text{Profit} = \Delta Q\,(P - VC)$. Substituting,</p>
+<div class="math-block">$$OL = \frac{\dfrac{\Delta Q\,(P - VC)}{Q\,(P - VC) - FC}}{\dfrac{\Delta Q}{Q}} = \frac{Q\,(P - VC)}{Q\,(P - VC) - FC} = \frac{Q\,m}{Q\,m - FC} = \frac{Q\,m}{\text{Profit}}$$</div>
+<p><strong>Interpretation</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=40" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 40">40</a>]: with $OL = 3$, a 1% increase in sales raises profit by 3%, and a 10% fall in sales lowers profit by 30%.</p>
+<p><strong>Comments</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=41" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 41">41</a>]: the OL captures the sensitivity of operating income to sales; it is an index of <strong>economic (operating) risk</strong>; it is used to compare businesses of the same sector; and, ceteris paribus, the higher the fixed costs, the higher the OL.</p>
+    </section>
+    <section id="section-13">
+      <h2 class="section-heading"><span class="section-num">§ 13</span> Relationship between break-even point and operating leverage [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>]</h2>
+<p>Since $FC = Q^*\,m$ (with $Q^*$ the break-even point), the leverage depends only on how far the volume is from the break-even point:</p>
+<div class="math-block">$$OL = \frac{Q\,m}{Q\,m - Q^*\,m} = \frac{Q}{Q - Q^*}$$</div>
+<ul><li><strong>Profits</strong> ($Q &gt; Q^*$): $OL &gt; 1$, a more than proportional effect; the closer to the break-even point, the larger the leverage.</li><li><strong>Losses</strong> ($Q &lt; Q^*$): $OL \le 0$; for $OL &lt; -1$ an amplifier (more than proportional) effect, for $-1 &lt; OL &lt; 0$ a less than proportional effect.</li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T4/ol-curve.png" alt="Operating leverage and the break-even point" loading="lazy" style="max-width:min(100%,400px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 6. OL = Q / (Q − Q*): above the break-even point the leverage is greater than 1 and falls towards 1 as Q grows; below it the leverage is negative. Copied from Topic 4 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=42" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 42">42</a>.</div>
+</div>
+    </section>
+    <section id="section-14">
+      <h2 class="section-heading"><span class="section-num">§ 14</span> Margin of safety [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-04-production-function/teoria/Topic%204_%20The%20Production%20Function.pdf#page=43" target="_blank" rel="noopener" title="Open Topic 4 The Production Function.pdf at page 43">43</a>]</h2>
+<p>The <strong>margin of safety</strong> represents the strength of the business: the amount the company is above (or below) the break-even point.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Measured in</th><th>Formula</th></tr></thead><tbody><tr><td>units</td><td>$MS = Q - Q^*$</td></tr><tr><td>monetary units</td><td>$MS = (Q - Q^*)\,m$</td></tr><tr><td>percentage</td><td>$MS = (Q - Q^*)/Q^*$</td></tr></tbody></table></div>
+<p>The percentage form of the slide divides by the break-even volume $Q^*$.</p>
+    </section>
+    <section id="section-15">
+      <h2 class="section-heading"><span class="section-num">§ 15</span> Practical formulary</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Magnitude</th><th>Formula</th><th>Slide</th></tr></thead><tbody><tr><td>Unit margin</td><td>$m = P - VC$</td><td>37</td></tr><tr><td>Profit</td><td>$\text{Profit} = Q\,m - FC$</td><td>39</td></tr><tr><td>Break-even point</td><td>$Q_0 = FC/m$</td><td>37</td></tr><tr><td>Operating leverage</td><td>$OL = Q\,m/(Q\,m - FC) = Q/(Q - Q^*)$</td><td>40, 42</td></tr><tr><td>Margin of safety</td><td>$Q - Q^*$; $(Q - Q^*)\,m$; $(Q - Q^*)/Q^*$</td><td>43</td></tr><tr><td>Labour productivity</td><td>goods and services / labour</td><td>34</td></tr></tbody></table></div>
+<p>The eight exercises of the break-even and operating leverage sheet are solved one by one in Problem Set - T4 Break-Even Point and Operating Leverage.</p>
+    </section>
+    <section id="problems-link">
+      <div class="callout"><p><a class="end-btn" href="../problemas/topic-4-break-even-leverage.html">Solved exercises for this topic (break-even point and operating leverage, exercises 1-8) →</a></p></div>
+    </section>
+
+  </main>
+
+  <div class="topic-nav-wrap">
+    <footer class="topic-nav">
+      <a href="topic-3-investment.html">← Previous Topic: Financial Management (II)</a>
+      <a href="topic-5.html">Next Topic: Marketing &amp; Sales Management →</a>
+    </footer>
+  </div>
+
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

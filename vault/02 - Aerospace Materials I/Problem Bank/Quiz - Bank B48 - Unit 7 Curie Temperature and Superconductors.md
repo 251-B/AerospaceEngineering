@@ -92,7 +92,7 @@ Session 15, Slides 23 and 27.
 - format: diagram-reading
 - asks: figure-reading
 
-The shown curve gives the saturation magnetization of one of the ferromagnetic metals of the slides against temperature. Which metal is it?
+The shown curve gives the saturation magnetization of a ferromagnetic metal against temperature. Given Curie temperatures of 1404 K (Co), 1043 K (Fe), 631 K (Ni) and 289 K (Gd), which metal is shown?
 
 ![[attachments/MAT-MT2/u7-ms-temperature.svg]]
 
@@ -107,7 +107,7 @@ b
 
 ### Explanation
 
-The magnetization falls to zero just above 1000 K, at about 1040 K; the table of Slide 23 gives $T_c = 1043$ K for Fe (the chart of the same slide puts it at about 770 °C).
+The magnetization falls to zero just above 1000 K, at about 1040 K; among the four values given, $T_c = 1043$ K corresponds to Fe (Session 15, Slide 23 puts it at about 770 °C).
 
 - a) Co has $T_c = 1404$ K, beyond the drop of the curve.
 - c) Ni has $T_c = 631$ K: the curve would reach zero between the 600 and 800 K marks.
@@ -117,19 +117,19 @@ The magnetization falls to zero just above 1000 K, at about 1040 K; the table of
 
 Session 15, Slide 23.
 
-## Q48.4 Ranking of Curie temperatures
+## Q48.4 Behaviour above and below the Curie temperature
 
 - id: B48-Q4
 - concept_id: u7-curie-temperature
-- format: ordering
-- asks: comparison
+- format: false-statement
+- asks: effect
 
-Order the ferromagnetic metals Fe, Co, Ni and Gd by increasing Curie temperature.
+Which one of the following statements is FALSE about the Curie temperature $T_c$ of magnetic materials?
 
-a) Gd, Ni, Co, Fe
-b) Co, Fe, Ni, Gd
-c) Ni, Gd, Fe, Co
-d) Gd, Ni, Fe, Co
+a) Both ferromagnetic metals and ferrimagnetic ceramics have a Curie temperature
+b) Above $T_c$, thermal agitation destroys long-range ordering and the material becomes paramagnetic
+c) Near $T_c$, ferromagnetic materials such as iron show a peak in specific heat
+d) Once heated above $T_c$, a ferromagnetic metal remains permanently paramagnetic upon cooling
 
 ### Answer
 
@@ -137,15 +137,15 @@ d
 
 ### Explanation
 
-Slide 23: Gd 289 K, Ni 631 K, Fe 1043 K and Co 1404 K, so the order is Gd, Ni, Fe, Co.
+Session 15, Slides 22-23 and 35: heating above $T_c$ causes thermal agitation to overcome magnetic ordering so $M_s$ drops to zero and the material becomes paramagnetic, but the transition is reversible—cooling back below $T_c$ restores spontaneous ferromagnetic ordering.
 
-- a) Fe and Co swapped: Co, not Fe, has the highest Curie temperature of the table.
-- b) The fully reversed order, from the highest $T_c$ to the lowest.
-- c) Ni and Gd swapped: Gd loses its ferromagnetism near room temperature, well below Ni.
+- a) True: Slide 23 explicitly states that above $T_c$, ferromagnetic and ferrimagnetic materials become paramagnetic (and plots both Fe and $\text{Fe}_3\text{O}_4$).
+- b) True: thermal agitation misaligns dipoles so spontaneous magnetization drops abruptly to zero at $T_c$ (Slide 23).
+- c) True: ferromagnetic metals such as iron display a high specific heat at their Curie temperature (Slide 35).
 
 ### Source
 
-Session 15, Slide 23.
+Session 15, Slides 22-23 and 35.
 
 ## Q48.5 Néel temperature
 
@@ -245,7 +245,7 @@ Session 15, Slides 23, 27, 31 and 44.
 - format: diagram-reading
 - asks: figure-reading
 
-A pure metal is cooled towards 0 K and its measured resistivity follows the shown curve. From the critical temperature read on it, the metal is:
+A pure metal is cooled towards 0 K and its measured resistivity follows the shown curve. Given critical temperatures of 4.15 K (Hg), 7.19 K (Pb), 9.26 K (Nb) and 1.20 K (Al), the metal is:
 
 ![[attachments/MAT-MT2/u7-rho-temperature.svg]]
 

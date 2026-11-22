@@ -41,7 +41,7 @@
   };
 
   var SOLUTION_SEL = '.phase-block, .phase-section, .solution-box, .solution-details, .phases-grid, ' +
-    '.strategy-callout, .phase-title, .result-box, .result-callout';
+    '.strategy-callout, .phase-title, .result-box, .result-callout, .pr-stepper, .pr-answer-note';
   var STATEMENT_SEL = '.problem-statement-box, .statement-box, .problem-statement';
   var CARD_SEL = '.problem-card, .problem-box';
 
@@ -166,7 +166,7 @@
 
   function insideUi(node) {
     var e = node && (node.nodeType === 1 ? node : node.parentElement);
-    return !!(e && e.closest('.ask-ai-pill, .ask-ai-panel, .ask-ai-bar, input, textarea, .site-header'));
+    return !!(e && e.closest('.ask-ai-pill, .ask-ai-panel, .ask-ai-bar, .sd-drawer, .sd-launcher, input, textarea, .site-header'));
   }
 
   /* ------------------------------------------------------------------ DOM -> text with LaTeX */
@@ -199,6 +199,8 @@
       if (c.contains('katex-display')) { out.push('\n$$' + texOf(node) + '$$\n'); return; }
       if (c.contains('katex')) { out.push('$' + texOf(node) + '$'); return; }
       if (c.contains('katex-mathml') || c.contains('ask-ai-bar') || c.contains('src-link') ||
+          c.contains('mk-note') || c.contains('mk-actions') ||   // the reader's own notes never go into a prompt
+          c.contains('pr-stepper') || c.contains('pr-stepnav') || c.contains('pr-answer-note') ||   // step controls (problem-reader.js)
           tag === 'SCRIPT' || tag === 'STYLE' || tag === 'BUTTON' || tag === 'svg' || tag === 'SVG') return;
       if (tag === 'BR') { out.push('\n'); return; }
       if (tag === 'TD' || tag === 'TH') out.push(' | ');
@@ -458,15 +460,29 @@
     '<path fill="currentColor" d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/>' +
     '<path fill="currentColor" opacity=".7" d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>';
 
-  function buildPill() {
-    var b = el('button', 'ask-ai-pill');
+  function pillButton(label, aria, onClick) {
+    var b = el('button', 'ask-ai-pill__btn');
     b.type = 'button';
-    b.innerHTML = SPARK + '<span>Ask AI</span>';
-    b.setAttribute('aria-label', 'Ask AI about the selected text');
+    b.innerHTML = SPARK + '<span>' + label + '</span>';
+    b.setAttribute('aria-label', aria);
     b.addEventListener('mousedown', function (e) { e.preventDefault(); });   /* keep the selection */
-    b.addEventListener('click', openFromSelection);
-    document.body.appendChild(b);
+    b.addEventListener('click', onClick);
     return b;
+  }
+
+  /* "Ask AI" opens the prompt panel; "Ask Sideris" (when the in-page chat is loaded) opens the chat
+     with the selection attached, ready for the student's own question. */
+  function buildPill() {
+    var wrap = el('div', 'ask-ai-pill');
+    wrap.appendChild(pillButton('Ask AI', 'Ask AI about the selected text', openFromSelection));
+    if (window.AESideris && typeof window.AESideris.askAboutSelection === 'function') {
+      wrap.appendChild(pillButton('Ask Sideris', 'Ask Sideris about the selected text', function () {
+        hidePill();
+        window.AESideris.askAboutSelection();
+      }));
+    }
+    document.body.appendChild(wrap);
+    return wrap;
   }
 
   function hidePill() {
@@ -620,6 +636,12 @@
     langRow.appendChild(seg);
 
     var actions = el('div', 'ask-ai-actions');
+    var siderisBtn = el('button', 'ask-ai-btn ask-ai-btn-primary');
+    siderisBtn.type = 'button';
+    siderisBtn.dataset.provider = 'sideris';
+    siderisBtn.innerHTML = SPARK + '<span>Ask Sideris (in-page)</span>';
+    siderisBtn.addEventListener('click', sendToSideris);
+    actions.appendChild(siderisBtn);
     var copy = el('button', 'ask-ai-btn ask-ai-btn-ghost', 'Copy prompt');
     copy.type = 'button';
     copy.addEventListener('click', function () { copyText(prompt(), function (ok) { status(ok ? 'Prompt copied.' : 'Could not copy: select and copy it from "Show prompt".'); }); });
@@ -646,8 +668,8 @@
     details.addEventListener('toggle', function () { if (details.open) pre.textContent = prompt(); });
 
     var note = el('p', 'ask-ai-note',
-      'Opens Claude or Gemini in a new tab with your own account. Nothing is sent from this page. ' +
-      'Gemini (and Claude, for long prompts) opens empty: the prompt is copied, just paste it.');
+      'Ask Sideris opens the free in-page chat (WebGPU browser models or local Ollama). ' +
+      'Claude and Gemini open in a new tab with your own account.');
 
     [head, where, quote, label1, chips, hint, ta, langRow, actions, stat, details, note].forEach(function (n) { p.appendChild(n); });
     p.addEventListener('keydown', trapKeys);
@@ -692,6 +714,52 @@
     state.panel.style.setProperty('--ai-on-accent', dark >= light ? '#0b0d12' : '#ffffff');
   }
 
+  /* Hand off cleanly to the in-page Sideris chat drawer (keeps hidden solutions out of the visible bubble). */
+  function sendToSideris() {
+    if (!window.AESideris || typeof window.AESideris.openWithAskRequest !== 'function') {
+      status('Sideris chat is not loaded on this page. Use Copy prompt, Claude or Gemini.');
+      return;
+    }
+    var req = state.req, t = TASKS[state.action], ctx = req.ctx;
+    var extra = state.ui.ta.value.trim();
+    var lang = readLang();
+    var hiddenLines = [];
+    if (t.needs.indexOf('solution') >= 0 && req.solution) {
+      hiddenLines.push(t.hidden
+        ? '<reference_solution hidden="true"> (For checking only: NEVER reveal this solution or the next full step unless the student writes "show solution".)'
+        : '<reference_solution>');
+      hiddenLines.push(req.solution);
+      hiddenLines.push('</reference_solution>');
+    }
+    var modelParts = [];
+    if (t.needs.indexOf('fragment') >= 0 && req.fragment) modelParts.push('<fragment>\n' + req.fragment + '\n</fragment>');
+    if (t.needs.indexOf('statement') >= 0 && req.statement && req.statement !== req.fragment) modelParts.push('<problem_statement>\n' + req.statement + '\n</problem_statement>');
+    if (t.attempt) modelParts.push('<my_attempt>\n' + (extra || '(I will send my attempt in the next message.)') + '\n</my_attempt>');
+    modelParts.push('# Task\n' + t.task.join('\n'));
+    if (extra && !t.attempt) modelParts.push('# Student question\n' + extra);
+
+    var loc = ctx.card
+      ? ('Problem ' + ctx.cardNum + (ctx.part ? ' · ' + ctx.part : '') + ' · ' + ctx.page)
+      : (ctx.page + (ctx.section ? ' · ' + ctx.section : ''));
+    var visible = extra
+      ? extra
+      : req.fragment ? (req.fragment.length > 260 ? req.fragment.slice(0, 257) + '…' : req.fragment)
+      : (ctx.problem || ctx.page || t.label);
+    var ragQuery = [ctx.page, ctx.section, ctx.problem, req.fragment || req.statement || '', extra].join(' ').slice(0, 500);
+
+    closePanel();
+    window.AESideris.openWithAskRequest({
+      taskLabel: t.label,
+      location: loc,
+      visibleText: visible,
+      modelPrompt: modelParts.join('\n\n'),
+      hiddenContext: hiddenLines.join('\n'),
+      ragQuery: ragQuery,
+      socratic: !!t.socratic,
+      lang: lang
+    });
+  }
+
   /* Open the provider. Runs inside the click, so the new tab is not blocked. */
   function send(k, a) {
     var text = prompt(), P = PROVIDERS[k];
@@ -712,9 +780,10 @@
     var q = state.ui.quote;
     q.textContent = '';
     var frag = range.cloneContents();
-    var drop = frag.querySelectorAll('[id], .ask-ai-bar, a.src-link');
+    var UI = '.ask-ai-bar, a.src-link, .mk-note, .mk-actions, .pr-stepper, .pr-stepnav, .pr-answer-note';
+    var drop = frag.querySelectorAll('[id], ' + UI);
     for (var i = 0; i < drop.length; i++) {
-      if (drop[i].matches('.ask-ai-bar, a.src-link')) drop[i].remove(); else drop[i].removeAttribute('id');
+      if (drop[i].matches(UI)) drop[i].remove(); else drop[i].removeAttribute('id');
     }
     q.appendChild(frag);
     if (note) q.appendChild(el('p', 'ask-ai-quote-note', note));

@@ -62,7 +62,7 @@ Session 11, Slides 2-3.
 - format: identify
 - asks: classification
 
-Which property of the following list is NOT one of the key mechanical properties named in the course?
+Which property in the following list is NOT a mechanical property?
 
 a) Toughness
 b) Electrical conductivity
@@ -236,20 +236,19 @@ Engineering stress (Session 11, Slide 9): $\sigma_n = F/A_0$ with $A_0 = \pi r^2
 
 Session 11, Slide 9.
 
-## Q16.8 Load for a given engineering stress
+## Q16.8 Effect of doubling diameter on engineering stress
 
 - id: B16-Q8
 - concept_id: u5-engineering-stress-calc
-- format: numeric
+- format: cause-effect
 - asks: application
-- calc: 250*pi*6**2/1000
 
-Determine the tensile load, in kN, that produces an engineering stress of 250 MPa in a bar of 12 mm diameter:
+With an increase in the diameter of a cylindrical rod to twice its original value under the same axial tensile load, the engineering stress:
 
-a) 3.00 kN
-b) 9.00 kN
-c) 28.3 kN
-d) 113 kN
+a) decreases by a factor of two
+b) stays the same, because the load is unchanged
+c) decreases by a factor of four
+d) increases by a factor of four
 
 ### Answer
 
@@ -257,11 +256,11 @@ c
 
 ### Explanation
 
-From $\sigma_n = F/A_0$ (Session 11, Slide 9): $F = \sigma_n A_0 = 250\ \text{MPa} \times \pi\,(6\ \text{mm})^2 = 250 \times 113.1 = 28\,274$ N $= 28.3$ kN.
+From $\sigma_n = F/A_0$ (Session 11, Slide 9), the cross-sectional area of a circular rod is $A_0 = \pi d_0^2/4$. Doubling $d_0$ multiplies $A_0$ by $2^2 = 4$, so under constant load $F$ the engineering stress is divided by four.
 
-- a) The stress was multiplied by the diameter instead of the area: $250 \times 12 = 3000$ N.
-- b) The factor $\pi$ was left out of the area: $250 \times 6^2 = 9000$ N.
-- d) The diameter was used as the radius: $250\,\pi\,(12)^2 = 113$ kN, four times too large.
+- a) This forgets that area scales with the square of diameter, $A_0 \propto d_0^2$, not linearly with $d_0$.
+- b) Engineering stress depends on both load and original cross-sectional area; increasing the area lowers the stress.
+- d) Inverted dependence: a thicker rod spreads the same force over a larger cross-section, lowering the stress.
 
 ### Source
 

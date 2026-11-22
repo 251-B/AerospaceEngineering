@@ -1,0 +1,409 @@
+/* ==========================================================================
+   THEORY READER (assets/js/theory-reader.js)
+   Linked by the script on theory topic pages only (teoria/topic-*.html).
+   Screen only: the browser's own print and the PDFs (print.css) show the
+   page as written, with every caption and paragraph in full.
+   Text colours come from the reading palette (--study-text, --study-text-2,
+   --study-surface-*, with the side menu's fallbacks for the default palette),
+   never from the subject accent, so every palette stays AAA.
+   ========================================================================== */
+html.tr-on {
+  --tr-surface: var(--study-surface-dark, #131b2b);
+  --tr-text: var(--study-text, #f8fafc);
+  --tr-muted: var(--study-text-2, #cbd5e1);
+  --tr-border: var(--study-border-dark, rgba(148, 163, 184, 0.35));
+}
+html.tr-on[data-theme="light"] {
+  --tr-surface: var(--study-surface-light, #ffffff);
+  --tr-text: var(--study-text, #0f172a);
+  --tr-muted: var(--study-text-2, #334155);
+  --tr-border: var(--study-border-light, rgba(15, 23, 42, 0.2));
+}
+
+@media screen {
+  /* ---- Wide view: the article column takes the width of the window ---- */
+  html.tr-wide:not([data-theme="print"]) {
+    --tr-gutter: 64px;
+  }
+  @media (min-width: 1100px) {
+    html.tr-wide.tr-has-rail:not([data-theme="print"]) { --tr-gutter: 104px; }
+  }
+  html.tr-wide:not([data-theme="print"]) body main,
+  html.tr-wide:not([data-theme="print"]) body main > .container,
+  html.tr-wide:not([data-theme="print"]) body > .container,
+  html.tr-wide:not([data-theme="print"]) body .article-container,
+  html.tr-wide:not([data-theme="print"]) body main .theory-section,
+  html.tr-wide:not([data-theme="print"]) body main > article,
+  html.tr-wide:not([data-theme="print"]) body main > section,
+  html.tr-wide:not([data-theme="print"]) body > .site-header > .header-inner {
+    max-width: min(1280px, calc(100vw - 2 * var(--tr-gutter))) !important;
+  }
+  html.tr-wide:not([data-theme="print"]) body main,
+  html.tr-wide:not([data-theme="print"]) body .article-container {
+    padding-left: clamp(12px, 2vw, 28px) !important;
+    padding-right: clamp(12px, 2vw, 28px) !important;
+  }
+  html.tr-wide:not([data-theme="print"]) body main :is(h2, h3) { scroll-margin-top: 84px; }
+
+  /* ---- Citations of the official material ---- */
+  html.tr-on:not([data-theme="print"]) :is(h1, h2, h3, h4) .tr-cite { display: none !important; }
+  html.tr-on:not([data-theme="print"]) .tr-cite {
+    font-size: 0.78em;
+    color: var(--tr-muted);
+    white-space: nowrap;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-cite a { color: inherit !important; }
+
+  /* ---- Folded caption tails and "About this page" ---- */
+  html.tr-on:not([data-theme="print"]) .tr-fold { display: none; }
+  html.tr-on:not([data-theme="print"]) .tr-fold.tr-fold--open { display: inline; }
+  html.tr-on:not([data-theme="print"]) .tr-fold--block.tr-fold--open { display: block; margin-top: 8px; }
+  html.tr-on:not([data-theme="print"]) .tr-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 2px;
+    padding: 1px 9px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--tr-muted);
+    font: inherit;
+    font-size: 0.82em;
+    line-height: 1.5;
+    cursor: pointer;
+    vertical-align: baseline;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-more::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.15s ease;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-more[aria-expanded="true"]::after { transform: translateY(1px) rotate(225deg); }
+  html.tr-on:not([data-theme="print"]) .tr-more:hover { color: var(--tr-text); }
+  html.tr-on:not([data-theme="print"]) .tr-more:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+  html.tr-on:not([data-theme="print"]) .tr-meta { margin: 0 0 18px; }
+
+  /* A callout about the official material itself (errata, spellings, printed words) folds to its title. */
+  html.tr-on:not([data-theme="print"]) .tr-folded > :not(.tr-folded-title) { display: none !important; }
+  html.tr-on:not([data-theme="print"]) .tr-folded > .tr-folded-title { margin-bottom: 0 !important; }
+  html.tr-on:not([data-theme="print"]) .tr-folded-title .tr-more { margin-left: 8px; text-transform: none; letter-spacing: normal; font-weight: 400; }
+
+  /* ---- Figure beside its text: rows built by the script (.tr-pair), wide screens only.
+     Text with no figure beside it keeps the full width of the column. ---- */
+  @media (min-width: 1100px) {
+    html.tr-wide:not([data-theme="print"]) .tr-pair {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) min(var(--tr-fig-w, 520px), 48%);
+      column-gap: 36px;
+      align-items: start;
+      margin: 0 0 18px;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair__text > :first-child { margin-top: 0 !important; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair__fig { display: flex; flex-direction: column; gap: 14px; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair__fig > * { margin: 0 !important; max-width: 100% !important; width: 100% !important; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair__fig :is(img, svg) { max-width: 100% !important; height: auto; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair { align-items: center; }
+    /* Slide: little text beside a tall figure. One framed panel; the figure loses its own card. */
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide {
+      grid-template-columns: minmax(0, 1fr) min(var(--tr-fig-w, 520px), 55%);
+      padding: 22px 26px;
+      border: 1px solid var(--tr-border);
+      border-radius: 16px;
+      background: var(--tr-surface);
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide > .tr-pair__text { font-size: 1.06em; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide > .tr-pair__text > :last-child { margin-bottom: 0 !important; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide > .tr-pair__fig > * {
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide :is(img, svg) { max-height: 62vh; width: auto; margin: 0 auto; }
+    /* Several figures in one slide: the text across the top, like the statement of a slide, and
+       the figures in a row below it (a gallery, equal heights), so nothing is left empty. */
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi { display: block; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi > .tr-pair__text { margin-bottom: 18px; }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi > .tr-pair__fig {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      align-items: start;
+      gap: 22px;
+    }
+    html.tr-wide:not([data-theme="print"]) .tr-pair--slide.tr-pair--multi :is(img, svg) { max-height: 40vh; }
+  }
+  html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig { display: block !important; max-width: 560px; }
+  html.tr-essential:not([data-theme="print"]) .tr-pair.tr-key-fig > .tr-pair__text { display: none; }
+
+  /* ---- Derivation boxes: title, boxed result and meaning; the steps open on demand ---- */
+  html.tr-on:not([data-theme="print"]) .tr-dfolded :is(.derivation-steps, .derivation-units, .derivation-law, .derivation-source) {
+    display: none !important;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-dbox > .derivation-head { position: relative; }
+  html.tr-on:not([data-theme="print"]) .tr-dbtn { margin: 6px 0 0; align-self: flex-start; }
+
+  /* ---- Sections in accordion ---- */
+  html.tr-on:not([data-theme="print"]) .tr-hidden { display: none !important; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-head { cursor: pointer; position: relative; padding-right: 48px; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-head.tr-sec-closed { margin-top: 10px !important; margin-bottom: 0 !important; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-host-closed { margin-top: 0 !important; margin-bottom: 14px !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  html.tr-on:not([data-theme="print"]) :is(h2, h3)[tabindex="-1"]:focus { outline: none; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--tr-border);
+    border-radius: 50%;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.15s ease; }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle:hover { border-color: var(--accent, currentColor); }
+  html.tr-on:not([data-theme="print"]) .tr-sec-toggle:focus-visible,
+  html.tr-on:not([data-theme="print"]) .tr-secbar__btn:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+  html.tr-on:not([data-theme="print"]) .tr-secbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0 0 16px;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__info { margin-right: auto; color: var(--tr-muted); font-size: 0.9em; }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__btn {
+    padding: 5px 14px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__btn:hover { border-color: var(--accent, currentColor); }
+
+  /* ---- Reading modes: Essential shows each section's summary and its first figure ---- */
+  html.tr-on:not([data-theme="print"]) .tr-mode { display: inline-flex; border: 1px solid var(--tr-border); border-radius: 999px; overflow: hidden; }
+  html.tr-on:not([data-theme="print"]) .tr-mode__btn {
+    padding: 5px 14px;
+    border: 0;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-mode__btn[aria-pressed="true"] { background: var(--tr-text); color: var(--tr-surface); }
+  html.tr-on:not([data-theme="print"]) .tr-mode__btn:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -3px; }
+  html.tr-on:not([data-theme="print"]) .tr-secbar__hint { flex-basis: 100%; text-align: right; color: var(--tr-muted); font-size: 0.78em; }
+  @media (hover: none) { html.tr-on:not([data-theme="print"]) .tr-secbar__hint { display: none; } }
+
+  html.tr-essential:not([data-theme="print"]) .tr-sec-item:not(.essential-box, .tr-key-fig) { display: none !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-hidden:is(.essential-box, .tr-key-fig) { display: block !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-toggle { display: none; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-head { cursor: default; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-head.tr-sec-closed { margin-top: 36px !important; margin-bottom: 14px !important; }
+  html.tr-essential:not([data-theme="print"]) .tr-sec-host-closed { margin-bottom: 0 !important; }
+  html.tr-essential:not([data-theme="print"]) body main .tr-key-fig:not(.tr-pair) { width: auto !important; max-width: 560px; margin: 0 0 8px !important; padding: 12px !important; }
+
+  /* The summary box itself, in Full and Essential mode alike */
+  html.tr-on:not([data-theme="print"]) .essential-box {
+    margin: 0 0 22px;
+    padding: 16px 22px 14px;
+    border: 1px solid var(--tr-border);
+    border-left: 4px solid var(--accent, var(--tr-text));
+    border-radius: 12px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+  }
+  html.tr-on:not([data-theme="print"]) .essential-title {
+    margin: 0 0 8px;
+    color: var(--tr-text);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  html.tr-on:not([data-theme="print"]) .essential-box :is(p, li) { color: var(--tr-text); }
+  html.tr-on:not([data-theme="print"]) .essential-box ul, html.tr-on:not([data-theme="print"]) .essential-box ol { margin-bottom: 10px; }
+  html.tr-on:not([data-theme="print"]) .essential-box li { margin-bottom: 6px; }
+  html.tr-on:not([data-theme="print"]) .essential-box .math-block,
+  html.tr-on:not([data-theme="print"]) .essential-box .math-block > *,
+  html.tr-on:not([data-theme="print"]) .essential-box .katex-display {
+    margin: 10px 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow-x: auto;
+  }
+  html.tr-essential:not([data-theme="print"]) .tr-secbar__btn { display: none; }
+  html.tr-on:not([data-theme="print"]) .essential-box a:not(.src-cite) { color: var(--tr-text); text-decoration: underline; }
+  html.tr-on:not([data-theme="print"]) .essential-recap { margin-top: 28px; }
+
+  /* ---- Key terms: first occurrence of each bold concept, and "Key ideas" under a folded title ---- */
+  html.tr-on:not([data-theme="print"]) .tr-key {
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent, currentColor);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.22em;
+    text-decoration-skip-ink: auto;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-key--flash { outline: 2px solid var(--accent, currentColor); outline-offset: 3px; border-radius: 3px; }
+  html.tr-on:not([data-theme="print"]) .tr-keys {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    margin: 8px 0 4px;
+    padding-right: 48px;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-sec-head:not(.tr-sec-closed) + .tr-keys,
+  html.tr-essential:not([data-theme="print"]) .tr-keys { display: none; }
+  html.tr-on:not([data-theme="print"]) .tr-keys__label {
+    color: var(--tr-muted);
+    font-size: 0.78em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-keys__term {
+    padding: 2px 11px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font: inherit;
+    font-size: 0.86em;
+    line-height: 1.6;
+    cursor: pointer;
+  }
+  html.tr-on:not([data-theme="print"]) .tr-keys__term:hover { border-color: var(--accent, currentColor); }
+  html.tr-on:not([data-theme="print"]) .tr-keys__term:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+
+  /* ---- Progress line above the rail ---- */
+  .tr-progress {
+    position: absolute;
+    right: 4px;
+    bottom: 100%;
+    margin: 0 0 8px;
+    padding: 4px 10px;
+    border: 1px solid var(--tr-border);
+    border-radius: 999px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  /* ---- Section rail ---- */
+  .tr-rail {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    z-index: 40;
+    transform: translateY(-50%);
+    max-height: calc(100vh - 180px);
+    display: flex;
+  }
+  .tr-rail__list {
+    height: min(calc(100vh - 180px), calc(var(--tr-n, 10) * 20px));
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-height: 100%;
+    min-height: 0;
+  }
+  .tr-rail__list > li { flex: 1 1 0; min-height: 5px; max-height: 22px; display: flex; margin: 0; padding: 0; }
+  .tr-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40px;
+    min-height: 5px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .tr-bar__line {
+    display: block;
+    height: 3px;
+    width: 20px;
+    border-radius: 2px;
+    background: var(--tr-muted);
+    opacity: 0.35;
+    transition: width 0.15s ease, opacity 0.15s ease, background-color 0.15s ease;
+  }
+  .tr-bar--h3 .tr-bar__line { width: 11px; height: 2px; }
+  .tr-bar--read .tr-bar__line { opacity: 0.7; }
+  .tr-bar[aria-current] .tr-bar__line { width: 30px; height: 4px; opacity: 1; background: var(--accent, var(--tr-text)); }
+  .tr-bar--h3[aria-current] .tr-bar__line { width: 20px; height: 3px; }
+  .tr-bar:hover .tr-bar__line, .tr-bar:focus-visible .tr-bar__line { width: 34px; opacity: 1; }
+  .tr-bar:focus-visible { outline: none; }
+  .tr-bar:focus-visible .tr-bar__line { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+
+  .tr-bar__tip {
+    position: absolute;
+    right: 46px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: min(340px, 70vw);
+    width: max-content;
+    padding: 6px 10px;
+    border: 1px solid var(--tr-border);
+    border-radius: 8px;
+    background: var(--tr-surface);
+    color: var(--tr-text);
+    font-size: 13px;
+    line-height: 1.35;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease;
+  }
+  .tr-bar--h3 .tr-bar__tip { color: var(--tr-muted); }
+  .tr-bar:hover .tr-bar__tip, .tr-bar:focus-visible .tr-bar__tip { opacity: 1; visibility: visible; }
+
+  /* Narrow screens: thinner rail, and the page keeps a strip free for it. */
+  @media (max-width: 760px) {
+    html.tr-has-rail:not([data-theme="print"]) { --tr-gutter: 0px; }
+    html.tr-has-rail:not([data-theme="print"]) body main,
+    html.tr-has-rail:not([data-theme="print"]) body .article-container { padding-right: 26px !important; }
+    .tr-rail { right: 2px; max-height: calc(100vh - 140px); }
+    .tr-rail__list { height: min(calc(100vh - 140px), calc(var(--tr-n, 10) * 18px)); }
+    .tr-bar { width: 22px; }
+    .tr-bar__line { width: 12px; }
+    .tr-bar--h3 .tr-bar__line { width: 7px; }
+    .tr-bar[aria-current] .tr-bar__line { width: 18px; }
+    .tr-bar--h3[aria-current] .tr-bar__line { width: 12px; }
+    .tr-bar__tip { right: 26px; }
+    .tr-progress { display: none; }
+    html.tr-on:not([data-theme="print"]) .essential-box { padding: 12px 14px 10px; }
+    html.tr-on:not([data-theme="print"]) .essential-box :is(ul, ol) { padding-left: 1.1em; }
+  }
+}
+
+@media print {
+  .tr-rail, .tr-more, .tr-sec-toggle, .tr-secbar, .tr-keys { display: none !important; }
+  .tr-fold { display: inline !important; }
+  .tr-fold--block { display: block !important; }
+}

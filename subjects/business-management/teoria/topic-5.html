@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 5: Marketing and Sales Management | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 5: marketing, market research, segmentation, the marketing mix and price elasticity of demand. UC3M." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Blocks generated by tools/build_topic_pages.py from the vault note */
+    .article-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; }
+    .source-box { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    h2.section-heading { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .section-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    h3.sub-heading { font-size: 1.2rem; color: var(--text-heading); margin: 28px 0 12px; }
+    h4.sub-heading { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; }
+    .part-divider { text-align: center; color: var(--accent); border-bottom: none; }
+    .math-block { overflow-x: auto; margin: 18px 0; padding: 4px 0; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+    td, th { vertical-align: top; }
+    .topic-nav-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Figures generated from tools/figures/bm_t*.py */
+    [data-theme="dark"] { --text-faint: #94a3b8; }
+    [data-theme="light"] { --text-faint: #64748b; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 14px 12px; margin: 22px 0 26px; overflow-x: auto; }
+    .diagram-card svg { min-width: 520px; }
+    .diagram-caption { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 5</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-category">Topic 05 · Marketing and Sales</div>
+      <h1 class="article-title">Marketing and Sales Management</h1>
+      <p class="article-subtitle">The role of marketing, strategic and operative marketing, segmentation and positioning, demand analysis and the price elasticity of demand, and the marketing mix: product, price, promotion and distribution.</p>
+      <div class="source-box">
+        <span>📖 Source: Universidad Carlos III de Madrid · Topic 5_ Marketing _ Sales Management (I+II).pdf (Prof. Carmen Paz-Aparicio), Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 1">1-37</a>; topic 5.2.2.pdf (Price Elasticity of Demand)</span>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf" target="_blank" rel="noopener">Topic 5 Marketing &amp; Sales Management.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/topic%205.2.2.pdf" target="_blank" rel="noopener">topic 5.2.2.pdf (price elasticity)</a>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/problemas/Elasticity%20exercises%20STATEMENTS.pdf" target="_blank" rel="noopener">Elasticity exercises STATEMENTS.pdf</a>
+      </nav>
+    </header>
+
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> marketing is the process of planning and executing the conception, pricing, promotion and distribution of ideas, goods and services to create exchanges that satisfy individual and organizational objectives. Strategic marketing analyses the market, segments it and positions the product; operative marketing builds the marketing mix of the 4 Ps (product, price, place and promotion). Demand analysis measures how the demand reacts to those variables through elasticities, above all the price elasticity $E_d = (\%\Delta Q_d)/(\%\Delta P)$: elastic demand ($|E_d| &gt; 1$) makes revenue fall when the price rises, inelastic demand ($|E_d| &lt; 1$) makes it rise.</p></div>
+<p>The topic has three parts [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 2">2</a>]: the role of marketing in the company, market segmentation and positioning of the product, and the marketing-mix decisions on product, price, place and promotion. The supplementary notes topic 5.2.2.pdf develop the price elasticity of demand.</p>
+    </section>
+    <h2 class="part-divider">Part I — The role of marketing in the company</h2>
+    <section id="section-1">
+      <h2 class="section-heading"><span class="section-num">§ 1</span> Exchange and marketing [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 3">3</a>]</h2>
+<p>The concept of <strong>exchange</strong> is crucial in marketing: exchange is the process by which two or more persons give and receive something of value. <strong>Marketing</strong> is the process of planning and executing the conception, pricing, promotion and distribution of ideas, goods and services to create exchanges that satisfy individual and organizational objectives.</p>
+    </section>
+    <section id="section-2">
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Evolution of the marketing concept [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 4">4-5</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Stage</th><th>Era</th><th>Features</th></tr></thead><tbody><tr><td>Passive marketing</td><td>production era</td><td>producers are production-oriented; seller's market (demand greater than supply); marketing is not important; usually mass production</td></tr><tr><td>Organizational marketing</td><td>sales era</td><td>producers are sales-oriented; buyer's market (supply greater than demand); result: consumerism (high consumer power)</td></tr><tr><td>Active marketing</td><td>marketing era</td><td>producers turn to a market or customer orientation and produce what potential customers want; market segmentation arises</td></tr><tr><td>Social marketing</td><td>—</td><td>main objective: finding out the needs and wants of the target market and contributing to a better welfare state</td></tr></tbody></table></div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T5/evolution.png" alt="Evolution of the marketing concept" loading="lazy" style="max-width:min(100%,680px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. The four stages of the marketing concept, from passive marketing (production era) through organizational (sales era) and active (marketing era) to social marketing, drawn as a rising path. Copied from Topic 5 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 4">4</a>.</div>
+</div>
+<p>The <strong>sale</strong> is a one-way process: the company puts goods and services in front of the customer. <strong>Marketing</strong> is a two-way process: the goods and services go to the customer and information about what is desired comes back to the company [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 5">5</a>].</p>
+    </section>
+    <section id="section-3">
+      <h2 class="section-heading"><span class="section-num">§ 3</span> The marketing management process [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 6">6-8</a>]</h2>
+<p>Marketing management has two systems [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 6">6</a>]:</p>
+<ul><li><strong>Strategic marketing</strong> (the analysis system): analysing the potential demand, identifying the customers' needs, and setting the marketing objectives and strategies.</li><li><strong>Operative marketing</strong> (the action system): creating and maintaining a marketing mix that satisfies the target market, combining four variables, the <strong>4 Ps</strong>: product, place, price and promotion.</li></ul>
+<p><strong>Strategic marketing</strong> analyses the current situation of the company's products and the customers' needs and wants, selects and analyses a target market, and identifies the threats and opportunities that, combined with the resources and capabilities of the company, may create a <strong>competitive advantage</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 7">7</a>]. Its phases:</p>
+<ol><li>Analysis of the situation: market, competitors, environment and internal analysis.</li><li>Diagnosis of the situation: SWOT analysis.</li><li>Definition of the marketing objective.</li><li>Formulation of the strategies: market segmentation and positioning of the product.</li></ol>
+<p><strong>Operative marketing</strong> develops and coordinates product, place, promotion and price strategies so that the target market is satisfied and the firm makes a profit [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 8">8</a>]. Its phases:</p>
+<ol><li>Define the action plan for the marketing mix: identify the sales objectives, define the activities to achieve them (the 4 Ps) and establish the marketing budget.</li><li>Execute the marketing-mix strategies.</li><li>Control and assessment.</li></ol>
+    </section>
+    <h2 class="part-divider">Part II — Market segmentation and positioning</h2>
+    <section id="section-4">
+      <h2 class="section-heading"><span class="section-num">§ 4</span> Market segmentation [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 9">9-12</a>]</h2>
+<p><strong>Market segmentation</strong> is the process of identifying smaller markets, the <strong>market segments</strong>, that exist within a larger market. It helps marketers tailor marketing mixes for the target segment, and it requires knowledge of potential customers' wants and behaviour, of changes in the market and of competitors [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 9">9</a>].</p>
+<p>Segmentation criteria [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 10">10</a>]:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Criterion</th><th>Examples</th></tr></thead><tbody><tr><td>Geographical</td><td>national, international, regional; different areas (coast or not)</td></tr><tr><td>Demographic</td><td>age, sex, family size, level of income, type of job</td></tr><tr><td>Psychological and purchase behaviour</td><td>personality, lifestyle; frequency of purchase (regular, temporary); type of use of the product (low, medium, high)</td></tr></tbody></table></div>
+<p>Segmentation identifies the market needs that are not being satisfied, gives a better adjustment of supply and demand, and identifies the competitors [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 11">11</a>].</p>
+<p>Three segmentation strategies [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 12">12</a>]:</p>
+<ul><li><strong>Undifferentiated (mass) marketing:</strong> the company appeals to the whole market with a single product or service and marketing strategy; a single marketing mix is offered to the total market.</li><li><strong>Wide differentiated (multisegment) marketing:</strong> the firm targets two or more segments and develops distinct products or services with a separate marketing mix for each.</li><li><strong>Differentiated concentrated (niche) marketing:</strong> the product and the marketing message are aimed at a single, well-defined segment.</li></ul>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T5/segmentation.png" alt="Market segmentation strategies" loading="lazy" style="max-width:min(100%,680px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. Undifferentiated marketing (one marketing mix for the whole market), wide differentiated marketing (one mix per segment) and differentiated concentrated marketing (one mix for one segment). Copied from Topic 5 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 12">12</a>.</div>
+</div>
+    </section>
+    <section id="section-5">
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Positioning [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 13">13-14</a>]</h2>
+<p><strong>Positioning</strong> is the technique by which marketers try to create an image or identity for a product, brand or company in the perception of the target market [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 13">13</a>]. It has two phases: the marketing manager uses the marketing-mix strategy to position the product in the mind of the customer, and the customer creates a perception of the product, how buyers see it.</p>
+<p>A successful positioning strategy is usually based on a <strong>sustainable competitive advantage</strong> of the company. Positioning can be based on product characteristics, benefits of the product, user characteristics, placing and comparing it relative to another product, or the price-quality relationship [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 14">14</a>].</p>
+    </section>
+    <section id="section-6">
+      <h2 class="section-heading"><span class="section-num">§ 6</span> Analysis and forecast of the demand [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 15">15-16</a>]</h2>
+<p>Demand analysis measures and quantifies the real demand, identifies the variables that affect it and forecasts it [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 15">15</a>]. One measure is the market share:</p>
+<div class="math-block">$$\text{Brand's market share} = \frac{\text{Brand sales}}{\text{Total sales of the market of reference}}$$</div>
+<p>Techniques include pilot markets, the Delphi technique and purchasing intention surveys.</p>
+<p><strong>Demand</strong> is the volume of sales of a certain product for a specific group of customers, at a set time and place, given some environment conditions and a marketing programme. It is quantified along three dimensions (product, group of customers and time), and the <strong>real</strong> demand is distinguished from the <strong>potential</strong> market demand [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 16">16</a>].</p>
+    </section>
+    <section id="section-7">
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Elasticity of the demand [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a>]</h2>
+<p>A main objective of demand analysis is to forecast and measure the variations of the demand due to changes in the factors related to it, mainly the marketing-mix variables. The <strong>elasticity</strong> of the demand with respect to a factor $F$ is</p>
+<div class="math-block">$$E = \frac{\%\ \text{variation in the demand}}{\%\ \text{variation in the factor}} = \frac{\Delta D / D}{\Delta F / F} = \frac{(D_2 - D_1)/D_1}{(F_2 - F_1)/F_1}$$</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Value</th><th>Demand</th></tr></thead><tbody><tr><td>$E &gt; 1$</td><td>elastic: sensitive to changes of the factor</td></tr><tr><td>$E = 1$</td><td>unit elastic</td></tr><tr><td>$E &lt; 1$</td><td>inelastic: not sensitive to changes of the factor</td></tr></tbody></table></div>
+    </section>
+    <section id="section-8">
+      <h2 class="section-heading"><span class="section-num">§ 8</span> Price elasticity of demand (topic 5.2.2)</h2>
+<p>The <strong>price elasticity of demand</strong> $E_d$ measures how much the quantity demanded of a good changes when its price changes: the percentage change in quantity demanded divided by the percentage change in price (topic 5.2.2.pdf, p. 2). Written with differentials, for good $n$ with price $p_n$ and quantity demanded $q_n^d$:</p>
+<div class="math-block">$$E_d = \frac{\%\ \text{change in quantity demanded}}{\%\ \text{change in price}} = \frac{dq_n^d / q_n^d}{dp_n / p_n} = \frac{dq_n^d}{dp_n}\cdot\frac{p_n}{q_n^d}$$</div>
+<p>By the law of demand the coefficient is <strong>negative</strong> (price and quantity move in opposite directions), and its <strong>absolute value</strong> is used. It depends mainly on the availability of substitute goods, since then the quantity demanded depends a lot on the price (p. 2).</p>
+<p><strong>Elasticity and income</strong> (p. 3). Revenue (income) is $I = P \cdot Q$.</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Demand</th><th>Price rise</th><th>Price fall</th></tr></thead><tbody><tr><td>Elastic, $\lvert E_d \rvert &gt; 1$: a 1% price change moves $Q_d$ by more than 1%</td><td>demand falls even more, income falls</td><td>demand rises even more, income rises</td></tr><tr><td>Inelastic, $\lvert E_d \rvert &lt; 1$: a 1% price change moves $Q_d$ by less than 1%</td><td>nearly the same quantity at a higher price, income rises</td><td>nearly the same quantity at a lower price, income falls</td></tr><tr><td>Unit elastic, $\lvert E_d \rvert = 1$</td><td>the percentage price rise is offset by an equal fall in volume, income does not change</td><td>income does not change</td></tr></tbody></table></div>
+<p><strong>Limiting cases</strong> (p. 4): <strong>perfectly inelastic</strong> demand, $E_d = 0$, does not respond to price changes (a vertical demand curve); <strong>perfectly elastic</strong> demand, $E_d = \infty$, changes indefinitely for a tiny price change (a horizontal demand curve).</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T5/elasticity-limits.png" alt="The two limiting demand curves" loading="lazy" style="max-width:min(100%,400px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. Price against quantity: a horizontal demand curve D is perfectly elastic and a vertical one D&#x27; is perfectly inelastic. Copied from topic 5.2.2.pdf, p. 4.</div>
+</div>
+<p><strong>Cross elasticity</strong> (p. 5) relates the demand for one good to the price of another:</p>
+<div class="math-block">$$E_{XY} = \frac{\%\ \text{change in the quantity demanded of good } X}{\%\ \text{change in the price of good } Y}$$</div>
+<p>It is <strong>positive for substitute goods</strong> and <strong>negative for complementary goods</strong>. If X and Y are complementary, a fall in the price of X increases the consumption of both; if they are substitutes, a fall in the price of X increases the consumption of X and decreases that of Y. The greater the substitutability or complementarity, the greater the reaction to any change in price.</p>
+    </section>
+    <h2 class="part-divider">Part III — Marketing-mix decisions</h2>
+    <section id="section-9">
+      <h2 class="section-heading"><span class="section-num">§ 9</span> Product [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 18">18-26</a>]</h2>
+<p>The marketing mix has four elements: <strong>product, price, place and promotion</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 18">18</a>].</p>
+<p>The <strong>product</strong> is a bundle of tangible and intangible attributes that may satisfy customer wants and is received in exchange for payment. The basic (core or generic) product is less than the total product people buy: customers also buy benefits such as quality, design, packaging, size, quantity, post-sale services and image. Customer satisfaction depends on the physical-technical characteristics and on psychosocial factors; the psychosocial attributes are brand, design, packaging and quality [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=19" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 19">19</a>].</p>
+<p><strong>Brand</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=20" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 20">20</a>]: a name, term, design, symbol or any other feature that identifies one seller's good or service as distinct from those of other sellers. It contains a <strong>name</strong> (the part that can be said) and a <strong>logo</strong> (design, symbol, graph and distinct colours). Strategic options: manufacturer brands or dealer brands (owned by a wholesaler or retailer); a corporate (unique) brand, multi-brands, individual brands, a family (umbrella) brand, or secondary brands. Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=21" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 21">21</a> illustrates individual branding (the products of one soft-drink company, each with its own name) against umbrella branding (one name over many businesses), and dealer brands.</p>
+<p><strong>Design and packaging</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 22">22</a>]: design is the appropriate combination of physical appearance, colour, shape and ease of use, from an aesthetic (beauty) and a functional (ease of use) perspective. Packaging is the design and production of the container or wrapper of a product, including the label; it protects the content and eases transport, carries the compulsory label with information about the product, and can make the product more convenient and attractive.</p>
+<p><strong>Quality</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 23">23</a>] measures whether the product satisfies the customers' needs; it depends on the intrinsic characteristics of the product and on what consumers expect of it. Other attributes are warranty, post-sale services, size, quantity and product line.</p>
+<p><strong>Product lines</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 24">24</a>]: a range of products (assortment) is an offer of product lines and individual products, described by its <strong>extension</strong> (number of lines), <strong>depth</strong> (products per line), <strong>length</strong> (total number of individual products) and <strong>consistency</strong> (with the final use). Product strategies: add product lines (more range), extend the lines (more depth) or incorporate product variations (more length).</p>
+<p><strong>Product life-cycle</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 25">25</a>]: it can apply to a product category, a product form or a brand, and has four stages: introduction (launching a new product), growth (sales take off), maturity (the longest part) and decline (obsolescence).</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T5/plc.png" alt="The product life-cycle" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. Sales of a product over time through the introduction, growth, maturity and decline stages, with the four stages listed beside the curve. Copied from Topic 5 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 25">25</a>.</div>
+</div>
+<p>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=26" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 26">26</a> asks which of three sales curves is a fashion product, an immediate failure and a product of a dilated life. Reading the curves: A, whose sales grow and then stay, is the product of a dilated life; B, which rises and falls, is the fashion product; C, which falls almost at once, is the immediate failure.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T5/plc-examples.png" alt="Three product life-cycles" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 5. Three sales curves against time, A, B and C; the slide asks which is a fashion product, which an immediate failure and which a product of a dilated life. Copied from Topic 5 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=26" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 26">26</a>.</div>
+</div>
+    </section>
+    <section id="section-10">
+      <h2 class="section-heading"><span class="section-num">§ 10</span> Price [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 27">27-28</a>]</h2>
+<p><strong>Price</strong> is the marketing-mix element that sets the amount of money the seller seeks from the buyer in exchange for the product. It matters because it influences the demand, reinforces the image of the product and must be compatible with the other marketing-mix strategies. Pricing objectives are aligned with the marketing objectives and with the other objectives of the company: maximizing profit, maximizing sales or achieving a certain market share [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=27" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 27">27</a>].</p>
+<p>There are three approaches to pricing [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 28">28</a>]: the <strong>competition</strong> approach, the <strong>demand</strong> approach and the <strong>cost</strong> approach. The cost approach uses <strong>cost-plus pricing</strong> (the mark-up is the difference between the cost of a good and its selling price) or <strong>break-even analysis</strong> (Topic 4).</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T5/pricing.png" alt="Approaches to pricing" loading="lazy" style="max-width:min(100%,600px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 6. The competition, demand and cost approaches to pricing; the cost approach branches into cost-plus pricing (mark-up) and break-even analysis. Copied from Topic 5 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=28" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 28">28</a>.</div>
+</div>
+    </section>
+    <section id="section-11">
+      <h2 class="section-heading"><span class="section-num">§ 11</span> Promotion [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=29" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 29">29-33</a>]</h2>
+<p><strong>Communication</strong> is the process of influencing others' behaviour by sharing ideas, information or feelings; marketers' efforts to communicate with target audiences are called <strong>promotion</strong>. Its objectives are to gain attention, to teach, to remind, to persuade and to reassure. The promotion mix has five activities: advertising, sales promotion, public relations, direct marketing and personal selling [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=29" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 29">29</a>].</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Activity</th><th>Definition</th><th>Decisions</th></tr></thead><tbody><tr><td>Advertising [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=30" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 30">30</a>]</td><td>any paid form of non-personal communication through the mass media about a product by an identified sponsor (magazines, direct mail, internet, TV, billboards, newspapers); informative or persuasive</td><td>1. target audience; 2. objectives; 3. message; 4. media; 5. budget; 6. timing; 7. evaluating effectiveness (sales- or communication-oriented)</td></tr><tr><td>Sales promotion [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=31" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 31">31</a>]</td><td>any activity that offers an incentive for a limited period to induce a desired response from customers, salespeople or intermediaries; it adds value because the incentive does not ordinarily come with the product</td><td>1. objectives; 2. type of promotion; 3. programme; 4. advertising the plan; 5. evaluating the results</td></tr><tr><td>Public relations [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=32" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 32">32</a>]</td><td>communication to build and maintain a favourable image of the firm, keep the goodwill of its stakeholders and explain its goals (relations with the media, sponsorship)</td><td>—</td></tr><tr><td>Direct marketing [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=32" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 32">32</a>]</td><td>an interactive system that uses one or more media (telephone, internet, TV, direct mail, social media) to obtain a specific, measurable response or transaction at any location</td><td>—</td></tr><tr><td>Personal selling [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=33" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 33">33</a>]</td><td>a person-to-person process in which the seller learns the prospective buyer's wants and seeks to satisfy them with a sale</td><td>planning and coordinating the sales force (size, remuneration, objectives, quotas); managing it and evaluating its efficiency (recruiting, organizing, leadership and motivation)</td></tr></tbody></table></div>
+    </section>
+    <section id="section-12">
+      <h2 class="section-heading"><span class="section-num">§ 12</span> Distribution (place) [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=34" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 34">34-37</a>]</h2>
+<p>The objective of <strong>distribution</strong> is getting the product to customers where and when they want it. A <strong>distribution channel</strong> is the series of interdependent firms that facilitate the transfer of title to a product as it moves from producer to final buyer; an <strong>intermediary</strong> (wholesaler, retailer) operates between the producer and the final buyer. Distribution is physical (logistics) or through distribution channels [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=34" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 34">34</a>].</p>
+<p><strong>Types of channel</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=35" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 35">35</a>]: <strong>direct</strong>, where the producer sells directly to the final buyers, and <strong>indirect</strong>, where independent intermediaries take some tasks: merchandise agents and brokers (bring buyers and sellers together, without owning title, for a commission), wholesalers (sell to intermediaries or organizational buyers, not to final consumers) and retailers (sell consumer goods and services to final consumers).</p>
+<p><strong>Functions of intermediaries</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=36" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 36">36</a>]: improve exchange efficiency, help match supply and demand, offer a wide product mix from different producers, manage logistics, and perform other marketing functions such as financing, market information and storage.</p>
+<p><strong>Selecting a channel</strong> [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=37" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 37">37</a>]: 1. set the objectives of the distribution, considering buying habits, customer characteristics, product characteristics and the characteristics of the company and its competitors; 2. establish a distribution strategy: <strong>intensive</strong>, <strong>selective</strong> or <strong>exclusive</strong> distribution; 3. define the distribution channel, considering the characteristics of each intermediary and the coordination among them.</p>
+    </section>
+    <section id="section-13">
+      <h2 class="section-heading"><span class="section-num">§ 13</span> Practical formulary</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Magnitude</th><th>Formula</th><th>Source</th></tr></thead><tbody><tr><td>Market share</td><td>brand sales / total sales of the reference market</td><td>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 15">15</a></td></tr><tr><td>Elasticity w.r.t. a factor</td><td>$(\Delta D/D)/(\Delta F/F)$</td><td>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a></td></tr><tr><td>Price elasticity (point)</td><td>$E_d = (dq/dp)\,(p/q)$, used in absolute value</td><td>topic 5.2.2, p. 2</td></tr><tr><td>Elastic / unit / inelastic</td><td>$\lvert E_d \rvert &gt; 1$ / $= 1$ / $&lt; 1$</td><td>Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-05-marketing-sales/teoria/Topic%205_%20Marketing%20_%20Sales%20Management%20%28I%2BII%29.pdf#page=17" target="_blank" rel="noopener" title="Open Topic 5 Marketing &amp; Sales Management.pdf at page 17">17</a>; topic 5.2.2, p. 3</td></tr><tr><td>Cross elasticity</td><td>$\%\Delta Q_X / \%\Delta P_Y$: $&gt; 0$ substitutes, $&lt; 0$ complements</td><td>topic 5.2.2, p. 5</td></tr></tbody></table></div>
+<p>The six exercises of the price elasticity sheet are solved in Problem Set - T5 Price Elasticity of Demand.</p>
+    </section>
+    <section id="problems-link">
+      <div class="callout"><p><a class="end-btn" href="../problemas/topic-5-price-elasticity.html">Solved exercises for this topic (price elasticity of demand, exercises 1-6) →</a></p></div>
+    </section>
+
+  </main>
+
+  <div class="topic-nav-wrap">
+    <footer class="topic-nav">
+      <a href="topic-4.html">← Previous Topic: The Production Function</a>
+      <a href="topic-6.html">Next Topic: The Management Function →</a>
+    </footer>
+  </div>
+
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

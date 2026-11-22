@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="business-management">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic 6: The Management Function | Business Management</title>
+  <meta name="description" content="Detailed academic study guide for Topic 6: the management function, planning, organizing, leading and control. UC3M." />
+
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+      --accent: #ef4444;
+      --accent-soft: rgba(239, 68, 68, 0.12);
+      --accent-border: rgba(239, 68, 68, 0.28);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .article-title, .problem-title, .section-title {
+      font-family: var(--font-display) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.015em;
+    }
+
+    code, pre, .brand-badge, .badge {
+      font-family: var(--font-mono);
+    }
+
+    /* Universal Bilingual Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px 4px;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      transition: color var(--transition);
+      border-radius: 4px;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--accent);
+    }
+    .lang-divider {
+      color: var(--border-subtle);
+      font-size: 10px;
+    }
+
+    /* Celestial light background & dark neon glow */
+    [data-theme="light"] {
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    header.site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 12px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+
+    .brand-area { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 3px 8px; border-radius: 4px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      padding: 5px 12px; border-radius: 6px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+    .back-link:hover { color: var(--accent); border-color: var(--accent-border); }
+
+    .theme-toggle {
+      width: 40px; height: 22px; border-radius: 11px;
+      background: var(--bg-input); border: 1px solid var(--border-subtle);
+      cursor: pointer; position: relative; transition: background var(--transition);
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--text-heading); transition: transform var(--transition);
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+
+    main.article-container {
+      max-width: 860px; margin: 0 auto;
+      padding: 44px 24px 88px;
+    }
+
+    .article-header {
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-category {
+      font-family: var(--font-mono); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--accent); font-weight: 600; margin-bottom: 6px;
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600; color: var(--text-heading);
+      line-height: 1.25; margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-size: 1.65rem; font-weight: 600;
+      color: var(--text-heading); margin: 40px 0 16px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    h3 {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-heading);
+      margin: 28px 0 12px;
+    }
+
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 18px 20px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 600; color: var(--text-heading);
+      margin-bottom: 6px; font-size: 0.95rem;
+    }
+
+    .grid-2 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px;
+    }
+    .info-card h4 {
+      font-size: 1.05rem; font-weight: 600; color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .table-container {
+      overflow-x: auto; margin: 24px 0;
+      border: 1px solid var(--border-subtle); border-radius: 8px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;
+    }
+    th {
+      background: var(--bg-subtle); color: var(--text-heading);
+      padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border-strong);
+    }
+    td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border-subtle);
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .topic-nav {
+      display: flex; justify-content: space-between; gap: 16px;
+      margin-top: 56px; padding-top: 24px;
+      border-top: 1px solid var(--border-subtle); flex-wrap: wrap;
+    }
+    .topic-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      color: var(--text-heading); text-decoration: none; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .topic-nav a:hover {
+      border-color: var(--accent-border); color: var(--accent);
+    }
+
+    /* Blocks generated by tools/build_topic_pages.py from the vault note */
+    .article-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 12px; }
+    .source-box { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    h2.section-heading { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .section-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    h3.sub-heading { font-size: 1.2rem; color: var(--text-heading); margin: 28px 0 12px; }
+    h4.sub-heading { font-size: 1.05rem; color: var(--text-heading); margin: 22px 0 10px; }
+    .part-divider { text-align: center; color: var(--accent); border-bottom: none; }
+    .math-block { overflow-x: auto; margin: 18px 0; padding: 4px 0; }
+    .callout-warning { border-left-color: #f59e0b; }
+    .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+    td, th { vertical-align: top; }
+    .topic-nav-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Figures generated from tools/figures/bm_t*.py */
+    [data-theme="dark"] { --text-faint: #94a3b8; }
+    [data-theme="light"] { --text-faint: #64748b; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 18px 14px 12px; margin: 22px 0 26px; overflow-x: auto; }
+    .diagram-card svg { min-width: 520px; }
+    .diagram-caption { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+  </style>
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <!-- Animated Celestial Canvas Background -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <span class="brand-badge">TOPIC 6</span>
+        <span style="font-weight: 600; font-size: 14px;">Business Management</span>
+      </div>
+      <div class="nav-actions">
+        <a href="../../../index.html" class="back-link">Main Portal</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-category">Topic 06 · The Management Function</div>
+      <h1 class="article-title">The Management Function</h1>
+      <p class="article-subtitle">The four managerial functions, decisions and the decision-making process, management levels, skills and roles, planning, organizational structures and configurations, human resources management and control.</p>
+      <div class="source-box">
+        <span>📖 Source: Universidad Carlos III de Madrid · Topic 6_ The Management Function.pdf (Prof. Carmen Paz-Aparicio), Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 1">1-25</a></span>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf" target="_blank" rel="noopener">Topic 6 The Management Function.pdf</a>
+      </nav>
+    </header>
+
+    <section id="section-0">
+      <div class="callout"><p><strong>Central idea:</strong> management is the process of setting and achieving goals through four managerial functions — planning, organizing, leading and controlling — that use human, financial and material resources. Managers take routine, adaptable or innovative decisions through an eight-step process, work at three levels of the management pyramid with different mixes of technical, interpersonal and conceptual skills, and play Mintzberg's ten roles. Organizing produces a structure, formal and informal, built from five common parts and shaped into five basic configurations, from the simple structure to the adhocracy.</p></div>
+<p>The topic covers [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=2" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 2">2</a>]: the managerial functions (decisions and their types, the decision-making process, management levels, managerial skills and roles), planning, organizing (formal and informal structures and the types of formal structure), leading (human resources management) and controlling.</p>
+    </section>
+    <h2 class="part-divider">Part I — Managerial functions</h2>
+    <section id="section-1">
+      <h2 class="section-heading"><span class="section-num">§ 1</span> What management is [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 3">3-4</a>]</h2>
+<p><strong>Management</strong> is the process of setting and achieving goals through the execution of four basic managerial functions that use human, financial and material resources. The <strong>management functions</strong> are the four broad activities managers perform to achieve organizational goals: <strong>planning, organizing, leading and controlling</strong> [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=3" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 3">3-4</a>].</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T6/functions.png" alt="The four managerial functions" loading="lazy" style="max-width:min(100%,520px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 1. The four managerial functions, planning, organizing, leading and controlling, as the slide shows them. Copied from Topic 6 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=4" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 4">4</a>.</div>
+</div>
+    </section>
+    <section id="section-2">
+      <h2 class="section-heading"><span class="section-num">§ 2</span> Decisions and types of decisions [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=5" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 5">5</a>]</h2>
+<p>Managerial decisions are classified by two axes: the type of problem (from known and well defined to unusual and ambiguous) and the type of alternative solutions (from known to ambiguous and not planned).</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Type of decision</th><th>Problem</th><th>Alternatives</th></tr></thead><tbody><tr><td>Routine (planned)</td><td>known and well defined</td><td>known</td></tr><tr><td>Adaptable</td><td>in between</td><td>in between</td></tr><tr><td>Innovative (not planned)</td><td>unusual and ambiguous</td><td>ambiguous and not planned</td></tr></tbody></table></div>
+    </section>
+    <section id="section-3">
+      <h2 class="section-heading"><span class="section-num">§ 3</span> The decision-making process [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 6">6</a>]</h2>
+<p>The decision-making process has eight steps: 1. recognizing the problem or opportunity; 2. gathering information (identifying the critical factors); 3. considering alternative courses of action; 4. analyzing the alternatives; 5. choosing an alternative; 6. implementing the decision; 7. evaluating the results; 8. implementing changes.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T6/decision-process.png" alt="The decision-making process" loading="lazy" style="max-width:min(100%,680px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 2. The eight numbered steps of the decision-making process, from recognizing the problem or opportunity to implementing changes, arranged as a cycle. Copied from Topic 6 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=6" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 6">6</a>.</div>
+</div>
+    </section>
+    <section id="section-4">
+      <h2 class="section-heading"><span class="section-num">§ 4</span> Management levels [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 7">7</a>]</h2>
+<p>The <strong>management pyramid</strong> has three levels: <strong>top management</strong>, <strong>middle management</strong> and <strong>low management</strong> (first-line supervisors). By the scope of their activities, top management is <strong>strategic</strong> and <strong>general</strong>; the lower levels are <strong>tactical</strong> and <strong>functional</strong>.</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T6/pyramid.png" alt="The management pyramid" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 3. The management pyramid with top, middle and low management and the scope of activities of each level; the slide spells the top level &quot;Strategical&quot;. Copied from Topic 6 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=7" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 7">7</a>.</div>
+</div>
+    </section>
+    <section id="section-5">
+      <h2 class="section-heading"><span class="section-num">§ 5</span> Basic managerial skills [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 8">8</a>]</h2>
+<p>Three skills are used in different proportions along the hierarchy:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Skill</th><th>Meaning</th><th>Where it weighs most</th></tr></thead><tbody><tr><td>Technical</td><td>the ability to understand how things operate</td><td>low management</td></tr><tr><td>Interpersonal</td><td>the ability to interact with people at work successfully</td><td>at every level</td></tr><tr><td>Conceptual</td><td>the ability to see the firm as a whole</td><td>top management</td></tr></tbody></table></div>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T6/skills.png" alt="Basic managerial skills along the hierarchy" loading="lazy" style="max-width:min(100%,560px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 4. How much technical, interpersonal and conceptual skills are used from low to top management, as the slide draws it. Copied from Topic 6 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=8" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 8">8</a>.</div>
+</div>
+    </section>
+    <section id="section-6">
+      <h2 class="section-heading"><span class="section-num">§ 6</span> Managerial roles (Mintzberg, 1983) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=9" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 9">9</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Group</th><th>Roles</th></tr></thead><tbody><tr><td>Interpersonal roles</td><td>figurehead, leader, liaison</td></tr><tr><td>Informational roles</td><td>monitor, disseminator, spokesperson</td></tr><tr><td>Decisional roles</td><td>entrepreneur, disturbance handler, resource allocator, negotiator</td></tr></tbody></table></div>
+    </section>
+    <h2 class="part-divider">Part II — Planning</h2>
+    <section id="section-7">
+      <h2 class="section-heading"><span class="section-num">§ 7</span> Planning [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=10" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 10">10</a>]</h2>
+<p><strong>Planning</strong> is the process of setting goals or objectives and deciding on the strategy to achieve them. A <strong>goal</strong> is a specific achievement to be attained at some future date. Its main steps are: 1. developing forecasts; 2. defining strategic objectives; 3. developing alternative courses of action; 4. deciding on a course of action.</p>
+    </section>
+    <h2 class="part-divider">Part III — Organizing</h2>
+    <section id="section-8">
+      <h2 class="section-heading"><span class="section-num">§ 8</span> Organizing and the organization chart [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=11" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 11">11</a>]</h2>
+<p><strong>Organizing</strong> is the process of arranging the human resources of the firm so that their activities contribute to the firm's goals. Its purpose is to give each person a distinct task and to coordinate those tasks so that the firm achieves its goals. It is a double process of <strong>differentiation</strong> (dividing the work) and <strong>integration</strong> (coordinating it). The <strong>organization chart</strong> is the graphic representation of the organization structure.</p>
+    </section>
+    <section id="section-9">
+      <h2 class="section-heading"><span class="section-num">§ 9</span> Formal and informal structures [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=12" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 12">12</a>]</h2>
+<p>The <strong>formal structure</strong> is defined by management. The <strong>informal structure</strong> is the informal contacts, communications and ways of doing things that employees develop. The <strong>real structure</strong> combines both.</p>
+    </section>
+    <section id="section-10">
+      <h2 class="section-heading"><span class="section-num">§ 10</span> Factors that determine the structure [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=13" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 13">13</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Factor</th><th>What it measures</th></tr></thead><tbody><tr><td>Specialization</td><td>horizontal (number of tasks) and vertical (autonomy to organize one's job)</td></tr><tr><td>Standardization</td><td>how far the work is done by set rules and procedures</td></tr><tr><td>Formalization</td><td>how far the rules are written down</td></tr><tr><td>Centralization</td><td>centralized or decentralized decision-making</td></tr><tr><td>Structural configuration</td><td>departmentalization (types), number of layers (hierarchical levels), span of control, size of the administrative component</td></tr></tbody></table></div>
+<p>The middle column of the standardization and formalization rows explains the terms in plain words; the slide only names them.</p>
+    </section>
+    <section id="section-11">
+      <h2 class="section-heading"><span class="section-num">§ 11</span> The parts of a formal structure [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 14">14</a>]</h2>
+<p>Any formal structure has five common parts: the <strong>strategic apex</strong> (top management), the <strong>middle line</strong> (middle management), the <strong>operating core</strong> (employees), the <strong>technostructure</strong> (analysts who design systems and processes) and the <strong>support staff</strong> (outside the operating workflow).</p>
+<div class="diagram-card">
+<figure class="slide-figure" style="margin:0"><img src="../../../vault/attachments/BM-T6/parts.png" alt="Common parts of a formal organizational structure" loading="lazy" style="max-width:min(100%,640px);height:auto;display:block;margin:0 auto;background:#fff;border-radius:8px;padding:8px"></figure>
+<div class="diagram-caption">Figure 5. The five common parts of a formal structure: strategic apex, middle line, operating core, technostructure and support staff. Copied from Topic 6 slides, Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=14" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 14">14</a>.</div>
+</div>
+    </section>
+    <section id="section-12">
+      <h2 class="section-heading"><span class="section-num">§ 12</span> Basic organizational configurations [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 15">15-22</a>]</h2>
+<div class="table-container"><table class="data-table"><thead><tr><th>Configuration</th><th>Features</th></tr></thead><tbody><tr><td>Simple structure (entrepreneurial start-up) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=15" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 15">15</a>]</td><td>the strategic apex is the key part (direct supervision); only strategic apex and operating core; start-ups or very small businesses</td></tr><tr><td>Machine bureaucracy [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=16" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 16">16</a>]</td><td>many rules, regulations and formal communications: standardization and very formal procedures in the operating core; highly specialized, routine tasks, horizontal and vertical (low-qualified employees); functional departmentalization; centralized decision-making; elaborate administrative structure with many layers and a low span of control; mature, big organizations in a stable and simple environment</td></tr><tr><td>Professional organization (professional bureaucracy) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=18" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 18">18</a>]</td><td>high horizontal specialization (highly qualified employees); standardization of outputs, skills and knowledge; decentralization; the staff mainly supports the operating core; all types of departmentalization; big organizations in a stable but complex environment</td></tr><tr><td>Division organization [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=20" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 20">20</a>]</td><td>autonomous divisions; the middle line is the key part; top management coordinates their performance and outputs; each division is a bureaucracy; diversified businesses in more dynamic environments</td></tr><tr><td>Adhocracy (innovative organization) [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=22" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 22">22</a>]</td><td>high horizontal and low vertical specialization; low standardization and formalization; decentralization is key to flexibility; matrix departmentalization; the technostructure disappears and middle line, operating core and staff are mixed; used as a complementary structure for specific projects</td></tr></tbody></table></div>
+    </section>
+    <h2 class="part-divider">Part IV — Leading and controlling</h2>
+    <section id="section-13">
+      <h2 class="section-heading"><span class="section-num">§ 13</span> Human resources management [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=23" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 23">23</a>]</h2>
+<p><strong>Human resources</strong> are the firm's employees, workers and managers. The problem is to <strong>align individual interests with the objectives of the company</strong>. <strong>Human resources management</strong> is the process of recruiting, selecting, training, appraising and compensating employees; it is a basic function of every manager. It involves <strong>directing</strong> (motivation, leadership and communication) and <strong>staffing</strong> (recruiting, selecting and training; performance appraisal systems, compensation and incentive programmes).</p>
+    </section>
+    <section id="section-14">
+      <h2 class="section-heading"><span class="section-num">§ 14</span> Controlling [Slides <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 24">24-25</a>]</h2>
+<p><strong>Controlling</strong> is the task of ensuring that activities are providing the planned results: managers must ensure that their workers perform as expected [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=24" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 24">24</a>]. It involves establishing standards, measuring actual performance, identifying deviations and taking corrective action if required. All control systems aim to influence employee behaviour, and <strong>planning and controlling are inseparable</strong>.</p>
+<p>Types of control [Slide <a class="src-cite" data-srclink href="../../../sources/cuatrimestre-1/05-business-management/unit-06-management-function/teoria/Topic%206_%20The%20Management%20Function.pdf#page=25" target="_blank" rel="noopener" title="Open Topic 6 The Management Function.pdf at page 25">25</a>]: by <strong>who</strong> is controlled (top, middle or low management); by <strong>what</strong> area (the whole company, a unit, a department or an individual); by <strong>when</strong> (reactive, proactive or interactive control); and by <strong>frequency</strong> (constant, periodic or occasional control).</p>
+    </section>
+
+  </main>
+
+  <div class="topic-nav-wrap">
+    <footer class="topic-nav">
+      <a href="topic-5.html">← Previous Topic: Marketing &amp; Sales Management</a>
+      <a href="topic-7.html">Next Topic: Entrepreneurship &amp; Innovation →</a>
+    </footer>
+  </div>
+
+  <!-- Aerospace Motivational Quote Component -->
+  <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+    <div id="quoteContainer"></div>
+  </section>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+  <!-- Celestial Sky Engine -->
+</body>
+</html>
+

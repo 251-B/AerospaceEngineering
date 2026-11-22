@@ -38,7 +38,7 @@ To avoid the conflict of interests between managers and shareholders, their obje
 
 Many groups have a stake in the objectives of the firm. Around **management** stand the **shareholders**, **banks and other financial agents**, **customers**, **suppliers**, the **State**, **employees and labour unions**, and **society** (corporate social responsibility) [Slide 5].
 
-![[attachments/BM-T2/stakeholders.svg]]
+![[attachments/BM-T2/stakeholders.png]]
 
 According to **organizational theory**, the objectives of the business are the **outcome of a negotiation** among these stakeholders, limited by two facts: the firm must **survive**, and **not all groups have the same decision-making power**. The business objective is therefore the one that satisfies the group with the highest bargaining power, while taking into account the objectives of the other groups and the survival of the enterprise. That objective is to **maximize the value of the enterprise: to create value** [Slide 6].
 
@@ -46,13 +46,13 @@ According to **organizational theory**, the objectives of the business are the *
 
 The three goals form a single cycle. Current and new **products and markets** generate **sales**, and sales generate **profits**. Part of the profits is **retained** for future investments and adds directly to **total equity**; the rest is paid as **dividends**, which support the **capital market valuation of the company** and thus the **equity attributable to investors**, which also feeds total equity. Total equity finances new **investments**, and these renew the products and markets, closing the cycle.
 
-![[attachments/BM-T2/unified-vision.svg]]
+![[attachments/BM-T2/unified-vision.png]]
 
 ## 5. Business strategies: levels of decision [Slide 8]
 
 To achieve its objective, the firm defines a **strategy**: "a plan, method or series of actions designed to achieve a specific goal or effect" (Wordsmyth Dictionary). The strategy unfolds into three levels of decision: **strategic**, **tactic** and **operative** decisions.
 
-![[attachments/BM-T2/decisions.svg]]
+![[attachments/BM-T2/decisions.png]]
 
 ## 6. Types of strategic decisions [Slide 9]
 
@@ -60,13 +60,13 @@ Strategic decisions belong to two families:
 - **Corporate strategy**, which fixes the **scope** of the firm: product scope (diversification), geographical scope (internationalization) and vertical scope (vertical integration).
 - **Competitive or business strategy**, which chooses between a **cost-leadership** strategy and a **differentiation** strategy.
 
-![[attachments/BM-T2/types.svg]]
+![[attachments/BM-T2/types.png]]
 
 ## 7. What makes a successful strategy [Slide 10]
 
 A strategy succeeds through **effective implementation** resting on three pillars: **long-term, simple and agreed objectives**; a **deep understanding of the competitive environment**; and an **objective appraisal of resources**.
 
-![[attachments/BM-T2/success.svg]]
+![[attachments/BM-T2/success.png]]
 
 ## 8. The business environment: generic and specific [Slides 11-12]
 
@@ -83,13 +83,15 @@ The **generic environment** affects every firm and is described by four groups o
 
 The **specific environment** is the environment of the firm's own industry [Slide 12]. It includes the **rivalry within the industry**, which depends on concentration, the industry rate of growth and product differentiation; the **barriers to entry** and **to exit**; **substitutes**; and the **relationships with customers** and **with suppliers**.
 
-![[attachments/BM-T2/environment.svg]]
+![[attachments/BM-T2/environment.png]]
+
+![[attachments/BM-T2/environment-specific.png]]
 
 ## 9. From environmental analysis to industry analysis [Slide 13]
 
 The analysis moves from the outside in. At the centre is the **industry environment**, formed by suppliers, competitors and customers. Around it act the national and international economy, technology, government and politics, the natural environment, the demographic structure and the social structure.
 
-![[attachments/BM-T2/industry.svg]]
+![[attachments/BM-T2/industry.png]]
 
 ## 10. Porter's five competitive forces [Slides 14-15]
 
@@ -103,7 +105,7 @@ The industry is analysed with **Porter's five competitive forces** (Porter, 1982
 | **Substitute competition** | Buyers' propensity to substitute; relative prices and performance of substitutes |
 | **Industry rivalry** | Concentration; diversity of competitors; product differentiation; excess capacity and exit barriers; cost conditions |
 
-![[attachments/BM-T2/five-forces.svg]]
+![[attachments/BM-T2/five-forces.png]]
 
 ## 11. The strategic management process [Slide 16]
 
@@ -115,7 +117,7 @@ The aim is to earn a **rate of profit above the competitive level**; in other wo
 - **industry attractiveness**, which raises the question "which businesses should we be in?" and is the domain of **corporate strategy**;
 - **competitive advantage**, which raises the question "how should we compete?" and is the domain of **business strategy**.
 
-![[attachments/BM-T2/strategy-questions.svg]]
+![[attachments/BM-T2/strategy-questions.png]]
 
 **Business strategy** is concerned with **how** a firm competes within a particular market. **Corporate strategy** is concerned with **where** a firm competes, that is, with the **scope** of its activities, which has three dimensions: **geographical**, **vertical** and **product** scope [Slide 18].
 
@@ -128,13 +130,13 @@ Each dimension of scope can be pictured as a choice between one firm and several
 
 In the integrated firm the vertical units (V), product units (P) and country units (G) are linked by an **administrative interface**; under specialization each unit is a **separate firm** linked to the others by **market interfaces**.
 
-![[attachments/BM-T2/scope.svg]]
+![[attachments/BM-T2/scope.png]]
 
 ## 14. Business strategy: sources of competitive advantage [Slide 20]
 
 Competitive advantage comes from two sources: a **cost advantage**, offering a similar product at a lower cost, or a **differentiation advantage**, obtaining a price premium from a unique product.
 
-![[attachments/BM-T2/advantage.svg]]
+![[attachments/BM-T2/advantage.png]]
 
 ## 15. Drivers of cost advantage [Slides 21-22]
 
@@ -192,7 +194,7 @@ The term **value chain** was introduced by Michael Porter (1985). An organizatio
 
 The chain has two layers: **support activities** that span the whole firm, and **primary activities** that follow the product from inputs to after-sales. Together they produce the **margin** [Slide 29].
 
-![[attachments/BM-T2/value-chain.svg]]
+![[attachments/BM-T2/value-chain.png]]
 
 **Primary activities** [Slide 30]:
 

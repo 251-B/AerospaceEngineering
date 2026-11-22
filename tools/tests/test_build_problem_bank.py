@@ -172,7 +172,11 @@ class RepositoryTests(unittest.TestCase):
         block = hub[hub.index("EXTRA-HUB:START"):hub.index("EXTRA-HUB:END")]
         self.assertIn('id="midterm-1"', block)
         self.assertLess(block.index('href="midterm-1-theory.html"'), block.index('href="midterm-1-problems.html"'))
-        self.assertEqual(block.count('class="exercise-item"'), 30)
+        mt1 = block[:block.index('id="midterm-2"')] if 'id="midterm-2"' in block else block
+        self.assertEqual(mt1.count('class="exercise-item"'), 30)
+        if 'id="midterm-2"' in block:   # the 2nd Midterm block follows, with its three pages
+            self.assertLess(block.index('href="midterm-2-tf.html"'), block.index('href="midterm-2-test.html"'))
+            self.assertLess(block.index('href="midterm-2-test.html"'), block.index('href="midterm-2-problems.html"'))
         self.assertNotIn('class="problem-box"', hub, "the hub lists the items; the solutions live on the two pages")
         self.assertIn('aria-current="page">Extra problems</a>', hub)
 
@@ -218,7 +222,8 @@ class RepositoryTests(unittest.TestCase):
             items = [i for i in data["items"] if i["category"] == part["category"]]
             self.assertTrue(all(i["points"] == part["points_each"] for i in items))
             self.assertGreaterEqual(len({i["unit"] for i in items} if part["category"] == "short_theory_case" else items), part["count"])
-        self.assertEqual(data["counts"], {"short_theory_case": 24, "extra_practice_problem": 6})
+        self.assertEqual({k: data["counts"][k] for k in ("short_theory_case", "extra_practice_problem")},
+                         {"short_theory_case": 24, "extra_practice_problem": 6})
         problems = [i for i in data["items"] if i["category"] == "extra_practice_problem"]
         new = [i for i in problems if not i["official"]]
         self.assertEqual(new, problems, "the bank holds only items written for it")

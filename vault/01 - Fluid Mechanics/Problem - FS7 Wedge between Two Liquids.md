@@ -34,8 +34,8 @@ A two-dimensional wedge of angle $2\alpha$ and weight $W$ per unit length rests 
 
 Translated from the Spanish original.
 
-![[attachments/FM-T5/fs7-statement.svg]]
-*Statement figure (redrawn from fluid_statics_7.pdf, p. 1): wedge of angle $2\alpha$ and weight $W$ per unit length resting on its vertex $O$; liquid $\rho_1$ of depth $h_1$ on the left and $\rho_2 > \rho_1$ of depth $h_2$ on the right*
+![[attachments/FM-T5/fs7-statement.png]]
+*Statement figure: wedge of angle $2\alpha$ resting on its lower vertex $O$; liquid $\rho_1$ of depth $h_1$ on the left and liquid $\rho_2$ of depth $h_2$ on the right, atmospheric pressure $p_a$ above both. Copied from fluid_statics_7.pdf, p. 1.*
 
 Source: fluid_statics_7.pdf (pages 1-2, sheet of 05-09-07, problem P5). Notes.pdf, Chapter 5: Eqs. 5.10, 5.11 and 5.14.
 

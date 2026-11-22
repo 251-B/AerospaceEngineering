@@ -78,7 +78,7 @@ An inextensible string keeps the distance between its two end points constant wh
 
 ### 1.3 Ball-and-socket joint and pin connection
 
-![[attachments/EM-T/t8-joints.svg]]
+![[attachments/EM-T/t8-joints.png]]
 
 A ball-and-socket joint lets each body rotate freely about the centre $C$ of the ball, so it imposes no condition on the orientation of either body. The centre $C$ is, however, a body point common to both bodies, which must move in unison there. A pin connection makes the pin axis $Cz$ a common axis of both bodies and, in addition, allows only the relative rotation about that axis.
 
@@ -122,7 +122,7 @@ A ball-and-socket joint lets each body rotate freely about the centre $C$ of the
 
 ### 1.4 Collars and sliders
 
-![[attachments/EM-T/t8-collars.svg]]
+![[attachments/EM-T/t8-collars.png]]
 
 A collar slides over a bar. Let $S_1$ be attached to the bar with $z_1$ along its axis, and $S_2$ attached to the body $B_2$ that carries the collar, with $Oz_2$ coinciding with $Oz_1$. On a cylindrical bar the collar may slide along and rotate about $z_1$; on a prismatic bar it may only slide.
 
@@ -174,7 +174,7 @@ Combinations of connections are common, for instance a collar plus a pin: adding
 
 When two bodies $B_1$ and $B_2$ touch at a single point $C$ they can roll on each other: a sphere on a plane, two cylinders. There is always a contact normal $\mathbf e_n$ and a tangent plane spanned by $\mathbf e_{t1}$, $\mathbf e_{t2}$. The contact point and the basis $B_C$ formed by these three vectors change as the bodies move; the frame $S_C$ has origin $C$ and basis $B_C$ (Notes.pdf, Sec. 13.2).
 
-![[attachments/EM-T/t8-rolling-contact.svg]]
+![[attachments/EM-T/t8-rolling-contact.png]]
 
 ### 2.1 No penetration and no slip
 
@@ -216,7 +216,7 @@ A case of special interest is rolling without slipping, as a rough rubber wheel 
 
 ### 2.2 The disk rolling on a floor
 
-![[attachments/EM-T/t8-disk-rolling.svg]]
+![[attachments/EM-T/t8-disk-rolling.png]]
 
 Consider a homogeneous disk $B$ of radius $R$ rolling on the floor $F$ along a line. The frame $S_0$ with origin $O$ and basis $B_0$ is fixed to the floor; $S_G$ has origin at the centre of mass $G$ and the same basis $B_0$. With $\mathbf i_0$ to the right and $\mathbf j_0$ upward, the right-hand rule puts $\mathbf k_0$ out of the paper (⊙). The angle $\theta$ is the rotation of the disk since the start, measured clockwise in the figure; a clockwise rotation has angular velocity into the paper (⊗), so the angular velocity of the disk points along minus $\mathbf k_0$ when the rate of $\theta$ is positive.
 
@@ -273,7 +273,7 @@ If the disk rolls and slips (a smooth disk on ice), the only constraint is no pe
 
 ### 2.3 Three-dimensional rolling and non-integrable constraints
 
-![[attachments/EM-T/t8-wobbling-disk.svg]]
+![[attachments/EM-T/t8-wobbling-disk.png]]
 
 The arc-length formulation becomes hard or impossible when the motion is complex. For a disk that rolls without slipping while wobbling (Notes.pdf, Fig. 13.5), the trace of $C$ on the floor is a two-dimensional curve and two coordinates are needed to place $C$ in the plane. The no-penetration and no-slip constraints must then be imposed through the velocities.
 
@@ -405,7 +405,7 @@ The transition from slipping to rolling without slip happens as soon as the rela
 
 Sometimes the individual reactions at each contact cannot be found. A table with $n$ legs on the floor is the example: calling $P_i$ the contact point of leg $i$, only overall properties of the reaction system follow from equilibrium (Notes.pdf, Sec. 13.3).
 
-![[attachments/EM-T/t8-table-legs.svg]]
+![[attachments/EM-T/t8-table-legs.png]]
 
 > [!warning] Erratum in the source
 > Eq. 13.8 is printed with the summation sign after the first cross product, as if one position vector multiplied the sum of all reactions. The moment of the reactions about $P_1$ is the sum of the moments of each reaction about $P_1$, each with its own position vector; the box below writes it that way. The count of three independent scalar equations given in the notes is unchanged.
@@ -460,13 +460,13 @@ Each body gives six scalar equations and each particle three; they are coupled t
 
 ### 4.1 Two bodies joined by a ball-and-socket joint
 
-![[attachments/EM-T/t8-two-bodies.svg]]
+![[attachments/EM-T/t8-two-bodies.png]]
 
 Two rigid bodies $B_1$ and $B_2$ are joined by a ball-and-socket joint at the common body point $C$. External forces $\mathbf F^{P_1}$ and $\mathbf F^{P_2}$ act at $P_1$ and $P_2$; the bodies also exert on each other the forces $\mathbf f_{P_4}^{P_3}$ (on $P_3$ of $B_1$) and $\mathbf f_{P_3}^{P_4}$ (on $P_4$ of $B_2$), equal and opposite and on the same line of action.
 
 An exploded view draws each body apart from the rest and replaces every connection by its reaction force and torque. Each component must be defined unambiguously, with the sense taken as positive; by the third law of Newton the reaction is equal and opposite on the two bodies.
 
-![[attachments/EM-T/t8-exploded.svg]]
+![[attachments/EM-T/t8-exploded.png]]
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
@@ -625,7 +625,7 @@ The rotation of a free rigid body with no torques, also called Poinsot's problem
 
 The problem: describe the motion, relative to inertial space, of a rigid body $b$ with known centre of mass $G$ and tensor of inertia about $G$, when no forces or torques act on it.
 
-![[attachments/EM-T/t8-torque-free-frames.svg]]
+![[attachments/EM-T/t8-torque-free-frames.png]]
 
 | Symbol | Meaning | SI unit |
 | :--- | :--- | :--- |
@@ -1161,7 +1161,7 @@ Instead of integrating the equations of motion, look at the analytic and geometr
 > **Units:** $[\mathrm{M\,L^2\,T^{-2}}]/[\mathrm{M\,L^2\,T^{-1}}] = [\mathrm{T^{-1}}]$.
 > **Meaning:** in the space of the inertial components the tip of the angular velocity stays on a horizontal plane fixed in inertial space, the invariable (invariant) plane; its trace there is the herpolhode.
 
-![[attachments/EM-T/t8-poinsot.svg]]
+![[attachments/EM-T/t8-poinsot.png]]
 
 > [!derivation] The ellipsoid is tangent to the invariable plane
 > **Law:** gradient of an implicit surface is normal to it
@@ -1198,7 +1198,7 @@ Instead of integrating the equations of motion, look at the analytic and geometr
 > **Units:** $[\mathrm{M^2\,L^4\,T^{-2}}]$.
 > **Meaning:** a second body-fixed ellipsoid; the tip of the angular velocity lives on the intersection of the two, which is the polhode, a closed curve.
 
-![[attachments/EM-T/t8-polhodes.svg]]
+![[attachments/EM-T/t8-polhodes.png]]
 
 > [!derivation] Shape of the polhodes near each principal axis
 > **Law:** elimination of one component between Eqs. 15.29 and 15.33

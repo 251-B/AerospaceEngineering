@@ -80,6 +80,17 @@ html[data-theme="light"] .fl-launcher, html[data-theme="light"] .fl-panel {
 .fl-panel button { font-family: inherit; }
 
 .fl-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.fl-head__brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.fl-brand-seal {
+  flex: none; display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(225, 193, 112, 0.12); border: 1px solid rgba(225, 193, 112, 0.42);
+}
+.fl-brand-seal svg { display: block; width: 26px; height: 26px; }
+.fl-brand-seal .sideris-stroke { stroke: #E1C170; fill: none; }
+.fl-brand-seal .sideris-fill { fill: #E1C170; stroke: none; }
+html[data-theme="light"] .fl-brand-seal { background: rgba(154, 110, 23, 0.08); border-color: rgba(154, 110, 23, 0.30); }
+html[data-theme="light"] .fl-brand-seal .sideris-stroke { stroke: #9a6e17; }
+html[data-theme="light"] .fl-brand-seal .sideris-fill { fill: #9a6e17; }
 .fl-kicker { margin: 0 0 4px; font: 600 11px/1.3 var(--fl-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--fl-muted); }
 .fl-title { margin: 0; font: 400 1.5rem/1.1 var(--fl-display); letter-spacing: .01em; color: var(--fl-text); }
 .fl-icon-btn {
@@ -209,3 +220,55 @@ html[data-theme="light"] .fl-launcher, html[data-theme="light"] .fl-panel {
   .fl-launcher, .fl-panel { display: none !important; }
 }
 html[data-theme="print"] .fl-launcher, html[data-theme="print"] .fl-panel { display: none !important; }
+
+/* ---------------------------------------------------------------- the launcher as a planet
+   Same layout and drift as the two planets of the home page's constellation view
+   (assets/css/constellations.css): a ringed planet 64 px wide, Focus higher at the right, the
+   study timer lower at its left. Here it takes the page's subject accent (--accent): Focus the
+   accent itself, the timer a darker shade of it. Sphere = ::after, ring = ::before (over the
+   sphere, its far half faint), icon on top. The name shows in a label on hover or focus. */
+.fl-launcher {
+  right: calc(26px + env(safe-area-inset-right, 0px)); bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+  width: 64px; min-width: 0; height: 64px; padding: 0; gap: 0; justify-content: center;
+  border: 0; border-radius: 50%; background: transparent; box-shadow: none;
+  --fl-planet: var(--fl-accent);
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--fl-planet) 45%, transparent));
+  animation: fl-drift 9s ease-in-out infinite;
+}
+.fl-launcher::after {
+  content: ""; position: absolute; left: 15px; top: 15px; width: 34px; height: 34px; border-radius: 50%; z-index: 0;
+  background: radial-gradient(circle at 34% 28%, color-mix(in srgb, var(--fl-planet) 35%, #ffffff) 0%,
+    var(--fl-planet) 45%, color-mix(in srgb, var(--fl-planet) 40%, #050816) 100%);
+  box-shadow: inset -4px -5px 8px rgba(3, 6, 20, .35);
+}
+.fl-launcher::before {
+  content: ""; position: absolute; left: 2px; right: 2px; top: 23px; bottom: 23px; z-index: 1;
+  border-radius: 50%; border: 1.4px solid color-mix(in srgb, var(--fl-planet) 45%, #ffffff);
+  border-top-color: color-mix(in srgb, var(--fl-planet) 45%, transparent);
+  transform: rotate(-20deg); pointer-events: none;
+}
+.fl-launcher svg { position: relative; z-index: 2; stroke: #ffffff; stroke-width: 1.6; filter: drop-shadow(0 0 3px rgba(3, 6, 20, .7)); }
+.fl-launcher__label {
+  position: absolute; left: 50%; right: auto; top: auto; bottom: calc(100% - 4px); transform: translateX(-50%);   /* above the planet, as on the home page */
+  padding: 5px 10px; border-radius: 999px; white-space: nowrap;
+  background: var(--fl-surface); color: var(--fl-text); border: 1px solid var(--fl-border);
+  font: 600 12.5px/1 var(--fl-serif); box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  opacity: 0; pointer-events: none; transition: opacity .15s ease;
+}
+.fl-launcher:hover .fl-launcher__label, .fl-launcher:focus-visible .fl-launcher__label { opacity: 1; }
+.fl-launcher__dot { position: absolute; top: 10px; right: 10px; z-index: 3; }
+.fl-launcher:hover, .fl-launcher:focus-visible {
+  transform: none; box-shadow: none;
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--fl-planet) 70%, transparent));
+}
+.fl-launcher:focus-visible { outline: 2px solid var(--fl-accent); outline-offset: 0; }
+.fl-launcher[aria-expanded="true"] { box-shadow: none; outline: 2px solid color-mix(in srgb, var(--fl-accent) 60%, transparent); outline-offset: 0; }
+@keyframes fl-drift { 0%, 100% { translate: 0 0; } 50% { translate: -3px -7px; } }
+@media (max-width: 600px) {
+  .fl-launcher { right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(44px + env(safe-area-inset-bottom, 0px)); width: 64px; height: 64px; padding: 0; }
+  .fl-launcher__label { display: inline-block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl-launcher { animation: none; }
+  .fl-launcher__label { transition: none; }
+}

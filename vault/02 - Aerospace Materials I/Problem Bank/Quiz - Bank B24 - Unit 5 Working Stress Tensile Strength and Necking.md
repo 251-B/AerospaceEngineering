@@ -84,19 +84,19 @@ Session 11, Slide 29: "design security: working stress $\sigma_w = \sigma_y/N$",
 
 Session 11, Slide 29.
 
-## Q24.3 Range of the safety factor
+## Q24.3 Effect of increasing the safety factor
 
 - id: B24-Q3
 - concept_id: u5-working-stress-safety-factor
-- format: identify
-- asks: classification
+- format: what-happens
+- asks: application
 
-Which values of the safety factor $N$ do the slides give for the working stress?
+A structural tie rod carrying a fixed axial load is redesigned with a larger safety factor $N > 1$ against yielding using the same alloy. What must change in the rod?
 
-a) Exactly 1, with no margin
-b) From 10 to 20, usually 15
-c) From 1.2 to 4, usually 2
-d) From 0.2 to 0.8, usually 0.5
+a) Its cross-sectional area must decrease so the working stress rises
+b) Its length must decrease so the elastic strain falls
+c) Its cross-sectional area must increase so the stress stays within $\sigma_w = \sigma_y/N$
+d) Its diameter stays unchanged because $N$ does not affect sizing
 
 ### Answer
 
@@ -104,15 +104,15 @@ c
 
 ### Explanation
 
-Session 11, Slide 29: $\sigma_w = \sigma_y/N$ with $N = 1.2$-4 (usually 2).
+Since $\sigma_w = \sigma_y/N$ (Session 11, Slide 29), increasing $N$ lowers the allowable working stress $\sigma_w$. To carry the same force $F$ without exceeding $\sigma_w = F/A_0$, the minimum cross-sectional area $A_0 = F/\sigma_w = N F/\sigma_y$ must increase.
 
-- a) $N = 1$ would put the working stress at the yield strength, leaving no margin for the variability of the properties.
-- b) Such factors would waste material; the slide's range ends at 4.
-- d) A factor below 1 would set the working stress above the yield strength.
+- a) Reducing the area raises the stress in service, which lowers rather than raises the safety margin.
+- b) Axial stress $\sigma = F/A_0$ is independent of the rod's length.
+- d) The safety factor directly sets the allowable working stress and therefore the required cross-section.
 
 ### Source
 
-Session 11, Slide 29.
+Session 11, Slides 9 and 29.
 
 ## Q24.4 Why a working stress is used
 
@@ -174,36 +174,35 @@ Session 11, Slide 30: "tensile strength (or ultimate TS): maximum nominal stress
 
 Session 11, Slides 30-31.
 
-## Q24.6 Tensile strength of a titanium specimen
+## Q24.6 Ultimate tensile strength versus nominal fracture stress
 
 - id: B24-Q6
 - concept_id: u5-tensile-strength-definition
-- format: numeric
-- asks: calculation
-- calc: 42000/(pi*4.0**2)
+- format: topic-false
+- asks: comparison
 
-An 8.0 mm diameter titanium specimen reaches a maximum load of 42 kN and breaks at 36 kN. Determine its tensile strength:
+With respect to ultimate tensile strength (UTS) and nominal fracture stress in a ductile metal tensile test, which statement is FALSE?
 
-a) 209 MPa
-b) 716 MPa
-c) 836 MPa
-d) 2630 MPa
+a) UTS equals the maximum load divided by the original cross-sectional area $A_0$
+b) Plastic deformation remains uniform along the gauge length up to UTS
+c) Beyond UTS, localized necking reduces the load required for further stretching
+d) The nominal fracture stress is always higher than UTS because the necked area shrinks
 
 ### Answer
 
-c
+d
 
 ### Explanation
 
-Session 11, Slide 30: the tensile strength is the maximum nominal stress, $\sigma_{\text{UTS}} = F_{\max}/A_0 = 42\,000/(\pi\cdot 4.0^2) = 42\,000/50.3 = 836$ MPa.
+In an engineering (nominal) curve, both UTS and nominal fracture stress divide the load by the original area $A_0$ (Session 11, Slides 9 and 30-31). Because necking after UTS reduces the load the specimen can sustain, the nominal fracture stress of a ductile metal is lower than UTS (whereas true fracture stress $F_f/A_f$ is higher).
 
-- a) The diameter was used as the radius: an area four times too large.
-- b) The load at fracture was used; this gives the fracture stress, not the maximum stress.
-- d) The factor $\pi$ was left out of the area: $42\,000/4^2$.
+- a) This is true: UTS is the maximum engineering stress $F_{\max}/A_0$ (Slide 30).
+- b) This is true: uniform plastic deformation extends from yielding up to UTS (Slides 9 and 30).
+- c) This is true: once necking starts at UTS, the cross-section decreases locally and the nominal load falls until fracture.
 
 ### Source
 
-Session 11, Slides 9 and 30-31.
+Session 11, Slides 9, 30-31 and 37.
 
 ## Q24.7 Pulling past the maximum of the curve
 
@@ -272,7 +271,7 @@ Session 11, Slide 31.
 - format: identify
 - asks: cause
 
-Which feature of the material does a very low fracture stress point to, according to the slides?
+In a tensile test, which material feature is indicated by an abnormally low fracture stress?
 
 a) A very fine grain size
 b) Defects such as porosity or inclusions

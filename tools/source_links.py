@@ -86,7 +86,7 @@ _KIND = {
 _KEYWORD = r"(Secs?\.|Sections?|Ch\.|Chapters?|pp?\.|Eqs?\.|Equations?|Figs?\.|Figure|Example|Theorem|Definition|Slides?)"
 _ITEM = re.compile(rf"(\s*(?:[,;:]|\(|\band\b|&amp;|&)?\s*(?:\band\b\s*|&amp;\s*)?){_KEYWORD}\s*((?:{_RANGE})(?:\s*(?:,|&amp;|\band\b)\s*(?!{_KEYWORD}){_RANGE})*)")
 _NUMTOKEN = re.compile(_RANGE)
-_TRIGGER = re.compile(r"\b(Robinson(?:\s*\(2004\))?|Notes(?:\.pdf)?|Session\s+(\d+))(?=[\s,;:.)])")
+_TRIGGER = re.compile(r"\b(Robinson(?:\s*\(2004\))?|Haberman|Notes03-05-Nov_v2\.pdf|Notes09-12-Nov\.pdf|Solved_exer_nonlinear_system\.pdf|probls_ch[56]_2627\.pdf|Notes(?:\.pdf)?|Session\s+(\d+))(?=[\s,;:.)])")
 _TRIGGER_PROBLEMS = re.compile(r"\b(Problems\.pdf)(?=[\s,;:.)])")  # only on pages whose cite rules name a "problems" PDF
 # "[Lecture 7, Slide 12]" / "[Lecture 7, Slides 3-5]": the lecture picks the deck (rules["lectures"], per subject)
 _LECTURE = re.compile(r"\[Lecture (\d+), Slides? ((\d+)(?:\s*(?:[\u2013-]|&ndash;)\s*\d+)?)\]")
@@ -231,6 +231,12 @@ class Linker:
                 word = m.group(1)
                 if word.startswith("Robinson"):
                     pdf_for = lambda k, p=rules.get("robinson"): self.slide_pdf(pos_in_page) if k == "slide" else p  # noqa: E731
+                elif word.startswith("Haberman"):
+                    pdf_for = lambda k, p=rules.get("haberman"): p if k == "page" else None  # noqa: E731
+                elif word.startswith("Solved_exer"):
+                    pdf_for = lambda k, p=rules.get("solved"): p if k == "page" else None  # noqa: E731
+                elif word.startswith("probls_ch"):
+                    pdf_for = lambda k, p=rules.get("sheet"): p if k == "page" else None  # noqa: E731
                 elif word.startswith("Notes"):
                     pdf_for = lambda k, p=rules.get("notes"): self.slide_pdf(pos_in_page) if k == "slide" else p  # noqa: E731
                 else:

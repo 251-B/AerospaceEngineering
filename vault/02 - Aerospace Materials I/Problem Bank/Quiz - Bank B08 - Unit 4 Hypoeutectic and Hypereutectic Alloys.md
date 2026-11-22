@@ -117,51 +117,19 @@ Microconstituents use the short tie line from α (18.3) to the eutectic liquid (
 
 Session 7, Slide 32.
 
-## Q08.4 Eutectic in a hypereutectic alloy
+## Q08.4 Eutectic microconstituent properties
 
 - id: B08-Q4
 - concept_id: u4-eutectic-fraction
-- format: numeric
-- asks: calculation
-- calc: (97.8-75)/(97.8-61.9)*100
+- format: topic-true
+- asks: comparison
 
-Just below 183 °C, how much of a Pb-75 wt% Sn alloy is eutectic microconstituent? Determine its mass percentage:
+Regarding the eutectic microconstituent in binary alloys just below the eutectic temperature, which statement is TRUE:
 
-a) 28.7 %
-b) 36.5 %
-c) 63.5 %
-d) 75.0 %
-
-### Answer
-
-c
-
-### Explanation
-
-For a hypereutectic alloy the short tie line runs from the eutectic liquid (61.9) to β (97.8 wt% Sn) (Session 7, Slides 31-32). The eutectic equals the liquid just above 183 °C: $W_e = \dfrac{97.8 - 75}{97.8 - 61.9} = \dfrac{22.8}{35.9} = 0.635$.
-
-- a) $22.8/79.5 = 0.287$ divides by the whole α-β tie line instead of the short one from the eutectic to β.
-- b) $(75 - 61.9)/35.9 = 0.365$ is the primary β: arms swapped.
-- d) 75 % takes the alloy composition as the fraction of eutectic.
-
-### Source
-
-Session 7, Slides 31-32.
-
-## Q08.5 Total beta in Pb-25 Sn
-
-- id: B08-Q5
-- concept_id: u4-total-phase-fraction
-- format: numeric
-- asks: calculation
-- calc: (25-18.3)/(97.8-18.3)*100
-
-A Pb-Sn alloy with 25 wt% Sn has just finished solidifying at 183 °C. Determine what percentage of its mass is the β phase:
-
-a) 8.43 %
-b) 15.4 %
-c) 25.6 %
-d) 91.6 %
+a) Its mass fraction equals the mass fraction of liquid present just above the eutectic temperature
+b) Its chemical composition shifts continuously with the overall Sn content of the alloy
+c) In a hypereutectic alloy it coexists with primary $\alpha$ rather than primary $\beta$
+d) Its mass fraction is found directly from the lever rule on the whole $\alpha$–$\beta$ tie line
 
 ### Answer
 
@@ -169,11 +137,41 @@ a
 
 ### Explanation
 
-Phases use the whole tie line from α (18.3) to β (97.8 wt% Sn) (Session 7, Slide 32): $W_\beta = \dfrac{P}{P + Q + R} = \dfrac{25 - 18.3}{97.8 - 18.3} = \dfrac{6.7}{79.5} = 0.0843$. All of this β lies inside the eutectic.
+Session 7, Slides 28 and 32: all liquid remaining just above the eutectic temperature has the eutectic composition (61.9 wt% Sn in Pb-Sn) and transforms into the eutectic microconstituent at 183 °C, so $W_e = W_L$ just above the isotherm.
 
-- b) $6.7/43.6 = 0.154$ uses the short tie line to the eutectic: that is the fraction of eutectic microconstituent, not of β.
-- c) $25/97.8 = 0.256$ is a ratio of compositions.
-- d) $(97.8 - 25)/79.5 = 0.916$ is the total α: arms swapped.
+- b) The eutectic microconstituent always forms from liquid at the fixed eutectic composition (61.9 wt% Sn), so its composition and internal $\alpha/\beta$ ratio never vary with $C_0$.
+- c) A hypereutectic alloy lies on the $\beta$ side of the eutectic, so it forms primary $\beta$ surrounded by eutectic; primary $\alpha$ belongs to hypoeutectic alloys.
+- d) The whole $\alpha$–$\beta$ tie line gives the total phase fractions ($W_\alpha, W_\beta$), whereas microconstituent fractions ($W_{\alpha'}, W_e$ or $W_{\beta'}, W_e$) use the short tie line ending at $C_e$.
+
+### Source
+
+Session 7, Slides 28 and 30-32.
+
+## Q08.5 Phases versus microconstituents in Pb-Sn
+
+- id: B08-Q5
+- concept_id: u4-total-phase-fraction
+- format: topic-false
+- asks: application
+
+Referring to phases and microconstituents in a hypoeutectic Pb-Sn alloy just below 183 °C, which statement is FALSE:
+
+a) Total $\alpha$ phase equals the sum of primary $\alpha$ and the $\alpha$ inside the eutectic lamellae
+b) All of the $\beta$ phase present in the alloy belongs to the eutectic microconstituent
+c) The mass fractions of primary $\alpha$ and eutectic microconstituent sum to unity
+d) The phase balance on the $\alpha$–$\beta$ tie line conflicts with the microconstituent balance
+
+### Answer
+
+d
+
+### Explanation
+
+Statement d) is false: the phase balance ($W_\alpha + W_\beta = 1$) and the microconstituent balance ($W_{\alpha'} + W_e = 1$) always agree, because $W_\alpha = W_{\alpha'} + W_{\alpha,e}$ and $W_e = W_{\alpha,e} + W_\beta$ (Session 7, Slide 32; Problems T4_PhaseDiagrams I.pdf, Q3–Q4).
+
+- a) True: $\alpha$ appears in two forms—as primary grains formed before 183 °C and as alternating layers inside the eutectic.
+- b) True: in a hypoeutectic alloy no primary $\beta$ forms above 183 °C, so every bit of $\beta$ forms inside the eutectic.
+- c) True: primary $\alpha$ and eutectic are the two microconstituents filling the microstructure ($W_{\alpha'} + W_e = 1$).
 
 ### Source
 

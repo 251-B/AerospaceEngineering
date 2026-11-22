@@ -6,6 +6,8 @@ Each page configured in tools/topic_pages.json is generated from one vault note:
     - "# Part ..." headings become part dividers, "## N. Title" sections, "###"/"####" sub-headings;
     - Markdown paragraphs, lists, tables, $$ display math (one line), Obsidian callouts
       (> [!info] / [!note] / [!warning]) and inline **bold**, `code` and $math$ are converted;
+      > [!summary] (a section's "What you need to know" box) and > [!recap] (the one-minute review of
+      the topic) become <div class="essential-box">, the content of the Essential reading mode;
     - figure embeds ![[attachments/<folder>/<name>.svg]] are inlined from the topic's figure module
       in tools/figures/ (which also writes the vault copy of each SVG); ![[attachments/<folder>/<name>.png]]
       embeds a figure copied from the slides, registered with its caption in the same module;
@@ -133,8 +135,19 @@ def blocks(lines, figure=None):
             i += 1
             continue
         if line.startswith("$$"):
+            if s == "$$" or not s.endswith("$$"):
+                buf = [s]
+                i += 1
+                while i < len(lines):
+                    buf.append(lines[i].strip())
+                    if lines[i].strip().endswith("$$"):
+                        i += 1
+                        break
+                    i += 1
+                s = "\n".join(buf)
+            else:
+                i += 1
             out.append(f'<div class="math-block">{html.escape(s, quote=False)}</div>')
-            i += 1
             continue
         if line.startswith("|"):
             rows = []
@@ -166,6 +179,15 @@ def blocks(lines, figure=None):
             while i < len(lines) and lines[i].startswith(">"):
                 inner.append(lines[i][2:] if lines[i].startswith("> ") else lines[i][1:])
                 i += 1
+            if kind.lower() in ("summary", "recap"):
+                # "What you need to know" box of a section, or the one-minute review of the topic: the
+                # Essential reading mode of assets/js/theory-reader.js shows only these (and one figure)
+                cls = "essential-box essential-recap" if kind.lower() == "recap" else "essential-box"
+                body = blocks(inner, figure)
+                # a Markdown link to another portal page, e.g. [formula sheet](../formula-sheet/index.html)
+                body = re.sub(r"\[([^\]]+)\]\(((?:\.\./)*[\w./-]+\.html(?:#[\w-]+)?)\)", r'<a href="\2">\1</a>', body)
+                out.append(f'<div class="{cls}"><div class="essential-title">{inline(title)}</div>{body}</div>')
+                continue
             if STYLE.get("callout_fn"):
                 out.append(STYLE["callout_fn"](kind.lower(), title, blocks(inner, figure)))
                 continue
@@ -507,9 +529,151 @@ def build_mechanics_page(page_rel, spec, cfg_links, anchors):
     return page, figure
 
 
+MATHS_CSS = """
+    :root { --text-faint: var(--text-muted); }
+    .callout-extension { border-style: dashed; border-left: 4px solid var(--accent); }
+    .diagram-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 18px; margin: 24px 0; text-align: center; }
+    .diagram-card svg { max-width: 100%; height: auto; }
+    .diagram-caption { font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); margin-top: 10px; line-height: 1.5; }
+    .math-block { overflow-x: auto; margin: 16px 0; padding: 10px 14px; background: var(--bg-input); border-radius: var(--radius-sm); }
+    h1.article-title { overflow-wrap: break-word; }
+    .theory-section { margin-bottom: 44px; scroll-margin-top: 84px; }
+    h2.section-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--text-heading); margin-bottom: 18px; }
+    h3.sub-heading { font-size: 1.2rem; font-weight: 700; color: var(--text-heading); margin: 26px 0 10px; scroll-margin-top: 84px; }
+    h4.minor-heading { font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin: 18px 0 8px; }
+    .theory-section p { margin-bottom: 14px; }
+    .theory-section ul, .theory-section ol { margin: 8px 0 16px 1.4rem; }
+    .theory-section li { margin: 5px 0; }
+    .essential-box { background: var(--bg-card); border: 1px solid var(--accent-border); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 18px; margin: 16px 0 22px; }
+    .essential-title { font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 8px; }
+    .essential-box > :last-child { margin-bottom: 0; }
+"""
+
+
+def maths_callout(kind, title, inner):
+    t = inline(title)
+    cls_map = {"warning": "callout warn", "example": "callout example", "tip": "callout thm",
+               "note": "callout lecture", "info": "callout def"}
+    cls = cls_map.get(kind, "callout def")
+    if title.strip().lower().startswith("extension"):
+        cls += " callout-extension"
+    return f'<div class="{cls}"><div class="callout-title">{t}</div>{inner}</div>'
+
+
+def build_maths_page(page_rel, spec, cfg_links, anchors):
+    """An Advanced Maths theory page: shell of topic-4.html, body generated from the vault note."""
+    global STYLE
+    vault = REPO / spec["note"]
+    md = strip_frontmatter(vault.read_text(encoding="utf-8"))
+    figure = FigureSet(spec.get("figures"), "diagram-card")
+    shell = sl.strip_links((REPO / spec.get("template", page_rel)).read_text(encoding="utf-8"))
+    head = shell[:shell.index('<main class="article-container">')]
+    tail = shell[shell.index("  </main>"):]
+    head = re.sub(r"<title>.*?</title>", f"<title>{html.escape(spec['html_title'], quote=False)}</title>", head, count=1, flags=re.S)
+    head = re.sub(r'<meta name="description" content="[^"]*"\s*/?>',
+                  f'<meta name="description" content="{html.escape(spec["subtitle"], quote=True)}" />', head, count=1)
+    head = re.sub(r'<span class="brand-badge">[^<]*</span>',
+                  f'<span class="brand-badge">{html.escape(spec["brand"], quote=False)}</span>', head, count=1)
+    head = head.replace("  </style>", MATHS_CSS + "  </style>", 1)
+
+    end = md.find("**Back to:**")
+    md = md[:end] if end >= 0 else md
+    idea = re.search(r"^> (?!\[!).*(?:\n> (?!\[!).*)*", md, re.M)
+    first_section = re.search(r"^## \d+\.", md, re.M)
+    if not idea or not first_section:
+        raise NoteError(["the note needs a first blockquote (central idea) and '## N. Title' sections"])
+    idea_text = " ".join(x[2:].strip() for x in idea.group(0).split("\n"))
+    intro_rest = [x for x in md[idea.end():first_section.start()].split("\n") if x.strip() != "---"]
+
+    saved = STYLE
+    STYLE = {"callout": _CALLOUT, "table": _TABLE, "callout_fn": maths_callout}
+    try:
+        parts, toc, used = [], [], set()
+        for ch in re.split(r"\n(?=## \d+\.)", md[first_section.start():].strip()):
+            lines = ch.split("\n")
+            num, rest = re.match(r"## (\d+)\.\s+(.*)", lines[0]).groups()
+            toc.append((num, rest))
+            out, chunk = [], []
+            for line in lines[1:]:
+                hm = re.match(r"(#{3,4}) (.*)", line)
+                if hm:
+                    out.append(blocks(chunk, figure))
+                    chunk = []
+                    if len(hm.group(1)) == 3:
+                        out.append(f'<h3 class="sub-heading" id="{slug(hm.group(2), used)}">{inline(hm.group(2))}</h3>')
+                    else:
+                        out.append(f'<h4 class="minor-heading">{inline(hm.group(2))}</h4>')
+                elif line.strip() == "---" or line.startswith("See also [["):
+                    continue
+                else:
+                    chunk.append(line)
+            out.append(blocks(chunk, figure))
+            parts.append(f'    <section class="theory-section" id="sec-{num}">\n'
+                         f'      <h2 class="section-title">{num}. {inline(rest)}</h2>\n'
+                         + "\n".join(x for x in out if x) + "\n    </section>")
+        extra = blocks(intro_rest, figure)
+    finally:
+        STYLE = saved
+
+    idea_html = f'    <div class="callout def"><div class="callout-title">Central idea</div><p>{inline(idea_text)}</p></div>'
+    if extra.strip():
+        idea_html += "\n" + extra
+    body = idea_html + "\n\n" + "\n\n".join(parts)
+
+    toc_html = "\n".join(
+        f'        <li><a href="#sec-{n}"><span class="toc-num">{int(n):02d}.</span><span>{inline(t)}</span></a></li>'
+        for n, t in toc
+    )
+    nav_items = []
+    for href, label, kind in spec["nav"]:
+        if kind == "prev":
+            nav_items.append(f'      <a href="{href}" class="nav-btn"><span class="nav-btn-label">← Previous</span>'
+                             f'<span class="nav-btn-title">{html.escape(label, quote=False)}</span></a>')
+        elif kind == "next":
+            cap = "Back →" if href.startswith("index.html") else "Next →"
+            nav_items.append(f'      <a href="{href}" class="nav-btn next"><span class="nav-btn-label">{cap}</span>'
+                             f'<span class="nav-btn-title">{html.escape(label, quote=False)}</span></a>')
+    nav_block = '    <nav class="article-nav" aria-label="Topic navigation">\n' + "\n".join(nav_items) + "\n    </nav>"
+    footer_block = (
+        f'    <footer class="site-footer">\n'
+        f'      <p>{html.escape(spec["brand"], quote=False)} • BSc in Aerospace Engineering, Universidad Carlos III de Madrid</p>\n'
+        f'      <p>{inline(spec["footer_ref"])}</p>\n'
+        f'      <p style="margin-top: 8px;"><a class="end-btn" href="../../../index.html">← Return to the main study portal</a></p>\n'
+        f'    </footer>\n\n'
+        f'    <section style="max-width: 920px; margin: 48px auto 24px;">\n'
+        f'      <div id="quoteContainer"></div>\n'
+        f'    </section>\n'
+    )
+    header = f'''<main class="article-container">
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">{html.escape(spec["category"], quote=False)}</span>
+        <span class="course-tag">Advanced Mathematics • BSc Aerospace Engineering • UC3M</span>
+      </div>
+      <h1 class="article-title">{html.escape(spec["title"], quote=False)}</h1>
+      <p class="article-lead">{html.escape(spec["subtitle"], quote=False)}</p>
+      <div class="source-banner"><strong>Ground truth:</strong> {inline(spec["source"])}</div>
+    </header>
+
+    <nav class="toc-card" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-grid">
+{toc_html}
+      </ul>
+    </nav>
+
+'''
+    page = head + header + body + f"\n\n{nav_block}\n\n{footer_block}" + tail
+    if page_rel in cfg_links["pages"]:
+        page = sl.build_page(page_rel, page, cfg_links, anchors, {})
+    return page, figure
+
+
 def build_page(page_rel, spec, cfg_links, anchors):
     if spec.get("flavor") == "mechanics":
         return build_mechanics_page(page_rel, spec, cfg_links, anchors)
+    if spec.get("flavor") == "maths":
+        return build_maths_page(page_rel, spec, cfg_links, anchors)
     _DERIVATION_ERRORS.clear()
     result = _build_page(page_rel, spec, cfg_links, anchors)
     if _DERIVATION_ERRORS:
