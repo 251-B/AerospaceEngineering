@@ -126,7 +126,7 @@ def _dvec(sc, a, b, col="PINK", w=2.4, head=10):
         r"Coriolis force (dashed, normal to the relative velocity) and the centrifugal force")
 def fbd():
     k = 150.0
-    sc = Scene(900, 1000, (130, 440), k)
+    sc = Scene(900, 1090, (130, 470), k)
     ph = math.radians(-30.3)
     C = (1.0, 1.0)
     P = (C[0] + math.cos(ph), C[1] + math.sin(ph))
@@ -147,18 +147,17 @@ def fbd():
     sc.dotp(C, 3.5)
     sc.label(C, "C", "HEAD", "start", 17, dx=8, dy=-8)
     sc.dashed((0.0, P[1]), P)
-    sc.label((P[0] / 2, P[1]), S("r", "⊥"), "TEXT", "middle", 16, dy=-8)
+    sc.label((0.3, P[1]), S("r", "⊥"), "TEXT", "middle", 16, dy=-8)
     sc.angle(C, 0.32, -30.3, 0, "φ₁ < 0", name_r=0.62)
-    sc.line(C, P, "EDGE", 1.0, "2 3")
     # forces at P
-    w1 = (P[0], P[1] - 0.45)
+    w1 = (P[0], P[1] - 0.35)
     sc.vec(P, w1, None, "PINK", 2.8, head=11)
-    sc.label(w1, "−mg " + S(bold("k"), "1"), "PINK", "end", 16, weight="700", dx=-8, dy=8)
+    sc.label(w1, "−mg " + S(bold("k"), "1"), "PINK", "start", 16, weight="700", dx=8, dy=6)
     ur = (math.cos(ph), math.sin(ph))
     n1 = (P[0] - 0.85 * ur[0], P[1] - 0.85 * ur[1])
     sc.vec(P, n1, None, "PINK", 2.8, head=11)
-    sc.label(n1, "−N " + S(bold("u"), "r"), "PINK", "end", 16, weight="700", dx=-8, dy=-2)
-    sc.label(n1, "(N = 1.98 mg)", "PINK", "end", 14, dx=-8, dy=16)
+    sc.label(n1, "−N " + S(bold("u"), "r"), "PINK", "middle", 16, weight="700", dx=-20, dy=22)
+    sc.label(n1, "(N = 1.98 mg)", "PINK", "middle", 14, dx=-20, dy=38)
     c1 = (P[0] + 0.77, P[1])
     _dvec(sc, P, c1, "PINK", 2.6)
     sc.label(c1, S(bold("F"), "C") + " = m Ω² " + S("r", "⊥"), "PINK", "start", 16, weight="700", dx=10, dy=-6)
@@ -166,14 +165,14 @@ def fbd():
     unit(sc, P, -30.3, 0.3, S(bold("u"), "r"), "ACC", off=(12, 10))
     unit(sc, P, 59.7, 0.3, S(bold("u"), "φ"), "ACC", off=(12, -4))
     sc.mass(P, "P", r=7, name_off=(-14, -10))
-    sc.note((-0.1, 2.9), "vertical plane x₁ = 0, through the axis and C", "TEXT", "start", 13)
-    sc.note((-0.1, 2.77), "Ω = 3 rad/s, R = 1 m, branch θ = π/2", "TEXT", "start", 13)
+    sc.note((0.8, 3.0), "vertical plane x₁ = 0, through the axis and C", "TEXT", "start", 13)
+    sc.note((0.8, 2.87), "Ω = 3 rad/s, R = 1 m, branch θ = π/2", "TEXT", "start", 13)
     # ---------------- lower panel: from above, k1 out of the paper
     s = 1.3
-    LY = -(960 - 440) / k
+    LY = -(1000 - 470) / k
 
     def R(x, y):
-        return (x * s, LY + y * s)
+        return (x * s + 1.5, LY + y * s)
     Ac = R(0.0, 0.0)
     Cc = R(0.0, 1.0)
     sc.circle(Cc, s, "HEAD", 2.0, dash="6 4")
@@ -184,7 +183,7 @@ def fbd():
     sc.label(Ac, S(bold("k"), "1") + " (⊙)", "BLUE", "start", 15, weight="700", dx=14, dy=30)
     unit(sc, Ac, 0, 0.35 * s, S(bold("i"), "1"), off=(6, 20))
     unit(sc, Ac, 90, 0.35 * s, S(bold("j"), "1"), off=(-16, 4))
-    sc.spin(Ac, 0.7 * s, 120, 200, "Ω(t)", name_r=0.98 * s)
+    sc.spin(Ac, 0.3 * s, 200, 265, "Ω(t)", name_r=0.42 * s)
     th = math.radians(35.0)
     Pp = R(0.8 * math.cos(th), 1.0 + 0.8 * math.sin(th))
     rv = (Pp[0] - Ac[0], Pp[1] - Ac[1])
@@ -209,9 +208,9 @@ def fbd():
              weight="700", dx=10, dy=-4)
     sc.label(f2, "(inertia)", "PINK", "start", 14, dx=10, dy=13)
     # centrifugal: outwards along A -> P'
-    f3 = sh(Pp, rh, 0.45)
+    f3 = sh(Pp, rh, 0.75)
     _dvec(sc, Pp, f3, "PINK", 2.6)
-    sc.label(f3, S(bold("F"), "C") + " (inertia)", "PINK", "start", 16, weight="700", dx=8, dy=-8)
+    sc.label(f3, S(bold("F"), "C") + " (inertia)", "PINK", "start", 16, weight="700", dx=6, dy=-8)
     # Euler: perpendicular to A -> P', clockwise (drawn for a positive rate)
     f4 = sh(Pp, cw, 0.6)
     _dvec(sc, Pp, f4, "PINK", 2.6)
