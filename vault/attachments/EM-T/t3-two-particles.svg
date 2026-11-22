@@ -11,6 +11,7 @@
 <line x1="230.0" y1="190.0" x2="230.0" y2="95.9" stroke="#8a94a6" stroke-width="1.4"/>
 <path d="M230.0,91.1 L233.1,98.5 L226.9,98.5 Z" fill="#8a94a6"/>
 <text x="218.0" y="93.1" fill="#6b7280" font-size="16" font-weight="700" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="200.0" y="176.0" fill="#4b5563" font-size="17" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">O</text>
 <line x1="230.0" y1="56.7" x2="505.2" y2="56.7" stroke="#8a94a6" stroke-width="1.1"/>
 <path d="M230.0,56.7 L236.4,54.0 L236.4,59.4 Z" fill="#8a94a6"/>
 <path d="M505.2,56.7 L498.8,59.4 L498.8,54.0 Z" fill="#8a94a6"/>
@@ -22,18 +23,18 @@
 <line x1="66.6" y1="190.0" x2="66.6" y2="387.8" stroke="#8a94a6" stroke-width="1.1"/>
 <path d="M66.6,190.0 L69.3,196.4 L63.9,196.4 Z" fill="#8a94a6"/>
 <path d="M66.6,387.8 L63.9,381.4 L69.3,381.4 Z" fill="#8a94a6"/>
-<text x="52.6" y="292.9" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d</text>
+<text x="52.6" y="292.9" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">η</text>
 <line x1="539.6" y1="190.0" x2="677.2" y2="190.0" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
 <line x1="543.9" y1="353.4" x2="677.2" y2="353.4" stroke="#8a94a6" stroke-width="1.1" stroke-dasharray="5 4"/>
 <line x1="668.6" y1="190.0" x2="668.6" y2="353.4" stroke="#8a94a6" stroke-width="1.1"/>
 <path d="M668.6,190.0 L671.3,196.4 L665.9,196.4 Z" fill="#8a94a6"/>
 <path d="M668.6,353.4 L665.9,347.0 L671.3,347.0 Z" fill="#8a94a6"/>
-<text x="682.6" y="275.7" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d′</text>
+<text x="682.6" y="275.7" fill="#6b7280" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">η′</text>
 <line x1="204.2" y1="387.8" x2="204.2" y2="307.9" stroke="#ec4899" stroke-width="3.6"/>
 <path d="M204.2,300.1 L209.3,312.1 L199.1,312.1 Z" fill="#ec4899"/>
 <line x1="204.2" y1="387.8" x2="204.2" y2="489.6" stroke="#ec4899" stroke-width="3.6"/>
 <path d="M204.2,497.4 L199.1,485.5 L209.3,485.5 Z" fill="#ec4899"/>
-<text x="218.2" y="302.1" fill="#ec4899" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">T</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="218.2" y="302.1" fill="#ec4899" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">τ</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
 <text x="218.2" y="503.4" fill="#ec4899" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m g <tspan font-weight="700" font-style="normal">j</tspan></text>
 <circle cx="204.2" cy="387.8" r="5.5" fill="#4b5563"/>
 <text x="218.2" y="392.8" fill="#4b5563" font-size="18" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P, m</text>
@@ -41,14 +42,14 @@
 <path d="M531.0,265.7 L536.1,277.7 L525.9,277.7 Z" fill="#ec4899"/>
 <line x1="531.0" y1="353.4" x2="531.0" y2="418.7" stroke="#ec4899" stroke-width="3.6"/>
 <path d="M531.0,426.5 L525.9,414.5 L536.1,414.5 Z" fill="#ec4899"/>
-<text x="517.0" y="267.7" fill="#ec4899" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">T</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="517.0" y="267.7" fill="#ec4899" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">F<tspan baseline-shift="sub" font-size="70%">τ</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
 <text x="517.0" y="432.5" fill="#ec4899" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−m′ g <tspan font-weight="700" font-style="normal">j</tspan></text>
 <circle cx="531.0" cy="353.4" r="5.5" fill="#4b5563"/>
 <text x="517.0" y="358.4" fill="#4b5563" font-size="18" font-weight="400" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P′, m′</text>
 <line x1="178.4" y1="387.8" x2="178.4" y2="454.3" stroke="#f59e0b" stroke-width="2.4" stroke-dasharray="7 4"/>
 <path d="M178.4,460.9 L174.1,450.8 L182.7,450.8 Z" fill="#f59e0b"/>
-<text x="170.4" y="466.9" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−d<tspan dx="-0.38em" dy="-0.80em" font-style="normal">.</tspan><tspan dx="0.13em" dy="0.80em" font-style="normal">​</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="170.4" y="466.9" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="end" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">−η<tspan dx="-0.38em" dy="-0.80em" font-style="normal">.</tspan><tspan dx="0.13em" dy="0.80em" font-style="normal">​</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
 <line x1="556.8" y1="353.4" x2="556.8" y2="286.9" stroke="#f59e0b" stroke-width="2.4" stroke-dasharray="7 4"/>
 <path d="M556.8,280.3 L561.1,290.4 L552.5,290.4 Z" fill="#f59e0b"/>
-<text x="564.8" y="278.3" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">d<tspan dx="-0.38em" dy="-0.80em" font-style="normal">.</tspan><tspan dx="0.13em" dy="0.80em" font-style="normal">​</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
+<text x="564.8" y="278.3" fill="#f59e0b" font-size="17" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">η<tspan dx="-0.38em" dy="-0.80em" font-style="normal">.</tspan><tspan dx="0.13em" dy="0.80em" font-style="normal">​</tspan> <tspan font-weight="700" font-style="normal">j</tspan></text>
 </g></svg>

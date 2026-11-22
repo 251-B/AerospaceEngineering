@@ -67,7 +67,7 @@
 <text x="471.8" y="316.5" fill="#4b5563" font-size="16" font-weight="400" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums">N ≥ 0</text>
 <line x1="400.0" y1="182.2" x2="676.3" y2="182.2" stroke="#f59e0b" stroke-width="3.0"/>
 <path d="M683.5,182.2 L672.4,186.9 L672.4,177.6 Z" fill="#f59e0b"/>
-<text x="695.5" y="187.2" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">v <tspan font-weight="700" font-style="normal">i</tspan></text>
+<text x="695.5" y="187.2" fill="#f59e0b" font-size="18" font-weight="700" text-anchor="start" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic"><tspan font-weight="700" font-style="normal">v</tspan><tspan baseline-shift="sub" font-size="70%">0</tspan><tspan baseline-shift="super" font-size="70%">P</tspan> <tspan font-weight="700" font-style="normal">i</tspan></text>
 <circle cx="400.0" cy="182.2" r="5.5" fill="#4b5563"/>
 <text x="386.0" y="172.2" fill="#4b5563" font-size="18" font-weight="400" text-anchor="middle" font-family="Newsreader, 'Times New Roman', Times, serif" style="font-variant-numeric:lining-nums" font-style="italic">P</text>
 <line x1="22.0" y1="287.2" x2="111.7" y2="287.2" stroke="#8a94a6" stroke-width="1.4"/>

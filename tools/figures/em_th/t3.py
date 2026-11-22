@@ -39,7 +39,7 @@ TEXT = {
         'The reaction of a smooth stationary surface is normal to it and the velocity is tangent to it, so the reaction does no work (Notes.pdf, Sec. 6.4; [Lecture 3, Slides 13 and 16]).'),
     't3-spool': (
         'A particle hanging from a string that is wound up by a spool at the origin, with the weight, the tension and the upward velocity.',
-        'The string collected at the rate $c$ imposes $\\zeta = \\ell_0 - c\\,t$: a time-dependent constraint whose tension $F_T = m g$ works at the rate $m g\\,c$ ([Lecture 3, Slide 22]).'),
+        'The string collected at the rate $c$ imposes $\\zeta = \\ell_0 - c\\,t$: a time-dependent constraint whose tension $F_\\tau = m g$ works at the rate $m g\\,c$ ([Lecture 3, Slide 22]).'),
     't3-airplane-fbd': (
         'An airplane on a runway with its weight down, the lift and the normal reaction of the ground up, and its velocity along the runway.',
         'On the runway the ground pushes with $N = m g - L$; the airplane lifts off when $N$ reaches zero ([Lecture 3, Slide 23]).'),
@@ -57,10 +57,10 @@ TEXT = {
         'Free-body diagram on the vertical circle: weight $\\mathbf F_g$ and reaction $\\mathbf N = N_R\\,\\mathbf e_R + N_z\\,\\mathbf k$ in the normal plane of the wire.'),
     't3-two-particles': (
         'Two particles hanging from a string over two pulleys, each with its weight and the equal tension of the string, one moving down and the other up.',
-        'Two particles joined by a string over two pulleys: one coordinate $d$, the same tension $F_T$ on both, and equal and opposite powers of the string (built for this note on [Lecture 3, Slide 17]).'),
+        'Two particles joined by a string over two pulleys: one coordinate $\\eta$, the same tension $F_\\tau$ on both, and equal and opposite powers of the string (built for this note on [Lecture 3, Slide 17]).'),
     't3-friction': (
-        'Two sketches of a particle on a rough surface: sliding, with friction opposite to the relative velocity and the total reaction on the edge of the friction cone, and sticking, with the total reaction inside the cone.',
-        'Coulomb friction: while sliding it is opposite to the relative velocity with magnitude $\\mu\\lvert\\mathbf N\\rvert$; while sticking it is any tangential force within the bound $\\lvert\\mathbf F_R\\rvert \\leq \\mu\\lvert\\mathbf N\\rvert$ (Notes.pdf, Eqs. 6.20 and 6.21; [Lecture 3, Slide 18]).'),
+        'Two sketches of a particle on a rough surface: sliding, with friction opposite to the relative velocity and the total reaction on the edge of the friction cone, and sticking, with the total reaction inside the cone; the cone of half-angle arctan mu is an extension drawn for this note, not in the sources.',
+        'Coulomb friction: while sliding it is opposite to the relative velocity with magnitude $\\mu\\lvert\\mathbf N\\rvert$; while sticking it is any tangential force within the bound $\\lvert\\mathbf F_\\mu\\rvert \\leq \\mu\\lvert\\mathbf N\\rvert$ (Notes.pdf, Eqs. 6.20 and 6.21; [Lecture 3, Slide 18]); the friction cone of half-angle $\\arctan\\mu$ is an extension drawn for this note, not in the sources.'),
     't3-rough-cylinder': (
         'A particle sliding on a rough cylinder along a helix, with the cylindrical basis, the inward normal reaction and the friction opposite to the velocity, and a top view with the angle theta.',
         'The particle on the rough cylinder of [Lecture 3, Slide 20]: $\\mathbf r_0^P = a\\,\\mathbf e_R + z\\,\\mathbf k$, normal reaction along $\\mathbf e_R$ and friction opposite to the velocity, which keeps a constant angle $\\psi$ with the horizontal.'),
@@ -353,7 +353,7 @@ def coordinate_choices():
     sc = Scene(900, 500, (450, 250), 68)
     # ---- left: sphere about A ------------------------------------------------------------------------------------
     off = (-3.2, 0.1)
-    l = 1.9
+    l = 2.4
     ph, th = math.radians(30), math.radians(40)
     sc.poly([(off[0] + x, off[1] + y) for x, y in _ellipse_outline(l)], "HEAD", 1.4, fill="EDGE", close=True, opacity=0.16)
     _pts(sc, [(l * math.cos(t), l * math.sin(t), 0.0) for t in [2 * math.pi * i / 90 for i in range(91)]], off, "HEAD", 1.0, "6 4")
@@ -363,16 +363,16 @@ def coordinate_choices():
     Pp = _mul(ar, l)
     Q = _mul(ex, l * math.cos(ph))
     # axes parallel to Ox, Oy, Oz through A (grey)
-    for v, nm, lab in (((0.8, 0, 0), "x", (-12, 12)), ((0, 1.3, 0), "y", (12, 8)), ((0, 0, 2.3), "z", (-4, -10))):
+    for v, nm, lab in (((0.9, 0, 0), "x", (-12, 12)), ((0, 1.7, 0), "y", (12, 8)), ((0, 0, 3.0), "z", (-4, -10))):
         _V(sc, (0, 0, 0), v, None, "EDGE", 1.4, off, head=8)
         sc.label(_q(v, off), nm, "TEXT", "middle", 17, weight="700", dx=lab[0], dy=lab[1])
     _L(sc, (0, 0, 0), Q, off, "HEAD", 1.2, "5 4")
     _L(sc, Q, Pp, off, "HEAD", 1.2, "5 4")
     sc.line(_q((0, 0, 0), off), _q(Pp, off), "HEAD", 1.7)
-    m = _arc_at(sc, (0, 0, 0), (1, 0, 0), ex, 0.85, off, "GREEN", True, 1.8)
+    m = _arc_at(sc, (0, 0, 0), (1, 0, 0), ex, 0.5, off, "GREEN", True, 1.8)
     _txt(sc, m, "θ", "GREEN", "middle", 18, dx=2, dy=24)
-    m = _arc_at(sc, (0, 0, 0), ex, ar, 1.5, off, "GREEN", True, 1.8)
-    _txt(sc, m, "φ", "GREEN", "middle", 18, dx=16, dy=8)
+    m = _arc_at(sc, (0, 0, 0), ex, ar, 0.7, off, "GREEN", True, 1.8)
+    _txt(sc, _q(_mul(_unit3(_v3(ex, ar)), 1.2), off), "φ", "GREEN", "middle", 18, dx=0, dy=-6)
     _dp(sc, (0, 0, 0), off, 4.4)
     _txt(sc, _q((0, 0, 0), off), "A", "HEAD", "middle", 18, dx=-14, dy=-12)
     # basis at P
@@ -411,7 +411,8 @@ def coordinate_choices():
     m = _arc_at(sc, (0, 0, 0), (1, 0, 0), ca, 0.8, off, "GREEN", True, 1.8)
     _txt(sc, m, "θ", "GREEN", "middle", 18, dx=-4, dy=24)
     m = _arc_at(sc, (0, 0, 0), ez, Pc, 0.85, off, "GREEN", True, 1.8)
-    _txt(sc, m, "γ", "GREEN", "middle", 18, dx=-16, dy=-2)
+    bis = _unit3(_v3(ez, _mul(Pc, 1.0 / lv)))
+    _txt(sc, _q(_mul(bis, 1.25), off), "γ", "GREEN", "middle", 18, dx=0, dy=6)
     _dp(sc, (0, 0, 0), off, 4.4)
     _txt(sc, _q((0, 0, 0), off), "O", "HEAD", "middle", 18, dx=-14, dy=-10)
     _dp(sc, Pc, off, 5.2)
@@ -419,7 +420,9 @@ def coordinate_choices():
     _txt(sc, _q(_mul(Pc, 0.5), off), "ℓ" + S("", "V"), "HEAD", "start", 18, dx=40, dy=14)
     _txt(sc, _q(_mul(Hh, 0.82), off), "ℓ" + S("", "V") + " cos γ", "HEAD", "end", 15, dx=-10, dy=-4)
     _txt(sc, _q(_mul(Hh, 0.82), off), "(adjacent)", "HEAD", "end", 15, dx=-10, dy=14)
-    _txt(sc, _q(Hh, off), "ℓ" + S("", "V") + " sin γ (opposite)", "HEAD", "start", 15, dx=10, dy=-14)
+    mh = _q(Hh, off)
+    _txt(sc, mh, "ℓ" + S("", "V") + " sin γ", "HEAD", "start", 15, dx=9, dy=-26)
+    _txt(sc, mh, "(opposite)", "HEAD", "start", 15, dx=9, dy=-8)
     return sc
 
 
@@ -685,7 +688,7 @@ def spool():
     sc.vec(Pp, (0.0, -zeta - L), None, "PINK", 3.6, head=13)
     sc.vec(Pp, (0.0, -zeta + L), None, "PINK", 3.6, head=13)
     sc.label((0.0, -zeta - L), S(bold("F"), "g") + " = −m g " + bold("k"), "PINK", "start", 18, dx=14, dy=4)
-    sc.label((0.0, -zeta + L), S(bold("F"), "T") + " = F" + S("", "T") + " " + bold("k"), "PINK", "end", 18, dx=-14, dy=2)
+    sc.label((0.0, -zeta + L), S(bold("F"), "τ") + " = F" + S("", "τ") + " " + bold("k"), "PINK", "end", 18, dx=-14, dy=2)
     _dvec2(sc, (0.5, -zeta), (0.5, -zeta + 1.0), ORANGE)
     sc.label((0.5, -zeta + 1.0), _vb("v", "0", "P") + " = c " + bold("k"), ORANGE, "start", 18, dx=12, dy=4, weight="700")
     sc.dotp(Pp, 5.5)
@@ -728,7 +731,7 @@ def airplane_fbd():
     sc.label((0.55, 0.4 * W), "N ≥ 0", "HEAD", "start", 16, dx=14, dy=24, italic=False)
     # velocity
     sc.vec((0.0, cy + 0.0), (2.7, cy + 0.0), None, ORANGE, 3.0, head=12)
-    sc.label((2.7, cy), "v " + bold("i"), ORANGE, "start", 18, dx=12, dy=5, weight="700")
+    sc.label((2.7, cy), _vb("v", "0", "P") + " " + bold("i"), ORANGE, "start", 18, dx=12, dy=5, weight="700")
     sc.dotp(P, 5.5)
     sc.label(P, "P", "HEAD", "middle", 18, dx=-14, dy=-10)
     # axes
@@ -868,6 +871,10 @@ def vertical_circle_basis():
 
 
 # --------------------------------------------------------------------------------------------------------------------
+def _mid(a, b):
+    return ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+
+
 @_fig("t3-vertical-circle-fbd")
 def vertical_circle_fbd():
     sc = Scene(860, 560, (330, 290), 100)
@@ -888,14 +895,13 @@ def vertical_circle_fbd():
     B = (P[0] - cR * eR[0], P[1] - cR * eR[1])
     D = (P[0] - cT * eT[0], P[1] - cT * eT[1])
     C = (P[0], P[1] - W)
-    triangle(sc, [P, B, C], "PINK", 0.16)
-    sc.line(B, C, "PINK", 1.3, "4 3")
-    sc.line(D, C, "PINK", 1.3, "4 3")
-    right_angle(sc, B, math.degrees(math.atan2(eR[1], eR[0])), math.degrees(math.atan2(-eT[1], -eT[0])), 0.1, "PINK")
-    _dvec2(sc, P, B, "PINK", 1.8, "5 4", 9)
+    # components drawn as a chain P -> D (tangential) -> C (radial): the radial one is offset from the radius, where N_R lies
+    triangle(sc, [P, D, C], "PINK", 0.16)
+    right_angle(sc, D, math.degrees(math.atan2(eT[1], eT[0])), math.degrees(math.atan2(-eR[1], -eR[0])), 0.1, "PINK")
     _dvec2(sc, P, D, "PINK", 1.8, "5 4", 9)
-    sc.label(B, "−m g sin θ", "PINK", "end", 16, dx=-10, dy=14)
-    sc.label(D, "−m g cos θ", "PINK", "start", 16, dx=12, dy=8)
+    _dvec2(sc, D, C, "PINK", 1.8, "5 4", 9)
+    sc.label(_mid(P, D), "−m g cos θ", "PINK", "start", 16, dx=14, dy=-4)
+    sc.label(_mid(D, C), "−m g sin θ", "PINK", "start", 16, dx=12, dy=16)
     sc.arc(P, 0.5, 270, 270 + th, "GREEN", 1.7, head=True)
     sc.label(_add(P, _d(270 + th / 2), 0.78), "θ", "GREEN", "middle", 18, dy=5)
     sc.vec(P, C, None, "PINK", 3.6, head=13)
@@ -946,16 +952,17 @@ def two_particles():
     sc.disk(O2, r, "HEAD", "HEAD", 0.18, 2.2)
     fixed_axis(sc, O, 0, 1.2, bold("i"), off=(14, 6))
     fixed_axis(sc, O, 90, 1.15, bold("j"), off=(-12, 2))
+    sc.label(O, "O", "HEAD", "end", 17, dx=-30, dy=-14)
     sc.dim((0.0, 1.55), (lc, 1.55), "ℓ" + S("", "c"), off=(0, -10), size=18)
     sc.dashed((0.0, r + 0.1), (0.0, 1.65))
     sc.dashed((lc, r + 0.1), (lc, 1.65))
     # depths
     sc.dashed((-0.4, 0.0), (-2.0, 0.0))
     sc.dashed((-0.45, -d), (-2.0, -d))
-    sc.dim((-1.9, 0.0), (-1.9, -d), "d", off=(-14, 4), size=18)
+    sc.dim((-1.9, 0.0), (-1.9, -d), "η", off=(-14, 4), size=18)
     sc.dashed((lc + 0.4, 0.0), (lc + 2.0, 0.0))
     sc.dashed((lc + 0.45, -dp), (lc + 2.0, -dp))
-    sc.dim((lc + 1.9, 0.0), (lc + 1.9, -dp), "d′", off=(14, 4), size=18)
+    sc.dim((lc + 1.9, 0.0), (lc + 1.9, -dp), "η′", off=(14, 4), size=18)
     # forces (m = 1.5 m', tension 1.2 m' g)
     u = 0.85
     for x, y, wl, side, nm, mass in ((xs, -d, 1.5 * u, -1, "P", "m"), (xs2, -dp, 1.0 * u, 1, "P′", "m′")):
@@ -963,16 +970,16 @@ def two_particles():
         sc.vec((x, y), (x, y - wl), None, "PINK", 3.6, head=13)
         anc = "start" if side < 0 else "end"
         dx = -side * 14
-        sc.label((x, y + 1.2 * u), "F" + S("", "T") + " " + bold("j"), "PINK", anc, 18, dx=dx, dy=2)
+        sc.label((x, y + 1.2 * u), "F" + S("", "τ") + " " + bold("j"), "PINK", anc, 18, dx=dx, dy=2)
         w = "−m g " if side < 0 else "−m′ g "
         sc.label((x, y - wl), w + bold("j"), "PINK", anc, 18, dx=dx, dy=6)
         sc.dotp((x, y), 5.5)
         sc.label((x, y), nm + ", " + mass, "HEAD", anc, 18, dx=dx, dy=5)
     # velocities (not forces): dashed orange beside the string, on the outer side
     _dvec2(sc, (xs - 0.3, -d), (xs - 0.3, -d - 0.85), ORANGE, 2.4, "7 4", 11)
-    sc.label((xs - 0.3, -d - 0.85), "−" + dot1("d") + " " + bold("j"), ORANGE, "end", 17, dx=-8, dy=6, weight="700")
+    sc.label((xs - 0.3, -d - 0.85), "−" + dot1("η") + " " + bold("j"), ORANGE, "end", 17, dx=-8, dy=6, weight="700")
     _dvec2(sc, (xs2 + 0.3, -dp), (xs2 + 0.3, -dp + 0.85), ORANGE, 2.4, "7 4", 11)
-    sc.label((xs2 + 0.3, -dp + 0.85), dot1("d") + " " + bold("j"), ORANGE, "start", 17, dx=8, dy=-2, weight="700")
+    sc.label((xs2 + 0.3, -dp + 0.85), dot1("η") + " " + bold("j"), ORANGE, "start", 17, dx=8, dy=-2, weight="700")
     return sc
 
 
@@ -1002,30 +1009,31 @@ def friction():
             a = math.radians(90 + sg * cone)
             sc.line(P, (cx + 2.1 * math.cos(a), r + 2.1 * math.sin(a)), "GREEN", 1.3, "6 4")
         if sliding:
+            sc.label((cx + 2.1 * math.sin(math.radians(cone)), r + 2.1 * math.cos(math.radians(cone))), "friction cone (extension)", "GREEN", "start", 14, dx=8, dy=4, italic=False)
             FR = mu * N
             sc.vec(P, (cx + 1.5, r), None, ORANGE, 3.2, head=12)
             sc.label((cx + 1.5, r), _vb("v", "1", "P") + " ≠ " + bold("0"), ORANGE, "start", 18, dx=10, dy=-10, weight="700")
             sc.vec(P, (cx - FR, r), None, "PINK", 3.6, head=13)
-            sc.label((cx - FR, r), S(bold("F"), "R") + " = −μ|" + bold("N") + "|", "PINK", "end", 16, dx=-8, dy=-34)
+            sc.label((cx - FR, r), S(bold("F"), "μ") + " = −μ|" + bold("N") + "|", "PINK", "end", 16, dx=-8, dy=-34)
             sc.label((cx - FR, r), _vb("v", "1", "P") + "/|" + _vb("v", "1", "P") + "|", "PINK", "end", 16, dx=-8, dy=-14)
             tot = (cx - FR, r + N)
             sc.line((cx - FR, r), tot, "PINK", 1.1, "3 3")
             sc.line((cx, r + N), tot, "PINK", 1.1, "3 3")
             _dvec2(sc, P, tot, "PINK", 2.4, "6 4", 11)
-            sc.label(tot, bold("N") + " + " + S(bold("F"), "R"), "PINK", "end", 17, dx=-10, dy=-6)
+            sc.label(tot, bold("N") + " + " + S(bold("F"), "μ"), "PINK", "end", 17, dx=-10, dy=-6)
             sc.arc(P, 1.0, 90, 90 + cone, "GREEN", 1.7, head=True)
             sc.label(_add(P, _d(90 + cone), 1.35), "arctan μ", "GREEN", "end", 16, dx=-16, dy=6, italic=False)
         else:
             FR = 0.2 * N
             sc.label((cx - 1.4, r), _vb("v", "1", "P") + " = " + bold("0"), "HEAD", "end", 18, dx=-4, dy=-14, weight="700")
             sc.vec(P, (cx + FR, r), None, "PINK", 3.6, head=13)
-            sc.label((cx + FR, r), S(bold("F"), "R"), "PINK", "start", 19, dx=10, dy=-10)
+            sc.label((cx + FR, r), S(bold("F"), "μ"), "PINK", "start", 19, dx=10, dy=-10)
             tot = (cx + FR, r + N)
             sc.line((cx + FR, r), tot, "PINK", 1.1, "3 3")
             sc.line((cx, r + N), tot, "PINK", 1.1, "3 3")
             _dvec2(sc, P, tot, "PINK", 2.4, "6 4", 11)
-            sc.label(tot, bold("N") + " + " + S(bold("F"), "R"), "PINK", "start", 17, dx=40, dy=-6)
-            sc.label((cx, 2.25), "|" + S(bold("F"), "R") + "| ≤ μ|" + bold("N") + "|,", "HEAD", "middle", 15, dy=-18, italic=False)
+            sc.label(tot, bold("N") + " + " + S(bold("F"), "μ"), "PINK", "start", 17, dx=40, dy=-6)
+            sc.label((cx, 2.25), "|" + S(bold("F"), "μ") + "| ≤ μ|" + bold("N") + "|,", "HEAD", "middle", 15, dy=-18, italic=False)
             sc.label((cx, 2.25), "direction in V" + S("", "T") + " unknown", "HEAD", "middle", 15, dy=0, italic=False)
         sc.dotp(P, 7.0)
         sc.label(P, "P", "HEAD", "middle", 18, dx=-18, dy=-14)
@@ -1068,7 +1076,7 @@ def rough_cylinder():
     _V(sc, P, _mul(v, 1.5), None, ORANGE, 3.4, off, head=13)
     sc.label(_q(_v3(P, v, 1.5), off), _vb("v", "0", "P"), ORANGE, "start", 18, dx=12, dy=-4, weight="700")
     m = _arc_at(sc, P, eT, v, 0.55, off, "GREEN", True, 1.8)
-    sc.label(m, "ψ", "GREEN", "middle", 17, dx=24, dy=0)
+    sc.label(m, "ψ", "GREEN", "middle", 17, dx=24, dy=-10)
     _V(sc, P, _mul(eR, 0.8), None, "BLUE", 3.0, off, head=12)
     sc.label(_q(_v3(P, eR, 0.8), off), S(bold("e"), "R"), "BLUE", "start", 17, weight="700", dx=8, dy=14)
     _V(sc, P, _mul(eT, 0.8), None, "BLUE", 3.0, off, head=12)
@@ -1079,7 +1087,7 @@ def rough_cylinder():
     _V(sc, P, _mul(eR, -1.2), None, "PINK", 3.6, off, head=13)
     sc.label(_q(_v3(P, eR, -1.2), off), S("N", "R") + " " + S(bold("e"), "R"), "PINK", "end", 17, dx=-10, dy=-2)
     _V(sc, P, _mul(v, -1.2), None, "PINK", 3.6, off, head=13)
-    sc.label(_q(_v3(P, v, -1.2), off), S(bold("F"), "R"), "PINK", "end", 18, dx=-10, dy=8)
+    sc.label(_q(_v3(P, v, -1.2), off), S(bold("F"), "μ"), "PINK", "end", 18, dx=-4, dy=-10)
     _dp(sc, P, off, 5.2)
     sc.label(_q(P, off), "P", "HEAD", "middle", 18, dx=-14, dy=26)
     # ---- right: view along k (out of the paper) ----
@@ -1125,7 +1133,7 @@ def region_existence():
     sc.vec((xl, 0.0), (xr + 0.45, 0.0), None, "EDGE", 1.5, head=9)
     sc.label((xr + 0.45, 0.0), "θ", "TEXT", "middle", 18, weight="700", dx=14, dy=6)
     sc.vec((xl, ybot), (xl, ytop + 0.25), None, "EDGE", 1.5, head=9)
-    sc.label((xl, ytop + 0.25), "(g/a) sin θ", "TEXT", "start", 17, dx=-30, dy=-10)
+    sc.label((xl, ytop + 0.25), "sin θ", "TEXT", "start", 17, dx=-20, dy=-10)
     for k, nm in ((-3, "−3π/2"), (-2, "−π"), (-1, "−π/2"), (0, "0"), (1, "π/2")):
         th = {-3: -1.5 * math.pi, -2: -math.pi, -1: -0.5 * math.pi, 0: 0.0, 1: 0.5 * math.pi}[k]
         sc.line((th * X, -0.06), (th * X, 0.06), "HEAD", 1.4)
