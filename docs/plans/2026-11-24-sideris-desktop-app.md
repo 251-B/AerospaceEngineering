@@ -186,7 +186,7 @@ Estimación orientativa de esfuerzo: unas 4 a 6 semanas de trabajo si los pesos 
 |---|---|---|
 | Esperas largas con razonamiento en CPU | Alta | Razonamiento apagado por defecto, aviso, tiempo estimado en pantalla |
 | Descarga que falla o va lenta | Alta | Reanudación, verificación, importación manual, mensajes claros |
-| SmartScreen o Defender frenan el instalador | Alta sin firma | Guía con capturas, envío a Microsoft, valorar firma más adelante |
+| SmartScreen, Defender o **Smart App Control** frenan la app | **Muy alta sin firma** | Comprobado el 2026-11-24: con Smart App Control en modo bloqueo, Windows 11 impide cargar `llama-server` sin firmar (error 0xC0E90002, evento 3077 de Code Integrity). Sin firma de código válida la app no arranca en esos equipos, y esa protección viene activada en muchas instalaciones nuevas de Windows 11. La firma deja de ser opcional: firmar la app y el motor antes de repartirla. |
 | Vulkan falla en algún controlador | Media | Respaldo automático a CPU |
 | Cuantización degrada el estilo socrático | Media | Puerta de calidad con el conjunto de evaluación |
 | Expectativa de "como Claude" y decepción | Alta | Mensaje honesto en la app y en la web (sección 3) |
