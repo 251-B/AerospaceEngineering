@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/main.tex"
 kind: laboratorio
 status: not-referenced
-bytes: 5033
+bytes: 4978
 ---
 
 # Source: main.tex

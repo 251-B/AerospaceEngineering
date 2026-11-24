@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/j/reproduce_post6.jou"
 kind: laboratorio
 status: not-referenced
-bytes: 2825
+bytes: 2849
 ---
 
 # Source: reproduce_post6.jou

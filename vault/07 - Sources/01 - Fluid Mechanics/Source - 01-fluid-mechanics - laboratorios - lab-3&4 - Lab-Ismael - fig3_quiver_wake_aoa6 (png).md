@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png"
 kind: laboratorio
 status: not-referenced
-bytes: 70393
+bytes: 93749
 ---
 
 # Source: fig3_quiver_wake_aoa6.png
@@ -18,7 +18,7 @@ bytes: 70393
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig3_quiver_wake_aoa6.png`
 - **Kind:** laboratorio
-- **Size:** 70.4 kB
+- **Size:** 93.7 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by
