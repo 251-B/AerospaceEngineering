@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/plots_lab3.py"
 kind: laboratorio
 status: referenced
-bytes: 4930
+bytes: 4996
 ---
 
 # Source: plots_lab3.py
@@ -18,7 +18,7 @@ bytes: 4930
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/plots_lab3.py`
 - **Kind:** laboratorio
-- **Size:** 4.9 kB
+- **Size:** 5.0 kB
 - **Status:** referenced by 1 note(s) below
 
 ## Referenced by

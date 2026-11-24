@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab3-4_completo_corregido.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 10795970
+bytes: 10633526
 ---
 
 # Source: Lab3-4_completo_corregido.zip
@@ -18,7 +18,7 @@ bytes: 10795970
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab3-4_completo_corregido.zip`
 - **Kind:** laboratorio
-- **Size:** 10.8 MB
+- **Size:** 10.6 MB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

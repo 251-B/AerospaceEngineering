@@ -43,11 +43,11 @@ $$\alpha_{L0} = -\frac{1}{\pi}\int_0^\pi \frac{dz_c}{dx}(\cos\theta - 1)\,d\thet
 | $\alpha$ ($^\circ$) | Iterations | $C_L$ (Fluent) | $C_{L,\text{thin}}$ | $(C_L - C_{L,\text{thin}})/C_{L,\text{thin}}$ | $C_D$ (Fluent) | $C_{p,\min}$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | $3$ | $73$ | $0.5210$ | $0.5568$ | $-6.4\%$ | $0.0129$ | $-0.931$ |
-| $6$ | $75$ | $0.8246$ | $0.8858$ | $-6.9\%$ | $0.0150$ | $-2.379$ |
+| $6$ | $75$ | $0.8246$ | $0.8858$ | $-6.9\%$ | $0.0155$ | $-2.379$ |
 | $9$ | $82$ | $1.1025$ | $1.2148$ | $-9.2\%$ | $0.0201$ | $-4.762$ |
-| $10$ | $87$ | $1.1850$ | $1.3244$ | $-10.5\%$ | $0.0225$ | $-5.685$ |
+| $10$ | $87$ | $1.1850$ | $1.3244$ | $-10.5\%$ | $0.0224$ | $-5.685$ |
 | $12$ | $104$ | $1.3206$ | $1.5437$ | $-14.5\%$ | $0.0292$ | $-7.614$ |
-| $16$ *(extra, 1000 max)* | $258$ | $1.3016$ | $1.9823$ | $-34.3\%$ | $0.0765$ | $-9.430$ |
+| $16$ *(extra, 1000 max)* | $258$ | $1.3016$ | $1.9824$ | $-34.3\%$ | $0.0765$ | $-9.430$ |
 
 - At $\alpha = 6^\circ$, stagnation sits just under the leading edge ($x/c \simeq 0.0076$, $p_{\max} = 60.8\text{ Pa}$, $C_{p,\max} = 0.993$) and the upper-nose suction peak reaches $-145.7\text{ Pa}$ ($U_e \approx 18.4\text{ m/s}$).
 - Over $3^\circ\text{--}9^\circ$, the RANS lift-curve slope is $0.097\text{ deg}^{-1}$ against $2\pi\text{ rad}^{-1} = 0.110\text{ deg}^{-1}$; although finite thickness ($10\%$) slightly raises the inviscid slope above $2\pi$, viscous boundary-layer thickening on the suction side (together with finite-domain and mesh discretisation effects) outweighs it and bends $C_L(\alpha)$ downward.
