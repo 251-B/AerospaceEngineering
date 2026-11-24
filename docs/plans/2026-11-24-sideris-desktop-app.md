@@ -221,14 +221,26 @@ Progress Index v1 de Artificial Analysis (más alto es mejor; no es la escala de
 | Titan en equipos de 32 GB | n/a | Inkling 2 Mini (26B, 5.4B activos): 306; Qwen3.6 35B A3B: 261 |
 
 Riesgos de cada cambio:
-- **K2 Horizon** (Institute of Foundation Models): usa una atención nueva que **todavía no está en llama.cpp estándar**. Habría que incluir en el instalador la rama de su bifurcación, y que `peft`, `trl` o Unsloth la soporten para reentrenar es una incógnita. Es de solo texto y muy verboso. Su calidad en español no está comprobada.
-- **MiniCPM5-2B**: una fuente dice Apache 2.0 y otra muestra CC BY-NC-SA. Hay que leer la licencia oficial antes de nada, y más si la app se va a cobrar.
-- **LFM3-1.7B** (Liquid AI): licencia sin comprobar. Sus licencias anteriores tenían límites comerciales.
-- **Gemma 4 E4B**: es el cambio de menor riesgo técnico por su soporte oficial; la licencia Apache 2.0 sale en medios secundarios y se confirma en la ficha de Google. Calidad en español sin comprobar.
+- **K2 Horizon** (Institute of Foundation Models): **llama.cpp estándar ya lo soporta** (PR 29535 fusionado el 2026-10-06; la nota de "bifurcación" de la ficha está desactualizada). Siguen sin comprobar el soporte de `peft`, `trl` y Unsloth para reentrenar, y su calidad en español (el español es una parte de un 7 % multilingüe). Es de solo texto y muy verboso. Su "7B" excluye los embeddings: los pesos ocupan 18 GB en BF16, unos 9B reales. Comentarios públicos mixtos: acusaciones de "benchmaxxing" y una prueba de código del 3.7B con alucinaciones en el [hilo de Hacker News](https://news.ycombinator.com/item?id=49551760).
+- **MiniCPM5-2B**: licencia **Apache 2.0** según la etiqueta del repositorio oficial de OpenBMB (la nota CC BY-NC-SA de un blog era un error). Sin datos oficiales de español.
+- **LFM3-1.7B** (Liquid AI): licencia propia `lfm1.0`, no Apache. Hay que leerla antes de usarlo en una app de pago.
+- **Gemma 4 E4B**: licencia **Apache 2.0** según la etiqueta oficial. Google publica versiones QAT (entrenadas para cuantizar), lo que reduce el riesgo de degradación al pasar a Q4.
 - **Modelos MoE grandes** (Inkling 2 Mini, Qwen3.6 35B A3B): corren como un modelo de 5B o 3B activos, pero necesitan memoria de un modelo de 26B a 35B (unos 15 a 20 GB en Q4). Solo valen como "Titan Max" para equipos de 32 GB.
 - **Cualquier cambio** obliga a reentrenar los LoRA, a volver a pasar la cuantización y a repetir las pruebas de velocidad.
 
 **Corrección y matiz (mismo día).** El Progress Index de Artificial Analysis pondera sobre todo trabajo agéntico y de código (AA-Briefcase, Terminal-Bench, FrontierCode). Eso explica la ventaja de K2 Horizon 7B (263). En la propia comparación del [paper de K2-Horizon](https://arxiv.org/html/2611.21003v1), hecha por sus autores, el 7B frente a Qwen3.5-9B queda: AIME 2026 90.2 contra 88.0, GPQA Diamond 75.6 contra 80.6, HLE 19.5 contra 14.9, SWE-bench Verified 72.4 contra 50.8. Para matemáticas y física hay paridad, y la ventaja grande está en programación, que Sideris no usa. Un [análisis independiente](https://www.mindstudio.ai/blog/k2-horizon-local-models-tested) midió el 7B con unos 16.8 GB de memoria a 65K de contexto y resultados flojos en una prueba.
+
+**¿Hay Qwen o Meta más recientes?** Datos de la API de Hugging Face (2026-11-24). Qwen: la familia más nueva es Qwen3.8 (agosto de 2026), con un 27B denso Apache 2.0, un Flash-Next con licencia propia y un 2.4T-A95B; antes salió Qwen3.6 (abril, 27B y 35B-A3B). **No hay ningún Qwen oficial por debajo de 9B posterior a Qwen3.5 (febrero de 2026)**; los "Qwen3.8 2B/4B/9B" que circulan son destilaciones de terceros. Meta: ninguna familia Llama nueva desde abril de 2025 (Llama 4, de 109B en adelante); los últimos Llama pequeños son de septiembre de 2024. Lo nuevo es Muse Glimmer 30B (agosto de 2026, Apache 2.0, orientado a agentes, unos 17 GB en Q4), demasiado grande para portátiles de 8 a 16 GB. Valen como "Titan Max" para 32 GB: Qwen3.8-27B, Qwen3.6-35B-A3B y Muse Glimmer.
+
+Comparación con los datos de las fichas oficiales (los publican los fabricantes, sin auditar):
+
+| | Qwen3.5-4B | Gemma 4 E4B | Qwen3.5-9B | Gemma 4 12B |
+|---|---|---|---|---|
+| MMMLU (multilingüe) | 76.1 | 76.6 | 81.2 | 83.4 |
+| MMLU-Pro | 79.1 | 69.4 | 82.5 | 77.2 |
+| GPQA Diamond | 76.2 | 58.6 | 81.7 | 78.8 |
+
+En la prueba comunitaria de Hugging Face (un usuario, 4 pruebas, razonamiento activado, Gemma cuantizada y Qwen en BF16, no es una comparación pareja), Qwen3.5-4B sacó 54.6 % frente a 45.3 % de Gemma 4 E4B, pero tardó 6.6 h contra 34 min: Qwen razona mucho más tiempo.
 
 **¿Se pierde el entrenamiento?** Los pesos LoRA no se pueden pasar a otra base: [la investigación de transferencia](https://arxiv.org/pdf/2508.05232) es experimental y sin validación independiente. Pero lo que cuesta de verdad es el conjunto de datos (v2: 5.926 SFT, 1.310 DPO, 1.037 GRPO y 314 de evaluación), `rewards.py` y la tubería, y todo eso sirve para cualquier base. Según `docs/sideris-teammate-kaggle-guide.md` solo Lux v1 y Orion v1 están entrenados, y cada modelo cuesta unas 4 a 6 horas de GPU gratis en Kaggle.
 
