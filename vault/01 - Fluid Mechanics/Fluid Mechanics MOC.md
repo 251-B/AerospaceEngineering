@@ -159,6 +159,5 @@ tags:
   * `lab-1/`: [[01 - Fluid Mechanics/Laboratorio 1 - Jet Impact on Surfaces|Laboratory 1: Jet Impact on Surfaces (Momentum Conservation & Drag Coefficient)]]
     * Sources: `Lab_session_1.pdf`, `Lab1FluidFinished.pdf`, experimental measurements and figures.
   * `lab-2/`: [[01 - Fluid Mechanics/Laboratorio 2 - 1D Advection-Diffusion (FTCS)|Laboratory 2: 1D advection-diffusion equation]], solved with an FTCS finite-difference scheme under Neumann and periodic boundary conditions. Sources: `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-2/`.
-  * `lab-3/`: not on disk. Planned: Laboratory 3 (viscometry and manometry). Description not verified against sources.
-  * `lab-4/`: not on disk. Planned: Laboratory 4 (head losses and boundary layer in pipes). Description not verified against sources.
+  * `lab-3&4/`: [[01 - Fluid Mechanics/Laboratorio 3-4 - Flow over an Airfoil (ANSYS Fluent)|Laboratory 3–4: 2D flow around a NACA 2410 airfoil (ANSYS Fluent)]], steady Spalart-Allmaras RANS across $\alpha = 3^\circ\text{--}16^\circ$ compared against thin-airfoil theory. Sources: `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/`.
 

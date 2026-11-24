@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig6_cl_vs_aoa.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 20863
+bytes: 21294
 ---
 
 # Source: fig6_cl_vs_aoa.pdf
@@ -18,7 +18,7 @@ bytes: 20863
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/fig6_cl_vs_aoa.pdf`
 - **Kind:** laboratorio
-- **Size:** 20.9 kB
+- **Size:** 21.3 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

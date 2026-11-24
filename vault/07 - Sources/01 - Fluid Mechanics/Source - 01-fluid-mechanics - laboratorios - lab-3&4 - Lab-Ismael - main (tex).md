@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/main.tex"
 kind: laboratorio
 status: not-referenced
-bytes: 4484
+bytes: 5033
 ---
 
 # Source: main.tex
@@ -18,7 +18,7 @@ bytes: 4484
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/main.tex`
 - **Kind:** laboratorio
-- **Size:** 4.5 kB
+- **Size:** 5.0 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 - **Shared name:** the file name is shared with 3 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 

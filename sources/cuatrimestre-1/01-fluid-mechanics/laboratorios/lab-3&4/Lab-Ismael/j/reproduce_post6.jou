@@ -1,0 +1,97 @@
+;; Clean post-processing journal for the saved 6 deg case (Lab3Geometry.wbpj, Fluent 2026 R1).
+;; Run from Lab-Ismael/ inside Fluent (File > Read > Journal) to recreate the 13 Line/Rake
+;; surfaces (not persisted in FFF-1.cas.h5), colour the airfoil contour in uniform black on
+;; Figs. 2-4 as requested on pp. 15-16 of the guide, and re-export Figs. 1-4.
+/file/confirm-overwrite? no
+/surface/line-surface s1.000 1.000 -10 1.000 10
+/surface/line-surface s1.025 1.025 -10 1.025 10
+/surface/line-surface s1.050 1.050 -10 1.050 10
+/surface/line-surface s1.075 1.075 -10 1.075 10
+/surface/line-surface s1.100 1.100 -10 1.100 10
+/surface/line-surface s1.200 1.200 -10 1.200 10
+/surface/line-surface s-0.050 -0.050 -10 -0.050 10
+/surface/line-surface s0.000 0.000 -10 0.000 10
+/surface/line-surface s0.025 0.025 -10 0.025 10
+/surface/line-surface s0.050 0.050 -10 0.050 10
+/surface/line-surface s0.100 0.100 -10 0.100 10
+/surface/line-surface s0.150 0.150 -10 0.150 10
+/surface/line-surface s0.200 0.200 -10 0.200 10
+/display/objects/edit wingmesh
+surfaces-list
+wing
+()
+coloring
+uniform
+black
+q
+/display/set/picture/driver png
+/display/set/picture/use-window-resolution? no
+/display/set/picture/x-resolution 1800
+/display/set/picture/y-resolution 1100
+;; Fig. 1: Static pressure contours
+/display/set/overlays? no
+/display/objects/display pressure
+/views/camera/target 0.5 0 0
+/views/camera/position 0.5 0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 2.6 1.6
+/display/save-picture "fig1_pressure_aoa6.png"
+;; Fig. 2: Streamlines + black airfoil contour
+/display/set/overlays? no
+/display/objects/display streamlines
+/display/set/overlays? yes
+/display/objects/display wingmesh
+/views/camera/target 0.5 0 0
+/views/camera/position 0.5 0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 2.6 1.6
+/display/save-picture "fig2_streamlines_aoa6.png"
+;; Fig. 3: Near-wake velocity vectors (scale 0.5)
+/display/objects/edit velocity-wake
+surfaces-list
+s1.000
+s1.025
+s1.050
+s1.075
+s1.100
+s1.200
+()
+scale
+auto-scale? yes
+scale-f 0.5
+q
+q
+/display/set/overlays? no
+/display/objects/display wingmesh
+/display/set/overlays? yes
+/display/objects/display velocity-wake
+/views/camera/target 1.09 0.0 0
+/views/camera/position 1.09 0.0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 0.36 0.22
+/display/save-picture "fig3_quiver_wake_aoa6.png"
+;; Fig. 4: Leading-edge velocity vectors (scale 0.2)
+/display/objects/edit velocity-le
+surfaces-list
+s-0.050
+s0.000
+s0.025
+s0.050
+s0.100
+s0.150
+s0.200
+()
+scale
+auto-scale? yes
+scale-f 0.2
+q
+q
+/display/set/overlays? no
+/display/objects/display wingmesh
+/display/set/overlays? yes
+/display/objects/display velocity-le
+/views/camera/target 0.08 0.0 0
+/views/camera/position 0.08 0.0 10
+/views/camera/up-vector 0 1 0
+/views/camera/field 0.42 0.26
+/display/save-picture "fig4_quiver_le_aoa6.png"

@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/Lab3_Martin_Diez.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 593769
+bytes: 749221
 ---
 
 # Source: Lab3_Martin_Diez.pdf
@@ -18,7 +18,7 @@ bytes: 593769
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/Lab3_Martin_Diez.pdf`
 - **Kind:** laboratorio
-- **Size:** 593.8 kB
+- **Size:** 749.2 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

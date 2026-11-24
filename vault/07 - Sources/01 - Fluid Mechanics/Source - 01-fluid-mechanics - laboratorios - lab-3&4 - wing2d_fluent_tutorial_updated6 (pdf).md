@@ -3,10 +3,10 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - laboratorio
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/wing2d_fluent_tutorial_updated6.pdf"
 kind: laboratorio
-status: not-referenced
+status: referenced
 bytes: 1108266
 ---
 
@@ -19,8 +19,8 @@ bytes: 1108266
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/wing2d_fluent_tutorial_updated6.pdf`
 - **Kind:** laboratorio
 - **Size:** 1.1 MB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Laboratorio 3-4 - Flow over an Airfoil (ANSYS Fluent)]]

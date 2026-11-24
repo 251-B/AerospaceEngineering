@@ -3,11 +3,11 @@ subject: "Fluid Mechanics"
 tags:
   - source
   - laboratorio
-  - not-referenced
+  - referenced
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/plots_lab3.py"
 kind: laboratorio
-status: not-referenced
-bytes: 2669
+status: referenced
+bytes: 4930
 ---
 
 # Source: plots_lab3.py
@@ -18,9 +18,9 @@ bytes: 2669
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/plots_lab3.py`
 - **Kind:** laboratorio
-- **Size:** 2.7 kB
-- **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
+- **Size:** 4.9 kB
+- **Status:** referenced by 1 note(s) below
 
 ## Referenced by
 
-No vault note mentions this file yet.
+- [[01 - Fluid Mechanics/Laboratorio 3-4 - Flow over an Airfoil (ANSYS Fluent)]]

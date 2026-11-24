@@ -10,9 +10,9 @@ tags:
 
 ## Coverage
 
-- Files: 263
-- Referenced by at least one note (a mention counts): 103
-- Not referenced yet: 160
+- Files: 264
+- Referenced by at least one note (a mention counts): 108
+- Not referenced yet: 156
 - Build artifacts: 0
 - Working files: 0
 
@@ -148,8 +148,8 @@ tags:
 | :--- | :--- | :--- |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab3Geometry (wbpj)\|Lab3Geometry.wbpj]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - naca0012coords_dots (txt)\|naca0012coords_dots.txt]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - NACA2410_commas (txt)\|NACA2410_commas.txt]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - wing2d_fluent_tutorial_updated6 (pdf)\|wing2d_fluent_tutorial_updated6.pdf]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - NACA2410_commas (txt)\|NACA2410_commas.txt]] | laboratorio | referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - wing2d_fluent_tutorial_updated6 (pdf)\|wing2d_fluent_tutorial_updated6.pdf]] | laboratorio | referenced |
 
 ## laboratorios/lab-3&4/backup-before-fluent-2026-11-21
 
@@ -274,8 +274,8 @@ tags:
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa3 (txt)\|fluent_aoa3.txt]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa9 (txt)\|fluent_aoa9.txt]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa10 (txt)\|fluent_aoa10.txt]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa12 (txt)\|fluent_aoa12.txt]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa16 (txt)\|fluent_aoa16.txt]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa12 (txt)\|fluent_aoa12.txt]] | laboratorio | referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_aoa16 (txt)\|fluent_aoa16.txt]] | laboratorio | referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_check6_saved (txt)\|fluent_check6_saved.txt]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_transcript2 (txt)\|fluent_transcript2.txt]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - fluent_transcript (txt)\|fluent_transcript.txt]] | laboratorio | not-referenced |
@@ -288,7 +288,7 @@ tags:
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - pcoeff_aoa10 (txt)\|pcoeff_aoa10.txt]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - pcoeff_aoa12 (txt)\|pcoeff_aoa12.txt]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - pcoeff_aoa16 (txt)\|pcoeff_aoa16.txt]] | laboratorio | not-referenced |
-| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - plots_lab3 (py)\|plots_lab3.py]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - plots_lab3 (py)\|plots_lab3.py]] | laboratorio | referenced |
 
 ## laboratorios/lab-3&4/Lab-Ismael/j
 
@@ -312,6 +312,7 @@ tags:
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - j10 (jou)\|j10.jou]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - j11 (jou)\|j11.jou]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - j12 (jou)\|j12.jou]] | laboratorio | not-referenced |
+| [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - reproduce_post6 (jou)\|reproduce_post6.jou]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - rest (jou)\|rest.jou]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - setup6 (jou)\|setup6.jou]] | laboratorio | not-referenced |
 | [[Source - 01-fluid-mechanics - laboratorios - lab-3&4 - Lab-Ismael - j - SolutionMonitor (gz)\|SolutionMonitor.gz]] | laboratorio | not-referenced |
