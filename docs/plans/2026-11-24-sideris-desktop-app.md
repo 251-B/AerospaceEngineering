@@ -206,6 +206,8 @@ Estimación orientativa de esfuerzo: unas 4 a 6 semanas de trabajo si los pesos 
 
 ## 14. Revisión de modelos base (2026-11-24)
 
+**Decisión (2026-11-24): se mantienen las cuatro bases actuales** (Qwen3.5-2B, Qwen3.5-4B, Phi-4-mini-reasoning, Qwen3.5-9B) y se sigue entrenando con el conjunto de datos v2. El torneo de la fase 0 se reduce a una prueba opcional de MiniCPM5-2B frente a Qwen3.5-2B para Lux, solo si sobra cuota de Kaggle. Pendiente de entrenar: Aether y Titan; Lux y Orion tienen v1 y pueden repetirse con v2.
+
 Fuentes: [pequeños 4B-40B](https://artificialanalysis.ai/models/open-source/small), [diminutos hasta 4B](https://artificialanalysis.ai/models/open-source/tiny), [K2 Horizon 7B](https://artificialanalysis.ai/models/k2-horizon-7b), [GGUF de K2 Horizon](https://huggingface.co/IFM/K2-Horizon-7B-GGUF), [Gemma 4 E4B](https://huggingface.co/ggml-org/gemma-4-e4b-it-GGUF), [MiniCPM5-2B](https://huggingface.co/OpenBMB/MiniCPM5-2B).
 
 Hay modelos mejores que algunas de las bases actuales, pero el ranking mide trabajo agéntico y de conocimiento, no tutoría socrática ni derivaciones en español. **No se sustituye nada hasta una prueba propia con `eval_holdout.jsonl`.**
