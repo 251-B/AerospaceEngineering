@@ -228,6 +228,10 @@ Riesgos de cada cambio:
 - **Modelos MoE grandes** (Inkling 2 Mini, Qwen3.6 35B A3B): corren como un modelo de 5B o 3B activos, pero necesitan memoria de un modelo de 26B a 35B (unos 15 a 20 GB en Q4). Solo valen como "Titan Max" para equipos de 32 GB.
 - **Cualquier cambio** obliga a reentrenar los LoRA, a volver a pasar la cuantización y a repetir las pruebas de velocidad.
 
+**Corrección y matiz (mismo día).** El Progress Index de Artificial Analysis pondera sobre todo trabajo agéntico y de código (AA-Briefcase, Terminal-Bench, FrontierCode). Eso explica la ventaja de K2 Horizon 7B (263). En la propia comparación del [paper de K2-Horizon](https://arxiv.org/html/2611.21003v1), hecha por sus autores, el 7B frente a Qwen3.5-9B queda: AIME 2026 90.2 contra 88.0, GPQA Diamond 75.6 contra 80.6, HLE 19.5 contra 14.9, SWE-bench Verified 72.4 contra 50.8. Para matemáticas y física hay paridad, y la ventaja grande está en programación, que Sideris no usa. Un [análisis independiente](https://www.mindstudio.ai/blog/k2-horizon-local-models-tested) midió el 7B con unos 16.8 GB de memoria a 65K de contexto y resultados flojos en una prueba.
+
+**¿Se pierde el entrenamiento?** Los pesos LoRA no se pueden pasar a otra base: [la investigación de transferencia](https://arxiv.org/pdf/2508.05232) es experimental y sin validación independiente. Pero lo que cuesta de verdad es el conjunto de datos (v2: 5.926 SFT, 1.310 DPO, 1.037 GRPO y 314 de evaluación), `rewards.py` y la tubería, y todo eso sirve para cualquier base. Según `docs/sideris-teammate-kaggle-guide.md` solo Lux v1 y Orion v1 están entrenados, y cada modelo cuesta unas 4 a 6 horas de GPU gratis en Kaggle.
+
 Torneo previsto en la fase 0, uno por hueco:
 1. Misma batería: `eval_holdout.jsonl` en español e inglés más 20 problemas del vault con solución conocida.
 2. Medir calidad socrática, exactitud de cálculo, longitud de la respuesta y tokens por segundo en los 3 equipos de referencia.
