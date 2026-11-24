@@ -203,3 +203,52 @@ Estimación orientativa de esfuerzo: unas 4 a 6 semanas de trabajo si los pesos 
 - Si el límite de 2 GB por archivo de GitHub Releases sigue vigente.
 - Tamaño real de la KV cache de Qwen3.5 con contexto largo (la arquitectura es híbrida, pero no lo he comprobado).
 - Un issue de llama.cpp indica que `--fit-target` falla en Windows con valores altos; evitar ese parámetro hasta confirmarlo.
+
+## 14. Revisión de modelos base (2026-11-24)
+
+Fuentes: [pequeños 4B-40B](https://artificialanalysis.ai/models/open-source/small), [diminutos hasta 4B](https://artificialanalysis.ai/models/open-source/tiny), [K2 Horizon 7B](https://artificialanalysis.ai/models/k2-horizon-7b), [GGUF de K2 Horizon](https://huggingface.co/IFM/K2-Horizon-7B-GGUF), [Gemma 4 E4B](https://huggingface.co/ggml-org/gemma-4-e4b-it-GGUF), [MiniCPM5-2B](https://huggingface.co/OpenBMB/MiniCPM5-2B).
+
+Hay modelos mejores que algunas de las bases actuales, pero el ranking mide trabajo agéntico y de conocimiento, no tutoría socrática ni derivaciones en español. **No se sustituye nada hasta una prueba propia con `eval_holdout.jsonl`.**
+
+Progress Index v1 de Artificial Analysis (más alto es mejor; no es la escala de marzo):
+
+| Hueco | Base actual | Candidatos mejor puntuados |
+|---|---|---|
+| Lux (2B) | Qwen3.5-2B: 177 | K2 Horizon 3.7B: 242, MiniCPM5-2B: 221, LFM3-1.7B: 216 |
+| Aether (4B) | Qwen3.5-4B: sin dato en la lista (queda por debajo de 257) | Gemma 4 E4B (Apache 2.0, GGUF oficial en llama.cpp), K2 Horizon 3.7B |
+| Orion (3.8B) | Phi-4-mini-reasoning (abril de 2025, ya sin puntuación actual) | K2 Horizon 3.7B o 7B con razonamiento |
+| Titan (9B) | Qwen3.5-9B: sin dato (queda por debajo de 257) | K2 Horizon 7B: 263, Apache 2.0 |
+| Titan en equipos de 32 GB | n/a | Inkling 2 Mini (26B, 5.4B activos): 306; Qwen3.6 35B A3B: 261 |
+
+Riesgos de cada cambio:
+- **K2 Horizon** (Institute of Foundation Models): usa una atención nueva que **todavía no está en llama.cpp estándar**. Habría que incluir en el instalador la rama de su bifurcación, y que `peft`, `trl` o Unsloth la soporten para reentrenar es una incógnita. Es de solo texto y muy verboso. Su calidad en español no está comprobada.
+- **MiniCPM5-2B**: una fuente dice Apache 2.0 y otra muestra CC BY-NC-SA. Hay que leer la licencia oficial antes de nada, y más si la app se va a cobrar.
+- **LFM3-1.7B** (Liquid AI): licencia sin comprobar. Sus licencias anteriores tenían límites comerciales.
+- **Gemma 4 E4B**: es el cambio de menor riesgo técnico por su soporte oficial; la licencia Apache 2.0 sale en medios secundarios y se confirma en la ficha de Google. Calidad en español sin comprobar.
+- **Modelos MoE grandes** (Inkling 2 Mini, Qwen3.6 35B A3B): corren como un modelo de 5B o 3B activos, pero necesitan memoria de un modelo de 26B a 35B (unos 15 a 20 GB en Q4). Solo valen como "Titan Max" para equipos de 32 GB.
+- **Cualquier cambio** obliga a reentrenar los LoRA, a volver a pasar la cuantización y a repetir las pruebas de velocidad.
+
+Torneo previsto en la fase 0, uno por hueco:
+1. Misma batería: `eval_holdout.jsonl` en español e inglés más 20 problemas del vault con solución conocida.
+2. Medir calidad socrática, exactitud de cálculo, longitud de la respuesta y tokens por segundo en los 3 equipos de referencia.
+3. Verificar licencia oficial, soporte en llama.cpp estándar y herramientas de entrenamiento.
+4. Cambiar la base solo si gana con claridad. Si empata, se queda la actual porque ya está entrenada.
+
+## 15. Fase 6 (futuro): planes de la app de IA
+
+La web de Sideris sigue siendo gratuita. Solo la app de escritorio con IA tendría planes, por ejemplo Essential (Lux, Aether y Orion con mensajes diarios) y Pro (los cuatro modelos sin tope diario, Titan y sincronización). La interfaz no usa las palabras "gratis" ni "ilimitado".
+
+| Mecanismo | Dureza | Cómo funciona |
+|---|---|---|
+| Titan solo por descarga con permiso | Alta | El archivo no es público; un Worker da un enlace firmado de corta duración a cuentas Pro |
+| Licencia firmada | Media | Token firmado por el servidor, verificado sin conexión con clave pública y renovado cada pocos días |
+| Funciones en la nube | Alta | Sincronización del historial y copia de seguridad solo para cuentas Pro |
+| Contador diario de mensajes | Baja | Se guarda en el equipo y se puede resetear; es un límite suave |
+
+Para dejarlo preparado en las fases 1 a 3: función única `puedeUsar(modelo)` que hoy devuelve sí, campo `tier` en `models.json` con soporte de enlaces firmados, y pantalla de cuenta vacía en Ajustes.
+
+Riesgos antes de cobrar:
+- Los apuntes del curso (RAG y vault) vienen de material oficial de UC3M y de sus profesores. Cobrar por una app que los incluye es una decisión legal distinta de la web gratuita. Se vende el modelo, la app y las funciones, y los apuntes quedan fuera del plan de pago o con permiso escrito.
+- Las licencias de los modelos base deben permitir uso comercial. Revisar cada una antes de elegir la base definitiva (sección 14).
+- Alta de autónomo o sociedad, IVA europeo y elección del proveedor de pago. Precios y condiciones actuales sin verificar.
+- Alguien que pague podrá compartir los archivos; no existe protección total en una app local.
