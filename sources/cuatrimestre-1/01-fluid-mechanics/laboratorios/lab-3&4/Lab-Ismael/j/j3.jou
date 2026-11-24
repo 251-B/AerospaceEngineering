@@ -1,6 +1,0 @@
-/display/objects/edit streamlines
-range-option
-auto-range-off
-minimum 150
-maximum 170
-clip-to-range? yes

@@ -20,7 +20,6 @@ bytes: 669
 - **Kind:** laboratorio
 - **Size:** 669 B
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
-- **Shared name:** the file name is shared with 1 other copy(ies) under `sources/`; a bare mention is credited to the notes of this subject only.
 
 ## Referenced by
 
