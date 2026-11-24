@@ -1,8 +1,7 @@
-;; Clean post-processing journal for the saved 6 deg case (Lab3Geometry.wbpj, Fluent 2026 R1).
-;; Run from Lab-Ismael/ inside Fluent (File > Read > Journal) to recreate the 13 Line/Rake
-;; surfaces (not persisted in FFF-1.cas.h5), colour the airfoil contour in uniform black on
-;; Figs. 2-4 as requested on pp. 15-16 of the guide, and re-export Figs. 1-4.
-/file/confirm-overwrite? no
+;; Verified post-processing journal for the saved 6 deg case (Lab3Geometry.wbpj, Fluent 2026 R1).
+;; Tested live on ANSYS Fluent 2026 R1 (Build 10262, 2ddp -t4) from Lab-Ismael/: recreates the
+;; 13 Line/Rake surfaces, sets the airfoil mesh object 'wingmesh' to uniform black (guide pp. 15-17),
+;; and overwrites Figs. 1-4 at 1800x1100 px.
 /surface/line-surface s1.000 1.000 -10 1.000 10
 /surface/line-surface s1.025 1.025 -10 1.025 10
 /surface/line-surface s1.050 1.050 -10 1.050 10
@@ -17,12 +16,20 @@
 /surface/line-surface s0.150 0.150 -10 0.150 10
 /surface/line-surface s0.200 0.200 -10 0.200 10
 /display/objects/edit wingmesh
+options
+edges? yes
+faces? yes
+q
 surfaces-list
 wing
 ()
 coloring
 uniform
+edges
 black
+faces
+black
+q
 q
 /display/set/picture/driver png
 /display/set/picture/use-window-resolution? no
@@ -36,6 +43,7 @@ q
 /views/camera/up-vector 0 1 0
 /views/camera/field 2.6 1.6
 /display/save-picture "fig1_pressure_aoa6.png"
+yes
 ;; Fig. 2: Streamlines + black airfoil contour
 /display/set/overlays? no
 /display/objects/display streamlines
@@ -46,6 +54,7 @@ q
 /views/camera/up-vector 0 1 0
 /views/camera/field 2.6 1.6
 /display/save-picture "fig2_streamlines_aoa6.png"
+yes
 ;; Fig. 3: Near-wake velocity vectors (scale 0.5)
 /display/objects/edit velocity-wake
 surfaces-list
@@ -70,6 +79,7 @@ q
 /views/camera/up-vector 0 1 0
 /views/camera/field 0.36 0.22
 /display/save-picture "fig3_quiver_wake_aoa6.png"
+yes
 ;; Fig. 4: Leading-edge velocity vectors (scale 0.2)
 /display/objects/edit velocity-le
 surfaces-list
@@ -95,3 +105,4 @@ q
 /views/camera/up-vector 0 1 0
 /views/camera/field 0.42 0.26
 /display/save-picture "fig4_quiver_le_aoa6.png"
+yes
