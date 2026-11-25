@@ -125,14 +125,35 @@ flowchart TD
   * [[04 - Advanced Maths/Concept - Planar Systems with Complex Eigenvalues|Planar Systems with Complex Eigenvalues]] — $\mathbf z = Q^{-1}\mathbf x$ with $Q = [\mathbf u \mid \mathbf w]$, $J = \begin{pmatrix} \rho & \omega \\ -\omega & \rho \end{pmatrix}$, polar solution, spirals and centre in the $\mathbf z$- and $\mathbf x$-planes, sense of rotation.
   * [[04 - Advanced Maths/Concept - Planar Systems with a Repeated Eigenvalue|Planar Systems with a Repeated Eigenvalue]] — $m_a$ vs $m_g$, stars ($A = \lambda I$), Jordan chain, $z_1 = (c_1 + c_2t)e^{\lambda t}$, improper nodes with a full worked example.
 * **Problem Sheets 4, parts 1 and 2 (19 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 4 Part 1|Problem Set - Chapter 4 Part 1]] (systems, elimination, real eigenvalues, decoupling) and [[04 - Advanced Maths/Problem Set - Chapter 4 Part 2|Problem Set - Chapter 4 Part 2]] (complex and repeated eigenvalues, canonical forms, nine portraits). Web pages: `topic-4-part-1.html` and `topic-4-part-2.html` in `subjects/advanced-maths/problemas/`.
-* *Status: web pages available (`subjects/advanced-maths/teoria/topic-4.html` and `subjects/advanced-maths/teoria/topic-5.html`).*
+* **Problem Sheet 5 (10 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 5|Problem Set - Chapter 5]] (`probls_ch5_2627.pdf`). Web page: `subjects/advanced-maths/problemas/topic-5-problems.html`.
+  1. [[04 - Advanced Maths/Problem - Ch5-P1 Linearisation Failure at a Centre|Problem 5.1: Linearisation Failure at a Centre]]
+  2. [[04 - Advanced Maths/Problem - Ch5-P2 Seven Two-Species Population Models|Problem 5.2: Seven Two-Species Population Models]]
+  3. [[04 - Advanced Maths/Problem - Ch5-P3 Two Cooperative Species Models|Problem 5.3: Two Cooperative Species Models]]
+  4. [[04 - Advanced Maths/Problem - Ch5-P4 Conservative Particles in Three Potential Wells|Problem 5.4: Conservative Particles in Three Potential Wells]]
+  5. [[04 - Advanced Maths/Problem - Ch5-P5 Particle Moving on a Wire of Height V(x)|Problem 5.5: Particle Moving on a Wire of Height V(x)]]
+  6. [[04 - Advanced Maths/Problem - Ch5-P6 Damped Motion in Three Potential Wells|Problem 5.6: Damped Motion in Three Potential Wells]]
+  7. [[04 - Advanced Maths/Problem - Ch5-P7 Damped Particle on a Wire Qualitative Equivalence|Problem 5.7: Damped Particle on a Wire Qualitative Equivalence]]
+  8. [[04 - Advanced Maths/Problem - Ch5-P8 Simple Pendulum Energy Conservation and Phase Portrait|Problem 5.8: Simple Pendulum Energy Conservation and Phase Portrait]]
+  9. [[04 - Advanced Maths/Problem - Ch5-P9 Damped Simple Pendulum Energy Dissipation and Regimes|Problem 5.9: Damped Simple Pendulum Energy Dissipation and Regimes]]
+  10. [[04 - Advanced Maths/Problem - Ch5-P10 Quadratically Damped Pendulum and Lyapunov Stability|Problem 5.10: Quadratically Damped Pendulum and Lyapunov Stability]]
+* *Status: web pages available (`subjects/advanced-maths/teoria/topic-4.html`, `subjects/advanced-maths/teoria/topic-5.html`, and `subjects/advanced-maths/problemas/topic-5-problems.html`).*
 
 ---
 
 ### 🌊 Bloque IV: Classical PDEs and Fourier Analysis
 * **Unit Guide (Topic 6 — Heat Equation, Sturm-Liouville & Fourier Series):** [[04 - Advanced Maths/Topic 6 - Heat Equation, Sturm-Liouville Problems and Fourier Series|Tema 6: The Heat Equation, Sturm-Liouville Problems and Fourier Series]] (`Notes09-12-Nov.pdf`, pp. 1-14; Haberman Ch. 1-3, 5; Sheet 6). Web page: `subjects/advanced-maths/teoria/topic-6.html`.
-* **Topics:** 1D heat equation with zero Dirichlet BCs, separation of variables $u = \phi(x)T(t)$, eigenvalue problems ($\lambda > 0, = 0, < 0$), superposition, Fourier series and periodic extensions, orthogonality and Euler-Fourier coefficients, symmetry and half-range expansions, pointwise convergence, term-by-term differentiation, and Sturm-Liouville extensions (Dirichlet, Neumann, mixed, Robin, integrating factor, Euler equation, Rayleigh quotient).
-* *Status: Topic 6 theory web page available (`subjects/advanced-maths/teoria/topic-6.html`).*
+* **Topics:** 1D heat equation with zero Dirichlet BCs, separation of variables $u = \phi(x)T(t)$, eigenvalue problems ($\lambda > 0, = 0, < 0$), superposition, Fourier series and periodic extensions, orthogonality and Euler-Fourier coefficients, symmetry and half-range expansions, pointwise convergence, term-by-term differentiation, and Sturm-Liouville extensions (Dirichlet, Neumann, mixed, Robin, Lagrange's identity & Green's formula, integrating factor, Euler equation, Rayleigh quotient).
+* **Problem Sheet 6 (9 exercises, step by step):** [[04 - Advanced Maths/Problem Set - Chapter 6|Problem Set - Chapter 6]] (`probls_ch6_2627.pdf`). Web page: `subjects/advanced-maths/problemas/topic-6-problems.html`.
+  1. [[04 - Advanced Maths/Problem - Ch6-P1 Sturm-Liouville Eigenvalues under Four Boundary Conditions|Problem 6.1: Sturm-Liouville Eigenvalues under Four Boundary Conditions]]
+  2. [[04 - Advanced Maths/Problem - Ch6-P2 Non-Standard Constant-Coefficient Eigenvalue Problems|Problem 6.2: Non-Standard Constant-Coefficient Eigenvalue Problems]]
+  3. [[04 - Advanced Maths/Problem - Ch6-P3 Integrating Factor for Sturm-Liouville Self-Adjoint Form|Problem 6.3: Integrating Factor for Sturm-Liouville Self-Adjoint Form]]
+  4. [[04 - Advanced Maths/Problem - Ch6-P4 Euler-Cauchy Eigenvalue Problem and Rayleigh Quotient|Problem 6.4: Euler-Cauchy Eigenvalue Problem and Rayleigh Quotient]]
+  5. [[04 - Advanced Maths/Problem - Ch6-P5 Fourier Series of Nine Functions|Problem 6.5: Fourier Series of Nine Functions]]
+  6. [[04 - Advanced Maths/Problem - Ch6-P6 Fourier Series via Trigonometric Identities without Integrating|Problem 6.6: Fourier Series via Trigonometric Identities without Integrating]]
+  7. [[04 - Advanced Maths/Problem - Ch6-P7 Orthogonality Relations of Sine and Cosine Families|Problem 6.7: Orthogonality Relations of Sine and Cosine Families]]
+  8. [[04 - Advanced Maths/Problem - Ch6-P8 Sketching Fourier Series and Periodic Extensions|Problem 6.8: Sketching Fourier Series and Periodic Extensions]]
+  9. [[04 - Advanced Maths/Problem - Ch6-P9 Fourier Series of Even and Odd Periodic Functions|Problem 6.9: Fourier Series of Even and Odd Periodic Functions]]
+* *Status: Topic 6 theory and problem web pages available (`subjects/advanced-maths/teoria/topic-6.html`, `subjects/advanced-maths/problemas/topic-6-problems.html`).*
 
 ---
 

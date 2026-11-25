@@ -213,10 +213,16 @@ def sync(root, sheets, counts):
         d["pdfs"][sh["pdf_key"]] = {"path": sh["pdf"], "label": pathlib.PurePosixPath(sh["pdf"]).name, "pages": sh["pdf_pages"]}
         rel = SUBJECT + sh["page"]
         entry = d["pages"].setdefault(rel, {})
-        entry["panel"] = [[sh["pdf_key"], 1], ["am-book", "auto"]] + [["am-notes", n] for n in sh.get("notes_pages", [])]
-        entry["cite"] = {"robinson": "am-book"}
-        if sh.get("notes_pages"):  # class notes (Notes.pdf) cited as [Notes, p. N]
-            entry["cite"]["notes"] = "am-notes"
+        if "panel_pdfs" in sh:
+            entry["panel"] = [[sh["pdf_key"], 1]] + sh["panel_pdfs"]
+        else:
+            entry["panel"] = [[sh["pdf_key"], 1], ["am-book", "auto"]] + [["am-notes", n] for n in sh.get("notes_pages", [])]
+        if "cite_map" in sh:
+            entry["cite"] = dict(sh["cite_map"])
+        else:
+            entry["cite"] = {"robinson": "am-book"}
+            if sh.get("notes_pages"):  # class notes (Notes.pdf) cited as [Notes, p. N]
+                entry["cite"]["notes"] = "am-notes"
         entry["cards"] = {f"{sh['id_prefix']}{num}": [sh["pdf_key"], page] for num, page in sh["cards"].items()}
     write(root, SOURCE_LINKS, json.dumps(d, indent=1, ensure_ascii=False) + "\n")
 
@@ -290,8 +296,9 @@ def check():
         root = pathlib.Path(tmp)
         for rel in INPUTS + (SHEETS, FIGS):
             write(root, rel, (ROOT / rel).read_text(encoding="utf-8"))
-        for path in (ROOT / VAULT).glob("Problem - Ch[34]-I*-P*.md"):
-            write(root, f"{VAULT}/{path.name}", path.read_text(encoding="utf-8"))
+        for sh in read_json(ROOT, SHEETS)["sheets"]:
+            for path in (ROOT / VAULT).glob(f"Problem - {sh['code']}-P*.md"):
+                write(root, f"{VAULT}/{path.name}", path.read_text(encoding="utf-8"))
         for rel in generate(root):
             have = ROOT / rel
             if not have.is_file() or have.read_text(encoding="utf-8") != (root / rel).read_text(encoding="utf-8"):

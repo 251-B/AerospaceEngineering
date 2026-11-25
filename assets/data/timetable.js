@@ -1942,6 +1942,10 @@ window.AE_TIMETABLE = {
        "href": "subjects/advanced-maths/teoria/topic-5.html#sec-8"
       },
       {
+       "label": "Problems Chapter 5",
+       "href": "subjects/advanced-maths/problemas/topic-5-problems.html"
+      },
+      {
        "label": "Extra problem P08",
        "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P08"
       },
@@ -1969,6 +1973,10 @@ window.AE_TIMETABLE = {
        "href": "subjects/advanced-maths/teoria/topic-5.html#sec-10"
       },
       {
+       "label": "Problems Chapter 5",
+       "href": "subjects/advanced-maths/problemas/topic-5-problems.html"
+      },
+      {
        "label": "Theory Topic 6 (§1)",
        "href": "subjects/advanced-maths/teoria/topic-6.html#sec-1"
       }
@@ -1979,7 +1987,7 @@ window.AE_TIMETABLE = {
      "n": 24,
      "kind": "lecture",
      "title": "Heat equation and Fourier series",
-     "text": "Heat equation u_t = u_xx with zero Dirichlet conditions by separation of variables: eigenvalues (n pi/L)^2, eigenfunctions sin(n pi x/L), superposition; Fourier series of a function, periodic extension; the three questions (convergence, term-by-term differentiation, coefficients); orthogonality and the formulas for a_0, a_n, b_n; examples of a step function and of f(x) = x; even and odd functions; convergence theorem; term-by-term differentiation. Lecturer's notes: Notes09-12-Nov.pdf. Book: Haberman Sec. 2.2-2.3 (p. 29-49), Sec. 3.1-3.4 (p. 75-100).",
+     "text": "Heat equation u_t = u_xx with zero Dirichlet conditions by separation of variables: eigenvalues (n pi/L)^2, eigenfunctions sin(n pi x/L), superposition; Fourier series of a function, periodic extension; the three questions (convergence, term-by-term differentiation, coefficients); orthogonality and the formulas for a_0, a_n, b_n; examples of a step function and of f(x) = x. Lecturer's notes: Notes09-12-Nov.pdf. Book: Haberman Sec. 2.2-2.3 (p. 29-49), Sec. 3.1-3.4 (p. 75-100).",
      "date": "2026-11-12",
      "start": null,
      "end": null,
@@ -1988,8 +1996,12 @@ window.AE_TIMETABLE = {
      "lab": null,
      "links": [
       {
-       "label": "Theory Topic 6 (§1–9)",
+       "label": "Theory Topic 6 (§1–6)",
        "href": "subjects/advanced-maths/teoria/topic-6.html#sec-1"
+      },
+      {
+       "label": "Problems Chapter 6",
+       "href": "subjects/advanced-maths/problemas/topic-6-problems.html"
       },
       {
        "label": "Extra problem P10",
@@ -1998,6 +2010,56 @@ window.AE_TIMETABLE = {
       {
        "label": "Extra problem P12",
        "href": "subjects/advanced-maths/extra-problems/midterm-2-problems.html#P12"
+      }
+     ]
+    },
+    {
+     "id": "am-l25",
+     "n": 25,
+     "kind": "lecture",
+     "title": "Fourier symmetry, convergence and differentiation",
+     "text": "Even and odd extensions of functions; simplification of Fourier series if f is even or odd; piecewise smooth functions; pointwise convergence theorem; term-by-term differentiation theorem and counterexample f(x) = x (Ex. 6.5 (ii)); Exercises 6.5 (iv), 6.5 (viii). Book: Haberman Sec. 3.2-3.4 (p. 75-100).",
+     "date": "2026-11-24",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Theory Topic 6 (§7–9)",
+       "href": "subjects/advanced-maths/teoria/topic-6.html#sec-7"
+      },
+      {
+       "label": "Problems Chapter 6",
+       "href": "subjects/advanced-maths/problemas/topic-6-problems.html"
+      }
+     ]
+    },
+    {
+     "id": "am-l26",
+     "n": 26,
+     "kind": "lecture",
+     "title": "Sturm-Liouville problems and Rayleigh quotient",
+     "text": "Exercise 6.6 (trig identities); regular Sturm-Liouville eigenvalue problems and spectral theorem; Lagrange's identity, Green's formula and self-adjointness; generalised Fourier coefficients; Rayleigh quotient to estimate eigenvalues (Ex. 6.4 without explicit eigenpairs); hint for Ex. 6.2 (i) (integrating factor). Book: Haberman Sec. 5.3 (p. 133-141), Sec. 5.6 (p. 159-162).",
+     "date": "2026-11-24",
+     "start": null,
+     "end": null,
+     "room": null,
+     "groups": null,
+     "lab": null,
+     "links": [
+      {
+       "label": "Theory Topic 6 (§11)",
+       "href": "subjects/advanced-maths/teoria/topic-6.html#sec-11"
+      },
+      {
+       "label": "Problems Chapter 6",
+       "href": "subjects/advanced-maths/problemas/topic-6-problems.html"
+      },
+      {
+       "label": "Extra problem P19",
+       "href": "subjects/advanced-maths/extra-problems/final-problems.html#P19"
       }
      ]
     }

@@ -171,4 +171,6 @@ def split_note(text):
             statement = rest
         elif pm:
             phases.append((int(pm.group(1)), pm.group(2).strip(), rest))
+        elif head.strip():
+            phases.append((min(len(phases) + 1, 4), head.strip(), rest))
     return fm, title, statement, phases

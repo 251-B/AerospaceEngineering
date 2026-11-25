@@ -1978,5 +1978,145 @@
   "caption": "Canonical $\\mathbf z$-plane (unstable spiral): clockwise, $\\dot\\theta = -\\omega$.",
   "plane": "z-plane",
   "title": "ch4b-e8-viii z-plane"
+ },
+ "ch5-e1": {
+  "caption": "Phase portrait of $\\dot x = -y + \\lambda x(x^2+y^2),\\ \\dot y = x + \\lambda y(x^2+y^2)$ for $\\lambda < 0$: counter-clockwise inward spirals into the origin even though the linearisation predicts a centre.",
+  "kind": "ch56",
+  "title": "Linearisation failure at a centre (lambda < 0)"
+ },
+ "ch5-e10": {
+  "caption": "Phase portrait of $\\dot x = y,\\ \\dot y = -\\sin x - k y|y|$ ($k = 0.5$): energy decay $\\dot E = -k|y|^3$ forces orbits to wind inward toward $(0,0)$ despite the linearised centre.",
+  "kind": "ch56",
+  "title": "Exercise 10: Quadratically damped pendulum"
+ },
+ "ch5-e2-i": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: $(0,0)$ is an unstable node, $(0,1)$ is a saddle, and $(2,0)$ attracts all interior trajectories (competitive exclusion of $y$).",
+  "kind": "ch56",
+  "title": "Exercise 2(i): Competitive exclusion"
+ },
+ "ch5-e2-ii": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: $(0,0)$ is an unstable node, $(2,0)$ and $(0,1)$ are saddles, and $(8/7, 6/7)$ is a globally attracting stable node in the first quadrant.",
+  "kind": "ch56",
+  "title": "Exercise 2(ii): Stable coexistence"
+ },
+ "ch5-e2-iii": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: $(4/7, 2/7)$ is a saddle whose stable manifold separates trajectories tending to $(2,0)$ from those tending to $(0,1)$.",
+  "kind": "ch56",
+  "title": "Exercise 2(iii): Bistable competition"
+ },
+ "ch5-e2-iv": {
+  "caption": "Nullclines and closed periodic orbits encircling the centre $(2/3, 1/2)$ in $x, y > 0$; $(0,0)$ is a saddle.",
+  "kind": "ch56",
+  "title": "Exercise 2(iv): Lotka-Volterra predator-prey"
+ },
+ "ch5-e2-v": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: trajectories spiral inward toward the coexistence equilibrium $(2, 1)$ (stable spiral); $(0,0)$ and $(8,0)$ are saddles.",
+  "kind": "ch56",
+  "title": "Exercise 2(v): Predator-prey with logistic prey"
+ },
+ "ch5-e2-vi": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: $(0,0)$ is an unstable node, $(10,0)$ and $(0, 1/10)$ are saddles, and all interior trajectories approach $(97/13, 11/13)$.",
+  "kind": "ch56",
+  "title": "Exercise 2(vi): Predator-prey with predator carrying capacity"
+ },
+ "ch5-e2-vii": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: $(0,0)$ and $(3,0)$ are saddles, and $(2,1)$ is a stable spiral attracting all interior orbits.",
+  "kind": "ch56",
+  "title": "Exercise 2(vii): Predator-prey with logistic prey"
+ },
+ "ch5-e3-i": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: $(0,0)$ is an unstable node, $(1,0)$ and $(0, 1/2)$ are saddles, and all positive trajectories converge to the mutualistic coexistence node $(3, 2)$.",
+  "kind": "ch56",
+  "title": "Exercise 3(i): Bounded cooperative coexistence"
+ },
+ "ch5-e3-ii": {
+  "caption": "Nullclines and phase portrait for $x, y \\ge 0$: the nullclines do not intersect in the positive quadrant, so positive trajectories grow without bound ($x, y \\to \\infty$).",
+  "kind": "ch56",
+  "title": "Exercise 3(ii): Unbounded mutualism"
+ },
+ "ch5-e4-i": {
+  "caption": "Quadratic potential $V(x) = \\frac{1}{2}\\omega^2 x^2$ (top) and its elliptical closed orbits around the centre $(0,0)$ (bottom, drawn for $\\omega = 1$).",
+  "kind": "ch56",
+  "title": "Exercise 4(i): Harmonic oscillator potential and phase portrait"
+ },
+ "ch5-e4-ii": {
+  "caption": "Double-well potential $V(x) = \\frac{1}{2}x^4 - x^2$ (top) and phase portrait (bottom): centres at $(\\pm 1, 0)$, saddle at $(0,0)$, and the figure-eight homoclinic separatrix $E = 0$.",
+  "kind": "ch56",
+  "title": "Exercise 4(ii): Double-well potential and phase portrait"
+ },
+ "ch5-e4-iii-robinson": {
+  "caption": "Robinson potential $V(x) = \\frac{1}{6}x^6 - \\frac{5}{4}x^4 + 2x^2$ (top) and triple-well phase portrait (bottom): centres at $0, \\pm 2$ and saddles at $\\pm 1$ with separatrices.",
+  "kind": "ch56",
+  "title": "Exercise 4(iii): Robinson triple-well potential and phase portrait"
+ },
+ "ch5-e4-iii-sheet": {
+  "caption": "Potential as printed in the sheet, $V(x) = \\frac{1}{2}x^6 - \\frac{5}{4}x^4 + 2x^2$ (top), which has a single minimum at $x=0$, yielding closed orbits around $(0,0)$ (bottom).",
+  "kind": "ch56",
+  "title": "Exercise 4(iii): Printed sextic potential and phase portrait"
+ },
+ "ch5-e5-i": {
+  "caption": "Conservative motion on the wire $V(x) = \\frac{1}{2}x^2$ ($\\omega = 1$, $g = 1$): closed periodic orbits encircling the centre $(0,0)$.",
+  "kind": "ch56",
+  "title": "Exercise 5(i): Parabolic wire phase portrait"
+ },
+ "ch5-e5-ii": {
+  "caption": "Conservative motion on the wire $V(x) = \\frac{1}{2}x^4 - x^2$ ($g = 1$): centres at $(\\pm 1, 0)$, saddle at $(0,0)$, and figure-eight separatrix $E = 0$.",
+  "kind": "ch56",
+  "title": "Exercise 5(ii): Double-well wire phase portrait"
+ },
+ "ch5-e6-i": {
+  "caption": "Damped motion in $V(x) = \\frac{1}{2}x^2$ with damping $-\\dot x$: all trajectories spiral inward to $(0,0)$.",
+  "kind": "ch56",
+  "title": "Exercise 6(i): Damped harmonic oscillator"
+ },
+ "ch5-e6-ii": {
+  "caption": "Damped motion in $V(x) = \\frac{1}{2}x^4 - x^2$: the stable manifold of the saddle $(0,0)$ partitions the phase plane into the basins of the two stable spirals $(\\pm 1, 0)$.",
+  "kind": "ch56",
+  "title": "Exercise 6(ii): Damped double-well oscillator"
+ },
+ "ch5-e6-iii-robinson": {
+  "caption": "Damped motion in Robinson potential $V(x) = \\frac{1}{6}x^6 - \\frac{5}{4}x^4 + 2x^2$: trajectories settle into one of the three stable spirals at $0$ and $\\pm 2$, separated by the stable manifolds of $\\pm 1$.",
+  "kind": "ch56",
+  "title": "Exercise 6(iii): Damped Robinson triple-well potential"
+ },
+ "ch5-e6-iii-sheet": {
+  "caption": "Damped motion in the printed sheet potential $V(x) = \\frac{1}{2}x^6 - \\frac{5}{4}x^4 + 2x^2$: every trajectory decays to the unique stable spiral $(0,0)$.",
+  "kind": "ch56",
+  "title": "Exercise 6(iii): Damped printed sextic potential"
+ },
+ "ch5-e8": {
+  "caption": "Phase portrait of $\\dot\\theta = y,\\ \\dot y = -\\sin\\theta$: centres at $(2k\\pi, 0)$, saddles at $((2k+1)\\pi, 0)$, the $E = 1$ separatrix, bounded librations ($E < 1$), and unbounded rotations ($E > 1$).",
+  "kind": "ch56",
+  "title": "Exercise 8: Undamped simple pendulum"
+ },
+ "ch5-e9-over": {
+  "caption": "Phase portrait of the damped pendulum with $k = 2.5$: trajectories approach $(2m\\pi, 0)$ as stable nodes without oscillation around the bottom.",
+  "kind": "ch56",
+  "title": "Exercise 9: Overdamped pendulum (k > 2)"
+ },
+ "ch5-e9-under": {
+  "caption": "Phase portrait of the damped pendulum with $k = 0.6$: trajectories spiral into the stable equilibria $(2m\\pi, 0)$ while $((2m+1)\\pi, 0)$ remain saddles.",
+  "kind": "ch56",
+  "title": "Exercise 9: Underdamped pendulum (0 < k < 2)"
+ },
+ "ch6-e1-iv": {
+  "caption": "Positive roots $\\mu_n = \\sqrt{\\lambda_n}$ of $\\tan\\mu = -\\mu/h$ (drawn for $h = 1$), with one root $\\mu_n \\in ((n - \\frac{1}{2})\\pi, n\\pi)$ in each branch.",
+  "kind": "ch56",
+  "title": "Exercise 1(iv): Graphical Robin eigenvalues"
+ },
+ "ch6-e8-i": {
+  "caption": "Periodic extension of $f(x) = x^2$ (continuous everywhere with corners at $x = \\pm L$) compared with partial sums $S_1$ and $S_5$.",
+  "kind": "ch56",
+  "title": "Exercise 8(i): Fourier series of x squared on [-L, L]"
+ },
+ "ch6-e8-ii": {
+  "caption": "Periodic extension of $f(x) = e^x$ ($L = 1$) with jumps at $x = \\pm L$: partial sums $S_2$ and $S_{10}$ converge to the midpoint $\\cosh L$ at the discontinuities.",
+  "kind": "ch56",
+  "title": "Exercise 8(ii): Fourier series of e^x on [-L, L]"
+ },
+ "ch6-e8-iii": {
+  "caption": "Periodic extension of $f(x) = 1$ ($x < 0$), $x+1$ ($x \\ge 0$) ($L = 1$): continuous corner at $x=0$ and jumps at $x = \\pm L$ converging to $1 + L/2 = 1.5$.",
+  "kind": "ch56",
+  "title": "Exercise 8(iii): Fourier series of piecewise linear function"
  }
 }

@@ -455,7 +455,7 @@ This is **false**! In fact, the series on the right does not even converge for a
 >
 > **Slides:** Haberman, Sec. 2.4, pp. 51–60; Haberman, Sec. 5.8, pp. 167–172; probls_ch6_2627.pdf, p. 1
 
-> [!info] Extension: Required by Sheet 6 (Exercise 6.1 (i)–(iv)), not yet lectured by Nov 12
+> [!info] Sheet 6 coverage (Exercises 6.1 (i)–(iv); lectured Nov 24)
 > All four cases below solve $\phi''(x) + \lambda\phi(x) = 0$ on $0 < x < L$ (Sheet 6 sets $L = 1$). The derivations follow Haberman, Sec. 2.4 (pp. 51–60) and Sec. 5.8 (pp. 167–172).
 
 | Boundary conditions on $(0, L)$ | Physical meaning (heat) | $\lambda < 0$ | $\lambda = 0$ | $\lambda > 0$: eigenvalues $\lambda_n$ ($n \ge 1$) | Eigenfunctions $\phi_n(x)$ |
@@ -498,8 +498,8 @@ This is **false**! In fact, the series on the right does not even converge for a
 >
 > **Slides:** Haberman, Sec. 5.3, pp. 133–141; Haberman, Sec. 5.6, pp. 159–162; probls_ch6_2627.pdf, p. 1
 
-> [!info] Extension: General Sturm-Liouville toolkit for Sheet 6 (Exercises 6.2, 6.3, 6.4)
-> Everything in this section comes from Haberman, Sec. 5.3 (pp. 133–141) and Sec. 5.6 (pp. 159–162) to give full coverage of Sheet 6.
+> [!info] General Sturm-Liouville toolkit for Sheet 6 (Exercises 6.2, 6.3, 6.4; lectured Nov 24)
+> Everything in this section comes from Haberman, Sec. 5.3 (pp. 133–141) and Sec. 5.6 (pp. 159–162) to give full coverage of Sheet 6 and the November 24 lectures.
 
 ### 1. Regular Sturm-Liouville form and key theorems (Haberman, Sec. 5.3, pp. 133–135)
 
@@ -514,6 +514,22 @@ with separated homogeneous boundary conditions $\beta_1\phi(a) + \beta_2\phi'(a)
 4. **Weighted orthogonality:** eigenfunctions for distinct eigenvalues ($\lambda_n \neq \lambda_m$) are orthogonal with weight $\sigma(x)$:
    $$\int_{a}^{b} \phi_n(x)\phi_m(x)\,\sigma(x)\,dx = 0 \qquad (n \neq m).$$
 5. **Completeness:** any piecewise smooth function $f(x)$ on $[a, b]$ can be expanded in a generalised Fourier series $f(x) \sim \sum_{n=1}^\infty c_n\phi_n(x)$ with $c_n = \frac{\int_a^b f\phi_n\sigma\,dx}{\int_a^b \phi_n^2\sigma\,dx}$.
+
+### 1b. Lagrange's identity, Green's formula and self-adjointness (Lecture Nov 24; Haberman, Sec. 5.3, pp. 136–139)
+
+Define the Sturm-Liouville differential operator $L[\phi] = \big(p(x)\phi'(x)\big)' + q(x)\phi(x)$, so the eigenvalue equation reads $L[\phi] + \lambda\sigma(x)\phi = 0$. For any two smooth functions $u(x), v(x)$ on $[a, b]$, expanding $\big[p(u v' - v u')\big]'$ by the product rule yields **Lagrange's identity**:
+
+$$u\,L[v] - v\,L[u] = u(pv')' + quv - v(pu')' - quv = \frac{d}{dx}\Big[p(x)\big(u(x)v'(x) - v(x)u'(x)\big)\Big].$$
+
+Integrating from $a$ to $b$ by the Fundamental Theorem of Calculus (Barrow's rule) gives **Green's formula**:
+
+$$\int_{a}^{b}\big(u\,L[v] - v\,L[u]\big)\,dx = \Big[p(x)\big(u(x)v'(x) - v(x)u'(x)\big)\Big]_{a}^{b}.$$
+
+When both $u$ and $v$ satisfy the same separated homogeneous boundary conditions (or periodic boundary conditions $p(a)=p(b)$, $u(a)=u(b)$, $u'(a)=u'(b)$), the boundary bracket vanishes identically: $\int_a^b (u\,L[v] - v\,L[u])\,dx = 0$, which is the **self-adjointness** property of $L$. Applying Green's formula to two eigenfunctions $u = \phi_n,\ v = \phi_m$ ($L[\phi_n] = -\lambda_n\sigma\phi_n$, $L[\phi_m] = -\lambda_m\sigma\phi_m$) immediately yields
+
+$$(\lambda_n - \lambda_m)\int_{a}^{b}\phi_n(x)\phi_m(x)\,\sigma(x)\,dx = 0,$$
+
+proving weighted orthogonality whenever $\lambda_n \neq \lambda_m$, and confirming that all eigenvalues are real (by taking $u = \phi,\ v = \bar\phi$).
 
 ### 2. Converting a general 2nd-order ODE via an integrating factor (Sheet 6, Ex. 6.3)
 

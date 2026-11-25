@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-celestial-subject="advanced-maths">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 6 Problem Set: Sturm-Liouville Problems and Fourier Series — Advanced Mathematics | UC3M</title>
+  
+  <!-- Google Fonts: Abril Fatface, Newsreader, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX CDN for Automatic Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });"></script>
+
+  <!-- Celestial Sky & Aerospace Glassmorphism System -->
+  <link rel="stylesheet" href="../../../assets/css/celestial-sky.css">
+  <link rel="stylesheet" href="../../../assets/css/study-surface.css">
+
+  <style>
+    /* ========================================================
+       CSS VARIABLES & THEME SYSTEM
+       ======================================================== */
+    :root {
+      --font-display: 'Abril Fatface', cursive, Georgia, serif;
+      --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+
+      /* Subject Accent: Advanced Mathematics (Indigo #6366f1) */
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-light: #818cf8;
+      --accent-soft: rgba(99, 102, 241, 0.12);
+      --accent-border: rgba(99, 102, 241, 0.28);
+      --accent-glow: rgba(99, 102, 241, 0.18);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #070b14;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-card-hover: rgba(20, 30, 55, 0.92);
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-input: rgba(255, 255, 255, 0.06);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(255, 255, 255, 0.12);
+      --text-heading: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.45);
+      background-color: #030712;
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.94);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --bg-glass: rgba(0, 0, 0, 0.02);
+      --bg-input: rgba(0, 0, 0, 0.04);
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      --text-heading: #0f172a;
+      --text-body: #334155;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+      background-color: #f8fafc;
+      background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 15.5px;
+      line-height: 1.75;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      position: relative;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -120px;
+      right: 12%;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========================================================
+       TOP HEADER
+       ======================================================== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+    }
+
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 3px;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      transition: transform var(--transition);
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    /* ========================================================
+       ARTICLE LAYOUT & PROBLEMS CONTAINER
+       ======================================================== */
+    .article-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topic-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-border);
+    }
+
+    .course-tag {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    h1.article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .article-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .source-box {
+      margin-top: 16px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-input);
+      border: 1px solid var(--accent-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ========================================================
+       PROBLEM CARDS & 4-PHASE ARCHITECTURE
+       ======================================================== */
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-card);
+      scroll-margin-top: 110px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .problem-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .problem-title-group {
+      flex: 1;
+    }
+
+    .problem-num-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    h2.problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.3;
+    }
+
+    .problem-meta-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: var(--bg-input);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Phase Containers */
+    .phase-section {
+      margin-top: 26px;
+    }
+
+    .phase-badge-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .phase-1-badge { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .phase-2-badge { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .phase-3-badge { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .phase-4-badge { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .problem-statement-box {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+    }
+
+    .math-block {
+      overflow-x: auto;
+      padding: 14px 18px;
+      margin: 16px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .sub-case-card {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+
+    .sub-case-header {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      margin: 18px 0;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.05);
+    }
+
+    .result-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #10b981;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .note-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    .warning-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #f59e0b;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Structured Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface);
+      color: var(--text-heading);
+      padding: 12px 16px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:hover td {
+      background: var(--accent-soft);
+    }
+
+    /* Bottom Navigation */
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all var(--transition);
+      min-width: 240px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .nav-btn-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    footer.site-footer {
+      margin-top: 60px;
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 680px) {
+      .problem-card { padding: 22px 20px; }
+    }
+
+    /* Problem-sheet additions: step headings, bullet lists, figures */
+    h4.step-heading { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.4px; color: var(--accent-light); margin: 18px 0 6px; }
+    .problem-card p { margin: 8px 0; }
+    .problem-card ul.bullet-list, .problem-card ol.num-list { margin: 8px 0 8px 22px; }
+    .problem-card li { margin: 4px 0; }
+    .math-block { overflow-x: auto; }
+    .sub-case-card p { overflow-wrap: break-word; }
+    .katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+    [data-theme="dark"] { --text-faint: #7c8aa0; }
+    [data-theme="light"] { --text-faint: #8a94a6; }
+    .diagram-card { background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 12px; padding: 16px; margin: 18px 0; text-align: center; }
+    .diagram-scroll svg { max-width: 360px; width: 100%; height: auto; display: block; margin: 0 auto; }
+    .diagram-caption { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; }
+    .diagram-open { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; margin-top: 6px; color: var(--accent); }
+    .diagram-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .diagram-row .diagram-card { flex: 1 1 280px; max-width: 420px; margin: 10px 0; }
+    @media print { .diagram-open { display: none !important; } }
+    .diagram-card svg text tspan { text-decoration-thickness: 1px; }
+  </style>
+  <script src="../../../assets/js/theme.js"></script>
+  <script defer src="../../../assets/js/ask-ai.js"></script>
+  <script defer src="../../../assets/js/pdf-export.js"></script>
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    a.end-btn.end-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px;
+      background: var(--bg-card, var(--bg-surface)); border: 1px solid var(--border-card, var(--border-subtle));
+      color: var(--text-heading); text-decoration: none; font-weight: 500; transition: all var(--transition); }
+    a.end-btn.end-btn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--text-heading); }
+  </style>
+  <link rel="stylesheet" href="../../../assets/css/source-links.css" data-srclink>
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-area">
+        <a href="../../../index.html" class="back-link">
+          <span>←</span>
+          <span>Main Portal</span>
+        </a>
+        <span class="brand-badge">Problems Sheet 6 • 9 Solved</span>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Light / Dark)" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="topic-pill">Problems Sheet 6 • Official Solutions</span>
+        <span class="course-tag">Department of Mathematics • UC3M Aerospace Engineering</span>
+      </div>
+      <h1 class="article-title">Chapter 6 Problem Set: Sturm-Liouville Problems and Fourier Series</h1>
+      <p class="article-lead">Complete, step-by-step solutions to the nine exercises of the Chapter 6 sheet: eigenvalues and eigenfunctions under Dirichlet, mixed, Neumann and Robin boundary conditions, non-standard constant-coefficient Sturm-Liouville problems, integrating factors to self-adjoint form, Euler-Cauchy eigenvalue problems with the Rayleigh quotient, nine Fourier series expansions, trigonometric shortcuts, orthogonality proofs, periodic extensions and symmetry.</p>
+      <div class="source-box">
+        <span>Source Document:</span>
+        <code>sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf</code>
+      </div>
+      <nav class="src-panel" data-srclink aria-label="Official material">
+        <span class="src-panel-label">Official material</span>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf" target="_blank" rel="noopener">probls_ch6_2627.pdf</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/BookPDE%27s.pdf" target="_blank" rel="noopener">Haberman (BookPDE&#x27;s.pdf)</a>
+        <a href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/teoria/Notes09-12-Nov.pdf" target="_blank" rel="noopener">Notes09-12-Nov.pdf</a>
+      </nav>
+    </header>
+
+    <article class="problem-card" id="e1">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 1</div>
+          <h2 class="problem-title">Sturm-Liouville Eigenvalues under Four Boundary Conditions</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf</a>
+        </div>
+        <span class="problem-meta-badge">Eigenvalues for four boundary conditions</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Determine the eigenvalues and eigenfunctions of the Sturm-Liouville problems obtained for the equation $\phi''(x) + \lambda\phi(x) = 0$ with $0 &lt; x &lt; 1$ and each of the following boundary conditions:</p><ol class="num-list"><li>$\phi(0) = \phi(1) = 0$;</li><li>$\phi(0) = \phi'(1) = 0$;</li><li>$\phi'(0) = \phi'(1) = 0$;</li><li>$\phi(0) = \phi'(1) + h\,\phi(1) = 0$, with $h &gt; 0$.</li></ol></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Formulation and Sturm-Liouville Structure</div>
+<p>The equation is already in self-adjoint form with $p(x) = 1$, $\sigma(x) = 1$, $q(x) = 0$, because $[1\cdot\phi']' + [\lambda\cdot 1 + 0]\phi = \phi'' + \lambda\phi$. Method: Notes09-12-Nov.pdf (Sturm-Liouville section; page to be confirmed); Haberman, Sec. 5.3.</p>
+<div class="note-box"><div class="note-box-title">General solution in each sign case</div><p>The characteristic equation $r^2 + \lambda = 0$ gives $r = \pm\sqrt{-\lambda}$, so the sign of $\lambda$ fixes the type of solution. Since no sign is known in advance, all three cases are tested in every part.</p><div class="table-container"><table class="data-table"><thead><tr><th>Case</th><th>Write</th><th>General solution</th><th>Derivative</th></tr></thead><tbody><tr><td>$\lambda &lt; 0$</td><td>$\lambda = -\mu^2,\ \mu &gt; 0$</td><td>$\phi = A\cosh\mu x + B\sinh\mu x$</td><td>$\phi' = \mu(A\sinh\mu x + B\cosh\mu x)$</td></tr><tr><td>$\lambda = 0$</td><td></td><td>$\phi = A + Bx$</td><td>$\phi' = B$</td></tr><tr><td>$\lambda &gt; 0$</td><td>$\lambda = \mu^2,\ \mu &gt; 0$</td><td>$\phi = A\cos\mu x + B\sin\mu x$</td><td>$\phi' = \mu(-A\sin\mu x + B\cos\mu x)$</td></tr></tbody></table></div></div>
+<p>Values used repeatedly: $\cosh\mu x &gt; 0$ for all $x$, and $\sinh\mu x &gt; 0$ for $\mu x &gt; 0$. Derivative rule for $\cos$: chain rule $\frac{d}{dx}\cos(\mu x) = -\mu\sin(\mu x)$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Eigenvalue Cases (Negative, Zero, Positive)</div>
+<div class="sub-case-card"><div class="sub-case-header">(i) $\phi(0) = \phi(1) = 0$</div>
+<ul class="bullet-list"><li>$\lambda &lt; 0$: $\phi(0) = A = 0$. Then $\phi(1) = B\sinh\mu = 0$ with $\sinh\mu &gt; 0$, so $B = 0$. Only the trivial solution.</li><li>$\lambda = 0$: $\phi(0) = A = 0$, $\phi(1) = A + B = B = 0$. Trivial.</li><li>$\lambda &gt; 0$: $\phi(0) = A = 0$. Then $\phi(1) = B\sin\mu = 0$. A non-trivial solution needs $B \ne 0$, hence $\sin\mu = 0$, so $\mu = n\pi$ ($n = 1, 2, \dots$; $\mu &gt; 0$ excludes $n = 0$ and negative $n$ gives the same functions up to sign).</li></ul>
+<div class="result-box"><div class="result-box-title">(i)</div><p>$\lambda_n = n^2\pi^2,\quad \phi_n(x) = \sin(n\pi x),\quad n = 1, 2, 3, \dots$</p></div>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(ii) $\phi(0) = \phi'(1) = 0$</div>
+<ul class="bullet-list"><li>$\lambda &lt; 0$: $\phi(0) = A = 0$, so $\phi = B\sinh\mu x$ and $\phi'(1) = B\mu\cosh\mu = 0$. Since $\mu\cosh\mu &gt; 0$, $B = 0$. Trivial.</li><li>$\lambda = 0$: $A = 0$, and $\phi'(1) = B = 0$. Trivial.</li><li>$\lambda &gt; 0$: $A = 0$, $\phi = B\sin\mu x$, $\phi'(1) = B\mu\cos\mu = 0$. With $B \ne 0$ and $\mu &gt; 0$: $\cos\mu = 0$, so $\mu = \frac{(2n-1)\pi}{2}$.</li></ul>
+<div class="result-box"><div class="result-box-title">(ii)</div><p>$\lambda_n = \left(\dfrac{(2n-1)\pi}{2}\right)^2,\quad \phi_n(x) = \sin\!\left(\dfrac{(2n-1)\pi x}{2}\right),\quad n = 1, 2, 3, \dots$</p></div>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(iii) $\phi'(0) = \phi'(1) = 0$</div>
+<ul class="bullet-list"><li>$\lambda &lt; 0$: $\phi'(0) = \mu B = 0$ gives $B = 0$. Then $\phi'(1) = \mu A\sinh\mu = 0$ with $\sinh\mu &gt; 0$ gives $A = 0$. Trivial.</li><li>$\lambda = 0$: $\phi' = B$, so $\phi'(0) = \phi'(1) = B = 0$. This leaves $\phi = A$ with $A$ arbitrary, which is non-trivial.</li><li>$\lambda &gt; 0$: $\phi'(0) = \mu B = 0$ gives $B = 0$. Then $\phi'(1) = -\mu A\sin\mu = 0$ gives $\sin\mu = 0$, so $\mu = n\pi$, $n \ge 1$.</li></ul>
+<div class="warning-box"><div class="warning-box-title">$\lambda = 0$ is an eigenvalue here</div><p>Unlike (i), (ii) and (iv), the Neumann conditions admit the constant function. So $\lambda_0 = 0$, $\phi_0(x) = 1$. Dropping this case would lose the constant mode of every Fourier cosine series. Check: $\phi_0'' + 0\cdot\phi_0 = 0$ and $\phi_0'(0) = \phi_0'(1) = 0$.</p></div>
+<div class="result-box"><div class="result-box-title">(iii)</div><p>$\lambda_0 = 0,\ \phi_0(x) = 1$; and $\lambda_n = n^2\pi^2,\ \phi_n(x) = \cos(n\pi x)$, $n = 1, 2, 3, \dots$ (the formula $\cos(n\pi x)$ with $n = 0$ reproduces $\phi_0$).</p></div>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(iv) $\phi(0) = 0$ and $\phi'(1) + h\,\phi(1) = 0$, with $h &gt; 0$</div>
+<ul class="bullet-list"><li>$\lambda &lt; 0$: $A = 0$, $\phi = B\sinh\mu x$. The second condition is $B(\mu\cosh\mu + h\sinh\mu) = 0$. Since $\mu &gt; 0$, $h &gt; 0$, $\cosh\mu &gt; 0$, $\sinh\mu &gt; 0$, the bracket is strictly positive, so $B = 0$. Trivial.</li><li>$\lambda = 0$: $A = 0$, $\phi = Bx$, $\phi' = B$. Then $\phi'(1) + h\phi(1) = B + hB = B(1+h) = 0$ and $1 + h &gt; 0$, so $B = 0$. Trivial.</li><li>$\lambda &gt; 0$: $A = 0$, $\phi = B\sin\mu x$, and</li></ul>
+<p>$$ \phi'(1) + h\phi(1) = B\left(\mu\cos\mu + h\sin\mu\right) = 0. $$</p>
+<p>If $\cos\mu = 0$ then $\sin\mu = \pm 1$ and the bracket equals $\pm h \ne 0$, so $\cos\mu \ne 0$ at any eigenvalue. Dividing by $h\cos\mu$:</p>
+<p>$$ \tan\mu = -\frac{\mu}{h}. $$</p>
+<div class="note-box"><div class="note-box-title">Graphical location of the roots</div><p>Plot $y = \tan\mu$ and $y = -\mu/h$ for $\mu &gt; 0$.</p><ul class="bullet-list"><li>On $(0, \pi/2)$ and, in general, on $(n\pi, (2n+1)\pi/2)$: $\tan\mu &gt; 0$ while $-\mu/h &lt; 0$, so there is no intersection.</li><li>On $\left(\frac{(2n-1)\pi}{2}, n\pi\right)$: $\tan\mu$ rises continuously from $-\infty$ to $0$ while $-\mu/h$ is finite and negative. Define $f(\mu) = \tan\mu + \mu/h$. Then $f \to -\infty$ at the left end, $f(n\pi) = n\pi/h &gt; 0$ at the right end, so a root exists, and it is unique because $f'(\mu) = \sec^2\mu + 1/h &gt; 0$.</li></ul><p>Hence exactly one root $\mu_n$ lies in each interval $\left(\frac{(2n-1)\pi}{2}, n\pi\right)$, $n = 1, 2, \dots$ As $n \to \infty$, $-\mu_n/h \to -\infty$, so $\mu_n \to \frac{(2n-1)\pi}{2}$ from above.</p></div>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="100%" class="fig-kit" style="max-width:360px;margin:0 auto;display:block" role="img" aria-label="Exercise 1(iv): Graphical Robin eigenvalues">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<defs><clipPath id="clip-ch6-e1-iv"><rect x="46.0" y="20.0" width="300.0" height="242.0"/></clipPath></defs>
+<line x1="46.0" y1="141.0" x2="346.0" y2="141.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<rect x="46.0" y="20.0" width="300.0" height="242.0" fill="none" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="46.0" y1="262.0" x2="46.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="46.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">0</text>
+<line x1="96.0" y1="262.0" x2="96.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="96.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">π/2</text>
+<line x1="146.0" y1="262.0" x2="146.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="146.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">π</text>
+<line x1="196.0" y1="262.0" x2="196.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="196.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">3π/2</text>
+<line x1="246.0" y1="262.0" x2="246.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="246.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">2π</text>
+<line x1="296.0" y1="262.0" x2="296.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="296.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">5π/2</text>
+<line x1="346.0" y1="262.0" x2="346.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="346.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">3π</text>
+<line x1="42.0" y1="262.0" x2="46.0" y2="262.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="266.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">−10</text>
+<line x1="42.0" y1="201.5" x2="46.0" y2="201.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="205.5" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">−5</text>
+<line x1="42.0" y1="141.0" x2="46.0" y2="141.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="145.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">0</text>
+<line x1="42.0" y1="80.5" x2="46.0" y2="80.5" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="84.5" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">5</text>
+<line x1="42.0" y1="20.0" x2="46.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="24.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">10</text>
+<text x="346.0" y="293.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="end"><tspan font-style="italic">μ</tspan></text>
+<text x="46.0" y="13.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="start"><tspan font-style="italic">y</tspan></text>
+<g clip-path="url(#clip-ch6-e1-iv)">
+<line x1="96.0" y1="262.0" x2="96.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3 4"/>
+<line x1="196.0" y1="262.0" x2="196.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3 4"/>
+<line x1="296.0" y1="262.0" x2="296.0" y2="20.0" stroke="var(--text-faint)" stroke-width="1.0" stroke-dasharray="3 4"/>
+<polyline points="46.0,141.0 46.1,141.0 46.2,140.9 46.4,140.9 46.5,140.8 46.6,140.8 46.7,140.7 46.9,140.7 47.0,140.6 47.1,140.6 47.2,140.5 47.4,140.5 47.5,140.4 47.6,140.4 47.7,140.3 47.9,140.3 48.0,140.2 48.1,140.2 48.2,140.1 48.4,140.1 48.5,140.1 48.6,140.0 48.7,140.0 48.9,139.9 49.0,139.9 49.1,139.8 49.2,139.8 49.4,139.7 49.5,139.7 49.6,139.6 49.7,139.6 49.9,139.5 50.0,139.5 50.1,139.4 50.2,139.4 50.4,139.3 50.5,139.3 50.6,139.2 50.7,139.2 50.9,139.1 51.0,139.1 51.1,139.0 51.2,139.0 51.4,138.9 51.5,138.9 51.6,138.8 51.7,138.8 51.9,138.7 52.0,138.7 52.1,138.6 52.2,138.6 52.4,138.6 52.5,138.5 52.6,138.5 52.7,138.4 52.9,138.4 53.0,138.3 53.1,138.3 53.2,138.2 53.4,138.2 53.5,138.1 53.6,138.1 53.7,138.0 53.9,138.0 54.0,137.9 54.1,137.9 54.2,137.8 54.4,137.7 54.5,137.7 54.6,137.6 54.7,137.6 54.9,137.5 55.0,137.5 55.1,137.4 55.2,137.4 55.4,137.3 55.5,137.3 55.6,137.2 55.7,137.2 55.8,137.1 56.0,137.1 56.1,137.0 56.2,137.0 56.3,136.9 56.5,136.9 56.6,136.8 56.7,136.8 56.8,136.7 57.0,136.7 57.1,136.6 57.2,136.5 57.3,136.5 57.5,136.4 57.6,136.4 57.7,136.3 57.8,136.3 58.0,136.2 58.1,136.2 58.2,136.1 58.3,136.1 58.5,136.0 58.6,135.9 58.7,135.9 58.8,135.8 59.0,135.8 59.1,135.7 59.2,135.7 59.3,135.6 59.5,135.6 59.6,135.5 59.7,135.4 59.8,135.4 60.0,135.3 60.1,135.3 60.2,135.2 60.3,135.1 60.5,135.1 60.6,135.0 60.7,135.0 60.8,134.9 61.0,134.9 61.1,134.8 61.2,134.7 61.3,134.7 61.5,134.6 61.6,134.6 61.7,134.5 61.8,134.4 62.0,134.4 62.1,134.3 62.2,134.2 62.3,134.2 62.5,134.1 62.6,134.1 62.7,134.0 62.8,133.9 63.0,133.9 63.1,133.8 63.2,133.7 63.3,133.7 63.5,133.6 63.6,133.5 63.7,133.5 63.8,133.4 64.0,133.3 64.1,133.3 64.2,133.2 64.3,133.1 64.5,133.1 64.6,133.0 64.7,132.9 64.8,132.9 65.0,132.8 65.1,132.7 65.2,132.7 65.3,132.6 65.5,132.5 65.6,132.5 65.7,132.4 65.8,132.3 65.9,132.2 66.1,132.2 66.2,132.1 66.3,132.0 66.4,131.9 66.6,131.9 66.7,131.8 66.8,131.7 66.9,131.6 67.1,131.6 67.2,131.5 67.3,131.4 67.4,131.3 67.6,131.3 67.7,131.2 67.8,131.1 67.9,131.0 68.1,130.9 68.2,130.9 68.3,130.8 68.4,130.7 68.6,130.6 68.7,130.5 68.8,130.5 68.9,130.4 69.1,130.3 69.2,130.2 69.3,130.1 69.4,130.0 69.6,129.9 69.7,129.9 69.8,129.8 69.9,129.7 70.1,129.6 70.2,129.5 70.3,129.4 70.4,129.3 70.6,129.2 70.7,129.1 70.8,129.0 70.9,128.9 71.1,128.9 71.2,128.8 71.3,128.7 71.4,128.6 71.6,128.5 71.7,128.4 71.8,128.3 71.9,128.2 72.1,128.1 72.2,128.0 72.3,127.9 72.4,127.8 72.6,127.7 72.7,127.5 72.8,127.4 72.9,127.3 73.1,127.2 73.2,127.1 73.3,127.0 73.4,126.9 73.6,126.8 73.7,126.7 73.8,126.6 73.9,126.4 74.1,126.3 74.2,126.2 74.3,126.1 74.4,126.0 74.6,125.8 74.7,125.7 74.8,125.6 74.9,125.5 75.1,125.3 75.2,125.2 75.3,125.1 75.4,125.0 75.5,124.8 75.7,124.7 75.8,124.6 75.9,124.4 76.0,124.3 76.2,124.2 76.3,124.0 76.4,123.9 76.5,123.7 76.7,123.6 76.8,123.4 76.9,123.3 77.0,123.1 77.2,123.0 77.3,122.8 77.4,122.7 77.5,122.5 77.7,122.4 77.8,122.2 77.9,122.0 78.0,121.9 78.2,121.7 78.3,121.5 78.4,121.4 78.5,121.2 78.7,121.0 78.8,120.8 78.9,120.7 79.0,120.5 79.2,120.3 79.3,120.1 79.4,119.9 79.5,119.7 79.7,119.5 79.8,119.3 79.9,119.1 80.0,118.9 80.2,118.7 80.3,118.5 80.4,118.3 80.5,118.1 80.7,117.9 80.8,117.6 80.9,117.4 81.0,117.2 81.2,117.0 81.3,116.7 81.4,116.5 81.5,116.2 81.7,116.0 81.8,115.7 81.9,115.5 82.0,115.2 82.2,115.0 82.3,114.7 82.4,114.4 82.5,114.1 82.7,113.8 82.8,113.6 82.9,113.3 83.0,113.0 83.2,112.7 83.3,112.4 83.4,112.0 83.5,111.7 83.7,111.4 83.8,111.0 83.9,110.7 84.0,110.4 84.2,110.0 84.3,109.6 84.4,109.3 84.5,108.9 84.7,108.5 84.8,108.1 84.9,107.7 85.0,107.3 85.2,106.9 85.3,106.5 85.4,106.0 85.5,105.6 85.6,105.1 85.8,104.6 85.9,104.2 86.0,103.7 86.1,103.2 86.3,102.6 86.4,102.1 86.5,101.6 86.6,101.0 86.8,100.4 86.9,99.9 87.0,99.3 87.1,98.6 87.3,98.0 87.4,97.3 87.5,96.7 87.6,96.0 87.8,95.3 87.9,94.5 88.0,93.8 88.1,93.0 88.3,92.2 88.4,91.3 88.5,90.5 88.6,89.6 88.8,88.7 88.9,87.7 89.0,86.7 89.1,85.7 89.3,84.7 89.4,83.6 89.5,82.4 89.6,81.3 89.8,80.0 89.9,78.8 90.0,77.4 90.1,76.0 90.3,74.6 90.4,73.1 90.5,71.5 90.6,69.9 90.8,68.2 90.9,66.3 91.0,64.4 91.1,62.5 91.3,60.4 91.4,58.1 91.5,55.8 91.6,53.3 91.8,50.7 91.9,48.0 92.0,45.0 92.1,41.9 92.3,38.6 92.4,35.0 92.5,31.2 92.6,27.1 92.8,22.7 92.9,17.9 93.0,12.8 93.1,7.2 93.3,1.1 93.4,-5.6 93.5,-13.0 93.6,-21.1 93.8,-28.4 93.9,-28.4 94.0,-28.4 94.1,-28.4 94.3,-28.4 94.4,-28.4 94.5,-28.4 94.6,-28.4 94.8,-28.4 94.9,-28.4 95.0,-28.4 95.1,-28.4 95.2,-28.4 95.4,-28.4 95.5,-28.4 95.6,-28.4 95.7,-28.4 95.9,-28.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0" stroke-linejoin="round"/>
+<polyline points="96.1,310.4 96.4,310.4 96.6,310.4 96.9,310.4 97.1,310.4 97.4,310.4 97.6,310.4 97.9,310.4 98.1,310.4 98.4,303.1 98.6,287.6 98.9,274.8 99.1,264.1 99.4,254.9 99.6,247.0 99.9,240.1 100.1,234.0 100.4,228.7 100.6,223.9 100.9,219.5 101.1,215.7 101.4,212.1 101.6,208.9 101.9,206.0 102.1,203.2 102.4,200.7 102.6,198.4 102.9,196.3 103.1,194.3 103.4,192.4 103.6,190.7 103.9,189.0 104.1,187.5 104.4,186.0 104.6,184.7 104.9,183.4 105.1,182.1 105.4,181.0 105.6,179.9 105.9,178.8 106.1,177.8 106.4,176.9 106.6,176.0 106.8,175.1 107.1,174.3 107.3,173.5 107.6,172.7 107.8,172.0 108.1,171.3 108.3,170.6 108.6,170.0 108.8,169.3 109.1,168.7 109.3,168.2 109.6,167.6 109.8,167.0 110.1,166.5 110.3,166.0 110.6,165.5 110.8,165.0 111.1,164.6 111.3,164.1 111.6,163.7 111.8,163.3 112.1,162.9 112.3,162.5 112.6,162.1 112.8,161.7 113.1,161.3 113.3,161.0 113.6,160.6 113.8,160.3 114.1,160.0 114.3,159.6 114.6,159.3 114.8,159.0 115.1,158.7 115.3,158.4 115.6,158.1 115.8,157.8 116.1,157.6 116.3,157.3 116.6,157.0 116.8,156.8 117.1,156.5 117.3,156.3 117.6,156.0 117.8,155.8 118.1,155.6 118.3,155.3 118.6,155.1 118.8,154.9 119.1,154.7 119.3,154.5 119.6,154.2 119.8,154.0 120.1,153.8 120.3,153.6 120.6,153.4 120.8,153.2 121.1,153.1 121.3,152.9 121.6,152.7 121.8,152.5 122.1,152.3 122.3,152.1 122.6,152.0 122.8,151.8 123.1,151.6 123.3,151.5 123.6,151.3 123.8,151.1 124.1,151.0 124.3,150.8 124.6,150.7 124.8,150.5 125.1,150.4 125.3,150.2 125.6,150.1 125.8,149.9 126.1,149.8 126.3,149.6 126.5,149.5 126.8,149.3 127.0,149.2 127.3,149.1 127.5,148.9 127.8,148.8 128.0,148.7 128.3,148.5 128.5,148.4 128.8,148.3 129.0,148.1 129.3,148.0 129.5,147.9 129.8,147.8 130.0,147.6 130.3,147.5 130.5,147.4 130.8,147.3 131.0,147.1 131.3,147.0 131.5,146.9 131.8,146.8 132.0,146.7 132.3,146.6 132.5,146.4 132.8,146.3 133.0,146.2 133.3,146.1 133.5,146.0 133.8,145.9 134.0,145.8 134.3,145.7 134.5,145.6 134.8,145.5 135.0,145.3 135.3,145.2 135.5,145.1 135.8,145.0 136.0,144.9 136.3,144.8 136.5,144.7 136.8,144.6 137.0,144.5 137.3,144.4 137.5,144.3 137.8,144.2 138.0,144.1 138.3,144.0 138.5,143.9 138.8,143.8 139.0,143.7 139.3,143.6 139.5,143.5 139.8,143.4 140.0,143.3 140.3,143.2 140.5,143.1 140.8,143.0 141.0,142.9 141.3,142.8 141.5,142.7 141.8,142.6 142.0,142.5 142.3,142.4 142.5,142.3 142.8,142.2 143.0,142.1 143.3,142.0 143.5,141.9 143.8,141.9 144.0,141.8 144.3,141.7 144.5,141.6 144.8,141.5 145.0,141.4 145.3,141.3 145.5,141.2 145.8,141.1 146.0,141.0 146.2,140.9 146.5,140.8 146.7,140.7 147.0,140.6 147.2,140.5 147.5,140.4 147.7,140.3 148.0,140.2 148.2,140.1 148.5,140.1 148.7,140.0 149.0,139.9 149.2,139.8 149.5,139.7 149.7,139.6 150.0,139.5 150.2,139.4 150.5,139.3 150.7,139.2 151.0,139.1 151.2,139.0 151.5,138.9 151.7,138.8 152.0,138.7 152.2,138.6 152.5,138.5 152.7,138.4 153.0,138.3 153.2,138.2 153.5,138.1 153.7,138.0 154.0,137.9 154.2,137.8 154.5,137.7 154.7,137.6 155.0,137.5 155.2,137.4 155.5,137.3 155.7,137.2 156.0,137.1 156.2,137.0 156.5,136.9 156.7,136.8 157.0,136.7 157.2,136.5 157.5,136.4 157.7,136.3 158.0,136.2 158.2,136.1 158.5,136.0 158.7,135.9 159.0,135.8 159.2,135.7 159.5,135.6 159.7,135.4 160.0,135.3 160.2,135.2 160.5,135.1 160.7,135.0 161.0,134.9 161.2,134.7 161.5,134.6 161.7,134.5 162.0,134.4 162.2,134.2 162.5,134.1 162.7,134.0 163.0,133.9 163.2,133.7 163.5,133.6 163.7,133.5 164.0,133.3 164.2,133.2 164.5,133.1 164.7,132.9 165.0,132.8 165.2,132.7 165.5,132.5 165.7,132.4 165.9,132.2 166.2,132.1 166.4,131.9 166.7,131.8 166.9,131.6 167.2,131.5 167.4,131.3 167.7,131.2 167.9,131.0 168.2,130.9 168.4,130.7 168.7,130.5 168.9,130.4 169.2,130.2 169.4,130.0 169.7,129.9 169.9,129.7 170.2,129.5 170.4,129.3 170.7,129.1 170.9,128.9 171.2,128.8 171.4,128.6 171.7,128.4 171.9,128.2 172.2,128.0 172.4,127.8 172.7,127.5 172.9,127.3 173.2,127.1 173.4,126.9 173.7,126.7 173.9,126.4 174.2,126.2 174.4,126.0 174.7,125.7 174.9,125.5 175.2,125.2 175.4,125.0 175.7,124.7 175.9,124.4 176.2,124.2 176.4,123.9 176.7,123.6 176.9,123.3 177.2,123.0 177.4,122.7 177.7,122.4 177.9,122.0 178.2,121.7 178.4,121.4 178.7,121.0 178.9,120.7 179.2,120.3 179.4,119.9 179.7,119.5 179.9,119.1 180.2,118.7 180.4,118.3 180.7,117.9 180.9,117.4 181.2,117.0 181.4,116.5 181.7,116.0 181.9,115.5 182.2,115.0 182.4,114.4 182.7,113.8 182.9,113.3 183.2,112.7 183.4,112.0 183.7,111.4 183.9,110.7 184.2,110.0 184.4,109.3 184.7,108.5 184.9,107.7 185.2,106.9 185.4,106.0 185.6,105.1 185.9,104.2 186.1,103.2 186.4,102.1 186.6,101.0 186.9,99.9 187.1,98.6 187.4,97.3 187.6,96.0 187.9,94.5 188.1,93.0 188.4,91.3 188.6,89.6 188.9,87.7 189.1,85.7 189.4,83.6 189.6,81.3 189.9,78.8 190.1,76.0 190.4,73.1 190.6,69.9 190.9,66.3 191.1,62.5 191.4,58.1 191.6,53.3 191.9,48.0 192.1,41.9 192.4,35.0 192.6,27.1 192.9,17.9 193.1,7.2 193.4,-5.6 193.6,-21.1 193.9,-28.4 194.1,-28.4 194.4,-28.4 194.6,-28.4 194.9,-28.4 195.1,-28.4 195.4,-28.4 195.6,-28.4 195.9,-28.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0" stroke-linejoin="round"/>
+<polyline points="196.1,310.4 196.4,310.4 196.6,310.4 196.9,310.4 197.1,310.4 197.4,310.4 197.6,310.4 197.9,310.4 198.1,310.4 198.4,303.1 198.6,287.6 198.9,274.8 199.1,264.1 199.4,254.9 199.6,247.0 199.9,240.1 200.1,234.0 200.4,228.7 200.6,223.9 200.9,219.5 201.1,215.7 201.4,212.1 201.6,208.9 201.9,206.0 202.1,203.2 202.4,200.7 202.6,198.4 202.9,196.3 203.1,194.3 203.4,192.4 203.6,190.7 203.9,189.0 204.1,187.5 204.4,186.0 204.6,184.7 204.9,183.4 205.1,182.1 205.4,181.0 205.6,179.9 205.9,178.8 206.1,177.8 206.4,176.9 206.6,176.0 206.8,175.1 207.1,174.3 207.3,173.5 207.6,172.7 207.8,172.0 208.1,171.3 208.3,170.6 208.6,170.0 208.8,169.3 209.1,168.7 209.3,168.2 209.6,167.6 209.8,167.0 210.1,166.5 210.3,166.0 210.6,165.5 210.8,165.0 211.1,164.6 211.3,164.1 211.6,163.7 211.8,163.3 212.1,162.9 212.3,162.5 212.6,162.1 212.8,161.7 213.1,161.3 213.3,161.0 213.6,160.6 213.8,160.3 214.1,160.0 214.3,159.6 214.6,159.3 214.8,159.0 215.1,158.7 215.3,158.4 215.6,158.1 215.8,157.8 216.1,157.6 216.3,157.3 216.6,157.0 216.8,156.8 217.1,156.5 217.3,156.3 217.6,156.0 217.8,155.8 218.1,155.6 218.3,155.3 218.6,155.1 218.8,154.9 219.1,154.7 219.3,154.5 219.6,154.2 219.8,154.0 220.1,153.8 220.3,153.6 220.6,153.4 220.8,153.2 221.1,153.1 221.3,152.9 221.6,152.7 221.8,152.5 222.1,152.3 222.3,152.1 222.6,152.0 222.8,151.8 223.1,151.6 223.3,151.5 223.6,151.3 223.8,151.1 224.1,151.0 224.3,150.8 224.6,150.7 224.8,150.5 225.1,150.4 225.3,150.2 225.6,150.1 225.8,149.9 226.1,149.8 226.3,149.6 226.5,149.5 226.8,149.3 227.0,149.2 227.3,149.1 227.5,148.9 227.8,148.8 228.0,148.7 228.3,148.5 228.5,148.4 228.8,148.3 229.0,148.1 229.3,148.0 229.5,147.9 229.8,147.8 230.0,147.6 230.3,147.5 230.5,147.4 230.8,147.3 231.0,147.1 231.3,147.0 231.5,146.9 231.8,146.8 232.0,146.7 232.3,146.6 232.5,146.4 232.8,146.3 233.0,146.2 233.3,146.1 233.5,146.0 233.8,145.9 234.0,145.8 234.3,145.7 234.5,145.6 234.8,145.5 235.0,145.3 235.3,145.2 235.5,145.1 235.8,145.0 236.0,144.9 236.3,144.8 236.5,144.7 236.8,144.6 237.0,144.5 237.3,144.4 237.5,144.3 237.8,144.2 238.0,144.1 238.3,144.0 238.5,143.9 238.8,143.8 239.0,143.7 239.3,143.6 239.5,143.5 239.8,143.4 240.0,143.3 240.3,143.2 240.5,143.1 240.8,143.0 241.0,142.9 241.3,142.8 241.5,142.7 241.8,142.6 242.0,142.5 242.3,142.4 242.5,142.3 242.8,142.2 243.0,142.1 243.3,142.0 243.5,141.9 243.8,141.9 244.0,141.8 244.3,141.7 244.5,141.6 244.8,141.5 245.0,141.4 245.3,141.3 245.5,141.2 245.8,141.1 246.0,141.0 246.2,140.9 246.5,140.8 246.7,140.7 247.0,140.6 247.2,140.5 247.5,140.4 247.7,140.3 248.0,140.2 248.2,140.1 248.5,140.1 248.7,140.0 249.0,139.9 249.2,139.8 249.5,139.7 249.7,139.6 250.0,139.5 250.2,139.4 250.5,139.3 250.7,139.2 251.0,139.1 251.2,139.0 251.5,138.9 251.7,138.8 252.0,138.7 252.2,138.6 252.5,138.5 252.7,138.4 253.0,138.3 253.2,138.2 253.5,138.1 253.7,138.0 254.0,137.9 254.2,137.8 254.5,137.7 254.7,137.6 255.0,137.5 255.2,137.4 255.5,137.3 255.7,137.2 256.0,137.1 256.2,137.0 256.5,136.9 256.7,136.8 257.0,136.7 257.2,136.5 257.5,136.4 257.7,136.3 258.0,136.2 258.2,136.1 258.5,136.0 258.7,135.9 259.0,135.8 259.2,135.7 259.5,135.6 259.7,135.4 260.0,135.3 260.2,135.2 260.5,135.1 260.7,135.0 261.0,134.9 261.2,134.7 261.5,134.6 261.7,134.5 262.0,134.4 262.2,134.2 262.5,134.1 262.7,134.0 263.0,133.9 263.2,133.7 263.5,133.6 263.7,133.5 264.0,133.3 264.2,133.2 264.5,133.1 264.7,132.9 265.0,132.8 265.2,132.7 265.5,132.5 265.7,132.4 265.9,132.2 266.2,132.1 266.4,131.9 266.7,131.8 266.9,131.6 267.2,131.5 267.4,131.3 267.7,131.2 267.9,131.0 268.2,130.9 268.4,130.7 268.7,130.5 268.9,130.4 269.2,130.2 269.4,130.0 269.7,129.9 269.9,129.7 270.2,129.5 270.4,129.3 270.7,129.1 270.9,128.9 271.2,128.8 271.4,128.6 271.7,128.4 271.9,128.2 272.2,128.0 272.4,127.8 272.7,127.5 272.9,127.3 273.2,127.1 273.4,126.9 273.7,126.7 273.9,126.4 274.2,126.2 274.4,126.0 274.7,125.7 274.9,125.5 275.2,125.2 275.4,125.0 275.7,124.7 275.9,124.4 276.2,124.2 276.4,123.9 276.7,123.6 276.9,123.3 277.2,123.0 277.4,122.7 277.7,122.4 277.9,122.0 278.2,121.7 278.4,121.4 278.7,121.0 278.9,120.7 279.2,120.3 279.4,119.9 279.7,119.5 279.9,119.1 280.2,118.7 280.4,118.3 280.7,117.9 280.9,117.4 281.2,117.0 281.4,116.5 281.7,116.0 281.9,115.5 282.2,115.0 282.4,114.4 282.7,113.8 282.9,113.3 283.2,112.7 283.4,112.0 283.7,111.4 283.9,110.7 284.2,110.0 284.4,109.3 284.7,108.5 284.9,107.7 285.2,106.9 285.4,106.0 285.6,105.1 285.9,104.2 286.1,103.2 286.4,102.1 286.6,101.0 286.9,99.9 287.1,98.6 287.4,97.3 287.6,96.0 287.9,94.5 288.1,93.0 288.4,91.3 288.6,89.6 288.9,87.7 289.1,85.7 289.4,83.6 289.6,81.3 289.9,78.8 290.1,76.0 290.4,73.1 290.6,69.9 290.9,66.3 291.1,62.5 291.4,58.1 291.6,53.3 291.9,48.0 292.1,41.9 292.4,35.0 292.6,27.1 292.9,17.9 293.1,7.2 293.4,-5.6 293.6,-21.1 293.9,-28.4 294.1,-28.4 294.4,-28.4 294.6,-28.4 294.9,-28.4 295.1,-28.4 295.4,-28.4 295.6,-28.4 295.9,-28.4" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0" stroke-linejoin="round"/>
+<polyline points="296.1,310.4 296.3,310.4 296.4,310.4 296.5,310.4 296.6,310.4 296.8,310.4 296.9,310.4 297.0,310.4 297.1,310.4 297.2,310.4 297.4,310.4 297.5,310.4 297.6,310.4 297.7,310.4 297.9,310.4 298.0,310.4 298.1,310.4 298.2,310.4 298.4,303.1 298.5,295.0 298.6,287.6 298.7,280.9 298.9,274.8 299.0,269.2 299.1,264.1 299.2,259.3 299.4,254.9 299.5,250.8 299.6,247.0 299.7,243.4 299.9,240.1 300.0,237.0 300.1,234.0 300.2,231.3 300.4,228.7 300.5,226.2 300.6,223.9 300.7,221.6 300.9,219.5 301.0,217.6 301.1,215.7 301.2,213.8 301.4,212.1 301.5,210.5 301.6,208.9 301.7,207.4 301.9,206.0 302.0,204.6 302.1,203.2 302.2,202.0 302.4,200.7 302.5,199.6 302.6,198.4 302.7,197.3 302.9,196.3 303.0,195.3 303.1,194.3 303.2,193.3 303.4,192.4 303.5,191.5 303.6,190.7 303.7,189.8 303.9,189.0 304.0,188.2 304.1,187.5 304.2,186.7 304.4,186.0 304.5,185.3 304.6,184.7 304.7,184.0 304.9,183.4 305.0,182.7 305.1,182.1 305.2,181.6 305.4,181.0 305.5,180.4 305.6,179.9 305.7,179.4 305.9,178.8 306.0,178.3 306.1,177.8 306.2,177.4 306.4,176.9 306.5,176.4 306.6,176.0 306.7,175.5 306.8,175.1 307.0,174.7 307.1,174.3 307.2,173.9 307.3,173.5 307.5,173.1 307.6,172.7 307.7,172.4 307.8,172.0 308.0,171.6 308.1,171.3 308.2,171.0 308.3,170.6 308.5,170.3 308.6,170.0 308.7,169.6 308.8,169.3 309.0,169.0 309.1,168.7 309.2,168.4 309.3,168.2 309.5,167.9 309.6,167.6 309.7,167.3 309.8,167.0 310.0,166.8 310.1,166.5 310.2,166.3 310.3,166.0 310.5,165.8 310.6,165.5 310.7,165.3 310.8,165.0 311.0,164.8 311.1,164.6 311.2,164.4 311.3,164.1 311.5,163.9 311.6,163.7 311.7,163.5 311.8,163.3 312.0,163.1 312.1,162.9 312.2,162.7 312.3,162.5 312.5,162.3 312.6,162.1 312.7,161.9 312.8,161.7 313.0,161.5 313.1,161.3 313.2,161.2 313.3,161.0 313.5,160.8 313.6,160.6 313.7,160.5 313.8,160.3 314.0,160.1 314.1,160.0 314.2,159.8 314.3,159.6 314.5,159.5 314.6,159.3 314.7,159.2 314.8,159.0 315.0,158.9 315.1,158.7 315.2,158.6 315.3,158.4 315.5,158.3 315.6,158.1 315.7,158.0 315.8,157.8 316.0,157.7 316.1,157.6 316.2,157.4 316.3,157.3 316.5,157.2 316.6,157.0 316.7,156.9 316.8,156.8 316.9,156.7 317.1,156.5 317.2,156.4 317.3,156.3 317.4,156.2 317.6,156.0 317.7,155.9 317.8,155.8 317.9,155.7 318.1,155.6 318.2,155.4 318.3,155.3 318.4,155.2 318.6,155.1 318.7,155.0 318.8,154.9 318.9,154.8 319.1,154.7 319.2,154.6 319.3,154.5 319.4,154.3 319.6,154.2 319.7,154.1 319.8,154.0 319.9,153.9 320.1,153.8 320.2,153.7 320.3,153.6 320.4,153.5 320.6,153.4 320.7,153.3 320.8,153.2 320.9,153.1 321.1,153.1 321.2,153.0 321.3,152.9 321.4,152.8 321.6,152.7 321.7,152.6 321.8,152.5 321.9,152.4 322.1,152.3 322.2,152.2 322.3,152.1 322.4,152.1 322.6,152.0 322.7,151.9 322.8,151.8 322.9,151.7 323.1,151.6 323.2,151.5 323.3,151.5 323.4,151.4 323.6,151.3 323.7,151.2 323.8,151.1 323.9,151.1 324.1,151.0 324.2,150.9 324.3,150.8 324.4,150.7 324.6,150.7 324.7,150.6 324.8,150.5 324.9,150.4 325.1,150.4 325.2,150.3 325.3,150.2 325.4,150.1 325.6,150.1 325.7,150.0 325.8,149.9 325.9,149.8 326.1,149.8 326.2,149.7 326.3,149.6 326.4,149.5 326.5,149.5 326.7,149.4 326.8,149.3 326.9,149.3 327.0,149.2 327.2,149.1 327.3,149.1 327.4,149.0 327.5,148.9 327.7,148.9 327.8,148.8 327.9,148.7 328.0,148.7 328.2,148.6 328.3,148.5 328.4,148.5 328.5,148.4 328.7,148.3 328.8,148.3 328.9,148.2 329.0,148.1 329.2,148.1 329.3,148.0 329.4,147.9 329.5,147.9 329.7,147.8 329.8,147.8 329.9,147.7 330.0,147.6 330.2,147.6 330.3,147.5 330.4,147.4 330.5,147.4 330.7,147.3 330.8,147.3 330.9,147.2 331.0,147.1 331.2,147.1 331.3,147.0 331.4,147.0 331.5,146.9 331.7,146.9 331.8,146.8 331.9,146.7 332.0,146.7 332.2,146.6 332.3,146.6 332.4,146.5 332.5,146.4 332.7,146.4 332.8,146.3 332.9,146.3 333.0,146.2 333.2,146.2 333.3,146.1 333.4,146.1 333.5,146.0 333.7,145.9 333.8,145.9 333.9,145.8 334.0,145.8 334.2,145.7 334.3,145.7 334.4,145.6 334.5,145.6 334.7,145.5 334.8,145.5 334.9,145.4 335.0,145.3 335.2,145.3 335.3,145.2 335.4,145.2 335.5,145.1 335.7,145.1 335.8,145.0 335.9,145.0 336.0,144.9 336.2,144.9 336.3,144.8 336.4,144.8 336.5,144.7 336.6,144.7 336.8,144.6 336.9,144.6 337.0,144.5 337.1,144.5 337.3,144.4 337.4,144.4 337.5,144.3 337.6,144.3 337.8,144.2 337.9,144.1 338.0,144.1 338.1,144.0 338.3,144.0 338.4,143.9 338.5,143.9 338.6,143.8 338.8,143.8 338.9,143.7 339.0,143.7 339.1,143.6 339.3,143.6 339.4,143.5 339.5,143.5 339.6,143.4 339.8,143.4 339.9,143.4 340.0,143.3 340.1,143.3 340.3,143.2 340.4,143.2 340.5,143.1 340.6,143.1 340.8,143.0 340.9,143.0 341.0,142.9 341.1,142.9 341.3,142.8 341.4,142.8 341.5,142.7 341.6,142.7 341.8,142.6 341.9,142.6 342.0,142.5 342.1,142.5 342.3,142.4 342.4,142.4 342.5,142.3 342.6,142.3 342.8,142.2 342.9,142.2 343.0,142.1 343.1,142.1 343.3,142.0 343.4,142.0 343.5,141.9 343.6,141.9 343.8,141.9 343.9,141.8 344.0,141.8 344.1,141.7 344.3,141.7 344.4,141.6 344.5,141.6 344.6,141.5 344.8,141.5 344.9,141.4 345.0,141.4 345.1,141.3 345.3,141.3 345.4,141.2 345.5,141.2 345.6,141.1 345.8,141.1 345.9,141.0 346.0,141.0" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="2.0" stroke-linejoin="round"/>
+<polyline points="46.0,141.0 346.0,255.0" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-linejoin="round"/>
+</g>
+<line x1="110.6" y1="165.5" x2="110.6" y2="141.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.0" stroke-dasharray="2 3"/>
+<circle cx="110.6" cy="165.5" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="110.6" y="134.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="600" text-anchor="middle">μ<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="202.4" y1="200.4" x2="202.4" y2="141.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.0" stroke-dasharray="2 3"/>
+<circle cx="202.4" cy="200.4" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="202.4" y="134.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="600" text-anchor="middle">μ<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="300.0" y1="237.5" x2="300.0" y2="141.0" stroke="var(--fig-pink, #ec4899)" stroke-width="1.0" stroke-dasharray="2 3"/>
+<circle cx="300.0" cy="237.5" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="300.0" y="134.0" fill="var(--fig-pink, #ec4899)" font-size="13" font-weight="600" text-anchor="middle">μ<tspan baseline-shift="sub" font-size="72%">3</tspan></text>
+<line x1="46.0" y1="308.0" x2="66.0" y2="308.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<text x="72.0" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">tan <tspan font-style="italic">μ</tspan></text>
+<line x1="122.0" y1="308.0" x2="142.0" y2="308.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8"/>
+<text x="148.0" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">−<tspan font-style="italic">μ</tspan></text>
+</g></svg></div><div class="diagram-caption">Intersections of $y = \tan\mu$ and $y = -\mu/h$: one root $\mu_n$ in each interval $((2n-1)\pi/2,\ n\pi)$.</div><a class="diagram-open" href="../../../vault/attachments/AM-PS/ch6-e1-iv.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
+<div class="result-box"><div class="result-box-title">(iv)</div><p>$\lambda_n = \mu_n^2$ with $\mu_n$ the unique root of $\tan\mu = -\mu/h$ in $\left(\frac{(2n-1)\pi}{2}, n\pi\right)$, and $\phi_n(x) = \sin(\mu_n x)$, $n = 1, 2, 3, \dots$. No eigenvalue satisfies $\lambda \le 0$ when $h &gt; 0$.</p></div>
+</div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Eigenfunctions and Checks</div>
+<ul class="bullet-list"><li>Limiting cases in (iv): dividing the condition $\mu\cos\mu + h\sin\mu = 0$ by $h$ and letting $h \to \infty$ gives $\sin\mu = 0$, so $\mu_n \to n\pi$ (the condition becomes $\phi(1) = 0$, recovering (i)). Letting $h \to 0^+$ gives $\mu\cos\mu = 0$, so $\mu_n \to \frac{(2n-1)\pi}{2}$ (the condition becomes $\phi'(1) = 0$, recovering (ii)). Both limits are the end points of the interval $\left(\frac{(2n-1)\pi}{2}, n\pi\right)$ that contains $\mu_n$.</li><li>Dimensions: $\lambda\,[\mathrm{L}^{-2}]$ since $\phi'' \sim \phi/\mathrm{L}^2$; with $x$ non-dimensionalised by the length, $\mu$ is dimensionless, as is $h$ (units $\mathrm{L}^{-1}$ before scaling).</li><li>Orthogonality with weight $\sigma = 1$: e.g. (i), $\int_0^1\sin(n\pi x)\sin(m\pi x)\,dx = \frac12\delta_{nm}$. Barrow check for $n \ne m$: $\frac12\left[\frac{\sin((n-m)\pi x)}{(n-m)\pi} - \frac{\sin((n+m)\pi x)}{(n+m)\pi}\right]_0^1 = 0$.</li><li>Sign of $\lambda$: the Rayleigh quotient with $p = 1$, $q = 0$ gives $\lambda = \frac{\int(\phi')^2 + h\phi(1)^2}{\int\phi^2} &gt; 0$ in (iv) (boundary term $-[\phi\phi']_0^1 = h\phi(1)^2$ for $h &gt; 0$), which agrees with the direct proof that no $\lambda \le 0$ exists.</li></ul>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e2">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 2</div>
+          <h2 class="problem-title">Non-Standard Constant-Coefficient Eigenvalue Problems</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf</a>
+        </div>
+        <span class="problem-meta-badge">Eigenvalue problems with first-derivative term</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Determine the eigenvalues and eigenfunctions of the following problems:</p><ol class="num-list"><li>$y''(x) + y'(x) + (1+\lambda)\,y(x) = 0,\quad y(0) = y(1) = 0$;</li><li>$y''(x) + 2y'(x) + (1-\lambda)\,y(x) = 0,\quad y(0) = y'(1) = 0$;</li><li>$y''(x) - 3y'(x) + 3(1+\lambda)\,y(x) = 0,\quad y'(0) = y'(1) = 0$.</li></ol></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Formulation and Sturm-Liouville Structure</div>
+<p>Each equation has the form $y'' + \alpha y' + [\lambda\beta + \gamma]y = 0$ with constant $\alpha, \beta, \gamma$. The integrating factor $\mu(x) = e^{\alpha x}$ (derived in Problem - Ch6-P3 Integrating Factor for Sturm-Liouville Self-Adjoint Form) turns it into $[\mu y']' + [\lambda\mu\beta + \mu\gamma]y = 0$:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Part</th><th>$\alpha$</th><th>$\beta$</th><th>$\gamma$</th><th>$p = \mu$</th><th>$\sigma = \mu\beta$</th><th>$q = \mu\gamma$</th></tr></thead><tbody><tr><td>(i)</td><td>$1$</td><td>$1$</td><td>$1$</td><td>$e^{x}$</td><td>$e^{x}$</td><td>$e^{x}$</td></tr><tr><td>(ii)</td><td>$2$</td><td>$-1$</td><td>$1$</td><td>$e^{2x}$</td><td>$-e^{2x}$</td><td>$e^{2x}$</td></tr><tr><td>(iii)</td><td>$-3$</td><td>$3$</td><td>$3$</td><td>$e^{-3x}$</td><td>$3e^{-3x}$</td><td>$3e^{-3x}$</td></tr></tbody></table></div>
+<p>The characteristic polynomial $r^2 + \alpha r + (\lambda\beta + \gamma) = 0$ has discriminant $\Delta = \alpha^2 - 4(\lambda\beta+\gamma)$. All three signs of $\Delta$ are examined in each part; the value of $\lambda$ at which $\Delta$ changes sign is found first. Method: Notes09-12-Nov.pdf (Sturm-Liouville section; page to be confirmed); Haberman, Sec. 5.3.</p>
+<div class="warning-box"><div class="warning-box-title">Sign of $\sigma$ in (ii)</div><p>In (ii) the coefficient of $y$ is $(1 - \lambda)$, so $\sigma = -e^{2x} &lt; 0$. The usual argument "$\lambda &gt; 0$ for $p, \sigma &gt; 0$" is reversed: the eigenvalues turn out to be non-positive.</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Eigenvalue Cases (Negative, Zero, Positive)</div>
+<div class="sub-case-card"><div class="sub-case-header">(i) $y'' + y' + (1+\lambda)y = 0$, $y(0) = y(1) = 0$</div>
+<p>Roots: $r = \dfrac{-1 \pm \sqrt{1 - 4(1+\lambda)}}{2} = \dfrac{-1 \pm \sqrt{-3-4\lambda}}{2}$, so $\Delta = -3 - 4\lambda$.</p>
+<ul class="bullet-list"><li>$\Delta &gt; 0$, i.e. $\lambda &lt; -3/4$. Put $\nu = \tfrac12\sqrt{-3-4\lambda} &gt; 0$. Then $y = e^{-x/2}(A\cosh\nu x + B\sinh\nu x)$. $y(0) = A = 0$; $y(1) = Be^{-1/2}\sinh\nu = 0$ with $\sinh\nu &gt; 0$, so $B = 0$. Trivial.</li><li>$\Delta = 0$, i.e. $\lambda = -3/4$. Then $y = e^{-x/2}(c_1 + c_2 x)$. $y(0) = c_1 = 0$; $y(1) = c_2e^{-1/2} = 0$ gives $c_2 = 0$. Trivial.</li><li>$\Delta &lt; 0$, i.e. $\lambda &gt; -3/4$. Put $\omega^2 = \lambda + \tfrac34 &gt; 0$, so $\sqrt{\Delta} = 2i\omega$ and $r = -\tfrac12 \pm i\omega$. Then $y = e^{-x/2}(A\cos\omega x + B\sin\omega x)$. $y(0) = A = 0$; $y(1) = Be^{-1/2}\sin\omega = 0$, so $\sin\omega = 0$ and $\omega = n\pi$, $n \ge 1$.</li></ul>
+<div class="result-box"><div class="result-box-title">(i)</div><p>$\lambda_n = n^2\pi^2 - \dfrac34,\quad y_n(x) = e^{-x/2}\sin(n\pi x),\quad n = 1, 2, 3, \dots$</p></div>
+<p>Check of the ODE for $y_n$: $y' = e^{-x/2}\left(-\tfrac12\sin\omega x + \omega\cos\omega x\right)$ (product rule), $y'' = e^{-x/2}\left[\left(\tfrac14 - \omega^2\right)\sin\omega x - \omega\cos\omega x\right]$. Then $y'' + y' + (1+\lambda)y = e^{-x/2}\sin\omega x\left[\tfrac14 - \omega^2 - \tfrac12 + 1 + \lambda\right] + e^{-x/2}\cos\omega x[-\omega + \omega] = e^{-x/2}\sin\omega x\,[\lambda + \tfrac34 - \omega^2] = 0$. ✓.</p>
+<p>Orthogonality weight $\sigma = e^{x}$: $\int_0^1 e^{x}y_ny_m\,dx = \int_0^1 e^{x}e^{-x}\sin(n\pi x)\sin(m\pi x)\,dx = \tfrac12\delta_{nm}$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(ii) $y'' + 2y' + (1-\lambda)y = 0$, $y(0) = y'(1) = 0$</div>
+<p>Roots: $r^2 + 2r + (1-\lambda) = 0$ gives $r = -1 \pm \sqrt{\lambda}$ (here $\Delta = 4\lambda$).</p>
+<ul class="bullet-list"><li>$\lambda &gt; 0$ ($\Delta &gt; 0$). Put $s = \sqrt\lambda &gt; 0$: $y = e^{-x}(A\cosh sx + B\sinh sx)$; $y(0) = A = 0$, so $y = Be^{-x}\sinh sx$. By the product rule $y' = Be^{-x}(s\cosh sx - \sinh sx)$, so</li></ul>
+<p>$$ y'(1) = Be^{-1}\left(s\cosh s - \sinh s\right) = 0 \iff \tanh s = s. $$</p>
+<p>Define $g(u) = u - \tanh u$. Then $g(0) = 0$ and $g'(u) = 1 - \operatorname{sech}^2 u = \tanh^2 u &gt; 0$ for $u &gt; 0$. Hence $g$ is strictly increasing, so $g(u) &gt; 0$ and $\tanh u &lt; u$ for all $u &gt; 0$. The equation $\tanh s = s$ has no solution with $s &gt; 0$, so $B = 0$. No eigenvalue with $\lambda &gt; 0$.</p>
+<ul class="bullet-list"><li>$\lambda = 0$ ($\Delta = 0$). $y = e^{-x}(c_1 + c_2x)$. $y(0) = c_1 = 0$. Then $y = c_2xe^{-x}$ and $y' = c_2(1-x)e^{-x}$, so $y'(1) = c_2\cdot 0 = 0$ for every $c_2$. The boundary condition holds identically.</li></ul>
+<div class="warning-box"><div class="warning-box-title">$\lambda = 0$ is an eigenvalue</div><p>$y_0(x) = xe^{-x}$ satisfies $y_0'' + 2y_0' + y_0 = 0$ (since $(r+1)^2 = 0$ with double root $-1$), $y_0(0) = 0$ and $y_0'(1) = (1-1)e^{-1} = 0$. It is non-trivial, so $\lambda_0 = 0$ is an eigenvalue. This is the limit $s \to 0$ of the root condition $s\cosh s - \sinh s = 0$, which vanishes at $s = 0$ because $g(0) = 0$.</p></div>
+<ul class="bullet-list"><li>$\lambda &lt; 0$ ($\Delta &lt; 0$). Put $\lambda = -\omega^2$, $\omega &gt; 0$: $r = -1 \pm i\omega$, $y = e^{-x}(A\cos\omega x + B\sin\omega x)$. $y(0) = A = 0$, $y = Be^{-x}\sin\omega x$, $y' = Be^{-x}(\omega\cos\omega x - \sin\omega x)$, and</li></ul>
+<p>$$ y'(1) = Be^{-1}(\omega\cos\omega - \sin\omega) = 0 \iff \tan\omega = \omega \quad(\cos\omega \ne 0,\text{ otherwise }\sin\omega = \pm1\ne 0). $$</p>
+<div class="note-box"><div class="note-box-title">Location of the roots of $\tan\omega = \omega$</div><p>Let $h(\omega) = \tan\omega - \omega$, with $h'(\omega) = \tan^2\omega \ge 0$.</p><ul class="bullet-list"><li>On $(0, \pi/2)$: $h(0) = 0$ and $h' &gt; 0$ for $\omega &gt; 0$, so $h &gt; 0$: no positive root.</li><li>On $(n\pi - \pi/2,\ n\pi)$: $\tan\omega \le 0 &lt; \omega$, so $h &lt; 0$: no root.</li><li>On $\left(n\pi,\ n\pi + \tfrac\pi2\right)$, $n \ge 1$: $h(n\pi) = -n\pi &lt; 0$ and $h \to +\infty$ at the right end; $h$ is strictly increasing, so exactly one root $\omega_n$.</li></ul><p>So $\omega_n \in \left(n\pi, \left(n+\tfrac12\right)\pi\right)$: $\omega_1 \approx 4.4934\in(\pi, 3\pi/2)$, $\omega_2 \approx 7.7253$, and $\omega_n \to \left(n+\tfrac12\right)\pi$.</p></div>
+<div class="result-box"><div class="result-box-title">(ii)</div><p>$\lambda_0 = 0,\ y_0(x) = xe^{-x}$; and $\lambda_n = -\omega_n^2 &lt; 0,\ y_n(x) = e^{-x}\sin(\omega_nx)$, with $\omega_n$ the root of $\tan\omega = \omega$ in $\left(n\pi, (n+\tfrac12)\pi\right)$, $n = 1, 2, \dots$</p></div>
+<p>Why the eigenvalues are non-positive: $\sigma = -e^{2x} &lt; 0$ (see the table), so the roles of $\lambda$ and $-\lambda$ swap relative to the standard problem. With $y = e^{-x}u$ (Liouville shift, see Problem - Ch6-P3 Integrating Factor for Sturm-Liouville Self-Adjoint Form) the equation becomes $u'' - \lambda u = 0$ with $u(0) = 0$, $u'(1) = u(1)$ (Robin), whose eigenvalue parameter is $-\lambda$, which is $\ge 0$.</p>
+<p>Orthogonality, weight $|\sigma| = e^{2x}$: $\int_0^1 e^{2x}y_ny_m\,dx = \int_0^1\sin(\omega_nx)\sin(\omega_mx)\,dx = 0$ for $n \ne m$ (Robin-type problem). Direct check with $y_0$: $\int_0^1 e^{2x}\,xe^{-x}\,e^{-x}\sin\omega_nx\,dx = \int_0^1 x\sin\omega_nx\,dx = \left[-\dfrac{x\cos\omega_nx}{\omega_n}\right]_0^1 + \dfrac1{\omega_n}\int_0^1\cos\omega_nx\,dx = -\dfrac{\cos\omega_n}{\omega_n} + \dfrac{\sin\omega_n}{\omega_n^2}$, which is $0$ because $\sin\omega_n = \omega_n\cos\omega_n$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(iii) $y'' - 3y' + 3(1+\lambda)y = 0$, $y'(0) = y'(1) = 0$</div>
+<p>Roots: $r = \dfrac{3 \pm \sqrt{9 - 12(1+\lambda)}}{2} = \dfrac{3 \pm \sqrt{-3-12\lambda}}{2}$, so $\Delta = -3 - 12\lambda$.</p>
+<ul class="bullet-list"><li>$\Delta &gt; 0$, i.e. $\lambda &lt; -1/4$. Put $\mu = \tfrac12\sqrt{-3-12\lambda} = \sqrt{-\tfrac34 - 3\lambda} &gt; 0$, so $r = \tfrac32 \pm \mu$ and $y = e^{3x/2}(A\cosh\mu x + B\sinh\mu x)$. By the product rule</li></ul>
+<p>$$ y' = e^{3x/2}\left[\tfrac32(A\cosh\mu x + B\sinh\mu x) + \mu(A\sinh\mu x + B\cosh\mu x)\right]. $$</p>
+<p>$y'(0) = 0$: $\tfrac32A + \mu B = 0$. $y'(1) = 0$: $A\left(\tfrac32\cosh\mu + \mu\sinh\mu\right) + B\left(\tfrac32\sinh\mu + \mu\cosh\mu\right) = 0$. The determinant of the $2\times2$ system in $(A, B)$ is</p>
+<p>$$ \tfrac32\left(\tfrac32\sinh\mu + \mu\cosh\mu\right) - \mu\left(\tfrac32\cosh\mu + \mu\sinh\mu\right) = \left(\tfrac94 - \mu^2\right)\sinh\mu. $$</p>
+<p>With $\sinh\mu &gt; 0$, a non-trivial solution exists only if $\mu = \tfrac32$, that is $-\tfrac34 - 3\lambda = \tfrac94$, so $\lambda = -1$ (consistent with $\lambda &lt; -1/4$). Then $A = -\tfrac{2\mu}{3}B = -B$ and</p>
+<p>$$ y = B e^{3x/2}\left(\sinh\tfrac{3x}{2} - \cosh\tfrac{3x}{2}\right) = -B e^{3x/2}e^{-3x/2} = -B. $$</p>
+<div class="warning-box"><div class="warning-box-title">A negative eigenvalue with a constant eigenfunction</div><p>At $\lambda = -1$ the equation is $y'' - 3y' = 0$, with general solution $y = c_1 + c_2e^{3x}$. $y' = 3c_2e^{3x}$ and $y'(0) = 3c_2 = 0$ gives $c_2 = 0$, then $y'(1) = 0$ holds. So $y_0(x) = 1$ is an eigenfunction at $\lambda_0 = -1$. Check: $y_0'' - 3y_0' + 3(1 + (-1))y_0 = 0$ ✓, $y_0'(0) = y_0'(1) = 0$ ✓.</p></div>
+<ul class="bullet-list"><li>$\Delta = 0$, i.e. $\lambda = -1/4$. $y = e^{3x/2}(c_1 + c_2x)$, $y' = e^{3x/2}\left[\tfrac32c_1 + \tfrac32c_2x + c_2\right]$. $y'(0) = \tfrac32c_1 + c_2 = 0$; $y'(1) = e^{3/2}\left[\tfrac32c_1 + \tfrac52c_2\right] = 0$. Subtracting: $\tfrac32c_2 = 0$, so $c_2 = 0$ and $c_1 = 0$. Trivial.</li><li>$\Delta &lt; 0$, i.e. $\lambda &gt; -1/4$. Put $\omega^2 = 3\lambda + \tfrac34 &gt; 0$, so $r = \tfrac32 \pm i\omega$ and $y = e^{3x/2}(A\cos\omega x + B\sin\omega x)$. Then</li></ul>
+<p>$$ y' = e^{3x/2}\left[\left(\tfrac32A + \omega B\right)\cos\omega x + \left(\tfrac32B - \omega A\right)\sin\omega x\right]. $$</p>
+<p>$y'(0) = \tfrac32A + \omega B = 0$. With this condition the coefficient of $\cos\omega x$ in $y'$ is exactly $0$, so $y'(1) = e^{3/2}\left(\tfrac32B - \omega A\right)\sin\omega = 0$. If $\tfrac32B - \omega A = 0$, then together with $\tfrac32A + \omega B = 0$ the matrix $\begin{pmatrix}\tfrac32 &amp; \omega\\ -\omega &amp; \tfrac32\end{pmatrix}$ has determinant $\tfrac94 + \omega^2 &gt; 0$, so $A = B = 0$ (trivial). Hence $\sin\omega = 0$, $\omega = n\pi$, $n \ge 1$, and $\lambda_n = \dfrac{n^2\pi^2 - 3/4}{3} = \dfrac{n^2\pi^2}{3} - \dfrac14$. Choose $A = 1$; then $B = -\dfrac{3}{2n\pi}$.</p>
+<div class="result-box"><div class="result-box-title">(iii)</div><p>$\lambda_0 = -1,\ y_0(x) = 1$; and $\lambda_n = \dfrac{n^2\pi^2}{3} - \dfrac14,\quad y_n(x) = e^{3x/2}\left[\cos(n\pi x) - \dfrac{3}{2n\pi}\sin(n\pi x)\right],\quad n = 1, 2, \dots$</p></div>
+</div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Eigenfunctions and Checks</div>
+<ul class="bullet-list"><li>Boundary conditions of $y_n$ in (iii), explicitly: $y_n'(0) = \tfrac32\cdot1 + n\pi\left(-\tfrac{3}{2n\pi}\right) = 0$ ✓; $y_n'(1) = e^{3/2}\left[0\cdot\cos n\pi + \left(-\tfrac{9}{4n\pi} - n\pi\right)\sin n\pi\right] = 0$ ✓ (first bracket is $0$, second multiplies $\sin n\pi = 0$).</li><li>Orthogonality in (iii), weight $\sigma = 3e^{-3x}$: $y_0 = 1$ against $y_n$ gives $\int_0^1 e^{-3x}e^{3x/2}\left[\cos n\pi x - \tfrac{3}{2n\pi}\sin n\pi x\right]dx = \int_0^1\dfrac{1}{n\pi}\dfrac{d}{dx}\left[e^{-3x/2}\sin n\pi x\right]dx$, because $\dfrac{d}{dx}\left[e^{-3x/2}\sin n\pi x\right] = e^{-3x/2}\left(n\pi\cos n\pi x - \tfrac32\sin n\pi x\right)$. By Barrow's rule the value is $\dfrac1{n\pi}\left[e^{-3x/2}\sin n\pi x\right]_0^1 = 0$ ✓.</li><li>Liouville-shift check ($y = e^{-\alpha x/2}u$ gives $u'' + [\lambda\beta + \gamma - \alpha^2/4]u = 0$): (i) $u'' + (\lambda + \tfrac34)u = 0$; (ii) $u'' - \lambda u = 0$; (iii) $u'' + (3\lambda + \tfrac34)u = 0$. These match $\omega^2 = \lambda + \tfrac34$, $\omega^2 = -\lambda$ and $\omega^2 = 3\lambda + \tfrac34$ above.</li><li>Dimensions: each term of the ODE has dimension $[y]/\mathrm{L}^2$ with $x$ non-dimensional, so $\lambda$ is dimensionless.</li></ul>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e3">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 3</div>
+          <h2 class="problem-title">Integrating Factor for Sturm-Liouville Self-Adjoint Form</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf</a>
+        </div>
+        <span class="problem-meta-badge">Integrating factor to self-adjoint form</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Consider the ODE $\phi''(x) + \alpha(x)\phi'(x) + [\lambda\beta(x) + \gamma(x)]\phi(x) = 0$. Find an integrating factor $\mu(x)$ in terms of the coefficients of the ODE $\alpha(x)$, $\beta(x)$ and $\gamma(x)$, such that the equation can be brought into Sturm-Liouville form, namely, $[p(x)\phi'(x)]' + [\lambda\sigma(x) + q(x)]\phi(x) = 0$.</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Formulation and Sturm-Liouville Structure</div>
+<p>Goal: find $\mu(x) &gt; 0$ such that $\mu\cdot\left(\phi'' + \alpha\phi' + [\lambda\beta+\gamma]\phi\right)$ has the form $[p\phi']' + [\lambda\sigma + q]\phi$. Only the derivative terms can obstruct this, since the term in $\phi$ is just rescaled. Method: Notes09-12-Nov.pdf (Sturm-Liouville section; page to be confirmed); Haberman, Sec. 5.3.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Derivation of the Integrating Factor</div>
+<p>Multiply the ODE by $\mu(x)$:</p>
+<p>$$ \mu\phi'' + \mu\alpha\phi' + \mu[\lambda\beta + \gamma]\phi = 0. $$</p>
+<p>Expand the target derivative with the product rule, $[\mu\phi']' = \mu'\phi' + \mu\phi''$. The first two terms above equal $[\mu\phi']'$ if and only if the coefficients of $\phi'$ agree:</p>
+<p>$$ \mu\alpha = \mu' \iff \frac{\mu'}{\mu} = \alpha. $$</p>
+<p>Since $\mu &gt; 0$, $\dfrac{\mu'}{\mu} = \dfrac{d}{dx}\ln\mu$ (chain rule), and integrating,</p>
+<p>$$ \ln\mu(x) = \int\alpha(x)\,dx + C \quad\Longrightarrow\quad \mu(x) = K\exp\left(\int\alpha(x)\,dx\right),\ K = e^{C} &gt; 0. $$</p>
+<p>The constant $K$ multiplies the whole equation by a number, so it is irrelevant: take $K = 1$. With limits, $\mu(x) = \exp\left(\int_{x_0}^{x}\alpha(s)\,ds\right)$ for any base point $x_0$ (Barrow's rule gives $\int_{x_0}^x\alpha = A(x) - A(x_0)$, again a constant factor).</p>
+<div class="result-box"><div class="result-box-title">Integrating factor and coefficients</div><p>$$ \mu(x) = \exp\left(\int\alpha(x)\,dx\right) &gt; 0,\qquad p(x) = \mu(x),\quad \sigma(x) = \mu(x)\beta(x),\quad q(x) = \mu(x)\gamma(x). $$</p></div>
+<p>Product-rule check, written out. With $\mu' = \alpha\mu$:</p>
+<p>$$ [\mu\phi']' = \mu'\phi' + \mu\phi'' = \alpha\mu\phi' + \mu\phi'' = \mu(\phi'' + \alpha\phi'), $$</p>
+<p>so $\mu(\phi'' + \alpha\phi') + \mu[\lambda\beta + \gamma]\phi = [\mu\phi']' + [\lambda\,\mu\beta + \mu\gamma]\phi = 0$, which is the required form with the identified $p, \sigma, q$ ✓.</p>
+<div class="note-box"><div class="note-box-title">Why $\mu$ depends only on $\alpha$</div><p>The equation $\mu' = \alpha\mu$ comes from matching the coefficient of $\phi'$. The terms $\lambda\beta\phi$ and $\gamma\phi$ contain no derivative of $\phi$, so they never enter a product-rule expansion: multiplying by any $\mu$ just rescales them into $\sigma$ and $q$. Therefore $\beta$ and $\gamma$ cannot change $\mu$; they only pass through to $\sigma = \mu\beta$ and $q = \mu\gamma$.</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Conditions for a Regular Sturm-Liouville Form</div>
+<ul class="bullet-list"><li>$p = \mu = e^{\int\alpha} &gt; 0$ automatically, and $p \in C^1$ whenever $\alpha$ is continuous. ($p' = \alpha p$.)</li><li>$\sigma = \mu\beta &gt; 0 \iff \beta &gt; 0$, because $\mu &gt; 0$. So the weight is positive exactly when the coefficient of $\lambda$ is positive. If $\beta &lt; 0$ (as in Exercise 2(ii), where $\beta = -1$), the weight is negative and the eigenvalues have the opposite sign to the standard expectation; replacing $\lambda$ by $-\lambda$ restores $\sigma &gt; 0$.</li><li>$q = \mu\gamma$ is continuous when $\gamma$ is; its sign has no effect on regularity (it only shifts the spectrum).</li><li>On a finite closed interval with $p, \sigma &gt; 0$ and $p, p', q, \sigma$ continuous the problem is regular, and orthogonality of eigenfunctions holds with weight $\sigma$: $\int_a^b\sigma\phi_n\phi_m\,dx = 0$ for $\lambda_n \ne \lambda_m$.</li></ul>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Verification on Exercise 2</div>
+<p>All three problems of Problem - Ch6-P2 Non-Standard Constant-Coefficient Eigenvalue Problems have constant coefficients, so $\int\alpha\,dx = \alpha x$ and $\mu = e^{\alpha x}$:</p>
+<div class="table-container"><table class="data-table"><thead><tr><th>Part</th><th>$\alpha$</th><th>$\mu = e^{\int\alpha}$</th><th>$[\mu y']'$ expanded</th><th>$\sigma = \mu\beta$</th><th>$q = \mu\gamma$</th></tr></thead><tbody><tr><td>2(i)</td><td>$1$</td><td>$e^{x}$</td><td>$e^{x}(y'' + y')$</td><td>$e^{x}$</td><td>$e^{x}$</td></tr><tr><td>2(ii)</td><td>$2$</td><td>$e^{2x}$</td><td>$e^{2x}(y'' + 2y')$</td><td>$-e^{2x}$</td><td>$e^{2x}$</td></tr><tr><td>2(iii)</td><td>$-3$</td><td>$e^{-3x}$</td><td>$e^{-3x}(y'' - 3y')$</td><td>$3e^{-3x}$</td><td>$3e^{-3x}$</td></tr></tbody></table></div>
+<p>For instance in 2(iii): $[e^{-3x}y']' = -3e^{-3x}y' + e^{-3x}y'' = e^{-3x}(y'' - 3y')$ by the product and chain rules, so $[e^{-3x}y']' + [3\lambda e^{-3x} + 3e^{-3x}]y = e^{-3x}\{y'' - 3y' + 3(1+\lambda)y\} = 0$ ✓. The weights found here are the ones used for the orthogonality checks in Exercise 2.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Equivalent Route: Liouville Shift</div>
+<p>Substituting $\phi = e^{-\frac12\int\alpha}u$ removes the first-derivative term instead of rescaling the equation. Using $\phi' = e^{-\frac12\int\alpha}\left(u' - \tfrac\alpha2u\right)$ and $\phi'' = e^{-\frac12\int\alpha}\left(u'' - \alpha u' - \tfrac{\alpha'}{2}u + \tfrac{\alpha^2}{4}u\right)$ one obtains</p>
+<p>$$ u'' + \left[\lambda\beta + \gamma - \tfrac{\alpha'}{2} - \tfrac{\alpha^2}{4}\right]u = 0. $$</p>
+<p>For constant $\alpha$ this is the classical constant-coefficient problem, which explains the shifts $\lambda + \tfrac34$ (2(i)), $-\lambda$ (2(ii)) and $3\lambda + \tfrac34$ (2(iii)).</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Answers and Checks</div>
+<ul class="bullet-list"><li>Answer: $\mu(x) = \exp\left(\int\alpha(x)\,dx\right)$, $p = \mu$, $\sigma = \mu\beta$, $q = \mu\gamma$.</li><li>Limiting case $\alpha = 0$: $\mu = 1$ and the equation is already self-adjoint (as in Problem - Ch6-P1 Sturm-Liouville Eigenvalues under Four Boundary Conditions).</li><li>Limiting case Euler-Cauchy ($x^2\phi'' + x\phi' + \lambda\phi = 0$ divided by $x^2$): $\alpha = 1/x$, $\mu = e^{\ln x} = x$, $p = x$, $\sigma = x\cdot\dfrac{1}{x^2} = \dfrac1x$, matching Problem - Ch6-P4 Euler-Cauchy Eigenvalue Problem and Rayleigh Quotient.</li><li>Dimensions: $\mu$ is dimensionless (it is the exponential of $\int\alpha\,dx$, and $\alpha\,dx$ is dimensionless since $\alpha\phi'$ and $\phi''$ have the same dimension).</li></ul>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e4">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 4</div>
+          <h2 class="problem-title">Euler-Cauchy Eigenvalue Problem and Rayleigh Quotient</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf</a>
+        </div>
+        <span class="problem-meta-badge">Euler-Cauchy eigenproblem and Rayleigh quotient</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Consider the eigenvalue problem $x^2\phi''(x) + x\phi'(x) + \lambda\phi(x) = 0$ on the interval $[1, 2]$, with boundary conditions $\phi(1) = \phi(2) = 0$.</p><ol class="num-list"><li>Show that multiplying by $1/x$ puts this equation into Sturm-Liouville form.</li><li>Show that $\lambda \ge 0$, and determine all possible eigenvalues. Is $\lambda = 0$ an eigenvalue?</li><li>What are the eigenfunctions?</li></ol></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Formulation and Sturm-Liouville Structure</div>
+<p>Multiply the equation by $1/x$ (allowed since $x \in [1,2]$, $x \ne 0$):</p>
+<p>$$ x\phi'' + \phi' + \frac{\lambda}{x}\phi = 0. $$</p>
+<p>By the product rule $(x\phi')' = \phi' + x\phi''$, so</p>
+<p>$$ \boxed{(x\phi')' + \frac{\lambda}{x}\phi = 0} $$</p>
+<p>which is $[p\phi']' + [\lambda\sigma + q]\phi = 0$ with</p>
+<p>$$ p(x) = x &gt; 0,\qquad \sigma(x) = \frac1x &gt; 0,\qquad q(x) = 0\qquad\text{on }[1,2]. $$</p>
+<p>This agrees with the integrating factor of Problem - Ch6-P3 Integrating Factor for Sturm-Liouville Self-Adjoint Form: dividing the original equation by $x^2$ gives $\alpha = 1/x$, so $\mu = e^{\ln x} = x$ and $\sigma = \mu\beta = x\cdot x^{-2} = 1/x$. The problem is regular: $p, p', \sigma, q$ are continuous and $p, \sigma &gt; 0$ on the closed interval. Method: Notes09-12-Nov.pdf (Sturm-Liouville section; page to be confirmed); Haberman, Sec. 5.3 and the Rayleigh quotient discussion that follows it.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Positivity via the Rayleigh Quotient</div>
+<p>Let $\phi$ be a real eigenfunction (self-adjointness of the regular problem guarantees real eigenvalues and real eigenfunctions). Multiply $(x\phi')' + \frac\lambda x\phi = 0$ by $\phi$ and integrate over $[1,2]$:</p>
+<p>$$ \int_1^2\phi\,(x\phi')'\,dx + \lambda\int_1^2\frac{\phi^2}{x}\,dx = 0. $$</p>
+<p>Integrate the first term by parts, $u = \phi$, $dv = (x\phi')'\,dx$, $du = \phi'\,dx$, $v = x\phi'$, and apply Barrow's rule to the boundary term:</p>
+<p>$$ \int_1^2\phi\,(x\phi')'\,dx = \Big[x\,\phi\,\phi'\Big]_1^2 - \int_1^2x\,(\phi')^2\,dx = 2\phi(2)\phi'(2) - 1\cdot\phi(1)\phi'(1) - \int_1^2x(\phi')^2dx. $$</p>
+<p>Because $\phi(1) = \phi(2) = 0$, the boundary term is $0 - 0 = 0$. Hence</p>
+<p>$$ \boxed{\lambda = \frac{\displaystyle\int_1^2x\,(\phi')^2\,dx}{\displaystyle\int_1^2\frac{\phi^2}{x}\,dx}\ \ge\ 0.} $$</p>
+<p>The denominator is positive for $\phi \not\equiv 0$ (the integrand $\phi^2/x$ is continuous and non-negative, and $1/x &gt; 0$), and the numerator is $\ge 0$ because $x &gt; 0$. So $\lambda \ge 0$.</p>
+<div class="warning-box"><div class="warning-box-title">$\lambda = 0$ is not an eigenvalue</div><p>If $\lambda = 0$ then the numerator vanishes: $\int_1^2x(\phi')^2dx = 0$. The integrand is continuous, non-negative and $x \ge 1 &gt; 0$, so $(\phi')^2 \equiv 0$, i.e. $\phi' \equiv 0$ and $\phi \equiv c$. Then $\phi(1) = c = 0$, so $\phi \equiv 0$. Direct check: for $\lambda = 0$ the equation $(x\phi')' = 0$ gives $x\phi' = c_1$, $\phi = c_1\ln x + c_2$; $\phi(1) = c_2 = 0$ and $\phi(2) = c_1\ln2 = 0$ gives $c_1 = 0$. Only the trivial solution, so $\lambda = 0$ is not an eigenvalue and in fact $\lambda &gt; 0$ strictly.</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Eigenvalue Cases (Negative, Zero, Positive)</div>
+<p>Solve with the Euler substitution $t = \ln x$, i.e. $x = e^{t}$, $t \in [0, \ln2]$. Write $\phi(x) = \Phi(t(x))$.</p>
+<ul class="bullet-list"><li>Chain rule: $\phi' = \Phi'(t)\dfrac{dt}{dx} = \dfrac{\Phi'}{x}$.</li><li>Product rule and chain rule again: $\phi'' = \dfrac{d}{dx}\left(\dfrac{\Phi'}{x}\right) = -\dfrac{\Phi'}{x^2} + \dfrac1x\Phi''\dfrac1x = \dfrac{\Phi'' - \Phi'}{x^2}$.</li><li>Hence $x^2\phi'' = \Phi'' - \Phi'$ and $x\phi' = \Phi'$, so $x^2\phi'' + x\phi' + \lambda\phi = \Phi'' - \Phi' + \Phi' + \lambda\Phi = \Phi'' + \lambda\Phi$.</li></ul>
+<p>The problem becomes the constant-coefficient one</p>
+<p>$$ \Phi''(t) + \lambda\Phi(t) = 0,\qquad \Phi(0) = \Phi(\ln2) = 0 $$</p>
+<p>(since $t(1) = \ln1 = 0$ and $t(2) = \ln2$). This is Exercise 1(i) on an interval of length $L = \ln2$. All three signs, for completeness (item 2 already excludes $\lambda &lt; 0$ and $\lambda = 0$ through the quotient):</p>
+<ul class="bullet-list"><li>$\lambda &lt; 0$, $\lambda = -\mu^2$: $\Phi = A\cosh\mu t + B\sinh\mu t$, $\Phi(0) = A = 0$, $\Phi(\ln2) = B\sinh(\mu\ln2) = 0$ with $\sinh(\mu\ln2) &gt; 0$, so $B = 0$. Trivial.</li><li>$\lambda = 0$: $\Phi = A + Bt$, $A = 0$, $B\ln2 = 0$. Trivial.</li><li>$\lambda = \mu^2 &gt; 0$: $\Phi = A\cos\mu t + B\sin\mu t$, $A = 0$, $B\sin(\mu\ln2) = 0$, so $\mu\ln2 = n\pi$, $\mu = \dfrac{n\pi}{\ln2}$, $n = 1, 2, \dots$</li></ul>
+<div class="result-box"><div class="result-box-title">Eigenvalues and eigenfunctions</div><p>$$ \lambda_n = \left(\frac{n\pi}{\ln2}\right)^2,\qquad \phi_n(x) = \sin\!\left(\frac{n\pi\ln x}{\ln2}\right),\qquad n = 1, 2, 3, \dots $$</p><p>All $\lambda_n &gt; 0$, so $\lambda = 0$ is not an eigenvalue, consistent with the Rayleigh argument.</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Eigenfunctions and Checks</div>
+<ul class="bullet-list"><li>Boundary conditions: $\phi_n(1) = \sin(n\pi\cdot 0) = \sin0 = 0$ and $\phi_n(2) = \sin(n\pi\ln2/\ln2) = \sin n\pi = 0$ ✓.</li><li>Direct ODE check (chain rule): $\phi_n' = \dfrac{n\pi}{x\ln2}\cos\!\left(\dfrac{n\pi\ln x}{\ln2}\right)$, and $(x\phi_n')' = \dfrac{d}{dx}\left[\dfrac{n\pi}{\ln2}\cos\!\left(\dfrac{n\pi\ln x}{\ln2}\right)\right] = -\left(\dfrac{n\pi}{\ln2}\right)^2\dfrac1x\sin\!\left(\dfrac{n\pi\ln x}{\ln2}\right)$, so $(x\phi_n')' + \dfrac{\lambda_n}{x}\phi_n = 0$ ✓.</li><li>Rayleigh quotient value: $\int_1^2x(\phi_n')^2dx = \left(\dfrac{n\pi}{\ln2}\right)^2\int_1^2\dfrac1x\cos^2(\dots)dx$ and $\int_1^2\dfrac{\phi_n^2}{x}dx = \int_1^2\dfrac1x\sin^2(\dots)dx$. With $t = \ln x$, $dt = dx/x$: both integrals equal $\int_0^{\ln2}\cos^2$ or $\sin^2\left(\tfrac{n\pi t}{\ln2}\right)dt = \dfrac{\ln2}{2}$, so the quotient is $\left(\dfrac{n\pi}{\ln2}\right)^2 = \lambda_n$ ✓.</li><li>Orthogonality with weight $\sigma(x) = 1/x$: for $n \ne m$, with $t = \ln x$,</li></ul>
+<p>$$ \int_1^2\frac1x\sin\!\left(\frac{n\pi\ln x}{\ln2}\right)\sin\!\left(\frac{m\pi\ln x}{\ln2}\right)dx = \int_0^{\ln2}\sin\frac{n\pi t}{\ln2}\sin\frac{m\pi t}{\ln2}\,dt = \frac{\ln2}{2}\delta_{nm}. $$</p>
+<p>Barrow check for $n \ne m$: $\tfrac12\left[\dfrac{\ln2\,\sin((n-m)\pi t/\ln2)}{(n-m)\pi} - \dfrac{\ln2\,\sin((n+m)\pi t/\ln2)}{(n+m)\pi}\right]_0^{\ln2} = 0$ since $\sin(k\pi) = 0$.</p>
+<ul class="bullet-list"><li>Dimensions: $x$ is a non-dimensional (scaled) coordinate, so $\ln x$ is well defined and $\lambda$ is dimensionless. Limiting case: on an interval $[1, b]$ the same steps give $\lambda_n = (n\pi/\ln b)^2$, which grows without bound as $b \to 1^+$ (a shrinking interval forces large eigenvalues, as for $\phi'' + \lambda\phi = 0$ on a short interval).</li></ul>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e5">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 5</div>
+          <h2 class="problem-title">Fourier Series of Nine Functions</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf</a>
+        </div>
+        <span class="problem-meta-badge">Nine Fourier series</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Calculate the Fourier series for the given functions:</p><p>(i) $f(x) = 1$, $-\pi \le x \le \pi$; (ii) $f(x) = x$, $-\pi \le x \le \pi$; (iii) $f(x) = \pi - x$, $-\pi \le x \le \pi$; (iv) $f(x) = |x|$, $-\pi \le x \le \pi$; (v) $f(x) = x^2$, $-\pi \le x \le \pi$; (vi) $f(x) = \cos x$, $0 \le x \le \pi$; (vii) $f(x) = \begin{cases} 0, &amp; -\pi \le x &lt; 0, \\ \pi, &amp; 0 \le x \le \pi; \end{cases}$ (viii) $f(x) = \begin{cases} -\pi/2, &amp; -\pi \le x &lt; 0, \\ \pi/2, &amp; 0 \le x \le \pi; \end{cases}$ (ix) $f(x) = \begin{cases} 1, &amp; 0 \le x \le \pi/2, \\ 2, &amp; \pi/2 \le x \le \pi. \end{cases}$</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Period, Symmetry and Coefficient Formulas</div>
+<p>For a function of period $2L$ the series is (Haberman, Sec. 3.3)</p>
+<p>$$ f(x) \sim a_0 + \sum_{n=1}^{\infty}\left[a_n\cos\frac{n\pi x}{L} + b_n\sin\frac{n\pi x}{L}\right], $$</p>
+<p>$$ a_0 = \frac{1}{2L}\int_{-L}^{L} f\,dx,\qquad a_n = \frac{1}{L}\int_{-L}^{L} f\cos\frac{n\pi x}{L}\,dx,\qquad b_n = \frac{1}{L}\int_{-L}^{L} f\sin\frac{n\pi x}{L}\,dx . $$</p>
+<p>Here $a_0$ is the mean value of $f$ over a period. For (i) to (v), (vii), (viii) we take $L=\pi$. Parity shortens the work (Haberman, Sec. 3.4; see Problem - Ch6-P9 Fourier Series of Even and Odd Periodic Functions): if $f$ is even, $b_n=0$ and $a_n=\frac{2}{\pi}\int_0^\pi f\cos nx\,dx$; if $f$ is odd, $a_0=a_n=0$ and $b_n=\frac{2}{\pi}\int_0^\pi f\sin nx\,dx$.</p>
+<p>Two integrals used repeatedly, for integer $n\ge1$, with $\sin n\pi = 0$ and $\cos n\pi=(-1)^n$:</p>
+<p>$$ \int_0^\pi \sin nx\,dx = \left[-\frac{\cos nx}{n}\right]_0^\pi = \frac{1-(-1)^n}{n},\qquad \int_0^\pi \cos nx\,dx = \left[\frac{\sin nx}{n}\right]_0^\pi = 0 . $$</p>
+<p>Convergence (Fourier's theorem): at a point where the $2L$-periodic extension is continuous the series equals $f$; at a jump it equals $\tfrac12[f(x^+)+f(x^-)]$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Step-by-Step Coefficient Evaluation</div>
+<div class="sub-case-card"><div class="sub-case-header">(i) $f(x)=1$</div>
+<p>Even. $a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}1\,dx=1$, $a_n=\frac{2}{\pi}\int_0^\pi\cos nx\,dx=0$, $b_n=0$. The series is $1$ (it is its own series, trivially).</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(ii) $f(x)=x$</div>
+<p>Odd, so $a_0=a_n=0$. $b_n=\frac{2}{\pi}\int_0^\pi x\sin nx\,dx$. Integration by parts with $u=x$, $dv=\sin nx\,dx$, $du=dx$, $v=-\frac{\cos nx}{n}$:</p>
+<p>$$ \int_0^\pi x\sin nx\,dx=\left[-\frac{x\cos nx}{n}\right]_0^\pi+\frac1n\int_0^\pi\cos nx\,dx=-\frac{\pi(-1)^n}{n}-0+0=\frac{\pi(-1)^{n+1}}{n}. $$</p>
+<p>Hence $b_n=\dfrac{2(-1)^{n+1}}{n}$ and</p>
+<p>$$ x\sim 2\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}\sin nx . $$</p>
+<p>The $2\pi$-periodic extension jumps at $x=\pm\pi$ (from $\pi$ to $-\pi$): the series gives $\tfrac12(\pi-\pi)=0$, which matches $\sin n\pi=0$. At interior points it equals $x$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(iii) $f(x)=\pi-x$</div>
+<p>By linearity $f=\pi + (-x)$: $a_0=\pi$, $a_n=0$, $b_n=-\dfrac{2(-1)^{n+1}}{n}=\dfrac{2(-1)^n}{n}$.</p>
+<p>$$ \pi-x\sim \pi+2\sum_{n=1}^{\infty}\frac{(-1)^n}{n}\sin nx . $$</p>
+<p>At $x=\pm\pi$: $f(\pi^-)=0$ and $f(-\pi^+)=2\pi$, so the series gives $\tfrac12(0+2\pi)=\pi=a_0$, consistent with every sine vanishing.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(iv) $f(x)=|x|$</div>
+<p>Even, $b_n=0$. $a_0=\frac{1}{2\pi}\cdot 2\int_0^\pi x\,dx=\frac1\pi\left[\frac{x^2}{2}\right]_0^\pi=\frac{\pi}{2}$. For $n\ge1$, $a_n=\frac2\pi\int_0^\pi x\cos nx\,dx$ with $u=x$, $dv=\cos nx\,dx$, $du=dx$, $v=\frac{\sin nx}{n}$:</p>
+<p>$$ \int_0^\pi x\cos nx\,dx=\left[\frac{x\sin nx}{n}\right]_0^\pi-\frac1n\int_0^\pi\sin nx\,dx=0-\frac1n\cdot\frac{1-(-1)^n}{n}=\frac{(-1)^n-1}{n^2}. $$</p>
+<p>So $a_n=\dfrac{2\left((-1)^n-1\right)}{\pi n^2}$, equal to $-\dfrac{4}{\pi n^2}$ for odd $n$ and $0$ for even $n$. With $n=2k-1$:</p>
+<p>$$ |x|\sim\frac{\pi}{2}-\frac4\pi\sum_{k=1}^{\infty}\frac{\cos\left((2k-1)x\right)}{(2k-1)^2}. $$</p>
+<p>The periodic extension is continuous (since $f(-\pi)=f(\pi)=\pi$), so the series equals $|x|$ everywhere. At $x=0$: $0=\frac\pi2-\frac4\pi S$, so</p>
+<p>$$ \sum_{k=1}^{\infty}\frac{1}{(2k-1)^2}=\frac{\pi^2}{8}. $$</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(v) $f(x)=x^2$</div>
+<p>Even, $b_n=0$. $a_0=\frac1\pi\int_0^\pi x^2dx=\frac1\pi\cdot\frac{\pi^3}{3}=\frac{\pi^2}{3}$. For $a_n=\frac2\pi\int_0^\pi x^2\cos nx\,dx$, first by parts with $u=x^2$, $dv=\cos nx\,dx$, $du=2x\,dx$, $v=\frac{\sin nx}{n}$:</p>
+<p>$$ \int_0^\pi x^2\cos nx\,dx=\left[\frac{x^2\sin nx}{n}\right]_0^\pi-\frac2n\int_0^\pi x\sin nx\,dx=0-\frac2n\cdot\frac{\pi(-1)^{n+1}}{n}=\frac{2\pi(-1)^n}{n^2}, $$</p>
+<p>using the integral of (ii). Then $a_n=\dfrac{4(-1)^n}{n^2}$ and</p>
+<p>$$ x^2\sim\frac{\pi^2}{3}+4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos nx . $$</p>
+<p>The extension is continuous, so equality holds on $[-\pi,\pi]$.</p>
+<ul class="bullet-list"><li>At $x=\pi$: $\pi^2=\frac{\pi^2}{3}+4\sum\frac{(-1)^n(-1)^n}{n^2}$, so $\sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6}$.</li><li>At $x=0$: $0=\frac{\pi^2}{3}+4\sum\frac{(-1)^n}{n^2}$, so $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^2}=\frac{\pi^2}{12}$.</li></ul>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(vi) $f(x)=\cos x$ on $[0,\pi]$</div>
+<p>The function is given only on $[0,\pi]$, so the natural choice is the $\pi$-periodic extension: period $2L=\pi$, $L=\pi/2$, basis $\cos 2nx$, $\sin 2nx$.</p>
+<p>$a_0=\frac1\pi\int_0^\pi\cos x\,dx=\frac1\pi[\sin x]_0^\pi=0$.</p>
+<p>Product-to-sum: $\cos x\cos 2nx=\tfrac12\left[\cos(2n+1)x+\cos(2n-1)x\right]$ and $\cos x\sin 2nx=\tfrac12\left[\sin(2n+1)x+\sin(2n-1)x\right]$. For odd $m$, $\int_0^\pi\cos mx\,dx=\frac{\sin m\pi}{m}=0$ and $\int_0^\pi\sin mx\,dx=\frac{1-\cos m\pi}{m}=\frac2m$. Therefore</p>
+<p>$$ a_n=\frac2\pi\cdot\tfrac12\cdot 0=0,\qquad b_n=\frac2\pi\cdot\tfrac12\left[\frac{2}{2n+1}+\frac{2}{2n-1}\right]=\frac2\pi\cdot\frac{4n}{4n^2-1}=\frac{8n}{\pi(4n^2-1)} . $$</p>
+<p>$$ \cos x\sim\sum_{n=1}^{\infty}\frac{8n}{\pi(4n^2-1)}\sin 2nx . $$</p>
+<p>Convergence: the $\pi$-periodic extension has $f(0^+)=1$, $f(\pi^-)=-1$, so it jumps at $x=k\pi$ and the series gives $0$ there (all sines vanish). In $(0,\pi)$ the series equals $\cos x$.</p>
+<div class="note-box"><div class="note-box-title">Relation to the half-range expansions on $[0,\pi]$</div><p>With $L=\pi$, the odd extension gives $B_m=\frac2\pi\int_0^\pi\cos x\sin mx\,dx=\frac1\pi\left[\frac{1-\cos(m+1)\pi}{m+1}+\frac{1-\cos(m-1)\pi}{m-1}\right]$ for $m\ne1$. For odd $m$ both numerators vanish, so $B_{2n-1}=0$. For $m=2n$ it is $\frac1\pi\left[\frac2{2n+1}+\frac2{2n-1}\right]=\frac{8n}{\pi(4n^2-1)}$, and $B_1=\frac2\pi\int_0^\pi\cos x\sin x\,dx=\frac1\pi\int_0^\pi\sin 2x\,dx=0$. The half-range sine series is therefore the <strong>same</strong> series as above: $b_{2n}$ survives and $b_{2n-1}=0$. The even (cosine) half-range series is trivially $\cos x$ itself ($a_1=1$, all other coefficients zero, by orthogonality; see Problem - Ch6-P6 Fourier Series via Trigonometric Identities without Integrating).</p></div>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(vii) Step function $0$ on $[-\pi,0)$, $\pi$ on $[0,\pi]$</div>
+<p>$a_0=\frac{1}{2\pi}\int_0^\pi\pi\,dx=\frac\pi2$. $a_n=\frac1\pi\int_0^\pi\pi\cos nx\,dx=0$. $b_n=\frac1\pi\int_0^\pi\pi\sin nx\,dx=\frac{1-(-1)^n}{n}$, which is $\frac2n$ for odd $n$ and $0$ for even $n$.</p>
+<p>$$ f\sim\frac\pi2+2\sum_{k=1}^{\infty}\frac{\sin\left((2k-1)x\right)}{2k-1}. $$</p>
+<p>At the jumps $x=0,\pm\pi$ the series gives $\frac\pi2=\tfrac12\left(0+\pi\right)$ as required. Check at $x=\pi/2$ (continuity point, $f=\pi$): $\sin\frac{(2k-1)\pi}2=(-1)^{k-1}$ and $\sum\frac{(-1)^{k-1}}{2k-1}=\frac\pi4$ (Leibniz), so $\frac\pi2+2\cdot\frac\pi4=\pi$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(viii) Step function $-\pi/2$ on $[-\pi,0)$, $\pi/2$ on $[0,\pi]$</div>
+<p>This is (vii) minus $\pi/2$, so only $a_0$ changes: $a_0=0$. The function is odd (apart from its value at the jump), and</p>
+<p>$$ f\sim2\sum_{k=1}^{\infty}\frac{\sin\left((2k-1)x\right)}{2k-1}. $$</p>
+<p>At $x=0$ the series gives $0=\tfrac12\left(-\frac\pi2+\frac\pi2\right)$; at $x=\pi/2$ it gives $2\cdot\frac\pi4=\frac\pi2=f$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(ix) $f=1$ on $[0,\pi/2]$, $f=2$ on $[\pi/2,\pi]$</div>
+<p><strong>Full $\pi$-periodic series</strong> ($L=\pi/2$, basis $\cos2nx$, $\sin2nx$):</p>
+<p>$a_0=\frac1\pi\left[\frac\pi2\cdot1+\frac\pi2\cdot2\right]=\frac32$.</p>
+<p>$a_n=\frac2\pi\left[\int_0^{\pi/2}\cos2nx\,dx+2\int_{\pi/2}^{\pi}\cos2nx\,dx\right]=\frac2\pi\left[\frac{\sin n\pi}{2n}+2\cdot\frac{\sin2n\pi-\sin n\pi}{2n}\right]=0.$</p>
+<p>For $b_n$: $\int_0^{\pi/2}\sin2nx\,dx=\left[-\frac{\cos2nx}{2n}\right]_0^{\pi/2}=\frac{1-(-1)^n}{2n}$ and $\int_{\pi/2}^{\pi}\sin2nx\,dx=\frac{(-1)^n-1}{2n}$. Then</p>
+<p>$$ b_n=\frac2\pi\left[\frac{1-(-1)^n}{2n}+2\cdot\frac{(-1)^n-1}{2n}\right]=\frac2\pi\cdot\frac{(-1)^n-1}{2n}=\frac{(-1)^n-1}{n\pi}, $$</p>
+<p>so $b_{2k}=0$ and $b_{2k-1}=-\dfrac{2}{\pi(2k-1)}$:</p>
+<p>$$ f\sim\frac32-\frac2\pi\sum_{k=1}^{\infty}\frac{\sin\left(2(2k-1)x\right)}{2k-1}. $$</p>
+<p>Check at $x=\pi/4$ ($f=1$): $\sin\frac{(2k-1)\pi}{2}=(-1)^{k-1}$, so $\frac32-\frac2\pi\cdot\frac\pi4=1$. At the jump $x=\pi/2$ the series gives $\frac32=\tfrac12(1+2)$.</p>
+<p><strong>Half-range cosine series on $[0,\pi]$</strong> ($L=\pi$, even extension): $a_0=\frac32$ and, evaluating each antiderivative by Barrow's rule with substitution $u = nx$,</p>
+<p>$$ a_n=\frac2\pi\left[\int_0^{\pi/2}\cos nx\,dx+2\int_{\pi/2}^{\pi}\cos nx\,dx\right]=\frac2\pi\left(\left[\frac{\sin nx}{n}\right]_0^{\pi/2}+2\left[\frac{\sin nx}{n}\right]_{\pi/2}^{\pi}\right)=\frac2\pi\left[\frac{\sin(n\pi/2)}{n}-\frac{2\sin(n\pi/2)}{n}\right]=-\frac{2\sin(n\pi/2)}{n\pi}. $$</p>
+<p>Only odd $n=2k-1$ survive, with $\sin\frac{(2k-1)\pi}2=(-1)^{k-1}$:</p>
+<p>$$ f\sim\frac32-\frac2\pi\sum_{k=1}^{\infty}\frac{(-1)^{k-1}}{2k-1}\cos\left((2k-1)x\right). $$</p>
+<p>The even extension has a single jump in $(0,\pi)$ (at $\pi/2$, mirrored at $-\pi/2$) and is continuous at $0$ and $\pi$.</p>
+<p><strong>Half-range sine series on $[0,\pi]$</strong> ($L=\pi$, odd extension): $a_0=a_n=0$, and applying Barrow's rule with $u = nx$, $\int_0^{\pi/2}\sin nx\,dx=\left[-\frac{\cos nx}{n}\right]_0^{\pi/2}=\frac{1-\cos(n\pi/2)}{n}$ and $\int_{\pi/2}^{\pi}\sin nx\,dx=\left[-\frac{\cos nx}{n}\right]_{\pi/2}^{\pi}=\frac{\cos(n\pi/2)-\cos n\pi}{n}$, so</p>
+<p>$$ b_n=\frac2\pi\left[\frac{1-\cos(n\pi/2)}{n}+2\,\frac{\cos(n\pi/2)-\cos n\pi}{n}\right]=\frac{2}{n\pi}\left(1+\cos\frac{n\pi}2-2(-1)^n\right). $$</p>
+<p>$$ f\sim\sum_{n=1}^{\infty}\frac{2}{n\pi}\left(1+\cos\frac{n\pi}2-2(-1)^n\right)\sin nx=\frac6\pi\sin x-\frac2\pi\sin2x+\frac2\pi\sin3x+0\cdot\sin4x+\cdots $$</p>
+<p>(values: $b_1=\frac{6}{\pi}$, $b_2=-\frac2\pi$, $b_3=\frac2\pi$, $b_4=0$). The odd extension jumps at $x=0,\pm\pi$ (where the series gives $0$) and at $\pm\pi/2$.</p>
+</div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Fourier Series, Convergence and Checks</div>
+<div class="result-box"><div class="result-box-title">Summary</div><div class="table-container"><table class="data-table"><thead><tr><th>Function</th><th>Series</th><th>Converges to $f$?</th></tr></thead><tbody><tr><td>(i) $1$</td><td>$1$</td><td>everywhere</td></tr><tr><td>(ii) $x$</td><td>$2\sum\frac{(-1)^{n+1}}{n}\sin nx$</td><td>interior; $0$ at $\pm\pi$</td></tr><tr><td>(iii) $\pi-x$</td><td>$\pi+2\sum\frac{(-1)^n}{n}\sin nx$</td><td>interior; $\pi$ at $\pm\pi$</td></tr><tr><td>(iv) $\lvert x\rvert$</td><td>$\frac\pi2-\frac4\pi\sum\frac{\cos(2k-1)x}{(2k-1)^2}$</td><td>everywhere; gives $\sum(2k-1)^{-2}=\pi^2/8$</td></tr><tr><td>(v) $x^2$</td><td>$\frac{\pi^2}3+4\sum\frac{(-1)^n}{n^2}\cos nx$</td><td>everywhere; gives $\pi^2/6$ and $\pi^2/12$</td></tr><tr><td>(vi) $\cos x$ on $[0,\pi]$</td><td>$\sum\frac{8n}{\pi(4n^2-1)}\sin2nx$</td><td>on $(0,\pi)$; $0$ at $0,\pi$</td></tr><tr><td>(vii) step $0/\pi$</td><td>$\frac\pi2+2\sum\frac{\sin(2k-1)x}{2k-1}$</td><td>away from jumps; $\frac\pi2$ at jumps</td></tr><tr><td>(viii) step $\mp\frac\pi2$</td><td>$2\sum\frac{\sin(2k-1)x}{2k-1}$</td><td>away from jumps; $0$ at jumps</td></tr><tr><td>(ix) $1/2$ on $[0,\pi]$</td><td>$\frac32-\frac2\pi\sum\frac{\sin2(2k-1)x}{2k-1}$</td><td>away from jumps; $\frac32$ at $\frac\pi2$</td></tr></tbody></table></div></div>
+<div class="warning-box"><div class="warning-box-title">Convention</div><p>The sheet's convention for the constant term is the mean value, $a_0=\frac1{2L}\int f$, so the series reads $a_0+\sum(\dots)$. If a source writes $\frac{a_0}{2}$ the stored value doubles; the series itself does not change.</p></div>
+<p>Checks: dimensionless (all functions are pure numbers or lengths of the argument $x$ in radians); a termwise sanity test at one interior point was made in (vii) and (ix).</p>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e6">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 6</div>
+          <h2 class="problem-title">Fourier Series via Trigonometric Identities without Integrating</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf#page=2" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf, p. 2</a>
+        </div>
+        <span class="problem-meta-badge">Series from identities</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Compute the Fourier series of the following functions in $[-\pi,\pi]$: $f(x)=\sin2x$, $f(x)=2+3\cos(2x)$, $f(x)=\sin(4x)$, $f(x)=8\cos^3(3x)$. Can you compute the Fourier series without using the integral formulas for the coefficients in these cases?</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Why the Answer Is Yes: Uniqueness of the Coefficients</div>
+<p>On $[-\pi,\pi]$ ($L=\pi$) the series is $a_0+\sum_{n\ge1}(a_n\cos nx+b_n\sin nx)$ with the coefficient formulas of Problem - Ch6-P5 Fourier Series of Nine Functions. The orthogonality relations proved in Problem - Ch6-P7 Orthogonality Relations of Sine and Cosine Families say that $\{1,\cos nx,\sin nx\}$ is an orthogonal family with $\int_{-\pi}^{\pi}\cos^2nx\,dx=\int_{-\pi}^{\pi}\sin^2nx\,dx=\pi$, $\int_{-\pi}^{\pi}1\,dx=2\pi$.</p>
+<p>Suppose $f$ is already a <strong>finite trigonometric polynomial</strong>, $f=c_0+\sum_{n=1}^{N}(\alpha_n\cos nx+\beta_n\sin nx)$. Insert it in $a_m=\frac1\pi\int f\cos mx\,dx$. By linearity and orthogonality every term vanishes except the one containing $\cos mx$, which gives $\frac1\pi\cdot\alpha_m\cdot\pi=\alpha_m$. The same argument gives $b_m=\beta_m$ and $a_0=c_0$ (the sum is finite, so integrating term by term is legitimate). Hence the Fourier coefficients of a trigonometric polynomial are the coefficients with which it is written, and the series is the polynomial itself: the only work is to rewrite $f$ as a combination of $1$, $\cos nx$, $\sin nx$ (Haberman, Sec. 3.3).</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Reading Off the Coefficients</div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Function</th><th>Rewriting</th><th>Non-zero coefficients</th></tr></thead><tbody><tr><td>$\sin2x$</td><td>already a basis function</td><td>$b_2=1$</td></tr><tr><td>$2+3\cos2x$</td><td>already a combination</td><td>$a_0=2$, $a_2=3$</td></tr><tr><td>$\sin4x$</td><td>already a basis function</td><td>$b_4=1$</td></tr><tr><td>$8\cos^3 3x$</td><td>product identity below</td><td>$a_3=6$, $a_9=2$</td></tr></tbody></table></div>
+<p>All other $a_n$, $b_n$ vanish, so each series is a single finite sum.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Expanding $8\cos^3(3x)$</div>
+<div class="note-box"><div class="note-box-title">Lemma: $\cos^3\theta=\dfrac{3\cos\theta+\cos3\theta}{4}$</div><p><strong>Via Euler.</strong> $\cos\theta=\frac{e^{i\theta}+e^{-i\theta}}{2}$, so</p><p>$$ \cos^3\theta=\frac{1}{8}\left(e^{3i\theta}+3e^{i\theta}+3e^{-i\theta}+e^{-3i\theta}\right)=\frac18\left(2\cos3\theta+6\cos\theta\right)=\frac{\cos3\theta+3\cos\theta}{4}. $$</p><p><strong>Via addition formulas.</strong> $\cos3\theta=\cos(2\theta+\theta)=\cos2\theta\cos\theta-\sin2\theta\sin\theta=(2\cos^2\theta-1)\cos\theta-2\sin^2\theta\cos\theta=(2\cos^2\theta-1)\cos\theta-2(1-\cos^2\theta)\cos\theta=4\cos^3\theta-3\cos\theta$, which gives the same identity.</p></div>
+<p>With $\theta=3x$:</p>
+<p>$$ 8\cos^3(3x)=8\cdot\frac{3\cos3x+\cos9x}{4}=6\cos3x+2\cos9x . $$</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Fourier Series and Checks</div>
+<p>$$ \sin2x\sim\sin2x,\qquad 2+3\cos2x\sim2+3\cos2x,\qquad\sin4x\sim\sin4x,\qquad 8\cos^3(3x)\sim6\cos3x+2\cos9x . $$</p>
+<p>All four functions are continuous and $2\pi$-periodic, so the series converge to $f$ at every point (here trivially, being finite sums).</p>
+<div class="result-box"><div class="result-box-title">Check by the integral formula (one case)</div><p>$a_3=\frac1\pi\int_{-\pi}^{\pi}8\cos^3(3x)\cos3x\,dx=\frac1\pi\int_{-\pi}^{\pi}(6\cos3x+2\cos9x)\cos3x\,dx=\frac1\pi\left[6\pi+2\cdot0\right]=6$, using $\int_{-\pi}^\pi\cos^23x\,dx=\pi$ and $\int_{-\pi}^\pi\cos9x\cos3x\,dx=0$. Mean value: $a_0=\frac1{2\pi}\int 8\cos^3 3x\,dx=0$, consistent with no constant term. Spot check at $x=0$: $8\cos^30=8$ and $6+2=8$.</p></div>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e7">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 7</div>
+          <h2 class="problem-title">Orthogonality Relations of Sine and Cosine Families</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf#page=2" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf, p. 2</a>
+        </div>
+        <span class="problem-meta-badge">Orthogonality proofs</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Show that the functions $y_n(x)=\sin\left(\frac{n\pi x}{L}\right)$ satisfy</p><p>$$ \int_{-L}^{L}y_n(x)y_m(x)\,dx=\begin{cases}0,&amp;n\ne m,\\ L,&amp;n=m,\end{cases}\qquad m,n=0,1,2,\dots $$</p><p>Show that a similar property holds for $u_n(x)=\cos\left(\frac{n\pi x}{L}\right)$:</p><p>$$ \int_{-L}^{L}u_n(x)u_m(x)\,dx=\begin{cases}0,&amp;n\ne m,\\ L,&amp;n=m\ne0,\\ 2L,&amp;n=m=0,\end{cases}\qquad m,n=0,1,2,\dots $$</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Tools: Product-to-Sum Identities and One Basic Integral</div>
+<p>From $\cos(A\mp B)=\cos A\cos B\pm\sin A\sin B$ (subtract and add):</p>
+<p>$$ \sin A\sin B=\tfrac12\left[\cos(A-B)-\cos(A+B)\right],\qquad\cos A\cos B=\tfrac12\left[\cos(A-B)+\cos(A+B)\right]. $$</p>
+<p>Basic integral. For an integer $k$, put $I_k=\int_{-L}^{L}\cos\frac{k\pi x}{L}\,dx$.</p>
+<ul class="bullet-list"><li>If $k\ne0$, the antiderivative is $\frac{L}{k\pi}\sin\frac{k\pi x}{L}$ and by Barrow's rule $I_k=\frac{L}{k\pi}\left[\sin k\pi-\sin(-k\pi)\right]=\frac{2L\sin k\pi}{k\pi}=0$, since $\sin k\pi=0$ for integer $k$.</li><li>If $k=0$, $I_0=\int_{-L}^{L}dx=[x]_{-L}^{L}=2L$.</li></ul>
+<p>So $I_k=2L\,\delta_{k0}$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Sines</div>
+<p>Take $A=\frac{n\pi x}{L}$, $B=\frac{m\pi x}{L}$:</p>
+<p>$$ \int_{-L}^{L}y_ny_m\,dx=\tfrac12\left[I_{n-m}-I_{n+m}\right]. $$</p>
+<ul class="bullet-list"><li><strong>$n\ne m$:</strong> $n-m\ne0$ gives $I_{n-m}=0$; $n+m\ge1$ (the pair cannot be $(0,0)$) gives $I_{n+m}=0$. The integral is $0$.</li><li><strong>$n=m\ge1$:</strong> $I_0=2L$ and $I_{2n}=0$ (as $2n\ne0$), so the integral is $\tfrac12(2L-0)=L$.</li><li><strong>Edge case $n=m=0$:</strong> here $y_0(x)=\sin0=0$ identically, so $\int_{-L}^{L}0\,dx=0$. The formula $\frac12[I_0-I_0]=0$ confirms it. Therefore the value $L$ holds only for $n=m\ge1$ (and $y_0$ is the zero function, not a genuine eigenfunction). Likewise if exactly one of $n,m$ is $0$, the integrand is $0$ and the result $0$ agrees with the case $n\ne m$.</li></ul>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Cosines</div>
+<p>$$ \int_{-L}^{L}u_nu_m\,dx=\tfrac12\left[I_{n-m}+I_{n+m}\right]. $$</p>
+<ul class="bullet-list"><li><strong>$n\ne m$:</strong> $I_{n-m}=0$, $I_{n+m}=0$ ($n+m\ge1$), so $0$.</li><li><strong>$n=m\ge1$:</strong> $\tfrac12\left[I_0+I_{2n}\right]=\tfrac12(2L+0)=L$.</li><li><strong>$n=m=0$:</strong> $u_0=1$, and directly $\int_{-L}^{L}1\,dx=2L$ (in the formula $\tfrac12[I_0+I_0]=2L$).</li></ul>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-4-badge">Result and Checks</div>
+<div class="result-box"><div class="result-box-title">Orthogonality</div><p>$$ \int_{-L}^{L}\sin\frac{n\pi x}{L}\sin\frac{m\pi x}{L}dx=L\,\delta_{nm}\ (n,m\ge1),\qquad\int_{-L}^{L}\cos\frac{n\pi x}{L}\cos\frac{m\pi x}{L}dx=\begin{cases}L\,\delta_{nm},&amp;n\ \text{or}\ m\ge1,\\2L,&amp;n=m=0.\end{cases} $$</p><p>These are the relations behind the coefficient formulas $a_n=\frac1L\int f\cos$ and $b_n=\frac1L\int f\sin$ (Problem - Ch6-P5 Fourier Series of Nine Functions; Haberman, Sec. 3.3).</p></div>
+<p>Checks. Dimensions: $[y_n]$ is dimensionless, so the integral has dimension of $L$ ✓. Limiting check $L=\pi$, $n=m=1$: $\int_{-\pi}^{\pi}\sin^2x\,dx=\int\frac{1-\cos2x}{2}dx=\pi$ ✓. The two parity facts are also visible directly: $\sin\cdot\sin$ is even in $x$, so the integral is twice $\int_0^L$ and the same Barrow evaluations give the same numbers.</p>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e8">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 8</div>
+          <h2 class="problem-title">Sketching Fourier Series and Periodic Extensions</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf#page=2" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf, p. 2</a>
+        </div>
+        <span class="problem-meta-badge">Sketching Fourier series</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>Sketch the Fourier series of $f(x)$ on $[-L,L]$ for the given function, and compare with the graph of $f(x)$ itself.</p><p>(i) $f(x)=x^2$; (ii) $f(x)=e^x$; (iii) $f(x)=\begin{cases}1,&amp;x&lt;0,\\x+1,&amp;x\ge0.\end{cases}$</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Period, Extension and Convergence Rule</div>
+<p>The Fourier series of $f$ on $[-L,L]$ is $a_0+\sum\left(a_n\cos\frac{n\pi x}{L}+b_n\sin\frac{n\pi x}{L}\right)$, with $a_0=\frac{1}{2L}\int_{-L}^{L}f\,dx$, $a_n=\frac1L\int f\cos\frac{n\pi x}L dx$, $b_n=\frac1L\int f\sin\frac{n\pi x}L dx$. It is a $2L$-periodic function, so the sketch is the graph of the <strong>$2L$-periodic extension</strong> of $f$, with the value at each discontinuity replaced by the average of the one-sided limits (Fourier's Convergence Theorem; Haberman, Sec. 3.4).</p>
+<p>Procedure: extend $f$ by $f(x+2L)=f(x)$; test continuity inside $(-L,L)$ and at the junctions $x=(2k+1)L$, where $f(L^-)$ meets $f(-L^+)$; at a continuity point the series equals $f$; at a jump it equals $\frac12[f(x^+)+f(x^-)]$. Below $k=\frac{n\pi}{L}$ abbreviates the frequency and $\sin n\pi=0$, $\cos n\pi=(-1)^n$.</p>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Step-by-Step Coefficient Evaluation</div>
+<div class="sub-case-card"><div class="sub-case-header">(i) $f(x)=x^2$</div>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="100%" class="fig-kit" style="max-width:360px;margin:0 auto;display:block" role="img" aria-label="Exercise 8(i): Fourier series of x squared on [-L, L]">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<defs><clipPath id="clip-ch6-e8-i"><rect x="46.0" y="20.0" width="300.0" height="242.0"/></clipPath></defs>
+<line x1="196.0" y1="20.0" x2="196.0" y2="262.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<line x1="46.0" y1="228.6" x2="346.0" y2="228.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<rect x="46.0" y="20.0" width="300.0" height="242.0" fill="none" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="46.0" y1="262.0" x2="46.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="46.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">−2</text>
+<line x1="121.0" y1="262.0" x2="121.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="121.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">−1</text>
+<line x1="196.0" y1="262.0" x2="196.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="196.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">0</text>
+<line x1="271.0" y1="262.0" x2="271.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="271.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">1</text>
+<line x1="346.0" y1="262.0" x2="346.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="346.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">2</text>
+<line x1="42.0" y1="228.6" x2="46.0" y2="228.6" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="232.6" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">0</text>
+<line x1="42.0" y1="145.2" x2="46.0" y2="145.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="149.2" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">0.5</text>
+<line x1="42.0" y1="61.7" x2="46.0" y2="61.7" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="65.7" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">1</text>
+<text x="346.0" y="293.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="end"><tspan font-style="italic">x</tspan></text>
+<text x="46.0" y="13.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="start"><tspan font-style="italic">y</tspan></text>
+<g clip-path="url(#clip-ch6-e8-i)">
+<polyline points="46.0,228.6 46.4,228.6 46.8,228.6 47.1,228.6 47.5,228.6 47.9,228.5 48.2,228.5 48.6,228.4 49.0,228.4 49.4,228.3 49.8,228.2 50.1,228.1 50.5,228.0 50.9,227.9 51.3,227.8 51.6,227.7 52.0,227.6 52.4,227.4 52.8,227.3 53.1,227.1 53.5,227.0 53.9,226.8 54.3,226.6 54.6,226.4 55.0,226.2 55.4,226.0 55.7,225.8 56.1,225.6 56.5,225.3 56.9,225.1 57.2,224.9 57.6,224.6 58.0,224.3 58.4,224.1 58.7,223.8 59.1,223.5 59.5,223.2 59.9,222.9 60.2,222.6 60.6,222.3 61.0,221.9 61.4,221.6 61.8,221.3 62.1,220.9 62.5,220.5 62.9,220.2 63.2,219.8 63.6,219.4 64.0,219.0 64.4,218.6 64.8,218.2 65.1,217.8 65.5,217.3 65.9,216.9 66.2,216.5 66.6,216.0 67.0,215.5 67.4,215.1 67.8,214.6 68.1,214.1 68.5,213.6 68.9,213.1 69.2,212.6 69.6,212.1 70.0,211.5 70.4,211.0 70.8,210.4 71.1,209.9 71.5,209.3 71.9,208.8 72.2,208.2 72.6,207.6 73.0,207.0 73.4,206.4 73.8,205.8 74.1,205.2 74.5,204.5 74.9,203.9 75.3,203.2 75.6,202.6 76.0,201.9 76.4,201.2 76.8,200.6 77.1,199.9 77.5,199.2 77.9,198.5 78.2,197.8 78.6,197.0 79.0,196.3 79.4,195.6 79.8,194.8 80.1,194.1 80.5,193.3 80.9,192.5 81.2,191.8 81.6,191.0 82.0,190.2 82.4,189.4 82.8,188.5 83.1,187.7 83.5,186.9 83.9,186.1 84.2,185.2 84.6,184.4 85.0,183.5 85.4,182.6 85.8,181.7 86.1,180.9 86.5,180.0 86.9,179.0 87.2,178.1 87.6,177.2 88.0,176.3 88.4,175.3 88.7,174.4 89.1,173.4 89.5,172.5 89.9,171.5 90.2,170.5 90.6,169.5 91.0,168.5 91.4,167.5 91.8,166.5 92.1,165.5 92.5,164.5 92.9,163.4 93.2,162.4 93.6,161.3 94.0,160.3 94.4,159.2 94.8,158.1 95.1,157.0 95.5,155.9 95.9,154.8 96.2,153.7 96.6,152.6 97.0,151.4 97.4,150.3 97.8,149.2 98.1,148.0 98.5,146.8 98.9,145.7 99.2,144.5 99.6,143.3 100.0,142.1 100.4,140.9 100.8,139.7 101.1,138.5 101.5,137.2 101.9,136.0 102.2,134.7 102.6,133.5 103.0,132.2 103.4,130.9 103.8,129.7 104.1,128.4 104.5,127.1 104.9,125.8 105.2,124.5 105.6,123.1 106.0,121.8 106.4,120.5 106.8,119.1 107.1,117.8 107.5,116.4 107.9,115.0 108.2,113.6 108.6,112.3 109.0,110.9 109.4,109.5 109.8,108.0 110.1,106.6 110.5,105.2 110.9,103.7 111.3,102.3 111.6,100.8 112.0,99.4 112.4,97.9 112.8,96.4 113.1,94.9 113.5,93.4 113.9,91.9 114.3,90.4 114.6,88.9 115.0,87.4 115.4,85.8 115.8,84.3 116.1,82.7 116.5,81.2 116.9,79.6 117.2,78.0 117.6,76.4 118.0,74.8 118.4,73.2 118.8,71.6 119.1,70.0 119.5,68.3 119.9,66.7 120.2,65.0 120.6,63.4 121.0,61.7" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="121.0,61.7 121.8,65.0 122.5,68.3 123.2,71.6 124.0,74.8 124.8,78.0 125.5,81.2 126.2,84.3 127.0,87.4 127.7,90.4 128.5,93.4 129.2,96.4 130.0,99.4 130.8,102.3 131.5,105.2 132.2,108.0 133.0,110.9 133.8,113.6 134.5,116.4 135.2,119.1 136.0,121.8 136.8,124.5 137.5,127.1 138.2,129.7 139.0,132.2 139.8,134.7 140.5,137.2 141.2,139.7 142.0,142.1 142.8,144.5 143.5,146.8 144.2,149.2 145.0,151.4 145.8,153.7 146.5,155.9 147.2,158.1 148.0,160.3 148.8,162.4 149.5,164.5 150.2,166.5 151.0,168.5 151.8,170.5 152.5,172.5 153.2,174.4 154.0,176.3 154.8,178.1 155.5,180.0 156.2,181.7 157.0,183.5 157.8,185.2 158.5,186.9 159.2,188.5 160.0,190.2 160.8,191.8 161.5,193.3 162.2,194.8 163.0,196.3 163.8,197.8 164.5,199.2 165.2,200.6 166.0,201.9 166.8,203.2 167.5,204.5 168.2,205.8 169.0,207.0 169.8,208.2 170.5,209.3 171.2,210.4 172.0,211.5 172.8,212.6 173.5,213.6 174.2,214.6 175.0,215.5 175.8,216.5 176.5,217.3 177.2,218.2 178.0,219.0 178.8,219.8 179.5,220.5 180.2,221.3 181.0,221.9 181.8,222.6 182.5,223.2 183.2,223.8 184.0,224.3 184.8,224.9 185.5,225.3 186.2,225.8 187.0,226.2 187.8,226.6 188.5,227.0 189.2,227.3 190.0,227.6 190.8,227.8 191.5,228.0 192.2,228.2 193.0,228.4 193.8,228.5 194.5,228.6 195.2,228.6 196.0,228.6 196.7,228.6 197.5,228.6 198.3,228.5 199.0,228.4 199.8,228.2 200.5,228.0 201.3,227.8 202.0,227.6 202.8,227.3 203.5,227.0 204.3,226.6 205.0,226.2 205.8,225.8 206.5,225.3 207.2,224.9 208.0,224.3 208.8,223.8 209.5,223.2 210.2,222.6 211.0,221.9 211.8,221.3 212.5,220.5 213.2,219.8 214.0,219.0 214.8,218.2 215.5,217.3 216.2,216.5 217.0,215.5 217.8,214.6 218.5,213.6 219.2,212.6 220.0,211.5 220.8,210.4 221.5,209.3 222.2,208.2 223.0,207.0 223.8,205.8 224.5,204.5 225.2,203.2 226.0,201.9 226.8,200.6 227.5,199.2 228.2,197.8 229.0,196.3 229.8,194.8 230.5,193.3 231.2,191.8 232.0,190.2 232.8,188.5 233.5,186.9 234.2,185.2 235.0,183.5 235.8,181.7 236.5,180.0 237.2,178.1 238.0,176.3 238.8,174.4 239.5,172.5 240.2,170.5 241.0,168.5 241.8,166.5 242.5,164.5 243.2,162.4 244.0,160.3 244.8,158.1 245.5,155.9 246.2,153.7 247.0,151.4 247.8,149.2 248.5,146.8 249.2,144.5 250.0,142.1 250.8,139.7 251.5,137.2 252.2,134.7 253.0,132.2 253.8,129.7 254.5,127.1 255.2,124.5 256.0,121.8 256.8,119.1 257.5,116.4 258.2,113.6 259.0,110.9 259.8,108.0 260.5,105.2 261.2,102.3 262.0,99.4 262.8,96.4 263.5,93.4 264.2,90.4 265.0,87.4 265.8,84.3 266.5,81.2 267.2,78.0 268.0,74.8 268.8,71.6 269.5,68.3 270.2,65.0 271.0,61.7" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="271.0,61.7 271.4,63.4 271.8,65.0 272.1,66.7 272.5,68.3 272.9,70.0 273.2,71.6 273.6,73.2 274.0,74.8 274.4,76.4 274.8,78.0 275.1,79.6 275.5,81.2 275.9,82.7 276.2,84.3 276.6,85.8 277.0,87.4 277.4,88.9 277.8,90.4 278.1,91.9 278.5,93.4 278.9,94.9 279.2,96.4 279.6,97.9 280.0,99.4 280.4,100.8 280.8,102.3 281.1,103.7 281.5,105.2 281.9,106.6 282.2,108.0 282.6,109.5 283.0,110.9 283.4,112.3 283.8,113.6 284.1,115.0 284.5,116.4 284.9,117.8 285.2,119.1 285.6,120.5 286.0,121.8 286.4,123.1 286.8,124.5 287.1,125.8 287.5,127.1 287.9,128.4 288.2,129.7 288.6,130.9 289.0,132.2 289.4,133.5 289.8,134.7 290.1,136.0 290.5,137.2 290.9,138.5 291.2,139.7 291.6,140.9 292.0,142.1 292.4,143.3 292.8,144.5 293.1,145.7 293.5,146.8 293.9,148.0 294.2,149.2 294.6,150.3 295.0,151.4 295.4,152.6 295.8,153.7 296.1,154.8 296.5,155.9 296.9,157.0 297.2,158.1 297.6,159.2 298.0,160.3 298.4,161.3 298.8,162.4 299.1,163.4 299.5,164.5 299.9,165.5 300.2,166.5 300.6,167.5 301.0,168.5 301.4,169.5 301.8,170.5 302.1,171.5 302.5,172.5 302.9,173.4 303.2,174.4 303.6,175.3 304.0,176.3 304.4,177.2 304.8,178.1 305.1,179.0 305.5,180.0 305.9,180.9 306.2,181.7 306.6,182.6 307.0,183.5 307.4,184.4 307.8,185.2 308.1,186.1 308.5,186.9 308.9,187.7 309.2,188.5 309.6,189.4 310.0,190.2 310.4,191.0 310.8,191.8 311.1,192.5 311.5,193.3 311.9,194.1 312.2,194.8 312.6,195.6 313.0,196.3 313.4,197.0 313.8,197.8 314.1,198.5 314.5,199.2 314.9,199.9 315.2,200.6 315.6,201.2 316.0,201.9 316.4,202.6 316.8,203.2 317.1,203.9 317.5,204.5 317.9,205.2 318.2,205.8 318.6,206.4 319.0,207.0 319.4,207.6 319.8,208.2 320.1,208.8 320.5,209.3 320.9,209.9 321.2,210.4 321.6,211.0 322.0,211.5 322.4,212.1 322.8,212.6 323.1,213.1 323.5,213.6 323.9,214.1 324.2,214.6 324.6,215.1 325.0,215.5 325.4,216.0 325.8,216.5 326.1,216.9 326.5,217.3 326.9,217.8 327.2,218.2 327.6,218.6 328.0,219.0 328.4,219.4 328.8,219.8 329.1,220.2 329.5,220.5 329.9,220.9 330.2,221.3 330.6,221.6 331.0,221.9 331.4,222.3 331.8,222.6 332.1,222.9 332.5,223.2 332.9,223.5 333.2,223.8 333.6,224.1 334.0,224.3 334.4,224.6 334.8,224.9 335.1,225.1 335.5,225.3 335.9,225.6 336.2,225.8 336.6,226.0 337.0,226.2 337.4,226.4 337.8,226.6 338.1,226.8 338.5,227.0 338.9,227.1 339.2,227.3 339.6,227.4 340.0,227.6 340.4,227.7 340.8,227.8 341.1,227.9 341.5,228.0 341.9,228.1 342.2,228.2 342.6,228.3 343.0,228.4 343.4,228.4 343.8,228.5 344.1,228.5 344.5,228.6 344.9,228.6 345.2,228.6 345.6,228.6 346.0,228.6" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="46.0,240.6 46.8,240.6 47.5,240.5 48.2,240.3 49.0,240.1 49.8,239.8 50.5,239.4 51.3,239.0 52.0,238.5 52.8,237.9 53.5,237.3 54.3,236.6 55.0,235.9 55.7,235.1 56.5,234.2 57.2,233.3 58.0,232.3 58.7,231.2 59.5,230.1 60.2,228.9 61.0,227.7 61.8,226.4 62.5,225.1 63.2,223.7 64.0,222.3 64.8,220.8 65.5,219.3 66.2,217.7 67.0,216.1 67.8,214.4 68.5,212.7 69.2,211.0 70.0,209.2 70.8,207.4 71.5,205.6 72.2,203.7 73.0,201.8 73.8,199.9 74.5,197.9 75.3,195.9 76.0,193.9 76.8,191.9 77.5,189.8 78.2,187.7 79.0,185.7 79.8,183.6 80.5,181.5 81.2,179.4 82.0,177.2 82.8,175.1 83.5,173.0 84.2,170.9 85.0,168.7 85.8,166.6 86.5,164.5 87.2,162.4 88.0,160.3 88.7,158.2 89.5,156.2 90.2,154.1 91.0,152.1 91.8,150.1 92.5,148.1 93.2,146.1 94.0,144.2 94.8,142.3 95.5,140.4 96.2,138.6 97.0,136.7 97.8,135.0 98.5,133.2 99.2,131.5 100.0,129.9 100.8,128.3 101.5,126.7 102.2,125.2 103.0,123.7 103.8,122.3 104.5,120.9 105.2,119.5 106.0,118.3 106.8,117.0 107.5,115.9 108.2,114.8 109.0,113.7 109.8,112.7 110.5,111.8 111.3,110.9 112.0,110.1 112.8,109.3 113.5,108.7 114.3,108.0 115.0,107.5 115.8,107.0 116.5,106.5 117.2,106.2 118.0,105.9 118.8,105.6 119.5,105.5 120.2,105.4 121.0,105.3 121.8,105.4 122.5,105.5 123.2,105.6 124.0,105.9 124.8,106.2 125.5,106.5 126.2,107.0 127.0,107.5 127.8,108.0 128.5,108.7 129.2,109.3 130.0,110.1 130.8,110.9 131.5,111.8 132.2,112.7 133.0,113.7 133.8,114.8 134.5,115.9 135.2,117.0 136.0,118.3 136.8,119.5 137.5,120.9 138.2,122.3 139.0,123.7 139.8,125.2 140.5,126.7 141.2,128.3 142.0,129.9 142.8,131.5 143.5,133.2 144.2,135.0 145.0,136.7 145.8,138.6 146.5,140.4 147.2,142.3 148.0,144.2 148.8,146.1 149.5,148.1 150.2,150.1 151.0,152.1 151.8,154.1 152.5,156.2 153.2,158.2 154.0,160.3 154.8,162.4 155.5,164.5 156.2,166.6 157.0,168.7 157.8,170.9 158.5,173.0 159.2,175.1 160.0,177.2 160.8,179.4 161.5,181.5 162.2,183.6 163.0,185.7 163.8,187.7 164.5,189.8 165.2,191.9 166.0,193.9 166.8,195.9 167.5,197.9 168.2,199.9 169.0,201.8 169.8,203.7 170.5,205.6 171.2,207.4 172.0,209.2 172.8,211.0 173.5,212.7 174.2,214.4 175.0,216.1 175.8,217.7 176.5,219.3 177.2,220.8 178.0,222.3 178.8,223.7 179.5,225.1 180.2,226.4 181.0,227.7 181.8,228.9 182.5,230.1 183.2,231.2 184.0,232.3 184.8,233.3 185.5,234.2 186.2,235.1 187.0,235.9 187.8,236.6 188.5,237.3 189.2,237.9 190.0,238.5 190.8,239.0 191.5,239.4 192.2,239.8 193.0,240.1 193.8,240.3 194.5,240.5 195.2,240.6 196.0,240.6 196.7,240.6 197.5,240.5 198.2,240.3 199.0,240.1 199.8,239.8 200.5,239.4 201.2,239.0 202.0,238.5 202.8,237.9 203.5,237.3 204.2,236.6 205.0,235.9 205.8,235.1 206.5,234.2 207.2,233.3 208.0,232.3 208.8,231.2 209.5,230.1 210.2,228.9 211.0,227.7 211.8,226.4 212.5,225.1 213.2,223.7 214.0,222.3 214.8,220.8 215.5,219.3 216.2,217.7 217.0,216.1 217.8,214.4 218.5,212.7 219.2,211.0 220.0,209.2 220.8,207.4 221.5,205.6 222.2,203.7 223.0,201.8 223.8,199.9 224.5,197.9 225.2,195.9 226.0,193.9 226.8,191.9 227.5,189.8 228.2,187.7 229.0,185.7 229.8,183.6 230.5,181.5 231.3,179.4 232.0,177.2 232.8,175.1 233.5,173.0 234.2,170.9 235.0,168.7 235.7,166.6 236.5,164.5 237.2,162.4 238.0,160.3 238.8,158.2 239.5,156.2 240.2,154.1 241.0,152.1 241.8,150.1 242.5,148.1 243.2,146.1 244.0,144.2 244.8,142.3 245.5,140.4 246.2,138.6 247.0,136.7 247.8,135.0 248.5,133.2 249.2,131.5 250.0,129.9 250.8,128.3 251.5,126.7 252.2,125.2 253.0,123.7 253.8,122.3 254.5,120.9 255.2,119.5 256.0,118.3 256.8,117.0 257.5,115.9 258.2,114.8 259.0,113.7 259.8,112.7 260.5,111.8 261.2,110.9 262.0,110.1 262.8,109.3 263.5,108.7 264.2,108.0 265.0,107.5 265.8,107.0 266.5,106.5 267.2,106.2 268.0,105.9 268.8,105.6 269.5,105.5 270.2,105.4 271.0,105.3 271.8,105.4 272.5,105.5 273.2,105.6 274.0,105.9 274.8,106.2 275.5,106.5 276.2,107.0 277.0,107.5 277.8,108.0 278.5,108.7 279.2,109.3 280.0,110.1 280.8,110.9 281.5,111.8 282.2,112.7 283.0,113.7 283.8,114.8 284.5,115.9 285.2,117.0 286.0,118.3 286.8,119.5 287.5,120.9 288.2,122.3 289.0,123.7 289.8,125.2 290.5,126.7 291.2,128.3 292.0,129.9 292.8,131.5 293.5,133.2 294.2,135.0 295.0,136.7 295.8,138.6 296.5,140.4 297.2,142.3 298.0,144.2 298.8,146.1 299.5,148.1 300.2,150.1 301.0,152.1 301.8,154.1 302.5,156.2 303.2,158.2 304.0,160.3 304.8,162.4 305.5,164.5 306.2,166.6 307.0,168.7 307.8,170.9 308.5,173.0 309.2,175.1 310.0,177.2 310.8,179.4 311.5,181.5 312.2,183.6 313.0,185.7 313.8,187.7 314.5,189.8 315.2,191.9 316.0,193.9 316.8,195.9 317.5,197.9 318.2,199.9 319.0,201.8 319.8,203.7 320.5,205.6 321.2,207.4 322.0,209.2 322.8,211.0 323.5,212.7 324.2,214.4 325.0,216.1 325.8,217.7 326.5,219.3 327.2,220.8 328.0,222.3 328.8,223.7 329.5,225.1 330.2,226.4 331.0,227.7 331.8,228.9 332.5,230.1 333.2,231.2 334.0,232.3 334.8,233.3 335.5,234.2 336.2,235.1 337.0,235.9 337.8,236.6 338.5,237.3 339.2,237.9 340.0,238.5 340.8,239.0 341.5,239.4 342.2,239.8 343.0,240.1 343.8,240.3 344.5,240.5 345.2,240.6 346.0,240.6" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.6" stroke-dasharray="6 4" stroke-linejoin="round"/>
+<polyline points="46.0,229.7 46.8,229.7 47.5,229.6 48.2,229.4 49.0,229.2 49.8,228.9 50.5,228.6 51.3,228.2 52.0,227.7 52.8,227.3 53.5,226.7 54.3,226.2 55.0,225.7 55.7,225.1 56.5,224.5 57.2,223.9 58.0,223.3 58.7,222.7 59.5,222.1 60.2,221.5 61.0,220.9 61.8,220.3 62.5,219.7 63.2,219.1 64.0,218.4 64.8,217.8 65.5,217.2 66.2,216.5 67.0,215.8 67.8,215.0 68.5,214.2 69.2,213.4 70.0,212.5 70.8,211.5 71.5,210.5 72.2,209.4 73.0,208.3 73.8,207.0 74.5,205.7 75.3,204.3 76.0,202.9 76.8,201.4 77.5,199.8 78.2,198.2 79.0,196.5 79.8,194.7 80.5,193.0 81.2,191.2 82.0,189.3 82.8,187.5 83.5,185.7 84.2,183.8 85.0,182.0 85.8,180.2 86.5,178.4 87.2,176.6 88.0,174.8 88.7,173.0 89.5,171.3 90.2,169.6 91.0,167.8 91.8,166.1 92.5,164.4 93.2,162.6 94.0,160.9 94.8,159.0 95.5,157.2 96.2,155.3 97.0,153.3 97.8,151.2 98.5,149.0 99.2,146.8 100.0,144.4 100.8,141.9 101.5,139.3 102.2,136.6 103.0,133.8 103.8,130.9 104.5,127.8 105.2,124.7 106.0,121.5 106.8,118.2 107.5,114.9 108.2,111.5 109.0,108.2 109.8,104.8 110.5,101.5 111.3,98.3 112.0,95.1 112.8,92.1 113.5,89.3 114.3,86.6 115.0,84.1 115.8,81.8 116.5,79.8 117.2,78.1 118.0,76.6 118.8,75.5 119.5,74.7 120.2,74.2 121.0,74.0 121.8,74.2 122.5,74.7 123.2,75.5 124.0,76.6 124.8,78.1 125.5,79.8 126.2,81.8 127.0,84.1 127.8,86.6 128.5,89.3 129.2,92.1 130.0,95.1 130.8,98.3 131.5,101.5 132.2,104.8 133.0,108.2 133.8,111.5 134.5,114.9 135.2,118.2 136.0,121.5 136.8,124.7 137.5,127.8 138.2,130.9 139.0,133.8 139.8,136.6 140.5,139.3 141.2,141.9 142.0,144.4 142.8,146.8 143.5,149.0 144.2,151.2 145.0,153.3 145.8,155.3 146.5,157.2 147.2,159.0 148.0,160.9 148.8,162.6 149.5,164.4 150.2,166.1 151.0,167.8 151.8,169.6 152.5,171.3 153.2,173.0 154.0,174.8 154.8,176.6 155.5,178.4 156.2,180.2 157.0,182.0 157.8,183.8 158.5,185.7 159.2,187.5 160.0,189.3 160.8,191.2 161.5,193.0 162.2,194.7 163.0,196.5 163.8,198.2 164.5,199.8 165.2,201.4 166.0,202.9 166.8,204.3 167.5,205.7 168.2,207.0 169.0,208.3 169.8,209.4 170.5,210.5 171.2,211.5 172.0,212.5 172.8,213.4 173.5,214.2 174.2,215.0 175.0,215.8 175.8,216.5 176.5,217.2 177.2,217.8 178.0,218.4 178.8,219.1 179.5,219.7 180.2,220.3 181.0,220.9 181.8,221.5 182.5,222.1 183.2,222.7 184.0,223.3 184.8,223.9 185.5,224.5 186.2,225.1 187.0,225.7 187.8,226.2 188.5,226.7 189.2,227.3 190.0,227.7 190.8,228.2 191.5,228.6 192.2,228.9 193.0,229.2 193.8,229.4 194.5,229.6 195.2,229.7 196.0,229.7 196.7,229.7 197.5,229.6 198.2,229.4 199.0,229.2 199.8,228.9 200.5,228.6 201.2,228.2 202.0,227.7 202.8,227.3 203.5,226.7 204.2,226.2 205.0,225.7 205.8,225.1 206.5,224.5 207.2,223.9 208.0,223.3 208.8,222.7 209.5,222.1 210.2,221.5 211.0,220.9 211.8,220.3 212.5,219.7 213.2,219.1 214.0,218.4 214.8,217.8 215.5,217.2 216.2,216.5 217.0,215.8 217.8,215.0 218.5,214.2 219.2,213.4 220.0,212.5 220.8,211.5 221.5,210.5 222.2,209.4 223.0,208.3 223.8,207.0 224.5,205.7 225.2,204.3 226.0,202.9 226.8,201.4 227.5,199.8 228.2,198.2 229.0,196.5 229.8,194.7 230.5,193.0 231.3,191.2 232.0,189.3 232.8,187.5 233.5,185.7 234.2,183.8 235.0,182.0 235.7,180.2 236.5,178.4 237.2,176.6 238.0,174.8 238.8,173.0 239.5,171.3 240.2,169.6 241.0,167.8 241.8,166.1 242.5,164.4 243.2,162.6 244.0,160.9 244.8,159.0 245.5,157.2 246.2,155.3 247.0,153.3 247.8,151.2 248.5,149.0 249.2,146.8 250.0,144.4 250.8,141.9 251.5,139.3 252.2,136.6 253.0,133.8 253.8,130.9 254.5,127.8 255.2,124.7 256.0,121.5 256.8,118.2 257.5,114.9 258.2,111.5 259.0,108.2 259.8,104.8 260.5,101.5 261.2,98.3 262.0,95.1 262.8,92.1 263.5,89.3 264.2,86.6 265.0,84.1 265.8,81.8 266.5,79.8 267.2,78.1 268.0,76.6 268.8,75.5 269.5,74.7 270.2,74.2 271.0,74.0 271.8,74.2 272.5,74.7 273.2,75.5 274.0,76.6 274.8,78.1 275.5,79.8 276.2,81.8 277.0,84.1 277.8,86.6 278.5,89.3 279.2,92.1 280.0,95.1 280.8,98.3 281.5,101.5 282.2,104.8 283.0,108.2 283.8,111.5 284.5,114.9 285.2,118.2 286.0,121.5 286.8,124.7 287.5,127.8 288.2,130.9 289.0,133.8 289.8,136.6 290.5,139.3 291.2,141.9 292.0,144.4 292.8,146.8 293.5,149.0 294.2,151.2 295.0,153.3 295.8,155.3 296.5,157.2 297.2,159.0 298.0,160.9 298.8,162.6 299.5,164.4 300.2,166.1 301.0,167.8 301.8,169.6 302.5,171.3 303.2,173.0 304.0,174.8 304.8,176.6 305.5,178.4 306.2,180.2 307.0,182.0 307.8,183.8 308.5,185.7 309.2,187.5 310.0,189.3 310.8,191.2 311.5,193.0 312.2,194.7 313.0,196.5 313.8,198.2 314.5,199.8 315.2,201.4 316.0,202.9 316.8,204.3 317.5,205.7 318.2,207.0 319.0,208.3 319.8,209.4 320.5,210.5 321.2,211.5 322.0,212.5 322.8,213.4 323.5,214.2 324.2,215.0 325.0,215.8 325.8,216.5 326.5,217.2 327.2,217.8 328.0,218.4 328.8,219.1 329.5,219.7 330.2,220.3 331.0,220.9 331.8,221.5 332.5,222.1 333.2,222.7 334.0,223.3 334.8,223.9 335.5,224.5 336.2,225.1 337.0,225.7 337.8,226.2 338.5,226.7 339.2,227.3 340.0,227.7 340.8,228.2 341.5,228.6 342.2,228.9 343.0,229.2 343.8,229.4 344.5,229.6 345.2,229.7 346.0,229.7" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6" stroke-linejoin="round"/>
+</g>
+<line x1="46.0" y1="308.0" x2="66.0" y2="308.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<text x="72.0" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start"><tspan font-style="italic">f</tspan></text>
+<line x1="96.4" y1="308.0" x2="116.4" y2="308.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="122.4" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">S<tspan baseline-shift="sub" font-size="72%">1</tspan></text>
+<line x1="153.2" y1="308.0" x2="173.2" y2="308.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<text x="179.2" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">S<tspan baseline-shift="sub" font-size="72%">5</tspan></text>
+</g></svg></div><div class="diagram-caption">Sketch (i): the periodic extension of $x^2$ is a chain of parabolic arcs meeting with corners at $x=(2k+1)L$; the Fourier series coincides with it everywhere.</div><a class="diagram-open" href="../../../vault/attachments/AM-PS/ch6-e8-i.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
+<p>$f$ is even: $b_n=0$, $a_0=\frac1L\int_0^Lx^2dx=\frac{L^2}{3}$, $a_n=\frac2L\int_0^Lx^2\cos kx\,dx$. By parts with $u=x^2$, $dv=\cos kx\,dx$, $du=2x\,dx$, $v=\frac{\sin kx}{k}$:</p>
+<p>$$ \int_0^Lx^2\cos kx\,dx=\left[\frac{x^2\sin kx}{k}\right]_0^L-\frac2k\int_0^Lx\sin kx\,dx=-\frac2k\int_0^Lx\sin kx\,dx, $$</p>
+<p>since $\sin kL=\sin n\pi=0$. For the remaining integral, $u=x$, $dv=\sin kx\,dx$, $du=dx$, $v=-\frac{\cos kx}{k}$:</p>
+<p>$$ \int_0^Lx\sin kx\,dx=\left[-\frac{x\cos kx}{k}\right]_0^L+\frac1k\int_0^L\cos kx\,dx=-\frac{L(-1)^n}{k}+\frac{1}{k}\left[\frac{\sin kx}{k}\right]_0^L=-\frac{L(-1)^n}{k}. $$</p>
+<p>So $\int_0^Lx^2\cos kx\,dx=\frac{2L(-1)^n}{k^2}=\frac{2L^3(-1)^n}{n^2\pi^2}$ and $a_n=\dfrac{4L^2(-1)^n}{n^2\pi^2}$:</p>
+<p>$$ x^2\sim\frac{L^2}{3}+\frac{4L^2}{\pi^2}\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos\frac{n\pi x}{L}. $$</p>
+<p>Convergence: $f(-L)=f(L)=L^2$, so the extension is continuous; it has corners at $x=(2k+1)L$ (slope jumps from $2L$ to $-2L$) but no jumps. The series equals $f$ everywhere on $[-L,L]$ and equals the parabolic-arc chain $x\mapsto(x-2kL)^2$ elsewhere; at $x=\pm L$: $L^2$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(ii) $f(x)=e^x$</div>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="100%" class="fig-kit" style="max-width:360px;margin:0 auto;display:block" role="img" aria-label="Exercise 8(ii): Fourier series of e^x on [-L, L]">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<defs><clipPath id="clip-ch6-e8-ii"><rect x="46.0" y="20.0" width="300.0" height="242.0"/></clipPath></defs>
+<line x1="196.0" y1="20.0" x2="196.0" y2="262.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<rect x="46.0" y="20.0" width="300.0" height="242.0" fill="none" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="46.0" y1="262.0" x2="46.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="46.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">−2</text>
+<line x1="121.0" y1="262.0" x2="121.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="121.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">−1</text>
+<line x1="196.0" y1="262.0" x2="196.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="196.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">0</text>
+<line x1="271.0" y1="262.0" x2="271.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="271.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">1</text>
+<line x1="346.0" y1="262.0" x2="346.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="346.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">2</text>
+<line x1="42.0" y1="262.0" x2="46.0" y2="262.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="266.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">0</text>
+<line x1="42.0" y1="186.4" x2="46.0" y2="186.4" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="190.4" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">1</text>
+<line x1="42.0" y1="110.8" x2="46.0" y2="110.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="114.8" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">2</text>
+<line x1="42.0" y1="35.1" x2="46.0" y2="35.1" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="39.1" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">3</text>
+<text x="346.0" y="293.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="end"><tspan font-style="italic">x</tspan></text>
+<text x="46.0" y="13.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="start"><tspan font-style="italic">y</tspan></text>
+<g clip-path="url(#clip-ch6-e8-ii)">
+<polyline points="46.0,186.4 46.4,186.0 46.8,185.6 47.1,185.2 47.5,184.8 47.9,184.5 48.2,184.1 48.6,183.7 49.0,183.3 49.4,182.9 49.8,182.5 50.1,182.1 50.5,181.7 50.9,181.3 51.3,180.9 51.6,180.5 52.0,180.1 52.4,179.7 52.8,179.3 53.1,178.8 53.5,178.4 53.9,178.0 54.3,177.6 54.6,177.2 55.0,176.7 55.4,176.3 55.7,175.9 56.1,175.4 56.5,175.0 56.9,174.6 57.2,174.1 57.6,173.7 58.0,173.3 58.4,172.8 58.7,172.4 59.1,171.9 59.5,171.5 59.9,171.0 60.2,170.6 60.6,170.1 61.0,169.6 61.4,169.2 61.8,168.7 62.1,168.2 62.5,167.8 62.9,167.3 63.2,166.8 63.6,166.3 64.0,165.9 64.4,165.4 64.8,164.9 65.1,164.4 65.5,163.9 65.9,163.4 66.2,162.9 66.6,162.4 67.0,161.9 67.4,161.4 67.8,160.9 68.1,160.4 68.5,159.9 68.9,159.4 69.2,158.9 69.6,158.4 70.0,157.9 70.4,157.3 70.8,156.8 71.1,156.3 71.5,155.8 71.9,155.2 72.2,154.7 72.6,154.1 73.0,153.6 73.4,153.1 73.8,152.5 74.1,152.0 74.5,151.4 74.9,150.9 75.3,150.3 75.6,149.7 76.0,149.2 76.4,148.6 76.8,148.0 77.1,147.5 77.5,146.9 77.9,146.3 78.2,145.7 78.6,145.2 79.0,144.6 79.4,144.0 79.8,143.4 80.1,142.8 80.5,142.2 80.9,141.6 81.2,141.0 81.6,140.4 82.0,139.8 82.4,139.2 82.8,138.6 83.1,137.9 83.5,137.3 83.9,136.7 84.2,136.1 84.6,135.4 85.0,134.8 85.4,134.2 85.8,133.5 86.1,132.9 86.5,132.2 86.9,131.6 87.2,130.9 87.6,130.3 88.0,129.6 88.4,128.9 88.7,128.3 89.1,127.6 89.5,126.9 89.9,126.3 90.2,125.6 90.6,124.9 91.0,124.2 91.4,123.5 91.8,122.8 92.1,122.1 92.5,121.4 92.9,120.7 93.2,120.0 93.6,119.3 94.0,118.6 94.4,117.9 94.8,117.1 95.1,116.4 95.5,115.7 95.9,114.9 96.2,114.2 96.6,113.5 97.0,112.7 97.4,112.0 97.8,111.2 98.1,110.5 98.5,109.7 98.9,108.9 99.2,108.2 99.6,107.4 100.0,106.6 100.4,105.9 100.8,105.1 101.1,104.3 101.5,103.5 101.9,102.7 102.2,101.9 102.6,101.1 103.0,100.3 103.4,99.5 103.8,98.7 104.1,97.8 104.5,97.0 104.9,96.2 105.2,95.4 105.6,94.5 106.0,93.7 106.4,92.8 106.8,92.0 107.1,91.1 107.5,90.3 107.9,89.4 108.2,88.6 108.6,87.7 109.0,86.8 109.4,85.9 109.8,85.1 110.1,84.2 110.5,83.3 110.9,82.4 111.3,81.5 111.6,80.6 112.0,79.7 112.4,78.8 112.8,77.8 113.1,76.9 113.5,76.0 113.9,75.1 114.3,74.1 114.6,73.2 115.0,72.2 115.4,71.3 115.8,70.3 116.1,69.4 116.5,68.4 116.9,67.4 117.2,66.5 117.6,65.5 118.0,64.5 118.4,63.5 118.8,62.5 119.1,61.5 119.5,60.5 119.9,59.5 120.2,58.5 120.6,57.5 121.0,56.4" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="121.0,234.2 121.8,233.9 122.5,233.6 123.2,233.3 124.0,233.0 124.8,232.8 125.5,232.5 126.2,232.2 127.0,231.9 127.7,231.6 128.5,231.3 129.2,230.9 130.0,230.6 130.8,230.3 131.5,230.0 132.2,229.7 133.0,229.4 133.8,229.0 134.5,228.7 135.2,228.4 136.0,228.0 136.8,227.7 137.5,227.3 138.2,227.0 139.0,226.6 139.8,226.3 140.5,225.9 141.2,225.6 142.0,225.2 142.8,224.8 143.5,224.4 144.2,224.1 145.0,223.7 145.8,223.3 146.5,222.9 147.2,222.5 148.0,222.1 148.8,221.7 149.5,221.3 150.2,220.9 151.0,220.5 151.8,220.1 152.5,219.7 153.2,219.2 154.0,218.8 154.8,218.4 155.5,217.9 156.2,217.5 157.0,217.0 157.8,216.6 158.5,216.1 159.2,215.7 160.0,215.2 160.8,214.7 161.5,214.3 162.2,213.8 163.0,213.3 163.8,212.8 164.5,212.3 165.2,211.8 166.0,211.3 166.8,210.8 167.5,210.3 168.2,209.8 169.0,209.2 169.8,208.7 170.5,208.2 171.2,207.6 172.0,207.1 172.8,206.5 173.5,206.0 174.2,205.4 175.0,204.8 175.8,204.3 176.5,203.7 177.2,203.1 178.0,202.5 178.8,201.9 179.5,201.3 180.2,200.7 181.0,200.1 181.8,199.5 182.5,198.8 183.2,198.2 184.0,197.6 184.8,196.9 185.5,196.3 186.2,195.6 187.0,194.9 187.8,194.3 188.5,193.6 189.2,192.9 190.0,192.2 190.8,191.5 191.5,190.8 192.2,190.1 193.0,189.3 193.8,188.6 194.5,187.9 195.2,187.1 196.0,186.4 196.7,185.6 197.5,184.8 198.3,184.1 199.0,183.3 199.8,182.5 200.5,181.7 201.3,180.9 202.0,180.1 202.8,179.3 203.5,178.4 204.3,177.6 205.0,176.7 205.8,175.9 206.5,175.0 207.2,174.1 208.0,173.3 208.8,172.4 209.5,171.5 210.2,170.6 211.0,169.6 211.8,168.7 212.5,167.8 213.2,166.8 214.0,165.9 214.8,164.9 215.5,163.9 216.2,162.9 217.0,161.9 217.8,160.9 218.5,159.9 219.2,158.9 220.0,157.9 220.8,156.8 221.5,155.8 222.2,154.7 223.0,153.6 223.8,152.5 224.5,151.4 225.2,150.3 226.0,149.2 226.8,148.0 227.5,146.9 228.2,145.7 229.0,144.6 229.8,143.4 230.5,142.2 231.2,141.0 232.0,139.8 232.8,138.6 233.5,137.3 234.2,136.1 235.0,134.8 235.8,133.5 236.5,132.2 237.2,130.9 238.0,129.6 238.8,128.3 239.5,126.9 240.2,125.6 241.0,124.2 241.8,122.8 242.5,121.4 243.2,120.0 244.0,118.6 244.8,117.1 245.5,115.7 246.2,114.2 247.0,112.7 247.8,111.2 248.5,109.7 249.2,108.2 250.0,106.6 250.8,105.1 251.5,103.5 252.2,101.9 253.0,100.3 253.8,98.7 254.5,97.0 255.2,95.4 256.0,93.7 256.8,92.0 257.5,90.3 258.2,88.6 259.0,86.8 259.8,85.1 260.5,83.3 261.2,81.5 262.0,79.7 262.8,77.8 263.5,76.0 264.2,74.1 265.0,72.2 265.8,70.3 266.5,68.4 267.2,66.5 268.0,64.5 268.8,62.5 269.5,60.5 270.2,58.5 271.0,56.4" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="271.0,234.2 271.4,234.0 271.8,233.9 272.1,233.8 272.5,233.6 272.9,233.5 273.2,233.3 273.6,233.2 274.0,233.0 274.4,232.9 274.8,232.8 275.1,232.6 275.5,232.5 275.9,232.3 276.2,232.2 276.6,232.0 277.0,231.9 277.4,231.7 277.8,231.6 278.1,231.4 278.5,231.3 278.9,231.1 279.2,230.9 279.6,230.8 280.0,230.6 280.4,230.5 280.8,230.3 281.1,230.2 281.5,230.0 281.9,229.8 282.2,229.7 282.6,229.5 283.0,229.4 283.4,229.2 283.8,229.0 284.1,228.9 284.5,228.7 284.9,228.5 285.2,228.4 285.6,228.2 286.0,228.0 286.4,227.8 286.8,227.7 287.1,227.5 287.5,227.3 287.9,227.2 288.2,227.0 288.6,226.8 289.0,226.6 289.4,226.5 289.8,226.3 290.1,226.1 290.5,225.9 290.9,225.7 291.2,225.6 291.6,225.4 292.0,225.2 292.4,225.0 292.8,224.8 293.1,224.6 293.5,224.4 293.9,224.3 294.2,224.1 294.6,223.9 295.0,223.7 295.4,223.5 295.8,223.3 296.1,223.1 296.5,222.9 296.9,222.7 297.2,222.5 297.6,222.3 298.0,222.1 298.4,221.9 298.8,221.7 299.1,221.5 299.5,221.3 299.9,221.1 300.2,220.9 300.6,220.7 301.0,220.5 301.4,220.3 301.8,220.1 302.1,219.9 302.5,219.7 302.9,219.4 303.2,219.2 303.6,219.0 304.0,218.8 304.4,218.6 304.8,218.4 305.1,218.1 305.5,217.9 305.9,217.7 306.2,217.5 306.6,217.3 307.0,217.0 307.4,216.8 307.8,216.6 308.1,216.4 308.5,216.1 308.9,215.9 309.2,215.7 309.6,215.4 310.0,215.2 310.4,215.0 310.8,214.7 311.1,214.5 311.5,214.3 311.9,214.0 312.2,213.8 312.6,213.5 313.0,213.3 313.4,213.1 313.8,212.8 314.1,212.6 314.5,212.3 314.9,212.1 315.2,211.8 315.6,211.6 316.0,211.3 316.4,211.1 316.8,210.8 317.1,210.5 317.5,210.3 317.9,210.0 318.2,209.8 318.6,209.5 319.0,209.2 319.4,209.0 319.8,208.7 320.1,208.4 320.5,208.2 320.9,207.9 321.2,207.6 321.6,207.4 322.0,207.1 322.4,206.8 322.8,206.5 323.1,206.3 323.5,206.0 323.9,205.7 324.2,205.4 324.6,205.1 325.0,204.8 325.4,204.6 325.8,204.3 326.1,204.0 326.5,203.7 326.9,203.4 327.2,203.1 327.6,202.8 328.0,202.5 328.4,202.2 328.8,201.9 329.1,201.6 329.5,201.3 329.9,201.0 330.2,200.7 330.6,200.4 331.0,200.1 331.4,199.8 331.8,199.5 332.1,199.1 332.5,198.8 332.9,198.5 333.2,198.2 333.6,197.9 334.0,197.6 334.4,197.2 334.8,196.9 335.1,196.6 335.5,196.3 335.9,195.9 336.2,195.6 336.6,195.3 337.0,194.9 337.4,194.6 337.8,194.3 338.1,193.9 338.5,193.6 338.9,193.2 339.2,192.9 339.6,192.5 340.0,192.2 340.4,191.8 340.8,191.5 341.1,191.1 341.5,190.8 341.9,190.4 342.2,190.1 342.6,189.7 343.0,189.3 343.4,189.0 343.8,188.6 344.1,188.2 344.5,187.9 344.9,187.5 345.2,187.1 345.6,186.8 346.0,186.4" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="46.0,185.1 46.8,185.2 47.5,185.3 48.2,185.4 49.0,185.5 49.8,185.6 50.5,185.6 51.3,185.7 52.0,185.6 52.8,185.6 53.5,185.5 54.3,185.3 55.0,185.1 55.7,184.8 56.5,184.5 57.2,184.1 58.0,183.6 58.7,183.1 59.5,182.5 60.2,181.8 61.0,181.0 61.8,180.2 62.5,179.3 63.2,178.2 64.0,177.1 64.8,176.0 65.5,174.7 66.2,173.3 67.0,171.9 67.8,170.4 68.5,168.8 69.2,167.1 70.0,165.3 70.8,163.5 71.5,161.6 72.2,159.7 73.0,157.7 73.8,155.6 74.5,153.5 75.3,151.3 76.0,149.1 76.8,146.8 77.5,144.6 78.2,142.3 79.0,140.0 79.8,137.6 80.5,135.3 81.2,133.0 82.0,130.7 82.8,128.4 83.5,126.1 84.2,123.9 85.0,121.7 85.8,119.6 86.5,117.5 87.2,115.5 88.0,113.5 88.7,111.6 89.5,109.9 90.2,108.2 91.0,106.5 91.8,105.0 92.5,103.7 93.2,102.4 94.0,101.2 94.8,100.2 95.5,99.3 96.2,98.5 97.0,97.9 97.8,97.4 98.5,97.1 99.2,96.9 100.0,96.8 100.8,97.0 101.5,97.2 102.2,97.6 103.0,98.2 103.8,99.0 104.5,99.9 105.2,100.9 106.0,102.1 106.8,103.5 107.5,105.0 108.2,106.6 109.0,108.4 109.8,110.3 110.5,112.4 111.3,114.6 112.0,116.9 112.8,119.4 113.5,121.9 114.3,124.6 115.0,127.4 115.8,130.2 116.5,133.2 117.2,136.2 118.0,139.3 118.8,142.5 119.5,145.8 120.2,149.1 121.0,152.4 121.8,155.7 122.5,159.1 123.2,162.5 124.0,165.9 124.8,169.4 125.5,172.8 126.2,176.1 127.0,179.5 127.8,182.8 128.5,186.1 129.2,189.3 130.0,192.5 130.8,195.6 131.5,198.7 132.2,201.6 133.0,204.5 133.8,207.3 134.5,209.9 135.2,212.5 136.0,215.0 136.8,217.3 137.5,219.6 138.2,221.7 139.0,223.6 139.8,225.5 140.5,227.2 141.2,228.8 142.0,230.2 142.8,231.5 143.5,232.7 144.2,233.7 145.0,234.6 145.8,235.3 146.5,235.9 147.2,236.4 148.0,236.7 148.8,236.9 149.5,237.0 150.2,236.9 151.0,236.7 151.8,236.4 152.5,236.0 153.2,235.4 154.0,234.8 154.8,234.0 155.5,233.2 156.2,232.2 157.0,231.2 157.8,230.1 158.5,228.9 159.2,227.6 160.0,226.3 160.8,225.0 161.5,223.5 162.2,222.1 163.0,220.6 163.8,219.1 164.5,217.5 165.2,215.9 166.0,214.4 166.8,212.8 167.5,211.2 168.2,209.7 169.0,208.1 169.8,206.6 170.5,205.1 171.2,203.6 172.0,202.2 172.8,200.8 173.5,199.4 174.2,198.1 175.0,196.9 175.8,195.7 176.5,194.5 177.2,193.4 178.0,192.4 178.8,191.4 179.5,190.5 180.2,189.7 181.0,189.0 181.8,188.3 182.5,187.6 183.2,187.1 184.0,186.6 184.8,186.1 185.5,185.7 186.2,185.4 187.0,185.2 187.8,184.9 188.5,184.8 189.2,184.7 190.0,184.6 190.8,184.6 191.5,184.6 192.2,184.6 193.0,184.7 193.8,184.8 194.5,184.9 195.2,185.0 196.0,185.1 196.7,185.2 197.5,185.3 198.2,185.4 199.0,185.5 199.8,185.6 200.5,185.6 201.2,185.7 202.0,185.6 202.8,185.6 203.5,185.5 204.2,185.3 205.0,185.1 205.8,184.8 206.5,184.5 207.2,184.1 208.0,183.6 208.8,183.1 209.5,182.5 210.2,181.8 211.0,181.0 211.8,180.2 212.5,179.3 213.2,178.2 214.0,177.1 214.8,176.0 215.5,174.7 216.2,173.3 217.0,171.9 217.8,170.4 218.5,168.8 219.2,167.1 220.0,165.3 220.8,163.5 221.5,161.6 222.2,159.7 223.0,157.7 223.8,155.6 224.5,153.5 225.2,151.3 226.0,149.1 226.8,146.8 227.5,144.6 228.2,142.3 229.0,140.0 229.8,137.6 230.5,135.3 231.3,133.0 232.0,130.7 232.8,128.4 233.5,126.1 234.2,123.9 235.0,121.7 235.7,119.6 236.5,117.5 237.2,115.5 238.0,113.5 238.8,111.6 239.5,109.9 240.2,108.2 241.0,106.5 241.8,105.0 242.5,103.7 243.2,102.4 244.0,101.2 244.8,100.2 245.5,99.3 246.2,98.5 247.0,97.9 247.8,97.4 248.5,97.1 249.2,96.9 250.0,96.8 250.8,97.0 251.5,97.2 252.2,97.6 253.0,98.2 253.8,99.0 254.5,99.9 255.2,100.9 256.0,102.1 256.8,103.5 257.5,105.0 258.2,106.6 259.0,108.4 259.8,110.3 260.5,112.4 261.2,114.6 262.0,116.9 262.8,119.4 263.5,121.9 264.2,124.6 265.0,127.4 265.8,130.2 266.5,133.2 267.2,136.2 268.0,139.3 268.8,142.5 269.5,145.8 270.2,149.1 271.0,152.4 271.8,155.7 272.5,159.1 273.2,162.5 274.0,165.9 274.8,169.4 275.5,172.8 276.2,176.1 277.0,179.5 277.8,182.8 278.5,186.1 279.2,189.3 280.0,192.5 280.8,195.6 281.5,198.7 282.2,201.6 283.0,204.5 283.8,207.3 284.5,209.9 285.2,212.5 286.0,215.0 286.8,217.3 287.5,219.6 288.2,221.7 289.0,223.6 289.8,225.5 290.5,227.2 291.2,228.8 292.0,230.2 292.8,231.5 293.5,232.7 294.2,233.7 295.0,234.6 295.8,235.3 296.5,235.9 297.2,236.4 298.0,236.7 298.8,236.9 299.5,237.0 300.2,236.9 301.0,236.7 301.8,236.4 302.5,236.0 303.2,235.4 304.0,234.8 304.8,234.0 305.5,233.2 306.2,232.2 307.0,231.2 307.8,230.1 308.5,228.9 309.2,227.6 310.0,226.3 310.8,225.0 311.5,223.5 312.2,222.1 313.0,220.6 313.8,219.1 314.5,217.5 315.2,215.9 316.0,214.4 316.8,212.8 317.5,211.2 318.2,209.7 319.0,208.1 319.8,206.6 320.5,205.1 321.2,203.6 322.0,202.2 322.8,200.8 323.5,199.4 324.2,198.1 325.0,196.9 325.8,195.7 326.5,194.5 327.2,193.4 328.0,192.4 328.8,191.4 329.5,190.5 330.2,189.7 331.0,189.0 331.8,188.3 332.5,187.6 333.2,187.1 334.0,186.6 334.8,186.1 335.5,185.7 336.2,185.4 337.0,185.2 337.8,184.9 338.5,184.8 339.2,184.7 340.0,184.6 340.8,184.6 341.5,184.6 342.2,184.6 343.0,184.7 343.8,184.8 344.5,184.9 345.2,185.0 346.0,185.1" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.6" stroke-dasharray="6 4" stroke-linejoin="round"/>
+<polyline points="46.0,186.3 46.8,186.4 47.5,186.4 48.2,186.3 49.0,185.9 49.8,185.2 50.5,184.2 51.3,182.9 52.0,181.4 52.8,179.8 53.5,178.1 54.3,176.4 55.0,174.8 55.7,173.4 56.5,172.3 57.2,171.4 58.0,170.9 58.7,170.6 59.5,170.5 60.2,170.5 61.0,170.5 61.8,170.4 62.5,170.1 63.2,169.6 64.0,168.7 64.8,167.6 65.5,166.1 66.2,164.4 67.0,162.5 67.8,160.5 68.5,158.6 69.2,156.7 70.0,155.1 70.8,153.7 71.5,152.7 72.2,152.0 73.0,151.6 73.8,151.4 74.5,151.3 75.3,151.3 76.0,151.1 76.8,150.8 77.5,150.2 78.2,149.2 79.0,147.8 79.8,146.1 80.5,144.0 81.2,141.7 82.0,139.3 82.8,136.9 83.5,134.6 84.2,132.6 85.0,130.9 85.8,129.6 86.5,128.8 87.2,128.3 88.0,128.2 88.7,128.2 89.5,128.3 90.2,128.3 91.0,128.0 91.8,127.3 92.5,126.2 93.2,124.5 94.0,122.3 94.8,119.6 95.5,116.6 96.2,113.3 97.0,110.1 97.8,107.0 98.5,104.3 99.2,102.2 100.0,100.6 100.8,99.7 101.5,99.5 102.2,99.8 103.0,100.4 103.8,101.3 104.5,102.0 105.2,102.3 106.0,102.0 106.8,100.8 107.5,98.7 108.2,95.4 109.0,91.1 109.8,86.0 110.5,80.3 111.3,74.4 112.0,68.8 112.8,63.8 113.5,60.1 114.3,58.2 115.0,58.3 115.8,61.0 116.5,66.3 117.2,74.4 118.0,85.1 118.8,98.2 119.5,113.2 120.2,129.7 121.0,147.0 121.8,164.5 122.5,181.5 123.2,197.4 124.0,211.6 124.8,223.7 125.5,233.3 126.2,240.4 127.0,244.9 127.8,247.0 128.5,246.9 129.2,245.0 130.0,241.9 130.8,237.9 131.5,233.5 132.2,229.3 133.0,225.6 133.8,222.6 134.5,220.6 135.2,219.7 136.0,219.7 136.8,220.5 137.5,222.1 138.2,224.0 139.0,226.1 139.8,228.0 140.5,229.6 141.2,230.7 142.0,231.1 142.8,230.8 143.5,229.9 144.2,228.5 145.0,226.6 145.8,224.5 146.5,222.3 147.2,220.3 148.0,218.6 148.8,217.4 149.5,216.6 150.2,216.4 151.0,216.6 151.8,217.2 152.5,218.1 153.2,219.1 154.0,220.0 154.8,220.8 155.5,221.2 156.2,221.3 157.0,220.9 157.8,220.2 158.5,219.0 159.2,217.6 160.0,215.9 160.8,214.3 161.5,212.7 162.2,211.3 163.0,210.2 163.8,209.4 164.5,209.0 165.2,209.0 166.0,209.2 166.8,209.6 167.5,210.2 168.2,210.7 169.0,211.1 169.8,211.3 170.5,211.2 171.2,210.7 172.0,209.9 172.8,208.8 173.5,207.5 174.2,206.0 175.0,204.4 175.8,202.9 176.5,201.6 177.2,200.5 178.0,199.6 178.8,199.1 179.5,198.9 180.2,198.9 181.0,199.1 181.8,199.4 182.5,199.7 183.2,199.8 184.0,199.8 184.8,199.6 185.5,199.0 186.2,198.1 187.0,197.0 187.8,195.6 188.5,194.1 189.2,192.5 190.0,191.0 190.8,189.6 191.5,188.3 192.2,187.4 193.0,186.7 193.8,186.3 194.5,186.2 195.2,186.2 196.0,186.3 196.7,186.4 197.5,186.4 198.2,186.3 199.0,185.9 199.8,185.2 200.5,184.2 201.2,182.9 202.0,181.4 202.8,179.8 203.5,178.1 204.2,176.4 205.0,174.8 205.8,173.4 206.5,172.3 207.2,171.4 208.0,170.9 208.8,170.6 209.5,170.5 210.2,170.5 211.0,170.5 211.8,170.4 212.5,170.1 213.2,169.6 214.0,168.7 214.8,167.6 215.5,166.1 216.2,164.4 217.0,162.5 217.8,160.5 218.5,158.6 219.2,156.7 220.0,155.1 220.8,153.7 221.5,152.7 222.2,152.0 223.0,151.6 223.8,151.4 224.5,151.3 225.2,151.3 226.0,151.1 226.8,150.8 227.5,150.2 228.2,149.2 229.0,147.8 229.8,146.1 230.5,144.0 231.3,141.7 232.0,139.3 232.8,136.9 233.5,134.6 234.2,132.6 235.0,130.9 235.7,129.6 236.5,128.8 237.2,128.3 238.0,128.2 238.8,128.2 239.5,128.3 240.2,128.3 241.0,128.0 241.8,127.3 242.5,126.2 243.2,124.5 244.0,122.3 244.8,119.6 245.5,116.6 246.2,113.3 247.0,110.1 247.8,107.0 248.5,104.3 249.2,102.2 250.0,100.6 250.8,99.7 251.5,99.5 252.2,99.8 253.0,100.4 253.8,101.3 254.5,102.0 255.2,102.3 256.0,102.0 256.8,100.8 257.5,98.7 258.2,95.4 259.0,91.1 259.8,86.0 260.5,80.3 261.2,74.4 262.0,68.8 262.8,63.8 263.5,60.1 264.2,58.2 265.0,58.3 265.8,61.0 266.5,66.3 267.2,74.4 268.0,85.1 268.8,98.2 269.5,113.2 270.2,129.7 271.0,147.0 271.8,164.5 272.5,181.5 273.2,197.4 274.0,211.6 274.8,223.7 275.5,233.3 276.2,240.4 277.0,244.9 277.8,247.0 278.5,246.9 279.2,245.0 280.0,241.9 280.8,237.9 281.5,233.5 282.2,229.3 283.0,225.6 283.8,222.6 284.5,220.6 285.2,219.7 286.0,219.7 286.8,220.5 287.5,222.1 288.2,224.0 289.0,226.1 289.8,228.0 290.5,229.6 291.2,230.7 292.0,231.1 292.8,230.8 293.5,229.9 294.2,228.5 295.0,226.6 295.8,224.5 296.5,222.3 297.2,220.3 298.0,218.6 298.8,217.4 299.5,216.6 300.2,216.4 301.0,216.6 301.8,217.2 302.5,218.1 303.2,219.1 304.0,220.0 304.8,220.8 305.5,221.2 306.2,221.3 307.0,220.9 307.8,220.2 308.5,219.0 309.2,217.6 310.0,215.9 310.8,214.3 311.5,212.7 312.2,211.3 313.0,210.2 313.8,209.4 314.5,209.0 315.2,209.0 316.0,209.2 316.8,209.6 317.5,210.2 318.2,210.7 319.0,211.1 319.8,211.3 320.5,211.2 321.2,210.7 322.0,209.9 322.8,208.8 323.5,207.5 324.2,206.0 325.0,204.4 325.8,202.9 326.5,201.6 327.2,200.5 328.0,199.6 328.8,199.1 329.5,198.9 330.2,198.9 331.0,199.1 331.8,199.4 332.5,199.7 333.2,199.8 334.0,199.8 334.8,199.6 335.5,199.0 336.2,198.1 337.0,197.0 337.8,195.6 338.5,194.1 339.2,192.5 340.0,191.0 340.8,189.6 341.5,188.3 342.2,187.4 343.0,186.7 343.8,186.3 344.5,186.2 345.2,186.2 346.0,186.3" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6" stroke-linejoin="round"/>
+</g>
+<circle cx="121.0" cy="145.3" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="271.0" cy="145.3" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<line x1="46.0" y1="308.0" x2="66.0" y2="308.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<text x="72.0" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start"><tspan font-style="italic">f</tspan></text>
+<line x1="96.4" y1="308.0" x2="116.4" y2="308.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="122.4" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">S<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="153.2" y1="308.0" x2="173.2" y2="308.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<text x="179.2" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">S<tspan baseline-shift="sub" font-size="72%">10</tspan></text>
+<circle cx="220.4" cy="308.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="230.4" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">midpoint</text>
+</g></svg></div><div class="diagram-caption">Sketch (ii): the periodic extension of $e^x$ is a sawtooth of exponential arcs with a jump at each $x=(2k+1)L$; the series sits at the midpoint $\cosh L$ there.</div><a class="diagram-open" href="../../../vault/attachments/AM-PS/ch6-e8-ii.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
+<p>$a_0=\frac1{2L}\int_{-L}^{L}e^xdx=\frac{e^L-e^{-L}}{2L}=\dfrac{\sinh L}{L}$.</p>
+<p>Antiderivatives (verified by differentiating, with the product rule): $\frac{d}{dx}\left[e^x(\cos kx+k\sin kx)\right]=e^x(\cos kx+k\sin kx)+e^x(-k\sin kx+k^2\cos kx)=(1+k^2)e^x\cos kx$, and $\frac{d}{dx}\left[e^x(\sin kx-k\cos kx)\right]=e^x(\sin kx-k\cos kx)+e^x(k\cos kx+k^2\sin kx)=(1+k^2)e^x\sin kx$. Hence</p>
+<p>$$ \int_{-L}^{L}e^x\cos kx\,dx=\frac{\left[e^x(\cos kx+k\sin kx)\right]_{-L}^{L}}{1+k^2}=\frac{(-1)^n(e^L-e^{-L})}{1+k^2}=\frac{2(-1)^n\sinh L}{1+k^2}, $$</p>
+<p>$$ \int_{-L}^{L}e^x\sin kx\,dx=\frac{\left[e^x(\sin kx-k\cos kx)\right]_{-L}^{L}}{1+k^2}=\frac{-k(-1)^n(e^L-e^{-L})}{1+k^2}=-\frac{2k(-1)^n\sinh L}{1+k^2}, $$</p>
+<p>using $\sin(\pm kL)=0$, $\cos(\pm kL)=(-1)^n$. With $1+k^2=\frac{L^2+n^2\pi^2}{L^2}$ and the prefactor $\frac1L$:</p>
+<p>$$ a_n=\frac{2L(-1)^n\sinh L}{L^2+n^2\pi^2},\qquad b_n=-\frac{2n\pi(-1)^n\sinh L}{L^2+n^2\pi^2}. $$</p>
+<p>$$ e^x\sim\frac{\sinh L}{L}+2\sinh L\sum_{n=1}^{\infty}\frac{(-1)^n}{L^2+n^2\pi^2}\left[L\cos\frac{n\pi x}{L}-n\pi\sin\frac{n\pi x}{L}\right]. $$</p>
+<p>Convergence: $f$ is continuous and smooth on $(-L,L)$, so the series equals $e^x$ there. At $x=\pm L$ (and all $(2k+1)L$): $f(L^-)=e^L$, $f(-L^+)=e^{-L}$, so the series converges to $\frac{e^L+e^{-L}}2=\cosh L$. Consistency: plugging $x=L$ the sines vanish and $a_0+\sum a_n(-1)^n=\frac{\sinh L}{L}+2L\sinh L\sum\frac1{L^2+n^2\pi^2}=\cosh L$, the classical expansion $\coth L=\frac1L+2L\sum\frac{1}{L^2+n^2\pi^2}$.</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">(iii) $f(x)=1$ for $x&lt;0$, $f(x)=x+1$ for $x\ge0$</div>
+<div class="diagram-card"><div class="diagram-scroll"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="100%" class="fig-kit" style="max-width:360px;margin:0 auto;display:block" role="img" aria-label="Exercise 8(iii): Fourier series of piecewise linear function">
+<g font-family="Inter, Arial, sans-serif" font-size="13" fill="var(--text-faint)">
+<defs><clipPath id="clip-ch6-e8-iii"><rect x="46.0" y="20.0" width="300.0" height="242.0"/></clipPath></defs>
+<line x1="196.0" y1="20.0" x2="196.0" y2="262.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<rect x="46.0" y="20.0" width="300.0" height="242.0" fill="none" stroke="var(--text-faint)" stroke-width="1"/>
+<line x1="46.0" y1="262.0" x2="46.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="46.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">−2</text>
+<line x1="121.0" y1="262.0" x2="121.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="121.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">−1</text>
+<line x1="196.0" y1="262.0" x2="196.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="196.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">0</text>
+<line x1="271.0" y1="262.0" x2="271.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="271.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">1</text>
+<line x1="346.0" y1="262.0" x2="346.0" y2="266.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="346.0" y="278.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="middle">2</text>
+<line x1="42.0" y1="208.2" x2="46.0" y2="208.2" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="212.2" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">1</text>
+<line x1="42.0" y1="141.0" x2="46.0" y2="141.0" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="145.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">1.5</text>
+<line x1="42.0" y1="73.8" x2="46.0" y2="73.8" stroke="var(--text-faint)" stroke-width="1.0"/>
+<text x="39.0" y="77.8" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="end">2</text>
+<text x="346.0" y="293.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="end"><tspan font-style="italic">x</tspan></text>
+<text x="46.0" y="13.0" fill="var(--text-muted)" font-size="13" font-weight="400" text-anchor="start"><tspan font-style="italic">y</tspan></text>
+<g clip-path="url(#clip-ch6-e8-iii)">
+<polyline points="46.0,208.2 46.4,207.6 46.8,206.9 47.1,206.2 47.5,205.5 47.9,204.9 48.2,204.2 48.6,203.5 49.0,202.8 49.4,202.2 49.8,201.5 50.1,200.8 50.5,200.2 50.9,199.5 51.3,198.8 51.6,198.1 52.0,197.5 52.4,196.8 52.8,196.1 53.1,195.4 53.5,194.8 53.9,194.1 54.3,193.4 54.6,192.8 55.0,192.1 55.4,191.4 55.7,190.7 56.1,190.1 56.5,189.4 56.9,188.7 57.2,188.1 57.6,187.4 58.0,186.7 58.4,186.0 58.7,185.4 59.1,184.7 59.5,184.0 59.9,183.3 60.2,182.7 60.6,182.0 61.0,181.3 61.4,180.7 61.8,180.0 62.1,179.3 62.5,178.6 62.9,178.0 63.2,177.3 63.6,176.6 64.0,176.0 64.4,175.3 64.8,174.6 65.1,173.9 65.5,173.3 65.9,172.6 66.2,171.9 66.6,171.2 67.0,170.6 67.4,169.9 67.8,169.2 68.1,168.6 68.5,167.9 68.9,167.2 69.2,166.5 69.6,165.9 70.0,165.2 70.4,164.5 70.8,163.9 71.1,163.2 71.5,162.5 71.9,161.8 72.2,161.2 72.6,160.5 73.0,159.8 73.4,159.1 73.8,158.5 74.1,157.8 74.5,157.1 74.9,156.5 75.3,155.8 75.6,155.1 76.0,154.4 76.4,153.8 76.8,153.1 77.1,152.4 77.5,151.8 77.9,151.1 78.2,150.4 78.6,149.7 79.0,149.1 79.4,148.4 79.8,147.7 80.1,147.0 80.5,146.4 80.9,145.7 81.2,145.0 81.6,144.4 82.0,143.7 82.4,143.0 82.8,142.3 83.1,141.7 83.5,141.0 83.9,140.3 84.2,139.7 84.6,139.0 85.0,138.3 85.4,137.6 85.8,137.0 86.1,136.3 86.5,135.6 86.9,134.9 87.2,134.3 87.6,133.6 88.0,132.9 88.4,132.3 88.7,131.6 89.1,130.9 89.5,130.2 89.9,129.6 90.2,128.9 90.6,128.2 91.0,127.6 91.4,126.9 91.8,126.2 92.1,125.5 92.5,124.9 92.9,124.2 93.2,123.5 93.6,122.8 94.0,122.2 94.4,121.5 94.8,120.8 95.1,120.2 95.5,119.5 95.9,118.8 96.2,118.1 96.6,117.5 97.0,116.8 97.4,116.1 97.8,115.5 98.1,114.8 98.5,114.1 98.9,113.4 99.2,112.8 99.6,112.1 100.0,111.4 100.4,110.7 100.8,110.1 101.1,109.4 101.5,108.7 101.9,108.1 102.2,107.4 102.6,106.7 103.0,106.0 103.4,105.4 103.8,104.7 104.1,104.0 104.5,103.4 104.9,102.7 105.2,102.0 105.6,101.3 106.0,100.7 106.4,100.0 106.8,99.3 107.1,98.7 107.5,98.0 107.9,97.3 108.2,96.6 108.6,96.0 109.0,95.3 109.4,94.6 109.8,93.9 110.1,93.3 110.5,92.6 110.9,91.9 111.3,91.3 111.6,90.6 112.0,89.9 112.4,89.2 112.8,88.6 113.1,87.9 113.5,87.2 113.9,86.5 114.3,85.9 114.6,85.2 115.0,84.5 115.4,83.9 115.8,83.2 116.1,82.5 116.5,81.8 116.9,81.2 117.2,80.5 117.6,79.8 118.0,79.2 118.4,78.5 118.8,77.8 119.1,77.1 119.5,76.5 119.9,75.8 120.2,75.1 120.6,74.4 121.0,73.8" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="121.0,208.2 121.8,208.2 122.5,208.2 123.2,208.2 124.0,208.2 124.8,208.2 125.5,208.2 126.2,208.2 127.0,208.2 127.7,208.2 128.5,208.2 129.2,208.2 130.0,208.2 130.8,208.2 131.5,208.2 132.2,208.2 133.0,208.2 133.8,208.2 134.5,208.2 135.2,208.2 136.0,208.2 136.8,208.2 137.5,208.2 138.2,208.2 139.0,208.2 139.8,208.2 140.5,208.2 141.2,208.2 142.0,208.2 142.8,208.2 143.5,208.2 144.2,208.2 145.0,208.2 145.8,208.2 146.5,208.2 147.2,208.2 148.0,208.2 148.8,208.2 149.5,208.2 150.2,208.2 151.0,208.2 151.8,208.2 152.5,208.2 153.2,208.2 154.0,208.2 154.8,208.2 155.5,208.2 156.2,208.2 157.0,208.2 157.8,208.2 158.5,208.2 159.2,208.2 160.0,208.2 160.8,208.2 161.5,208.2 162.2,208.2 163.0,208.2 163.8,208.2 164.5,208.2 165.2,208.2 166.0,208.2 166.8,208.2 167.5,208.2 168.2,208.2 169.0,208.2 169.8,208.2 170.5,208.2 171.2,208.2 172.0,208.2 172.8,208.2 173.5,208.2 174.2,208.2 175.0,208.2 175.8,208.2 176.5,208.2 177.2,208.2 178.0,208.2 178.8,208.2 179.5,208.2 180.2,208.2 181.0,208.2 181.8,208.2 182.5,208.2 183.2,208.2 184.0,208.2 184.8,208.2 185.5,208.2 186.2,208.2 187.0,208.2 187.8,208.2 188.5,208.2 189.2,208.2 190.0,208.2 190.8,208.2 191.5,208.2 192.2,208.2 193.0,208.2 193.8,208.2 194.5,208.2 195.2,208.2 196.0,208.2 196.7,206.9 197.5,205.5 198.3,204.2 199.0,202.8 199.8,201.5 200.5,200.2 201.3,198.8 202.0,197.5 202.8,196.1 203.5,194.8 204.3,193.4 205.0,192.1 205.8,190.7 206.5,189.4 207.2,188.1 208.0,186.7 208.8,185.4 209.5,184.0 210.2,182.7 211.0,181.3 211.8,180.0 212.5,178.6 213.2,177.3 214.0,176.0 214.8,174.6 215.5,173.3 216.2,171.9 217.0,170.6 217.8,169.2 218.5,167.9 219.2,166.5 220.0,165.2 220.8,163.9 221.5,162.5 222.2,161.2 223.0,159.8 223.8,158.5 224.5,157.1 225.2,155.8 226.0,154.4 226.8,153.1 227.5,151.8 228.2,150.4 229.0,149.1 229.8,147.7 230.5,146.4 231.2,145.0 232.0,143.7 232.8,142.3 233.5,141.0 234.2,139.7 235.0,138.3 235.8,137.0 236.5,135.6 237.2,134.3 238.0,132.9 238.8,131.6 239.5,130.2 240.2,128.9 241.0,127.6 241.8,126.2 242.5,124.9 243.2,123.5 244.0,122.2 244.8,120.8 245.5,119.5 246.2,118.1 247.0,116.8 247.8,115.5 248.5,114.1 249.2,112.8 250.0,111.4 250.8,110.1 251.5,108.7 252.2,107.4 253.0,106.0 253.8,104.7 254.5,103.4 255.2,102.0 256.0,100.7 256.8,99.3 257.5,98.0 258.2,96.6 259.0,95.3 259.8,93.9 260.5,92.6 261.2,91.3 262.0,89.9 262.8,88.6 263.5,87.2 264.2,85.9 265.0,84.5 265.8,83.2 266.5,81.8 267.2,80.5 268.0,79.2 268.8,77.8 269.5,76.5 270.2,75.1 271.0,73.8" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="271.0,208.2 271.4,208.2 271.8,208.2 272.1,208.2 272.5,208.2 272.9,208.2 273.2,208.2 273.6,208.2 274.0,208.2 274.4,208.2 274.8,208.2 275.1,208.2 275.5,208.2 275.9,208.2 276.2,208.2 276.6,208.2 277.0,208.2 277.4,208.2 277.8,208.2 278.1,208.2 278.5,208.2 278.9,208.2 279.2,208.2 279.6,208.2 280.0,208.2 280.4,208.2 280.8,208.2 281.1,208.2 281.5,208.2 281.9,208.2 282.2,208.2 282.6,208.2 283.0,208.2 283.4,208.2 283.8,208.2 284.1,208.2 284.5,208.2 284.9,208.2 285.2,208.2 285.6,208.2 286.0,208.2 286.4,208.2 286.8,208.2 287.1,208.2 287.5,208.2 287.9,208.2 288.2,208.2 288.6,208.2 289.0,208.2 289.4,208.2 289.8,208.2 290.1,208.2 290.5,208.2 290.9,208.2 291.2,208.2 291.6,208.2 292.0,208.2 292.4,208.2 292.8,208.2 293.1,208.2 293.5,208.2 293.9,208.2 294.2,208.2 294.6,208.2 295.0,208.2 295.4,208.2 295.8,208.2 296.1,208.2 296.5,208.2 296.9,208.2 297.2,208.2 297.6,208.2 298.0,208.2 298.4,208.2 298.8,208.2 299.1,208.2 299.5,208.2 299.9,208.2 300.2,208.2 300.6,208.2 301.0,208.2 301.4,208.2 301.8,208.2 302.1,208.2 302.5,208.2 302.9,208.2 303.2,208.2 303.6,208.2 304.0,208.2 304.4,208.2 304.8,208.2 305.1,208.2 305.5,208.2 305.9,208.2 306.2,208.2 306.6,208.2 307.0,208.2 307.4,208.2 307.8,208.2 308.1,208.2 308.5,208.2 308.9,208.2 309.2,208.2 309.6,208.2 310.0,208.2 310.4,208.2 310.8,208.2 311.1,208.2 311.5,208.2 311.9,208.2 312.2,208.2 312.6,208.2 313.0,208.2 313.4,208.2 313.8,208.2 314.1,208.2 314.5,208.2 314.9,208.2 315.2,208.2 315.6,208.2 316.0,208.2 316.4,208.2 316.8,208.2 317.1,208.2 317.5,208.2 317.9,208.2 318.2,208.2 318.6,208.2 319.0,208.2 319.4,208.2 319.8,208.2 320.1,208.2 320.5,208.2 320.9,208.2 321.2,208.2 321.6,208.2 322.0,208.2 322.4,208.2 322.8,208.2 323.1,208.2 323.5,208.2 323.9,208.2 324.2,208.2 324.6,208.2 325.0,208.2 325.4,208.2 325.8,208.2 326.1,208.2 326.5,208.2 326.9,208.2 327.2,208.2 327.6,208.2 328.0,208.2 328.4,208.2 328.8,208.2 329.1,208.2 329.5,208.2 329.9,208.2 330.2,208.2 330.6,208.2 331.0,208.2 331.4,208.2 331.8,208.2 332.1,208.2 332.5,208.2 332.9,208.2 333.2,208.2 333.6,208.2 334.0,208.2 334.4,208.2 334.8,208.2 335.1,208.2 335.5,208.2 335.9,208.2 336.2,208.2 336.6,208.2 337.0,208.2 337.4,208.2 337.8,208.2 338.1,208.2 338.5,208.2 338.9,208.2 339.2,208.2 339.6,208.2 340.0,208.2 340.4,208.2 340.8,208.2 341.1,208.2 341.5,208.2 341.9,208.2 342.2,208.2 342.6,208.2 343.0,208.2 343.4,208.2 343.8,208.2 344.1,208.2 344.5,208.2 344.9,208.2 345.2,208.2 345.6,208.2 346.0,208.2" fill="none" stroke="var(--text-heading)" stroke-width="2.2" stroke-linejoin="round"/>
+<polyline points="46.0,201.9 46.8,201.8 47.5,201.8 48.2,201.7 49.0,201.6 49.8,201.4 50.5,201.2 51.3,201.0 52.0,200.7 52.8,200.3 53.5,199.9 54.3,199.4 55.0,198.8 55.7,198.2 56.5,197.5 57.2,196.8 58.0,195.9 58.7,195.0 59.5,194.0 60.2,193.0 61.0,191.8 61.8,190.6 62.5,189.3 63.2,188.0 64.0,186.5 64.8,185.0 65.5,183.4 66.2,181.8 67.0,180.0 67.8,178.2 68.5,176.4 69.2,174.4 70.0,172.4 70.8,170.4 71.5,168.3 72.2,166.2 73.0,164.0 73.8,161.8 74.5,159.5 75.3,157.2 76.0,154.9 76.8,152.6 77.5,150.2 78.2,147.9 79.0,145.6 79.8,143.2 80.5,140.9 81.2,138.6 82.0,136.3 82.8,134.0 83.5,131.8 84.2,129.6 85.0,127.5 85.8,125.4 86.5,123.4 87.2,121.5 88.0,119.6 88.7,117.8 89.5,116.1 90.2,114.4 91.0,112.9 91.8,111.5 92.5,110.1 93.2,108.9 94.0,107.8 94.8,106.8 95.5,105.9 96.2,105.2 97.0,104.5 97.8,104.0 98.5,103.6 99.2,103.4 100.0,103.3 100.8,103.3 101.5,103.4 102.2,103.7 103.0,104.1 103.8,104.6 104.5,105.3 105.2,106.1 106.0,107.1 106.8,108.1 107.5,109.3 108.2,110.6 109.0,112.1 109.8,113.6 110.5,115.3 111.3,117.0 112.0,118.9 112.8,120.8 113.5,122.9 114.3,125.0 115.0,127.3 115.8,129.6 116.5,132.0 117.2,134.4 118.0,136.9 118.8,139.5 119.5,142.1 120.2,144.7 121.0,147.4 121.8,150.1 122.5,152.8 123.2,155.5 124.0,158.3 124.8,161.0 125.5,163.7 126.2,166.5 127.0,169.2 127.8,171.9 128.5,174.5 129.2,177.1 130.0,179.7 130.8,182.2 131.5,184.7 132.2,187.1 133.0,189.4 133.8,191.7 134.5,193.9 135.2,196.0 136.0,198.1 136.8,200.0 137.5,201.9 138.2,203.7 139.0,205.4 139.8,207.0 140.5,208.5 141.2,209.9 142.0,211.2 142.8,212.5 143.5,213.6 144.2,214.6 145.0,215.5 145.8,216.3 146.5,217.1 147.2,217.7 148.0,218.2 148.8,218.7 149.5,219.0 150.2,219.3 151.0,219.5 151.8,219.6 152.5,219.6 153.2,219.5 154.0,219.4 154.8,219.2 155.5,219.0 156.2,218.7 157.0,218.3 157.8,217.9 158.5,217.4 159.2,216.9 160.0,216.4 160.8,215.8 161.5,215.2 162.2,214.5 163.0,213.9 163.8,213.2 164.5,212.5 165.2,211.8 166.0,211.2 166.8,210.5 167.5,209.8 168.2,209.1 169.0,208.4 169.8,207.8 170.5,207.2 171.2,206.6 172.0,206.0 172.8,205.4 173.5,204.9 174.2,204.4 175.0,203.9 175.8,203.5 176.5,203.1 177.2,202.7 178.0,202.4 178.8,202.1 179.5,201.9 180.2,201.6 181.0,201.5 181.8,201.3 182.5,201.2 183.2,201.1 184.0,201.0 184.8,201.0 185.5,201.0 186.2,201.0 187.0,201.0 187.8,201.1 188.5,201.2 189.2,201.2 190.0,201.3 190.8,201.4 191.5,201.5 192.2,201.6 193.0,201.7 193.8,201.8 194.5,201.8 195.2,201.8 196.0,201.9 196.7,201.8 197.5,201.8 198.2,201.7 199.0,201.6 199.8,201.4 200.5,201.2 201.2,201.0 202.0,200.7 202.8,200.3 203.5,199.9 204.2,199.4 205.0,198.8 205.8,198.2 206.5,197.5 207.2,196.8 208.0,195.9 208.8,195.0 209.5,194.0 210.2,193.0 211.0,191.8 211.8,190.6 212.5,189.3 213.2,188.0 214.0,186.5 214.8,185.0 215.5,183.4 216.2,181.8 217.0,180.0 217.8,178.2 218.5,176.4 219.2,174.4 220.0,172.4 220.8,170.4 221.5,168.3 222.2,166.2 223.0,164.0 223.8,161.8 224.5,159.5 225.2,157.2 226.0,154.9 226.8,152.6 227.5,150.2 228.2,147.9 229.0,145.6 229.8,143.2 230.5,140.9 231.3,138.6 232.0,136.3 232.8,134.0 233.5,131.8 234.2,129.6 235.0,127.5 235.7,125.4 236.5,123.4 237.2,121.5 238.0,119.6 238.8,117.8 239.5,116.1 240.2,114.4 241.0,112.9 241.8,111.5 242.5,110.1 243.2,108.9 244.0,107.8 244.8,106.8 245.5,105.9 246.2,105.2 247.0,104.5 247.8,104.0 248.5,103.6 249.2,103.4 250.0,103.3 250.8,103.3 251.5,103.4 252.2,103.7 253.0,104.1 253.8,104.6 254.5,105.3 255.2,106.1 256.0,107.1 256.8,108.1 257.5,109.3 258.2,110.6 259.0,112.1 259.8,113.6 260.5,115.3 261.2,117.0 262.0,118.9 262.8,120.8 263.5,122.9 264.2,125.0 265.0,127.3 265.8,129.6 266.5,132.0 267.2,134.4 268.0,136.9 268.8,139.5 269.5,142.1 270.2,144.7 271.0,147.4 271.8,150.1 272.5,152.8 273.2,155.5 274.0,158.3 274.8,161.0 275.5,163.7 276.2,166.5 277.0,169.2 277.8,171.9 278.5,174.5 279.2,177.1 280.0,179.7 280.8,182.2 281.5,184.7 282.2,187.1 283.0,189.4 283.8,191.7 284.5,193.9 285.2,196.0 286.0,198.1 286.8,200.0 287.5,201.9 288.2,203.7 289.0,205.4 289.8,207.0 290.5,208.5 291.2,209.9 292.0,211.2 292.8,212.5 293.5,213.6 294.2,214.6 295.0,215.5 295.8,216.3 296.5,217.1 297.2,217.7 298.0,218.2 298.8,218.7 299.5,219.0 300.2,219.3 301.0,219.5 301.8,219.6 302.5,219.6 303.2,219.5 304.0,219.4 304.8,219.2 305.5,219.0 306.2,218.7 307.0,218.3 307.8,217.9 308.5,217.4 309.2,216.9 310.0,216.4 310.8,215.8 311.5,215.2 312.2,214.5 313.0,213.9 313.8,213.2 314.5,212.5 315.2,211.8 316.0,211.2 316.8,210.5 317.5,209.8 318.2,209.1 319.0,208.4 319.8,207.8 320.5,207.2 321.2,206.6 322.0,206.0 322.8,205.4 323.5,204.9 324.2,204.4 325.0,203.9 325.8,203.5 326.5,203.1 327.2,202.7 328.0,202.4 328.8,202.1 329.5,201.9 330.2,201.6 331.0,201.5 331.8,201.3 332.5,201.2 333.2,201.1 334.0,201.0 334.8,201.0 335.5,201.0 336.2,201.0 337.0,201.0 337.8,201.1 338.5,201.2 339.2,201.2 340.0,201.3 340.8,201.4 341.5,201.5 342.2,201.6 343.0,201.7 343.8,201.8 344.5,201.8 345.2,201.8 346.0,201.9" fill="none" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.6" stroke-dasharray="6 4" stroke-linejoin="round"/>
+<polyline points="46.0,206.9 46.8,206.8 47.5,206.5 48.2,206.0 49.0,205.1 49.8,204.0 50.5,202.5 51.3,200.8 52.0,198.8 52.8,196.7 53.5,194.6 54.3,192.5 55.0,190.5 55.7,188.7 56.5,187.1 57.2,185.8 58.0,184.7 58.7,183.8 59.5,183.2 60.2,182.6 61.0,182.0 61.8,181.3 62.5,180.5 63.2,179.5 64.0,178.3 64.8,176.8 65.5,175.1 66.2,173.1 67.0,171.1 67.8,168.9 68.5,166.8 69.2,164.8 70.0,163.0 70.8,161.4 71.5,160.1 72.2,159.0 73.0,158.2 73.8,157.6 74.5,157.0 75.3,156.5 76.0,156.0 76.8,155.3 77.5,154.3 78.2,153.1 79.0,151.6 79.8,149.8 80.5,147.8 81.2,145.6 82.0,143.3 82.8,141.0 83.5,138.9 84.2,136.9 85.0,135.3 85.8,133.9 86.5,132.9 87.2,132.3 88.0,131.8 88.7,131.5 89.5,131.3 90.2,131.0 91.0,130.5 91.8,129.7 92.5,128.5 93.2,127.0 94.0,125.0 94.8,122.7 95.5,120.2 96.2,117.5 97.0,114.8 97.8,112.2 98.5,110.0 99.2,108.1 100.0,106.8 100.8,106.0 101.5,105.6 102.2,105.7 103.0,106.2 103.8,106.7 104.5,107.1 105.2,107.3 106.0,107.0 106.8,106.1 107.5,104.4 108.2,101.9 109.0,98.6 109.8,94.7 110.5,90.4 111.3,85.9 112.0,81.6 112.8,77.9 113.5,75.1 114.3,73.7 115.0,74.0 115.8,76.1 116.5,80.3 117.2,86.5 118.0,94.8 118.8,104.8 119.5,116.4 120.2,129.1 121.0,142.4 121.8,155.8 122.5,168.8 123.2,181.0 124.0,192.0 124.8,201.3 125.5,208.8 126.2,214.4 127.0,218.0 127.8,219.8 128.5,220.0 129.2,218.8 130.0,216.7 130.8,213.9 131.5,210.9 132.2,208.0 133.0,205.4 133.8,203.4 134.5,202.2 135.2,201.7 136.0,202.0 136.8,202.9 137.5,204.3 138.2,206.0 139.0,207.8 139.8,209.5 140.5,211.0 141.2,212.0 142.0,212.6 142.8,212.7 143.5,212.3 144.2,211.5 145.0,210.4 145.8,209.1 146.5,207.8 147.2,206.6 148.0,205.6 148.8,205.0 149.5,204.7 150.2,204.9 151.0,205.3 151.8,206.1 152.5,207.0 153.2,208.1 154.0,209.1 154.8,210.0 155.5,210.6 156.2,211.0 157.0,211.1 157.8,210.9 158.5,210.3 159.2,209.6 160.0,208.8 160.8,207.9 161.5,207.1 162.2,206.4 163.0,205.9 163.8,205.7 164.5,205.8 165.2,206.1 166.0,206.7 166.8,207.4 167.5,208.1 168.2,208.9 169.0,209.6 169.8,210.1 170.5,210.4 171.2,210.4 172.0,210.3 172.8,209.9 173.5,209.3 174.2,208.7 175.0,208.0 175.8,207.3 176.5,206.8 177.2,206.4 178.0,206.2 178.8,206.2 179.5,206.5 180.2,206.9 181.0,207.5 181.8,208.1 182.5,208.7 183.2,209.3 184.0,209.7 184.8,210.0 185.5,210.1 186.2,210.0 187.0,209.7 187.8,209.2 188.5,208.7 189.2,208.2 190.0,207.6 190.8,207.2 191.5,206.8 192.2,206.6 193.0,206.5 193.8,206.6 194.5,206.7 195.2,206.8 196.0,206.9 196.7,206.8 197.5,206.5 198.2,206.0 199.0,205.1 199.8,204.0 200.5,202.5 201.2,200.8 202.0,198.8 202.8,196.7 203.5,194.6 204.2,192.5 205.0,190.5 205.8,188.7 206.5,187.1 207.2,185.8 208.0,184.7 208.8,183.8 209.5,183.2 210.2,182.6 211.0,182.0 211.8,181.3 212.5,180.5 213.2,179.5 214.0,178.3 214.8,176.8 215.5,175.1 216.2,173.1 217.0,171.1 217.8,168.9 218.5,166.8 219.2,164.8 220.0,163.0 220.8,161.4 221.5,160.1 222.2,159.0 223.0,158.2 223.8,157.6 224.5,157.0 225.2,156.5 226.0,156.0 226.8,155.3 227.5,154.3 228.2,153.1 229.0,151.6 229.8,149.8 230.5,147.8 231.3,145.6 232.0,143.3 232.8,141.0 233.5,138.9 234.2,136.9 235.0,135.3 235.7,133.9 236.5,132.9 237.2,132.3 238.0,131.8 238.8,131.5 239.5,131.3 240.2,131.0 241.0,130.5 241.8,129.7 242.5,128.5 243.2,127.0 244.0,125.0 244.8,122.7 245.5,120.2 246.2,117.5 247.0,114.8 247.8,112.2 248.5,110.0 249.2,108.1 250.0,106.8 250.8,106.0 251.5,105.6 252.2,105.7 253.0,106.2 253.8,106.7 254.5,107.1 255.2,107.3 256.0,107.0 256.8,106.1 257.5,104.4 258.2,101.9 259.0,98.6 259.8,94.7 260.5,90.4 261.2,85.9 262.0,81.6 262.8,77.9 263.5,75.1 264.2,73.7 265.0,74.0 265.8,76.1 266.5,80.3 267.2,86.5 268.0,94.8 268.8,104.8 269.5,116.4 270.2,129.1 271.0,142.4 271.8,155.8 272.5,168.8 273.2,181.0 274.0,192.0 274.8,201.3 275.5,208.8 276.2,214.4 277.0,218.0 277.8,219.8 278.5,220.0 279.2,218.8 280.0,216.7 280.8,213.9 281.5,210.9 282.2,208.0 283.0,205.4 283.8,203.4 284.5,202.2 285.2,201.7 286.0,202.0 286.8,202.9 287.5,204.3 288.2,206.0 289.0,207.8 289.8,209.5 290.5,211.0 291.2,212.0 292.0,212.6 292.8,212.7 293.5,212.3 294.2,211.5 295.0,210.4 295.8,209.1 296.5,207.8 297.2,206.6 298.0,205.6 298.8,205.0 299.5,204.7 300.2,204.9 301.0,205.3 301.8,206.1 302.5,207.0 303.2,208.1 304.0,209.1 304.8,210.0 305.5,210.6 306.2,211.0 307.0,211.1 307.8,210.9 308.5,210.3 309.2,209.6 310.0,208.8 310.8,207.9 311.5,207.1 312.2,206.4 313.0,205.9 313.8,205.7 314.5,205.8 315.2,206.1 316.0,206.7 316.8,207.4 317.5,208.1 318.2,208.9 319.0,209.6 319.8,210.1 320.5,210.4 321.2,210.4 322.0,210.3 322.8,209.9 323.5,209.3 324.2,208.7 325.0,208.0 325.8,207.3 326.5,206.8 327.2,206.4 328.0,206.2 328.8,206.2 329.5,206.5 330.2,206.9 331.0,207.5 331.8,208.1 332.5,208.7 333.2,209.3 334.0,209.7 334.8,210.0 335.5,210.1 336.2,210.0 337.0,209.7 337.8,209.2 338.5,208.7 339.2,208.2 340.0,207.6 340.8,207.2 341.5,206.8 342.2,206.6 343.0,206.5 343.8,206.6 344.5,206.7 345.2,206.8 346.0,206.9" fill="none" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.6" stroke-linejoin="round"/>
+</g>
+<circle cx="121.0" cy="141.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<circle cx="271.0" cy="141.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<line x1="46.0" y1="308.0" x2="66.0" y2="308.0" stroke="var(--text-heading)" stroke-width="1.8"/>
+<text x="72.0" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start"><tspan font-style="italic">f</tspan></text>
+<line x1="96.4" y1="308.0" x2="116.4" y2="308.0" stroke="var(--fig-acc, #f59e0b)" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="122.4" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">S<tspan baseline-shift="sub" font-size="72%">2</tspan></text>
+<line x1="153.2" y1="308.0" x2="173.2" y2="308.0" stroke="var(--fig-blue, #3b82f6)" stroke-width="1.8"/>
+<text x="179.2" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">S<tspan baseline-shift="sub" font-size="72%">10</tspan></text>
+<circle cx="220.4" cy="308.0" r="4" fill="var(--fig-pink, #ec4899)" stroke="var(--fig-pink, #ec4899)" stroke-width="1"/>
+<text x="230.4" y="312.0" fill="var(--text-muted)" font-size="11" font-weight="400" text-anchor="start">midpoint</text>
+</g></svg></div><div class="diagram-caption">Sketch (iii): flat piece at height $1$ on $[-L,0)$, a ramp from $1$ to $L+1$ on $[0,L]$, continuous at $0$ with a corner, jumping at $x=(2k+1)L$ with the series at $1+\frac L2$.</div><a class="diagram-open" href="../../../vault/attachments/AM-PS/ch6-e8-iii.svg" target="_blank" rel="noopener">Open the figure full size</a></div>
+<p>Continuity at $0$: $f(0^-)=1$, $f(0^+)=0+1=1$, so $f$ is continuous there (with a corner: slope $0$ on the left, $1$ on the right). At the junction $f(L^-)=L+1$ and $f(-L^+)=1$: a jump of size $L$.</p>
+<p>$a_0=\frac1{2L}\left[\int_{-L}^{0}1\,dx+\int_0^L(x+1)dx\right]=\frac1{2L}\left[L+\frac{L^2}{2}+L\right]=1+\dfrac{L}{4}$.</p>
+<p>$a_n=\frac1L\left[\int_{-L}^0\cos kx\,dx+\int_0^L(x+1)\cos kx\,dx\right]$. Since $\int_{-L}^0\cos kx\,dx=\frac{\sin 0-\sin(-kL)}{k}=0$ and $\int_0^L\cos kx\,dx=\frac{\sin kL}{k}=0$, only $\int_0^Lx\cos kx\,dx$ remains; by parts ($u=x$, $v=\frac{\sin kx}{k}$):</p>
+<p>$$ \int_0^Lx\cos kx\,dx=\left[\frac{x\sin kx}{k}\right]_0^L-\frac1k\int_0^L\sin kx\,dx=0-\frac1k\left[-\frac{\cos kx}{k}\right]_0^L=\frac{(-1)^n-1}{k^2}. $$</p>
+<p>Thus $a_n=\dfrac{1}{L}\cdot\dfrac{L^2\left((-1)^n-1\right)}{n^2\pi^2}=\dfrac{L\left((-1)^n-1\right)}{n^2\pi^2}$, i.e. $-\frac{2L}{n^2\pi^2}$ for odd $n$ and $0$ for even $n$.</p>
+<p>$b_n=\frac1L\left[\int_{-L}^0\sin kx\,dx+\int_0^L\sin kx\,dx+\int_0^Lx\sin kx\,dx\right]$. First: $\left[-\frac{\cos kx}{k}\right]_{-L}^{0}=\frac{(-1)^n-1}{k}$; second: $\left[-\frac{\cos kx}{k}\right]_0^L=\frac{1-(-1)^n}{k}$; they cancel. Third (computed in (i)): $-\frac{L(-1)^n}{k}$. So</p>
+<p>$$ b_n=-\frac{(-1)^n}{k}=\frac{(-1)^{n+1}L}{n\pi}. $$</p>
+<p>$$ f\sim1+\frac L4+\sum_{n=1}^{\infty}\left[\frac{L\left((-1)^n-1\right)}{n^2\pi^2}\cos\frac{n\pi x}{L}+\frac{(-1)^{n+1}L}{n\pi}\sin\frac{n\pi x}{L}\right]. $$</p>
+<p>Convergence checks:</p>
+<ul class="bullet-list"><li>At $x=0$ (continuous): $1+\frac L4+\sum a_n=1+\frac L4-\frac{2L}{\pi^2}\sum_{k\ \mathrm{odd}}\frac1{k^2}=1+\frac L4-\frac{2L}{\pi^2}\cdot\frac{\pi^2}8=1=f(0)$ ✓ (uses $\sum(2j-1)^{-2}=\pi^2/8$, see Problem - Ch6-P5 Fourier Series of Nine Functions).</li><li>At $x=\pm L$ (jump): sines vanish and $\cos n\pi=(-1)^n$, giving $1+\frac L4+\sum\frac{L(1-(-1)^n)}{n^2\pi^2}=1+\frac L4+\frac{2L}{\pi^2}\cdot\frac{\pi^2}8=1+\frac L2=\frac{(L+1)+1}{2}$ ✓.</li></ul>
+</div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Fourier Series, Convergence and Checks</div>
+<div class="result-box"><div class="result-box-title">Comparison with the graph of $f$</div><div class="table-container"><table class="data-table"><thead><tr><th></th><th>continuous extension?</th><th>Series at $x=\pm L$</th><th>Series vs $f$ on $(-L,L)$</th></tr></thead><tbody><tr><td>(i) $x^2$</td><td>yes (corners at $(2k+1)L$)</td><td>$L^2$</td><td>equal</td></tr><tr><td>(ii) $e^x$</td><td>no (jump at $(2k+1)L$)</td><td>$\cosh L$</td><td>equal, Gibbs overshoot near $\pm L$</td></tr><tr><td>(iii) piecewise</td><td>no (jump at $(2k+1)L$, corner at $2kL$)</td><td>$1+\frac L2$</td><td>equal (also at $0$)</td></tr></tbody></table></div></div>
+<div class="warning-box"><div class="warning-box-title">Endpoint values</div><p>$f(\pm L)$ itself ($L^2$, $e^{\pm L}$, $L+1$ or $1$) is not what the series returns when the periodic extension jumps: the series returns the average of the one-sided limits. The sketch must show an open/closed dot at the jump and the midpoint value.</p></div>
+<p>Checks: a corner (no jump) means coefficients decay like $n^{-2}$ ((i) and the $a_n$ of (iii)); a jump means $b_n\sim n^{-1}$ ((ii) and (iii)), as the formulas show. Dimensions: $a_n,b_n$ carry the units of $f$ ✓.</p>
+      </div>
+
+    </article>
+
+    <article class="problem-card" id="e9">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <div class="problem-num-badge">Exercise 9</div>
+          <h2 class="problem-title">Fourier Series of Even and Odd Periodic Functions</h2>
+      <a class="src-link" data-srclink href="../../../sources/cuatrimestre-1/04-advanced-maths/unit-05-fourier-series-pdes/problemas/probls_ch6_2627.pdf#page=2" target="_blank" rel="noopener">Original statement · probls_ch6_2627.pdf, p. 2</a>
+        </div>
+        <span class="problem-meta-badge">Even and odd series</span>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Statement</div>
+        <div class="problem-statement-box"><p>What can we say about the Fourier series on $[-L,L]$ of a function $f(x)$ that is $2L$ periodic and even, that is, satisfies $f(-x)=f(x)$ for $x\in\mathbb R$? And if $f(x)$ is $2L$ periodic and odd, $f(-x)=-f(x)$?</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-1-badge">Period, Symmetry and Coefficient Formulas</div>
+<p>With $k=\frac{n\pi}{L}$: $a_0=\frac1{2L}\int_{-L}^{L}f\,dx$, $a_n=\frac1L\int_{-L}^{L}f\cos kx\,dx$, $b_n=\frac1L\int_{-L}^{L}f\sin kx\,dx$ (Haberman, Sec. 3.4). Parities of the basis: $\cos kx$ is even and $\sin kx$ is odd, because $\cos(-kx)=\cos kx$ and $\sin(-kx)=-\sin kx$. Products: even$\cdot$even and odd$\cdot$odd are even; even$\cdot$odd is odd.</p>
+<div class="note-box"><div class="note-box-title">Lemma</div><p>Let $g$ be integrable on $[-L,L]$. Split $\int_{-L}^{L}g=\int_{-L}^{0}g+\int_0^Lg$ and substitute $u=-x$, $du=-dx$ in the first piece; the limits $x=-L\to0$ become $u=L\to0$:</p><p>$$ \int_{-L}^{0}g(x)\,dx=\int_{L}^{0}g(-u)(-du)=\int_0^Lg(-u)\,du. $$</p><p>Hence $\int_{-L}^{L}g=\int_0^L\left[g(x)+g(-x)\right]dx$. If $g$ is even this equals $2\int_0^Lg$; if $g$ is odd the bracket is $0$ and $\int_{-L}^{L}g=0$.</p></div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-2-badge">Step-by-Step Result</div>
+<div class="sub-case-card"><div class="sub-case-header">Even $f$</div>
+<p>$f\cos kx$ is even (even$\cdot$even), so $a_n=\frac2L\int_0^Lf\cos kx\,dx$ and $a_0=\frac1L\int_0^Lf\,dx$. $f\sin kx$ is odd, so $b_n=0$ for all $n$. The series is a <strong>cosine series</strong>:</p>
+<p>$$ f(x)\sim a_0+\sum_{n=1}^{\infty}a_n\cos\frac{n\pi x}{L}. $$</p>
+</div>
+<div class="sub-case-card"><div class="sub-case-header">Odd $f$</div>
+<p>$f\cos kx$ is odd, so $a_n=0$ and $a_0=0$ (the integrand $f$ is odd). $f\sin kx$ is even, so $b_n=\frac2L\int_0^Lf\sin kx\,dx$. The series is a <strong>sine series</strong>:</p>
+<p>$$ f(x)\sim\sum_{n=1}^{\infty}b_n\sin\frac{n\pi x}{L}. $$</p>
+</div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge-title phase-3-badge">Fourier Series, Convergence and Checks</div>
+<div class="result-box"><div class="result-box-title">Answer</div><p>A $2L$-periodic even function has only cosines (and a constant); an odd one has only sines. Coefficients need integration over $[0,L]$ only, doubled.</p></div>
+<p>Parity of derivatives and integrals (chain rule): if $f$ is even, differentiate $f(-x)=f(x)$: $-f'(-x)=f'(x)$, so $f'$ is odd; if $f$ is odd, $-f'(-x)=-f'(x)$, so $f'$ is even. For $F(x)=\int_0^xf(s)ds$, substitution $s=-t$ gives $F(-x)=\int_0^{-x}f(s)ds=-\int_0^{x}f(-t)dt$, so $F$ is odd when $f$ is even and even when $f$ is odd. This explains why term-by-term differentiation of a cosine series gives a sine series and conversely.</p>
+<div class="warning-box"><div class="warning-box-title">Endpoint conditions</div><p>If $f$ is <strong>odd and continuous</strong> at $0$, then $f(0)=-f(0)$, so $f(0)=0$; by $2L$-periodicity $f(L)=f(-L)=-f(L)$, so $f(L)=0$ (and $f(\pm L)=0$). If $f$ has a jump there, the series converges to the average $\tfrac12[f(0^+)+f(0^-)]=0$ (and $0$ at $\pm L$), matching the vanishing of every $\sin\frac{n\pi x}L$. For an even $f$, $f(L)=f(-L)$ holds automatically, so the periodic extension has no jump at $\pm L$; if $f$ is also differentiable, $f'$ is odd, hence $f'(0)=f'(L)=0$ (flat ends), compatible with $\cos$ having zero slope there.</p></div>
+<p>Examples in this chapter: $|x|$ and $x^2$ (cosine series) and $x$ (sine series) in Problem - Ch6-P5 Fourier Series of Nine Functions; $x^2$ with general $L$ in Problem - Ch6-P8 Sketching Fourier Series and Periodic Extensions. The relation to half-range expansions is the same lemma: extend a function given on $[0,L]$ evenly (cosine series) or oddly (sine series).</p>
+      </div>
+
+    </article>
+
+    <nav class="article-nav" aria-label="Topic Navigation">
+      <a href="topic-5-problems.html" class="nav-btn">
+        <span class="nav-btn-label">← Previous Problem Set</span>
+        <span class="nav-btn-title">Chapter 5: Coupled Nonlinear Systems</span>
+      </a>
+      <a href="../teoria/topic-6.html" class="nav-btn" style="text-align: right;">
+        <span class="nav-btn-label">Review Foundations →</span>
+        <span class="nav-btn-title">Topic 6 Theory and Lecture Guide</span>
+      </a>
+    </nav>
+
+    <footer class="site-footer">
+      <p>Bachelor in Aerospace Engineering — Universidad Carlos III de Madrid (UC3M)</p>
+      <p>Advanced Mathematics • Chapter 6 Problem Set: Sturm-Liouville Problems and Fourier Series • Grounded in probls_ch6_2627.pdf</p>
+      <p style="margin-top: 8px;">
+        <a class="end-btn" href="../../../index.html">← Return to Main Aerospace Study Portal</a>
+      </p>
+    </footer>
+
+    <section class="container" style="max-width: 920px; margin: 48px auto 24px; padding: 0 24px;">
+      <div id="quoteContainer"></div>
+    </section>
+  </main>
+
+  <script src="../../../assets/js/quotes.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.initAerospaceQuote) {
+        initAerospaceQuote('#quoteContainer');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -3968,6 +3968,133 @@
     "haberman": "am-haberman",
     "sheet": "am-p6"
    }
+  },
+  "subjects/advanced-maths/problemas/topic-5-problems.html": {
+   "panel": [
+    [
+     "am-p5",
+     1
+    ],
+    [
+     "am-book",
+     "auto"
+    ],
+    [
+     "am-notes5",
+     1
+    ],
+    [
+     "am-ex52",
+     1
+    ]
+   ],
+   "cite": {
+    "robinson": "am-book",
+    "notes": "am-notes5",
+    "solved": "am-ex52",
+    "sheet": "am-p5"
+   },
+   "cards": {
+    "e1": [
+     "am-p5",
+     1
+    ],
+    "e2": [
+     "am-p5",
+     1
+    ],
+    "e3": [
+     "am-p5",
+     2
+    ],
+    "e4": [
+     "am-p5",
+     2
+    ],
+    "e5": [
+     "am-p5",
+     2
+    ],
+    "e6": [
+     "am-p5",
+     2
+    ],
+    "e7": [
+     "am-p5",
+     2
+    ],
+    "e8": [
+     "am-p5",
+     3
+    ],
+    "e9": [
+     "am-p5",
+     3
+    ],
+    "e10": [
+     "am-p5",
+     3
+    ]
+   }
+  },
+  "subjects/advanced-maths/problemas/topic-6-problems.html": {
+   "panel": [
+    [
+     "am-p6",
+     1
+    ],
+    [
+     "am-haberman",
+     "auto"
+    ],
+    [
+     "am-notes6",
+     1
+    ]
+   ],
+   "cite": {
+    "haberman": "am-haberman",
+    "notes": "am-notes6",
+    "sheet": "am-p6"
+   },
+   "cards": {
+    "e1": [
+     "am-p6",
+     1
+    ],
+    "e2": [
+     "am-p6",
+     1
+    ],
+    "e3": [
+     "am-p6",
+     1
+    ],
+    "e4": [
+     "am-p6",
+     1
+    ],
+    "e5": [
+     "am-p6",
+     1
+    ],
+    "e6": [
+     "am-p6",
+     2
+    ],
+    "e7": [
+     "am-p6",
+     2
+    ],
+    "e8": [
+     "am-p6",
+     2
+    ],
+    "e9": [
+     "am-p6",
+     2
+    ]
+   }
   }
  }
 }
