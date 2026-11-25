@@ -21,9 +21,15 @@
  * Isochronic mode: panL = 0 (both ears), gateR = 0, pulse = 0.5*sqrt2 + 0.5*sqrt2*square(beat).
  * Every gain, pan and frequency change is a linear or exponential ramp, so nothing clicks.
  *
+ * Study timer sync: AEFocusLab.cue(spec) lets assets/js/pomodoro.js drive the sound phase by phase
+ * ({ preset, noise, tone, fade, label }; preset null fades to silence, 'keep' keeps the mixer's
+ * setting). A cue that cannot start (hidden tab, or a new page before any gesture, autoplay policy)
+ * waits for the tab to be visible and the first click or key. While following, the panel shows
+ * "Following timer: <label>"; a hand Stop dispatches 'aefocuslab:userstop' on window.
+ *
  * Storage: 'ae_focus_lab' (JSON: preset, frequencies, levels, noise colour, mode, view).
  * API: window.AEFocusLab = { PRESETS, KEY, LIMITS, noiseBuffer, createEngine, open, close, toggle,
- *      applyPreset, state }
+ *      applyPreset, cue, state }
  */
 (function () {
   'use strict';
@@ -48,22 +54,25 @@
     none: { symbol: '1/f²', name: 'Noise only' }
   };
 
+  // Wording kept to what the evidence supports: behavioural effects of binaural beats are modest and
+  // their EEG entrainment is unproven (Garcia-Argibay 2019; Ingendoh 2023); low-level masking is the
+  // best-supported use (Awada 2022), and rhythmic sound can hurt reading and verbal memory (Kampfe 2011).
   var PRESETS = [
     { id: 'gamma', name: 'Calculation & Debugging', band: 'gamma', carrier: 200, beat: 40, tones: true,
-      noise: 'brown', level: 0.25, use: 'Problem solving · advanced maths · system architecture',
-      text: 'High-speed neural synchronisation for complex problem solving, advanced mathematics and systems architecture.' },
+      noise: 'brown', level: 0.25, use: 'Problem solving · derivations · debugging',
+      text: 'A 40 Hz beat over brown noise. Some studies report small gains in attention; the brain-wave mechanism is unproven, so use it as a focus cue.' },
     { id: 'beta', name: 'Active Programming', band: 'beta', carrier: 250, beat: 20, tones: true,
-      noise: 'pink', level: 0.20, use: 'Writing code · implementing logic · practice problems',
-      text: 'Sustained analytical focus for writing code, implementing logic and solving practical exercises.' },
+      noise: 'pink', level: 0.20, use: 'Practice problems · writing code',
+      text: 'A 20 Hz beat over pink noise: a steady cue for step-by-step work. Measured effects are modest and not specific to the band.' },
     { id: 'smr', name: 'Technical Reading & Papers', band: 'smr', carrier: 200, beat: 14, tones: true,
-      noise: 'brown', level: 0.30, use: 'Documentation · technical standards · papers',
-      text: 'Sensorimotor rhythm (14 Hz) for deep reading of documentation and technical standards, and study without mental fatigue.' },
+      noise: 'brown', level: 0.30, use: 'Reading notes · papers · documentation',
+      text: 'A 14 Hz beat over brown noise. For reading, quiet masking matters more than the beat: keep the tones low, rhythmic sound can disturb verbal memory.' },
     { id: 'alpha', name: 'Assimilation & Flow', band: 'alpha', carrier: 220, beat: 10, tones: true,
-      noise: 'pink', level: 0.15, use: 'New theory · conceptual physics · mind maps',
-      text: 'Relaxed alertness, suited to understanding new theoretical concepts, conceptual physics and mind maps.' },
+      noise: 'pink', level: 0.15, use: 'Light review · noisy breaks',
+      text: 'A 10 Hz beat over soft pink noise, for light review or a break in a noisy room. Evidence for relaxation or memory gains is mixed.' },
     { id: 'isolation', name: 'Pure Isolation', band: 'none', carrier: 200, beat: 40, tones: false,
-      noise: 'brown', level: 0.50, use: 'Ambient-noise masking · sensory overload',
-      text: 'Low-frequency acoustic masking (1/f²) to block ambient noise and reduce sensory overload.' }
+      noise: 'brown', level: 0.50, use: 'Masking a noisy room',
+      text: 'Brown noise only (1/f²), no tones: masks background chatter. The best-supported option; keep it barely above the room.' }
   ];
 
   var NOISES = [
@@ -317,6 +326,8 @@
   var playing = false;
   var frame = 0;
   var suspendTimer = 0;
+  var following = '';      // label of the study timer phase being followed ('' = not following)
+  var pendingFade = null;  // a cue waiting for a visible tab and a gesture: its fade-in time
   var AudioCtx = window.AudioContext || window.webkitAudioContext;
 
   function el(tag, className, text) {
@@ -433,6 +444,8 @@
     readout.setAttribute('aria-live', 'polite');
     transport.appendChild(play);
     transport.appendChild(readout);
+    var followLine = el('p', 'fl-following');
+    followLine.hidden = true;
 
     // headphones notice
     var notice = el('p', 'fl-notice');
@@ -534,7 +547,7 @@
       'treat the presets as a focus routine, not as a treatment. Sound stops when you leave the page; ' +
       'the Focus button resumes it on the next one.');
 
-    [head, transport, notice, presetTitle, presetList, explain, vizHead, canvas, mixTitle, tone.row, noiseRow,
+    [head, transport, followLine, notice, presetTitle, presetList, explain, vizHead, canvas, mixTitle, tone.row, noiseRow,
       isoRow, fine, foot].forEach(function (node) { panel.appendChild(node); });
 
     document.body.appendChild(launcher);
@@ -542,7 +555,21 @@
 
     ui = { launcher: launcher, panel: panel, close: close, play: play, playIcon: playIcon, playText: playText,
       readout: readout, notice: notice, cards: cards, explain: explain, viewButtons: viewButtons, canvas: canvas,
-      tone: tone, noiseButtons: noiseButtons, noiseLevel: noiseLevel, iso: iso, carrier: carrier, beat: beat };
+      tone: tone, noiseButtons: noiseButtons, noiseLevel: noiseLevel, iso: iso, carrier: carrier, beat: beat,
+      followLine: followLine };
+
+    // A cue that waited (new page before any gesture, or a hidden tab) starts on the first click or key.
+    function resumePending(event) {
+      if (pendingFade === null || document.hidden) return;
+      // a press on Play itself is handled by its click (start), or it would start and stop at once
+      if (event && event.target && event.target.closest && event.target.closest('.fl-play')) return;
+      var fade = pendingFade;
+      pendingFade = null;
+      start(fade);
+    }
+    document.addEventListener('pointerdown', resumePending, true);
+    document.addEventListener('keydown', resumePending, true);
+    document.addEventListener('visibilitychange', function () { if (canPlay()) resumePending(); });
 
     launcher.addEventListener('click', function () {
       if (!panel.hidden) { closePanel(false); return; }
@@ -550,7 +577,14 @@
       if (state.playing && !playing) start();   // resume what was playing on the previous page
     });
     close.addEventListener('click', function () { closePanel(true); });
-    play.addEventListener('click', function () { if (playing) stop(); else start(); });
+    play.addEventListener('click', function () {
+      if (!playing) { start(); return; }
+      // A hand Stop wins over the study timer: it stops following until sync is switched on again.
+      following = '';
+      pendingFade = null;
+      stop();
+      window.dispatchEvent(new CustomEvent('aefocuslab:userstop'));
+    });
 
     tone.input.addEventListener('input', function () {
       state.tone = tone.input.value / 100;
@@ -645,6 +679,9 @@
     ui.launcher.title = playing ? 'Focus Lab: playing' : state.playing ? 'Focus Lab: click to resume' : 'Focus Lab: study frequencies';
     ui.launcher.setAttribute('aria-label', ui.launcher.title);
 
+    ui.followLine.hidden = !following;
+    ui.followLine.textContent = following ? 'Following timer: ' + following : '';
+
     ui.play.setAttribute('aria-pressed', playing ? 'true' : 'false');
     ui.playIcon.textContent = '';
     ui.playIcon.appendChild(svgIcon(playing ? ICONS.pause : ICONS.play, 20));
@@ -703,9 +740,10 @@
     return engine;
   }
 
-  function start() {
+  function start(seconds) {
     if (!ensureEngine()) return;
     clearTimeout(suspendTimer);
+    pendingFade = null;
     var ctx = engine.context;
     var go = function () {
       engine.setFrequencies(state.carrier, state.beat, 0.05);
@@ -713,7 +751,7 @@
       engine.setToneLevel(state.tone, 0.05);
       engine.setNoiseType(state.noiseType, 0.05);
       engine.setNoiseLevel(state.noise, 0.05);
-      engine.fadeIn();
+      engine.fadeIn(seconds);
     };
     playing = true;
     state.playing = true;
@@ -723,18 +761,63 @@
     if (ctx.state === 'suspended') ctx.resume().then(go, go); else go();
   }
 
-  function stop() {
+  function stop(seconds) {
     playing = false;
     state.playing = false;
     save();
     sync();
     if (!engine) return;
-    engine.fadeOut();
+    engine.fadeOut(seconds);
     var ctx = engine.context;
     clearTimeout(suspendTimer);
     suspendTimer = setTimeout(function () {
       if (!playing && ctx.state === 'running') ctx.suspend();
-    }, (TIME.fadeOut + 0.15) * 1000);
+    }, ((seconds === undefined ? TIME.fadeOut : seconds) + 0.15) * 1000);
+  }
+
+  // Sound may start now: the context already runs, or the page has had a gesture (autoplay policy).
+  function canPlay() {
+    if (document.hidden) return false;
+    if (engine && engine.context.state === 'running') return true;
+    return !navigator.userActivation || navigator.userActivation.hasBeenActive;
+  }
+
+  function num(x, fallback) { return typeof x === 'number' && isFinite(x) ? clamp(x, 0, 1) : fallback; }
+
+  /* The study timer's cue (assets/js/pomodoro.js). Settings follow the preset with optional levels;
+     state.lastTone (the hand level the tones come back to) is never changed by a cue. */
+  function cue(spec) {
+    spec = spec || { preset: null };
+    following = spec.label ? String(spec.label) : '';
+    if (!spec.preset) {
+      pendingFade = null;
+      if (playing) stop(typeof spec.fade === 'number' ? spec.fade : undefined); else sync();
+      return;
+    }
+    var p = findPreset(spec.preset);
+    if (p) {
+      state.preset = p.id;
+      state.carrier = p.carrier;
+      state.beat = p.beat;
+      state.noiseType = p.noise;
+      state.noise = num(spec.noise, p.level);
+      state.tone = p.tones ? num(spec.tone, state.tone > 0 ? state.tone : state.lastTone) : 0;
+      if (engine) {
+        engine.setFrequencies(state.carrier, state.beat);
+        engine.setToneLevel(state.tone, TIME.glide);
+        engine.setNoiseType(state.noiseType);
+        engine.setNoiseLevel(state.noise, TIME.glide);
+      }
+      save();
+    }
+    var fade = typeof spec.fade === 'number' ? spec.fade : undefined;
+    if (!AudioCtx || playing) { sync(); return; }   // already playing: the new settings glide in
+    if (!canPlay()) {
+      pendingFade = fade === undefined ? TIME.fadeIn : fade;   // hidden tab or no gesture yet: wait
+      sync();
+      return;
+    }
+    start(fade);
   }
 
   function openPanel() {
@@ -905,6 +988,7 @@
     close: function () { if (ui.panel) closePanel(false); },
     toggle: function () { if (playing) stop(); else start(); },
     applyPreset: applyPreset,
-    state: function () { var copy = {}; for (var k in state) copy[k] = state[k]; copy.active = playing; return copy; }
+    cue: cue,
+    state: function () { var copy = {}; for (var k in state) copy[k] = state[k]; copy.active = playing; copy.following = following; return copy; }
   };
 })();

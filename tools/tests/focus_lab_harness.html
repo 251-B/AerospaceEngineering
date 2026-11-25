@@ -173,6 +173,57 @@
       });
     },
 
+    // the study timer fades to silence on a break: a gradual 1 s ramp, no click, then silence
+    function fadeOutSeconds() {
+      return render(2, function (e) {
+        e.setFrequencies(200, 40, 0.01);
+        e.setNoiseType('off');
+        e.setToneLevel(1, 0.01);
+        e.fadeIn(0.05);
+        e.context.suspend(0.5).then(function () { e.fadeOut(1); e.context.resume(); });
+      }).then(function (buf) {
+        var d = buf.getChannelData(0);
+        function rms(a, b) {
+          var s = 0, i0 = Math.round(RATE * a), i1 = Math.round(RATE * b);
+          for (var i = i0; i < i1; i++) s += d[i] * d[i];
+          return Math.sqrt(s / (i1 - i0));
+        }
+        var before = rms(0.3, 0.45), mid = rms(0.95, 1.05), after = rms(1.6, 2);
+        record('fadeOut(seconds): a gradual ramp to silence, no click', before > 0.01 && mid > 0.2 * before && mid < 0.8 * before && after < 1e-3,
+          'rms before ' + before.toFixed(4) + ' mid ' + mid.toFixed(4) + ' after ' + after.toExponential(2));
+      });
+    },
+
+    function cues() {
+      var honest = AEFocusLab.PRESETS.filter(function (p) { return /synchroni/i.test(p.text + ' ' + p.use); }).map(function (p) { return p.id; });
+      record('preset texts make no synchronisation claim', honest.length === 0, honest.join(', '));
+      return frame('localStorage.removeItem("ae_focus_lab");').then(function (f) {
+        var w = f.contentWindow, d = f.contentDocument, L = w.AEFocusLab;
+        L.open();
+        var line = d.querySelector('.fl-following');
+        record('the "Following timer" line is hidden until the timer cues', !!line && line.hidden && L.state().following === '', line && line.textContent);
+        L.cue({ preset: 'isolation', noise: 0.2, tone: 0.5, fade: 1.5, label: 'Theory & cases · focus' });
+        var s1 = L.state();
+        record('a cue to isolation keeps the tones at 0 and takes the noise level', s1.preset === 'isolation' && s1.tone === 0 &&
+          s1.noise === 0.2 && s1.noiseType === 'brown' && s1.lastTone === 0.5, JSON.stringify(s1));
+        record('the panel shows the timer it follows', !line.hidden && line.textContent === 'Following timer: Theory & cases · focus', line.textContent);
+        L.cue({ preset: 'smr', noise: 0.25, tone: 0.15, fade: 1.5, label: 'Theory & cases · focus' });
+        var s2 = L.state();
+        record('a cue with tones sets the beat and level, never the hand level', s2.preset === 'smr' && s2.beat === 14 && s2.tone === 0.15 &&
+          s2.lastTone === 0.5, JSON.stringify(s2));
+        L.cue({ preset: null, fade: 8, label: 'Theory & cases · break' });
+        record('a silence cue keeps following and says so', !L.state().active && line.textContent === 'Following timer: Theory & cases · break',
+          line.textContent + ' active=' + L.state().active);
+        var play = d.querySelector('.fl-play'), stops = 0;
+        w.addEventListener('aefocuslab:userstop', function () { stops++; });
+        if (!L.state().active) play.click();
+        play.click();
+        record('a hand Stop tells the timer and stops following', stops === 1 && line.hidden && L.state().following === '' && !L.state().active,
+          'events ' + stops + ' line hidden ' + line.hidden);
+        f.remove();
+      });
+    },
+
     function widget() {
       return frame('localStorage.removeItem("ae_focus_lab");').then(function (f) {
         var w = f.contentWindow, d = f.contentDocument;

@@ -7,8 +7,12 @@
  *
  * A floating "Timer" button sits right above the "Focus" button and opens a non-modal panel:
  *   - timer: SVG progress ring, Start/Pause, Reset, Skip phase, auto-start and chime switches;
- *   - free timer: Standard (25/5, long 15 every 4) or Deep focus (50/10, long 25 every 3), with
- *     every duration editable;
+ *   - study type: four evidence-based modes (Theory & cases, Diagrams & mechanisms, New topic ·
+ *     worked, Problems & exam; estudio-ismael/metodologia-estudio-evidencia.md) with a step guide for
+ *     each focus block and wakeful rest on breaks, plus Classic Standard (25/5) and Deep (50/10); the
+ *     mode suggested by the page's subject is marked, never forced; every duration stays editable;
+ *   - study sound (opt-in): Focus Lab follows the phase through AEFocusLab.cue (masking in focus,
+ *     silence on breaks by default);
  *   - session planner: total time available ("3h", "2:30", "180 min") + block style -> a queue of
  *     focus blocks and breaks that fills the time exactly (see planSessions), run end to end.
  * While the timer runs, the button shows the time left and a small progress ring, and
@@ -18,9 +22,10 @@
  * never drifts: on load the timer catches up through every phase that ended meanwhile.
  * The chime is synthesised with the Web Audio API (no audio files).
  *
- * Storage: 'ae_pomodoro' (JSON: mode, durations, plan and its position, running state, endAt).
- * API: window.AEPomodoro = { KEY, STYLES, planSessions, parseDuration, formatMinutes, open, close,
- *      start, pause, reset, skip, startPlan, endPlan, state }
+ * Storage: 'ae_pomodoro' (JSON: mode, durations, plan and its position, running state, endAt,
+ *          study mode, audio = { on, tones, rest }; `sound` is the chime).
+ * API: window.AEPomodoro = { KEY, STYLES, planSessions, guideFor, suggest, parseDuration, formatMinutes,
+ *      open, close, start, pause, reset, skip, startPlan, endPlan, state }
  */
 (function () {
   'use strict';
@@ -34,12 +39,70 @@
   var LIMITS = { total: [10, 720], focus: [1, 180], short: [1, 60], long: [1, 90], longEvery: [2, 8] };
 
   // minFocus: shortest closing block worth starting; stretch: most the last block may grow by.
+  // Study modes (estudio-ismael/metodologia-estudio-evidencia.md): steps are { min, title, text, tag }
+  // and add up to `focus`; `audio` is the Focus Lab cue of a focus block (base: masking only; tones:
+  // with the binaural beat of the mode). Classic modes have neither.
   var STYLES = {
     standard: { id: 'standard', label: 'Standard', focus: 25, short: 5, long: 15, longEvery: 4, minFocus: 10, stretch: 10,
-      note: '25 min focus · 5 min break · 15 min long break every 4 blocks' },
+      group: 'classic', note: '25 min focus · 5 min break · 15 min long break every 4 blocks' },
     deep: { id: 'deep', label: 'Deep focus', focus: 50, short: 10, long: 25, longEvery: 3, minFocus: 20, stretch: 20,
-      note: '50 min focus · 10 min break · 25 min long break every 3 blocks' }
+      group: 'classic', note: '50 min focus · 10 min break · 25 min long break every 3 blocks' },
+    theory: { id: 'theory', label: 'Theory & cases', focus: 45, short: 8, long: 25, longEvery: 2, minFocus: 20, stretch: 5,
+      group: 'study', note: '45 min focus · 8 min break · 25 min long break every 2 blocks',
+      steps: [
+        { min: 5, title: 'Pre-test', tag: 'Pre-test', text: 'Answer 3–5 questions before opening notes.' },
+        { min: 15, title: 'Read one sub-block', tag: 'Read', text: 'Skeleton and a contrast table only.' },
+        { min: 15, title: 'Blurt', tag: 'Blurt', text: 'Notes closed. Write all you remember.' },
+        { min: 10, title: 'Colour check', tag: 'Check', text: 'Fix gaps in another colour, then 10 T/F with reasons.' }
+      ],
+      audio: { base: { preset: 'isolation', noise: 0.25, tone: 0 }, tones: { preset: 'smr', noise: 0.25, tone: 0.15 } } },
+    visual: { id: 'visual', label: 'Diagrams & mechanisms', focus: 40, short: 8, long: 20, longEvery: 3, minFocus: 20, stretch: 5,
+      group: 'study', note: '40 min focus · 8 min break · 20 min long break every 3 blocks',
+      steps: [
+        { min: 8, title: 'Draw from memory', tag: 'Draw', text: 'Blank page: axes, phases, labels.' },
+        { min: 14, title: 'Causal chain', tag: 'Chain', text: 'Processing -> microstructure -> property -> failure.' },
+        { min: 10, title: 'Contrast', tag: 'Contrast', text: 'Two opposite mechanisms side by side.' },
+        { min: 8, title: 'Test yourself', tag: 'Test', text: 'MCQ: say why each wrong option is wrong.' }
+      ],
+      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0 }, tones: { preset: 'alpha', noise: 0.15, tone: 0.18 } } },
+    worked: { id: 'worked', label: 'New topic · worked', focus: 30, short: 5, long: 15, longEvery: 3, minFocus: 15, stretch: 5,
+      group: 'study', note: '30 min focus · 5 min break · 15 min long break every 3 blocks',
+      steps: [
+        { min: 5, title: 'Micro-theory', tag: 'Theory', text: 'Read only the rule and its hypotheses.' },
+        { min: 10, title: 'Worked example', tag: 'Example', text: 'Explain why each step and hypothesis holds.' },
+        { min: 15, title: 'Guided problems', tag: 'Guided', text: 'Solve 1–2 similar ones; peek only when stuck.' }
+      ],
+      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0 }, tones: { preset: 'beta', noise: 0.20, tone: 0.20 } } },
+    problems: { id: 'problems', label: 'Problems & exam', focus: 90, short: 15, long: 25, longEvery: 2, minFocus: 30, stretch: 10,
+      group: 'study', note: '90 min focus · 15 min break · 25 min long break every 2 blocks',
+      steps: [
+        { min: 5, title: 'Mix topics', tag: 'Mix', text: 'Pick interleaved problems. Notes and formula sheet closed.' },
+        { min: 70, title: 'Solve closed-book', tag: 'Solve', text: 'Name the governing law and hypotheses first.' },
+        { min: 15, title: 'Colour review', tag: 'Review', text: 'Check key. Write why each mistake happened.' }
+      ],
+      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0 }, tones: { preset: 'gamma', noise: 0.25, tone: 0.20 } } }
   };
+  var STUDY_MODES = ['theory', 'visual', 'worked', 'problems'];
+
+  // Breaks: Wamsley (2019): quiet wakeful rest consolidates; sound on breaks is an explicit option.
+  var REST = {
+    silence: { label: 'Silence (best)', cue: { preset: null, fade: 8 } },
+    alpha: { label: 'Soft alpha', cue: { preset: 'alpha', tone: 0.10, noise: 0.15, fade: 1.5 } },
+    mask: { label: 'Masking', cue: { preset: 'isolation', tone: 0, noise: 0.20, fade: 1.5 } }
+  };
+  var REST_TEXT = 'Phone out of reach. Water, look far away, or close your eyes.';
+
+  // Suggested study mode for a page: Business is Type A, Materials Type B, the rest Type C (worked
+  // examples on theory pages, problems elsewhere). Problem pages are also named topic-N, so only the
+  // teoria/ folder marks a theory page.
+  var SUBJECT_MODES = { 'business-management': 'theory', 'aerospace-materials-1': 'visual',
+    'fluid-mechanics': 'problems', 'engineering-mechanics': 'problems', 'advanced-maths': 'problems' };
+  function suggest(path) {
+    var m = /\/subjects\/([^\/]+)\//.exec(path || '');
+    var mode = m && SUBJECT_MODES[m[1]];
+    if (mode === 'problems' && /\/(teoria|theory)\//.test(path)) return 'worked';
+    return mode || null;
+  }
 
   var PHASES = {
     focus: { label: 'Focus', title: 'Focus' },
@@ -151,6 +214,35 @@
     return (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
   }
 
+  /* How to run the current phase (no DOM). Focus: the step of the mode in progress after
+     `elapsedMin`, with the step bounds scaled to the block's real length. Break: wakeful rest.
+     Classic modes have no focus guide (null). */
+  function guideFor(styleId, phase, elapsedMin) {
+    var s = STYLES[styleId], steps = s && s.steps;
+    if (!phase) return null;
+    if (phase.kind !== 'focus') {
+      return { kind: phase.kind, title: phase.kind === 'long' ? 'Long break · wakeful rest' : 'Short break · wakeful rest',
+        text: REST_TEXT, next: steps ? steps[0].title : null };
+    }
+    if (!steps) return null;
+    var k = phase.min / s.focus, at = 0, t = clamp(+elapsedMin || 0, 0, phase.min), index = steps.length - 1;
+    var bounds = steps.map(function (st) {
+      var b = { start: at * k, end: (at + st.min) * k };
+      at += st.min;
+      return b;
+    });
+    for (var i = 0; i < bounds.length; i++) if (t < bounds[i].end) { index = i; break; }
+    var step = steps[index], b = bounds[index];
+    return {
+      kind: 'focus', index: index, count: steps.length, title: step.title, text: step.text,
+      tags: steps.map(function (st) { return st.tag; }), bounds: bounds,
+      range: Math.round(b.start) + '–' + Math.round(b.end) + ' min',
+      part: b.end > b.start ? clamp((t - b.start) / (b.end - b.start), 0, 1) : 1,
+      nextIn: index < steps.length - 1 ? b.end - t : null,
+      next: index < steps.length - 1 ? steps[index + 1].title : null
+    };
+  }
+
   /* ================================================================== state */
   function defaults() {
     var s = STYLES.standard;
@@ -169,7 +261,9 @@
       endAt: 0,                            // wall-clock end of the running phase (ms)
       remaining: s.focus * MINUTE,         // time left while paused (ms)
       auto: true,                          // start the next phase on its own
-      sound: true
+      sound: true,                         // chime at the end of each phase (not the study sound)
+      study: 'standard',                   // study mode whose guide is shown once the times are edited
+      audio: { on: false, tones: false, rest: 'silence' }   // Focus Lab follows the timer (opt-in)
     };
   }
 
@@ -224,6 +318,9 @@
     if (s.mode === 'plan' && s.plan.done) s.running = false;
     s.auto = raw.auto !== false;
     s.sound = raw.sound !== false;
+    if (STYLES[raw.study]) s.study = raw.study;
+    var a = raw.audio && typeof raw.audio === 'object' ? raw.audio : {};
+    s.audio = { on: a.on === true, tones: a.tones === true, rest: REST[a.rest] ? a.rest : 'silence' };
     return s;
   }
 
@@ -243,6 +340,12 @@
   function planFinished() { return state.mode === 'plan' && state.plan && state.plan.done; }
   // A phase is "in progress" once started: it runs, or it is paused part-way.
   function inProgress() { return state.running || (state.started && !planFinished()); }
+  // The mode the timer follows: the plan's, else the chosen preset, else (times edited) the last mode.
+  // The preset wins over `study`, so account.js writing preset 'deep' never keeps an old guide.
+  function studyId() {
+    if (state.mode === 'plan' && state.plan) return state.plan.style;
+    return STYLES[state.preset] ? state.preset : state.study;
+  }
 
   /* ================================================================== timer logic */
   // Move to the next phase. Returns false when a plan has just ended.
@@ -360,6 +463,8 @@
     var s = STYLES[id];
     if (!s) return;
     state.preset = id;
+    state.study = id;
+    state.draft.style = id;              // the planner uses the same study type
     state.durations = { focus: s.focus, short: s.short, long: s.long, longEvery: s.longEvery };
     if (state.mode === 'free') {
       state.freeDone = 0;
@@ -387,6 +492,47 @@
   function commit() {
     save();
     render();
+  }
+
+  /* ================================================================== study sound (Focus Lab)
+     When `audio.on`, Focus Lab follows the timer: the mode's cue in focus, the chosen rest cue in a
+     break, silence when the timer stops. A cue is sent only when its key changes, so a hand change in
+     the mixer holds until the next phase. Called from render(), so reloads and other tabs follow. */
+  var lastCue = '';
+
+  function soundKey() {
+    if (!state.audio.on) return 'off';
+    if (!state.running) return 'stop';
+    var kind = current().kind;
+    return kind === 'focus' ? 'focus:' + studyId() + ':' + (state.audio.tones ? 'tones' : 'base') : 'rest:' + state.audio.rest;
+  }
+
+  function soundCue(key) {
+    var s = style(studyId()), label = (STYLES[studyId()] ? s.label : 'Custom') + ' · ';
+    if (key === 'off' || key === 'stop') return { preset: null, fade: 1, label: key === 'off' ? '' : label + 'paused' };
+    if (key.indexOf('rest:') === 0) {
+      var r = REST[state.audio.rest].cue;
+      return { preset: r.preset, tone: r.tone, noise: r.noise, fade: r.fade, label: label + 'break' };
+    }
+    var a = STYLES[studyId()] && STYLES[studyId()].audio;
+    var c = a ? a[state.audio.tones ? 'tones' : 'base'] : { preset: 'keep' };   // Classic: the mixer's own setting
+    return { preset: c.preset, tone: c.tone, noise: c.noise, fade: 1.5, label: label + 'focus' };
+  }
+
+  function syncSound() {
+    var key = soundKey(), lab = window.AEFocusLab;
+    if (key === lastCue) return;
+    var was = lastCue;
+    lastCue = key;
+    // A fresh page, or sync switched on while idle, sends nothing: Focus Lab keeps its own state.
+    // ('stop' -> 'off' still sends one cue, to clear the "Following timer" line.)
+    if ((was === '' || was === 'off') && (key === 'off' || key === 'stop')) return;
+    if (lab && typeof lab.cue === 'function') lab.cue(soundCue(key));
+  }
+
+  function setAudio(name, value) {
+    state.audio[name] = value;
+    commit();
   }
 
   /* ================================================================== sound (Web Audio, no files) */
@@ -433,6 +579,8 @@
 
   /* ================================================================== UI */
   var ui = {};
+  var modesOpen = false;   // the study type selector, folded while a session runs, opened by "Change"
+  var lastGuide = '';
   var baseTitle = '';
   var RING = 2 * Math.PI * 52;   // circumference of the panel ring (r = 52 in a 120 viewBox)
   var MINI = 2 * Math.PI * 9;    // circumference of the launcher ring (r = 9 in a 24 viewBox)
@@ -556,7 +704,7 @@
       brand.appendChild(seal);
     }
     var titles = el('div');
-    titles.appendChild(el('p', 'pm-kicker', 'Pomodoro · session planner'));
+    titles.appendChild(el('p', 'pm-kicker', 'Evidence-based study modes'));
     var title = el('h2', 'pm-title', 'Study timer');
     title.id = 'pomodoroTitle';
     titles.appendChild(title);
@@ -620,6 +768,63 @@
     progress.appendChild(progressHead);
     progress.appendChild(track);
 
+    // guide: how to run this block (study modes), or wakeful rest on a break
+    var guide = el('div', 'pm-guide');
+    var guideHead = el('div', 'pm-guide__head');
+    var guideStep = el('span', 'pm-guide__step');
+    var guideRange = el('span', 'pm-guide__range');
+    guideHead.appendChild(guideStep);
+    guideHead.appendChild(guideRange);
+    var guideTitle = el('p', 'pm-guide__title');
+    var guideText = el('p', 'pm-guide__text');
+    var guideBar = el('ol', 'pm-guide__bar');
+    guideBar.setAttribute('aria-hidden', 'true');
+    var guideNext = el('p', 'pm-guide__next');
+    [guideHead, guideTitle, guideText, guideBar, guideNext].forEach(function (node) { guide.appendChild(node); });
+
+    // study type: four evidence-based modes (2 x 2) and the classic Pomodoro pills
+    var sug = suggest(location.pathname);
+    var modes = el('div', 'pm-modes');
+    modes.appendChild(el('p', 'pm-section', 'Study type'));
+    var modeGrid = el('div', 'pm-modes__grid');
+    modeGrid.setAttribute('role', 'group');
+    modeGrid.setAttribute('aria-label', 'Study type');
+    var modeCards = STUDY_MODES.map(function (id) {
+      var s = STYLES[id];
+      var card = button('pm-mode');
+      card.setAttribute('data-preset', id);
+      card.appendChild(el('span', 'pm-mode__badge', s.focus + ' / ' + s.short));
+      card.appendChild(el('span', 'pm-mode__name', s.label));
+      if (id === sug) {
+        card.appendChild(el('span', 'pm-mode__tag', 'Suggested'));
+        card.title = 'Suggested for this page';
+      }
+      card.addEventListener('click', function () { setPreset(id); });
+      modeGrid.appendChild(card);
+      return card;
+    });
+    modes.appendChild(modeGrid);
+    var classic = el('div', 'pm-classic');
+    classic.setAttribute('role', 'group');
+    classic.setAttribute('aria-label', 'Classic Pomodoro');
+    classic.appendChild(el('span', 'pm-classic__label', 'Classic'));
+    var classicChips = ['standard', 'deep'].map(function (id) {
+      var chip = button('pm-chip', STYLES[id].focus + ' / ' + STYLES[id].short, 'Classic ' + STYLES[id].label + ', ' + STYLES[id].note);
+      chip.setAttribute('data-preset', id);
+      chip.addEventListener('click', function () { setPreset(id); });
+      classic.appendChild(chip);
+      return chip;
+    });
+    modes.appendChild(classic);
+    var modeLock = el('p', 'pm-note', 'A planned session is running. End it to change the study type.');
+    modes.appendChild(modeLock);
+    var modebar = el('div', 'pm-modebar');
+    var modebarText = el('span', 'pm-modebar__text');
+    var modebarBtn = button('pm-btn pm-btn--small', 'Change');
+    modebarBtn.setAttribute('aria-expanded', 'false');
+    modebar.appendChild(modebarText);
+    modebar.appendChild(modebarBtn);
+
     // tabs
     var tabs = seg('Timer mode', [['free', 'Free timer'], ['plan', 'Plan session']], function (v) {
       state.tab = v;
@@ -629,20 +834,8 @@
 
     // free timer pane
     var free = el('div', 'pm-pane');
-    var presets = el('div', 'pm-presets');
-    presets.setAttribute('role', 'group');
-    presets.setAttribute('aria-label', 'Block presets');
-    var presetCards = Object.keys(STYLES).map(function (id) {
-      var s = STYLES[id];
-      var card = button('pm-card');
-      card.setAttribute('data-preset', id);
-      card.appendChild(el('span', 'pm-card__badge', s.focus + ' / ' + s.short));
-      card.appendChild(el('span', 'pm-card__name', s.label));
-      card.appendChild(el('span', 'pm-card__note', s.note));
-      card.addEventListener('click', function () { setPreset(id); });
-      presets.appendChild(card);
-      return card;
-    });
+    var adjust = el('details', 'pm-adjust');
+    adjust.appendChild(el('summary', '', 'Adjust times'));
     var fields = el('div', 'pm-fields');
     var inputs = {
       focus: numberField('pmFocus', 'Focus', 'focus'),
@@ -651,6 +844,7 @@
       longEvery: numberField('pmEvery', 'Long break every', 'longEvery')
     };
     Object.keys(inputs).forEach(function (k) { fields.appendChild(inputs[k].wrap); });
+    adjust.appendChild(fields);
     var freeNote = el('p', 'pm-note');
     var freeLock = el('div', 'pm-lock');
     var freeLockText = el('p', 'pm-note', 'A planned session is running. End it to use the free timer.');
@@ -659,8 +853,7 @@
     freeLock.appendChild(freeLockText);
     freeLock.appendChild(freeLockBtn);
     free.appendChild(freeLock);
-    free.appendChild(presets);
-    free.appendChild(fields);
+    free.appendChild(adjust);
     free.appendChild(freeNote);
 
     // planner pane
@@ -693,15 +886,9 @@
       });
       chips.appendChild(chip);
     });
-    var styleSeg = seg('Block style', [['standard', 'Standard · 25 min'], ['deep', 'Deep focus · 50 min']], function (v) {
-      state.draft.style = v;
-      commit();
-    });
-    var styleNote = el('p', 'pm-hint');
+    var styleNote = el('p', 'pm-hint');   // the plan uses the study type chosen above
     draftBox.appendChild(totalField);
     draftBox.appendChild(chips);
-    draftBox.appendChild(el('p', 'pm-section', 'Block style'));
-    draftBox.appendChild(styleSeg.group);
     draftBox.appendChild(styleNote);
 
     var summary = el('div', 'pm-summary');
@@ -733,12 +920,39 @@
       if (on) { unlockAudio(); chime('focus'); }
       commit();
     });
+    // study sound: Focus Lab follows the timer (opt-in)
+    var audioBox = el('div', 'pm-audio');
+    var audioHead = el('div', 'pm-audio__head');
+    var audioOn = toggleRow('pmAudio', 'Sync study sound',
+      'Keep volume low, barely above the room. Resumes on your first click on each page.', function (on) { setAudio('on', on); });
+    var mixer = button('pm-btn pm-btn--small', 'Mixer', 'Open the Focus Lab mixer');
+    mixer.addEventListener('click', function () {
+      if (!window.AEFocusLab) return;
+      closePanel(false);
+      window.AEFocusLab.open();
+    });
+    audioHead.appendChild(audioOn.row);
+    audioHead.appendChild(mixer);
+    var audioMore = el('div', 'pm-audio__more');
+    var tones = toggleRow('pmTones', 'Binaural tones', 'Entrainment evidence is mixed; treat as a focus cue.', function (on) {
+      setAudio('tones', on);
+    });
+    var restSeg = seg('Sound on breaks', Object.keys(REST).map(function (k) { return [k, REST[k].label]; }), function (v) {
+      setAudio('rest', v);
+    });
+    audioMore.appendChild(tones.row);
+    audioMore.appendChild(el('p', 'pm-section', 'On breaks'));
+    audioMore.appendChild(restSeg.group);
+    audioBox.appendChild(audioHead);
+    audioBox.appendChild(audioMore);
+
+    options.insertBefore(audioBox, options.firstChild);
     options.appendChild(auto.row);
     options.appendChild(sound.row);
 
     var foot = el('p', 'pm-foot', 'The timer keeps running across pages and reloads; it is saved in this browser only.');
 
-    [head, timer, live, progress, tabs.group, free, planner, options, foot].forEach(function (node) { panel.appendChild(node); });
+    [head, timer, guide, live, progress, modebar, modes, tabs.group, free, planner, options, foot].forEach(function (node) { panel.appendChild(node); });
     document.body.appendChild(launcher);
     document.body.appendChild(panel);
 
@@ -746,12 +960,27 @@
       launcher: launcher, launcherText: launcherText, miniArc: miniArc, panel: panel, close: close,
       arc: arc, phaseLabel: phaseLabel, time: time, sub: sub, play: play, playIcon: playIcon, playText: playText,
       resetBtn: resetBtn, skipBtn: skipBtn, live: live, progress: progress, progressText: progressText,
-      progressLeft: progressLeft, track: track, tabs: tabs, free: free, presets: presetCards, inputs: inputs,
+      progressLeft: progressLeft, track: track, tabs: tabs, free: free, inputs: inputs,
       freeNote: freeNote, freeLock: freeLock, planner: planner, draftBox: draftBox, totalInput: totalInput,
-      totalHint: totalHint, styleSeg: styleSeg, styleNote: styleNote, summary: summary, timeline: timeline,
+      totalHint: totalHint, styleNote: styleNote, summary: summary, timeline: timeline,
       steps: steps, startPlanBtn: startPlanBtn, endPlanBtn: endPlanBtn, newPlanBtn: newPlanBtn,
-      auto: auto.input, sound: sound.input
+      auto: auto.input, sound: sound.input,
+      guide: guide, guideStep: guideStep, guideRange: guideRange, guideTitle: guideTitle, guideText: guideText,
+      guideBar: guideBar, guideNext: guideNext, modes: modes, modeCards: modeCards, classicChips: classicChips,
+      modeLock: modeLock, modebar: modebar, modebarText: modebarText, modebarBtn: modebarBtn,
+      audioOn: audioOn.input, audioMore: audioMore, tones: tones.input, restSeg: restSeg, mixer: mixer
     };
+
+    modebarBtn.addEventListener('click', function () {
+      modesOpen = !modesOpen;
+      render();
+    });
+    // The user stopped the sound in Focus Lab: the timer stops driving it (never forced back on).
+    window.addEventListener('aefocuslab:userstop', function () {
+      state.audio.on = false;
+      lastCue = 'off';
+      commit();
+    });
 
     launcher.addEventListener('click', function () {
       if (panel.hidden) openPanel(); else closePanel(false);
@@ -805,7 +1034,7 @@
     // A request left by the account calendar ("Study this"), once: plan that many minutes.
     var pending = null;
     try { pending = JSON.parse(sessionStorage.getItem('ae_pomodoro_pending') || 'null'); sessionStorage.removeItem('ae_pomodoro_pending'); } catch (e) { pending = null; }
-    if (pending && pending.minutes > 0) { startPlan(pending.minutes, 'standard'); openPanel(); }
+    if (pending && pending.minutes > 0) { startPlan(pending.minutes, SUBJECT_MODES[pending.subject] || 'standard'); openPanel(); }
   }
 
   function tick() {
@@ -859,6 +1088,17 @@
     var frac = done ? 1 : clamp(1 - left / full, 0, 1);
     var active = inProgress();
     var isBreak = phase.kind !== 'focus';
+    var g = done ? null : guideFor(studyId(), phase, (full - left) / MINUTE);
+    syncSound();
+
+    // a new step of the running block is announced (the phase change has its own announcement)
+    var gkey = g && active ? g.kind + (g.kind === 'focus' ? g.index : '') : '';
+    if (gkey !== lastGuide) {
+      if (state.running && g && g.kind === 'focus' && g.index > 0 && lastGuide.indexOf('focus') === 0) {
+        announce('Step ' + (g.index + 1) + ': ' + g.title);
+      }
+      lastGuide = gkey;
+    }
 
     // launcher
     ui.launcher.classList.toggle('is-running', state.running);
@@ -867,7 +1107,8 @@
     ui.launcher.classList.toggle('is-compact', active);
     ui.launcherText.textContent = active ? clock(left) : done ? 'Done' : 'Timer';
     ui.miniArc.setAttribute('stroke-dashoffset', (MINI * (1 - (active ? frac : 0))).toFixed(2));
-    var where = PHASES[phase.kind].label + ', ' + clock(left) + ' left' + (state.running ? '' : ', paused');
+    var where = PHASES[phase.kind].label + ', ' + clock(left) + ' left' + (state.running ? '' : ', paused') +
+      (g && g.kind === 'focus' ? ', ' + g.title : '');
     ui.launcher.setAttribute('aria-label', active ? 'Study timer: ' + where : done ? 'Study timer: plan complete' : 'Study timer');
     ui.launcher.title = ui.launcher.getAttribute('aria-label');
 
@@ -897,14 +1138,84 @@
     ui.progress.hidden = !plan;
     if (plan) renderProgress(plan, now, left);
 
+    renderGuide(g, active);
+    renderModes(active);
+
     // tabs and panes
     pressed(ui.tabs.buttons, state.tab);
     ui.free.hidden = state.tab !== 'free';
     ui.planner.hidden = state.tab !== 'plan';
     ui.auto.checked = state.auto;
     ui.sound.checked = state.sound;
+    ui.audioOn.checked = state.audio.on;
+    ui.audioMore.hidden = !state.audio.on;
+    ui.tones.checked = state.audio.tones;
+    pressed(ui.restSeg.buttons, state.audio.rest);
+    ui.mixer.hidden = !window.AEFocusLab;
     if (state.tab === 'free') renderFree();
     else renderPlanner(now);
+  }
+
+  function renderGuide(g, active) {
+    ui.guide.hidden = !g;
+    if (!g) return;
+    ui.guide.classList.toggle('is-break', g.kind !== 'focus');
+    if (g.kind !== 'focus') {
+      ui.guideStep.textContent = 'Wakeful rest';
+      ui.guideRange.textContent = g.kind === 'long' ? 'Long break' : 'Short break';
+      ui.guideTitle.textContent = 'Rest without the phone';
+      ui.guideText.textContent = g.text;
+      ui.guideBar.hidden = true;
+      ui.guideNext.textContent = g.next ? 'Next: ' + g.next : '';
+      ui.guideNext.hidden = !g.next;
+      return;
+    }
+    ui.guideStep.textContent = (active ? 'Step ' : 'First step · ') + (g.index + 1) + ' of ' + g.count;
+    ui.guideRange.textContent = g.range;
+    ui.guideTitle.textContent = g.title;
+    ui.guideText.textContent = g.text;
+    ui.guideBar.hidden = false;
+    var bar = ui.guideBar;
+    if (bar.getAttribute('data-tags') !== g.tags.join('|')) {
+      bar.setAttribute('data-tags', g.tags.join('|'));
+      bar.textContent = '';
+      g.tags.forEach(function (tag) {
+        var li = el('li', 'pm-guide__seg');
+        var track = el('span', 'pm-guide__track');
+        track.appendChild(el('span', 'pm-guide__fill'));
+        li.appendChild(track);
+        li.appendChild(el('span', 'pm-guide__tag', tag));
+        bar.appendChild(li);
+      });
+    }
+    var total = g.bounds[g.bounds.length - 1].end || 1;
+    g.bounds.forEach(function (b, i) {
+      var li = bar.children[i];
+      li.style.flexGrow = String((b.end - b.start) / total);
+      li.className = 'pm-guide__seg' + (i < g.index ? ' is-done' : i === g.index ? ' is-current' : '');
+      li.firstChild.firstChild.style.width = (i < g.index ? 100 : i === g.index && active ? Math.round(g.part * 1000) / 10 : 0) + '%';
+    });
+    ui.guideNext.hidden = g.nextIn === null;
+    ui.guideNext.textContent = g.nextIn === null ? '' : 'Next in ' + clock(g.nextIn * MINUTE) + ' — ' + g.next;
+  }
+
+  function renderModes(active) {
+    var plan = state.mode === 'plan' && state.plan;
+    var session = active || !!plan;
+    if (!session) modesOpen = false;
+    ui.modebar.hidden = !session;
+    ui.modes.hidden = session && !modesOpen;
+    ui.modebarBtn.textContent = modesOpen ? 'Done' : 'Change';
+    ui.modebarBtn.setAttribute('aria-expanded', modesOpen ? 'true' : 'false');
+    var chosen = plan ? state.plan.style : state.preset;
+    var s = style(studyId()), d = state.durations;
+    ui.modebarText.textContent = plan ? s.label + ' · ' + s.focus + ' / ' + s.short
+      : (STYLES[state.preset] ? s.label : 'Custom') + ' · ' + d.focus + ' / ' + d.short;
+    ui.modeCards.concat(ui.classicChips).forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-preset') === chosen ? 'true' : 'false');
+      b.disabled = !!plan;
+    });
+    ui.modeLock.hidden = !plan;
   }
 
   function subline(phase) {
@@ -961,10 +1272,6 @@
   function renderFree() {
     var locked = state.mode === 'plan';
     ui.freeLock.hidden = !locked;
-    ui.presets.forEach(function (card) {
-      card.setAttribute('aria-pressed', card.getAttribute('data-preset') === state.preset ? 'true' : 'false');
-      card.disabled = locked;
-    });
     Object.keys(ui.inputs).forEach(function (k) {
       var input = ui.inputs[k].input;
       if (document.activeElement !== input) input.value = state.durations[k];
@@ -986,8 +1293,7 @@
     var shown = plan;
     if (!plan) {
       if (document.activeElement !== ui.totalInput) ui.totalInput.value = state.draft.input;
-      pressed(ui.styleSeg.buttons, state.draft.style);
-      ui.styleNote.textContent = style(state.draft.style).note + '.';
+      ui.styleNote.textContent = 'Blocks of ' + style(state.draft.style).label + ': ' + style(state.draft.style).note + '.';
       var total = parseDuration(state.draft.input);
       var valid = total && total >= LIMITS.total[0] && total <= LIMITS.total[1];
       ui.totalInput.setAttribute('aria-invalid', valid ? 'false' : 'true');
@@ -1080,6 +1386,8 @@
     KEY: KEY,
     STYLES: STYLES,
     planSessions: planSessions,
+    guideFor: guideFor,
+    suggest: suggest,
     parseDuration: parseDuration,
     formatMinutes: formatMinutes,
     open: function () { if (ui.panel) openPanel(); },

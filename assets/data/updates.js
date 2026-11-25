@@ -15,6 +15,13 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-25-study-timer-modes",
+    "date": "2026-11-25",
+    "tag": "Portal",
+    "title": "Study timer: four study types with step guides and synced sound",
+    "text": "Choose theory, diagrams, a new topic or problems: each block shows what to do minute by minute. Optional sound follows the timer, with silence on breaks."
+  },
+  {
     "id": "2026-11-22-maths-theory-topics-5-6",
     "date": "2026-11-22",
     "tag": "Advanced Maths",

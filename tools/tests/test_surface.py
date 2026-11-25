@@ -167,6 +167,10 @@ class SurfacePagesTests(unittest.TestCase):
         missing = [f"{r['page']} [{r['state']}]" for r in self.results if not r.get("sidebar")]
         self.assertEqual(missing, [], "the side menu was not open, with its current page marked, when its text was audited")
 
+    def test_the_open_study_timer_was_audited_too(self):
+        missing = [f"{r['page']} [{r['state']}]" for r in self.results if not r.get("timerPanel")]
+        self.assertEqual(missing, [], "the study timer panel (step guide and sound row) was not open when its text was audited")
+
     def test_the_close_bar_of_an_open_solution_was_audited_too(self):
         audited = [r for r in self.results if "solutionBar" in r]
         self.assertGreaterEqual(len(audited), 3 * 6)   # mechanics, fluids and materials problem pages

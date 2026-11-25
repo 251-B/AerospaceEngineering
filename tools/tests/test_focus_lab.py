@@ -73,7 +73,7 @@ class FocusLabBrowserTests(unittest.TestCase):
         cls.results = json.loads(html.unescape(m.group(1)))
 
     def test_harness_ran_every_scenario(self):
-        self.assertEqual(len(self.results), 21)
+        self.assertEqual(len(self.results), 29)
 
     def test_every_scenario_passes(self):
         failures = [f"{r['name']}: {r['detail']}" for r in self.results if not r["pass"]]

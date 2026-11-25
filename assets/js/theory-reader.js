@@ -768,6 +768,7 @@
       li.appendChild(button);
       list.appendChild(li);
       mark.button = button;
+      mark.tip = tip;
       mark.index = i;
     });
     if (sections.length) {
@@ -785,6 +786,25 @@
       requestAnimationFrame(function () { queued = false; update(); });
     }, { passive: true });
     window.addEventListener('resize', update);
+    update();
+  }
+
+  // Re-read heading text and word counts once deferred KaTeX has typeset formulas,
+  // so rail tooltips never keep raw $...$ or KaTeX MathML injected by a load-order race.
+  function refreshAfterMath() {
+    marks.forEach(function (mark) {
+      mark.text = headingText(mark.target);
+      if (mark.tip) mark.tip.textContent = mark.text;
+      if (mark.button) mark.button.setAttribute('aria-label', mark.text);
+    });
+    sections.forEach(function (sec) {
+      sec.title = headingText(sec.h2);
+      sec.words = countWords(sec.head) + sec.items.reduce(function (n, el) { return n + countWords(el); }, 0);
+      sec.ewords = sec.essential.reduce(function (n, el) { return n + countWords(el); }, 0) +
+        (sec.items.some(function (el) { return el.classList.contains('tr-key-fig'); }) ? 40 : 0);
+    });
+    var total = sections.reduce(function (n, s) { return n + wordsOf(s); }, 0);
+    if (secInfo && sections.length) secInfo.textContent = sections.length + ' sections \u00b7 about ' + minutes(total) + ' min of reading';
     update();
   }
 
@@ -810,6 +830,7 @@
     buildSections(scope, heads);
     if (marks.length >= MIN_MARKS) buildRail();
     balanceAll();
+    window.addEventListener('load', refreshAfterMath);
     window.addEventListener('load', balanceAll);
     window.addEventListener('resize', balanceAll);
     setTimeout(balanceAll, 800);   // after the formulas are typeset

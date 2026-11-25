@@ -112,6 +112,12 @@ html[data-theme="light"] .fl-brand-seal .sideris-fill { fill: #9a6e17; }
 .fl-play:hover, .fl-play:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--fl-accent) 45%, transparent); }
 .fl-play:disabled { opacity: .5; cursor: not-allowed; }
 .fl-readout { margin: 0; font: 500 12px/1.45 var(--fl-mono); color: var(--fl-muted); }
+/* the study timer drives the sound (AEFocusLab.cue): one quiet line under the transport */
+.fl-following {
+  margin: 0 0 12px; padding: 3px 0 3px 10px; border-left: 2px solid var(--fl-accent);
+  font: 600 11.5px/1.4 var(--fl-mono); letter-spacing: .04em; color: var(--fl-muted);
+}
+.fl-following[hidden] { display: none; }
 
 .fl-notice {
   margin: 0 0 14px; padding: 9px 12px 9px 14px; border-radius: 10px;

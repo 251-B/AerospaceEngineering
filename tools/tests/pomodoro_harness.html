@@ -68,7 +68,7 @@
 
     // ---------------------------------------------------------------- planner: invariants on every total
     var bad = [];
-    ['standard', 'deep'].forEach(function (id) {
+    ['standard', 'deep', 'theory', 'visual', 'worked', 'problems'].forEach(function (id) {
       var s = P.STYLES[id];
       for (var t = 10; t <= 720; t++) {
         var plan = P.planSessions(t, id), ph = plan.phases, used = sum(ph), k = 0, why = '';
@@ -102,6 +102,42 @@
     record('minutes formatting', P.formatMinutes(145) === '2 h 25 min' && P.formatMinutes(180) === '3 h' && P.formatMinutes(45) === '45 min',
       [P.formatMinutes(145), P.formatMinutes(180), P.formatMinutes(45)].join(' | '));
 
+    // ---------------------------------------------------------------- study modes: 3 h plans
+    var want = { theory: 'F45 s8 F45 L25 F50', visual: 'F40 s8 F40 s8 F40 L20 F24',
+      worked: 'F30 s5 F30 s5 F30 L15 F30 s5 F30', problems: 'F90 s15 F75' };
+    var off = Object.keys(want).filter(function (id) { return mins(P.planSessions(180, id)) !== want[id]; })
+      .map(function (id) { return id + ': ' + mins(P.planSessions(180, id)); });
+    var th = P.planSessions(180, 'theory');
+    record('study modes: 3 h plans (theory keeps 7 min free)', off.length === 0 && th.summary.buffer === 7, off.join('; ') + ' buffer ' + th.summary.buffer);
+    var stepSums = ['theory', 'visual', 'worked', 'problems'].filter(function (id) {
+      var s = P.STYLES[id];
+      return s.steps.reduce(function (a, st) { return a + st.min; }, 0) !== s.focus;
+    });
+    record('the steps of every study mode add up to its focus block', stepSums.length === 0, stepSums.join(', '));
+
+    // ---------------------------------------------------------------- guideFor
+    var F45 = { kind: 'focus', min: 45 };
+    var at = [0, 5, 19.99, 20, 44.9].map(function (t) { return P.guideFor('theory', F45, t).index; }).join(',');
+    var g12 = P.guideFor('theory', F45, 12);
+    record('guideFor: theory step bounds 0-5-20-35-45', at === '0,1,1,2,3' && g12.nextIn === 8 && g12.next === 'Blurt' &&
+      g12.range === '5–20 min' && g12.count === 4, at + ' ' + JSON.stringify(g12));
+    var F90 = { kind: 'focus', min: 90 };
+    record('guideFor: steps scale with a longer block', P.guideFor('theory', F90, 10).index === 1 && P.guideFor('theory', F90, 9.9).index === 0,
+      P.guideFor('theory', F90, 10).index + ',' + P.guideFor('theory', F90, 9.9).index);
+    var rest = P.guideFor('problems', { kind: 'short', min: 15 }, 3);
+    record('guideFor: a break is wakeful rest and names the next step', rest.kind === 'short' && /Phone out of reach/.test(rest.text) &&
+      rest.next === 'Mix topics', JSON.stringify(rest));
+    record('guideFor: classic modes have no focus guide', P.guideFor('deep', { kind: 'focus', min: 50 }, 5) === null &&
+      P.guideFor('standard', { kind: 'focus', min: 25 }, 5) === null, '');
+
+    // ---------------------------------------------------------------- subject suggestion
+    var paths = [['/x/subjects/business-management/teoria/topic-1.html', 'theory'],
+      ['/x/subjects/aerospace-materials-1/problemas/topic-4.html', 'visual'],
+      ['/x/subjects/fluid-mechanics/teoria/topic-4.html', 'worked'],
+      ['/x/subjects/fluid-mechanics/problemas/topic-4-navier-stokes.html', 'problems'],
+      ['/x/index.html', null]];
+    var miss = paths.filter(function (p) { return P.suggest(p[0]) !== p[1]; }).map(function (p) { return p[0] + ' -> ' + P.suggest(p[0]); });
+    record('subject suggestion by page path', miss.length === 0, miss.join('; '));
   }
 
   function live() {
@@ -182,6 +218,81 @@
         record('plan progress reads "Session 1 of 3"', text === 'Session 1 of 3', text);
         w.AEPomodoro.endPlan();
         record('ending the plan returns to the free timer', w.AEPomodoro.state().mode === 'free' && !w.AEPomodoro.state().running, '');
+        f.remove();
+      });
+    });
+
+    // a state saved before the study modes (no study, no audio) loads with sound off and no guide
+    chain = chain.then(function () {
+      return frame({ v: 1, mode: 'free', tab: 'free', preset: 'deep', durations: { focus: 50, short: 10, long: 25, longEvery: 3 },
+        freeDone: 0, phase: { kind: 'focus', min: 50 }, running: false, remaining: 50 * MIN, auto: true, sound: false }).then(function (f) {
+        var w = f.contentWindow, d = f.contentDocument, s = w.AEPomodoro.state();
+        w.AEPomodoro.open();
+        record('an old saved state loads: sound sync off, classic deep, no step guide',
+          s.audio && s.audio.on === false && s.audio.tones === false && s.audio.rest === 'silence' && s.preset === 'deep' &&
+          s.sound === false && d.querySelector('.pm-guide').hidden, JSON.stringify(s.audio) + ' preset=' + s.preset);
+        f.remove();
+      });
+    });
+
+    // study type cards, and the Focus Lab cues sent as the timer moves (AEFocusLab.cue mocked)
+    chain = chain.then(function () {
+      return frame(null).then(function (f) {
+        var w = f.contentWindow, d = f.contentDocument, A = w.AEPomodoro, calls = [];
+        w.AEFocusLab.cue = function (spec) { calls.push(JSON.parse(JSON.stringify(spec))); };
+        function last() { return calls[calls.length - 1] || {}; }
+        A.open();
+        d.querySelector('.pm-mode[data-preset="theory"]').click();
+        var s = A.state();
+        record('a study type card sets the timer and shows its first step',
+          s.preset === 'theory' && s.study === 'theory' && s.durations.focus === 45 && s.phase.min === 45 &&
+          !d.querySelector('.pm-guide').hidden && d.querySelector('.pm-guide__title').textContent === 'Pre-test' &&
+          d.querySelector('.pm-mode[data-preset="theory"]').getAttribute('aria-pressed') === 'true', JSON.stringify(s.durations));
+        d.getElementById('pmAudio').click();
+        record('switching sync on while idle sends no cue', A.state().audio.on === true && calls.length === 0, JSON.stringify(calls));
+        A.start();
+        var c1 = last();
+        record('start: focus cue, masking only', calls.length === 1 && c1.preset === 'isolation' && c1.tone === 0 && c1.noise === 0.25 &&
+          /focus$/.test(c1.label), JSON.stringify(calls));
+        d.getElementById('pmTones').click();
+        var c2 = last();
+        record('binaural tones: the mode\'s beat', calls.length === 2 && c2.preset === 'smr' && c2.tone === 0.15, JSON.stringify(c2));
+        A.skip();
+        var c3 = last();
+        record('break: silence by default, slow fade', calls.length === 3 && c3.preset === null && c3.fade === 8 && /break$/.test(c3.label), JSON.stringify(c3));
+        d.querySelector('.pm-audio .pm-seg__btn[data-value="mask"]').click();
+        var c4 = last();
+        record('break sound set to masking', calls.length === 4 && c4.preset === 'isolation' && c4.tone === 0 && c4.noise === 0.2, JSON.stringify(c4));
+        A.pause();
+        var c5 = last();
+        A.start();
+        A.reset();
+        var c6 = last();
+        record('pause and reset fade to silence', calls.length === 7 && c5.preset === null && c6.preset === null && /paused$/.test(c6.label),
+          JSON.stringify(calls.slice(4)));
+        A.startPlan(180, 'problems');
+        var c7 = last();
+        A.endPlan();
+        var c8 = last();
+        record('a plan cues its own mode; ending it stops', calls.length === 9 && c7.preset === 'gamma' && c8.preset === null, JSON.stringify(calls.slice(7)));
+        w.dispatchEvent(new w.CustomEvent('aefocuslab:userstop'));
+        A.start();
+        A.reset();
+        record('a hand Stop in Focus Lab switches sync off; no further cues', A.state().audio.on === false && calls.length === 9 &&
+          !d.getElementById('pmAudio').checked, calls.length + ' calls');
+        record('the chime flag is untouched by the study sound', A.state().sound === true, String(A.state().sound));
+        f.remove();
+      });
+    });
+
+    // "Study this" from the calendar: the subject picks the study type of the plan
+    chain = chain.then(function () {
+      try { sessionStorage.setItem('ae_pomodoro_pending', JSON.stringify({ minutes: 90, subject: 'business-management' })); } catch (e) { /* ignore */ }
+      return frame(null).then(function (f) {
+        var s = f.contentWindow.AEPomodoro.state();
+        record('a calendar launch plans with the subject\'s study type', s.mode === 'plan' && s.plan && s.plan.style === 'theory' &&
+          mins(s.plan) === 'F45 s8 F37', JSON.stringify(s.plan && { style: s.plan.style, phases: mins(s.plan) }));
+        f.contentWindow.AEPomodoro.endPlan();
         f.remove();
       });
     });

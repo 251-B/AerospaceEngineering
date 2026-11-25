@@ -41,7 +41,7 @@
     { id: 'ask', title: 'Ask AI and Sideris', page: null, target: '#siderisButton',
       text: 'Select any text to ask about it, or open Sideris, the tutor that answers from the course notes and can give hints only.' },
     { id: 'focus', title: 'Focus sound and study timer', page: null, target: '#pomodoroButton',
-      text: 'Study sound to help you concentrate, and a timer that plans your session in blocks with breaks.' },
+      text: 'Pick a study type and the timer guides each block step by step, with real breaks. Sound can follow it: low masking while you work, silence when you rest.' },
     { id: 'simulator', title: 'Exam simulator', page: 'subjects/aerospace-materials-1/simulator/index.html', target: 'main',
       text: 'Timed practice exams drawn from the bank, corrected at the end, with your results kept in My study.' },
     { id: 'news', title: 'What is new', page: null, target: '#updatesButton',
