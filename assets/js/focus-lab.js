@@ -1,15 +1,9 @@
 /*!
- * Aerospace Engineering Study Portal: "Focus Lab" (study sound, synthesised in the browser).
+ * Aerospace Engineering Study Portal: "Focus Lab" (headless Web Audio study-sound engine).
  *
- * Loaded on every page by assets/js/theme.js (no page carries its own <script> tag for it); the
- * script adds its own stylesheet (assets/css/focus-lab.css, found next to this file). Skipped in
- * the PDF print mode (?print=...), and hidden by @media print.
- *
- * A floating "Focus" button opens a non-modal panel:
- *   - presets (gamma 40 Hz, beta 20 Hz, SMR 14 Hz, alpha 10 Hz, brown noise only);
- *   - live mixer: binaural level, background noise (brown / pink / off) and its level, isochronic
- *     toggle for speakers, fine tuning of the carrier (100-432 Hz) and beat (1-45 Hz);
- *   - a small real-time visualiser (waveform envelope or spectrum, AnalyserNode + <canvas>).
+ * Loaded on every study page by assets/js/theme.js, right before assets/js/pomodoro.js.
+ * Controlled from the unified "Study session" panel (no separate floating button or panel).
+ * Skipped in the PDF print mode (?print=...).
  *
  * Audio graph (Web Audio API only, no audio files):
  *   oscL (sine, carrier)        -> panL (pan -1) ----------------\
@@ -22,14 +16,13 @@
  * Every gain, pan and frequency change is a linear or exponential ramp, so nothing clicks.
  *
  * Study timer sync: AEFocusLab.cue(spec) lets assets/js/pomodoro.js drive the sound phase by phase
- * ({ preset, noise, tone, fade, label }; preset null fades to silence, 'keep' keeps the mixer's
- * setting). A cue that cannot start (hidden tab, or a new page before any gesture, autoplay policy)
- * waits for the tab to be visible and the first click or key. While following, the panel shows
- * "Following timer: <label>"; a hand Stop dispatches 'aefocuslab:userstop' on window.
+ * ({ preset, noise, tone, fade, label }; preset null fades to silence, 'keep' keeps the engine's
+ * current sound). A cue that cannot start (hidden tab, or a new page before any gesture) waits for
+ * the tab to be visible and the first click or key.
  *
- * Storage: 'ae_focus_lab' (JSON: preset, frequencies, levels, noise colour, mode, view).
- * API: window.AEFocusLab = { PRESETS, KEY, LIMITS, noiseBuffer, createEngine, open, close, toggle,
- *      applyPreset, cue, state }
+ * Storage: 'ae_focus_lab' (JSON: preset, frequencies, levels, volume, noise colour, iso, playing).
+ * API: window.AEFocusLab = { PRESETS, KEY, LIMITS, noiseBuffer, createEngine, cue, applyPreset,
+ *      setVolume, setIsochronic, setCustomHz, start, stop, toggle, open, close, state }
  */
 (function () {
   'use strict';
@@ -37,7 +30,6 @@
   if (window.AEFocusLab) return;
   if (new URLSearchParams(location.search).has('print')) return;
 
-  var SCRIPT = document.currentScript;
   var KEY = 'ae_focus_lab';
   var LIMITS = { carrier: [100, 432], beat: [1, 45] };
   var TONE_MAX = 0.3;     // gain of the tone bus at 100 %
@@ -45,14 +37,6 @@
   var NOISE_RMS = 0.2;    // RMS of the generated noise loops
   var NOISE_SECONDS = 12; // length of each noise loop
   var TIME = { fadeIn: 0.6, fadeOut: 0.35, glide: 0.25, level: 0.08, swap: 0.5 };
-
-  var BANDS = {
-    gamma: { symbol: 'γ', name: 'Gamma' },
-    beta: { symbol: 'β', name: 'Beta' },
-    smr: { symbol: 'β', name: 'SMR' },
-    alpha: { symbol: 'α', name: 'Alpha' },
-    none: { symbol: '1/f²', name: 'Noise only' }
-  };
 
   // Wording kept to what the evidence supports: behavioural effects of binaural beats are modest and
   // their EEG entrainment is unproven (Garcia-Argibay 2019; Ingendoh 2023); low-level masking is the
@@ -75,13 +59,8 @@
       text: 'Brown noise only (1/f²), no tones: masks background chatter. The best-supported option; keep it barely above the room.' }
   ];
 
-  var NOISES = [
-    { id: 'brown', label: 'Brown', note: 'Brown noise: −6 dB per octave (1/f²)' },
-    { id: 'pink', label: 'Pink', note: 'Pink noise: −3 dB per octave (1/f)' },
-    { id: 'off', label: 'Off', note: 'No background noise' }
-  ];
-
   function clamp(x, lo, hi) { return Math.min(hi, Math.max(lo, x)); }
+  function num(x, fallback) { return typeof x === 'number' && isFinite(x) ? clamp(x, 0, 1) : fallback; }
   function findPreset(id) {
     for (var i = 0; i < PRESETS.length; i++) if (PRESETS[i].id === id) return PRESETS[i];
     return null;
@@ -216,7 +195,7 @@
     noiseBus.connect(master);
     var noise = null;   // { type, source, fade }
 
-    var current = { carrier: 200, beat: 40, iso: false };
+    var current = { carrier: 200, beat: 40, iso: false, master: 1 };
     oscL.frequency.setValueAtTime(current.carrier, 0);
     oscR.frequency.setValueAtTime(current.carrier + current.beat, 0);
     lfo.frequency.setValueAtTime(current.beat, 0);
@@ -275,7 +254,15 @@
       noise = { type: type, source: source, fade: fade };
     }
 
-    function fadeIn(seconds) { glide(master.gain, 1, seconds === undefined ? TIME.fadeIn : seconds); }
+    function setMaster(level, seconds) {
+      current.master = clamp(level, 0, 1);
+      glide(master.gain, current.master, seconds === undefined ? TIME.level : seconds);
+    }
+
+    function fadeIn(seconds, level) {
+      if (typeof level === 'number' && isFinite(level)) current.master = clamp(level, 0, 1);
+      glide(master.gain, current.master, seconds === undefined ? TIME.fadeIn : seconds);
+    }
     function fadeOut(seconds) { glide(master.gain, 0, seconds === undefined ? TIME.fadeOut : seconds); }
 
     return {
@@ -287,6 +274,7 @@
       setToneLevel: setToneLevel,
       setNoiseLevel: setNoiseLevel,
       setNoiseType: setNoiseType,
+      setMaster: setMaster,
       fadeIn: fadeIn,
       fadeOut: fadeOut
     };
@@ -294,7 +282,7 @@
 
   /* ================================================================== state */
   var DEFAULTS = { preset: 'gamma', carrier: 200, beat: 40, tone: 0.5, lastTone: 0.5, noise: 0.25,
-    noiseType: 'brown', iso: false, view: 'wave', playing: false };
+    volume: 0.75, noiseType: 'brown', iso: false, view: 'wave', playing: false };
 
   function load() {
     var s = {}, raw = null, k;
@@ -307,6 +295,7 @@
     if (isFinite(raw.tone)) s.tone = clamp(+raw.tone, 0, 1);
     if (isFinite(raw.lastTone)) s.lastTone = clamp(+raw.lastTone, 0.05, 1);
     if (isFinite(raw.noise)) s.noise = clamp(+raw.noise, 0, 1);
+    if (isFinite(raw.volume)) s.volume = clamp(+raw.volume, 0, 1);
     if (raw.noiseType === 'brown' || raw.noiseType === 'pink' || raw.noiseType === 'off') s.noiseType = raw.noiseType;
     s.iso = raw.iso === true;
     if (raw.view === 'wave' || raw.view === 'spectrum') s.view = raw.view;
@@ -320,417 +309,18 @@
     try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage blocked: keep it in memory */ }
   }
 
-  /* ================================================================== UI */
-  var ui = {};
+  /* ================================================================== transport & API */
   var engine = null;
   var playing = false;
-  var frame = 0;
   var suspendTimer = 0;
-  var following = '';      // label of the study timer phase being followed ('' = not following)
-  var pendingFade = null;  // a cue waiting for a visible tab and a gesture: its fade-in time
+  var following = '';
+  var pendingFade = null;
   var AudioCtx = window.AudioContext || window.webkitAudioContext;
 
-  function el(tag, className, text) {
-    var node = document.createElement(tag);
-    if (className) node.className = className;
-    if (text) node.textContent = text;
-    return node;
+  function emitChange() {
+    try { window.dispatchEvent(new CustomEvent('aefocuslab:change')); } catch (e) { /* ignore */ }
   }
 
-  function svgIcon(paths, size) {
-    var ns = 'http://www.w3.org/2000/svg';
-    var svg = document.createElementNS(ns, 'svg');
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.setAttribute('width', size || 18);
-    svg.setAttribute('height', size || 18);
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('focusable', 'false');
-    paths.forEach(function (d) {
-      var p = document.createElementNS(ns, 'path');
-      p.setAttribute('d', d);
-      svg.appendChild(p);
-    });
-    return svg;
-  }
-
-  var ICONS = {
-    phones: ['M4 14v-2a8 8 0 0 1 16 0v2', 'M4 14h3v6H5a1 1 0 0 1-1-1z', 'M20 14h-3v6h2a1 1 0 0 0 1-1z'],
-    play: ['M8 5.5v13l11-6.5z'],
-    pause: ['M7.5 5.5h3v13h-3z', 'M13.5 5.5h3v13h-3z'],
-    close: ['M6 6l12 12', 'M18 6L6 18']
-  };
-
-  function hz(x) { return Math.round(x) + ' Hz'; }
-  function pct(x) { return Math.round(x * 100) + '%'; }
-
-  function bandLabel(preset) {
-    var band = BANDS[preset.band];
-    return preset.tones ? band.symbol + ' ' + band.name + ' · ' + hz(preset.beat) : band.symbol + ' · ' + band.name;
-  }
-
-  function slider(id, label, min, max, step, value) {
-    var row = el('div', 'fl-slider');
-    var head = el('div', 'fl-slider__head');
-    var name = el('label', 'fl-slider__label', label);
-    name.htmlFor = id;
-    var out = el('output', 'fl-slider__value');
-    out.htmlFor = id;
-    head.appendChild(name);
-    head.appendChild(out);
-    var input = el('input', 'fl-range');
-    input.type = 'range';
-    input.id = id;
-    input.min = min;
-    input.max = max;
-    input.step = step;
-    input.value = value;
-    row.appendChild(head);
-    row.appendChild(input);
-    return { row: row, input: input, out: out };
-  }
-
-  function build() {
-    if (document.getElementById('focusLabButton') || !document.body) return;
-
-    var launcher = el('button', 'fl-launcher');
-    launcher.type = 'button';
-    launcher.id = 'focusLabButton';
-    launcher.setAttribute('aria-expanded', 'false');
-    launcher.setAttribute('aria-controls', 'focusLabPanel');
-    launcher.appendChild(svgIcon(ICONS.phones, 18));
-    launcher.appendChild(el('span', 'fl-launcher__label', 'Focus'));
-    var dot = el('span', 'fl-launcher__dot');
-    dot.setAttribute('aria-hidden', 'true');
-    launcher.appendChild(dot);
-
-    var panel = el('section', 'fl-panel');
-    panel.id = 'focusLabPanel';
-    panel.hidden = true;
-    panel.setAttribute('role', 'dialog');
-    panel.setAttribute('aria-modal', 'false');
-    panel.setAttribute('aria-labelledby', 'focusLabTitle');
-
-    // header
-    var head = el('header', 'fl-head');
-    var brand = el('div', 'fl-head__brand');
-    if (window.AESite && typeof window.AESite.mark === 'function') {
-      var seal = el('span', 'fl-brand-seal');
-      seal.setAttribute('aria-hidden', 'true');
-      seal.appendChild(window.AESite.mark(24));
-      brand.appendChild(seal);
-    }
-    var titles = el('div', 'fl-head__titles');
-    titles.appendChild(el('p', 'fl-kicker', 'Neuro-Audio Focus Lab'));
-    var title = el('h2', 'fl-title', 'Study frequencies');
-    title.id = 'focusLabTitle';
-    titles.appendChild(title);
-    brand.appendChild(titles);
-    var close = el('button', 'fl-icon-btn');
-    close.type = 'button';
-    close.setAttribute('aria-label', 'Close Focus Lab');
-    close.appendChild(svgIcon(ICONS.close, 18));
-    head.appendChild(brand);
-    head.appendChild(close);
-
-    // transport
-    var transport = el('div', 'fl-transport');
-    var play = el('button', 'fl-play');
-    play.type = 'button';
-    var playIcon = el('span', 'fl-play__icon');
-    var playText = el('span', 'fl-play__text');
-    play.appendChild(playIcon);
-    play.appendChild(playText);
-    var readout = el('p', 'fl-readout');
-    readout.setAttribute('aria-live', 'polite');
-    transport.appendChild(play);
-    transport.appendChild(readout);
-    var followLine = el('p', 'fl-following');
-    followLine.hidden = true;
-
-    // headphones notice
-    var notice = el('p', 'fl-notice');
-    notice.setAttribute('role', 'note');
-
-    // presets
-    var presetTitle = el('h3', 'fl-section', 'Presets');
-    var presetList = el('div', 'fl-presets');
-    presetList.setAttribute('role', 'group');
-    presetList.setAttribute('aria-label', 'Study presets');
-    var cards = PRESETS.map(function (p) {
-      var card = el('button', 'fl-card');
-      card.type = 'button';
-      card.setAttribute('data-preset', p.id);
-      if (!p.tones) card.className += ' is-wide';
-      card.appendChild(el('span', 'fl-card__band', bandLabel(p)));
-      card.appendChild(el('span', 'fl-card__name', p.name));
-      var freqs = el('span', 'fl-card__hz');
-      (p.tones ? ['Carrier ' + hz(p.carrier), 'L ' + hz(p.carrier) + ' · R ' + hz(p.carrier + p.beat)] : ['Oscillators off'])
-        .forEach(function (part, i) {
-          if (i) freqs.appendChild(document.createTextNode(' · '));
-          freqs.appendChild(el('span', '', part));
-        });
-      card.appendChild(freqs);
-      card.appendChild(el('span', 'fl-card__use', p.use));
-      card.appendChild(el('span', 'fl-card__noise', (p.noise === 'brown' ? 'Brown' : 'Pink') + ' noise ' + pct(p.level)));
-      card.addEventListener('click', function () { applyPreset(p.id); });
-      presetList.appendChild(card);
-      return card;
-    });
-    var explain = el('p', 'fl-explain');
-    explain.setAttribute('aria-live', 'polite');
-
-    // visualiser
-    var vizHead = el('div', 'fl-viz__head');
-    vizHead.appendChild(el('h3', 'fl-section', 'Signal'));
-    var views = el('div', 'fl-seg');
-    views.setAttribute('role', 'group');
-    views.setAttribute('aria-label', 'Visualiser view');
-    var viewButtons = [['wave', 'Wave'], ['spectrum', 'Spectrum']].map(function (v) {
-      var b = el('button', 'fl-seg__btn', v[1]);
-      b.type = 'button';
-      b.setAttribute('data-view', v[0]);
-      b.addEventListener('click', function () {
-        state.view = v[0];
-        save();
-        sync();
-        draw();
-      });
-      views.appendChild(b);
-      return b;
-    });
-    vizHead.appendChild(views);
-    var canvas = el('canvas', 'fl-canvas');
-    canvas.setAttribute('role', 'img');
-
-    // mixer
-    var mixTitle = el('h3', 'fl-section', 'Live mixer');
-    var tone = slider('flTone', 'Binaural tones', 0, 100, 1, Math.round(state.tone * 100));
-    var noiseRow = el('div', 'fl-noise');
-    var noiseHead = el('div', 'fl-slider__head');
-    noiseHead.appendChild(el('span', 'fl-slider__label', 'Background noise'));
-    var noiseSeg = el('div', 'fl-seg');
-    noiseSeg.setAttribute('role', 'group');
-    noiseSeg.setAttribute('aria-label', 'Background noise colour');
-    var noiseButtons = NOISES.map(function (n) {
-      var b = el('button', 'fl-seg__btn', n.label);
-      b.type = 'button';
-      b.title = n.note;
-      b.setAttribute('data-noise', n.id);
-      b.addEventListener('click', function () { setNoiseType(n.id); });
-      noiseSeg.appendChild(b);
-      return b;
-    });
-    noiseHead.appendChild(noiseSeg);
-    noiseRow.appendChild(noiseHead);
-    var noiseLevel = slider('flNoise', 'Noise level', 0, 100, 1, Math.round(state.noise * 100));
-    noiseRow.appendChild(noiseLevel.row);
-
-    var isoRow = el('label', 'fl-switch');
-    var iso = el('input', 'fl-switch__input');
-    iso.type = 'checkbox';
-    iso.id = 'flIso';
-    var isoText = el('span', 'fl-switch__text');
-    isoText.appendChild(el('strong', '', 'Isochronic tones'));
-    isoText.appendChild(el('span', '', 'Amplitude pulses at the beat frequency: works on speakers.'));
-    isoRow.appendChild(iso);
-    isoRow.appendChild(el('span', 'fl-switch__track'));
-    isoRow.appendChild(isoText);
-
-    var fine = el('details', 'fl-fine');
-    fine.appendChild(el('summary', '', 'Fine tuning'));
-    var carrier = slider('flCarrier', 'Carrier frequency', LIMITS.carrier[0], LIMITS.carrier[1], 1, state.carrier);
-    var beat = slider('flBeat', 'Beat frequency', LIMITS.beat[0], LIMITS.beat[1], 1, state.beat);
-    fine.appendChild(carrier.row);
-    fine.appendChild(beat.row);
-
-    var foot = el('p', 'fl-foot', 'Keep the volume low. Evidence on brainwave entrainment by binaural beats is mixed: ' +
-      'treat the presets as a focus routine, not as a treatment. Sound stops when you leave the page; ' +
-      'the Focus button resumes it on the next one.');
-
-    [head, transport, followLine, notice, presetTitle, presetList, explain, vizHead, canvas, mixTitle, tone.row, noiseRow,
-      isoRow, fine, foot].forEach(function (node) { panel.appendChild(node); });
-
-    document.body.appendChild(launcher);
-    document.body.appendChild(panel);
-
-    ui = { launcher: launcher, panel: panel, close: close, play: play, playIcon: playIcon, playText: playText,
-      readout: readout, notice: notice, cards: cards, explain: explain, viewButtons: viewButtons, canvas: canvas,
-      tone: tone, noiseButtons: noiseButtons, noiseLevel: noiseLevel, iso: iso, carrier: carrier, beat: beat,
-      followLine: followLine };
-
-    // A cue that waited (new page before any gesture, or a hidden tab) starts on the first click or key.
-    function resumePending(event) {
-      if (pendingFade === null || document.hidden) return;
-      // a press on Play itself is handled by its click (start), or it would start and stop at once
-      if (event && event.target && event.target.closest && event.target.closest('.fl-play')) return;
-      var fade = pendingFade;
-      pendingFade = null;
-      start(fade);
-    }
-    document.addEventListener('pointerdown', resumePending, true);
-    document.addEventListener('keydown', resumePending, true);
-    document.addEventListener('visibilitychange', function () { if (canPlay()) resumePending(); });
-
-    launcher.addEventListener('click', function () {
-      if (!panel.hidden) { closePanel(false); return; }
-      openPanel();
-      if (state.playing && !playing) start();   // resume what was playing on the previous page
-    });
-    close.addEventListener('click', function () { closePanel(true); });
-    play.addEventListener('click', function () {
-      if (!playing) { start(); return; }
-      // A hand Stop wins over the study timer: it stops following until sync is switched on again.
-      following = '';
-      pendingFade = null;
-      stop();
-      window.dispatchEvent(new CustomEvent('aefocuslab:userstop'));
-    });
-
-    tone.input.addEventListener('input', function () {
-      state.tone = tone.input.value / 100;
-      if (state.tone > 0) state.lastTone = state.tone;
-      if (engine) engine.setToneLevel(state.tone);
-      save();
-      sync();
-    });
-    noiseLevel.input.addEventListener('input', function () {
-      state.noise = noiseLevel.input.value / 100;
-      if (engine) engine.setNoiseLevel(state.noise);
-      save();
-      sync();
-    });
-    iso.addEventListener('change', function () {
-      state.iso = iso.checked;
-      if (engine) engine.setIsochronic(state.iso);
-      save();
-      sync();
-    });
-    carrier.input.addEventListener('input', function () { tune(+carrier.input.value, state.beat); });
-    beat.input.addEventListener('input', function () { tune(state.carrier, +beat.input.value); });
-
-    panel.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        event.stopPropagation();
-        closePanel(true);
-      }
-    });
-    document.addEventListener('ae-theme-change', draw);
-    document.addEventListener('ae-surface-change', draw);
-    window.addEventListener('resize', draw);
-    window.addEventListener('storage', function (event) {
-      if (event.key !== KEY || playing) return;
-      state = load();
-      sync();
-    });
-
-    if (!AudioCtx) {
-      play.disabled = true;
-      ui.readout.textContent = 'This browser has no Web Audio API.';
-    }
-    sync();
-  }
-
-  function tune(carrier, beat) {
-    state.carrier = clamp(Math.round(carrier), LIMITS.carrier[0], LIMITS.carrier[1]);
-    state.beat = clamp(Math.round(beat), LIMITS.beat[0], LIMITS.beat[1]);
-    state.preset = 'custom';
-    if (state.tone === 0) state.tone = state.lastTone;
-    if (engine) {
-      engine.setFrequencies(state.carrier, state.beat);
-      engine.setToneLevel(state.tone);
-    }
-    save();
-    sync();
-  }
-
-  function setNoiseType(type) {
-    state.noiseType = type;
-    if (engine) engine.setNoiseType(type);
-    save();
-    sync();
-  }
-
-  function applyPreset(id) {
-    var p = findPreset(id);
-    if (!p) return;
-    state.preset = p.id;
-    state.carrier = p.carrier;
-    state.beat = p.beat;
-    state.noiseType = p.noise;
-    state.noise = p.level;
-    state.tone = p.tones ? (state.tone > 0 ? state.tone : state.lastTone) : 0;
-    if (engine) {
-      engine.setFrequencies(state.carrier, state.beat);
-      engine.setToneLevel(state.tone, TIME.glide);
-      engine.setNoiseType(state.noiseType);
-      engine.setNoiseLevel(state.noise, TIME.glide);
-    }
-    save();
-    sync();
-  }
-
-  function sync() {
-    if (!ui.panel) return;
-    var p = findPreset(state.preset);
-    var tonesOn = state.tone > 0;
-
-    ui.launcher.classList.toggle('is-playing', playing);
-    ui.launcher.classList.toggle('is-resumable', !playing && state.playing);
-    ui.launcher.title = playing ? 'Focus Lab: playing' : state.playing ? 'Focus Lab: click to resume' : 'Focus Lab: study frequencies';
-    ui.launcher.setAttribute('aria-label', ui.launcher.title);
-
-    ui.followLine.hidden = !following;
-    ui.followLine.textContent = following ? 'Following timer: ' + following : '';
-
-    ui.play.setAttribute('aria-pressed', playing ? 'true' : 'false');
-    ui.playIcon.textContent = '';
-    ui.playIcon.appendChild(svgIcon(playing ? ICONS.pause : ICONS.play, 20));
-    ui.playText.textContent = playing ? 'Pause' : 'Start';
-
-    var parts = [];
-    if (tonesOn && state.iso) parts.push(hz(state.carrier) + ' pulsed at ' + hz(state.beat));
-    else if (tonesOn) parts.push('L ' + hz(state.carrier) + ' · R ' + hz(state.carrier + state.beat) + ' · beat ' + hz(state.beat));
-    else parts.push('Tones off');
-    parts.push(state.noiseType === 'off' ? 'no noise' : state.noiseType + ' noise ' + pct(state.noise));
-    if (AudioCtx) ui.readout.textContent = parts.join(' · ');
-
-    ui.notice.className = 'fl-notice' + (state.iso ? ' is-iso' : '');
-    ui.notice.textContent = state.iso
-      ? 'Isochronic mode: one tone pulsed in both ears. Works on speakers or headphones.'
-      : 'Binaural beats need stereo headphones: each ear must hear only its own tone. On speakers, switch on Isochronic tones below.';
-
-    ui.cards.forEach(function (card) {
-      card.setAttribute('aria-pressed', card.getAttribute('data-preset') === state.preset ? 'true' : 'false');
-    });
-    ui.explain.textContent = '';
-    if (p) {
-      ui.explain.appendChild(el('strong', '', p.name + '. '));
-      ui.explain.appendChild(document.createTextNode(p.text));
-    } else {
-      ui.explain.appendChild(el('strong', '', 'Custom. '));
-      ui.explain.appendChild(document.createTextNode('Carrier ' + hz(state.carrier) + ', beat ' + hz(state.beat) +
-        ' (fine tuning). Pick a preset to return to a tested setting.'));
-    }
-
-    ui.viewButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-view') === state.view ? 'true' : 'false'); });
-    ui.noiseButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-noise') === state.noiseType ? 'true' : 'false'); });
-    ui.canvas.setAttribute('aria-label', state.view === 'wave'
-      ? 'Waveform of the mixed signal; the envelope beats at the beat frequency'
-      : 'Spectrum of the mixed signal from 30 Hz to 2 kHz');
-
-    ui.tone.input.value = Math.round(state.tone * 100);
-    ui.tone.out.textContent = pct(state.tone);
-    ui.noiseLevel.input.value = Math.round(state.noise * 100);
-    ui.noiseLevel.out.textContent = pct(state.noise);
-    ui.noiseLevel.input.disabled = state.noiseType === 'off';
-    ui.iso.checked = state.iso;
-    ui.carrier.input.value = state.carrier;
-    ui.carrier.out.textContent = hz(state.carrier);
-    ui.beat.input.value = state.beat;
-    ui.beat.out.textContent = hz(state.beat);
-  }
-
-  /* ---------------------------------------------------------------- transport */
   function ensureEngine() {
     if (engine || !AudioCtx) return engine;
     var ctx = new AudioCtx({ latencyHint: 'playback' });
@@ -751,13 +341,12 @@
       engine.setToneLevel(state.tone, 0.05);
       engine.setNoiseType(state.noiseType, 0.05);
       engine.setNoiseLevel(state.noise, 0.05);
-      engine.fadeIn(seconds);
+      engine.fadeIn(seconds, state.volume);
     };
     playing = true;
     state.playing = true;
     save();
-    sync();
-    loop();
+    emitChange();
     if (ctx.state === 'suspended') ctx.resume().then(go, go); else go();
   }
 
@@ -765,7 +354,7 @@
     playing = false;
     state.playing = false;
     save();
-    sync();
+    emitChange();
     if (!engine) return;
     engine.fadeOut(seconds);
     var ctx = engine.context;
@@ -775,23 +364,80 @@
     }, ((seconds === undefined ? TIME.fadeOut : seconds) + 0.15) * 1000);
   }
 
-  // Sound may start now: the context already runs, or the page has had a gesture (autoplay policy).
   function canPlay() {
     if (document.hidden) return false;
     if (engine && engine.context.state === 'running') return true;
     return !navigator.userActivation || navigator.userActivation.hasBeenActive;
   }
 
-  function num(x, fallback) { return typeof x === 'number' && isFinite(x) ? clamp(x, 0, 1) : fallback; }
+  function resumePending() {
+    if (pendingFade === null || document.hidden) return;
+    var fade = pendingFade;
+    pendingFade = null;
+    start(fade);
+  }
 
-  /* The study timer's cue (assets/js/pomodoro.js). Settings follow the preset with optional levels;
-     state.lastTone (the hand level the tones come back to) is never changed by a cue. */
+  document.addEventListener('pointerdown', resumePending, true);
+  document.addEventListener('keydown', resumePending, true);
+  document.addEventListener('visibilitychange', function () { if (canPlay()) resumePending(); });
+  window.addEventListener('storage', function (event) {
+    if (event.key !== KEY || playing) return;
+    state = load();
+    emitChange();
+  });
+
+  function applyPreset(id) {
+    var p = findPreset(id);
+    if (!p) return;
+    state.preset = p.id;
+    state.carrier = p.carrier;
+    state.beat = p.beat;
+    state.noiseType = p.noise;
+    state.noise = p.level;
+    state.tone = p.tones ? (state.tone > 0 ? state.tone : state.lastTone) : 0;
+    if (engine) {
+      engine.setFrequencies(state.carrier, state.beat);
+      engine.setToneLevel(state.tone, TIME.glide);
+      engine.setNoiseType(state.noiseType);
+      engine.setNoiseLevel(state.noise, TIME.glide);
+    }
+    save();
+    emitChange();
+  }
+
+  function setVolume(v) {
+    state.volume = clamp(+v || 0, 0, 1);
+    if (engine && playing) engine.setMaster(state.volume, TIME.level);
+    save();
+    emitChange();
+  }
+
+  function setIsochronic(on) {
+    state.iso = !!on;
+    if (engine) engine.setIsochronic(state.iso);
+    save();
+    emitChange();
+  }
+
+  function setCustomHz(carrier, beat) {
+    state.carrier = clamp(Math.round(carrier), LIMITS.carrier[0], LIMITS.carrier[1]);
+    state.beat = clamp(Math.round(beat), LIMITS.beat[0], LIMITS.beat[1]);
+    state.preset = 'custom';
+    if (state.tone === 0) state.tone = state.lastTone;
+    if (engine) {
+      engine.setFrequencies(state.carrier, state.beat);
+      engine.setToneLevel(state.tone, TIME.glide);
+    }
+    save();
+    emitChange();
+  }
+
   function cue(spec) {
     spec = spec || { preset: null };
     following = spec.label ? String(spec.label) : '';
     if (!spec.preset) {
       pendingFade = null;
-      if (playing) stop(typeof spec.fade === 'number' ? spec.fade : undefined); else sync();
+      if (playing) stop(typeof spec.fade === 'number' ? spec.fade : undefined); else emitChange();
       return;
     }
     var p = findPreset(spec.preset);
@@ -811,172 +457,14 @@
       save();
     }
     var fade = typeof spec.fade === 'number' ? spec.fade : undefined;
-    if (!AudioCtx || playing) { sync(); return; }   // already playing: the new settings glide in
+    if (!AudioCtx || playing) { emitChange(); return; }
     if (!canPlay()) {
-      pendingFade = fade === undefined ? TIME.fadeIn : fade;   // hidden tab or no gesture yet: wait
-      sync();
+      pendingFade = fade === undefined ? TIME.fadeIn : fade;
+      emitChange();
       return;
     }
     start(fade);
   }
-
-  function openPanel() {
-    ui.panel.hidden = false;
-    ui.launcher.setAttribute('aria-expanded', 'true');
-    ui.panel.scrollTop = 0;
-    requestAnimationFrame(function () { ui.panel.classList.add('is-open'); });
-    ui.play.focus({ preventScroll: true });
-    draw();
-    loop();
-  }
-
-  function closePanel(returnFocus) {
-    ui.panel.classList.remove('is-open');
-    ui.panel.hidden = true;
-    ui.launcher.setAttribute('aria-expanded', 'false');
-    cancelAnimationFrame(frame);
-    frame = 0;
-    if (returnFocus) ui.launcher.focus();
-  }
-
-  /* ---------------------------------------------------------------- visualiser */
-  var timeData = null;
-  var freqData = null;
-  var waveScale = 1;
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var lastDraw = 0;
-
-  function loop() {
-    if (frame || !ui.panel || ui.panel.hidden) return;
-    frame = requestAnimationFrame(function tick(t) {
-      frame = 0;
-      if (ui.panel.hidden) return;
-      if (!reduceMotion || t - lastDraw > 200) {
-        lastDraw = t;
-        draw();
-      }
-      if (playing || (engine && engine.context.state === 'running')) frame = requestAnimationFrame(tick);
-    });
-  }
-
-  function draw() {
-    var canvas = ui.canvas;
-    if (!canvas || !ui.panel || ui.panel.hidden) return;
-    var dpr = window.devicePixelRatio || 1;
-    var w = canvas.clientWidth, h = canvas.clientHeight;
-    if (!w || !h) return;
-    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-    }
-    var g = canvas.getContext('2d');
-    g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    g.clearRect(0, 0, w, h);
-    var css = getComputedStyle(ui.panel);
-    var accent = css.getPropertyValue('--fl-wave').trim() || '#f59e0b';
-    var grid = css.getPropertyValue('--fl-grid').trim() || 'rgba(127,127,127,.25)';
-    var muted = css.getPropertyValue('--fl-muted').trim() || '#888';
-
-    g.strokeStyle = grid;
-    g.lineWidth = 1;
-    g.beginPath();
-    g.moveTo(0, Math.round(h / 2) + 0.5);
-    g.lineTo(w, Math.round(h / 2) + 0.5);
-    g.stroke();
-
-    var live = engine && playing;
-    if (state.view === 'spectrum') drawSpectrum(g, w, h, accent, grid, muted, live);
-    else drawWave(g, w, h, accent, live);
-  }
-
-  function drawWave(g, w, h, accent, live) {
-    if (!live) return;
-    var an = engine.analyser;
-    if (!timeData || timeData.length !== an.fftSize) timeData = new Float32Array(an.fftSize);
-    an.getFloatTimeDomainData(timeData);
-    var span = Math.min(timeData.length, Math.round(engine.context.sampleRate * 0.25));
-    var startAt = timeData.length - span;
-    var peak = 0, i;
-    for (i = startAt; i < timeData.length; i++) peak = Math.max(peak, Math.abs(timeData[i]));
-    var target = peak > 1e-4 ? 0.85 / peak : waveScale;
-    waveScale += (target - waveScale) * 0.15;
-    var mid = h / 2, per = span / w;
-    g.fillStyle = accent;
-    g.globalAlpha = 0.28;
-    g.beginPath();
-    var tops = [];
-    for (var x = 0; x < w; x++) {
-      var a = startAt + Math.floor(x * per), b = Math.min(timeData.length, startAt + Math.floor((x + 1) * per));
-      var lo = 0, hi = 0;
-      for (i = a; i < b; i++) { if (timeData[i] < lo) lo = timeData[i]; if (timeData[i] > hi) hi = timeData[i]; }
-      tops.push([mid - hi * waveScale * mid, mid - lo * waveScale * mid]);
-      if (x === 0) g.moveTo(x, tops[x][0]); else g.lineTo(x, tops[x][0]);
-    }
-    for (x = w - 1; x >= 0; x--) g.lineTo(x, tops[x][1]);
-    g.closePath();
-    g.fill();
-    g.globalAlpha = 1;
-    g.strokeStyle = accent;
-    g.lineWidth = 1.25;
-    g.beginPath();
-    for (x = 0; x < w; x++) { if (x === 0) g.moveTo(x, tops[x][0]); else g.lineTo(x, tops[x][0]); }
-    g.stroke();
-    g.beginPath();
-    for (x = 0; x < w; x++) { if (x === 0) g.moveTo(x, tops[x][1]); else g.lineTo(x, tops[x][1]); }
-    g.stroke();
-  }
-
-  function drawSpectrum(g, w, h, accent, grid, muted, live) {
-    var fMin = 30, fMax = 2000, dbMin = -120, dbMax = -8;
-    var lx = function (f) { return Math.log(f / fMin) / Math.log(fMax / fMin) * w; };
-    g.font = '10px ' + (getComputedStyle(ui.panel).getPropertyValue('--fl-mono').trim() || 'monospace');
-    g.fillStyle = muted;
-    g.strokeStyle = grid;
-    [50, 100, 200, 500, 1000].forEach(function (f) {
-      var x = Math.round(lx(f)) + 0.5;
-      g.beginPath();
-      g.moveTo(x, 0);
-      g.lineTo(x, h);
-      g.stroke();
-      g.fillText(f >= 1000 ? f / 1000 + 'k' : String(f), x + 3, h - 4);
-    });
-    if (!live) return;
-    var an = engine.analyser;
-    if (!freqData || freqData.length !== an.frequencyBinCount) freqData = new Float32Array(an.frequencyBinCount);
-    an.getFloatFrequencyData(freqData);
-    var binHz = engine.context.sampleRate / an.fftSize;
-    g.beginPath();
-    g.moveTo(0, h);
-    for (var x = 0; x < w; x++) {
-      var f0 = fMin * Math.pow(fMax / fMin, x / w), f1 = fMin * Math.pow(fMax / fMin, (x + 1) / w);
-      var a = Math.floor(f0 / binHz), b = Math.max(a + 1, Math.ceil(f1 / binHz)), db = -Infinity;
-      for (var i = a; i < b && i < freqData.length; i++) db = Math.max(db, freqData[i]);
-      var y = h - clamp((db - dbMin) / (dbMax - dbMin), 0, 1) * h;
-      g.lineTo(x, y);
-    }
-    g.lineTo(w, h);
-    g.closePath();
-    g.fillStyle = accent;
-    g.globalAlpha = 0.22;
-    g.fill();
-    g.globalAlpha = 1;
-    g.strokeStyle = accent;
-    g.lineWidth = 1.25;
-    g.stroke();
-  }
-
-  /* ---------------------------------------------------------------- boot */
-  function addStylesheet() {
-    if (!SCRIPT || !SCRIPT.src || document.querySelector('link[href*="focus-lab.css"]')) return;
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = SCRIPT.src.replace(/js\/focus-lab\.js(\?.*)?$/, 'css/focus-lab.css');
-    document.head.appendChild(link);
-  }
-
-  addStylesheet();
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
-  else build();
 
   window.AEFocusLab = {
     PRESETS: PRESETS,
@@ -984,10 +472,15 @@
     LIMITS: LIMITS,
     noiseBuffer: noiseBuffer,
     createEngine: createEngine,
-    open: function () { if (ui.panel) openPanel(); },
-    close: function () { if (ui.panel) closePanel(false); },
+    open: function () { if (window.AEPomodoro && typeof window.AEPomodoro.openSound === 'function') window.AEPomodoro.openSound(); },
+    close: function () { if (window.AEPomodoro && typeof window.AEPomodoro.close === 'function') window.AEPomodoro.close(); },
+    start: start,
+    stop: stop,
     toggle: function () { if (playing) stop(); else start(); },
     applyPreset: applyPreset,
+    setVolume: setVolume,
+    setIsochronic: setIsochronic,
+    setCustomHz: setCustomHz,
     cue: cue,
     state: function () { var copy = {}; for (var k in state) copy[k] = state[k]; copy.active = playing; copy.following = following; return copy; }
   };

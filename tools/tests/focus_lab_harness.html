@@ -198,69 +198,64 @@
       var honest = AEFocusLab.PRESETS.filter(function (p) { return /synchroni/i.test(p.text + ' ' + p.use); }).map(function (p) { return p.id; });
       record('preset texts make no synchronisation claim', honest.length === 0, honest.join(', '));
       return frame('localStorage.removeItem("ae_focus_lab");').then(function (f) {
-        var w = f.contentWindow, d = f.contentDocument, L = w.AEFocusLab;
-        L.open();
-        var line = d.querySelector('.fl-following');
-        record('the "Following timer" line is hidden until the timer cues', !!line && line.hidden && L.state().following === '', line && line.textContent);
+        var w = f.contentWindow, L = w.AEFocusLab;
+        record('following starts empty until the timer cues', L.state().following === '', L.state().following);
         L.cue({ preset: 'isolation', noise: 0.2, tone: 0.5, fade: 1.5, label: 'Theory & cases · focus' });
         var s1 = L.state();
         record('a cue to isolation keeps the tones at 0 and takes the noise level', s1.preset === 'isolation' && s1.tone === 0 &&
-          s1.noise === 0.2 && s1.noiseType === 'brown' && s1.lastTone === 0.5, JSON.stringify(s1));
-        record('the panel shows the timer it follows', !line.hidden && line.textContent === 'Following timer: Theory & cases · focus', line.textContent);
+          s1.noise === 0.2 && s1.noiseType === 'brown' && s1.lastTone === 0.5 && s1.following === 'Theory & cases · focus', JSON.stringify(s1));
         L.cue({ preset: 'smr', noise: 0.25, tone: 0.15, fade: 1.5, label: 'Theory & cases · focus' });
         var s2 = L.state();
         record('a cue with tones sets the beat and level, never the hand level', s2.preset === 'smr' && s2.beat === 14 && s2.tone === 0.15 &&
           s2.lastTone === 0.5, JSON.stringify(s2));
         L.cue({ preset: null, fade: 8, label: 'Theory & cases · break' });
-        record('a silence cue keeps following and says so', !L.state().active && line.textContent === 'Following timer: Theory & cases · break',
-          line.textContent + ' active=' + L.state().active);
-        var play = d.querySelector('.fl-play'), stops = 0;
-        w.addEventListener('aefocuslab:userstop', function () { stops++; });
-        if (!L.state().active) play.click();
-        play.click();
-        record('a hand Stop tells the timer and stops following', stops === 1 && line.hidden && L.state().following === '' && !L.state().active,
-          'events ' + stops + ' line hidden ' + line.hidden);
+        record('a silence cue stops playback and keeps the break label', !L.state().active && L.state().following === 'Theory & cases · break',
+          L.state().following + ' active=' + L.state().active);
         f.remove();
       });
     },
 
     function widget() {
-      return frame('localStorage.removeItem("ae_focus_lab");').then(function (f) {
-        var w = f.contentWindow, d = f.contentDocument;
+      return frame('localStorage.removeItem("ae_focus_lab"); localStorage.removeItem("ae_pomodoro");').then(function (f) {
+        var w = f.contentWindow, d = f.contentDocument, L = w.AEFocusLab;
         var btn = d.getElementById('focusLabButton'), panel = d.getElementById('focusLabPanel');
-        record('theme.js loads the widget and its stylesheet', !!(w.AEFocusLab && btn && panel &&
-          d.querySelector('link[href$="assets/css/focus-lab.css"]')), 'button ' + !!btn + ' panel ' + !!panel);
-        record('panel starts closed', panel && panel.hidden, 'hidden=' + (panel && panel.hidden));
-        btn.click();
-        record('launcher opens the panel', !panel.hidden && btn.getAttribute('aria-expanded') === 'true', 'still hidden');
-        d.querySelector('.fl-card[data-preset="beta"]').click();
-        d.getElementById('flTone').value = '35';
-        d.getElementById('flTone').dispatchEvent(new w.Event('input'));
+        record('theme.js loads headless Focus Lab with no separate button or panel', !!(L && !btn && !panel),
+          'L=' + !!L + ' btn=' + !!btn + ' panel=' + !!panel);
+        L.open();
+        var pmPanel = d.getElementById('pomodoroPanel');
+        var tune = pmPanel && pmPanel.querySelector('.pm-drawer--tune');
+        record('AEFocusLab.open() opens the unified panel with Tune expanded', !!(pmPanel && !pmPanel.hidden && tune && !tune.hidden),
+          'panelHidden=' + (pmPanel && pmPanel.hidden) + ' tuneHidden=' + (tune && tune.hidden));
+        L.close();
+        record('AEFocusLab.close() closes the unified panel', pmPanel && pmPanel.hidden, 'still open');
+
+        L.applyPreset('beta');
+        L.setVolume(0.45);
+        L.setIsochronic(true);
         var saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
-        record('preset and levels persist', saved.preset === 'beta' && saved.noiseType === 'pink' && saved.noise === 0.2 &&
-          saved.carrier === 250 && saved.beat === 20 && saved.tone === 0.35, JSON.stringify(saved));
-        d.getElementById('flBeat').value = '33';
-        d.getElementById('flBeat').dispatchEvent(new w.Event('input'));
+        record('preset, volume and isochronic persist under ae_focus_lab',
+          saved.preset === 'beta' && saved.noiseType === 'pink' && saved.noise === 0.2 &&
+          saved.carrier === 250 && saved.beat === 20 && saved.volume === 0.45 && saved.iso === true, JSON.stringify(saved));
+
+        L.setCustomHz(240, 33);
         saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
-        record('fine tuning switches to a custom setting', saved.preset === 'custom' && saved.beat === 33, JSON.stringify(saved));
-        d.querySelector('.fl-card[data-preset="isolation"]').click();
+        record('setCustomHz switches to custom and preserves beat/carrier', saved.preset === 'custom' && saved.carrier === 240 && saved.beat === 33, JSON.stringify(saved));
+
+        L.applyPreset('isolation');
         saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
-        record('pure isolation mutes the tones and keeps the last level', saved.tone === 0 && saved.lastTone === 0.35 &&
+        record('pure isolation mutes tones and keeps lastTone', saved.tone === 0 && saved.lastTone === 0.5 &&
           saved.noiseType === 'brown' && saved.noise === 0.5, JSON.stringify(saved));
-        d.querySelector('.fl-card[data-preset="alpha"]').click();
+
+        L.applyPreset('alpha');
         saved = JSON.parse(w.localStorage.getItem('ae_focus_lab') || '{}');
-        record('leaving isolation restores the tone level', saved.tone === 0.35, JSON.stringify(saved));
-        var ev = new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true });
-        panel.dispatchEvent(ev);
-        record('Escape closes the panel', panel.hidden, 'still open');
+        record('leaving isolation restores tone level', saved.tone === 0.5, JSON.stringify(saved));
         f.remove();
       }).then(function () {
         return frame('');
       }).then(function (f) {
-        var d = f.contentDocument;
-        var card = d.querySelector('.fl-card[data-preset="alpha"]');
-        record('saved preset is restored on the next page', card && card.getAttribute('aria-pressed') === 'true',
-          card && card.getAttribute('aria-pressed'));
+        var s = f.contentWindow.AEFocusLab.state();
+        record('saved preset, volume and isochronic restore on the next page',
+          s.preset === 'alpha' && s.volume === 0.45 && s.iso === true, JSON.stringify(s));
         f.remove();
       });
     }

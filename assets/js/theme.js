@@ -380,7 +380,7 @@
       if (!studyTools && (name === 'focus-lab.js' || name === 'pomodoro.js' || name === '../data/sideris-config.js' || name === '../data/ai-models.js' || name === 'ai-rag.js' || name === 'ai-engine.js' || name === 'ai-chat.js')) return;
       var script = document.createElement('script');
       script.async = false;   // run in this order, so the widgets always land in the DOM the same way
-      script.src = self.src.replace(/theme\.js(\?.*)?$/, name);
+      script.src = self.src.replace(/theme\.js(\?.*)?$/, name) + '?v=20261125d';
       (document.head || document.documentElement).appendChild(script);
     });
   })();

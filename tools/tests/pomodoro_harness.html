@@ -125,7 +125,7 @@
     record('guideFor: steps scale with a longer block', P.guideFor('theory', F90, 10).index === 1 && P.guideFor('theory', F90, 9.9).index === 0,
       P.guideFor('theory', F90, 10).index + ',' + P.guideFor('theory', F90, 9.9).index);
     var rest = P.guideFor('problems', { kind: 'short', min: 15 }, 3);
-    record('guideFor: a break is wakeful rest and names the next step', rest.kind === 'short' && /Phone out of reach/.test(rest.text) &&
+    record('guideFor: a break is wakeful rest and names the next step', rest.kind === 'short' && /Phone away/.test(rest.text) &&
       rest.next === 'Mix topics', JSON.stringify(rest));
     record('guideFor: classic modes have no focus guide', P.guideFor('deep', { kind: 'focus', min: 50 }, 5) === null &&
       P.guideFor('standard', { kind: 'focus', min: 25 }, 5) === null, '');
@@ -147,22 +147,21 @@
     chain = chain.then(function () { return frame(null); }).then(function (f) {
       var w = f.contentWindow, d = f.contentDocument;
       var pm = d.getElementById('pomodoroButton'), fl = d.getElementById('focusLabButton');
-      record('theme.js loads the timer next to Focus Lab', !!(w.AEPomodoro && pm && fl), 'pm=' + !!pm + ' fl=' + !!fl);
-      if (pm && fl) {
-        var a = pm.getBoundingClientRect(), b = fl.getBoundingClientRect();
-        // The two planets of the home page's constellation view: Focus higher at the right, the
-        // timer lower and to its left, the same size, never overlapping (they drift a few px).
-        record('timer planet sits below and to the left of the Focus planet, same size, no overlap',
-          a.right <= b.left + 4 && a.top > b.top + 8 && Math.abs(a.height - b.height) <= 1,
-          'timer ' + Math.round(a.left) + '..' + Math.round(a.right) + ' top ' + Math.round(a.top) +
-          ' / focus ' + Math.round(b.left) + '..' + Math.round(b.right) + ' top ' + Math.round(b.top) + ' h ' + a.height + '/' + b.height);
-      }
-      w.AEFocusLab.open();
+      record('theme.js mounts only the unified Study launcher (no separate Focus button)',
+        !!(w.AEPomodoro && w.AEFocusLab && pm && !fl && pm.textContent.trim() === 'Study'),
+        'pm=' + !!pm + ' fl=' + !!fl + ' text=' + (pm && pm.textContent));
+
       w.AEPomodoro.open();
-      record('opening the timer closes Focus Lab', d.getElementById('focusLabPanel').hidden && !d.getElementById('pomodoroPanel').hidden, '');
-      d.getElementById('focusLabButton').click();   // a click on Focus closes the timer panel (capture listener)
-      record('clicking Focus closes the timer panel', d.getElementById('pomodoroPanel').hidden && !d.getElementById('focusLabPanel').hidden, '');
-      w.AEFocusLab.close();
+      var modeDrawer = d.querySelector('.pm-drawer--mode'), tuneDrawer = d.querySelector('.pm-drawer--tune');
+      record('drawers start collapsed inside the minimalist panel',
+        !d.getElementById('pomodoroPanel').hidden && modeDrawer.hidden && tuneDrawer.hidden,
+        'modeHidden=' + modeDrawer.hidden + ' tuneHidden=' + tuneDrawer.hidden);
+      d.querySelector('.pm-picker').click();
+      record('clicking the selector pill opens the Mode & Plan drawer', !modeDrawer.hidden && tuneDrawer.hidden, '');
+      d.querySelector('.pm-tune-btn').click();
+      record('clicking Tune opens Sound Tune and closes Mode & Plan', modeDrawer.hidden && !tuneDrawer.hidden, '');
+      d.querySelector('.pm-tune-btn').click();
+      w.AEPomodoro.close();
 
       // free mode: start, pause keeps the time, skip cycles focus -> short ... long after 4
       w.AEPomodoro.start();
@@ -235,32 +234,34 @@
       });
     });
 
-    // study type cards, and the Focus Lab cues sent as the timer moves (AEFocusLab.cue mocked)
+    // study type drawer, sound sync, volume, isochronic & advanced Hz inside the unified panel
     chain = chain.then(function () {
       return frame(null).then(function (f) {
         var w = f.contentWindow, d = f.contentDocument, A = w.AEPomodoro, calls = [];
         w.AEFocusLab.cue = function (spec) { calls.push(JSON.parse(JSON.stringify(spec))); };
         function last() { return calls[calls.length - 1] || {}; }
         A.open();
-        d.querySelector('.pm-mode[data-preset="theory"]').click();
+        d.querySelector('.pm-picker').click();
+        d.querySelector('.pm-mode-row[data-preset="theory"]').click();
         var s = A.state();
-        record('a study type card sets the timer and shows its first step',
+        record('choosing a study mode updates durations, closes drawer and shows first step',
           s.preset === 'theory' && s.study === 'theory' && s.durations.focus === 45 && s.phase.min === 45 &&
-          !d.querySelector('.pm-guide').hidden && d.querySelector('.pm-guide__title').textContent === 'Pre-test' &&
-          d.querySelector('.pm-mode[data-preset="theory"]').getAttribute('aria-pressed') === 'true', JSON.stringify(s.durations));
+          d.querySelector('.pm-drawer--mode').hidden && !d.querySelector('.pm-guide').hidden &&
+          d.querySelector('.pm-guide__title').textContent === 'Pre-test', JSON.stringify(s.durations));
         d.getElementById('pmAudio').click();
         record('switching sync on while idle sends no cue', A.state().audio.on === true && calls.length === 0, JSON.stringify(calls));
         A.start();
         var c1 = last();
         record('start: focus cue, masking only', calls.length === 1 && c1.preset === 'isolation' && c1.tone === 0 && c1.noise === 0.25 &&
           /focus$/.test(c1.label), JSON.stringify(calls));
-        d.getElementById('pmTones').click();
+        d.querySelector('.pm-tune-btn').click();
+        d.querySelector('.pm-drawer--tune .pm-seg__btn[data-value="tones"]').click();
         var c2 = last();
         record('binaural tones: the mode\'s beat', calls.length === 2 && c2.preset === 'smr' && c2.tone === 0.15, JSON.stringify(c2));
         A.skip();
         var c3 = last();
         record('break: silence by default, slow fade', calls.length === 3 && c3.preset === null && c3.fade === 8 && /break$/.test(c3.label), JSON.stringify(c3));
-        d.querySelector('.pm-audio .pm-seg__btn[data-value="mask"]').click();
+        d.querySelector('.pm-drawer--tune .pm-seg__btn[data-value="mask"]').click();
         var c4 = last();
         record('break sound set to masking', calls.length === 4 && c4.preset === 'isolation' && c4.tone === 0 && c4.noise === 0.2, JSON.stringify(c4));
         A.pause();
@@ -275,11 +276,17 @@
         A.endPlan();
         var c8 = last();
         record('a plan cues its own mode; ending it stops', calls.length === 9 && c7.preset === 'gamma' && c8.preset === null, JSON.stringify(calls.slice(7)));
-        w.dispatchEvent(new w.CustomEvent('aefocuslab:userstop'));
-        A.start();
-        A.reset();
-        record('a hand Stop in Focus Lab switches sync off; no further cues', A.state().audio.on === false && calls.length === 9 &&
-          !d.getElementById('pmAudio').checked, calls.length + ' calls');
+
+        var vol = d.getElementById('pmVol');
+        vol.value = '40';
+        vol.dispatchEvent(new w.Event('input'));
+        d.getElementById('pmIso').click();
+        var beat = d.getElementById('pmBeat');
+        beat.value = '18';
+        beat.dispatchEvent(new w.Event('input'));
+        var ls = w.AEFocusLab.state();
+        record('Tune controls drive volume, isochronic and beat Hz in AEFocusLab',
+          ls.volume === 0.4 && ls.iso === true && ls.beat === 18 && ls.preset === 'custom', JSON.stringify(ls));
         record('the chime flag is untouched by the study sound', A.state().sound === true, String(A.state().sound));
         f.remove();
       });

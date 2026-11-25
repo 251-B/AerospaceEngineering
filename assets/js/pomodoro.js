@@ -1,31 +1,23 @@
 /*!
- * Aerospace Engineering Study Portal: "Study timer" (Pomodoro timer and session planner).
+ * Aerospace Engineering Study Portal: unified "Study session" panel
+ * (Pomodoro timer, evidence-based study modes, step guide, session planner and synced study sound).
  *
- * Loaded on every page by assets/js/theme.js, next to focus-lab.js (no page carries its own
- * <script> tag for it); the script adds its own stylesheet (assets/css/pomodoro.css). Skipped in
- * the PDF print mode (?print=...), and hidden by @media print.
+ * Loaded on every study page by assets/js/theme.js, right after focus-lab.js (no page carries its
+ * own <script> tag for it); injects assets/css/pomodoro.css?v=20261125d. Skipped in ?print=.
  *
- * A floating "Timer" button sits right above the "Focus" button and opens a non-modal panel:
- *   - timer: SVG progress ring, Start/Pause, Reset, Skip phase, auto-start and chime switches;
- *   - study type: four evidence-based modes (Theory & cases, Diagrams & mechanisms, New topic ·
- *     worked, Problems & exam; estudio-ismael/metodologia-estudio-evidencia.md) with a step guide for
- *     each focus block and wakeful rest on breaks, plus Classic Standard (25/5) and Deep (50/10); the
- *     mode suggested by the page's subject is marked, never forced; every duration stays editable;
- *   - study sound (opt-in): Focus Lab follows the phase through AEFocusLab.cue (masking in focus,
- *     silence on breaks by default);
- *   - session planner: total time available ("3h", "2:30", "180 min") + block style -> a queue of
- *     focus blocks and breaks that fills the time exactly (see planSessions), run end to end.
- * While the timer runs, the button shows the time left and a small progress ring, and
- * document.title shows the time left and the phase.
+ * One floating planet button (#pomodoroButton) opens one minimalist panel (#pomodoroPanel):
+ *   - Subject auto-mode: picks the evidence-based mode for the current subject page unless pinned;
+ *   - Mode & Plan drawer (collapsed behind the top selector pill): 4 study modes + Classic + Custom +
+ *     total-time session planner;
+ *   - Core focus zone: 172 px SVG ring, Start/Pause + Reset + Skip, and a 2-line step guide (or
+ *     wakeful rest on breaks);
+ *   - Unified Sound bar + collapsible Tune drawer: drives AEFocusLab (opt-in masking in focus,
+ *     optional binaural tones, 8 s fade to silence or soft alpha/masking on breaks, volume,
+ *     isochronic speakers, phase chime, auto-start, and advanced Hz).
  *
- * The clock is wall-clock based (endAt timestamp), so a throttled tab, a reload or a closed page
- * never drifts: on load the timer catches up through every phase that ended meanwhile.
- * The chime is synthesised with the Web Audio API (no audio files).
- *
- * Storage: 'ae_pomodoro' (JSON: mode, durations, plan and its position, running state, endAt,
- *          study mode, audio = { on, tones, rest }; `sound` is the chime).
- * API: window.AEPomodoro = { KEY, STYLES, planSessions, guideFor, suggest, parseDuration, formatMinutes,
- *      open, close, start, pause, reset, skip, startPlan, endPlan, state }
+ * Storage: 'ae_pomodoro' (JSON).
+ * API: window.AEPomodoro = { KEY, STYLES, planSessions, guideFor, suggest, parseDuration,
+ *      formatMinutes, open, openSound, close, start, pause, reset, skip, startPlan, endPlan, state }
  */
 (function () {
   'use strict';
@@ -38,70 +30,81 @@
   var MINUTE = 60000;
   var LIMITS = { total: [10, 720], focus: [1, 180], short: [1, 60], long: [1, 90], longEvery: [2, 8] };
 
-  // minFocus: shortest closing block worth starting; stretch: most the last block may grow by.
-  // Study modes (estudio-ismael/metodologia-estudio-evidencia.md): steps are { min, title, text, tag }
-  // and add up to `focus`; `audio` is the Focus Lab cue of a focus block (base: masking only; tones:
-  // with the binaural beat of the mode). Classic modes have neither.
   var STYLES = {
-    standard: { id: 'standard', label: 'Standard', focus: 25, short: 5, long: 15, longEvery: 4, minFocus: 10, stretch: 10,
-      group: 'classic', note: '25 min focus · 5 min break · 15 min long break every 4 blocks' },
-    deep: { id: 'deep', label: 'Deep focus', focus: 50, short: 10, long: 25, longEvery: 3, minFocus: 20, stretch: 20,
-      group: 'classic', note: '50 min focus · 10 min break · 25 min long break every 3 blocks' },
-    theory: { id: 'theory', label: 'Theory & cases', focus: 45, short: 8, long: 25, longEvery: 2, minFocus: 20, stretch: 5,
-      group: 'study', note: '45 min focus · 8 min break · 25 min long break every 2 blocks',
+    standard: { id: 'standard', label: 'Standard', shortLabel: 'Classic', focus: 25, short: 5, long: 15, longEvery: 4,
+      minFocus: 10, stretch: 10, group: 'classic', note: '25 min focus · 5 min break · 15 min long break every 4 blocks' },
+    deep: { id: 'deep', label: 'Deep focus', shortLabel: 'Classic', focus: 50, short: 10, long: 25, longEvery: 3,
+      minFocus: 20, stretch: 20, group: 'classic', note: '50 min focus · 10 min break · 25 min long break every 3 blocks' },
+    theory: { id: 'theory', label: 'Theory & cases', shortLabel: 'Theory', focus: 45, short: 8, long: 25, longEvery: 2,
+      minFocus: 20, stretch: 5, group: 'study', note: '45 min focus · 8 min break · 25 min long break every 2 blocks',
       steps: [
         { min: 5, title: 'Pre-test', tag: 'Pre-test', text: 'Answer 3–5 questions before opening notes.' },
         { min: 15, title: 'Read one sub-block', tag: 'Read', text: 'Skeleton and a contrast table only.' },
         { min: 15, title: 'Blurt', tag: 'Blurt', text: 'Notes closed. Write all you remember.' },
         { min: 10, title: 'Colour check', tag: 'Check', text: 'Fix gaps in another colour, then 10 T/F with reasons.' }
       ],
-      audio: { base: { preset: 'isolation', noise: 0.25, tone: 0 }, tones: { preset: 'smr', noise: 0.25, tone: 0.15 } } },
-    visual: { id: 'visual', label: 'Diagrams & mechanisms', focus: 40, short: 8, long: 20, longEvery: 3, minFocus: 20, stretch: 5,
-      group: 'study', note: '40 min focus · 8 min break · 20 min long break every 3 blocks',
+      audio: { base: { preset: 'isolation', noise: 0.25, tone: 0, text: 'Brown mask' },
+        tones: { preset: 'smr', noise: 0.25, tone: 0.15, text: 'SMR 14 Hz' } } },
+    visual: { id: 'visual', label: 'Diagrams & mechanisms', shortLabel: 'Diagrams', focus: 40, short: 8, long: 20, longEvery: 3,
+      minFocus: 20, stretch: 5, group: 'study', note: '40 min focus · 8 min break · 20 min long break every 3 blocks',
       steps: [
         { min: 8, title: 'Draw from memory', tag: 'Draw', text: 'Blank page: axes, phases, labels.' },
         { min: 14, title: 'Causal chain', tag: 'Chain', text: 'Processing -> microstructure -> property -> failure.' },
         { min: 10, title: 'Contrast', tag: 'Contrast', text: 'Two opposite mechanisms side by side.' },
         { min: 8, title: 'Test yourself', tag: 'Test', text: 'MCQ: say why each wrong option is wrong.' }
       ],
-      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0 }, tones: { preset: 'alpha', noise: 0.15, tone: 0.18 } } },
-    worked: { id: 'worked', label: 'New topic · worked', focus: 30, short: 5, long: 15, longEvery: 3, minFocus: 15, stretch: 5,
-      group: 'study', note: '30 min focus · 5 min break · 15 min long break every 3 blocks',
+      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0, text: 'Brown mask' },
+        tones: { preset: 'alpha', noise: 0.15, tone: 0.18, text: 'Alpha 10 Hz' } } },
+    worked: { id: 'worked', label: 'New topic · worked', shortLabel: 'New topic', focus: 30, short: 5, long: 15, longEvery: 3,
+      minFocus: 15, stretch: 5, group: 'study', note: '30 min focus · 5 min break · 15 min long break every 3 blocks',
       steps: [
         { min: 5, title: 'Micro-theory', tag: 'Theory', text: 'Read only the rule and its hypotheses.' },
         { min: 10, title: 'Worked example', tag: 'Example', text: 'Explain why each step and hypothesis holds.' },
         { min: 15, title: 'Guided problems', tag: 'Guided', text: 'Solve 1–2 similar ones; peek only when stuck.' }
       ],
-      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0 }, tones: { preset: 'beta', noise: 0.20, tone: 0.20 } } },
-    problems: { id: 'problems', label: 'Problems & exam', focus: 90, short: 15, long: 25, longEvery: 2, minFocus: 30, stretch: 10,
-      group: 'study', note: '90 min focus · 15 min break · 25 min long break every 2 blocks',
+      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0, text: 'Brown mask' },
+        tones: { preset: 'beta', noise: 0.20, tone: 0.20, text: 'Beta 20 Hz' } } },
+    problems: { id: 'problems', label: 'Problems & exam', shortLabel: 'Problems', focus: 90, short: 15, long: 25, longEvery: 2,
+      minFocus: 30, stretch: 10, group: 'study', note: '90 min focus · 15 min break · 25 min long break every 2 blocks',
       steps: [
         { min: 5, title: 'Mix topics', tag: 'Mix', text: 'Pick interleaved problems. Notes and formula sheet closed.' },
         { min: 70, title: 'Solve closed-book', tag: 'Solve', text: 'Name the governing law and hypotheses first.' },
         { min: 15, title: 'Colour review', tag: 'Review', text: 'Check key. Write why each mistake happened.' }
       ],
-      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0 }, tones: { preset: 'gamma', noise: 0.25, tone: 0.20 } } }
+      audio: { base: { preset: 'isolation', noise: 0.30, tone: 0, text: 'Brown mask' },
+        tones: { preset: 'gamma', noise: 0.25, tone: 0.20, text: 'Gamma 40 Hz' } } }
   };
   var STUDY_MODES = ['theory', 'visual', 'worked', 'problems'];
 
-  // Breaks: Wamsley (2019): quiet wakeful rest consolidates; sound on breaks is an explicit option.
   var REST = {
-    silence: { label: 'Silence (best)', cue: { preset: null, fade: 8 } },
-    alpha: { label: 'Soft alpha', cue: { preset: 'alpha', tone: 0.10, noise: 0.15, fade: 1.5 } },
-    mask: { label: 'Masking', cue: { preset: 'isolation', tone: 0, noise: 0.20, fade: 1.5 } }
+    silence: { label: 'Silence (best)', short: 'Silence on break', cue: { preset: null, fade: 8 } },
+    alpha: { label: 'Alpha 10Hz', short: 'Alpha 10 Hz on break', cue: { preset: 'alpha', tone: 0.10, noise: 0.15, fade: 1.5 } },
+    mask: { label: 'Mask', short: 'Masking on break', cue: { preset: 'isolation', tone: 0, noise: 0.20, fade: 1.5 } }
   };
-  var REST_TEXT = 'Phone out of reach. Water, look far away, or close your eyes.';
+  var REST_TEXT = 'Phone away. Water, look far away, or close eyes.';
 
-  // Suggested study mode for a page: Business is Type A, Materials Type B, the rest Type C (worked
-  // examples on theory pages, problems elsewhere). Problem pages are also named topic-N, so only the
-  // teoria/ folder marks a theory page.
-  var SUBJECT_MODES = { 'business-management': 'theory', 'aerospace-materials-1': 'visual',
-    'fluid-mechanics': 'problems', 'engineering-mechanics': 'problems', 'advanced-maths': 'problems' };
-  function suggest(path) {
+  var SUBJECT_MODES = {
+    'business-management': { mode: 'theory', tag: 'AUTO · BUSINESS' },
+    'aerospace-materials-1': { mode: 'visual', tag: 'AUTO · MATERIALS' },
+    'fluid-mechanics': { mode: 'problems', tag: 'AUTO · FLUIDS' },
+    'engineering-mechanics': { mode: 'problems', tag: 'AUTO · MECHANICS' },
+    'advanced-maths': { mode: 'problems', tag: 'AUTO · MATHS' }
+  };
+  var SUBJECT_ONLY = {
+    'business-management': 'theory', 'aerospace-materials-1': 'visual',
+    'fluid-mechanics': 'problems', 'engineering-mechanics': 'problems', 'advanced-maths': 'problems'
+  };
+
+  function suggestMeta(path) {
     var m = /\/subjects\/([^\/]+)\//.exec(path || '');
-    var mode = m && SUBJECT_MODES[m[1]];
-    if (mode === 'problems' && /\/(teoria|theory)\//.test(path)) return 'worked';
-    return mode || null;
+    var info = m && SUBJECT_MODES[m[1]];
+    if (!info) return null;
+    var mode = info.mode === 'problems' && /\/(teoria|theory)\//.test(path) ? 'worked' : info.mode;
+    return { mode: mode, tag: info.tag };
+  }
+  function suggest(path) {
+    var meta = suggestMeta(path);
+    return meta ? meta.mode : null;
   }
 
   var PHASES = {
@@ -113,18 +116,11 @@
   function clamp(x, lo, hi) { return Math.min(hi, Math.max(lo, x)); }
   function style(id) { return STYLES[id] || STYLES.standard; }
 
-  /* ================================================================== planner (no DOM)
-     Break after the k-th focus block (k = 1, 2, ...): long when k is a multiple of longEvery. */
+  /* ================================================================== planner (no DOM) */
   function breakAfter(k, s) {
     return k % s.longEvery === 0 ? { kind: 'long', min: s.long } : { kind: 'short', min: s.short };
   }
 
-  /* Fill `total` minutes with focus blocks and breaks; the plan starts and ends with focus.
-     1. Greedy: keep adding [break, full block] while it fits.
-     2. Rest R = total - used. If R minus the next break still leaves a block of at least minFocus,
-        add that break and a shorter closing block (the plan then fills the time exactly).
-     3. Otherwise lengthen the last block by min(R, stretch); anything left is free buffer.
-     A total shorter than one block becomes a single block of that length. */
   function planSessions(total, styleId) {
     var s = style(styleId);
     total = Math.round(clamp(+total || 0, LIMITS.total[0], LIMITS.total[1]));
@@ -174,8 +170,6 @@
     return plan;
   }
 
-  /* "3h", "3 h 30", "3h30m", "2:30", "2.5 h", "180", "180 min", "1 hora 20 minutos" -> minutes.
-     A bare number up to 12 is read as hours, a larger one as minutes. Returns null if unreadable. */
   function parseDuration(text) {
     var str = String(text == null ? '' : text).toLowerCase().replace(/,/g, '.').trim();
     if (!str) return null;
@@ -187,7 +181,7 @@
       tokens++;
       if (/^(h|hr|hrs|hour|hours|hora|horas)$/.test(unit)) { total += v * 60; sawHours = true; }
       else if (/^(m|min|mins|minute|minutes|minuto|minutos)$/.test(unit)) total += v;
-      else if (unit === '') total += sawHours ? v : NaN;   // "3h 30" -> minutes; a bare number is handled below
+      else if (unit === '') total += sawHours ? v : NaN;
       else total = NaN;
       return ' ';
     });
@@ -214,9 +208,6 @@
     return (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
   }
 
-  /* How to run the current phase (no DOM). Focus: the step of the mode in progress after
-     `elapsedMin`, with the step bounds scaled to the block's real length. Break: wakeful rest.
-     Classic modes have no focus guide (null). */
   function guideFor(styleId, phase, elapsedMin) {
     var s = STYLES[styleId], steps = s && s.steps;
     if (!phase) return null;
@@ -248,22 +239,23 @@
     var s = STYLES.standard;
     return {
       v: 1,
-      mode: 'free',                        // 'free' | 'plan'
-      tab: 'free',                         // panel tab: 'free' | 'plan'
-      preset: 'standard',                  // free timer preset ('custom' after editing)
+      mode: 'free',
+      tab: 'free',
+      preset: 'standard',
       durations: { focus: s.focus, short: s.short, long: s.long, longEvery: s.longEvery },
-      freeDone: 0,                         // focus blocks finished in the free cycle
+      freeDone: 0,
       phase: { kind: 'focus', min: s.focus },
-      plan: null,                          // { total, style, phases, index, done }
-      draft: { input: '3h', style: 'standard' },
+      plan: null,
+      draft: { input: '2h', style: 'standard' },
       running: false,
-      started: false,                      // the current phase has been started (running or paused)
-      endAt: 0,                            // wall-clock end of the running phase (ms)
-      remaining: s.focus * MINUTE,         // time left while paused (ms)
-      auto: true,                          // start the next phase on its own
-      sound: true,                         // chime at the end of each phase (not the study sound)
-      study: 'standard',                   // study mode whose guide is shown once the times are edited
-      audio: { on: false, tones: false, rest: 'silence' }   // Focus Lab follows the timer (opt-in)
+      started: false,
+      endAt: 0,
+      remaining: s.focus * MINUTE,
+      auto: true,
+      sound: true,
+      study: 'standard',
+      pinned: false,
+      audio: { on: false, tones: false, rest: 'silence' }
     };
   }
 
@@ -280,54 +272,68 @@
   function load() {
     var s = defaults(), raw = null;
     try { raw = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { raw = null; }
-    if (!raw || typeof raw !== 'object') return s;
-    if (raw.mode === 'plan' || raw.mode === 'free') s.mode = raw.mode;
-    if (raw.tab === 'plan' || raw.tab === 'free') s.tab = raw.tab;
-    if (raw.preset === 'custom' || STYLES[raw.preset]) s.preset = raw.preset;
-    var d = raw.durations || {};
-    s.durations = {
-      focus: int(d.focus, LIMITS.focus, s.durations.focus),
-      short: int(d.short, LIMITS.short, s.durations.short),
-      long: int(d.long, LIMITS.long, s.durations.long),
-      longEvery: int(d.longEvery, LIMITS.longEvery, s.durations.longEvery)
-    };
-    s.freeDone = int(raw.freeDone, [0, 1e6], 0);
-    s.phase = cleanPhase(raw.phase, { kind: 'focus', min: s.durations.focus });
-    if (raw.plan && Array.isArray(raw.plan.phases) && raw.plan.phases.length) {
-      var phases = raw.plan.phases.map(function (p) { return cleanPhase(p, null); }).filter(Boolean);
-      if (phases.length) {
-        s.plan = summarise({
-          total: int(raw.plan.total, LIMITS.total, 0) || phases.reduce(function (a, p) { return a + p.min; }, 0),
-          style: style(raw.plan.style).id,
-          phases: phases,
-          index: int(raw.plan.index, [0, phases.length - 1], 0),
-          done: raw.plan.done === true
-        });
+    if (raw && typeof raw === 'object') {
+      if (raw.mode === 'plan' || raw.mode === 'free') s.mode = raw.mode;
+      if (raw.tab === 'plan' || raw.tab === 'free') s.tab = raw.tab;
+      if (raw.preset === 'custom' || STYLES[raw.preset]) s.preset = raw.preset;
+      var d = raw.durations || {};
+      s.durations = {
+        focus: int(d.focus, LIMITS.focus, s.durations.focus),
+        short: int(d.short, LIMITS.short, s.durations.short),
+        long: int(d.long, LIMITS.long, s.durations.long),
+        longEvery: int(d.longEvery, LIMITS.longEvery, s.durations.longEvery)
+      };
+      s.freeDone = int(raw.freeDone, [0, 1e6], 0);
+      s.phase = cleanPhase(raw.phase, { kind: 'focus', min: s.durations.focus });
+      if (raw.plan && Array.isArray(raw.plan.phases) && raw.plan.phases.length) {
+        var phases = raw.plan.phases.map(function (p) { return cleanPhase(p, null); }).filter(Boolean);
+        if (phases.length) {
+          s.plan = summarise({
+            total: int(raw.plan.total, LIMITS.total, 0) || phases.reduce(function (a, p) { return a + p.min; }, 0),
+            style: style(raw.plan.style).id,
+            phases: phases,
+            index: int(raw.plan.index, [0, phases.length - 1], 0),
+            done: raw.plan.done === true
+          });
+        }
       }
+      if (s.mode === 'plan' && !s.plan) s.mode = 'free';
+      if (raw.draft) {
+        s.draft.input = String(raw.draft.input == null ? s.draft.input : raw.draft.input).slice(0, 40);
+        s.draft.style = style(raw.draft.style).id;
+      }
+      s.running = raw.running === true && isFinite(raw.endAt) && raw.endAt > 0;
+      s.endAt = s.running ? +raw.endAt : 0;
+      s.started = s.running || raw.started === true;
+      var full = current(s).min * MINUTE;
+      s.remaining = isFinite(raw.remaining) ? clamp(+raw.remaining, 0, full) : full;
+      if (s.mode === 'plan' && s.plan.done) s.running = false;
+      s.auto = raw.auto !== false;
+      s.sound = raw.sound !== false;
+      if (STYLES[raw.study]) s.study = raw.study;
+      // Preserve legacy saved presets without `pinned` when `preset` was explicitly chosen (e.g. account.js -> 'deep').
+      s.pinned = raw.pinned === true || (raw.pinned === undefined && raw.preset !== undefined && raw.preset !== 'standard');
+      var a = raw.audio && typeof raw.audio === 'object' ? raw.audio : {};
+      s.audio = { on: a.on === true, tones: a.tones === true, rest: REST[a.rest] ? a.rest : 'silence' };
     }
-    if (s.mode === 'plan' && !s.plan) s.mode = 'free';
-    if (raw.draft) {
-      s.draft.input = String(raw.draft.input == null ? s.draft.input : raw.draft.input).slice(0, 40);
-      s.draft.style = style(raw.draft.style).id;
+    var sug = suggest(location.pathname);
+    var active = s.running || (s.started && !(s.mode === 'plan' && s.plan && s.plan.done));
+    if (sug && !s.pinned && s.mode === 'free' && !active && STYLES[sug]) {
+      var sm = STYLES[sug];
+      s.preset = sug;
+      s.study = sug;
+      s.draft.style = sug;
+      s.durations = { focus: sm.focus, short: sm.short, long: sm.long, longEvery: sm.longEvery };
+      s.phase = { kind: 'focus', min: sm.focus };
+      s.remaining = sm.focus * MINUTE;
     }
-    s.running = raw.running === true && isFinite(raw.endAt) && raw.endAt > 0;
-    s.endAt = s.running ? +raw.endAt : 0;
-    s.started = s.running || raw.started === true;
-    var full = current(s).min * MINUTE;
-    s.remaining = isFinite(raw.remaining) ? clamp(+raw.remaining, 0, full) : full;
-    if (s.mode === 'plan' && s.plan.done) s.running = false;
-    s.auto = raw.auto !== false;
-    s.sound = raw.sound !== false;
-    if (STYLES[raw.study]) s.study = raw.study;
-    var a = raw.audio && typeof raw.audio === 'object' ? raw.audio : {};
-    s.audio = { on: a.on === true, tones: a.tones === true, rest: REST[a.rest] ? a.rest : 'silence' };
     return s;
   }
 
   var state = load();
 
   function save() {
-    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage blocked: keep it in memory */ }
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage blocked */ }
   }
 
   function current(s) {
@@ -338,17 +344,13 @@
   function duration() { return current().min * MINUTE; }
   function remaining(now) { return state.running ? Math.max(0, state.endAt - (now || Date.now())) : state.remaining; }
   function planFinished() { return state.mode === 'plan' && state.plan && state.plan.done; }
-  // A phase is "in progress" once started: it runs, or it is paused part-way.
   function inProgress() { return state.running || (state.started && !planFinished()); }
-  // The mode the timer follows: the plan's, else the chosen preset, else (times edited) the last mode.
-  // The preset wins over `study`, so account.js writing preset 'deep' never keeps an old guide.
   function studyId() {
     if (state.mode === 'plan' && state.plan) return state.plan.style;
     return STYLES[state.preset] ? state.preset : state.study;
   }
 
   /* ================================================================== timer logic */
-  // Move to the next phase. Returns false when a plan has just ended.
   function nextPhase() {
     if (state.mode === 'plan') {
       if (state.plan.index >= state.plan.phases.length - 1) {
@@ -369,7 +371,6 @@
     return true;
   }
 
-  // The running phase reached endAt: chain into the next one from that exact instant.
   function completePhase(silent) {
     var endedAt = state.endAt;
     var more = nextPhase();
@@ -389,7 +390,7 @@
   function catchUp(now) {
     var guard = 0, changed = false;
     while (state.running && now >= state.endAt && guard++ < 500) {
-      completePhase(now - state.endAt > 3000);   // phases that ended while the page was closed stay quiet
+      completePhase(now - state.endAt > 3000);
       changed = true;
     }
     return changed;
@@ -462,9 +463,11 @@
   function setPreset(id) {
     var s = STYLES[id];
     if (!s) return;
+    var sug = suggest(location.pathname);
     state.preset = id;
     state.study = id;
-    state.draft.style = id;              // the planner uses the same study type
+    state.draft.style = id;
+    state.pinned = !(sug && id === sug);
     state.durations = { focus: s.focus, short: s.short, long: s.long, longEvery: s.longEvery };
     if (state.mode === 'free') {
       state.freeDone = 0;
@@ -481,7 +484,7 @@
     var v = int(value, LIMITS[name], state.durations[name]);
     state.durations[name] = v;
     state.preset = 'custom';
-    // An idle free phase of that kind takes the new length at once; a started one keeps its own.
+    state.pinned = true;
     if (state.mode === 'free' && !inProgress() && state.phase.kind === name) {
       state.phase.min = v;
       state.remaining = duration();
@@ -494,10 +497,7 @@
     render();
   }
 
-  /* ================================================================== study sound (Focus Lab)
-     When `audio.on`, Focus Lab follows the timer: the mode's cue in focus, the chosen rest cue in a
-     break, silence when the timer stops. A cue is sent only when its key changes, so a hand change in
-     the mixer holds until the next phase. Called from render(), so reloads and other tabs follow. */
+  /* ================================================================== study sound (Focus Lab) */
   var lastCue = '';
 
   function soundKey() {
@@ -515,7 +515,7 @@
       return { preset: r.preset, tone: r.tone, noise: r.noise, fade: r.fade, label: label + 'break' };
     }
     var a = STYLES[studyId()] && STYLES[studyId()].audio;
-    var c = a ? a[state.audio.tones ? 'tones' : 'base'] : { preset: 'keep' };   // Classic: the mixer's own setting
+    var c = a ? a[state.audio.tones ? 'tones' : 'base'] : { preset: 'keep' };
     return { preset: c.preset, tone: c.tone, noise: c.noise, fade: 1.5, label: label + 'focus' };
   }
 
@@ -524,8 +524,6 @@
     if (key === lastCue) return;
     var was = lastCue;
     lastCue = key;
-    // A fresh page, or sync switched on while idle, sends nothing: Focus Lab keeps its own state.
-    // ('stop' -> 'off' still sends one cue, to clear the "Following timer" line.)
     if ((was === '' || was === 'off') && (key === 'off' || key === 'stop')) return;
     if (lab && typeof lab.cue === 'function') lab.cue(soundCue(key));
   }
@@ -535,7 +533,7 @@
     commit();
   }
 
-  /* ================================================================== sound (Web Audio, no files) */
+  /* ================================================================== chime (Web Audio) */
   var AudioCtx = window.AudioContext || window.webkitAudioContext;
   var audioCtx = null;
 
@@ -548,7 +546,6 @@
     return audioCtx;
   }
 
-  // Soft bell: rising triad when focus starts, falling when a break starts, a fifth when the plan ends.
   var CHIMES = { focus: [523.25, 659.25, 783.99], short: [783.99, 659.25, 523.25], long: [783.99, 659.25, 523.25, 392], done: [523.25, 783.99, 1046.5] };
 
   function chime(kind) {
@@ -574,16 +571,18 @@
         osc.stop(t + 1.35);
       });
     });
-    setTimeout(function () { try { master.disconnect(); } catch (e) { /* already gone */ } }, (notes.length * 0.16 + 1.6) * 1000);
+    setTimeout(function () { try { master.disconnect(); } catch (e) { /* gone */ } }, (notes.length * 0.16 + 1.6) * 1000);
   }
 
   /* ================================================================== UI */
   var ui = {};
-  var modesOpen = false;   // the study type selector, folded while a session runs, opened by "Change"
+  var modeDrawerOpen = false;
+  var tuneDrawerOpen = false;
+  var customOpen = false;
   var lastGuide = '';
   var baseTitle = '';
-  var RING = 2 * Math.PI * 52;   // circumference of the panel ring (r = 52 in a 120 viewBox)
-  var MINI = 2 * Math.PI * 9;    // circumference of the launcher ring (r = 9 in a 24 viewBox)
+  var RING = 2 * Math.PI * 52;
+  var MINI = 2 * Math.PI * 9;
   var NS = 'http://www.w3.org/2000/svg';
 
   function el(tag, className, text) {
@@ -610,7 +609,9 @@
     pause: ['M7.5 5.5h3v13h-3z', 'M13.5 5.5h3v13h-3z'],
     reset: ['M4.5 12a7.5 7.5 0 1 0 2.2-5.3', 'M4.5 4.5v4h4'],
     skip: ['M6 6l8 6-8 6z', 'M17.5 6v12'],
-    close: ['M6 6l12 12', 'M18 6L6 18']
+    close: ['M6 6l12 12', 'M18 6L6 18'],
+    phones: ['M4 14v-2a8 8 0 0 1 16 0v2', 'M4 14h3v6H5a1 1 0 0 1-1-1z', 'M20 14h-3v6h2a1 1 0 0 0 1-1z'],
+    chevron: ['M6 9l6 6 6-6']
   };
 
   function button(className, text, label) {
@@ -634,8 +635,8 @@
     return { group: group, buttons: buttons };
   }
 
-  function toggleRow(id, title, text, onChange) {
-    var row = el('label', 'pm-switch');
+  function toggleRow(id, title, text, onChange, compact) {
+    var row = el('label', compact ? 'pm-switch pm-switch--compact' : 'pm-switch');
     var input = el('input', 'pm-switch__input');
     input.type = 'checkbox';
     input.id = id;
@@ -662,18 +663,40 @@
     input.max = LIMITS[name][1];
     input.step = 1;
     box.appendChild(input);
-    box.appendChild(el('span', 'pm-field__unit', name === 'longEvery' ? 'blocks' : 'min'));
+    box.appendChild(el('span', 'pm-field__unit', name === 'longEvery' ? 'blk' : 'min'));
     wrap.appendChild(lab);
     wrap.appendChild(box);
     input.addEventListener('change', function () { setDuration(name, input.value); });
     return { wrap: wrap, input: input };
   }
 
+  function slider(id, label, min, max, step, value, onInput) {
+    var row = el('div', 'pm-slider');
+    var head = el('div', 'pm-slider__head');
+    var name = el('label', 'pm-slider__label', label);
+    name.htmlFor = id;
+    var out = el('output', 'pm-slider__value');
+    out.htmlFor = id;
+    head.appendChild(name);
+    head.appendChild(out);
+    var input = el('input', 'pm-range');
+    input.type = 'range';
+    input.id = id;
+    input.min = min;
+    input.max = max;
+    input.step = step;
+    input.value = value;
+    input.addEventListener('input', function () { onInput(+input.value); });
+    row.appendChild(head);
+    row.appendChild(input);
+    return { row: row, input: input, out: out };
+  }
+
   function build() {
     if (document.getElementById('pomodoroButton') || !document.body) return;
     baseTitle = document.title;
 
-    // launcher: mini ring + label (or the time left)
+    // single floating planet launcher
     var launcher = button('pm-launcher');
     launcher.id = 'pomodoroButton';
     launcher.setAttribute('aria-expanded', 'false');
@@ -684,7 +707,7 @@
     mini.appendChild(miniArc);
     mini.appendChild(svg('path', { d: 'M12 7.5V12l3 2', 'class': 'pm-mini__hands' }));
     launcher.appendChild(mini);
-    var launcherText = el('span', 'pm-launcher__label', 'Timer');
+    var launcherText = el('span', 'pm-launcher__label', 'Study');
     launcher.appendChild(launcherText);
 
     var panel = el('section', 'pm-panel');
@@ -700,21 +723,136 @@
     if (window.AESite && typeof window.AESite.mark === 'function') {
       var seal = el('span', 'pm-brand-seal');
       seal.setAttribute('aria-hidden', 'true');
-      seal.appendChild(window.AESite.mark(24));
+      seal.appendChild(window.AESite.mark(22));
       brand.appendChild(seal);
     }
-    var titles = el('div');
-    titles.appendChild(el('p', 'pm-kicker', 'Evidence-based study modes'));
-    var title = el('h2', 'pm-title', 'Study timer');
+    var title = el('h2', 'pm-title', 'Study session');
     title.id = 'pomodoroTitle';
-    titles.appendChild(title);
-    brand.appendChild(titles);
-    var close = button('pm-icon-btn', '', 'Close study timer');
-    close.appendChild(svgIcon(ICONS.close, 18));
+    brand.appendChild(title);
+    var close = button('pm-icon-btn', '', 'Close study session');
+    close.appendChild(svgIcon(ICONS.close, 16));
     head.appendChild(brand);
     head.appendChild(close);
 
-    // timer: ring + readout
+    // single mode selector pill
+    var meta = suggestMeta(location.pathname);
+    var sug = meta ? meta.mode : null;
+    var picker = button('pm-picker');
+    picker.setAttribute('aria-expanded', 'false');
+    var pickerMain = el('span', 'pm-picker__main');
+    var pickerRight = el('span', 'pm-picker__right');
+    var pickerAuto = el('span', 'pm-picker__auto', meta ? meta.tag : '');
+    var pickerChev = el('span', 'pm-picker__chev');
+    pickerChev.appendChild(svgIcon(ICONS.chevron, 14));
+    pickerRight.appendChild(pickerAuto);
+    pickerRight.appendChild(pickerChev);
+    picker.appendChild(pickerMain);
+    picker.appendChild(pickerRight);
+
+    // collapsible Mode & Plan drawer
+    var modeDrawer = el('div', 'pm-drawer pm-drawer--mode');
+    modeDrawer.hidden = true;
+    var modeList = el('div', 'pm-mode-list');
+    modeList.setAttribute('role', 'group');
+    modeList.setAttribute('aria-label', 'Study type');
+    var modeRows = STUDY_MODES.map(function (id) {
+      var s = STYLES[id];
+      var row = button('pm-mode-row');
+      row.setAttribute('data-preset', id);
+      row.appendChild(el('span', 'pm-mode-row__name', s.label));
+      var right = el('span', 'pm-mode-row__meta');
+      right.appendChild(el('span', 'pm-mode-row__times', s.focus + ' / ' + s.short));
+      if (id === sug) right.appendChild(el('span', 'pm-mode-row__auto', 'AUTO'));
+      row.appendChild(right);
+      row.addEventListener('click', function () {
+        setPreset(id);
+        modeDrawerOpen = false;
+        render();
+      });
+      modeList.appendChild(row);
+      return row;
+    });
+    modeDrawer.appendChild(modeList);
+
+    var classicRow = el('div', 'pm-classic');
+    classicRow.setAttribute('role', 'group');
+    classicRow.setAttribute('aria-label', 'Classic and custom durations');
+    classicRow.appendChild(el('span', 'pm-classic__label', 'Classic'));
+    var classicChips = ['standard', 'deep'].map(function (id) {
+      var chip = button('pm-chip', STYLES[id].focus + ' / ' + STYLES[id].short, 'Classic ' + STYLES[id].label);
+      chip.setAttribute('data-preset', id);
+      chip.addEventListener('click', function () {
+        setPreset(id);
+        modeDrawerOpen = false;
+        render();
+      });
+      classicRow.appendChild(chip);
+      return chip;
+    });
+    var customChip = button('pm-chip pm-chip--ghost', 'Custom…');
+    classicRow.appendChild(customChip);
+    modeDrawer.appendChild(classicRow);
+
+    var customBox = el('div', 'pm-custom');
+    customBox.hidden = true;
+    var fields = el('div', 'pm-fields');
+    var inputs = {
+      focus: numberField('pmFocus', 'Focus', 'focus'),
+      short: numberField('pmShort', 'Short', 'short'),
+      long: numberField('pmLong', 'Long', 'long'),
+      longEvery: numberField('pmEvery', 'Every', 'longEvery')
+    };
+    Object.keys(inputs).forEach(function (k) { fields.appendChild(inputs[k].wrap); });
+    customBox.appendChild(fields);
+    modeDrawer.appendChild(customBox);
+
+    var modeLock = el('p', 'pm-note', 'A plan is running. End it to switch mode.');
+    modeDrawer.appendChild(modeLock);
+
+    // compact planner inside Mode & Plan drawer
+    var planner = el('div', 'pm-planner');
+    planner.appendChild(el('p', 'pm-section', 'Plan by total time'));
+    var chips = el('div', 'pm-chips');
+    chips.setAttribute('role', 'group');
+    chips.setAttribute('aria-label', 'Quick total time picks');
+    [['1h', '1 h'], ['1h 30', '1 h 30'], ['2h', '2 h'], ['3h', '3 h']].forEach(function (v) {
+      var chip = button('pm-chip', v[1]);
+      chip.setAttribute('data-total', v[0]);
+      chip.addEventListener('click', function () {
+        state.draft.input = v[0];
+        totalInput.value = v[0];
+        save();
+        renderPlanner();
+      });
+      chips.appendChild(chip);
+    });
+    var totalInput = el('input', 'pm-input pm-input--compact');
+    totalInput.type = 'text';
+    totalInput.id = 'pmTotal';
+    totalInput.autocomplete = 'off';
+    totalInput.spellcheck = false;
+    totalInput.placeholder = 'e.g. 2:30, 180m';
+    totalInput.setAttribute('aria-label', 'Total time available');
+    var draftRow = el('div', 'pm-draft-row');
+    draftRow.appendChild(chips);
+    draftRow.appendChild(totalInput);
+    var summary = el('p', 'pm-plan-line');
+    summary.setAttribute('aria-live', 'polite');
+    var steps = el('ol', 'pm-steps');
+    var planActions = el('div', 'pm-actions');
+    var startPlanBtn = button('pm-btn pm-btn--primary pm-btn--full', 'Start plan');
+    var endPlanBtn = button('pm-btn pm-btn--full', 'End plan');
+    var newPlanBtn = button('pm-btn pm-btn--primary pm-btn--full', 'New plan');
+    planActions.appendChild(startPlanBtn);
+    planActions.appendChild(newPlanBtn);
+    planActions.appendChild(endPlanBtn);
+    planner.appendChild(draftRow);
+    planner.appendChild(summary);
+    planner.appendChild(steps);
+    planner.appendChild(planActions);
+    modeDrawer.appendChild(planner);
+
+    // core dial + controls
     var timer = el('div', 'pm-timer');
     var ring = svg('svg', { viewBox: '0 0 120 120', 'class': 'pm-ring', 'aria-hidden': 'true', focusable: 'false' });
     ring.appendChild(svg('circle', { cx: 60, cy: 60, r: 52, 'class': 'pm-ring__track' }));
@@ -733,19 +871,18 @@
     dial.appendChild(face);
     timer.appendChild(dial);
 
-    // controls
     var controls = el('div', 'pm-controls');
     var play = button('pm-play');
     var playIcon = el('span', 'pm-play__icon');
     var playText = el('span', 'pm-play__text');
     play.appendChild(playIcon);
     play.appendChild(playText);
-    var resetBtn = button('pm-icon-btn', '', 'Reset this phase');
-    resetBtn.title = 'Reset this phase';
-    resetBtn.appendChild(svgIcon(ICONS.reset, 18));
-    var skipBtn = button('pm-icon-btn', '', 'Skip to the next phase');
-    skipBtn.title = 'Skip to the next phase';
-    skipBtn.appendChild(svgIcon(ICONS.skip, 18));
+    var resetBtn = button('pm-ctrl', '', 'Reset this phase');
+    resetBtn.appendChild(svgIcon(ICONS.reset, 15));
+    resetBtn.appendChild(el('span', '', 'Reset'));
+    var skipBtn = button('pm-ctrl', '', 'Skip to next phase');
+    skipBtn.appendChild(svgIcon(ICONS.skip, 15));
+    skipBtn.appendChild(el('span', '', 'Skip'));
     controls.appendChild(play);
     controls.appendChild(resetBtn);
     controls.appendChild(skipBtn);
@@ -754,7 +891,7 @@
     var live = el('p', 'pm-sr');
     live.setAttribute('aria-live', 'polite');
 
-    // plan progress (visible while a plan is active)
+    // active plan progress (only shown when a plan is active)
     var progress = el('div', 'pm-progress');
     var progressHead = el('div', 'pm-progress__head');
     var progressText = el('span', 'pm-progress__text');
@@ -768,219 +905,129 @@
     progress.appendChild(progressHead);
     progress.appendChild(track);
 
-    // guide: how to run this block (study modes), or wakeful rest on a break
+    // compact 2-line step guide
     var guide = el('div', 'pm-guide');
     var guideHead = el('div', 'pm-guide__head');
     var guideStep = el('span', 'pm-guide__step');
-    var guideRange = el('span', 'pm-guide__range');
+    var guideNext = el('span', 'pm-guide__next');
     guideHead.appendChild(guideStep);
-    guideHead.appendChild(guideRange);
+    guideHead.appendChild(guideNext);
     var guideTitle = el('p', 'pm-guide__title');
     var guideText = el('p', 'pm-guide__text');
     var guideBar = el('ol', 'pm-guide__bar');
     guideBar.setAttribute('aria-hidden', 'true');
-    var guideNext = el('p', 'pm-guide__next');
-    [guideHead, guideTitle, guideText, guideBar, guideNext].forEach(function (node) { guide.appendChild(node); });
+    [guideHead, guideTitle, guideText, guideBar].forEach(function (n) { guide.appendChild(n); });
 
-    // study type: four evidence-based modes (2 x 2) and the classic Pomodoro pills
-    var sug = suggest(location.pathname);
-    var modes = el('div', 'pm-modes');
-    modes.appendChild(el('p', 'pm-section', 'Study type'));
-    var modeGrid = el('div', 'pm-modes__grid');
-    modeGrid.setAttribute('role', 'group');
-    modeGrid.setAttribute('aria-label', 'Study type');
-    var modeCards = STUDY_MODES.map(function (id) {
-      var s = STYLES[id];
-      var card = button('pm-mode');
-      card.setAttribute('data-preset', id);
-      card.appendChild(el('span', 'pm-mode__badge', s.focus + ' / ' + s.short));
-      card.appendChild(el('span', 'pm-mode__name', s.label));
-      if (id === sug) {
-        card.appendChild(el('span', 'pm-mode__tag', 'Suggested'));
-        card.title = 'Suggested for this page';
-      }
-      card.addEventListener('click', function () { setPreset(id); });
-      modeGrid.appendChild(card);
-      return card;
-    });
-    modes.appendChild(modeGrid);
-    var classic = el('div', 'pm-classic');
-    classic.setAttribute('role', 'group');
-    classic.setAttribute('aria-label', 'Classic Pomodoro');
-    classic.appendChild(el('span', 'pm-classic__label', 'Classic'));
-    var classicChips = ['standard', 'deep'].map(function (id) {
-      var chip = button('pm-chip', STYLES[id].focus + ' / ' + STYLES[id].short, 'Classic ' + STYLES[id].label + ', ' + STYLES[id].note);
-      chip.setAttribute('data-preset', id);
-      chip.addEventListener('click', function () { setPreset(id); });
-      classic.appendChild(chip);
-      return chip;
-    });
-    modes.appendChild(classic);
-    var modeLock = el('p', 'pm-note', 'A planned session is running. End it to change the study type.');
-    modes.appendChild(modeLock);
-    var modebar = el('div', 'pm-modebar');
-    var modebarText = el('span', 'pm-modebar__text');
-    var modebarBtn = button('pm-btn pm-btn--small', 'Change');
-    modebarBtn.setAttribute('aria-expanded', 'false');
-    modebar.appendChild(modebarText);
-    modebar.appendChild(modebarBtn);
+    // unified bottom Sound bar + collapsible Tune drawer
+    var soundCard = el('div', 'pm-sound');
+    var soundBar = el('div', 'pm-sound__row');
+    var soundLeft = el('div', 'pm-sound__left');
+    var phones = el('span', 'pm-sound__icon');
+    phones.appendChild(svgIcon(ICONS.phones, 17));
+    var audioToggle = toggleRow('pmAudio', 'Sound', '', function (on) { setAudio('on', on); }, true);
+    var soundSub = el('span', 'pm-sound__sub');
+    audioToggle.row.querySelector('.pm-switch__text').appendChild(soundSub);
+    soundLeft.appendChild(phones);
+    soundLeft.appendChild(audioToggle.row);
+    var tuneBtn = button('pm-tune-btn', 'Tune');
+    var tuneChev = el('span', 'pm-tune-btn__chev');
+    tuneChev.appendChild(svgIcon(ICONS.chevron, 13));
+    tuneBtn.appendChild(tuneChev);
+    tuneBtn.setAttribute('aria-expanded', 'false');
+    soundBar.appendChild(soundLeft);
+    soundBar.appendChild(tuneBtn);
 
-    // tabs
-    var tabs = seg('Timer mode', [['free', 'Free timer'], ['plan', 'Plan session']], function (v) {
-      state.tab = v;
-      commit();
-    });
-    tabs.group.className += ' pm-tabs';
+    var tuneDrawer = el('div', 'pm-drawer pm-drawer--tune');
+    tuneDrawer.hidden = true;
 
-    // free timer pane
-    var free = el('div', 'pm-pane');
-    var adjust = el('details', 'pm-adjust');
-    adjust.appendChild(el('summary', '', 'Adjust times'));
-    var fields = el('div', 'pm-fields');
-    var inputs = {
-      focus: numberField('pmFocus', 'Focus', 'focus'),
-      short: numberField('pmShort', 'Short break', 'short'),
-      long: numberField('pmLong', 'Long break', 'long'),
-      longEvery: numberField('pmEvery', 'Long break every', 'longEvery')
-    };
-    Object.keys(inputs).forEach(function (k) { fields.appendChild(inputs[k].wrap); });
-    adjust.appendChild(fields);
-    var freeNote = el('p', 'pm-note');
-    var freeLock = el('div', 'pm-lock');
-    var freeLockText = el('p', 'pm-note', 'A planned session is running. End it to use the free timer.');
-    var freeLockBtn = button('pm-btn', 'End plan');
-    freeLockBtn.addEventListener('click', endPlan);
-    freeLock.appendChild(freeLockText);
-    freeLock.appendChild(freeLockBtn);
-    free.appendChild(freeLock);
-    free.appendChild(adjust);
-    free.appendChild(freeNote);
+    tuneDrawer.appendChild(el('p', 'pm-section', 'Focus audio'));
+    var focusAudioSeg = seg('Focus audio', [['base', 'Masking (best)'], ['tones', 'Binaural']], function (v) {
+      setAudio('tones', v === 'tones');
+    });
+    focusAudioSeg.group.className += ' pm-seg--full';
+    tuneDrawer.appendChild(focusAudioSeg.group);
 
-    // planner pane
-    var planner = el('div', 'pm-pane');
-    var draftBox = el('div', 'pm-draft');
-    var totalField = el('div', 'pm-field pm-field--wide');
-    var totalLabel = el('label', 'pm-field__label', 'Time available');
-    totalLabel.htmlFor = 'pmTotal';
-    var totalInput = el('input', 'pm-input pm-input--wide');
-    totalInput.type = 'text';
-    totalInput.id = 'pmTotal';
-    totalInput.autocomplete = 'off';
-    totalInput.spellcheck = false;
-    totalInput.placeholder = 'e.g. 3h, 2:30, 180 min';
-    totalInput.setAttribute('aria-describedby', 'pmTotalHint');
-    var totalHint = el('p', 'pm-hint');
-    totalHint.id = 'pmTotalHint';
-    totalField.appendChild(totalLabel);
-    totalField.appendChild(totalInput);
-    totalField.appendChild(totalHint);
-    var chips = el('div', 'pm-chips');
-    chips.setAttribute('role', 'group');
-    chips.setAttribute('aria-label', 'Quick picks');
-    [['1h', '1 h'], ['1h 30', '1 h 30'], ['2h', '2 h'], ['3h', '3 h'], ['4h', '4 h']].forEach(function (v) {
-      var chip = button('pm-chip', v[1]);
-      chip.addEventListener('click', function () {
-        state.draft.input = v[0];
-        totalInput.value = v[0];
-        commit();
-      });
-      chips.appendChild(chip);
-    });
-    var styleNote = el('p', 'pm-hint');   // the plan uses the study type chosen above
-    draftBox.appendChild(totalField);
-    draftBox.appendChild(chips);
-    draftBox.appendChild(styleNote);
-
-    var summary = el('div', 'pm-summary');
-    summary.setAttribute('aria-live', 'polite');
-    var timeline = el('div', 'pm-timeline');
-    timeline.setAttribute('aria-hidden', 'true');
-    var steps = el('ol', 'pm-steps');
-    var planActions = el('div', 'pm-actions');
-    var startPlanBtn = button('pm-btn pm-btn--primary', 'Start plan');
-    var endPlanBtn = button('pm-btn', 'End plan');
-    var newPlanBtn = button('pm-btn pm-btn--primary', 'New plan');
-    planActions.appendChild(startPlanBtn);
-    planActions.appendChild(newPlanBtn);
-    planActions.appendChild(endPlanBtn);
-    planner.appendChild(draftBox);
-    planner.appendChild(summary);
-    planner.appendChild(timeline);
-    planner.appendChild(steps);
-    planner.appendChild(planActions);
-
-    // options
-    var options = el('div', 'pm-options');
-    var auto = toggleRow('pmAuto', 'Auto-start next phase', 'Breaks and blocks follow on without a click.', function (on) {
-      state.auto = on;
-      commit();
-    });
-    var sound = toggleRow('pmSound', 'Chime at the end of each phase', 'A soft bell synthesised in the browser.', function (on) {
-      state.sound = on;
-      if (on) { unlockAudio(); chime('focus'); }
-      commit();
-    });
-    // study sound: Focus Lab follows the timer (opt-in)
-    var audioBox = el('div', 'pm-audio');
-    var audioHead = el('div', 'pm-audio__head');
-    var audioOn = toggleRow('pmAudio', 'Sync study sound',
-      'Keep volume low, barely above the room. Resumes on your first click on each page.', function (on) { setAudio('on', on); });
-    var mixer = button('pm-btn pm-btn--small', 'Mixer', 'Open the Focus Lab mixer');
-    mixer.addEventListener('click', function () {
-      if (!window.AEFocusLab) return;
-      closePanel(false);
-      window.AEFocusLab.open();
-    });
-    audioHead.appendChild(audioOn.row);
-    audioHead.appendChild(mixer);
-    var audioMore = el('div', 'pm-audio__more');
-    var tones = toggleRow('pmTones', 'Binaural tones', 'Entrainment evidence is mixed; treat as a focus cue.', function (on) {
-      setAudio('tones', on);
-    });
+    tuneDrawer.appendChild(el('p', 'pm-section', 'On breaks'));
     var restSeg = seg('Sound on breaks', Object.keys(REST).map(function (k) { return [k, REST[k].label]; }), function (v) {
       setAudio('rest', v);
     });
-    audioMore.appendChild(tones.row);
-    audioMore.appendChild(el('p', 'pm-section', 'On breaks'));
-    audioMore.appendChild(restSeg.group);
-    audioBox.appendChild(audioHead);
-    audioBox.appendChild(audioMore);
+    restSeg.group.className += ' pm-seg--full';
+    tuneDrawer.appendChild(restSeg.group);
 
-    options.insertBefore(audioBox, options.firstChild);
-    options.appendChild(auto.row);
-    options.appendChild(sound.row);
+    var labState = window.AEFocusLab ? window.AEFocusLab.state() : { volume: 0.75, iso: false, carrier: 200, beat: 40 };
+    var volSlider = slider('pmVol', 'Volume', 0, 100, 1, Math.round((labState.volume == null ? 0.75 : labState.volume) * 100), function (v) {
+      if (window.AEFocusLab && window.AEFocusLab.setVolume) window.AEFocusLab.setVolume(v / 100);
+    });
+    tuneDrawer.appendChild(volSlider.row);
 
-    var foot = el('p', 'pm-foot', 'The timer keeps running across pages and reloads; it is saved in this browser only.');
+    var toggles = el('div', 'pm-toggles');
+    var isoToggle = toggleRow('pmIso', 'Speakers (isochronic)', '', function (on) {
+      if (window.AEFocusLab && window.AEFocusLab.setIsochronic) window.AEFocusLab.setIsochronic(on);
+    }, true);
+    var chimeToggle = toggleRow('pmSound', 'Phase chime', '', function (on) {
+      state.sound = on;
+      if (on) { unlockAudio(); chime('focus'); }
+      commit();
+    }, true);
+    var autoToggle = toggleRow('pmAuto', 'Auto-start', '', function (on) {
+      state.auto = on;
+      commit();
+    }, true);
+    toggles.appendChild(isoToggle.row);
+    toggles.appendChild(chimeToggle.row);
+    toggles.appendChild(autoToggle.row);
+    tuneDrawer.appendChild(toggles);
 
-    [head, timer, guide, live, progress, modebar, modes, tabs.group, free, planner, options, foot].forEach(function (node) { panel.appendChild(node); });
+    var adv = el('details', 'pm-adv');
+    adv.appendChild(el('summary', '', 'Advanced Hz'));
+    var carrierSlider = slider('pmCarrier', 'Carrier', 100, 432, 1, labState.carrier || 200, function (v) {
+      if (window.AEFocusLab && window.AEFocusLab.setCustomHz) window.AEFocusLab.setCustomHz(v, window.AEFocusLab.state().beat);
+    });
+    var beatSlider = slider('pmBeat', 'Beat', 1, 45, 1, labState.beat || 40, function (v) {
+      if (window.AEFocusLab && window.AEFocusLab.setCustomHz) window.AEFocusLab.setCustomHz(window.AEFocusLab.state().carrier, v);
+    });
+    adv.appendChild(carrierSlider.row);
+    adv.appendChild(beatSlider.row);
+    tuneDrawer.appendChild(adv);
+    tuneDrawer.appendChild(el('p', 'pm-hint', 'Entrainment evidence is mixed; treat audio as a low-volume masking routine. Resumes on first click across pages.'));
+
+    soundCard.appendChild(soundBar);
+    soundCard.appendChild(tuneDrawer);
+
+    [head, picker, modeDrawer, timer, progress, guide, live, soundCard].forEach(function (node) { panel.appendChild(node); });
     document.body.appendChild(launcher);
     document.body.appendChild(panel);
 
     ui = {
       launcher: launcher, launcherText: launcherText, miniArc: miniArc, panel: panel, close: close,
-      arc: arc, phaseLabel: phaseLabel, time: time, sub: sub, play: play, playIcon: playIcon, playText: playText,
-      resetBtn: resetBtn, skipBtn: skipBtn, live: live, progress: progress, progressText: progressText,
-      progressLeft: progressLeft, track: track, tabs: tabs, free: free, inputs: inputs,
-      freeNote: freeNote, freeLock: freeLock, planner: planner, draftBox: draftBox, totalInput: totalInput,
-      totalHint: totalHint, styleNote: styleNote, summary: summary, timeline: timeline,
+      picker: picker, pickerMain: pickerMain, pickerAuto: pickerAuto, modeDrawer: modeDrawer,
+      modeRows: modeRows, classicChips: classicChips, customChip: customChip, customBox: customBox,
+      inputs: inputs, modeLock: modeLock, planner: planner, totalInput: totalInput, summary: summary,
       steps: steps, startPlanBtn: startPlanBtn, endPlanBtn: endPlanBtn, newPlanBtn: newPlanBtn,
-      auto: auto.input, sound: sound.input,
-      guide: guide, guideStep: guideStep, guideRange: guideRange, guideTitle: guideTitle, guideText: guideText,
-      guideBar: guideBar, guideNext: guideNext, modes: modes, modeCards: modeCards, classicChips: classicChips,
-      modeLock: modeLock, modebar: modebar, modebarText: modebarText, modebarBtn: modebarBtn,
-      audioOn: audioOn.input, audioMore: audioMore, tones: tones.input, restSeg: restSeg, mixer: mixer
+      chips: chips, arc: arc, phaseLabel: phaseLabel, time: time, sub: sub, play: play, playIcon: playIcon,
+      playText: playText, resetBtn: resetBtn, skipBtn: skipBtn, live: live, progress: progress,
+      progressText: progressText, progressLeft: progressLeft, track: track,
+      guide: guide, guideStep: guideStep, guideNext: guideNext, guideTitle: guideTitle, guideText: guideText, guideBar: guideBar,
+      audioOn: audioToggle.input, soundSub: soundSub, tuneBtn: tuneBtn, tuneDrawer: tuneDrawer,
+      focusAudioSeg: focusAudioSeg, restSeg: restSeg, volSlider: volSlider, iso: isoToggle.input,
+      sound: chimeToggle.input, auto: autoToggle.input, carrierSlider: carrierSlider, beatSlider: beatSlider
     };
 
-    modebarBtn.addEventListener('click', function () {
-      modesOpen = !modesOpen;
+    picker.addEventListener('click', function () {
+      modeDrawerOpen = !modeDrawerOpen;
+      if (modeDrawerOpen) tuneDrawerOpen = false;
       render();
     });
-    // The user stopped the sound in Focus Lab: the timer stops driving it (never forced back on).
-    window.addEventListener('aefocuslab:userstop', function () {
-      state.audio.on = false;
-      lastCue = 'off';
-      commit();
+    customChip.addEventListener('click', function () {
+      customOpen = !customOpen;
+      render();
     });
+    tuneBtn.addEventListener('click', function () {
+      tuneDrawerOpen = !tuneDrawerOpen;
+      if (tuneDrawerOpen) modeDrawerOpen = false;
+      render();
+    });
+    window.addEventListener('aefocuslab:change', function () { if (!ui.panel.hidden) renderSoundControls(); });
 
     launcher.addEventListener('click', function () {
       if (panel.hidden) openPanel(); else closePanel(false);
@@ -1000,6 +1047,7 @@
     startPlanBtn.addEventListener('click', function () {
       var total = parseDuration(state.draft.input);
       if (!total || total < LIMITS.total[0] || total > LIMITS.total[1]) { totalInput.focus(); return; }
+      modeDrawerOpen = false;
       startPlan(total, state.draft.style);
       panel.scrollTop = 0;
     });
@@ -1011,11 +1059,6 @@
         closePanel(true);
       }
     });
-    // One panel at a time: opening Focus Lab closes this one (and openPanel closes Focus Lab).
-    document.addEventListener('click', function (event) {
-      if (event.target.closest && event.target.closest('#focusLabButton') && !panel.hidden) closePanel(false);
-    }, true);
-    // Audio may only start after a gesture: a reloaded running timer unlocks it on the first click.
     document.addEventListener('pointerdown', function first() {
       if (state.running) unlockAudio();
       document.removeEventListener('pointerdown', first, true);
@@ -1026,22 +1069,25 @@
       render();
     });
 
-    if (catchUp(Date.now())) save();   // write only on a change, never a blind overwrite at load
+    if (catchUp(Date.now())) save();
     render();
     setInterval(tick, 250);
     document.addEventListener('visibilitychange', tick);
 
-    // A request left by the account calendar ("Study this"), once: plan that many minutes.
     var pending = null;
     try { pending = JSON.parse(sessionStorage.getItem('ae_pomodoro_pending') || 'null'); sessionStorage.removeItem('ae_pomodoro_pending'); } catch (e) { pending = null; }
-    if (pending && pending.minutes > 0) { startPlan(pending.minutes, SUBJECT_MODES[pending.subject] || 'standard'); openPanel(); }
+    if (pending && pending.minutes > 0) {
+      var pStyle = SUBJECT_ONLY[pending.subject] || 'standard';
+      state.pinned = true;
+      startPlan(pending.minutes, pStyle);
+      openPanel();
+    }
   }
 
   function tick() {
     if (!state.running) return;
     var now = Date.now();
     if (now >= state.endAt) {
-      // Another tab may already have moved on: adopt its state instead of chiming twice.
       var raw = null;
       try { raw = localStorage.getItem(KEY); } catch (e) { raw = null; }
       var stored = raw ? load() : state;
@@ -1056,7 +1102,6 @@
   }
 
   function openPanel() {
-    if (window.AEFocusLab && typeof window.AEFocusLab.close === 'function') window.AEFocusLab.close();
     if (window.AESideris && typeof window.AESideris.close === 'function') window.AESideris.close();
     ui.panel.hidden = false;
     ui.launcher.setAttribute('aria-expanded', 'true');
@@ -1064,6 +1109,12 @@
     render();
     requestAnimationFrame(function () { ui.panel.classList.add('is-open'); });
     ui.play.focus({ preventScroll: true });
+  }
+
+  function openSound() {
+    modeDrawerOpen = false;
+    tuneDrawerOpen = true;
+    openPanel();
   }
 
   function closePanel(returnFocus) {
@@ -1091,7 +1142,6 @@
     var g = done ? null : guideFor(studyId(), phase, (full - left) / MINUTE);
     syncSound();
 
-    // a new step of the running block is announced (the phase change has its own announcement)
     var gkey = g && active ? g.kind + (g.kind === 'focus' ? g.index : '') : '';
     if (gkey !== lastGuide) {
       if (state.running && g && g.kind === 'focus' && g.index > 0 && lastGuide.indexOf('focus') === 0) {
@@ -1100,16 +1150,17 @@
       lastGuide = gkey;
     }
 
-    // launcher
+    // single planet launcher
     ui.launcher.classList.toggle('is-running', state.running);
     ui.launcher.classList.toggle('is-paused', !state.running && active);
     ui.launcher.classList.toggle('is-break', isBreak && active);
     ui.launcher.classList.toggle('is-compact', active);
-    ui.launcherText.textContent = active ? clock(left) : done ? 'Done' : 'Timer';
+    ui.launcher.classList.toggle('is-audio', state.audio.on && state.running);
+    ui.launcherText.textContent = active ? clock(left) : done ? 'Done' : 'Study';
     ui.miniArc.setAttribute('stroke-dashoffset', (MINI * (1 - (active ? frac : 0))).toFixed(2));
     var where = PHASES[phase.kind].label + ', ' + clock(left) + ' left' + (state.running ? '' : ', paused') +
       (g && g.kind === 'focus' ? ', ' + g.title : '');
-    ui.launcher.setAttribute('aria-label', active ? 'Study timer: ' + where : done ? 'Study timer: plan complete' : 'Study timer');
+    ui.launcher.setAttribute('aria-label', active ? 'Study session: ' + where : done ? 'Study session: plan complete' : 'Study session');
     ui.launcher.title = ui.launcher.getAttribute('aria-label');
 
     // tab title
@@ -1130,7 +1181,7 @@
     ui.skipBtn.disabled = done;
     ui.play.setAttribute('aria-pressed', state.running ? 'true' : 'false');
     ui.playIcon.textContent = '';
-    ui.playIcon.appendChild(svgIcon(state.running ? ICONS.pause : ICONS.play, 18));
+    ui.playIcon.appendChild(svgIcon(state.running ? ICONS.pause : ICONS.play, 16));
     ui.playText.textContent = state.running ? 'Pause' : active ? 'Resume' : 'Start';
 
     // plan progress
@@ -1138,22 +1189,39 @@
     ui.progress.hidden = !plan;
     if (plan) renderProgress(plan, now, left);
 
+    renderModePicker(plan, now);
     renderGuide(g, active);
-    renderModes(active);
+    renderSoundControls();
+  }
 
-    // tabs and panes
-    pressed(ui.tabs.buttons, state.tab);
-    ui.free.hidden = state.tab !== 'free';
-    ui.planner.hidden = state.tab !== 'plan';
-    ui.auto.checked = state.auto;
-    ui.sound.checked = state.sound;
-    ui.audioOn.checked = state.audio.on;
-    ui.audioMore.hidden = !state.audio.on;
-    ui.tones.checked = state.audio.tones;
-    pressed(ui.restSeg.buttons, state.audio.rest);
-    ui.mixer.hidden = !window.AEFocusLab;
-    if (state.tab === 'free') renderFree();
-    else renderPlanner(now);
+  function renderModePicker(plan, now) {
+    var meta = suggestMeta(location.pathname);
+    var s = style(studyId()), d = state.durations;
+    var shortName = plan ? s.shortLabel : (STYLES[state.preset] ? s.shortLabel : 'Custom');
+    var times = plan ? (s.focus + '/' + s.short) : (d.focus + '/' + d.short);
+    ui.pickerMain.textContent = shortName + ' · ' + times;
+    var showAuto = !!(meta && !plan && !state.pinned && state.preset === meta.mode);
+    ui.pickerAuto.hidden = !showAuto;
+    ui.picker.setAttribute('aria-expanded', modeDrawerOpen ? 'true' : 'false');
+    ui.picker.classList.toggle('is-open', modeDrawerOpen);
+    ui.modeDrawer.hidden = !modeDrawerOpen;
+
+    if (!modeDrawerOpen) return;
+    var chosen = plan ? state.plan.style : state.preset;
+    ui.modeRows.concat(ui.classicChips).forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-preset') === chosen ? 'true' : 'false');
+      b.disabled = !!plan;
+    });
+    ui.customChip.setAttribute('aria-pressed', (customOpen || state.preset === 'custom') ? 'true' : 'false');
+    ui.customChip.disabled = !!plan;
+    ui.customBox.hidden = !(customOpen || state.preset === 'custom') || !!plan;
+    Object.keys(ui.inputs).forEach(function (k) {
+      var input = ui.inputs[k].input;
+      if (document.activeElement !== input) input.value = state.durations[k];
+      input.disabled = !!plan;
+    });
+    ui.modeLock.hidden = !plan;
+    renderPlanner(now);
   }
 
   function renderGuide(g, active) {
@@ -1161,17 +1229,19 @@
     if (!g) return;
     ui.guide.classList.toggle('is-break', g.kind !== 'focus');
     if (g.kind !== 'focus') {
-      ui.guideStep.textContent = 'Wakeful rest';
-      ui.guideRange.textContent = g.kind === 'long' ? 'Long break' : 'Short break';
-      ui.guideTitle.textContent = 'Rest without the phone';
-      ui.guideText.textContent = g.text;
-      ui.guideBar.hidden = true;
+      ui.guideStep.textContent = g.kind === 'long' ? 'Wakeful rest · long break' : 'Wakeful rest · short break';
       ui.guideNext.textContent = g.next ? 'Next: ' + g.next : '';
       ui.guideNext.hidden = !g.next;
+      ui.guideTitle.textContent = 'Wakeful rest';
+      ui.guideText.textContent = g.text;
+      ui.guideBar.hidden = true;
       return;
     }
-    ui.guideStep.textContent = (active ? 'Step ' : 'First step · ') + (g.index + 1) + ' of ' + g.count;
-    ui.guideRange.textContent = g.range;
+    ui.guideStep.textContent = 'STEP ' + (g.index + 1) + ' / ' + g.count;
+    ui.guideNext.hidden = false;
+    ui.guideNext.textContent = g.nextIn !== null
+      ? (active ? 'NEXT IN ' + clock(g.nextIn * MINUTE) : g.range)
+      : g.range;
     ui.guideTitle.textContent = g.title;
     ui.guideText.textContent = g.text;
     ui.guideBar.hidden = false;
@@ -1181,9 +1251,9 @@
       bar.textContent = '';
       g.tags.forEach(function (tag) {
         var li = el('li', 'pm-guide__seg');
-        var track = el('span', 'pm-guide__track');
-        track.appendChild(el('span', 'pm-guide__fill'));
-        li.appendChild(track);
+        var tr = el('span', 'pm-guide__track');
+        tr.appendChild(el('span', 'pm-guide__fill'));
+        li.appendChild(tr);
         li.appendChild(el('span', 'pm-guide__tag', tag));
         bar.appendChild(li);
       });
@@ -1195,27 +1265,40 @@
       li.className = 'pm-guide__seg' + (i < g.index ? ' is-done' : i === g.index ? ' is-current' : '');
       li.firstChild.firstChild.style.width = (i < g.index ? 100 : i === g.index && active ? Math.round(g.part * 1000) / 10 : 0) + '%';
     });
-    ui.guideNext.hidden = g.nextIn === null;
-    ui.guideNext.textContent = g.nextIn === null ? '' : 'Next in ' + clock(g.nextIn * MINUTE) + ' — ' + g.next;
   }
 
-  function renderModes(active) {
-    var plan = state.mode === 'plan' && state.plan;
-    var session = active || !!plan;
-    if (!session) modesOpen = false;
-    ui.modebar.hidden = !session;
-    ui.modes.hidden = session && !modesOpen;
-    ui.modebarBtn.textContent = modesOpen ? 'Done' : 'Change';
-    ui.modebarBtn.setAttribute('aria-expanded', modesOpen ? 'true' : 'false');
-    var chosen = plan ? state.plan.style : state.preset;
-    var s = style(studyId()), d = state.durations;
-    ui.modebarText.textContent = plan ? s.label + ' · ' + s.focus + ' / ' + s.short
-      : (STYLES[state.preset] ? s.label : 'Custom') + ' · ' + d.focus + ' / ' + d.short;
-    ui.modeCards.concat(ui.classicChips).forEach(function (b) {
-      b.setAttribute('aria-pressed', b.getAttribute('data-preset') === chosen ? 'true' : 'false');
-      b.disabled = !!plan;
-    });
-    ui.modeLock.hidden = !plan;
+  function renderSoundControls() {
+    ui.audioOn.checked = state.audio.on;
+    var s = STYLES[studyId()];
+    var focusLabel = s && s.audio ? s.audio[state.audio.tones ? 'tones' : 'base'].text : 'Mixer preset';
+    var breakLabel = REST[state.audio.rest].short;
+    if (!state.audio.on) {
+      ui.soundSub.textContent = 'Off';
+    } else if (current().kind !== 'focus' && state.running) {
+      ui.soundSub.textContent = breakLabel;
+    } else {
+      ui.soundSub.textContent = focusLabel + ' · ' + breakLabel;
+    }
+    ui.tuneBtn.setAttribute('aria-expanded', tuneDrawerOpen ? 'true' : 'false');
+    ui.tuneBtn.classList.toggle('is-open', tuneDrawerOpen);
+    ui.tuneDrawer.hidden = !tuneDrawerOpen;
+
+    if (!tuneDrawerOpen) return;
+    pressed(ui.focusAudioSeg.buttons, state.audio.tones ? 'tones' : 'base');
+    pressed(ui.restSeg.buttons, state.audio.rest);
+    ui.auto.checked = state.auto;
+    ui.sound.checked = state.sound;
+    if (window.AEFocusLab) {
+      var ls = window.AEFocusLab.state();
+      var volPct = Math.round((ls.volume == null ? 0.75 : ls.volume) * 100);
+      ui.volSlider.input.value = volPct;
+      ui.volSlider.out.textContent = volPct + '%';
+      ui.iso.checked = !!ls.iso;
+      ui.carrierSlider.input.value = ls.carrier;
+      ui.carrierSlider.out.textContent = ls.carrier + ' Hz';
+      ui.beatSlider.input.value = ls.beat;
+      ui.beatSlider.out.textContent = ls.beat + ' Hz';
+    }
   }
 
   function subline(phase) {
@@ -1225,9 +1308,8 @@
       return phase.kind === 'focus' ? 'Session ' + n + ' of ' + total : 'Next: session ' + (n + 1) + ' of ' + total;
     }
     var d = state.durations, k = state.freeDone + (phase.kind === 'focus' ? 1 : 0);
-    if (phase.kind !== 'focus') return 'After block ' + state.freeDone;
-    var untilLong = d.longEvery - ((k - 1) % d.longEvery) - 1;
-    return 'Block ' + k + ' · ' + (untilLong ? 'long break in ' + (untilLong + 1) : 'long break next');
+    if (phase.kind !== 'focus') return 'Next: Block ' + (state.freeDone + 1);
+    return 'Block ' + k + ' · long break every ' + d.longEvery;
   }
 
   function renderProgress(plan, now, left) {
@@ -1251,7 +1333,6 @@
     fillTrack(ui.track, plan, plan.done ? plan.phases.length : plan.index, plan.done ? 0 : (cur.min * MINUTE - left) / (cur.min * MINUTE));
   }
 
-  // Segments proportional to each phase; phases before `upto` are full, phase `upto` is `part` full.
   function fillTrack(track, plan, upto, part) {
     var total = plan.phases.reduce(function (a, p) { return a + p.min; }, 0);
     if (track.children.length !== plan.phases.length) {
@@ -1269,82 +1350,46 @@
     });
   }
 
-  function renderFree() {
-    var locked = state.mode === 'plan';
-    ui.freeLock.hidden = !locked;
-    Object.keys(ui.inputs).forEach(function (k) {
-      var input = ui.inputs[k].input;
-      if (document.activeElement !== input) input.value = state.durations[k];
-      input.disabled = locked;
-    });
-    var d = state.durations;
-    ui.freeNote.textContent = locked ? '' : 'Cycle: ' + d.focus + ' min focus, ' + d.short + ' min break; every ' + d.longEvery +
-      ' blocks a ' + d.long + ' min long break. A change applies to the next phase that has not started.';
-  }
-
-  function renderPlanner(now) {
+  function renderPlanner() {
     if (!ui.planner) return;
-    now = now || Date.now();
     var plan = state.mode === 'plan' ? state.plan : null;
-    ui.draftBox.hidden = !!plan;
     ui.startPlanBtn.hidden = !!plan;
     ui.endPlanBtn.hidden = !plan || plan.done;
     ui.newPlanBtn.hidden = !plan || !plan.done;
+    [].forEach.call(ui.chips.children, function (c) {
+      c.setAttribute('aria-pressed', !plan && c.getAttribute('data-total') === state.draft.input ? 'true' : 'false');
+      c.disabled = !!plan;
+    });
+    ui.totalInput.disabled = !!plan;
+
     var shown = plan;
     if (!plan) {
       if (document.activeElement !== ui.totalInput) ui.totalInput.value = state.draft.input;
-      ui.styleNote.textContent = 'Blocks of ' + style(state.draft.style).label + ': ' + style(state.draft.style).note + '.';
       var total = parseDuration(state.draft.input);
       var valid = total && total >= LIMITS.total[0] && total <= LIMITS.total[1];
       ui.totalInput.setAttribute('aria-invalid', valid ? 'false' : 'true');
-      ui.totalHint.textContent = valid ? '= ' + formatMinutes(total) + ' · ends at ' + timeOfDay(new Date(now + total * MINUTE)) + ' if you start now'
-        : total ? 'Choose between 10 min and 12 h.' : 'Write a time such as 3h, 2:30 or 180 min.';
       ui.startPlanBtn.disabled = !valid;
       shown = valid ? planSessions(total, state.draft.style) : null;
+      if (!shown) {
+        ui.summary.textContent = total ? 'Choose 10 min to 12 h.' : 'Write a time such as 2h, 1:30 or 90m.';
+        ui.steps.hidden = true;
+        return;
+      }
+      ui.summary.textContent = summaryCompact(shown.summary);
+      ui.steps.hidden = true;
+      return;
     }
-    ui.summary.textContent = '';
-    ui.timeline.textContent = '';
+
+    ui.summary.textContent = formatMinutes(shown.summary.focus) + ' focus · ' + shown.summary.blocks +
+      (shown.summary.blocks === 1 ? ' block' : ' blocks');
+    ui.steps.hidden = false;
     ui.steps.textContent = '';
-    ui.summary.hidden = ui.steps.hidden = !shown;
-    ui.timeline.hidden = !shown || !!plan;   // an active plan already shows its track at the top
-    if (!shown) return;
-
-    var s = shown.summary;
-    var head = el('p', 'pm-summary__lead');
-    head.appendChild(document.createTextNode('For your '));
-    head.appendChild(el('strong', '', formatMinutes(shown.total)));
-    head.appendChild(document.createTextNode(': '));
-    head.appendChild(document.createTextNode(summaryParts(s).join(' + ') + ' = '));
-    head.appendChild(el('strong', '', formatMinutes(s.focus) + ' of real study'));
-    head.appendChild(document.createTextNode('.'));
-    ui.summary.appendChild(head);
-    var stats = el('div', 'pm-stats');
-    [[s.blocks, s.blocks === 1 ? 'block' : 'blocks'], [formatMinutes(s.focus), 'focus'], [formatMinutes(s.breaks), 'breaks']]
-      .concat(s.buffer ? [[formatMinutes(s.buffer), 'buffer']] : [])
-      .forEach(function (item) {
-        var box = el('div', 'pm-stat');
-        box.appendChild(el('span', 'pm-stat__value', String(item[0])));
-        box.appendChild(el('span', 'pm-stat__label', item[1]));
-        stats.appendChild(box);
-      });
-    ui.summary.appendChild(stats);
-
-    // timeline of the draft (proportional segments, nothing filled yet)
-    if (!plan) {
-      var track = el('div', 'pm-track pm-track--tall');
-      ui.timeline.appendChild(track);
-      fillTrack(track, shown, -1, 0);
-    }
-
-    // step list with start offsets
     var at = 0, block = 0;
     shown.phases.forEach(function (p, i) {
       if (p.kind === 'focus') block++;
       var li = el('li', 'pm-step is-' + p.kind);
-      if (plan) {
-        if (plan.done || i < plan.index) li.className += ' is-done';
-        else if (i === plan.index) { li.className += ' is-current'; li.setAttribute('aria-current', 'step'); }
-      }
+      if (plan.done || i < plan.index) li.className += ' is-done';
+      else if (i === plan.index) { li.className += ' is-current'; li.setAttribute('aria-current', 'step'); }
       li.appendChild(el('span', 'pm-step__at', offsetLabel(at)));
       li.appendChild(el('span', 'pm-step__name', p.kind === 'focus' ? 'Focus ' + block : PHASES[p.kind].label));
       li.appendChild(el('span', 'pm-step__min', p.min + ' min'));
@@ -1353,20 +1398,21 @@
     });
   }
 
+  function summaryCompact(s) {
+    var sizes = [];
+    Object.keys(s.sizes).map(Number).sort(function (a, b) { return b - a; }).forEach(function (sz) {
+      for (var k = 0; k < s.sizes[sz]; k++) sizes.push(sz + 'm');
+    });
+    var br = [];
+    if (s.short) br.push(s.shortMin + 'm break');
+    if (s.long) br.push(s.longMin + 'm long');
+    return s.blocks + (s.blocks === 1 ? ' block' : ' blocks') + ' (' + sizes.join(' + ') + ')' +
+      (br.length ? ' · ' + br.join(' · ') : '');
+  }
+
   function offsetLabel(min) {
     var h = Math.floor(min / 60), m = min % 60;
     return h + ':' + (m < 10 ? '0' : '') + m;
-  }
-
-  function summaryParts(s) {
-    var parts = [], sizes = Object.keys(s.sizes).map(Number).sort(function (a, b) { return b - a; });
-    sizes.forEach(function (size) {
-      var n = s.sizes[size];
-      parts.push(n + ' ' + (n === 1 ? 'block' : 'blocks') + ' of ' + size + ' min');
-    });
-    if (s.short) parts.push(s.short + ' short ' + (s.short === 1 ? 'break' : 'breaks') + ' of ' + s.shortMin + ' min');
-    if (s.long) parts.push(s.long + ' long ' + (s.long === 1 ? 'break' : 'breaks') + ' of ' + s.longMin + ' min');
-    return parts;
   }
 
   /* ---------------------------------------------------------------- boot */
@@ -1374,7 +1420,7 @@
     if (!SCRIPT || !SCRIPT.src || document.querySelector('link[href*="pomodoro.css"]')) return;
     var link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = SCRIPT.src.replace(/js\/pomodoro\.js(\?.*)?$/, 'css/pomodoro.css');
+    link.href = SCRIPT.src.replace(/js\/pomodoro\.js(\?.*)?$/, 'css/pomodoro.css?v=20261125d');
     document.head.appendChild(link);
   }
 
@@ -1391,6 +1437,7 @@
     parseDuration: parseDuration,
     formatMinutes: formatMinutes,
     open: function () { if (ui.panel) openPanel(); },
+    openSound: function () { if (ui.panel) openSound(); },
     close: function () { if (ui.panel) closePanel(false); },
     start: start,
     pause: pause,

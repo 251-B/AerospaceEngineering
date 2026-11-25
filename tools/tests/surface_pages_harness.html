@@ -79,8 +79,8 @@
   function load(page, surface, theme) {
     return new Promise(function (resolve) {
       localStorage.clear();
-      // An idle study timer in a study mode with the sound row open, so its open panel shows the step guide,
-      // the study types and every sound control (idle: the launcher text, part of the page hash, stays "Timer").
+      // An idle study timer in a study mode with sound on, so opening Tune audits every study type,
+      // step guide, auto badge and sound control across all 6 reading palettes.
       localStorage.setItem('ae_pomodoro', JSON.stringify({ v: 1, mode: 'free', tab: 'free', preset: 'theory', study: 'theory',
         durations: { focus: 45, short: 8, long: 25, longEvery: 2 }, phase: { kind: 'focus', min: 45 },
         audio: { on: true, tones: true, rest: 'silence' } }));
@@ -129,11 +129,10 @@
                 out.solutionBar = bar.checked > 0;
               } else out.solutionBar = false;
             }
-            // The study timer panel (step guide, study types, sound row): open it and audit its text. Its surface is
-            // painted as a gradient, which the probe cannot read, so the pass gives it the same colour, flat.
+            // The unified study session panel (step guide, auto mode pill and Tune controls): open it and audit its text.
             if (f.contentWindow.AEPomodoro) {
               if (f.contentWindow.AESidebar) f.contentWindow.AESidebar.close();
-              f.contentWindow.AEPomodoro.open();
+              f.contentWindow.AEPomodoro.openSound();
               var pmPanel = f.contentDocument.getElementById('pomodoroPanel');
               if (pmPanel && !pmPanel.hidden) {
                 pmPanel.classList.add('is-open');
@@ -141,7 +140,7 @@
                 var timer = probe(f.contentDocument, pmPanel);
                 out.bad = out.bad.concat(timer.bad).slice(0, 6); out.badCount += timer.badCount;
                 out.timerPanel = timer.checked > 0 && !!pmPanel.querySelector('.pm-guide:not([hidden]) .pm-guide__title') &&
-                  !!pmPanel.querySelector('.pm-audio__more:not([hidden])');
+                  !!pmPanel.querySelector('.pm-drawer--tune:not([hidden])');
               } else out.timerPanel = false;
             }
             out.surface = attrs.getAttribute('data-surface'); out.theme = attrs.getAttribute('data-theme');

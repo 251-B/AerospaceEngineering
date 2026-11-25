@@ -15,11 +15,19 @@
  */
 window.AE_UPDATES = [
   {
+    "id": "2026-11-25-maths-ch5-ch6-problems",
+    "date": "2026-11-25",
+    "tag": "Advanced Maths",
+    "title": "Chapter 5 and 6 problem sets: nonlinear systems and Fourier series",
+    "text": "Added 19 step-by-step solved exercises with phase portraits and Fourier plots for Chapters 5 and 6, plus Lagrange's identity and Green's formula in Topic 6.",
+    "link": "subjects/advanced-maths/problemas/index.html"
+  },
+  {
     "id": "2026-11-25-study-timer-modes",
     "date": "2026-11-25",
     "tag": "Portal",
-    "title": "Study timer: four study types with step guides and synced sound",
-    "text": "Choose theory, diagrams, a new topic or problems: each block shows what to do minute by minute. Optional sound follows the timer, with silence on breaks."
+    "title": "Study session: unified timer, step guide and synced sound",
+    "text": "One calm panel picks the study mode for each subject, guides every block minute by minute and integrates study sound with silence on breaks."
   },
   {
     "id": "2026-11-22-maths-theory-topics-5-6",

@@ -150,9 +150,9 @@
       record('opening the updates panel closes an open study timer', timerOpen && q(f, '.pm-panel').hidden && !q(f, '.upd-panel').hidden, 'timerOpen=' + timerOpen);
       w.AEUpdates.close();
       w.AEFocusLab.open();
-      var focusOpen = !q(f, '.fl-panel').hidden;
+      var focusOpen = !q(f, '.pm-panel').hidden && !q(f, '.pm-drawer--tune').hidden;
       w.AEUpdates.open();
-      record('opening the updates panel closes an open Focus Lab', focusOpen && q(f, '.fl-panel').hidden && !q(f, '.upd-panel').hidden, 'focusOpen=' + focusOpen);
+      record('opening the updates panel closes an open Focus Lab', focusOpen && q(f, '.pm-panel').hidden && !q(f, '.upd-panel').hidden, 'focusOpen=' + focusOpen);
       f.remove();
       // ------------------------------------------------------------ opened from the toast after scrolling away from the header
       var tall = '<div style="height:3000px"></div>';
