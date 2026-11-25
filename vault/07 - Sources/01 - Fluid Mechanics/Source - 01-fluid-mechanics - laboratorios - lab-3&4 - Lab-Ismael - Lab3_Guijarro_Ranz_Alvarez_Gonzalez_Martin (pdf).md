@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/Lab3_Guijarro_Ranz_Alvarez_Gonzalez_Martin.pdf"
 kind: laboratorio
 status: not-referenced
-bytes: 656016
+bytes: 818673
 ---
 
 # Source: Lab3_Guijarro_Ranz_Alvarez_Gonzalez_Martin.pdf
@@ -18,7 +18,7 @@ bytes: 656016
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/Lab3_Guijarro_Ranz_Alvarez_Gonzalez_Martin.pdf`
 - **Kind:** laboratorio
-- **Size:** 656.0 kB
+- **Size:** 818.7 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

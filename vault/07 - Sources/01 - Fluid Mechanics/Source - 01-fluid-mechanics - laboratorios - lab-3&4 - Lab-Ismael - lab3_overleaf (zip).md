@@ -7,7 +7,7 @@ tags:
 path: "sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/lab3_overleaf.zip"
 kind: laboratorio
 status: not-referenced
-bytes: 639787
+bytes: 639273
 ---
 
 # Source: lab3_overleaf.zip
@@ -18,7 +18,7 @@ bytes: 639787
 
 - **Path:** `sources/cuatrimestre-1/01-fluid-mechanics/laboratorios/lab-3&4/Lab-Ismael/lab3_overleaf.zip`
 - **Kind:** laboratorio
-- **Size:** 639.8 kB
+- **Size:** 639.3 kB
 - **Status:** not referenced yet: no vault note mentions this file, so its content still has to be extracted
 
 ## Referenced by

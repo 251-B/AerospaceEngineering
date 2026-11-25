@@ -38,45 +38,45 @@ H\'ector Gonz\'alez Rodr\'iguez $\cdot$ Ismael Mart\'in D\'iez\par}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.82\linewidth]{fig1_pressure_aoa6.png}
-\caption{Static gauge pressure around the NACA 2410 airfoil at $\alpha=6^\circ$ ($U=10$~m/s, $c=1$~m, $Re_c=6.85\times10^5$). Pressure reaches $60.8$~Pa ($\tfrac{1}{2}\rho U^2=61.25$~Pa) at the stagnation point just below the leading edge and drops to $-146$~Pa on the upper nose, leaving most of the upper surface below ambient pressure and the lower surface above it to generate lift.}
+\caption{Static pressure around the NACA 2410 airfoil at $\alpha = 6^\circ$ ($U = 10$~m/s).}
 \label{fig:pressure}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.82\linewidth]{fig2_streamlines_aoa6.png}
-\caption{Streamlines around the airfoil at $\alpha=6^\circ$, shown as stream-function contours between $150$ and $170$~kg/s. The flow splits at the stagnation point under the leading edge and packs closer together over the upper surface where the air speeds up.}
+\caption{Streamlines around the airfoil at $\alpha = 6^\circ$, shown as stream-function contours between $150$ and $170$~kg/s.}
 \label{fig:streamlines}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.82\linewidth]{fig3_quiver_wake_aoa6.png}
-\caption{Velocity vectors in the near wake at $\alpha=6^\circ$ on vertical lines at $x=1.0$, $1.025$, $1.05$, $1.075$, $1.1$ and $1.2$~m (trailing edge at $x\simeq1$~m), coloured by velocity magnitude. Friction along the airfoil leaves shorter arrows right behind the trailing edge near $y\simeq0$, and this velocity deficit gradually fills in downstream.}
+\caption{Velocity vectors in the near wake at $\alpha = 6^\circ$ on vertical lines at $x = 1.0$, $1.025$, $1.05$, $1.075$, $1.1$ and $1.2$~m, coloured by velocity magnitude.}
 \label{fig:wake}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.82\linewidth]{fig4_quiver_le_aoa6.png}
-\caption{Velocity vectors near the leading edge at $\alpha=6^\circ$ on vertical lines at $x=-0.05$, $0$, $0.025$, $0.05$, $0.1$, $0.15$ and $0.2$~m. The air slows below $1$~m/s near the lower-nose stagnation point ($x\simeq0.008$~m) while speeding up to $18$~m/s over the upper surface (versus $5\text{--}9$~m/s further aft underneath), and drops to zero at the wall inside the boundary layer.}
+\caption{Velocity vectors near the leading edge at $\alpha = 6^\circ$ on vertical lines at $x = -0.05$, $0$, $0.025$, $0.05$, $0.1$, $0.15$ and $0.2$~m, coloured by velocity magnitude.}
 \label{fig:le}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.80\linewidth]{fig5_cp_aoa3_6_9.pdf}
-\caption{Surface pressure coefficient $C_p(x/c)$ for $\alpha=3^\circ$, $6^\circ$ and $9^\circ$ (inverted $C_p$ axis, so the upper curve is the upper surface). As $\alpha$ increases, the suction peak near the leading edge grows much stronger ($C_{p,\min}=-0.93$, $-2.38$ and $-4.76$) and the area enclosed between both branches widens, raising the lift.}
+\caption{Surface pressure coefficient $C_p(x/c)$ for $\alpha = 3^\circ$, $6^\circ$ and $9^\circ$ (inverted $C_p$ axis, so the upper curve is the upper surface).}
 \label{fig:cp}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.80\linewidth]{fig6_cl_vs_aoa.pdf}
-\caption{Lift coefficient from Fluent ($C_L=0.521$, $0.825$, $1.103$, $1.185$ and $1.321$ at $\alpha=3^\circ$, $6^\circ$, $9^\circ$, $10^\circ$ and $12^\circ$) compared with thin-airfoil theory, $C_L=2\pi(\alpha-\alpha_{L0})$ with $\alpha_{L0}=-2.08^\circ$ for the NACA 2410 camber line (Anderson, \textit{Fundamentals of Aerodynamics}, Ch.~4). Fluent stays close to theory at low angles ($6.4\%$ lower at $3^\circ$; $3^\circ\text{--}9^\circ$ slope $0.097$ vs.\ $0.110\text{ deg}^{-1}$), with the shortfall growing to $14.5\%$ at $12^\circ$ mainly due to upper-surface viscous boundary-layer thickening (alongside finite-domain and mesh effects).}
+\caption{Lift coefficient from Fluent ($C_L = 0.521$, $0.825$, $1.103$, $1.185$ and $1.321$ at $\alpha = 3^\circ$, $6^\circ$, $9^\circ$, $10^\circ$ and $12^\circ$) compared with thin-airfoil theory, $C_L = 2\pi(\alpha - \alpha_{L0})$ with $\alpha_{L0} = -2.08^\circ$ for the NACA 2410 camber line (Anderson, \textit{Fundamentals of Aerodynamics}, Ch.~4). Fluent matches theory closely at low $\alpha$, but falls increasingly below it at higher angles because inviscid theory neglects boundary-layer thickening.}
 \label{fig:cl}
 \end{figure}
 
-\textbf{Extra ($\alpha=16^\circ$, limit of 1000 iterations).} The steady solver reaches the residual criteria in 258 iterations (up from 73--104 at $3^\circ\text{--}12^\circ$), $C_L$ drops to $1.302$ below the $12^\circ$ value ($1.321$), $C_D$ rises $2.6\times$ from $0.029$ to $0.076$ ($94\%$ pressure drag), and upper-surface $C_p$ flattens near $-0.38$ past $x/c\simeq0.6$. Between $12^\circ$ and $16^\circ$, $C_L$ stops growing and pressure drag jumps sharply, indicating trailing-edge boundary-layer separation and stall onset.
+\textbf{Extra ($\alpha = 16^\circ$, limit of 1000 iterations).} The steady solver reaches the residual criteria in 258 iterations (higher than the 73--104 iterations needed at $3^\circ\text{--}12^\circ$), and $C_L$ drops to $1.302$, below the $12^\circ$ value ($1.321$). Between $12^\circ$ and $16^\circ$, $C_L$ stops growing because the strong adverse pressure gradient on the upper surface causes trailing-edge boundary-layer separation and stall.
 
 \end{document}
